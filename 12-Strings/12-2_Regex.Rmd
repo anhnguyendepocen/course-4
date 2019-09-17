@@ -1,0 +1,15 @@
+---
+title: "Strings"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+
+## Regular Expressions
+
+`gsub()` is part of a suite of functions to search and substitute substrings using __regular expressions__ (or "regex" for short). For more information on regular expressions, see:
+
+1. [regexr.com](https://regexr.com/)
+2. [this cheatsheet](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
+
+MORE HERE
