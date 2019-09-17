@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Intro to Data Classes and Data Structures | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Intro to Data Classes and Data Structures | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Intro to Data Classes and Data Structures | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2019-08-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="references.html"/>
+<link rel="next" href="matrices-1-matrices.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>3</b> Applications</a><ul>
+<li class="chapter" data-level="3.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>3.1</b> Example one</a></li>
+<li class="chapter" data-level="3.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>3.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a><ul>
+<li class="chapter" data-level="4.1" data-path="references.html"><a href="references.html#whats-r"><i class="fa fa-check"></i><b>4.1</b> 1. What’s R?</a></li>
+<li class="chapter" data-level="4.2" data-path="references.html"><a href="references.html#console"><i class="fa fa-check"></i><b>4.2</b> Console</a></li>
+<li class="chapter" data-level="4.3" data-path="references.html"><a href="references.html#scripts"><i class="fa fa-check"></i><b>4.3</b> Scripts</a></li>
+<li class="chapter" data-level="4.4" data-path="references.html"><a href="references.html#execute-lines-of-code-with-cmdctrl-enter."><i class="fa fa-check"></i><b>4.4</b> Execute lines of code with <code>Cmd/Ctrl + Enter</code>.</a></li>
+<li class="chapter" data-level="4.5" data-path="references.html"><a href="references.html#diagnostics-and-errors"><i class="fa fa-check"></i><b>4.5</b> Diagnostics and errors</a></li>
+<li class="chapter" data-level="4.6" data-path="references.html"><a href="references.html#r-environment"><i class="fa fa-check"></i><b>4.6</b> R Environment</a></li>
+<li class="chapter" data-level="4.7" data-path="references.html"><a href="references.html#acknowledgments"><i class="fa fa-check"></i><b>4.7</b> Acknowledgments</a></li>
+<li class="chapter" data-level="4.8" data-path="references.html"><a href="references.html#comments"><i class="fa fa-check"></i><b>4.8</b> Comments</a></li>
+<li class="chapter" data-level="4.9" data-path="references.html"><a href="references.html#variables"><i class="fa fa-check"></i><b>4.9</b> Variables</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="references.html"><a href="references.html#challenges"><i class="fa fa-check"></i><b>4.9.1</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="references.html"><a href="references.html#functions-and-help"><i class="fa fa-check"></i><b>4.10</b> Functions and help</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="references.html"><a href="references.html#challenges-1"><i class="fa fa-check"></i><b>4.10.1</b> Challenges</a></li>
+<li class="chapter" data-level="4.10.2" data-path="references.html"><a href="references.html#challenge"><i class="fa fa-check"></i><b>4.10.2</b> Challenge</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="references.html"><a href="references.html#acknowledgments-1"><i class="fa fa-check"></i><b>4.11</b> Acknowledgments</a></li>
+<li class="chapter" data-level="4.12" data-path="references.html"><a href="references.html#what-is-r-markdown"><i class="fa fa-check"></i><b>4.12</b> What is R Markdown</a></li>
+<li class="chapter" data-level="4.13" data-path="references.html"><a href="references.html#yaml-header"><i class="fa fa-check"></i><b>4.13</b> YAML header</a></li>
+<li class="chapter" data-level="4.14" data-path="references.html"><a href="references.html#markdown-prose"><i class="fa fa-check"></i><b>4.14</b> Markdown prose</a></li>
+<li class="chapter" data-level="4.15" data-path="references.html"><a href="references.html#code-chunks"><i class="fa fa-check"></i><b>4.15</b> Code Chunks</a></li>
+<li class="chapter" data-level="4.16" data-path="references.html"><a href="references.html#knitting"><i class="fa fa-check"></i><b>4.16</b> Knitting</a></li>
+<li class="chapter" data-level="4.17" data-path="references.html"><a href="references.html#cheatsheets-and-other-resources"><i class="fa fa-check"></i><b>4.17</b> Cheatsheets and other Resources</a></li>
+<li class="chapter" data-level="4.18" data-path="references.html"><a href="references.html#exercises"><i class="fa fa-check"></i><b>4.18</b> Exercises</a></li>
+<li class="chapter" data-level="4.19" data-path="references.html"><a href="references.html#acknowledgments-2"><i class="fa fa-check"></i><b>4.19</b> Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html"><i class="fa fa-check"></i><b>5</b> Intro to Data Classes and Data Structures</a><ul>
+<li class="chapter" data-level="5.1" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#main-classes"><i class="fa fa-check"></i><b>5.1</b> Main Classes</a></li>
+<li class="chapter" data-level="5.2" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#challenges-2"><i class="fa fa-check"></i><b>5.2</b> Challenges</a></li>
+<li class="chapter" data-level="5.3" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#other-objects"><i class="fa fa-check"></i><b>5.3</b> Other objects</a></li>
+<li class="chapter" data-level="5.4" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#intro-to-data-structures"><i class="fa fa-check"></i><b>5.4</b> Intro to Data Structures</a></li>
+<li class="chapter" data-level="5.5" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#vectors"><i class="fa fa-check"></i><b>5.5</b> 1. Vectors</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#challenges-3"><i class="fa fa-check"></i><b>5.5.1</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#lists"><i class="fa fa-check"></i><b>5.6</b> 2. Lists</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#challenges-4"><i class="fa fa-check"></i><b>5.6.1</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#attributes"><i class="fa fa-check"></i><b>5.7</b> 3. Attributes</a></li>
+<li class="chapter" data-level="5.8" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#factors"><i class="fa fa-check"></i><b>5.8</b> 4. Factors</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#challenges-5"><i class="fa fa-check"></i><b>5.8.1</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="matrices-1-matrices.html"><a href="matrices-1-matrices.html"><i class="fa fa-check"></i><b>6</b> 5 Matrices {#1-matrices}</a></li>
+<li class="chapter" data-level="7" data-path="dataframes-2-dataframes.html"><a href="dataframes-2-dataframes.html"><i class="fa fa-check"></i><b>7</b> 6. Dataframes {#2-dataframes}</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="dataframes-2-dataframes.html"><a href="dataframes-2-dataframes.html#exercises-1"><i class="fa fa-check"></i><b>7.0.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i><b>8</b> 3. Quiz</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="quiz.html"><a href="quiz.html#data-structure-answers"><i class="fa fa-check"></i><b>8.0.1</b> Answers</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro-to-data-classes-and-data-structures" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Intro to Data Classes and Data Structures</h1>
+<p>To make the best use of the R language, you’ll need a strong understanding of the basic data classes and structures and how to operate on those. R is an <strong>object-oriented</strong> language, so the importance of this cannot be understated.</p>
+<p>It is <strong>critical</strong> to understand, because these are the objects you will manipulate on a day-to-day basis in R. But they are not always as easy to work with as they sound at the outset. Dealing with object types and conversions is one of the most common sources of frustration for beginners.</p>
+<blockquote>
+<p>To understand computations in R, two slogans are helpful: - Everything that exists is an object. - Everything that happens is a function call.</p>
+</blockquote>
+<blockquote>
+<p><strong>John Chambers</strong></p>
+</blockquote>
+<div id="main-classes" class="section level2">
+<h2><span class="header-section-number">5.1</span> Main Classes</h2>
+<div id="every-value-has-a-type." class="section level4">
+<h4><span class="header-section-number">5.1.0.1</span> Every value has a type.</h4>
+<p>Every value in a program has a specific type. The R, those types are classes “classes”, and there are 4 of them:</p>
+<ul>
+<li>character (text, or a “string” in Python)</li>
+<li>numeric (integer or decimal)</li>
+<li>integer (just integer)</li>
+<li>logical (TRUE of FALSE booleans)</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“a”, “swc”</td>
+<td>character</td>
+</tr>
+<tr class="even">
+<td>2, 15.5</td>
+<td>numeric</td>
+</tr>
+<tr class="odd">
+<td>2 (Must add a <code>L</code> at end to denote integer)</td>
+<td>integer</td>
+</tr>
+<tr class="even">
+<td><code>TRUE</code>, <code>FALSE</code></td>
+<td>logical</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="r-is-a-dynamically-typed." class="section level4">
+<h4><span class="header-section-number">5.1.0.2</span> R is a dynamically typed.</h4>
+<p>R is a dynamically typed, meaning that it “guesses” what class a value is.</p>
+<p>Use the build-in function<code>class()</code> to find out what type a value has.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(3L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="st">&quot;Three&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(T)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>This works on variables as well. But remember: the value has the type — the variable is just a label.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">three &lt;-<span class="st"> </span><span class="dv">3</span>
+<span class="kw">class</span>(three)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">three &lt;-<span class="st"> &quot;three&quot;</span>
+<span class="kw">class</span>(three)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="class-controls-what-operations-can-be-done-on-values." class="section level4">
+<h4><span class="header-section-number">5.1.0.3</span> Class controls what operations can be done on values.</h4>
+<p>A value’s class determines what the program can do to it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>
+<span class="dv">3</span> <span class="op">-</span><span class="st"> &quot;1&quot;</span></code></pre></div>
+</div>
+<div id="change-a-values-class-through-coerion." class="section level4">
+<h4><span class="header-section-number">5.1.0.4</span> Change a value’s class through coerion.</h4>
+<p>We just learned we cannot add numbers and strings. Instead, use <code>as..</code> + name of class as functions to convert a value to that type.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="kw">as.numeric</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<p>This is called <code>coercion</code>. Here’s another example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_var &lt;-<span class="st"> &quot;FALSE&quot;</span>
+my_var</code></pre></div>
+<pre><code>## [1] &quot;FALSE&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(my_var)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>What difference did you notice?</p>
+</div>
+</div>
+<div id="challenges-2" class="section level2">
+<h2><span class="header-section-number">5.2</span> Challenges</h2>
+<div id="making-and-coercing-variables" class="section level4">
+<h4><span class="header-section-number">5.2.0.1</span> 1: Making and Coercing Variables</h4>
+<ol style="list-style-type: decimal">
+<li>Make a variable <code>year</code> and assign it as the year you were born.</li>
+<li>Coerce that variable to a string, and assign it to a new variable <code>year_string</code>. 4 Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only <code>year_string</code></li>
+</ol>
+</div>
+<div id="fix-the-code." class="section level4">
+<h4><span class="header-section-number">5.2.0.2</span> 2: Fix the code.</h4>
+<p>Change the following code to make the output TRUE.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">val_<span class="dv">1</span> =<span class="st"> </span>F
+val_<span class="dv">2</span> =<span class="st"> &quot;F&quot;</span>
+
+<span class="kw">class</span>(val_<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="kw">class</span>(val_<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+</div>
+<div id="other-objects" class="section level2">
+<h2><span class="header-section-number">5.3</span> Other objects</h2>
+<div id="na-are-missing-values" class="section level4">
+<h4><span class="header-section-number">5.3.0.1</span> <code>NA</code> are missing values</h4>
+<p>Missing values are specified with <code>NA</code>. <code>NA</code> will always be coerced to the correct type if used inside <code>c()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>)
+x</code></pre></div>
+<pre><code>## [1] NA  1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+</div>
+<div id="inf-is-infinity." class="section level4">
+<h4><span class="header-section-number">5.3.0.2</span> <code>Inf</code> is infinity.</h4>
+<p>You can have either positive or negative infinity.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">/</span><span class="dv">0</span></code></pre></div>
+<pre><code>## [1] Inf</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">/</span><span class="ot">Inf</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+</div>
+<div id="nan-means-not-a-number.-its-an-undefined-value." class="section level4">
+<h4><span class="header-section-number">5.3.0.3</span> <code>NaN</code> means “Not a number”. It’s an undefined value.</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">0</span><span class="op">/</span><span class="dv">0</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+
+</div>
+</div>
+<div id="intro-to-data-structures" class="section level2">
+<h2><span class="header-section-number">5.4</span> Intro to Data Structures</h2>
+<p>Most of the time, we’re not interested in single values. We want to combine many values into a single object. But there are different ways for a computer to organize those values. These are called <strong>data structures</strong>.</p>
+<p>R’s base data structures can be organised by their dimensionality (1d, 2d, or nd) and whether they’re homogeneous (all contents must be of the same type) or heterogeneous (the contents can be of different types). This gives rise to the five data types most often used in data analysis:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Homogeneous</th>
+<th>Heterogeneous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1d</td>
+<td>Atomic vector</td>
+<td>List</td>
+</tr>
+<tr class="even">
+<td>2d</td>
+<td>Matrix</td>
+<td>Data frame</td>
+</tr>
+<tr class="odd">
+<td>nd</td>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Each data structure has its own specifications and behavior. In this markdown file, we cover the types of one-dimensional objects that exist in R and their attributes.</p>
+</div>
+<div id="vectors" class="section level2">
+<h2><span class="header-section-number">5.5</span> 1. Vectors</h2>
+<div id="vectors-are-homogenous." class="section level4">
+<h4><span class="header-section-number">5.5.0.1</span> Vectors are homogenous.</h4>
+<p>Vectors are 1-dimensional chain of values. We call each value an <em>element</em> of a vector. All elements of an atomic vector must be the same class.</p>
+<p>So there are there are four common types of vectors, depending on the class: * <code>logical</code> * <code>integer</code> * <code>numeric</code> (same as <code>double</code>) * <code>character</code>.</p>
+</div>
+<div id="create-vectors-with-c" class="section level4">
+<h4><span class="header-section-number">5.5.0.2</span> Create vectors with <code>c()</code></h4>
+<p>Atomic vectors are usually created with <code>c()</code>, which is short for ‘combine’:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
+x</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(x)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p><code>x</code> is a numeric vector. These are the most common kind. You can also have logical vectors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)</code></pre></div>
+<p>Finally you can have character vectors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beyonce&quot;</span>, <span class="st">&quot;Kelly&quot;</span>, <span class="st">&quot;Michelle&quot;</span>, <span class="st">&quot;LeToya&quot;</span>)</code></pre></div>
+</div>
+<div id="add-elements-using-c" class="section level4">
+<h4><span class="header-section-number">5.5.0.3</span> Add elements using <code>c()</code></h4>
+<p>You can add elements to the end of a vector by passing the original vector into the <code>c</code> function, like so:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beyonce&quot;</span>, <span class="st">&quot;Kelly&quot;</span>, <span class="st">&quot;Michelle&quot;</span>, <span class="st">&quot;LeToya&quot;</span>)
+z &lt;-<span class="st"> </span><span class="kw">c</span>(z, <span class="st">&quot;Farrah&quot;</span>)
+z</code></pre></div>
+<pre><code>## [1] &quot;Beyonce&quot;  &quot;Kelly&quot;    &quot;Michelle&quot; &quot;LeToya&quot;   &quot;Farrah&quot;</code></pre>
+<p>Notice that vectors are always flat, even if you nest <code>c()</code>’s:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="kw">c</span>(<span class="dv">2</span>, <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>)))</code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the same as</span>
+<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+</div>
+<div id="use-class-and-as...-to-manipulate-a-vectors-type." class="section level4">
+<h4><span class="header-section-number">5.5.0.4</span> Use <code>class</code> and <code>as...</code> to manipulate a vector’s type.</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num_var &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">2.5</span>, <span class="fl">4.5</span>)
+<span class="kw">class</span>(num_var)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(num_var)</code></pre></div>
+<pre><code>## [1] &quot;1&quot;   &quot;2.5&quot; &quot;4.5&quot;</code></pre>
+</div>
+<div id="vector-values-are-coerced-to-same-type." class="section level4">
+<h4><span class="header-section-number">5.5.0.5</span> Vector values are coerced to same type.</h4>
+<ul>
+<li>Remember that elements of a vector must be the same type.</li>
+<li>So when you attempt to combine different types they will be <strong>coerced</strong> to the most flexible type.</li>
+<li>Types from least to most flexible are: logical, integer, double, and character.</li>
+</ul>
+<p>For example, combining a character and an integer yields a character:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;1&quot;</code></pre>
+<p>Guess what the following do without running them first:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="fl">1.7</span>, <span class="st">&quot;a&quot;</span>) 
+<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="dv">2</span>) 
+<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="ot">TRUE</span>) </code></pre></div>
+</div>
+<div id="true-1-and-false-0." class="section level4">
+<h4><span class="header-section-number">5.5.0.6</span> TRUE == 1 and FALSE == 0.</h4>
+<p>Notice that when a logical vector is coerced to an integer or double, <code>TRUE</code> becomes 1 and <code>FALSE</code> becomes 0. This is very useful in conjunction with <code>sum()</code> and <code>mean()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)
+<span class="kw">as.numeric</span>(x)</code></pre></div>
+<pre><code>## [1] 0 0 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Total number of TRUEs</span>
+<span class="kw">sum</span>(x)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Proportion that are TRUE</span>
+<span class="kw">mean</span>(x)</code></pre></div>
+<pre><code>## [1] 0.3333333</code></pre>
+</div>
+<div id="coercion-often-happens-automatically." class="section level4">
+<h4><span class="header-section-number">5.5.0.7</span> Coercion often happens automatically.</h4>
+<p>This is called <em>implicit coercion</em>. Most mathematical functions (<code>+</code>, <code>log</code>, <code>abs</code>, etc.) will coerce to a double or integer, and most logical operations (<code>&amp;</code>, <code>|</code>, <code>any</code>, etc) will coerce to a logical. You will usually get a warning message if the coercion might lose information.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&lt;</span><span class="st"> &quot;2&quot;</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;1&quot;</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Sometimes coercions, especially nonsensical ones, won’t work.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)
+<span class="kw">as.numeric</span>(x)</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA NA NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(x)</code></pre></div>
+<pre><code>## [1] NA NA NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># both don&#39;t work</span></code></pre></div>
+</div>
+<div id="challenges-3" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Challenges</h3>
+<div id="create-and-examine-your-vector" class="section level4">
+<h4><span class="header-section-number">5.5.1.1</span> 1: Create and examine your vector</h4>
+<p>Create a character vector called <code>fruit</code> that contain 4 of your favorite fruits. Then evaluate its structure using the commands below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First create your fruit vector </span>
+<span class="co"># YOUR CODE HERE</span>
+
+
+<span class="co"># Examine your vector</span>
+<span class="kw">length</span>(fruit)
+<span class="kw">class</span>(fruit)
+<span class="kw">str</span>(fruit)</code></pre></div>
+</div>
+<div id="coercion" class="section level4">
+<h4><span class="header-section-number">5.5.1.2</span> 2: Coercion</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1. Create a vector of a sequence of numbers between 1 to 10.</span>
+
+<span class="co"># 2. Coerce that vector into a character vector</span>
+
+<span class="co"># 3. Add the element &quot;11&quot; to the end of the vector</span>
+
+<span class="co"># 4. Coerce it back to a numeric vector.</span></code></pre></div>
+
+</div>
+</div>
+</div>
+<div id="lists" class="section level2">
+<h2><span class="header-section-number">5.6</span> 2. Lists</h2>
+<div id="lists-are-hetergeneous." class="section level4">
+<h4><span class="header-section-number">5.6.0.1</span> Lists are hetergeneous.</h4>
+<p>Lists are different from vectors because their elements can be of any type. You construct lists by using <code>list()</code> instead of <code>c()</code>:</p>
+<p>Lists are sometimes called recursive vectors, because a list can contain other lists. This makes them fundamentally different from vectors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="ot">TRUE</span>, <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))
+<span class="kw">str</span>(x)</code></pre></div>
+<pre><code>## List of 4
+##  $ : num 1
+##  $ : chr &quot;a&quot;
+##  $ : logi TRUE
+##  $ : num [1:3] 4 5 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;a&quot;
+## 
+## [[3]]
+## [1] TRUE
+## 
+## [[4]]
+## [1] 4 5 6</code></pre>
+</div>
+<div id="lists-print-differently-than-vectors." class="section level4">
+<h4><span class="header-section-number">5.6.0.2</span> Lists print differently than vectors.</h4>
+<p>A list does not print to the console like a vector. Instead, each element of the list starts on a new line.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+x.list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+x.vec</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x.list</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2
+## 
+## [[3]]
+## [1] 3</code></pre>
+<div id="lists-hold-complicated-values" class="section level5">
+<h5><span class="header-section-number">5.6.0.2.1</span> Lists hold complicated values</h5>
+<p>Lists are used to build up many of the more complicated data structures in R. For example, both data frames and linear models objects (as produced by <code>lm()</code>) are lists:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(mtcars)</code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.list</span>(mtcars)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, <span class="dt">data =</span> mtcars)
+<span class="kw">is.list</span>(mod)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>For this reason, lists are extremely useful inside functions. You can “staple” together lots of different kinds of results into a single object that a function can return.</p>
+</div>
+</div>
+<div id="challenges-4" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> Challenges</h3>
+<ol style="list-style-type: decimal">
+<li><p>What are the four basic types of atomic vector? How does a list differ from an atomic vector?</p></li>
+<li><p>Why is <code>1 == &quot;1&quot;</code> true? Why is <code>-1 &lt; FALSE</code> true? Why is <code>&quot;one&quot; &lt; 2</code> false?</p></li>
+<li><p>Create three vectors and then combine them into a list.</p></li>
+<li><p>If <code>x</code> is a list, what is the class of <code>x[1]</code>? How about <code>x[[1]]</code>?</p></li>
+</ol>
+
+</div>
+</div>
+<div id="attributes" class="section level2">
+<h2><span class="header-section-number">5.7</span> 3. Attributes</h2>
+<p>Attributes provide additional information about the data to you, the user, and to R. We’ve already seen attributes in action, with <code>class</code> and <code>structure</code>. Let’s now turn to another important attribute, <code>names</code>.</p>
+<div id="names-are-an-attribute-of-vectors." class="section level4">
+<h4><span class="header-section-number">5.7.0.1</span> Names are an attribute of vectors.</h4>
+<p>You can name a vector when you create it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">3</span>)</code></pre></div>
+<p>You can also modifying an existing vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
+<span class="kw">names</span>(x)</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)
+x</code></pre></div>
+<pre><code>## a b c 
+## 1 2 3</code></pre>
+</div>
+<div id="names-should-be-complete-and-unique." class="section level4">
+<h4><span class="header-section-number">5.7.0.2</span> Names should be complete and unique.</h4>
+<p>Names don’t have to be unique, and not all value has to have a name associated. However, character subsetting, described in the next lesson, is the most important reason to use names and it is most useful when the names are unique.</p>
+
+</div>
+</div>
+<div id="factors" class="section level2">
+<h2><span class="header-section-number">5.8</span> 4. Factors</h2>
+<div id="factors-hold-categorical-data." class="section level4">
+<h4><span class="header-section-number">5.8.0.1</span> Factors hold categorical data.</h4>
+<p>Factors are special vectors that represent <em>categorical</em> data. Factors can be ordered or unordered, and are important when for modelling functions such as <code>lm()</code> and <code>glm()</code> and also in plot methods.</p>
+</div>
+<div id="factors-can-only-contain-pre-defined-values." class="section level4">
+<h4><span class="header-section-number">5.8.0.2</span> Factors can only contain pre-defined values.</h4>
+<p>Set allowed values using the <code>levels()</code> attribute.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;a&quot;</span>))
+x</code></pre></div>
+<pre><code>## [1] a b b a
+## Levels: a b</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can&#39;t use values that are not in the levels</span>
+x[<span class="dv">2</span>] &lt;-<span class="st"> &quot;c&quot;</span></code></pre></div>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 2, value = &quot;c&quot;): invalid factor level, NA
+## generated</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># NB: you can&#39;t combine factors</span>
+<span class="kw">c</span>(<span class="kw">factor</span>(<span class="st">&quot;a&quot;</span>), <span class="kw">factor</span>(<span class="st">&quot;b&quot;</span>))</code></pre></div>
+<pre><code>## [1] 1 1</code></pre>
+</div>
+<div id="factors-can-ordered-or-unordered." class="section level4">
+<h4><span class="header-section-number">5.8.0.3</span> Factors can ordered or unordered.</h4>
+<p>Sometimes factors can be left unordered. Example: <code>democrat</code>, <code>republican</code>.</p>
+<p>Other times you might want factors to be ordered (or ranked). Example: <code>low</code>, <code>medium</code>, <code>high</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>))
+<span class="kw">str</span>(x)</code></pre></div>
+<pre><code>##  Factor w/ 3 levels &quot;high&quot;,&quot;low&quot;,&quot;medium&quot;: 2 3 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.ordered</span>(x)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">ordered</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;low&quot;</span>))
+<span class="kw">is.ordered</span>(x)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="factors-are-really-integers." class="section level4">
+<h4><span class="header-section-number">5.8.0.4</span> Factors are really integers.</h4>
+<p>Factors are pretty much integers that have labels on them. Underneath, it’s really numbers (1, 2, 3…).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem&quot;</span>, <span class="st">&quot;rep&quot;</span>, <span class="st">&quot;rep&quot;</span>, <span class="st">&quot;dem&quot;</span>)
+x &lt;-<span class="st"> </span><span class="kw">as.factor</span>(x)
+<span class="kw">str</span>(x)</code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;dem&quot;,&quot;rep&quot;: 1 2 2 1</code></pre>
+<p>They are better than using simple integer labels because factors are what are called self describing. For example, <code>democrat</code> and <code>republican</code> is more descriptive than <code>1</code>s and <code>2</code>s.</p>
+</div>
+<div id="factors-are-not-characters." class="section level4">
+<h4><span class="header-section-number">5.8.0.5</span> Factors are NOT characters.</h4>
+<p>While factors look (and often behave) like character vectors, they are actually integers. Be careful when treating them like strings.</p>
+<p>Some string methods (like <code>gsub()</code> and <code>grepl()</code>) will coerce factors to strings, while others (like <code>nchar()</code>) will throw an error, and still others (like <code>c()</code>) will use the underlying integer values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;a&quot;</span>)
+x &lt;-<span class="st"> </span><span class="kw">as.factor</span>(x)
+<span class="kw">c</span>(x, <span class="st">&quot;c&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;2&quot; &quot;1&quot; &quot;c&quot;</code></pre>
+<p>For this reason, it’s usually best to explicitly convert factors to character vectors if you need string-like behaviour.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;a&quot;</span>)
+x &lt;-<span class="st"> </span><span class="kw">as.factor</span>(x)
+
+x &lt;-<span class="st"> </span><span class="kw">as.character</span>(x)
+<span class="kw">c</span>(x, <span class="st">&quot;c&#39;&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a&quot;  &quot;b&quot;  &quot;b&quot;  &quot;a&quot;  &quot;c&#39;&quot;</code></pre>
+</div>
+<div id="r-uses-factors-where-you-dont-expect-them-to." class="section level4">
+<h4><span class="header-section-number">5.8.0.6</span> R uses factors where you don’t expect them to.</h4>
+<p>In early versions of R, there was a memory advantage to using factors instead of character vectors, but this is no longer the case.</p>
+<p>Unfortunately, most data loading functions in R automatically convert character vectors to factors. This is suboptimal, because there’s no way for those functions to know the set of all possible levels or their optimal order. If this becomes a problem, use the argument <code>stringsAsFactors = FALSE</code> to suppress this behaviour, and then manually convert character vectors to factors using your knowledge of the data.</p>
+</div>
+<div id="challenges-5" class="section level3">
+<h3><span class="header-section-number">5.8.1</span> Challenges</h3>
+<div id="what-happens-to-a-factor-when-you-modify-its-levels" class="section level4">
+<h4><span class="header-section-number">5.8.1.1</span> 1. What happens to a factor when you modify its levels?</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f1 &lt;-<span class="st"> </span><span class="kw">factor</span>(letters)
+<span class="kw">levels</span>(f1) &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">levels</span>(f1))
+f1</code></pre></div>
+<pre><code>##  [1] z y x w v u t s r q p o n m l k j i h g f e d c b a
+## Levels: z y x w v u t s r q p o n m l k j i h g f e d c b a</code></pre>
+</div>
+<div id="what-does-this-code-do-how-do-f2-and-f3-differ-from-f1" class="section level4">
+<h4><span class="header-section-number">5.8.1.2</span> 2. What does this code do? How do <code>f2</code> and <code>f3</code> differ from <code>f1</code>?</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f2 &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">factor</span>(letters))
+f3 &lt;-<span class="st"> </span><span class="kw">factor</span>(letters, <span class="dt">levels =</span> <span class="kw">rev</span>(letters))</code></pre></div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="references.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matrices-1-matrices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["site1.pdf", "site1.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

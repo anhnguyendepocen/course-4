@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 6. Dataframes {#2-dataframes} | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 6. Dataframes {#2-dataframes} | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 6. Dataframes {#2-dataframes} | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2019-08-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="matrices-1-matrices.html"/>
+<link rel="next" href="quiz.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>3</b> Applications</a><ul>
+<li class="chapter" data-level="3.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>3.1</b> Example one</a></li>
+<li class="chapter" data-level="3.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>3.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a><ul>
+<li class="chapter" data-level="4.1" data-path="references.html"><a href="references.html#whats-r"><i class="fa fa-check"></i><b>4.1</b> 1. What’s R?</a></li>
+<li class="chapter" data-level="4.2" data-path="references.html"><a href="references.html#console"><i class="fa fa-check"></i><b>4.2</b> Console</a></li>
+<li class="chapter" data-level="4.3" data-path="references.html"><a href="references.html#scripts"><i class="fa fa-check"></i><b>4.3</b> Scripts</a></li>
+<li class="chapter" data-level="4.4" data-path="references.html"><a href="references.html#execute-lines-of-code-with-cmdctrl-enter."><i class="fa fa-check"></i><b>4.4</b> Execute lines of code with <code>Cmd/Ctrl + Enter</code>.</a></li>
+<li class="chapter" data-level="4.5" data-path="references.html"><a href="references.html#diagnostics-and-errors"><i class="fa fa-check"></i><b>4.5</b> Diagnostics and errors</a></li>
+<li class="chapter" data-level="4.6" data-path="references.html"><a href="references.html#r-environment"><i class="fa fa-check"></i><b>4.6</b> R Environment</a></li>
+<li class="chapter" data-level="4.7" data-path="references.html"><a href="references.html#acknowledgments"><i class="fa fa-check"></i><b>4.7</b> Acknowledgments</a></li>
+<li class="chapter" data-level="4.8" data-path="references.html"><a href="references.html#comments"><i class="fa fa-check"></i><b>4.8</b> Comments</a></li>
+<li class="chapter" data-level="4.9" data-path="references.html"><a href="references.html#variables"><i class="fa fa-check"></i><b>4.9</b> Variables</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="references.html"><a href="references.html#challenges"><i class="fa fa-check"></i><b>4.9.1</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="references.html"><a href="references.html#functions-and-help"><i class="fa fa-check"></i><b>4.10</b> Functions and help</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="references.html"><a href="references.html#challenges-1"><i class="fa fa-check"></i><b>4.10.1</b> Challenges</a></li>
+<li class="chapter" data-level="4.10.2" data-path="references.html"><a href="references.html#challenge"><i class="fa fa-check"></i><b>4.10.2</b> Challenge</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="references.html"><a href="references.html#acknowledgments-1"><i class="fa fa-check"></i><b>4.11</b> Acknowledgments</a></li>
+<li class="chapter" data-level="4.12" data-path="references.html"><a href="references.html#what-is-r-markdown"><i class="fa fa-check"></i><b>4.12</b> What is R Markdown</a></li>
+<li class="chapter" data-level="4.13" data-path="references.html"><a href="references.html#yaml-header"><i class="fa fa-check"></i><b>4.13</b> YAML header</a></li>
+<li class="chapter" data-level="4.14" data-path="references.html"><a href="references.html#markdown-prose"><i class="fa fa-check"></i><b>4.14</b> Markdown prose</a></li>
+<li class="chapter" data-level="4.15" data-path="references.html"><a href="references.html#code-chunks"><i class="fa fa-check"></i><b>4.15</b> Code Chunks</a></li>
+<li class="chapter" data-level="4.16" data-path="references.html"><a href="references.html#knitting"><i class="fa fa-check"></i><b>4.16</b> Knitting</a></li>
+<li class="chapter" data-level="4.17" data-path="references.html"><a href="references.html#cheatsheets-and-other-resources"><i class="fa fa-check"></i><b>4.17</b> Cheatsheets and other Resources</a></li>
+<li class="chapter" data-level="4.18" data-path="references.html"><a href="references.html#exercises"><i class="fa fa-check"></i><b>4.18</b> Exercises</a></li>
+<li class="chapter" data-level="4.19" data-path="references.html"><a href="references.html#acknowledgments-2"><i class="fa fa-check"></i><b>4.19</b> Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html"><i class="fa fa-check"></i><b>5</b> Intro to Data Classes and Data Structures</a><ul>
+<li class="chapter" data-level="5.1" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#main-classes"><i class="fa fa-check"></i><b>5.1</b> Main Classes</a></li>
+<li class="chapter" data-level="5.2" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#challenges-2"><i class="fa fa-check"></i><b>5.2</b> Challenges</a></li>
+<li class="chapter" data-level="5.3" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#other-objects"><i class="fa fa-check"></i><b>5.3</b> Other objects</a></li>
+<li class="chapter" data-level="5.4" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#intro-to-data-structures"><i class="fa fa-check"></i><b>5.4</b> Intro to Data Structures</a></li>
+<li class="chapter" data-level="5.5" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#vectors"><i class="fa fa-check"></i><b>5.5</b> 1. Vectors</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#challenges-3"><i class="fa fa-check"></i><b>5.5.1</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#lists"><i class="fa fa-check"></i><b>5.6</b> 2. Lists</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#challenges-4"><i class="fa fa-check"></i><b>5.6.1</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#attributes"><i class="fa fa-check"></i><b>5.7</b> 3. Attributes</a></li>
+<li class="chapter" data-level="5.8" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#factors"><i class="fa fa-check"></i><b>5.8</b> 4. Factors</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="intro-to-data-classes-and-data-structures.html"><a href="intro-to-data-classes-and-data-structures.html#challenges-5"><i class="fa fa-check"></i><b>5.8.1</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="matrices-1-matrices.html"><a href="matrices-1-matrices.html"><i class="fa fa-check"></i><b>6</b> 5 Matrices {#1-matrices}</a></li>
+<li class="chapter" data-level="7" data-path="dataframes-2-dataframes.html"><a href="dataframes-2-dataframes.html"><i class="fa fa-check"></i><b>7</b> 6. Dataframes {#2-dataframes}</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="dataframes-2-dataframes.html"><a href="dataframes-2-dataframes.html#exercises-1"><i class="fa fa-check"></i><b>7.0.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i><b>8</b> 3. Quiz</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="quiz.html"><a href="quiz.html#data-structure-answers"><i class="fa fa-check"></i><b>8.0.1</b> Answers</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dataframes-2-dataframes" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> 6. Dataframes {#2-dataframes}</h1>
+<p>A data frame is a very important data type in R. It’s pretty much the <strong>de facto</strong> data structure for most tabular data and what we use for statistics.</p>
+<blockquote>
+<p>NB: You might have heard of “tibbles,” used in the <code>tidyverse</code> suite of packages. Tibbles are like dataframes 2.0, tweaking some of the behavior of dataframes to make life easier for data anlysis. For now, just think of tibbles and dataframes as the same thing and don’t worry about the difference.</p>
+</blockquote>
+<div id="dataframes-are-columns-of-vectors." class="section level4">
+<h4><span class="header-section-number">7.0.0.1</span> Dataframes are columns of vectors.</h4>
+<p>You create a data frame using <code>data.frame()</code>, which takes vectors as input:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
+vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(vec1, vec2)
+df</code></pre></div>
+<pre><code>##   vec1 vec2
+## 1    1    a
+## 2    2    b
+## 3    3    c</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(df)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  2 variables:
+##  $ vec1: int  1 2 3
+##  $ vec2: Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 1 2 3</code></pre>
+</div>
+<div id="dataframes-automatically-convert-strings-into-factors." class="section level4">
+<h4><span class="header-section-number">7.0.0.2</span> Dataframes automatically convert strings into factors.</h4>
+<p>Beware: <code>data.frame()</code>’s default behaviour which turns strings into factors. Remember to use <code>stringAsFactors = FALSE</code> to suppress this behaviour as needed:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
+vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(vec1, vec2,
+  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">str</span>(df)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  2 variables:
+##  $ vec1: int  1 2 3
+##  $ vec2: chr  &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df</code></pre></div>
+<pre><code>##   vec1 vec2
+## 1    1    a
+## 2    2    b
+## 3    3    c</code></pre>
+</div>
+<div id="datasets-are-imported-as-dataframe." class="section level4">
+<h4><span class="header-section-number">7.0.0.3</span> Datasets are imported as dataframe.</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_data &lt;-<span class="st"> </span>iris
+<span class="kw">class</span>(my_data)</code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<p>In reality, the most common way to make a data.frame is through <code>read.csv</code> or other data file input. We’ll talk more about importing data later in the class.</p>
+</div>
+<div id="a-data-frame-is-a-list-of-equal-length-vectors." class="section level4">
+<h4><span class="header-section-number">7.0.0.4</span> A data frame is a list of equal-length vectors.</h4>
+<p>Under the hood, a data frame is a list of equal-length vectors. This makes it a 2-dimensional structure, so it shares properties of both the matrix and the list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
+vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(vec1, vec2)
+
+<span class="kw">str</span>(df)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  2 variables:
+##  $ vec1: int  1 2 3
+##  $ vec2: Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 1 2 3</code></pre>
+</div>
+<div id="dataframes-names-refer-to-columns." class="section level4">
+<h4><span class="header-section-number">7.0.0.5</span> Dataframes’ names refer to columns.</h4>
+<p>This means that a dataframe has <code>names()</code>, <code>colnames()</code>, and <code>rownames()</code>, although <code>names()</code> and <code>colnames()</code> are the same thing.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
+vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(vec1, vec2)
+
+<span class="co"># these two are equivalent</span>
+<span class="kw">names</span>(df)</code></pre></div>
+<pre><code>## [1] &quot;vec1&quot; &quot;vec2&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(df)</code></pre></div>
+<pre><code>## [1] &quot;vec1&quot; &quot;vec2&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change the colnames</span>
+<span class="kw">colnames</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Number&quot;</span>, <span class="st">&quot;Character&quot;</span>)
+df</code></pre></div>
+<pre><code>##   Number Character
+## 1      1         a
+## 2      2         b
+## 3      3         c</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Number&quot;</span>, <span class="st">&quot;Character&quot;</span>)
+df</code></pre></div>
+<pre><code>##   Number Character
+## 1      1         a
+## 2      2         b
+## 3      3         c</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change the rownames</span>
+<span class="kw">rownames</span>(df) </code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rownames</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;donut&quot;</span>, <span class="st">&quot;pickle&quot;</span>, <span class="st">&quot;pretzel&quot;</span>)
+df</code></pre></div>
+<pre><code>##         Number Character
+## donut        1         a
+## pickle       2         b
+## pretzel      3         c</code></pre>
+</div>
+<div id="length-and-ncol-are-equivalent." class="section level4">
+<h4><span class="header-section-number">7.0.0.6</span> <code>length()</code> and <code>ncol()</code> are equivalent.</h4>
+<p>The <code>length()</code> of a dataframe is the length of the underlying list and so is the same as <code>ncol()</code>; <code>nrow()</code> gives the number of rows.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
+vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(vec1, vec2)
+
+<span class="co"># these two are equivalent - number of columns</span>
+<span class="kw">length</span>(df)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ncol</span>(df)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get number of rows</span>
+<span class="kw">nrow</span>(df)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get number of both columns and rows</span>
+<span class="kw">dim</span>(df)</code></pre></div>
+<pre><code>## [1] 3 2</code></pre>
+</div>
+<div id="coerce-an-object-to-a-dataframe-with-as.data.frame" class="section level4">
+<h4><span class="header-section-number">7.0.0.7</span> Coerce an object to a dataframe with <code>as.data.frame()</code>:</h4>
+<ul>
+<li><p>A vector will create a one-column dataframe.</p></li>
+<li><p>A list will create one column for each element; it’s an error if they’re not all the same length.</p></li>
+<li><p>A matrix will create a data frame with the same number of columns and rows as the matrix.</p></li>
+</ul>
+</div>
+<div id="combining-dataframes" class="section level4">
+<h4><span class="header-section-number">7.0.0.8</span> Combining dataframes</h4>
+<p>You can combine dataframes using <code>cbind()</code> and <code>rbind()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,
+  <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>),
+  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+
+<span class="kw">cbind</span>(df, <span class="kw">data.frame</span>(<span class="dt">z =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">1</span>))</code></pre></div>
+<pre><code>##   x y z
+## 1 1 a 3
+## 2 2 b 2
+## 3 3 c 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbind</span>(df, <span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">10</span>, <span class="dt">y =</span> <span class="st">&quot;z&quot;</span>))</code></pre></div>
+<pre><code>##    x y
+## 1  1 a
+## 2  2 b
+## 3  3 c
+## 4 10 z</code></pre>
+<p>When combining column-wise, the number of rows must match, but row names are ignored. When combining row-wise, both the number and names of columns must match. (If you want to combine rows that don’t have the same columns, there are other functions / packages in R that can help.)</p>
+<p>It’s a common mistake to try and create a dataframe by <code>cbind()</code>ing vectors together. This doesn’t work because <code>cbind()</code> will create a matrix unless one of the arguments is already a dataframe. Instead use <code>data.frame()</code> directly:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bad &lt;-<span class="st"> </span>(<span class="kw">cbind</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)))
+bad</code></pre></div>
+<pre><code>##      x   y  
+## [1,] &quot;1&quot; &quot;a&quot;
+## [2,] &quot;2&quot; &quot;b&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(bad)</code></pre></div>
+<pre><code>##  chr [1:2, 1:2] &quot;1&quot; &quot;2&quot; &quot;a&quot; &quot;b&quot;
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : NULL
+##   ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">good &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>),
+  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+good</code></pre></div>
+<pre><code>##   x y
+## 1 1 a
+## 2 2 b</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(good)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    2 obs. of  2 variables:
+##  $ x: int  1 2
+##  $ y: chr  &quot;a&quot; &quot;b&quot;</code></pre>
+<p>The conversion rules for <code>cbind()</code> are complicated and best avoided by ensuring all inputs are of the same type.</p>
+</div>
+<div id="exercises-1" class="section level3">
+<h3><span class="header-section-number">7.0.1</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Create a 3x2 data frame called <code>basket</code>. The first column should contain the names of 3 fruits. The second column should contain the price of those fruits.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;bananas&quot;</span>)
+price =<span class="st"> </span><span class="kw">c</span>(.<span class="dv">89</span>, .<span class="dv">99</span>, <span class="fl">1.00</span>)
+
+basket &lt;-<span class="st"> </span><span class="kw">data.frame</span>(_____, ______) <span class="co"># add your vectors here</span>
+<span class="kw">class</span>(basket)
+
+<span class="kw">data.frame</span>(<span class="dt">fruit =</span> <span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;bananas&quot;</span>), <span class="dt">price =</span> <span class="kw">c</span>(.<span class="dv">89</span>, .<span class="dv">99</span>, <span class="fl">1.00</span>))
+
+basket
+
+<span class="kw">names</span>(basket)
+<span class="kw">colnames</span>(basket)</code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Now give your dataframe appropriate column and row names.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(basket) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;price&quot;</span>)
+<span class="kw">names</span>(basket)</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Add a third column called <code>color</code>, that tells me what color each fruit is.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">color =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;_______&quot;</span>, <span class="st">&quot;_______&quot;</span>, <span class="st">&quot;_______&quot;</span>)
+
+<span class="kw">data.frame</span>(basket, color)
+
+<span class="kw">cbind</span>(basket, color)</code></pre></div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="matrices-1-matrices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quiz.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["site1.pdf", "site1.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

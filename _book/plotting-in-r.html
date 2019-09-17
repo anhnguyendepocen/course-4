@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Plotting in R | PLSC 31101: Introduction To Computational Tools And Techniques For Social Research</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Plotting in R | PLSC 31101: Introduction To Computational Tools And Techniques For Social Research" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Plotting in R | PLSC 31101: Introduction To Computational Tools And Techniques For Social Research" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Rochelle Terman" />
+
+
+<meta name="date" content="2019-09-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tidying-data.html"/>
+<link rel="next" href="statistical-inferences.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PLSC 31101</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#course-description"><i class="fa fa-check"></i><b>1.1</b> Course Description</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#who-should-take-this-course"><i class="fa fa-check"></i><b>1.2</b> Who should take this course</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#requirements-and-evaluation"><i class="fa fa-check"></i><b>1.3</b> Requirements and Evaluation</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#activities-and-materials"><i class="fa fa-check"></i><b>1.4</b> Activities and Materials</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#curriculum-outline-schedule"><i class="fa fa-check"></i><b>1.5</b> Curriculum Outline / Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a></li>
+<li class="part"><span><b>I Course Notes</b></span></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#what-is-r"><i class="fa fa-check"></i><b>3.1</b> What is R?</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#r-studio"><i class="fa fa-check"></i><b>3.2</b> R Studio</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#console"><i class="fa fa-check"></i><b>3.2.1</b> Console</a></li>
+<li class="chapter" data-level="3.2.2" data-path="r-basics.html"><a href="r-basics.html#scripts"><i class="fa fa-check"></i><b>3.2.2</b> Scripts</a></li>
+<li class="chapter" data-level="3.2.3" data-path="r-basics.html"><a href="r-basics.html#executing-code"><i class="fa fa-check"></i><b>3.2.3</b> Executing code</a></li>
+<li class="chapter" data-level="3.2.4" data-path="r-basics.html"><a href="r-basics.html#diagnostics-and-errors"><i class="fa fa-check"></i><b>3.2.4</b> Diagnostics and errors</a></li>
+<li class="chapter" data-level="3.2.5" data-path="r-basics.html"><a href="r-basics.html#r-environment"><i class="fa fa-check"></i><b>3.2.5</b> R Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#r-syntax"><i class="fa fa-check"></i><b>3.3</b> R Syntax</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="r-basics.html"><a href="r-basics.html#comments"><i class="fa fa-check"></i><b>3.3.1</b> Comments</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-basics.html"><a href="r-basics.html#variables"><i class="fa fa-check"></i><b>3.3.2</b> Variables</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-basics.html"><a href="r-basics.html#challenges"><i class="fa fa-check"></i><b>3.3.3</b> Challenges</a></li>
+<li class="chapter" data-level="3.3.4" data-path="r-basics.html"><a href="r-basics.html#functions-and-help"><i class="fa fa-check"></i><b>3.3.4</b> Functions and help</a></li>
+<li class="chapter" data-level="3.3.5" data-path="r-basics.html"><a href="r-basics.html#challenges-1"><i class="fa fa-check"></i><b>3.3.5</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#packages"><i class="fa fa-check"></i><b>3.4</b> Packages</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="r-basics.html"><a href="r-basics.html#installing-packages"><i class="fa fa-check"></i><b>3.4.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-basics.html"><a href="r-basics.html#loading-packages"><i class="fa fa-check"></i><b>3.4.2</b> Loading Packages</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-basics.html"><a href="r-basics.html#challenges-2"><i class="fa fa-check"></i><b>3.4.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#r-markdown"><i class="fa fa-check"></i><b>3.5</b> R Markdown</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="r-basics.html"><a href="r-basics.html#yaml-header"><i class="fa fa-check"></i><b>3.5.1</b> YAML header</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-basics.html"><a href="r-basics.html#markdown"><i class="fa fa-check"></i><b>3.5.2</b> Markdown</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-basics.html"><a href="r-basics.html#code-chunks"><i class="fa fa-check"></i><b>3.5.3</b> Code Chunks</a></li>
+<li class="chapter" data-level="3.5.4" data-path="r-basics.html"><a href="r-basics.html#knitting"><i class="fa fa-check"></i><b>3.5.4</b> Knitting</a></li>
+<li class="chapter" data-level="3.5.5" data-path="r-basics.html"><a href="r-basics.html#cheatsheets-and-other-resources"><i class="fa fa-check"></i><b>3.5.5</b> Cheatsheets and other Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html"><i class="fa fa-check"></i><b>4</b> Data Classes and Structures</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#vectors"><i class="fa fa-check"></i><b>4.2</b> Vectors</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#vector-basics"><i class="fa fa-check"></i><b>4.2.1</b> Vector Basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-vectors"><i class="fa fa-check"></i><b>4.2.2</b> Creating Vectors</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#types-of-vectors"><i class="fa fa-check"></i><b>4.2.3</b> Types of Vectors</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#coercion"><i class="fa fa-check"></i><b>4.2.4</b> Coercion</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-4"><i class="fa fa-check"></i><b>4.2.5</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#lists"><i class="fa fa-check"></i><b>4.3</b> Lists</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#list-basics"><i class="fa fa-check"></i><b>4.3.1</b> List Basics</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-5"><i class="fa fa-check"></i><b>4.3.2</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#attributes-and-names"><i class="fa fa-check"></i><b>4.4</b> Attributes and Names</a></li>
+<li class="chapter" data-level="4.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-factors"><i class="fa fa-check"></i><b>4.5.1</b> Creating Factors</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#factors-are-really-integers."><i class="fa fa-check"></i><b>4.5.2</b> Factors are really integers.</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-6"><i class="fa fa-check"></i><b>4.5.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrices"><i class="fa fa-check"></i><b>4.6</b> Matrices</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-matrices"><i class="fa fa-check"></i><b>4.6.1</b> Creating matrices</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrix-basics"><i class="fa fa-check"></i><b>4.6.2</b> Matrix Basics</a></li>
+<li class="chapter" data-level="4.6.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrix-names"><i class="fa fa-check"></i><b>4.6.3</b> Matrix Names</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#dataframes"><i class="fa fa-check"></i><b>4.7</b> Dataframes</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#dataframe-basics"><i class="fa fa-check"></i><b>4.7.1</b> Dataframe basics</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#the-structure-of-dataframes"><i class="fa fa-check"></i><b>4.7.2</b> The Structure of Dataframes</a></li>
+<li class="chapter" data-level="4.7.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#coercing-dataframes"><i class="fa fa-check"></i><b>4.7.3</b> Coercing dataframes</a></li>
+<li class="chapter" data-level="4.7.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#exercises"><i class="fa fa-check"></i><b>4.7.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#quiz"><i class="fa fa-check"></i><b>4.8</b> Quiz</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#data-structure-answers"><i class="fa fa-check"></i><b>4.8.1</b> Answers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>5</b> Subsetting</a><ul>
+<li class="chapter" data-level="5.1" data-path="subsetting.html"><a href="subsetting.html#subsetting-vectors"><i class="fa fa-check"></i><b>5.1</b> Subsetting Vectors</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="subsetting.html"><a href="subsetting.html#types"><i class="fa fa-check"></i><b>5.1.1</b> Types</a></li>
+<li class="chapter" data-level="5.1.2" data-path="subsetting.html"><a href="subsetting.html#challenges-7"><i class="fa fa-check"></i><b>5.1.2</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="subsetting.html"><a href="subsetting.html#subsetting-lists"><i class="fa fa-check"></i><b>5.2</b> Subsetting Lists</a></li>
+<li class="chapter" data-level="5.3" data-path="subsetting.html"><a href="subsetting.html#subsetting-matrices"><i class="fa fa-check"></i><b>5.3</b> Subsetting Matrices</a></li>
+<li class="chapter" data-level="5.4" data-path="subsetting.html"><a href="subsetting.html#subsetting-dataframes"><i class="fa fa-check"></i><b>5.4</b> Subsetting Dataframes</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="subsetting.html"><a href="subsetting.html#challenges-8"><i class="fa fa-check"></i><b>5.4.1</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-operators"><i class="fa fa-check"></i><b>5.5</b> Subsetting Operators</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="subsetting.html"><a href="subsetting.html#use-with-lists."><i class="fa fa-check"></i><b>5.5.1</b> Use <code>[[</code> with lists.</a></li>
+<li class="chapter" data-level="5.5.2" data-path="subsetting.html"><a href="subsetting.html#use-to-get-columns-from-dataframes."><i class="fa fa-check"></i><b>5.5.2</b> Use <code>$</code> to get columns from dataframes.</a></li>
+<li class="chapter" data-level="5.5.3" data-path="subsetting.html"><a href="subsetting.html#challenges-9"><i class="fa fa-check"></i><b>5.5.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="subsetting.html"><a href="subsetting.html#sub-assignment"><i class="fa fa-check"></i><b>5.6</b> Sub-assignment</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="subsetting.html"><a href="subsetting.html#basics-of-sub-assignment"><i class="fa fa-check"></i><b>5.6.1</b> Basics of Sub-assignment</a></li>
+<li class="chapter" data-level="5.6.2" data-path="subsetting.html"><a href="subsetting.html#recycling"><i class="fa fa-check"></i><b>5.6.2</b> Recycling</a></li>
+<li class="chapter" data-level="5.6.3" data-path="subsetting.html"><a href="subsetting.html#applications"><i class="fa fa-check"></i><b>5.6.3</b> Applications</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>6</b> Working with Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="working-with-data.html"><a href="working-with-data.html#project-workflow"><i class="fa fa-check"></i><b>6.1</b> Project Workflow</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="working-with-data.html"><a href="working-with-data.html#store-analyses-in-scripts-not-workspaces."><i class="fa fa-check"></i><b>6.1.1</b> Store analyses in scripts, not workspaces.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="working-with-data.html"><a href="working-with-data.html#working-directories-and-paths"><i class="fa fa-check"></i><b>6.1.2</b> Working Directories and Paths</a></li>
+<li class="chapter" data-level="6.1.3" data-path="working-with-data.html"><a href="working-with-data.html#r-projects"><i class="fa fa-check"></i><b>6.1.3</b> R Projects</a></li>
+<li class="chapter" data-level="6.1.4" data-path="working-with-data.html"><a href="working-with-data.html#file-organization"><i class="fa fa-check"></i><b>6.1.4</b> File Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="working-with-data.html"><a href="working-with-data.html#introduction-to-data"><i class="fa fa-check"></i><b>6.2</b> Introduction to Data</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="working-with-data.html"><a href="working-with-data.html#wheres-my-data"><i class="fa fa-check"></i><b>6.2.1</b> Where’s my data?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="working-with-data.html"><a href="working-with-data.html#data-storage"><i class="fa fa-check"></i><b>6.2.2</b> Data storage</a></li>
+<li class="chapter" data-level="6.2.3" data-path="working-with-data.html"><a href="working-with-data.html#tidy-data"><i class="fa fa-check"></i><b>6.2.3</b> <code>tidy</code> data</a></li>
+<li class="chapter" data-level="6.2.4" data-path="working-with-data.html"><a href="working-with-data.html#relational-data"><i class="fa fa-check"></i><b>6.2.4</b> Relational data</a></li>
+<li class="chapter" data-level="6.2.5" data-path="working-with-data.html"><a href="working-with-data.html#keys"><i class="fa fa-check"></i><b>6.2.5</b> Keys</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="working-with-data.html"><a href="working-with-data.html#importing-and-exporting"><i class="fa fa-check"></i><b>6.3</b> Importing and Exporting</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="working-with-data.html"><a href="working-with-data.html#importing-data"><i class="fa fa-check"></i><b>6.3.1</b> Importing Data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="working-with-data.html"><a href="working-with-data.html#exporting-data"><i class="fa fa-check"></i><b>6.3.2</b> Exporting data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="working-with-data.html"><a href="working-with-data.html#exploring-data"><i class="fa fa-check"></i><b>6.4</b> Exploring Data</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="working-with-data.html"><a href="working-with-data.html#the-gapminder-dataset"><i class="fa fa-check"></i><b>6.4.1</b> The Gapminder dataset</a></li>
+<li class="chapter" data-level="6.4.2" data-path="working-with-data.html"><a href="working-with-data.html#structure-and-dimensions"><i class="fa fa-check"></i><b>6.4.2</b> Structure and Dimensions</a></li>
+<li class="chapter" data-level="6.4.3" data-path="working-with-data.html"><a href="working-with-data.html#common-alterations"><i class="fa fa-check"></i><b>6.4.3</b> Common alterations</a></li>
+<li class="chapter" data-level="6.4.4" data-path="working-with-data.html"><a href="working-with-data.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.4.4</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="6.4.5" data-path="working-with-data.html"><a href="working-with-data.html#review-of-subsetting"><i class="fa fa-check"></i><b>6.4.5</b> Review of subsetting</a></li>
+<li class="chapter" data-level="6.4.6" data-path="working-with-data.html"><a href="working-with-data.html#basic-plotting"><i class="fa fa-check"></i><b>6.4.6</b> Basic plotting</a></li>
+<li class="chapter" data-level="6.4.7" data-path="working-with-data.html"><a href="working-with-data.html#challenges-10"><i class="fa fa-check"></i><b>6.4.7</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>7</b> Data transformation</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-transformation.html"><a href="data-transformation.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="data-transformation.html"><a href="data-transformation.html#tidyverse"><i class="fa fa-check"></i><b>7.1.1</b> <code>tidyverse</code></a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-transformation.html"><a href="data-transformation.html#gapminder"><i class="fa fa-check"></i><b>7.1.2</b> Gapminder</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-transformation.html"><a href="data-transformation.html#why-dplyr"><i class="fa fa-check"></i><b>7.1.3</b> why <code>dplyr</code>?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-transformation.html"><a href="data-transformation.html#dplyr-functions"><i class="fa fa-check"></i><b>7.2</b> <code>dplyr</code> functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-transformation.html"><a href="data-transformation.html#select-columns-with-select"><i class="fa fa-check"></i><b>7.2.1</b> Select columns with <code>select</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-transformation.html"><a href="data-transformation.html#the-pipe"><i class="fa fa-check"></i><b>7.2.2</b> The pipe</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-transformation.html"><a href="data-transformation.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>7.2.3</b> Filter rows with <code>filter</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-transformation.html"><a href="data-transformation.html#calculate-across-groups-with-group_by"><i class="fa fa-check"></i><b>7.2.4</b> Calculate across groups with <code>group_by</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="data-transformation.html"><a href="data-transformation.html#summerarize-across-groups-with-summarize"><i class="fa fa-check"></i><b>7.2.5</b> Summerarize across groups with <code>summarize</code></a></li>
+<li class="chapter" data-level="7.2.6" data-path="data-transformation.html"><a href="data-transformation.html#add-new-variables-with-mutate"><i class="fa fa-check"></i><b>7.2.6</b> Add new variables with <code>mutate</code></a></li>
+<li class="chapter" data-level="7.2.7" data-path="data-transformation.html"><a href="data-transformation.html#arrange-rows-with-arrange"><i class="fa fa-check"></i><b>7.2.7</b> Arrange rows with <code>arrange</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-transformation.html"><a href="data-transformation.html#dplyr-and-non-standard-evaluation"><i class="fa fa-check"></i><b>7.3</b> <code>dplyr</code> and “non-standard evaluation”</a></li>
+<li class="chapter" data-level="7.4" data-path="data-transformation.html"><a href="data-transformation.html#challenges-11"><i class="fa fa-check"></i><b>7.4</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tidying-data.html"><a href="tidying-data.html"><i class="fa fa-check"></i><b>8</b> Tidying Data</a><ul>
+<li class="chapter" data-level="8.1" data-path="tidying-data.html"><a href="tidying-data.html#wide-vs.long-formats"><i class="fa fa-check"></i><b>8.1</b> Wide vs. Long Formats</a></li>
+<li class="chapter" data-level="8.2" data-path="tidying-data.html"><a href="tidying-data.html#tidying-the-gapminder-data"><i class="fa fa-check"></i><b>8.2</b> Tidying the Gapminder Data</a></li>
+<li class="chapter" data-level="8.3" data-path="tidying-data.html"><a href="tidying-data.html#tidyr-functions"><i class="fa fa-check"></i><b>8.3</b> <code>tidyr</code> functions</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="tidying-data.html"><a href="tidying-data.html#gather"><i class="fa fa-check"></i><b>8.3.1</b> <code>gather</code></a></li>
+<li class="chapter" data-level="8.3.2" data-path="tidying-data.html"><a href="tidying-data.html#separate"><i class="fa fa-check"></i><b>8.3.2</b> <code>separate</code></a></li>
+<li class="chapter" data-level="8.3.3" data-path="tidying-data.html"><a href="tidying-data.html#spread"><i class="fa fa-check"></i><b>8.3.3</b> <code>spread</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="tidying-data.html"><a href="tidying-data.html#more-tidyverse"><i class="fa fa-check"></i><b>8.4</b> More <code>tidyverse</code></a></li>
+<li class="chapter" data-level="8.5" data-path="tidying-data.html"><a href="tidying-data.html#challenges-12"><i class="fa fa-check"></i><b>8.5</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="plotting-in-r.html"><a href="plotting-in-r.html"><i class="fa fa-check"></i><b>9</b> Plotting in R</a><ul>
+<li class="chapter" data-level="9.1" data-path="plotting-in-r.html"><a href="plotting-in-r.html#the-dataset"><i class="fa fa-check"></i><b>9.1</b> The dataset</a></li>
+<li class="chapter" data-level="9.2" data-path="plotting-in-r.html"><a href="plotting-in-r.html#r-base-graphics"><i class="fa fa-check"></i><b>9.2</b> R base graphics</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="plotting-in-r.html"><a href="plotting-in-r.html#scatter-and-line-plots"><i class="fa fa-check"></i><b>9.2.1</b> Scatter and Line Plots</a></li>
+<li class="chapter" data-level="9.2.2" data-path="plotting-in-r.html"><a href="plotting-in-r.html#histograms-and-density-plots"><i class="fa fa-check"></i><b>9.2.2</b> Histograms and density plots</a></li>
+<li class="chapter" data-level="9.2.3" data-path="plotting-in-r.html"><a href="plotting-in-r.html#labels"><i class="fa fa-check"></i><b>9.2.3</b> Labels</a></li>
+<li class="chapter" data-level="9.2.4" data-path="plotting-in-r.html"><a href="plotting-in-r.html#axis-and-size-scaling"><i class="fa fa-check"></i><b>9.2.4</b> Axis and size scaling</a></li>
+<li class="chapter" data-level="9.2.5" data-path="plotting-in-r.html"><a href="plotting-in-r.html#graphical-parameters"><i class="fa fa-check"></i><b>9.2.5</b> Graphical parameters</a></li>
+<li class="chapter" data-level="9.2.6" data-path="plotting-in-r.html"><a href="plotting-in-r.html#annotations-reference-lines-and-legends"><i class="fa fa-check"></i><b>9.2.6</b> Annotations, reference lines, and legends</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="plotting-in-r.html"><a href="plotting-in-r.html#ggplot2"><i class="fa fa-check"></i><b>9.3</b> ggplot2</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="plotting-in-r.html"><a href="plotting-in-r.html#grammar"><i class="fa fa-check"></i><b>9.3.1</b> Grammar</a></li>
+<li class="chapter" data-level="9.3.2" data-path="plotting-in-r.html"><a href="plotting-in-r.html#anatomy-of-aes"><i class="fa fa-check"></i><b>9.3.2</b> Anatomy of <code>aes</code></a></li>
+<li class="chapter" data-level="9.3.3" data-path="plotting-in-r.html"><a href="plotting-in-r.html#layers"><i class="fa fa-check"></i><b>9.3.3</b> Layers</a></li>
+<li class="chapter" data-level="9.3.4" data-path="plotting-in-r.html"><a href="plotting-in-r.html#labels-1"><i class="fa fa-check"></i><b>9.3.4</b> Labels</a></li>
+<li class="chapter" data-level="9.3.5" data-path="plotting-in-r.html"><a href="plotting-in-r.html#transformations-and-stats"><i class="fa fa-check"></i><b>9.3.5</b> Transformations and Stats</a></li>
+<li class="chapter" data-level="9.3.6" data-path="plotting-in-r.html"><a href="plotting-in-r.html#facets"><i class="fa fa-check"></i><b>9.3.6</b> Facets</a></li>
+<li class="chapter" data-level="9.3.7" data-path="plotting-in-r.html"><a href="plotting-in-r.html#putting-it-all-together"><i class="fa fa-check"></i><b>9.3.7</b> Putting it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="plotting-in-r.html"><a href="plotting-in-r.html#saving-plots"><i class="fa fa-check"></i><b>9.4</b> Saving plots</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="statistical-inferences.html"><a href="statistical-inferences.html"><i class="fa fa-check"></i><b>10</b> Statistical Inferences</a><ul>
+<li class="chapter" data-level="10.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#statistical-distributions"><i class="fa fa-check"></i><b>10.1</b> Statistical Distributions</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#sampling-and-simulation"><i class="fa fa-check"></i><b>10.1.1</b> Sampling and simulation</a></li>
+<li class="chapter" data-level="10.1.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#random-seeds"><i class="fa fa-check"></i><b>10.1.2</b> Random Seeds</a></li>
+<li class="chapter" data-level="10.1.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-13"><i class="fa fa-check"></i><b>10.1.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#inferences-and-regressions"><i class="fa fa-check"></i><b>10.2</b> Inferences and regressions</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#statistical-tests"><i class="fa fa-check"></i><b>10.2.1</b> Statistical Tests</a></li>
+<li class="chapter" data-level="10.2.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regressions-and-linear-models"><i class="fa fa-check"></i><b>10.2.2</b> Regressions and Linear Models</a></li>
+<li class="chapter" data-level="10.2.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regression-output"><i class="fa fa-check"></i><b>10.2.3</b> Regression output</a></li>
+<li class="chapter" data-level="10.2.4" data-path="statistical-inferences.html"><a href="statistical-inferences.html#interactions"><i class="fa fa-check"></i><b>10.2.4</b> Interactions</a></li>
+<li class="chapter" data-level="10.2.5" data-path="statistical-inferences.html"><a href="statistical-inferences.html#formatting-regression-tables"><i class="fa fa-check"></i><b>10.2.5</b> Formatting Regression Tables</a></li>
+<li class="chapter" data-level="10.2.6" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-14"><i class="fa fa-check"></i><b>10.2.6</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="programming-in-r.html"><a href="programming-in-r.html"><i class="fa fa-check"></i><b>11</b> Programming in R</a><ul>
+<li class="chapter" data-level="11.1" data-path="programming-in-r.html"><a href="programming-in-r.html#strings"><i class="fa fa-check"></i><b>11.1</b> Strings</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="programming-in-r.html"><a href="programming-in-r.html#concatinating-strings-with-paste"><i class="fa fa-check"></i><b>11.1.1</b> Concatinating strings with <code>paste()</code></a></li>
+<li class="chapter" data-level="11.1.2" data-path="programming-in-r.html"><a href="programming-in-r.html#extracting-substrings"><i class="fa fa-check"></i><b>11.1.2</b> Extracting substrings</a></li>
+<li class="chapter" data-level="11.1.3" data-path="programming-in-r.html"><a href="programming-in-r.html#replace-substrings-with-gsub"><i class="fa fa-check"></i><b>11.1.3</b> Replace substrings with <code>gsub()</code></a></li>
+<li class="chapter" data-level="11.1.4" data-path="programming-in-r.html"><a href="programming-in-r.html#more-on-regex"><i class="fa fa-check"></i><b>11.1.4</b> More on Regex</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="programming-in-r.html"><a href="programming-in-r.html#conditional-flow"><i class="fa fa-check"></i><b>11.2</b> Conditional Flow</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="programming-in-r.html"><a href="programming-in-r.html#multiple-conditions"><i class="fa fa-check"></i><b>11.2.1</b> Multiple conditions</a></li>
+<li class="chapter" data-level="11.2.2" data-path="programming-in-r.html"><a href="programming-in-r.html#complex-statements"><i class="fa fa-check"></i><b>11.2.2</b> Complex statements</a></li>
+<li class="chapter" data-level="11.2.3" data-path="programming-in-r.html"><a href="programming-in-r.html#code-style"><i class="fa fa-check"></i><b>11.2.3</b> Code style</a></li>
+<li class="chapter" data-level="11.2.4" data-path="programming-in-r.html"><a href="programming-in-r.html#if-vs.-if_else"><i class="fa fa-check"></i><b>11.2.4</b> <code>if</code> vs. <code>if_else</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="programming-in-r.html"><a href="programming-in-r.html#conditional-flow-1"><i class="fa fa-check"></i><b>11.3</b> Conditional Flow</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="programming-in-r.html"><a href="programming-in-r.html#multiple-conditions-1"><i class="fa fa-check"></i><b>11.3.1</b> Multiple conditions</a></li>
+<li class="chapter" data-level="11.3.2" data-path="programming-in-r.html"><a href="programming-in-r.html#complex-statements-1"><i class="fa fa-check"></i><b>11.3.2</b> Complex statements</a></li>
+<li class="chapter" data-level="11.3.3" data-path="programming-in-r.html"><a href="programming-in-r.html#code-style-1"><i class="fa fa-check"></i><b>11.3.3</b> Code style</a></li>
+<li class="chapter" data-level="11.3.4" data-path="programming-in-r.html"><a href="programming-in-r.html#if-vs.-if_else-1"><i class="fa fa-check"></i><b>11.3.4</b> <code>if</code> vs. <code>if_else</code></a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PLSC 31101: Introduction To Computational Tools And Techniques For Social Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="plotting-in-r" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Plotting in R</h1>
+<p>There are two major sets of tools for creating plots in R:</p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li><a href="#1-r-base-graphics">base</a>, which come with all R installations</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li><a href="#2-ggplot2">ggplot2</a>, a stand-alone package.</li>
+</ol></li>
+</ul>
+<p>Note that other plotting facilities do exist (notably <strong>lattice</strong>), but base and ggplot2 are by far the most popular.</p>
+<div id="the-dataset" class="section level2">
+<h2><span class="header-section-number">9.1</span> The dataset</h2>
+<p>For the following examples, we will using the gapminder dataset we were playing around with earlier Gapminder is a country-year dataset with information on life expectancy, among other things.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)</code></pre></div>
+</div>
+<div id="r-base-graphics" class="section level2">
+<h2><span class="header-section-number">9.2</span> R base graphics</h2>
+<p>The <strong>basic</strong> call takes the following form:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x=</span>, <span class="dt">y=</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-212-1.png" width="672" /></p>
+<div id="scatter-and-line-plots" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Scatter and Line Plots</h3>
+<p>The “type” argument accepts the following character indicators.</p>
+<ul>
+<li>“p” – point/scatter plots (default plotting behavior)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-213-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<ul>
+<li>“l” – line graphs</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Note that &quot;line&quot; does not create a smoothing line, just connected points</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>) </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-214-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<ul>
+<li>“b” – both line and point plots</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;b&quot;</span>) </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-215-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+</div>
+<div id="histograms-and-density-plots" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Histograms and density plots</h3>
+<p>Histograms display the frequency of different values of a variable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="dt">x=</span>gap<span class="op">$</span>lifeExp)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-216-1.png" width="672" /></p>
+<p>Histograms require a <code>break</code> argument, which determine the number of bins in the plot. Let’s play around with different <code>break</code> values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="dt">x=</span>gap<span class="op">$</span>lifeExp, <span class="dt">breaks=</span><span class="dv">5</span>)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="dt">x=</span>gap<span class="op">$</span>lifeExp, <span class="dt">breaks=</span><span class="dv">10</span>)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-217-2.png" width="672" /></p>
+<p>Density plots are similar, they visualises the distribution of data over a continuous interval.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a density object (</span><span class="al">NOTE</span><span class="co">: be sure to remove missing values)</span>
+age.density &lt;-<span class="st"> </span><span class="kw">density</span>(<span class="dt">x=</span>gap<span class="op">$</span>lifeExp, <span class="dt">na.rm=</span>T)
+
+<span class="co"># Plot the density object</span>
+<span class="kw">plot</span>(<span class="dt">x=</span>age.density)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-218-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<p>Density passes a <code>bw</code> parameter, which determins the plot’s “bandwidth”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the density object, bandwidth of 0.5</span>
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">density</span>(<span class="dt">x=</span>gap<span class="op">$</span>lifeExp, <span class="dt">bw=</span>.<span class="dv">5</span>))</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-219-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the density object, bandwidth of 2</span>
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">density</span>(<span class="dt">x=</span>gap<span class="op">$</span>lifeExp, <span class="dt">bw=</span><span class="dv">2</span>))</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-219-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the density object, bandwidth of 6</span>
+<span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">density</span>(<span class="dt">x=</span>gap<span class="op">$</span>lifeExp, <span class="dt">bw=</span><span class="dv">6</span>)) </code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-219-3.png" width="672" /></p>
+</div>
+<div id="labels" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> Labels</h3>
+<p>Here’s the basic call with popular labeling arguments:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x=</span>, <span class="dt">y=</span>, <span class="dt">type=</span><span class="st">&quot;&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>) </code></pre></div>
+<p>From the previous example…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;GDP per cap&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Life Expectancy ~ GDP&quot;</span>) <span class="co"># Add labels for axes and overall plot</span></code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-221-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+</div>
+<div id="axis-and-size-scaling" class="section level3">
+<h3><span class="header-section-number">9.2.4</span> Axis and size scaling</h3>
+<p>Currently it’s hard to see the relationship between the points due to some strong outliers in GDP per capita. We can change the scale of units on the x axis using scaling arguments.</p>
+<p>Here’s the Bbsic call with popular scaling arguments</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x=</span>, <span class="dt">y=</span>, <span class="dt">type=</span><span class="st">&quot;&quot;</span>, <span class="dt">xlim=</span>, <span class="dt">ylim=</span>, <span class="dt">cex=</span>)</code></pre></div>
+<p>From the previous example…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a basic plot</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-223-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Limit gdp (x-axis) to between 1,000 and 20,000</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">20000</span>)) </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-223-2.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Limit gdp (x-axis) to between 1,000 and 20,000, increase point size to 2</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">20000</span>), <span class="dt">cex=</span><span class="dv">2</span>) </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-223-3.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Limit gdp (x-axis) to between 1,000 and 20,000, decrease point size to 0.5</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">20000</span>), <span class="dt">cex=</span><span class="fl">0.5</span>)  </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-223-4.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+</div>
+<div id="graphical-parameters" class="section level3">
+<h3><span class="header-section-number">9.2.5</span> Graphical parameters</h3>
+<p>We can change the points with a number of graphical options:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x=</span>, <span class="dt">y=</span>, <span class="dt">type=</span><span class="st">&quot;&quot;</span>, <span class="dt">col=</span><span class="st">&quot;&quot;</span>, <span class="dt">pch=</span>, <span class="dt">lty=</span>, <span class="dt">lwd=</span>)</code></pre></div>
+<ul>
+<li>Colors</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colors</span>() <span class="co"># View all elements of the color vector</span></code></pre></div>
+<pre><code>##   [1] &quot;white&quot;                &quot;aliceblue&quot;            &quot;antiquewhite&quot;        
+##   [4] &quot;antiquewhite1&quot;        &quot;antiquewhite2&quot;        &quot;antiquewhite3&quot;       
+##   [7] &quot;antiquewhite4&quot;        &quot;aquamarine&quot;           &quot;aquamarine1&quot;         
+##  [10] &quot;aquamarine2&quot;          &quot;aquamarine3&quot;          &quot;aquamarine4&quot;         
+##  [13] &quot;azure&quot;                &quot;azure1&quot;               &quot;azure2&quot;              
+##  [16] &quot;azure3&quot;               &quot;azure4&quot;               &quot;beige&quot;               
+##  [19] &quot;bisque&quot;               &quot;bisque1&quot;              &quot;bisque2&quot;             
+##  [22] &quot;bisque3&quot;              &quot;bisque4&quot;              &quot;black&quot;               
+##  [25] &quot;blanchedalmond&quot;       &quot;blue&quot;                 &quot;blue1&quot;               
+##  [28] &quot;blue2&quot;                &quot;blue3&quot;                &quot;blue4&quot;               
+##  [31] &quot;blueviolet&quot;           &quot;brown&quot;                &quot;brown1&quot;              
+##  [34] &quot;brown2&quot;               &quot;brown3&quot;               &quot;brown4&quot;              
+##  [37] &quot;burlywood&quot;            &quot;burlywood1&quot;           &quot;burlywood2&quot;          
+##  [40] &quot;burlywood3&quot;           &quot;burlywood4&quot;           &quot;cadetblue&quot;           
+##  [43] &quot;cadetblue1&quot;           &quot;cadetblue2&quot;           &quot;cadetblue3&quot;          
+##  [46] &quot;cadetblue4&quot;           &quot;chartreuse&quot;           &quot;chartreuse1&quot;         
+##  [49] &quot;chartreuse2&quot;          &quot;chartreuse3&quot;          &quot;chartreuse4&quot;         
+##  [52] &quot;chocolate&quot;            &quot;chocolate1&quot;           &quot;chocolate2&quot;          
+##  [55] &quot;chocolate3&quot;           &quot;chocolate4&quot;           &quot;coral&quot;               
+##  [58] &quot;coral1&quot;               &quot;coral2&quot;               &quot;coral3&quot;              
+##  [61] &quot;coral4&quot;               &quot;cornflowerblue&quot;       &quot;cornsilk&quot;            
+##  [64] &quot;cornsilk1&quot;            &quot;cornsilk2&quot;            &quot;cornsilk3&quot;           
+##  [67] &quot;cornsilk4&quot;            &quot;cyan&quot;                 &quot;cyan1&quot;               
+##  [70] &quot;cyan2&quot;                &quot;cyan3&quot;                &quot;cyan4&quot;               
+##  [73] &quot;darkblue&quot;             &quot;darkcyan&quot;             &quot;darkgoldenrod&quot;       
+##  [76] &quot;darkgoldenrod1&quot;       &quot;darkgoldenrod2&quot;       &quot;darkgoldenrod3&quot;      
+##  [79] &quot;darkgoldenrod4&quot;       &quot;darkgray&quot;             &quot;darkgreen&quot;           
+##  [82] &quot;darkgrey&quot;             &quot;darkkhaki&quot;            &quot;darkmagenta&quot;         
+##  [85] &quot;darkolivegreen&quot;       &quot;darkolivegreen1&quot;      &quot;darkolivegreen2&quot;     
+##  [88] &quot;darkolivegreen3&quot;      &quot;darkolivegreen4&quot;      &quot;darkorange&quot;          
+##  [91] &quot;darkorange1&quot;          &quot;darkorange2&quot;          &quot;darkorange3&quot;         
+##  [94] &quot;darkorange4&quot;          &quot;darkorchid&quot;           &quot;darkorchid1&quot;         
+##  [97] &quot;darkorchid2&quot;          &quot;darkorchid3&quot;          &quot;darkorchid4&quot;         
+## [100] &quot;darkred&quot;              &quot;darksalmon&quot;           &quot;darkseagreen&quot;        
+## [103] &quot;darkseagreen1&quot;        &quot;darkseagreen2&quot;        &quot;darkseagreen3&quot;       
+## [106] &quot;darkseagreen4&quot;        &quot;darkslateblue&quot;        &quot;darkslategray&quot;       
+## [109] &quot;darkslategray1&quot;       &quot;darkslategray2&quot;       &quot;darkslategray3&quot;      
+## [112] &quot;darkslategray4&quot;       &quot;darkslategrey&quot;        &quot;darkturquoise&quot;       
+## [115] &quot;darkviolet&quot;           &quot;deeppink&quot;             &quot;deeppink1&quot;           
+## [118] &quot;deeppink2&quot;            &quot;deeppink3&quot;            &quot;deeppink4&quot;           
+## [121] &quot;deepskyblue&quot;          &quot;deepskyblue1&quot;         &quot;deepskyblue2&quot;        
+## [124] &quot;deepskyblue3&quot;         &quot;deepskyblue4&quot;         &quot;dimgray&quot;             
+## [127] &quot;dimgrey&quot;              &quot;dodgerblue&quot;           &quot;dodgerblue1&quot;         
+## [130] &quot;dodgerblue2&quot;          &quot;dodgerblue3&quot;          &quot;dodgerblue4&quot;         
+## [133] &quot;firebrick&quot;            &quot;firebrick1&quot;           &quot;firebrick2&quot;          
+## [136] &quot;firebrick3&quot;           &quot;firebrick4&quot;           &quot;floralwhite&quot;         
+## [139] &quot;forestgreen&quot;          &quot;gainsboro&quot;            &quot;ghostwhite&quot;          
+## [142] &quot;gold&quot;                 &quot;gold1&quot;                &quot;gold2&quot;               
+## [145] &quot;gold3&quot;                &quot;gold4&quot;                &quot;goldenrod&quot;           
+## [148] &quot;goldenrod1&quot;           &quot;goldenrod2&quot;           &quot;goldenrod3&quot;          
+## [151] &quot;goldenrod4&quot;           &quot;gray&quot;                 &quot;gray0&quot;               
+## [154] &quot;gray1&quot;                &quot;gray2&quot;                &quot;gray3&quot;               
+## [157] &quot;gray4&quot;                &quot;gray5&quot;                &quot;gray6&quot;               
+## [160] &quot;gray7&quot;                &quot;gray8&quot;                &quot;gray9&quot;               
+## [163] &quot;gray10&quot;               &quot;gray11&quot;               &quot;gray12&quot;              
+## [166] &quot;gray13&quot;               &quot;gray14&quot;               &quot;gray15&quot;              
+## [169] &quot;gray16&quot;               &quot;gray17&quot;               &quot;gray18&quot;              
+## [172] &quot;gray19&quot;               &quot;gray20&quot;               &quot;gray21&quot;              
+## [175] &quot;gray22&quot;               &quot;gray23&quot;               &quot;gray24&quot;              
+## [178] &quot;gray25&quot;               &quot;gray26&quot;               &quot;gray27&quot;              
+## [181] &quot;gray28&quot;               &quot;gray29&quot;               &quot;gray30&quot;              
+## [184] &quot;gray31&quot;               &quot;gray32&quot;               &quot;gray33&quot;              
+## [187] &quot;gray34&quot;               &quot;gray35&quot;               &quot;gray36&quot;              
+## [190] &quot;gray37&quot;               &quot;gray38&quot;               &quot;gray39&quot;              
+## [193] &quot;gray40&quot;               &quot;gray41&quot;               &quot;gray42&quot;              
+## [196] &quot;gray43&quot;               &quot;gray44&quot;               &quot;gray45&quot;              
+## [199] &quot;gray46&quot;               &quot;gray47&quot;               &quot;gray48&quot;              
+## [202] &quot;gray49&quot;               &quot;gray50&quot;               &quot;gray51&quot;              
+## [205] &quot;gray52&quot;               &quot;gray53&quot;               &quot;gray54&quot;              
+## [208] &quot;gray55&quot;               &quot;gray56&quot;               &quot;gray57&quot;              
+## [211] &quot;gray58&quot;               &quot;gray59&quot;               &quot;gray60&quot;              
+## [214] &quot;gray61&quot;               &quot;gray62&quot;               &quot;gray63&quot;              
+## [217] &quot;gray64&quot;               &quot;gray65&quot;               &quot;gray66&quot;              
+## [220] &quot;gray67&quot;               &quot;gray68&quot;               &quot;gray69&quot;              
+## [223] &quot;gray70&quot;               &quot;gray71&quot;               &quot;gray72&quot;              
+## [226] &quot;gray73&quot;               &quot;gray74&quot;               &quot;gray75&quot;              
+## [229] &quot;gray76&quot;               &quot;gray77&quot;               &quot;gray78&quot;              
+## [232] &quot;gray79&quot;               &quot;gray80&quot;               &quot;gray81&quot;              
+## [235] &quot;gray82&quot;               &quot;gray83&quot;               &quot;gray84&quot;              
+## [238] &quot;gray85&quot;               &quot;gray86&quot;               &quot;gray87&quot;              
+## [241] &quot;gray88&quot;               &quot;gray89&quot;               &quot;gray90&quot;              
+## [244] &quot;gray91&quot;               &quot;gray92&quot;               &quot;gray93&quot;              
+## [247] &quot;gray94&quot;               &quot;gray95&quot;               &quot;gray96&quot;              
+## [250] &quot;gray97&quot;               &quot;gray98&quot;               &quot;gray99&quot;              
+## [253] &quot;gray100&quot;              &quot;green&quot;                &quot;green1&quot;              
+## [256] &quot;green2&quot;               &quot;green3&quot;               &quot;green4&quot;              
+## [259] &quot;greenyellow&quot;          &quot;grey&quot;                 &quot;grey0&quot;               
+## [262] &quot;grey1&quot;                &quot;grey2&quot;                &quot;grey3&quot;               
+## [265] &quot;grey4&quot;                &quot;grey5&quot;                &quot;grey6&quot;               
+## [268] &quot;grey7&quot;                &quot;grey8&quot;                &quot;grey9&quot;               
+## [271] &quot;grey10&quot;               &quot;grey11&quot;               &quot;grey12&quot;              
+## [274] &quot;grey13&quot;               &quot;grey14&quot;               &quot;grey15&quot;              
+## [277] &quot;grey16&quot;               &quot;grey17&quot;               &quot;grey18&quot;              
+## [280] &quot;grey19&quot;               &quot;grey20&quot;               &quot;grey21&quot;              
+## [283] &quot;grey22&quot;               &quot;grey23&quot;               &quot;grey24&quot;              
+## [286] &quot;grey25&quot;               &quot;grey26&quot;               &quot;grey27&quot;              
+## [289] &quot;grey28&quot;               &quot;grey29&quot;               &quot;grey30&quot;              
+## [292] &quot;grey31&quot;               &quot;grey32&quot;               &quot;grey33&quot;              
+## [295] &quot;grey34&quot;               &quot;grey35&quot;               &quot;grey36&quot;              
+## [298] &quot;grey37&quot;               &quot;grey38&quot;               &quot;grey39&quot;              
+## [301] &quot;grey40&quot;               &quot;grey41&quot;               &quot;grey42&quot;              
+## [304] &quot;grey43&quot;               &quot;grey44&quot;               &quot;grey45&quot;              
+## [307] &quot;grey46&quot;               &quot;grey47&quot;               &quot;grey48&quot;              
+## [310] &quot;grey49&quot;               &quot;grey50&quot;               &quot;grey51&quot;              
+## [313] &quot;grey52&quot;               &quot;grey53&quot;               &quot;grey54&quot;              
+## [316] &quot;grey55&quot;               &quot;grey56&quot;               &quot;grey57&quot;              
+## [319] &quot;grey58&quot;               &quot;grey59&quot;               &quot;grey60&quot;              
+## [322] &quot;grey61&quot;               &quot;grey62&quot;               &quot;grey63&quot;              
+## [325] &quot;grey64&quot;               &quot;grey65&quot;               &quot;grey66&quot;              
+## [328] &quot;grey67&quot;               &quot;grey68&quot;               &quot;grey69&quot;              
+## [331] &quot;grey70&quot;               &quot;grey71&quot;               &quot;grey72&quot;              
+## [334] &quot;grey73&quot;               &quot;grey74&quot;               &quot;grey75&quot;              
+## [337] &quot;grey76&quot;               &quot;grey77&quot;               &quot;grey78&quot;              
+## [340] &quot;grey79&quot;               &quot;grey80&quot;               &quot;grey81&quot;              
+## [343] &quot;grey82&quot;               &quot;grey83&quot;               &quot;grey84&quot;              
+## [346] &quot;grey85&quot;               &quot;grey86&quot;               &quot;grey87&quot;              
+## [349] &quot;grey88&quot;               &quot;grey89&quot;               &quot;grey90&quot;              
+## [352] &quot;grey91&quot;               &quot;grey92&quot;               &quot;grey93&quot;              
+## [355] &quot;grey94&quot;               &quot;grey95&quot;               &quot;grey96&quot;              
+## [358] &quot;grey97&quot;               &quot;grey98&quot;               &quot;grey99&quot;              
+## [361] &quot;grey100&quot;              &quot;honeydew&quot;             &quot;honeydew1&quot;           
+## [364] &quot;honeydew2&quot;            &quot;honeydew3&quot;            &quot;honeydew4&quot;           
+## [367] &quot;hotpink&quot;              &quot;hotpink1&quot;             &quot;hotpink2&quot;            
+## [370] &quot;hotpink3&quot;             &quot;hotpink4&quot;             &quot;indianred&quot;           
+## [373] &quot;indianred1&quot;           &quot;indianred2&quot;           &quot;indianred3&quot;          
+## [376] &quot;indianred4&quot;           &quot;ivory&quot;                &quot;ivory1&quot;              
+## [379] &quot;ivory2&quot;               &quot;ivory3&quot;               &quot;ivory4&quot;              
+## [382] &quot;khaki&quot;                &quot;khaki1&quot;               &quot;khaki2&quot;              
+## [385] &quot;khaki3&quot;               &quot;khaki4&quot;               &quot;lavender&quot;            
+## [388] &quot;lavenderblush&quot;        &quot;lavenderblush1&quot;       &quot;lavenderblush2&quot;      
+## [391] &quot;lavenderblush3&quot;       &quot;lavenderblush4&quot;       &quot;lawngreen&quot;           
+## [394] &quot;lemonchiffon&quot;         &quot;lemonchiffon1&quot;        &quot;lemonchiffon2&quot;       
+## [397] &quot;lemonchiffon3&quot;        &quot;lemonchiffon4&quot;        &quot;lightblue&quot;           
+## [400] &quot;lightblue1&quot;           &quot;lightblue2&quot;           &quot;lightblue3&quot;          
+## [403] &quot;lightblue4&quot;           &quot;lightcoral&quot;           &quot;lightcyan&quot;           
+## [406] &quot;lightcyan1&quot;           &quot;lightcyan2&quot;           &quot;lightcyan3&quot;          
+## [409] &quot;lightcyan4&quot;           &quot;lightgoldenrod&quot;       &quot;lightgoldenrod1&quot;     
+## [412] &quot;lightgoldenrod2&quot;      &quot;lightgoldenrod3&quot;      &quot;lightgoldenrod4&quot;     
+## [415] &quot;lightgoldenrodyellow&quot; &quot;lightgray&quot;            &quot;lightgreen&quot;          
+## [418] &quot;lightgrey&quot;            &quot;lightpink&quot;            &quot;lightpink1&quot;          
+## [421] &quot;lightpink2&quot;           &quot;lightpink3&quot;           &quot;lightpink4&quot;          
+## [424] &quot;lightsalmon&quot;          &quot;lightsalmon1&quot;         &quot;lightsalmon2&quot;        
+## [427] &quot;lightsalmon3&quot;         &quot;lightsalmon4&quot;         &quot;lightseagreen&quot;       
+## [430] &quot;lightskyblue&quot;         &quot;lightskyblue1&quot;        &quot;lightskyblue2&quot;       
+## [433] &quot;lightskyblue3&quot;        &quot;lightskyblue4&quot;        &quot;lightslateblue&quot;      
+## [436] &quot;lightslategray&quot;       &quot;lightslategrey&quot;       &quot;lightsteelblue&quot;      
+## [439] &quot;lightsteelblue1&quot;      &quot;lightsteelblue2&quot;      &quot;lightsteelblue3&quot;     
+## [442] &quot;lightsteelblue4&quot;      &quot;lightyellow&quot;          &quot;lightyellow1&quot;        
+## [445] &quot;lightyellow2&quot;         &quot;lightyellow3&quot;         &quot;lightyellow4&quot;        
+## [448] &quot;limegreen&quot;            &quot;linen&quot;                &quot;magenta&quot;             
+## [451] &quot;magenta1&quot;             &quot;magenta2&quot;             &quot;magenta3&quot;            
+## [454] &quot;magenta4&quot;             &quot;maroon&quot;               &quot;maroon1&quot;             
+## [457] &quot;maroon2&quot;              &quot;maroon3&quot;              &quot;maroon4&quot;             
+## [460] &quot;mediumaquamarine&quot;     &quot;mediumblue&quot;           &quot;mediumorchid&quot;        
+## [463] &quot;mediumorchid1&quot;        &quot;mediumorchid2&quot;        &quot;mediumorchid3&quot;       
+## [466] &quot;mediumorchid4&quot;        &quot;mediumpurple&quot;         &quot;mediumpurple1&quot;       
+## [469] &quot;mediumpurple2&quot;        &quot;mediumpurple3&quot;        &quot;mediumpurple4&quot;       
+## [472] &quot;mediumseagreen&quot;       &quot;mediumslateblue&quot;      &quot;mediumspringgreen&quot;   
+## [475] &quot;mediumturquoise&quot;      &quot;mediumvioletred&quot;      &quot;midnightblue&quot;        
+## [478] &quot;mintcream&quot;            &quot;mistyrose&quot;            &quot;mistyrose1&quot;          
+## [481] &quot;mistyrose2&quot;           &quot;mistyrose3&quot;           &quot;mistyrose4&quot;          
+## [484] &quot;moccasin&quot;             &quot;navajowhite&quot;          &quot;navajowhite1&quot;        
+## [487] &quot;navajowhite2&quot;         &quot;navajowhite3&quot;         &quot;navajowhite4&quot;        
+## [490] &quot;navy&quot;                 &quot;navyblue&quot;             &quot;oldlace&quot;             
+## [493] &quot;olivedrab&quot;            &quot;olivedrab1&quot;           &quot;olivedrab2&quot;          
+## [496] &quot;olivedrab3&quot;           &quot;olivedrab4&quot;           &quot;orange&quot;              
+## [499] &quot;orange1&quot;              &quot;orange2&quot;              &quot;orange3&quot;             
+## [502] &quot;orange4&quot;              &quot;orangered&quot;            &quot;orangered1&quot;          
+## [505] &quot;orangered2&quot;           &quot;orangered3&quot;           &quot;orangered4&quot;          
+## [508] &quot;orchid&quot;               &quot;orchid1&quot;              &quot;orchid2&quot;             
+## [511] &quot;orchid3&quot;              &quot;orchid4&quot;              &quot;palegoldenrod&quot;       
+## [514] &quot;palegreen&quot;            &quot;palegreen1&quot;           &quot;palegreen2&quot;          
+## [517] &quot;palegreen3&quot;           &quot;palegreen4&quot;           &quot;paleturquoise&quot;       
+## [520] &quot;paleturquoise1&quot;       &quot;paleturquoise2&quot;       &quot;paleturquoise3&quot;      
+## [523] &quot;paleturquoise4&quot;       &quot;palevioletred&quot;        &quot;palevioletred1&quot;      
+## [526] &quot;palevioletred2&quot;       &quot;palevioletred3&quot;       &quot;palevioletred4&quot;      
+## [529] &quot;papayawhip&quot;           &quot;peachpuff&quot;            &quot;peachpuff1&quot;          
+## [532] &quot;peachpuff2&quot;           &quot;peachpuff3&quot;           &quot;peachpuff4&quot;          
+## [535] &quot;peru&quot;                 &quot;pink&quot;                 &quot;pink1&quot;               
+## [538] &quot;pink2&quot;                &quot;pink3&quot;                &quot;pink4&quot;               
+## [541] &quot;plum&quot;                 &quot;plum1&quot;                &quot;plum2&quot;               
+## [544] &quot;plum3&quot;                &quot;plum4&quot;                &quot;powderblue&quot;          
+## [547] &quot;purple&quot;               &quot;purple1&quot;              &quot;purple2&quot;             
+## [550] &quot;purple3&quot;              &quot;purple4&quot;              &quot;red&quot;                 
+## [553] &quot;red1&quot;                 &quot;red2&quot;                 &quot;red3&quot;                
+## [556] &quot;red4&quot;                 &quot;rosybrown&quot;            &quot;rosybrown1&quot;          
+## [559] &quot;rosybrown2&quot;           &quot;rosybrown3&quot;           &quot;rosybrown4&quot;          
+## [562] &quot;royalblue&quot;            &quot;royalblue1&quot;           &quot;royalblue2&quot;          
+## [565] &quot;royalblue3&quot;           &quot;royalblue4&quot;           &quot;saddlebrown&quot;         
+## [568] &quot;salmon&quot;               &quot;salmon1&quot;              &quot;salmon2&quot;             
+## [571] &quot;salmon3&quot;              &quot;salmon4&quot;              &quot;sandybrown&quot;          
+## [574] &quot;seagreen&quot;             &quot;seagreen1&quot;            &quot;seagreen2&quot;           
+## [577] &quot;seagreen3&quot;            &quot;seagreen4&quot;            &quot;seashell&quot;            
+## [580] &quot;seashell1&quot;            &quot;seashell2&quot;            &quot;seashell3&quot;           
+## [583] &quot;seashell4&quot;            &quot;sienna&quot;               &quot;sienna1&quot;             
+## [586] &quot;sienna2&quot;              &quot;sienna3&quot;              &quot;sienna4&quot;             
+## [589] &quot;skyblue&quot;              &quot;skyblue1&quot;             &quot;skyblue2&quot;            
+## [592] &quot;skyblue3&quot;             &quot;skyblue4&quot;             &quot;slateblue&quot;           
+## [595] &quot;slateblue1&quot;           &quot;slateblue2&quot;           &quot;slateblue3&quot;          
+## [598] &quot;slateblue4&quot;           &quot;slategray&quot;            &quot;slategray1&quot;          
+## [601] &quot;slategray2&quot;           &quot;slategray3&quot;           &quot;slategray4&quot;          
+## [604] &quot;slategrey&quot;            &quot;snow&quot;                 &quot;snow1&quot;               
+## [607] &quot;snow2&quot;                &quot;snow3&quot;                &quot;snow4&quot;               
+## [610] &quot;springgreen&quot;          &quot;springgreen1&quot;         &quot;springgreen2&quot;        
+## [613] &quot;springgreen3&quot;         &quot;springgreen4&quot;         &quot;steelblue&quot;           
+## [616] &quot;steelblue1&quot;           &quot;steelblue2&quot;           &quot;steelblue3&quot;          
+## [619] &quot;steelblue4&quot;           &quot;tan&quot;                  &quot;tan1&quot;                
+## [622] &quot;tan2&quot;                 &quot;tan3&quot;                 &quot;tan4&quot;                
+## [625] &quot;thistle&quot;              &quot;thistle1&quot;             &quot;thistle2&quot;            
+## [628] &quot;thistle3&quot;             &quot;thistle4&quot;             &quot;tomato&quot;              
+## [631] &quot;tomato1&quot;              &quot;tomato2&quot;              &quot;tomato3&quot;             
+## [634] &quot;tomato4&quot;              &quot;turquoise&quot;            &quot;turquoise1&quot;          
+## [637] &quot;turquoise2&quot;           &quot;turquoise3&quot;           &quot;turquoise4&quot;          
+## [640] &quot;violet&quot;               &quot;violetred&quot;            &quot;violetred1&quot;          
+## [643] &quot;violetred2&quot;           &quot;violetred3&quot;           &quot;violetred4&quot;          
+## [646] &quot;wheat&quot;                &quot;wheat1&quot;               &quot;wheat2&quot;              
+## [649] &quot;wheat3&quot;               &quot;wheat4&quot;               &quot;whitesmoke&quot;          
+## [652] &quot;yellow&quot;               &quot;yellow1&quot;              &quot;yellow2&quot;             
+## [655] &quot;yellow3&quot;              &quot;yellow4&quot;              &quot;yellowgreen&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colors</span>()[<span class="dv">179</span>] <span class="co"># View specific element of the color vector</span></code></pre></div>
+<pre><code>## [1] &quot;gray26&quot;</code></pre>
+<p>Another option: <a href="http://research.stowers-institute.org/efg/R/Color/Chart/ColorsChart1.jpg">R Color Infographic</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">col=</span><span class="kw">colors</span>()[<span class="dv">145</span>]) <span class="co"># or col=&quot;gold3&quot;</span></code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-226-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">col=</span><span class="st">&quot;seagreen4&quot;</span>) <span class="co"># or col=colors()[578]</span></code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-226-2.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<ul>
+<li>Point Styles and Widths</li>
+</ul>
+<p><a href="http://www.endmemo.com/program/R/pic/pchsymbols.png">A Good Reference</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change point style to crosses</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">pch=</span><span class="dv">3</span>) </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-227-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change point style to filled squares</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>,<span class="dt">pch=</span><span class="dv">15</span>) </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-227-2.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change point style to filled squares and increase point size to 3</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>,<span class="dt">pch=</span><span class="dv">15</span>, <span class="dt">cex=</span><span class="dv">3</span>) </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-227-3.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change point style to &quot;w&quot;</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>, <span class="dt">pch=</span><span class="st">&quot;w&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-227-4.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change point style to &quot;$&quot; and increase point size to 2</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>,<span class="dt">pch=</span><span class="st">&quot;$&quot;</span>, <span class="dt">cex=</span><span class="dv">2</span>) </code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-227-5.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<ul>
+<li>Line Styles and Widths</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Line plot with solid line</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-228-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Line plot with medium dashed line</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-228-2.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Line plot with short dashed line</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lty=</span><span class="dv">3</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-228-3.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change line width to 2</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lty=</span><span class="dv">3</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-228-4.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change line width to 5</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>,  <span class="dt">lwd=</span><span class="dv">5</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-228-5.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Change line width to 10 and use dash-dot</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>,  <span class="dt">lty=</span><span class="dv">4</span>, <span class="dt">lwd=</span><span class="dv">10</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-228-6.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+</div>
+<div id="annotations-reference-lines-and-legends" class="section level3">
+<h3><span class="header-section-number">9.2.6</span> Annotations, reference lines, and legends</h3>
+<ul>
+<li>Text</li>
+</ul>
+<p>We can add text to an arbitrary point on the graph like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the line first</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>)
+<span class="co"># now add the label</span>
+<span class="kw">text</span>(<span class="dt">x=</span><span class="dv">40000</span>, <span class="dt">y=</span><span class="dv">50</span>, <span class="dt">labels=</span><span class="st">&quot;Evens Out&quot;</span>, <span class="dt">cex =</span> .<span class="dv">75</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-229-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<p>We can also add labels for every point by passing in a vector of text:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first randomly select rows for a smaller gapaset</span>
+<span class="kw">library</span>(dplyr)
+small &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">100</span>)
+
+<span class="co"># plot the line first</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> small<span class="op">$</span>gdpPercap, <span class="dt">y =</span> small<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>)
+<span class="co"># now add the label</span>
+<span class="kw">text</span>(<span class="dt">x =</span> small<span class="op">$</span>gdpPercap, <span class="dt">y =</span> small<span class="op">$</span>lifeExp, <span class="dt">labels =</span> small<span class="op">$</span>country)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-230-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+<ul>
+<li>Reference Lines</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the line</span>
+<span class="kw">plot</span>(<span class="dt">x =</span> gap<span class="op">$</span>gdpPercap, <span class="dt">y =</span> gap<span class="op">$</span>lifeExp, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>)
+<span class="co"># now the guides</span>
+<span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">40000</span>, <span class="dt">h=</span><span class="dv">75</span>, <span class="dt">lty=</span><span class="dv">2</span>)</code></pre></div>
+<div class="figure">
+<img src="site1_files/figure-html/unnamed-chunk-231-1.png" alt=" " width="672" />
+<p class="caption">
+</p>
+</div>
+
+</div>
+</div>
+<div id="ggplot2" class="section level2">
+<h2><span class="header-section-number">9.3</span> ggplot2</h2>
+<p>Setup:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)</code></pre></div>
+<div id="why-ggplot" class="section level4 unnumbered">
+<h4>Why ggplot?</h4>
+<ul>
+<li>More elegant &amp; compact code than with base graphics</li>
+<li>More aesthetically pleasing defaults than lattice</li>
+<li>Very powerful for exploratory data analysis</li>
+<li>Follows a grammar, just like any language.</li>
+<li>It defines basic components that make up a sentence. In this case, the grammar defines components in a plot.</li>
+<li><em>G</em>rammar of <em>g</em>raphics originally coined by Lee Wilkinson</li>
+</ul>
+</div>
+<div id="grammar" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> Grammar</h3>
+<p>The general call for ggplot2 looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data=</span>, <span class="kw">aes</span>(<span class="dt">x=</span>, <span class="dt">y=</span>), <span class="dt">color=</span>, <span class="dt">size=</span>,) <span class="op">+</span><span class="st"> </span><span class="kw">geom_xxxx</span>()<span class="op">+</span><span class="kw">geom_yyyy</span>()</code></pre></div>
+<p>The <em>grammar</em> involves some basic components:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Data</strong>: a data.frame</li>
+<li><strong>Aes</strong>thetics: How your data are represented visually, aka “mapping”. Which variables are shown on x, y axes, as well as color, size, shape, etc.</li>
+<li><strong>Geom</strong>etry: The geometric objects in a plot. points, lines, polygons, etc.</li>
+</ol>
+<p>The key to understanding <code>ggplot2</code> is thinking about a figure in layers: just like you might do in an image editing program like Photoshop, Illustrator, or Inkscape.</p>
+<p>Let’s look at an example:</p>
+<pre><code>ggplot(data = gap, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()</code></pre>
+<p>So the first thing we do is call the <code>ggplot</code> function. This function lets R know that we’re creating a new plot, and any of the arguments we give the ggplot function are the global options for the plot: they apply to all layers on the plot.</p>
+<p>We’ve passed in two arguments to <code>ggplot</code>. First, we tell <code>ggplot</code> what <strong><code>data</code></strong> we want to show on our figure, in this example the <code>gapminder</code> data we read in earlier.</p>
+<p>For the second argument we passed in the <strong><code>aes</code></strong> function, which tells <code>ggplot</code> how variables in the data map to aesthetic properties of the figure, in this case the x and y locations. Here we told <code>ggplot</code> we want to plot the <code>lifeExp</code> column of the gapminder data frame on the x-axis, and the <code>gdpPercap</code> column on the y-axis.</p>
+<p>Notice that we didn’t need to explicitly pass <code>aes</code> these columns (e.g. <code>x = gapminder[, &quot;lifeExp&quot;&quot;])</code>, this is because <code>ggplot</code> is smart enough to know to look in the data for that column!</p>
+<p>By itself, the call to <code>ggplot</code> isn’t enough to draw a figure:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp))</code></pre></div>
+<p>We need to tell <code>ggplot</code> how we want to visually represent the data, which we do by adding a new <strong><code>geom</code></strong> layer. In our example, we used <code>geom_point</code>, which tells ggplot we want to visually represent the relationship between x and y as a scatterplot of points:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-236-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># same as</span>
+my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp))
+my_plot <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-236-2.png" width="672" /></p>
+<div id="challenge-1" class="section level4 unnumbered">
+<h4>Challenge 1</h4>
+<p>Modify the example so that the figure visualise how life expectancy has changed over time:</p>
+<p>Hint: the gapminder dataset has a column called <code>year</code>, which should appear on the x-axis.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
+</div>
+</div>
+<div id="anatomy-of-aes" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> Anatomy of <code>aes</code></h3>
+<p>In the previous examples and challenge we’ve used the <code>aes</code> function to tell the scatterplot <code>geom</code> about the <strong>x</strong> and <strong>y</strong> locations of each point. Another aesthetic property we can modify is the point <strong>color</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-238-1.png" width="672" /></p>
+<p>Normally, specifying options like <code>color=&quot;red&quot;</code> or <code>size=10</code> for a given layer results in its contents being red and quite large. Inside the <code>aes()</code> function, however, these arguments are given entire variables whose values will then be displayed using different realizations of that aesthetic.</p>
+<p><strong>Color</strong> isn’t the only aesthetic argument we can set to display variation in the data. We can also vary by shape, size, etc.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data=</span>, <span class="kw">aes</span>(<span class="dt">x=</span>, <span class="dt">y=</span>, <span class="dt">by =</span>, <span class="dt">color=</span>, <span class="dt">linetype=</span>, <span class="dt">shape=</span>, <span class="dt">size=</span>))</code></pre></div>
+</div>
+<div id="layers" class="section level3">
+<h3><span class="header-section-number">9.3.3</span> Layers</h3>
+<p>In the previous challenge, you plotted <code>lifExp</code> over time. Using a scatterplot probably isn’t the best for visualising change over time. Instead, let’s tell <code>ggplot</code> to visualise the data as a line plot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
+<p>Instead of adding a <code>geom_point</code> layer, we’ve added a <code>geom_line</code> layer. We’ve also added the <strong>by</strong> aesthetic, which tells ggplot to draw a line for each country.</p>
+<p>But what if we want to visualise both lines and points on the plot? We can simply add another layer to the plot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-241-1.png" width="672" /></p>
+<p>It’s important to note that each layer is drawn on top of the previous layer. In this example, the points have been drawn on top of the lines. Here’s a demonstration:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-242-1.png" width="672" /></p>
+<p>In this example, the aesthetic mapping of <strong>color</strong> has been moved from the global plot options in ggplot to the <code>geom_line</code> layer so it no longer applies to the points. Now we can clearly see that the points are drawn on top of the lines.</p>
+<div id="challenge-2" class="section level4 unnumbered">
+<h4>Challenge 2</h4>
+<p>Switch the order of the point and line layers from the previous example. What happened?</p>
+</div>
+</div>
+<div id="labels-1" class="section level3">
+<h3><span class="header-section-number">9.3.4</span> Labels</h3>
+<p>Labels are considered to be their own layers in ggplot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add x and y axis labels</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;GDP per capita&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;My fancy graph&quot;</span>)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-243-1.png" width="672" /></p>
+<p>So are scales:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># limit x axis from 1,000 to 20,000</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;GDP per capita&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;My fancy graph&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">xlim</span>(<span class="dv">1000</span>, <span class="dv">20000</span>)</code></pre></div>
+<pre><code>## Warning: Removed 515 rows containing missing values (geom_point).</code></pre>
+<p><img src="site1_files/figure-html/unnamed-chunk-244-1.png" width="672" /></p>
+</div>
+<div id="transformations-and-stats" class="section level3">
+<h3><span class="header-section-number">9.3.5</span> Transformations and Stats</h3>
+<p><code>ggplot</code> also makes it easy to overlay statistical models over the data. To demonstrate we’ll go back to an earlier example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-245-1.png" width="672" /></p>
+<p>We can change the scale of units on the x axis using the <code>scale</code> functions. These control the mapping between the data values and visual values of an aesthetic.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-246-1.png" width="672" /></p>
+<p>The <code>log10</code> function applied a transformation to the values of the <code>gdpPercap</code> column before rendering them on the plot, so that each multiple of 10 now only corresponds to an increase in 1 on the transformed scale, e.g. a GDP per capita of 1,000 is now 3 on the y axis, a value of 10,000 corresponds to 4 on the x axis and so on. This makes it easier to visualise the spread of data on the x-axis.</p>
+<p>We can fit a simple relationship to the data by adding another layer, <code>geom_smooth</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-247-1.png" width="672" /></p>
+<p>Note that we 5 lines, one for each region, because the <strong>color</strong> option is the global <code>aes</code> function.. But if we move it, we get different restuls:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-248-1.png" width="672" /></p>
+<p>So there are two ways an aesthetic can be specified. Here we set the <strong>color</strong> aesthetic by passing it as an argument to <code>geom_point</code>. Previously in the lesson we’ve used the <code>aes</code> function to define a <em>mapping</em> between data variables and their visual representation.</p>
+<p>We can make the line thicker by setting the <strong>size</strong> aesthetic in the geom_smooth layer:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-249-1.png" width="672" /></p>
+<div id="challenge-3" class="section level4 unnumbered">
+<h4>Challenge 3</h4>
+<p>Modify the color and size of the points on the point layer in the previous example so that they are fixed (i.e. not reflective of continent).</p>
+<p>Hint: do not use the <code>aes</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
+</div>
+</div>
+<div id="facets" class="section level3">
+<h3><span class="header-section-number">9.3.6</span> Facets</h3>
+<p>Earlier we visualised the change in life expectancy over time across all countries in one plot. Alternatively, we can split this out over multiple panels by adding a layer of <strong>facet</strong> panels:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-251-1.png" width="672" /></p>
+</div>
+<div id="putting-it-all-together" class="section level3">
+<h3><span class="header-section-number">9.3.7</span> Putting it all together</h3>
+<p>Here are some other common <code>geom</code> layers:</p>
+<p><strong>bar plots</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># count of lifeExp bins</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;bin&quot;</span>)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="site1_files/figure-html/unnamed-chunk-252-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># with color representing regions</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;bin&quot;</span>)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="site1_files/figure-html/unnamed-chunk-252-2.png" width="672" /></p>
+<p><strong>box plots</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-253-1.png" width="672" /></p>
+<p>This is just a taste of what you can do with ggplot2.</p>
+<p>RStudio provides a really useful <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">cheat sheet</a> of the different layers available, and more extensive documentation is available on the <a href="http://docs.ggplot2.org/current/">ggplot2 website</a>.</p>
+<p>Finally, if you have no idea how to change something, a quick google search will usually send you to a relevant question and answer on Stack Overflow with reusable code to modify!</p>
+<div id="challenge-4" class="section level4">
+<h4><span class="header-section-number">9.3.7.1</span> Challenge 4</h4>
+<p>Create a density plot of GDP per capita, filled by continent.</p>
+<p>Advanced: - Transform the x axis to better visualise the data spread. - Add a facet layer to panel the density plots by year.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE.</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="saving-plots" class="section level2">
+<h2><span class="header-section-number">9.4</span> Saving plots</h2>
+<p>There are two basic image types:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Raster/Bitmap</strong> (.png, .jpeg)</li>
+</ol>
+<p>Every pixel of a plot contains its own separate coding; not so great if you want to resize the image.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">jpeg</span>(<span class="dt">filename=</span><span class="st">&quot;example.png&quot;</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)
+<span class="kw">plot</span>(x,y)
+<span class="kw">dev.off</span>()</code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Vector</strong> (.pdf, .ps)</li>
+</ol>
+<p>Every element of a plot is encoded with a function that gives its coding conditional on several factors; great for resizing.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf</span>(<span class="dt">filename=</span><span class="st">&quot;example.pdf&quot;</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)
+<span class="kw">plot</span>(x,y)
+<span class="kw">dev.off</span>()</code></pre></div>
+<p><strong>Exporting with ggplot</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Assume we saved our plot is an object called example.plot</span>
+<span class="kw">ggsave</span>(<span class="dt">filename=</span><span class="st">&quot;example.pdf&quot;</span>, <span class="dt">plot=</span>example.plot, <span class="dt">scale=</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tidying-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-inferences.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["site1.pdf", "site1.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

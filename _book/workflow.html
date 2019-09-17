@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Workflow | PLSC 31101: Introduction To Computational Tools And Techniques For Social Research</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Workflow | PLSC 31101: Introduction To Computational Tools And Techniques For Social Research" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Workflow | PLSC 31101: Introduction To Computational Tools And Techniques For Social Research" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Rochelle Terman" />
+
+
+<meta name="date" content="2019-09-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="subsetting.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PLSC 31101</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#course-description"><i class="fa fa-check"></i><b>1.1</b> Course Description</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#who-should-take-this-course"><i class="fa fa-check"></i><b>1.2</b> Who should take this course</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#requirements-and-evaluation"><i class="fa fa-check"></i><b>1.3</b> Requirements and Evaluation</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#activities-and-materials"><i class="fa fa-check"></i><b>1.4</b> Activities and Materials</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#curriculum-outline-schedule"><i class="fa fa-check"></i><b>1.5</b> Curriculum Outline / Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a></li>
+<li class="part"><span><b>I Course Notes</b></span></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#what-is-r"><i class="fa fa-check"></i><b>3.1</b> What is R?</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#r-studio"><i class="fa fa-check"></i><b>3.2</b> R Studio</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#console"><i class="fa fa-check"></i><b>3.2.1</b> Console</a></li>
+<li class="chapter" data-level="3.2.2" data-path="r-basics.html"><a href="r-basics.html#scripts"><i class="fa fa-check"></i><b>3.2.2</b> Scripts</a></li>
+<li class="chapter" data-level="3.2.3" data-path="r-basics.html"><a href="r-basics.html#executing-code"><i class="fa fa-check"></i><b>3.2.3</b> Executing code</a></li>
+<li class="chapter" data-level="3.2.4" data-path="r-basics.html"><a href="r-basics.html#diagnostics-and-errors"><i class="fa fa-check"></i><b>3.2.4</b> Diagnostics and errors</a></li>
+<li class="chapter" data-level="3.2.5" data-path="r-basics.html"><a href="r-basics.html#r-environment"><i class="fa fa-check"></i><b>3.2.5</b> R Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#r-syntax"><i class="fa fa-check"></i><b>3.3</b> R Syntax</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="r-basics.html"><a href="r-basics.html#comments"><i class="fa fa-check"></i><b>3.3.1</b> Comments</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-basics.html"><a href="r-basics.html#variables"><i class="fa fa-check"></i><b>3.3.2</b> Variables</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-basics.html"><a href="r-basics.html#challenges"><i class="fa fa-check"></i><b>3.3.3</b> Challenges</a></li>
+<li class="chapter" data-level="3.3.4" data-path="r-basics.html"><a href="r-basics.html#functions-and-help"><i class="fa fa-check"></i><b>3.3.4</b> Functions and help</a></li>
+<li class="chapter" data-level="3.3.5" data-path="r-basics.html"><a href="r-basics.html#challenges-1"><i class="fa fa-check"></i><b>3.3.5</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#packages"><i class="fa fa-check"></i><b>3.4</b> Packages</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="r-basics.html"><a href="r-basics.html#installing-packages"><i class="fa fa-check"></i><b>3.4.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-basics.html"><a href="r-basics.html#loading-packages"><i class="fa fa-check"></i><b>3.4.2</b> Loading Packages</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-basics.html"><a href="r-basics.html#challenges-2"><i class="fa fa-check"></i><b>3.4.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#r-markdown"><i class="fa fa-check"></i><b>3.5</b> R Markdown</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="r-basics.html"><a href="r-basics.html#yaml-header"><i class="fa fa-check"></i><b>3.5.1</b> YAML header</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-basics.html"><a href="r-basics.html#markdown"><i class="fa fa-check"></i><b>3.5.2</b> Markdown</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-basics.html"><a href="r-basics.html#code-chunks"><i class="fa fa-check"></i><b>3.5.3</b> Code Chunks</a></li>
+<li class="chapter" data-level="3.5.4" data-path="r-basics.html"><a href="r-basics.html#knitting"><i class="fa fa-check"></i><b>3.5.4</b> Knitting</a></li>
+<li class="chapter" data-level="3.5.5" data-path="r-basics.html"><a href="r-basics.html#cheatsheets-and-other-resources"><i class="fa fa-check"></i><b>3.5.5</b> Cheatsheets and other Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html"><i class="fa fa-check"></i><b>4</b> Data Classes and Structures</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#vectors"><i class="fa fa-check"></i><b>4.2</b> Vectors</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#vector-basics"><i class="fa fa-check"></i><b>4.2.1</b> Vector Basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-vectors"><i class="fa fa-check"></i><b>4.2.2</b> Creating Vectors</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#types-of-vectors"><i class="fa fa-check"></i><b>4.2.3</b> Types of Vectors</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#coercion"><i class="fa fa-check"></i><b>4.2.4</b> Coercion</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-4"><i class="fa fa-check"></i><b>4.2.5</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#lists"><i class="fa fa-check"></i><b>4.3</b> Lists</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#list-basics"><i class="fa fa-check"></i><b>4.3.1</b> List Basics</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-5"><i class="fa fa-check"></i><b>4.3.2</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#attributes-and-names"><i class="fa fa-check"></i><b>4.4</b> Attributes and Names</a></li>
+<li class="chapter" data-level="4.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-factors"><i class="fa fa-check"></i><b>4.5.1</b> Creating Factors</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#factors-are-really-integers."><i class="fa fa-check"></i><b>4.5.2</b> Factors are really integers.</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-6"><i class="fa fa-check"></i><b>4.5.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrices"><i class="fa fa-check"></i><b>4.6</b> Matrices</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-matrices"><i class="fa fa-check"></i><b>4.6.1</b> Creating matrices</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrix-basics"><i class="fa fa-check"></i><b>4.6.2</b> Matrix Basics</a></li>
+<li class="chapter" data-level="4.6.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrix-names"><i class="fa fa-check"></i><b>4.6.3</b> Matrix Names</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#dataframes"><i class="fa fa-check"></i><b>4.7</b> Dataframes</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#dataframe-basics"><i class="fa fa-check"></i><b>4.7.1</b> Dataframe basics</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#the-structure-of-dataframes"><i class="fa fa-check"></i><b>4.7.2</b> The Structure of Dataframes</a></li>
+<li class="chapter" data-level="4.7.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#coercing-dataframes"><i class="fa fa-check"></i><b>4.7.3</b> Coercing dataframes</a></li>
+<li class="chapter" data-level="4.7.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#exercises"><i class="fa fa-check"></i><b>4.7.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#quiz"><i class="fa fa-check"></i><b>4.8</b> Quiz</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#data-structure-answers"><i class="fa fa-check"></i><b>4.8.1</b> Answers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>5</b> Subsetting</a><ul>
+<li class="chapter" data-level="5.1" data-path="subsetting.html"><a href="subsetting.html#subsetting-vectors"><i class="fa fa-check"></i><b>5.1</b> Subsetting Vectors</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="subsetting.html"><a href="subsetting.html#types"><i class="fa fa-check"></i><b>5.1.1</b> Types</a></li>
+<li class="chapter" data-level="5.1.2" data-path="subsetting.html"><a href="subsetting.html#challenges-7"><i class="fa fa-check"></i><b>5.1.2</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="subsetting.html"><a href="subsetting.html#subsetting-lists"><i class="fa fa-check"></i><b>5.2</b> Subsetting Lists</a></li>
+<li class="chapter" data-level="5.3" data-path="subsetting.html"><a href="subsetting.html#subsetting-matrices"><i class="fa fa-check"></i><b>5.3</b> Subsetting Matrices</a></li>
+<li class="chapter" data-level="5.4" data-path="subsetting.html"><a href="subsetting.html#subsetting-dataframes"><i class="fa fa-check"></i><b>5.4</b> Subsetting Dataframes</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="subsetting.html"><a href="subsetting.html#challenges-8"><i class="fa fa-check"></i><b>5.4.1</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-operators"><i class="fa fa-check"></i><b>5.5</b> Subsetting Operators</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="subsetting.html"><a href="subsetting.html#use-with-lists."><i class="fa fa-check"></i><b>5.5.1</b> Use <code>[[</code> with lists.</a></li>
+<li class="chapter" data-level="5.5.2" data-path="subsetting.html"><a href="subsetting.html#use-to-get-columns-from-dataframes."><i class="fa fa-check"></i><b>5.5.2</b> Use <code>$</code> to get columns from dataframes.</a></li>
+<li class="chapter" data-level="5.5.3" data-path="subsetting.html"><a href="subsetting.html#challenges-9"><i class="fa fa-check"></i><b>5.5.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="subsetting.html"><a href="subsetting.html#sub-assignment"><i class="fa fa-check"></i><b>5.6</b> Sub-assignment</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="subsetting.html"><a href="subsetting.html#basics-of-sub-assignment"><i class="fa fa-check"></i><b>5.6.1</b> Basics of Sub-assignment</a></li>
+<li class="chapter" data-level="5.6.2" data-path="subsetting.html"><a href="subsetting.html#recycling"><i class="fa fa-check"></i><b>5.6.2</b> Recycling</a></li>
+<li class="chapter" data-level="5.6.3" data-path="subsetting.html"><a href="subsetting.html#applications"><i class="fa fa-check"></i><b>5.6.3</b> Applications</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>6</b> Workflow</a><ul>
+<li class="chapter" data-level="6.1" data-path="workflow.html"><a href="workflow.html#setting-up-a-workflow-with-rstudio"><i class="fa fa-check"></i><b>6.1</b> Setting up a workflow with RStudio</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="workflow.html"><a href="workflow.html#store-analyses-in-scripts-not-workspaces."><i class="fa fa-check"></i><b>6.1.1</b> Store analyses in scripts, not workspaces.</a></li>
+<li class="chapter" data-level="6.1.2" data-path="workflow.html"><a href="workflow.html#working-directories-and-paths"><i class="fa fa-check"></i><b>6.1.2</b> Working Directories and Paths</a></li>
+<li class="chapter" data-level="6.1.3" data-path="workflow.html"><a href="workflow.html#r-projects"><i class="fa fa-check"></i><b>6.1.3</b> R Projects</a></li>
+<li class="chapter" data-level="6.1.4" data-path="workflow.html"><a href="workflow.html#file-organization"><i class="fa fa-check"></i><b>6.1.4</b> File Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="workflow.html"><a href="workflow.html#introduction-to-data"><i class="fa fa-check"></i><b>6.2</b> Introduction to Data</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="workflow.html"><a href="workflow.html#wheres-my-data"><i class="fa fa-check"></i><b>6.2.1</b> Where’s my data?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="workflow.html"><a href="workflow.html#how-should-my-data-be-stored"><i class="fa fa-check"></i><b>6.2.2</b> How should my data be stored?</a></li>
+<li class="chapter" data-level="6.2.3" data-path="workflow.html"><a href="workflow.html#tidy-data"><i class="fa fa-check"></i><b>6.2.3</b> <code>tidy</code> data</a></li>
+<li class="chapter" data-level="6.2.4" data-path="workflow.html"><a href="workflow.html#relational-data"><i class="fa fa-check"></i><b>6.2.4</b> Relational data</a></li>
+<li class="chapter" data-level="6.2.5" data-path="workflow.html"><a href="workflow.html#keys"><i class="fa fa-check"></i><b>6.2.5</b> Keys</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="workflow.html"><a href="workflow.html#importing-data-into-r"><i class="fa fa-check"></i><b>6.3</b> Importing data into R</a></li>
+<li class="chapter" data-level="6.4" data-path="workflow.html"><a href="workflow.html#exporting-data"><i class="fa fa-check"></i><b>6.4</b> Exporting data</a></li>
+<li class="chapter" data-level="6.5" data-path="workflow.html"><a href="workflow.html#exploring-data"><i class="fa fa-check"></i><b>6.5</b> Exploring Data</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="workflow.html"><a href="workflow.html#the-gapminder-dataset"><i class="fa fa-check"></i><b>6.5.1</b> The Gapminder dataset</a></li>
+<li class="chapter" data-level="6.5.2" data-path="workflow.html"><a href="workflow.html#structure-and-dimensions"><i class="fa fa-check"></i><b>6.5.2</b> Structure and Dimensions</a></li>
+<li class="chapter" data-level="6.5.3" data-path="workflow.html"><a href="workflow.html#common-alterations"><i class="fa fa-check"></i><b>6.5.3</b> Common alterations</a></li>
+<li class="chapter" data-level="6.5.4" data-path="workflow.html"><a href="workflow.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.5.4</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="6.5.5" data-path="workflow.html"><a href="workflow.html#review-of-subsetting-on-dataframes"><i class="fa fa-check"></i><b>6.5.5</b> Review of subsetting on dataframes</a></li>
+<li class="chapter" data-level="6.5.6" data-path="workflow.html"><a href="workflow.html#basic-plotting"><i class="fa fa-check"></i><b>6.5.6</b> Basic plotting</a></li>
+<li class="chapter" data-level="6.5.7" data-path="workflow.html"><a href="workflow.html#challenges-10"><i class="fa fa-check"></i><b>6.5.7</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PLSC 31101: Introduction To Computational Tools And Techniques For Social Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="workflow" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Workflow</h1>
+<p>One day…</p>
+<ul>
+<li>you will need to quit R, go do something else, and return to your analysis the next day.</li>
+<li>you will be working on multiple projects simultaneously, and you want to keep them separate.</li>
+<li>you will need to bring data from the outside world into R, and send numerical results and figures from R back out into the world.</li>
+</ul>
+<p>This unit teaches these topics.</p>
+<div id="setting-up-a-workflow-with-rstudio" class="section level2">
+<h2><span class="header-section-number">6.1</span> Setting up a workflow with RStudio</h2>
+<div id="store-analyses-in-scripts-not-workspaces." class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Store analyses in scripts, not workspaces.</h3>
+<p>R Studio automatically preserves your workspace (environment and command history) when you quit R, and re-loads it the next session. I recommend you turn this behavior off.</p>
+<div class="figure">
+<img src="img/rstudio-workspace.png" />
+
+</div>
+<p>This will cause you some short-term pain, because now when you restart RStudio, it will not remember the results of the code that you ran last time. But this short-term pain will save you long-term agony, because it forces you to capture all important interactions in your scripts.</p>
+</div>
+<div id="working-directories-and-paths" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Working Directories and Paths</h3>
+<p>Like many programming languages, R has a powerful notion of the <strong>working directory</strong>. This is where R looks for files that you ask it to load, and where it will put any files that you ask it to save.</p>
+<p>RStudio shows your current working directory at the top of the console. You can print this out in R code by running <code>getwd()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<pre><code>## [1] &quot;/Users/rochelleterman/Google Drive/Teaching/PLSC_31101/site1&quot;</code></pre>
+<p>I do not recommend it, but you can set the working directory from within R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;/path/to/my/CoolProject&quot;</span>)</code></pre></div>
+<p>The command above prints out a <strong>path</strong> to your working directory. Think of a path as an address. Paths are incredibly important in programming, but can be a little tricky. So let’s go into a big more detail.</p>
+<div id="absolute-paths." class="section level4 unnumbered">
+<h4>Absolute paths.</h4>
+<p>Absolute paths are paths that point to the same place regardless of your current working directory. They always start with the <strong>root directory</strong> that holds everything else on your computer.</p>
+<ul>
+<li>In Windows, absolute paths start with a drive letter (e.g. <code>C:</code>) or two backslashes (e.g. <code>\\servername</code>).</li>
+<li>In Mac/Linux they start with a slash <code>/</code>. This is the leading alsh in <code>/users/rterman</code>.</li>
+</ul>
+<p>Inside the root directory are several other directories, which we call <strong>subdirectories</strong>. We know that the directory <code>/home/rterman</code> is stored inside <code>/home</code> because <code>/home</code> is the first part of its name. Similarly, we know that <code>/home</code> is stored inside the root directory <code>/</code> because its name begins with <code>/</code>.</p>
+<blockquote>
+<p>Notice that there are two meanings for the <code>/</code> character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears <em>inside</em> a name, it’s just a separator.</p>
+</blockquote>
+</div>
+<div id="maclinux-vs.windows" class="section level4 unnumbered">
+<h4>Mac/Linux vs. Windows</h4>
+<p>There are two basic styles of paths: Mac/Linux and Windows. The main difference is how you separate the components of the path. Mac and Linux uses slashes (e.g. <code>plots/diamonds.pdf</code>) and Windows uses backslashes (e.g. <code>plots\diamonds.pdf</code>).</p>
+<p>R can work with either type, no matter what platform you’re currently using. Unfortunately, backslashes mean something special to R, and to get a single backslash in the path, you need to type two backslashes! That makes life frustrating, so I recommend always using the Linux/Mac style with forward slashes.</p>
+</div>
+<div id="home-directory" class="section level4 unnumbered">
+<h4>Home Directory</h4>
+<p>Sometimes you’ll see a <code>~</code> character in a path. * In Mac/Linux, the <code>~</code> is a convenient shortcut to your <strong>home directory</strong> (<code>/users/rterman</code>). * Windows doesn’t really have the notion of a home directory, so it usually points to your documents directory (<code>C:\Documents</code> and <code>Settings\rterman</code>)</p>
+</div>
+<div id="absolute-vs.relative-paths" class="section level4 unnumbered">
+<h4>Absolute vs. Relative Paths</h4>
+<p>You should try not to use absolute paths in your scripts, because they hinder sharing: no one else will have exactly the same directory configuration as you. Another way to direct R to something is to give it a <strong>relative pth</strong>.</p>
+<p>Relative paths point to something relatively to where we are, rather than from the root of the file system. For example, if our current working directory is <code>/home/rterman</code>, then the relatively path <code>data/un.csv</code> directs to the full absolute path: <code>/home/rterman/data/un.csv</code></p>
+</div>
+</div>
+<div id="r-projects" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> R Projects</h3>
+<p>As a beginning R user, it’s OK to let your home directory, documents directory, or any other weird directory on your computer be R’s working directory.</p>
+<p>But from this point forward, you should be organizing your projects into dedicated subdirectories, containing all the files associated with a project — input data, R scripts, results, figures.</p>
+<p>This is such a common practice that RStudio has built-in support for this via <strong>projects</strong>.</p>
+<p>Let’s make a project togeteher. Click <code>File &gt; New Project</code>, then:</p>
+<p>~<a href="rstudio-project-1.png"></a></p>
+<p>Think carefully about which subdirectory you put the project in. If you don’t store it somewhere sensible, it will be hard to find it in the future!</p>
+<p>Once this process is complete, you’ll get a new RStudio project. Check that the “home” directory of your project is the current working directory:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<pre><code>## [1] &quot;/Users/rochelleterman/Google Drive/Teaching/PLSC_31101/site1&quot;</code></pre>
+<p>Now ehenever you refer to a file with a relative path, it will look for it there.</p>
+<p>Go ahead and create an new R script and save it inside the project folder.</p>
+<p>Quit RStudio. Inspect the folder associated with your project — notice the .Rproj file. Double-click that file to re-open the project. Notice you get back to where you left off: it’s the same working directory and command history, and all the files you were working on are still open. Because you followed my instructions above, you will, however, have a completely fresh environment, guaranteeing that you’re starting with a clean slate.</p>
+</div>
+<div id="file-organization" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> File Organization</h3>
+<p>You should be saving all your files associated with your project in one directory. Here’s a basic organization structure that I recommend:</p>
+<div class="sourceCode"><pre class="sourceCode md"><code class="sourceCode markdown">~~~
+masters_thesis:
+  masters_thesis.Rproj
+  01_Clean.R
+  02_Model.R
+  03_Visualizations.R
+  Data/
+<span class="bn">    raw/</span>
+<span class="bn">      un-raw.csv</span>
+<span class="bn">      worldbank-raw.csv</span>
+<span class="bn">    cleaned/</span>
+<span class="bn">      country-year.csv</span>
+  Results:
+<span class="bn">    regressions</span>
+<span class="bn">      h1.txt</span>
+<span class="bn">      h2.txt</span>
+<span class="bn">    figures</span>
+<span class="bn">      bivariate.pdf</span>
+<span class="bn">      bar_plot.pdf</span>
+~~~</code></pre></div>
+<p>Here are some important tips:</p>
+<ul>
+<li>read raw data in from the <code>Data</code> subdirectory. Don’t ever change or overwrite the raw data!</li>
+<li>export cleaned and altered data into a separate directory.</li>
+<li>write separate scripts for each stage in the research pipeline. Keep scripts short and focused on one main purpose. If a script gets too long, that might be a sign you need to split it up.</li>
+<li>write scripts that reproduce your results and figures, and write them in the <code>Results</code> subdirectory.</li>
+</ul>
+<div id="acknowledgements" class="section level4 unnumbered">
+<h4>Acknowledgements</h4>
+<p>This page is in part derived from the following sources:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://r4ds.had.co.nz">R for Data Science</a> licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0</a></li>
+</ol>
+</div>
+<div id="more-resources" class="section level4 unnumbered">
+<h4>More Resources</h4>
+<ul>
+<li><a href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf">Gentzkow, Matthew and Jesse M. Shapiro. 2014. Code and Data for the Social Sciences: A Practitioner’s Guide.</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div id="introduction-to-data" class="section level2">
+<h2><span class="header-section-number">6.2</span> Introduction to Data</h2>
+<p>The following weeks will be focused on using R for data cleaning and analysis. Let’s first get on the same page on some terms:</p>
+<ul>
+<li><p>A <strong>variable</strong> is a quantity, quality, or property that you can measure.</p></li>
+<li><p>An <strong>observation</strong> is a set of measurements for the same unit. An observation will contain several values, each associated with a different variable. I’ll sometimes refer to an observation as a <strong>data point</strong> or an <strong>element</strong>.</p></li>
+<li><p>A <strong>value</strong> is the state of a variable for a particular observation.</p></li>
+<li><p><strong>Tabular data</strong> is a set of values, each associated with a variable and an observation. Tabular data has rows (observations) and columns (variables). Also called <em>rectangular</em> data or <em>spreadsheets.</em></p></li>
+</ul>
+<div class="figure">
+<img src="img/tidy-1.png" />
+
+</div>
+<div id="wheres-my-data" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Where’s my data?</h3>
+<p>To start, you first need to know where your data lives. Sometimes, the data is stored as a file on your computer, e.g. csv, Excel, SPSS, or some other file type. When the data is on your computer, we say the data is stored <strong>locally</strong>.</p>
+<p>Data can also stored externally on the Internet, in a package, or obtained through other sources. For example, some R packages contain datasets. The <code>nycflights13</code> package contains information on flights that departed NYC in 2013.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># not run</span>
+<span class="co"># install.packages(&quot;nycflights13&quot;)</span>
+<span class="kw">library</span>(nycflights13)
+<span class="kw">data</span>(flights)
+<span class="kw">names</span>(flights)</code></pre></div>
+<pre><code>##  [1] &quot;year&quot;           &quot;month&quot;          &quot;day&quot;            &quot;dep_time&quot;      
+##  [5] &quot;sched_dep_time&quot; &quot;dep_delay&quot;      &quot;arr_time&quot;       &quot;sched_arr_time&quot;
+##  [9] &quot;arr_delay&quot;      &quot;carrier&quot;        &quot;flight&quot;         &quot;tailnum&quot;       
+## [13] &quot;origin&quot;         &quot;dest&quot;           &quot;air_time&quot;       &quot;distance&quot;      
+## [17] &quot;hour&quot;           &quot;minute&quot;         &quot;time_hour&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(flights)
+<span class="co"># </span></code></pre></div>
+<p>Later in this course, we’ll discuss how to obtain data from the web APIs and websites. For now, the rest of the unit discusses data that is stored <strong>locally</strong>.</p>
+</div>
+<div id="how-should-my-data-be-stored" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> How should my data be stored?</h3>
+<p>Ideally, your data should be stored in a certain file format. I recommend a <code>csv</code> (comma separated value) file, which formats spreadsheet (rectangular) data in a plain-text format. <code>csv</code> files are plain-text, and can be read into almost any statistical software program, including R. Try to avoid Excel files if you can.</p>
+<p>Here are some other tips:</p>
+<ul>
+<li>When working with spreadsheets, the first row is usually reserved for the header, while the first column is used to identify the sampling unit (<strong>unique identifier</strong>, see below.)</li>
+<li>Avoid file names and variable names with blank spaces. This can cause errors when reading in data.</li>
+<li>If you want to concatenate words, inserting a <code>.</code> or <code>_</code> in between to words instead of a space;</li>
+<li>Short names are prefered over longer names;</li>
+<li>Try to avoid using names that contain symbols such as <code>?</code>, <code>$</code>,<code>%</code>, <code>^</code>, <code>&amp;</code>, <code>*</code>, <code>(</code>, <code>)</code>, <code>-</code>, <code>#</code>, <code>?</code>, <code>,</code>, <code>&lt;</code>, <code>&gt;</code>, <code>/</code>, <code>|</code>, <code>\</code>, <code>[</code> ,<code>]</code>,<code>{</code>, and <code>}</code>;</li>
+<li>make sure that any missing values in your data set are indicated with <code>NA</code> or blank fields (don’t use 99 or 77)..</li>
+</ul>
+</div>
+<div id="tidy-data" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> <code>tidy</code> data</h3>
+<p>Datasets in the wild can often be messy. For example, check out the following data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">messy &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">county =</span> <span class="kw">c</span>(<span class="dv">36037</span>, <span class="dv">36038</span>, <span class="dv">36039</span>, <span class="dv">36040</span>, <span class="ot">NA</span> , <span class="dv">37001</span>, <span class="dv">37002</span>, <span class="dv">37003</span>),
+  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>),
+  <span class="dt">cnty_pop =</span> <span class="kw">c</span>(<span class="dv">3817735</span>, <span class="dv">422999</span>, <span class="dv">324920</span>, <span class="dv">143432</span>, <span class="ot">NA</span>, <span class="dv">3228290</span>, <span class="dv">449499</span>, <span class="dv">383888</span>),
+  <span class="dt">state_pop =</span> <span class="kw">c</span>(<span class="dv">43320903</span>, <span class="dv">43320903</span>, <span class="ot">NA</span>, <span class="dv">43320903</span>, <span class="dv">43320903</span>, <span class="dv">7173000</span>, <span class="dv">7173000</span>, <span class="dv">7173000</span>),
+  <span class="dt">region =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>)
+)
+messy</code></pre></div>
+<pre><code>##   county state cnty_pop state_pop region
+## 1  36037    NY  3817735  43320903      1
+## 2  36038    NY   422999  43320903      1
+## 3  36039    NY   324920        NA      1
+## 4  36040  &lt;NA&gt;   143432  43320903      1
+## 5     NA  &lt;NA&gt;       NA  43320903      1
+## 6  37001    VA  3228290   7173000      3
+## 7  37002    VA   449499   7173000      3
+## 8  37003    VA   383888   7173000      4</code></pre>
+<p>What a mess! How can the population of the state of New York be 43 million for one county but “missing” for another? If this is a dataset of counties, what does it mean when the “county” field is missing? If region is something like Census region, how can two counties in the same state be in different regions? And why is it that all the counties whose codes start with 36 are in New York except for one, where the state is unknown?</p>
+<p>The goal should be to put our data in a tidy format. The two most important properties of tidy data are:</p>
+<ol style="list-style-type: decimal">
+<li>Each variable forms a column.</li>
+<li>Each observation forms a row.</li>
+<li>Each type of observational unit forms a table.</li>
+</ol>
+<p>If we follow these principles, our data should look like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">county =</span> <span class="kw">c</span>(<span class="dv">36037</span>, <span class="dv">36038</span>, <span class="dv">36039</span>, <span class="dv">36040</span>, <span class="dv">37001</span>, <span class="dv">37002</span>, <span class="dv">37003</span>),
+  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>),
+  <span class="dt">population =</span> <span class="kw">c</span>(<span class="dv">3817735</span>, <span class="dv">422999</span>, <span class="dv">324920</span>, <span class="dv">143432</span>, <span class="dv">3228290</span>, <span class="dv">449499</span>, <span class="dv">383888</span>)
+)
+counties</code></pre></div>
+<pre><code>##   county state population
+## 1  36037    NY    3817735
+## 2  36038    NY     422999
+## 3  36039    NY     324920
+## 4  36040    NY     143432
+## 5  37001    VA    3228290
+## 6  37002    VA     449499
+## 7  37003    VA     383888</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&quot;NY&quot;</span>, <span class="st">&quot;VA&quot;</span>),
+  <span class="dt">population =</span> <span class="kw">c</span>(<span class="dv">43320903</span>, <span class="dv">7173000</span>),
+  <span class="dt">region =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)
+)
+states</code></pre></div>
+<pre><code>##   state population region
+## 1    NY   43320903      1
+## 2    VA    7173000      3</code></pre>
+<p>Now the ambiguity is gone. Every county has a population and a state. Every state has a population and a region. There are no missing states, no missing counties, and no conflicting definitions. The database is self-documenting. In fact, the database is now so clear that we can forget about names like county_pop and state_pop and just stick to “population.” Anyone would know which entity’s population you mean.</p>
+<p>We’ll talk more about tidying data in later units.</p>
+</div>
+<div id="relational-data" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Relational data</h3>
+<p>Collectively, multiple tables of data are called <strong>relational data</strong> because it is the relations, not just the individual datasets, that are important. Note that when we say relational database here, we are referring to how the data are structured, not to the use of any fancy software.</p>
+<p>The main principle of relational data is that each table is structured around the same observational unit.</p>
+<ul>
+<li>counties contains data on counties.</li>
+<li>states contains data on states</li>
+</ul>
+<p>County population is a property of a county, so it lives in the county table. State population is a property of a state, so it cannot live in the county table. If we had panel data on counties, we would need separate tables for things that vary at the county level (like state) and things that vary at the county-year level (like population).</p>
+</div>
+<div id="keys" class="section level3">
+<h3><span class="header-section-number">6.2.5</span> Keys</h3>
+<p>The variables used to connect each pair of tables are called <strong>keys</strong>. A key is a variable (or set of variables) that uniquely identifies an observation. Also called a <em>unique identifier</em>.</p>
+<ul>
+<li>Keys are complete. They never take on missing values.</li>
+<li>Keys are unique. They are neer duplicated across rows of a table.</li>
+</ul>
+<p>In simple cases, a single variable is sufficient to identify an observation. In the example above, each county is identified with <strong>county</strong> (a numeric identifier); each state is identified with <strong>state</strong> (a two-letter string).</p>
+<p>There are two types of keys:</p>
+<ul>
+<li><p>A <strong>primary key</strong> uniquely identifies an observation in its own table. For example, <code>counties$county</code> is a primary key because it uniquely identifies each county in the counties table.</p></li>
+<li><p>A <strong>foreign key</strong> uniquely identifies an observation in another table. For example, the counties$state is a foreign key because it appears in the counties table where it matches each county to a unique state.</p></li>
+</ul>
+<p>A primary key and the corresponding foreign key in another table form a <strong>relation</strong>.</p>
+<p>Sometimes a table doesn’t have an explicit primary key: each row is an observation, but no combination of variables reliably identifies it. If a table lacks a primary key, it’s useful to add one.</p>
+<div id="acknowledgements-1" class="section level4 unnumbered">
+<h4>Acknowledgements</h4>
+<p>This page is in part derived from the following sources:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://r4ds.had.co.nz">R for Data Science</a> licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0</a></p></li>
+<li><p><a href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf">Gentzkow, Matthew and Jesse M. Shapiro. 2014. Code and Data for the Social Sciences: A Practitioner’s Guide.</a></p></li>
+</ol>
+
+</div>
+</div>
+</div>
+<div id="importing-data-into-r" class="section level2">
+<h2><span class="header-section-number">6.3</span> Importing data into R</h2>
+<div id="find-paths-first." class="section level4">
+<h4><span class="header-section-number">6.3.0.1</span> Find paths first.</h4>
+<p>In order to import (or read) data into R, you first have to know where it is, and how to find it.</p>
+<p>First, remember that you’ll need to know the <em>current working directory</em> so that you know where R is looking for files. If you’re using R Projects, that working directory will be the top-level directory of the project.</p>
+<p>Second, you’ll need to know where the data file is, relative to your working directory. If it’s stored in the <code>Data/raw/</code> folder, the relative path to your file will be <code>Data/raw/file-name.csv</code></p>
+</div>
+<div id="reading-tabular-data" class="section level4">
+<h4><span class="header-section-number">6.3.0.2</span> Reading Tabular Data</h4>
+<p>The workhorse for reading into a data frame is <em>read.table()</em>, which allows any separator (CSV, tab-delimited, etc.). <em>read.csv()</em> is a special case of <em>read.table()</em> for CSV files.</p>
+<p>The basic formula is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Basic CSV read: Import data with header row, values separated by &quot;,&quot;, decimals as &quot;.&quot;</span>
+mydataset&lt;-<span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;  &quot;</span>, <span class="dt">stringsAsFactors=</span>)</code></pre></div>
+<p>Here’s a practical example, using the polityVI dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#import polity</span>
+polity &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/polity.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)
+<span class="co"># take a quick peek</span>
+<span class="kw">head</span>(polity) <span class="co"># first 6 rows</span></code></pre></div>
+<pre><code>##     cyear ccode scode     country year flag fragment democ autoc polity
+## 1 7001800   700   AFG Afghanistan 1800    0       NA     1     7     -6
+## 2 7001801   700   AFG Afghanistan 1801    0       NA     1     7     -6
+## 3 7001802   700   AFG Afghanistan 1802    0       NA     1     7     -6
+## 4 7001803   700   AFG Afghanistan 1803    0       NA     1     7     -6
+## 5 7001804   700   AFG Afghanistan 1804    0       NA     1     7     -6
+## 6 7001805   700   AFG Afghanistan 1805    0       NA     1     7     -6
+##   polity2 durable xrreg xrcomp xropen xconst parreg parcomp exrec exconst
+## 1      -6      NA     3      1      1      1      3       3     1       1
+## 2      -6      NA     3      1      1      1      3       3     1       1
+## 3      -6      NA     3      1      1      1      3       3     1       1
+## 4      -6      NA     3      1      1      1      3       3     1       1
+## 5      -6      NA     3      1      1      1      3       3     1       1
+## 6      -6      NA     3      1      1      1      3       3     1       1
+##   polcomp prior emonth eday eyear eprec interim bmonth bday byear bprec
+## 1       6    NA     NA   NA    NA    NA      NA      1    1  1800     1
+## 2       6    NA     NA   NA    NA    NA      NA     NA   NA    NA    NA
+## 3       6    NA     NA   NA    NA    NA      NA     NA   NA    NA    NA
+## 4       6    NA     NA   NA    NA    NA      NA     NA   NA    NA    NA
+## 5       6    NA     NA   NA    NA    NA      NA     NA   NA    NA    NA
+## 6       6    NA     NA   NA    NA    NA      NA     NA   NA    NA    NA
+##   post change d4 sf regtrans
+## 1   -6     88  1 NA       NA
+## 2   NA     NA NA NA       NA
+## 3   NA     NA NA NA       NA
+## 4   NA     NA NA NA       NA
+## 5   NA     NA NA NA       NA
+## 6   NA     NA NA NA       NA</code></pre>
+<p>We use <code>stringsAsFactors = F</code> in order to treat text columns as character vectors, not as factors. If we don’t set this, the default is that all non-numerical columns will be encoded as factors. This behavior usually makes poor sense, and is due to historical reasons. At one point in time, factors were faster than character vectors, so R’s <code>read.table()</code> set the default to read in text as factors. <code>read.table()</code> has a number of other options:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># For importing tabular data with maximum customizeability</span>
+mydataset&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span>, <span class="dt">header=</span>, <span class="dt">sep=</span>, <span class="dt">quote=</span>, <span class="dt">dec=</span>, <span class="dt">fill=</span>, <span class="dt">stringsAsFactors=</span>)</code></pre></div>
+</div>
+<div id="reading-excel-files." class="section level4">
+<h4><span class="header-section-number">6.3.0.3</span> Reading Excel files.</h4>
+<p>Don’t use Microsoft Excel file (.xls or .xlsx). But if you must:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make sure you have installed the tidyverse suite (only necessary one time)</span>
+<span class="co"># install.packages(&quot;tidyverse&quot;) # Not Run</span>
+
+<span class="co"># Load the &quot;readxl&quot; package (necessary every new R session)</span>
+<span class="kw">library</span>(readxl)</code></pre></div>
+<p><code>read_excel()</code> reads both <code>xls</code> and <code>xlsx</code> files and detects the format from the extension.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Basic call</span>
+mydataset &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="dt">path =</span> , <span class="dt">sheet =</span> <span class="st">&quot;)</span></code></pre></div>
+<p>Here’s a real example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example with .xlsx (single sheet)</span>
+air &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/airline_small.xlsx&quot;</span>, <span class="dt">sheet =</span> <span class="dv">1</span>) 
+air[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</code></pre></div>
+<pre><code>## # A tibble: 5 x 5
+##    Year Month DayofMonth DayOfWeek DepTime
+##   &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;  
+## 1  2005    11         22         2 1700   
+## 2  2008     1         31         4 2216   
+## 3  2005     7         17         7 905    
+## 4  2008     9         23         2 859    
+## 5  2005     3          5         6 827</code></pre>
+</div>
+<div id="reading-stata-.dta-files" class="section level4">
+<h4><span class="header-section-number">6.3.0.4</span> Reading Stata (.dta) files</h4>
+<p>There are many ways to read <code>.dta</code> files into R. I recommend using <code>haven</code> because it is part of the <code>tidyverse.</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(haven)
+air.dta &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span class="st">&quot;data/airline_small.dta&quot;</span>) 
+air[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</code></pre></div>
+<pre><code>## # A tibble: 5 x 5
+##    Year Month DayofMonth DayOfWeek DepTime
+##   &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;  
+## 1  2005    11         22         2 1700   
+## 2  2008     1         31         4 2216   
+## 3  2005     7         17         7 905    
+## 4  2008     9         23         2 859    
+## 5  2005     3          5         6 827</code></pre>
+</div>
+<div id="for-really-big-data" class="section level4">
+<h4><span class="header-section-number">6.3.0.5</span> For really big data</h4>
+<p>If you have really big data, <code>read.csv()</code> will be too slow. In these cases, check out the following options:</p>
+<p>1.) <code>read_csv()</code> in the <code>readr</code> package is a faster, more helpful drop-in replacement for <code>read.csv()</code> that plays well with tidyverse packages (discussed in future lessons). 2) the <code>data.table</code> package is great for reading and manipulating large datasets (orders of gigabytes or 10s of gigabytes)</p>
+</div>
+</div>
+<div id="exporting-data" class="section level2">
+<h2><span class="header-section-number">6.4</span> Exporting data</h2>
+<p>You should never go from raw data to results in one script. Typically, you’ll want to import raw data, clean it, and then export that cleaned dataset onto your computer. That cleaned dataset will then be imported into another script for analysis, in a modular fashion.</p>
+<p>To export (or write) data from R onto your computer, you can create individual <code>.csv</code> files, or export many data objects into an <code>.RData</code> object.</p>
+<div id="writing-a-csv-spreadsheet." class="section level4">
+<h4><span class="header-section-number">6.4.0.1</span> Writing a <code>csv</code> spreadsheet.</h4>
+<p>To export an individual dataframe as a spreadsheet, use <code>write.csv()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Basic call</span>
+<span class="kw">write.csv</span>(<span class="dt">x =</span> , <span class="dt">file =</span> , <span class="dt">row.names =</span> , <span class="dt">col.names =</span>)</code></pre></div>
+<p>Let’s write the <code>air</code> dataset as a csv.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Basic call</span>
+<span class="kw">write.csv</span>(air, <span class="st">&quot;data/airlines.csv&quot;</span>, <span class="dt">row.names =</span> F)</code></pre></div>
+</div>
+<div id="packaging-data-into-.rdata" class="section level4">
+<h4><span class="header-section-number">6.4.0.2</span> Packaging data into .RData</h4>
+<p>Sometimes, it’s helpful to write several dataframes at once, to be used in later analysis. To do so, we use the <code>save()</code> function to create one file containing many R data objects.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Basic call</span>
+<span class="kw">save</span>(..., <span class="dt">file =</span> )</code></pre></div>
+<p>Here’s how we can write both <code>air</code> and <code>polity</code> into one file.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save</span>(air, polity, <span class="dt">file =</span> <span class="st">&quot;data/datasets.RData&quot;</span>)</code></pre></div>
+<p>We can then read these datasets back into R using <code>load()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clear environment</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+<span class="co"># load datasets</span>
+<span class="kw">load</span>(<span class="st">&quot;data/datasets.RData&quot;</span>)</code></pre></div>
+
+</div>
+</div>
+<div id="exploring-data" class="section level2">
+<h2><span class="header-section-number">6.5</span> Exploring Data</h2>
+<div id="the-gapminder-dataset" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> The Gapminder dataset</h3>
+<p>This lessons discusses how to perform basic exploratory data analysis.</p>
+<p>For this unit, we’ll be working with the “Gapminder” dataset, which is excerpt of the data available at Gapminder.org. For each of 142 countries, the data provides values for life expectancy, GDP per capita, and population, every five years, from 1952 to 2007.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)</code></pre></div>
+</div>
+<div id="structure-and-dimensions" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Structure and Dimensions</h3>
+<p>The very first thing we want to know about a dataset are its dimensions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get number of rows and columns:</span>
+<span class="kw">dim</span>(gap)</code></pre></div>
+<pre><code>## [1] 1704    6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># see column names</span>
+<span class="kw">names</span>(gap)</code></pre></div>
+<pre><code>## [1] &quot;country&quot;   &quot;year&quot;      &quot;pop&quot;       &quot;continent&quot; &quot;lifeExp&quot;   &quot;gdpPercap&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># see structure of data</span>
+<span class="kw">str</span>(gap)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    1704 obs. of  6 variables:
+##  $ country  : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; ...
+##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+##  $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+##  $ continent: chr  &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; ...
+##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+##  $ gdpPercap: num  779 821 853 836 740 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># take a quick peek of the first 6 rows</span>
+<span class="kw">head</span>(gap)</code></pre></div>
+<pre><code>##       country year      pop continent lifeExp gdpPercap
+## 1 Afghanistan 1952  8425333      Asia  28.801  779.4453
+## 2 Afghanistan 1957  9240934      Asia  30.332  820.8530
+## 3 Afghanistan 1962 10267083      Asia  31.997  853.1007
+## 4 Afghanistan 1967 11537966      Asia  34.020  836.1971
+## 5 Afghanistan 1972 13079460      Asia  36.088  739.9811
+## 6 Afghanistan 1977 14880372      Asia  38.438  786.1134</code></pre>
+</div>
+<div id="common-alterations" class="section level3">
+<h3><span class="header-section-number">6.5.3</span> Common alterations</h3>
+<p>There are some very common alterations researchs make on their data: changing column names, assigning NA values, changing column type.</p>
+<p>Note that we will be cover how to perform these functions using <code>tidyverse</code> later in the course. However, these lines are very common, so it’s good to know how they work.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change column names</span>
+<span class="kw">names</span>(gap)</code></pre></div>
+<pre><code>## [1] &quot;country&quot;   &quot;year&quot;      &quot;pop&quot;       &quot;continent&quot; &quot;lifeExp&quot;   &quot;gdpPercap&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(gap) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;pop&quot;</span>, <span class="st">&quot;continent&quot;</span>, <span class="st">&quot;life.exp&quot;</span>, <span class="st">&quot;gdp.percap&quot;</span>)
+<span class="kw">str</span>(gap)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    1704 obs. of  6 variables:
+##  $ country   : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; ...
+##  $ year      : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+##  $ pop       : num  8425333 9240934 10267083 11537966 13079460 ...
+##  $ continent : chr  &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; ...
+##  $ life.exp  : num  28.8 30.3 32 34 36.1 ...
+##  $ gdp.percap: num  779 821 853 836 740 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># apply NA values</span>
+gap<span class="op">$</span>life.exp[gap<span class="op">$</span>life.exp <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> ] &lt;-<span class="st"> </span><span class="ot">NA</span>
+
+<span class="co"># change `continent` to factor</span>
+<span class="kw">summary</span>(gap<span class="op">$</span>continent)</code></pre></div>
+<pre><code>##    Length     Class      Mode 
+##      1704 character character</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap<span class="op">$</span>continent &lt;-<span class="st"> </span><span class="kw">as.factor</span>(gap<span class="op">$</span>continent)
+<span class="kw">summary</span>(gap<span class="op">$</span>continent)</code></pre></div>
+<pre><code>##   Africa Americas     Asia   Europe  Oceania 
+##      624      300      396      360       24</code></pre>
+</div>
+<div id="descriptive-statistics" class="section level3">
+<h3><span class="header-section-number">6.5.4</span> Descriptive statistics</h3>
+<p>We can get quick summary statistics using <code>summary</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># quickly summarize all columns</span>
+<span class="kw">summary</span>(gap)</code></pre></div>
+<pre><code>##    country               year           pop               continent  
+##  Length:1704        Min.   :1952   Min.   :6.001e+04   Africa  :624  
+##  Class :character   1st Qu.:1966   1st Qu.:2.794e+06   Americas:300  
+##  Mode  :character   Median :1980   Median :7.024e+06   Asia    :396  
+##                     Mean   :1980   Mean   :2.960e+07   Europe  :360  
+##                     3rd Qu.:1993   3rd Qu.:1.959e+07   Oceania : 24  
+##                     Max.   :2007   Max.   :1.319e+09                 
+##     life.exp       gdp.percap      
+##  Min.   :23.60   Min.   :   241.2  
+##  1st Qu.:48.20   1st Qu.:  1202.1  
+##  Median :60.71   Median :  3531.8  
+##  Mean   :59.47   Mean   :  7215.3  
+##  3rd Qu.:70.85   3rd Qu.:  9325.5  
+##  Max.   :82.60   Max.   :113523.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># quickly summarize a particular column</span>
+<span class="kw">summary</span>(gap<span class="op">$</span>year)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1952    1966    1980    1980    1993    2007</code></pre>
+<p>Sometimes we need to do some basic checking for the number of observations or types of observations in our dataset. To do this quickly and easily, <code>table()</code> is our friend.</p>
+<p>Let’s look the number of observations by region.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s look the number of observations by region.</span>
+<span class="kw">table</span>(gap<span class="op">$</span>continent)</code></pre></div>
+<pre><code>## 
+##   Africa Americas     Asia   Europe  Oceania 
+##      624      300      396      360       24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s look the number of observations by region and year</span>
+<span class="kw">table</span>(gap<span class="op">$</span>continent, gap<span class="op">$</span>year)</code></pre></div>
+<pre><code>##           
+##            1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 2002 2007
+##   Africa     52   52   52   52   52   52   52   52   52   52   52   52
+##   Americas   25   25   25   25   25   25   25   25   25   25   25   25
+##   Asia       33   33   33   33   33   33   33   33   33   33   33   33
+##   Europe     30   30   30   30   30   30   30   30   30   30   30   30
+##   Oceania     2    2    2    2    2    2    2    2    2    2    2    2</code></pre>
+<p>We can even divide by the total number of rows to get proportion, percent, etc.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(gap<span class="op">$</span>continent)<span class="op">/</span><span class="kw">nrow</span>(gap)</code></pre></div>
+<pre><code>## 
+##     Africa   Americas       Asia     Europe    Oceania 
+## 0.36619718 0.17605634 0.23239437 0.21126761 0.01408451</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(gap<span class="op">$</span>continent)<span class="op">/</span><span class="kw">nrow</span>(gap)<span class="op">*</span><span class="dv">100</span></code></pre></div>
+<pre><code>## 
+##    Africa  Americas      Asia    Europe   Oceania 
+## 36.619718 17.605634 23.239437 21.126761  1.408451</code></pre>
+</div>
+<div id="review-of-subsetting-on-dataframes" class="section level3">
+<h3><span class="header-section-number">6.5.5</span> Review of subsetting on dataframes</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract first 10 rows</span>
+gap[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ]</code></pre></div>
+<pre><code>##        country year      pop continent life.exp gdp.percap
+## 1  Afghanistan 1952  8425333      Asia   28.801   779.4453
+## 2  Afghanistan 1957  9240934      Asia   30.332   820.8530
+## 3  Afghanistan 1962 10267083      Asia   31.997   853.1007
+## 4  Afghanistan 1967 11537966      Asia   34.020   836.1971
+## 5  Afghanistan 1972 13079460      Asia   36.088   739.9811
+## 6  Afghanistan 1977 14880372      Asia   38.438   786.1134
+## 7  Afghanistan 1982 12881816      Asia   39.854   978.0114
+## 8  Afghanistan 1987 13867957      Asia   40.822   852.3959
+## 9  Afghanistan 1992 16317921      Asia   41.674   649.3414
+## 10 Afghanistan 1997 22227415      Asia   41.763   635.3414</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract county year for first 10 rows</span>
+gap[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="kw">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>)]</code></pre></div>
+<pre><code>##        country year
+## 1  Afghanistan 1952
+## 2  Afghanistan 1957
+## 3  Afghanistan 1962
+## 4  Afghanistan 1967
+## 5  Afghanistan 1972
+## 6  Afghanistan 1977
+## 7  Afghanistan 1982
+## 8  Afghanistan 1987
+## 9  Afghanistan 1992
+## 10 Afghanistan 1997</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract observations in Africa</span>
+africa &lt;-<span class="st"> </span>gap[gap<span class="op">$</span>continent<span class="op">==</span><span class="st">&quot;Africa&quot;</span>,]
+
+<span class="co"># Find average life expectancy for observations in Africa</span>
+<span class="kw">mean</span>(gap<span class="op">$</span>life.exp[gap<span class="op">$</span>continent<span class="op">==</span><span class="st">&quot;Africa&quot;</span>])</code></pre></div>
+<pre><code>## [1] 48.86533</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(africa<span class="op">$</span>life.exp)</code></pre></div>
+<pre><code>## [1] 48.86533</code></pre>
+</div>
+<div id="basic-plotting" class="section level3">
+<h3><span class="header-section-number">6.5.6</span> Basic plotting</h3>
+<p>We’ll go into plotting in greater detail soon, but let’s tough on 2 common graphs. First, a scatterplot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># scatterplot of life.exp ad gdp.percap</span>
+<span class="kw">plot</span>(gap<span class="op">$</span>life.exp <span class="op">~</span><span class="st"> </span>gap<span class="op">$</span>gdp.percap)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
+<p>Finally, let’s quickly take a look at a histogram of the variable <code>nyt.count</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a histogram of the variable `life.exp`:</span>
+<span class="kw">hist</span>(gap<span class="op">$</span>life.exp, <span class="dt">breaks =</span> <span class="dv">100</span>)</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-171-1.png" width="672" /></p>
+</div>
+<div id="challenges-10" class="section level3">
+<h3><span class="header-section-number">6.5.7</span> Challenges</h3>
+<ol style="list-style-type: decimal">
+<li><p>Read the <code>polity</code> dataset.</p></li>
+<li><p>Report the number and names of each variable in the dataset.</p></li>
+<li><p>Extract the 5th row from the polity dataset.</p></li>
+<li><p>Extract the last row from the polity dataset.</p></li>
+<li><p>Count the percentage of obesrvations with a value of <code>polity2</code> greater than 8 in the gapminder dataset (hint: if using sum(), read the help file..</p></li>
+<li><p>Set all of the values of <code>democ</code> and <code>autac</code> columns less than -10 to NA. (Hint: You should first copy the <code>polity</code> object and work on the copy so that the original dataset is unchanged (or just read the data into R again afterwards to get a clean copy).</p></li>
+</ol>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="subsetting.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["site1.pdf", "site1.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
