@@ -1,0 +1,135 @@
+---
+title: "Introduction to Datasets"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+
+## Introduction to Data
+
+The following weeks will be focused on using R for data cleaning and analysis. Let's first get on the same page on some terms:
+
+* A **variable** is a quantity, quality, or property that you can measure.
+
+* An **observation** is a set of measurements for the same unit. An observation will contain several values, each associated with a different variable. I’ll sometimes refer to an observation as a **data point** or an **element**.
+
+* A **value** is the state of a variable for a particular observation. 
+
+* **Tabular data** is a set of values, each associated with a variable and an observation. Tabular data has rows (observations)  and columns (variables). Also called *rectangular* data or *spreadsheets.* 
+
+![](img/tidy-1.png)
+
+### Where's my data?
+
+To start, you first need to know where your data lives. Sometimes, the data is stored as a file on your computer, e.g. csv, Excel, SPSS, or some other file type. When the data is on your computer, we say the data is stored **locally**.
+
+Data can also stored externally on the Internet, in a package, or obtained through other sources. For example, some R packages contain datasets. The `nycflights13` package contains information on flights that departed NYC in 2013.
+
+```{r message=FALSE}
+# not run
+# install.packages("nycflights13")
+library(nycflights13)
+data(flights)
+names(flights)
+rm(flights)
+# 
+```
+
+Later in this course, we'll discuss how to obtain data from the web APIs and websites. For now, the rest of the unit discusses data that is stored **locally**.
+
+### Data storage
+
+Ideally, your data should be stored in a certain file format. I recommend a `csv` (comma separated value) file, which formats spreadsheet (rectangular) data in a plain-text format. `csv` files are plain-text, and can be read into almost any statistical software program, including R. Try to avoid Excel files if you can. 
+
+Here are some other tips:
+
+* When working with spreadsheets, the first row is usually reserved for the header, while the first column is used to identify the sampling unit (**unique identifier**, see below.)
+* Avoid file names and variable names with blank spaces. This can cause errors when reading in data.
+* If you want to concatenate words, inserting a `.` or `_` in between to words instead of a space;
+* Short names are prefered over longer names;
+* Try to avoid using names that contain symbols such as `?`, `$`,`%`, `^`, `&`, `*`, `(`, `)`, `-`, `#`, `?`, `,`, `<`, `>`, `/`, `|`, `\`, `[` ,`]`,`{`, and `}`;
+* make sure that any missing values in your data set are indicated with `NA` or blank fields (don't use 99 or 77)..
+
+### `tidy` data
+
+Datasets in the wild can often be messy. For example, check out the following data. 
+
+```{r}
+messy <- data.frame(
+  county = c(36037, 36038, 36039, 36040, NA , 37001, 37002, 37003),
+  state = c('NY', 'NY', 'NY', NA, NA, 'VA', 'VA', 'VA'),
+  cnty_pop = c(3817735, 422999, 324920, 143432, NA, 3228290, 449499, 383888),
+  state_pop = c(43320903, 43320903, NA, 43320903, 43320903, 7173000, 7173000, 7173000),
+  region = c(1, 1, 1, 1, 1, 3, 3, 4)
+)
+messy
+
+```
+
+What a mess! How can the population of the state of New York be 43 million for one county but "missing" for another? If this is a dataset of counties, what does it mean when the "county" field is missing? If region is something like Census region, how can two counties in the same state be in different regions? And why is it that all the counties whose codes start with 36 are in New York except for one, where the state is unknown?
+
+The goal should be to put our data in a tidy format. The two most important properties of tidy data are:
+
+1. Each variable forms a column.
+2. Each observation forms a row.
+3. Each type of observational unit forms a table.
+
+If we follow these principles, our data should look like:
+
+```{r}
+counties <- data.frame(
+  county = c(36037, 36038, 36039, 36040, 37001, 37002, 37003),
+  state = c('NY', 'NY', 'NY', 'NY', 'VA', 'VA', 'VA'),
+  population = c(3817735, 422999, 324920, 143432, 3228290, 449499, 383888)
+)
+counties
+
+states <- data.frame(
+  state = c("NY", "VA"),
+  population = c(43320903, 7173000),
+  region = c(1, 3)
+)
+states
+```
+
+Now the ambiguity is gone. Every county has a population and a state. Every state has a population and a region. There are no missing states, no missing counties, and no conflicting definitions. The database is self-documenting. In fact, the database is now so clear that we can forget about names like county_pop and state_pop and just stick to "population." Anyone would know which entity’s population you mean.
+
+We'll talk more about tidying data in later units.
+
+### Relational data
+
+Collectively, multiple tables of data are called **relational data** because it is the relations, not just the individual datasets, that are important. Note that when we say relational database here, we are referring to how the data are structured, not to the use of any fancy software. 
+
+The main principle of relational data is that each table is structured around the same observational unit. 
+
+* counties contains data on counties.
+* states contains data on states
+
+County population is a property of a county, so it lives in the county table. State population is a property of a state, so it cannot live in the county table. If we had panel data on counties, we would need separate tables for things that vary at the county level (like state) and things that vary at the county-year level (like population).
+
+### Keys
+
+The variables used to connect each pair of tables are called **keys**. A key is a variable (or set of variables) that uniquely identifies an observation. Also called a *unique identifier*. 
+
+* Keys are complete. They never take on missing values.
+* Keys are unique. They are neer duplicated across rows of a table.
+
+In simple cases, a single variable is sufficient to identify an observation. In the example above, each county is identified with **county** (a numeric identifier); each state is identified with **state** (a two-letter string).
+
+There are two types of keys:
+
+* A **primary key** uniquely identifies an observation in its own table. For example, `counties$county` is a primary key because it uniquely identifies each county in the counties table.
+
+* A **foreign key** uniquely identifies an observation in another table. For example, the counties$state is a foreign key because it appears in the counties table where it matches each county to a unique state.
+
+A primary key and the corresponding foreign key in another table form a **relation**.
+
+Sometimes a table doesn’t have an explicit primary key: each row is an observation, but no combination of variables reliably identifies it. If a table lacks a primary key, it's useful to add one.
+
+#### Acknowledgements {-}
+
+This page is in part derived from the following sources:
+
+1. [R for Data Science](https://r4ds.had.co.nz) licensed under [Creative Commons Attribution-NonCommercial-NoDerivs 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/)
+
+2. [Gentzkow, Matthew and Jesse M. Shapiro. 2014. Code and Data for the Social Sciences: A Practitioner’s Guide.](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf)

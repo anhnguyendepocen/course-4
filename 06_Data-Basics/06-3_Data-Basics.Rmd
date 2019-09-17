@@ -1,0 +1,146 @@
+---
+title: "Exploring Data"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+
+## Exploring Data
+
+### The Gapminder dataset
+
+This lessons discusses how to perform basic exploratory data analysis.
+
+For this unit, we'll be working with the "Gapminder" dataset, which is excerpt of the data available at Gapminder.org. For each of 142 countries, the data  provides values for life expectancy, GDP per capita, and population, every five years, from 1952 to 2007.
+
+```{r}
+gap <- read.csv("data/gapminder.csv", stringsAsFactors = F)
+```
+
+### Structure and Dimensions
+
+The very first thing we want to know about a dataset are its dimensions and basic structure. For instance we can look at the number of rows and columns: 
+
+```{r}
+# get number of rows and columns:
+dim(gap)
+```
+
+We might also want to see the names of the columns:
+
+```{r}
+# see column names
+names(gap)
+```
+
+The `str` function is helpful to see an overview of the data's structure:
+```{r}
+# see structure of data
+str(gap)
+```
+
+Finally, I encourage you to actually peak at the data itself. The `head` function displays the first 6 rows of any dataframe.
+```{r}
+head(gap)
+```
+
+### Common alterations
+
+There are some very common alterations researchs make on their data: changing column names, assigning NA values, changing column type.
+
+Note that we will be cover how to perform these functions using `tidyverse` later in the course. However, these lines are very common, so it's good to know how they work:
+
+1. change column names
+```{r}
+names(gap)
+names(gap) <- c("country", "year", "pop", "continent", "life.exp", "gdp.percap")
+str(gap)
+```
+
+2. Change some values to `NA`
+```{r}
+gap$life.exp[gap$life.exp < 0 ] <- NA
+```
+
+3. Coerce columns to a specific type. For instance, let's change `continent` from character to factor.
+```{r}
+summary(gap$continent)
+gap$continent <- as.factor(gap$continent)
+summary(gap$continent)
+```
+
+### Summary statistics 
+
+We can get quick summary statistics using `summary`. Passing the entire dataframe will summarize all columns:
+```{r}
+summary(gap)
+```
+
+Passing a column with summarize that particular column:
+```{r}
+summary(gap$year)
+```
+
+Sometimes we need to do some basic checking for the number of observations or types of observations in our dataset. To do this quickly and easily, `table()` is our friend. 
+
+Let's look the number of observations first by region, and then by both region and year.
+
+```{r}
+table(gap$continent)
+
+table(gap$continent, gap$year)
+```
+
+We can even divide by the total number of rows to get proportion, percent, etc.
+
+```{r}
+table(gap$continent)/nrow(gap)
+table(gap$continent)/nrow(gap)*100
+```
+
+### Review of subsetting
+
+We learned about subsetting in the previous lesson. Let's do a quick review here:
+
+```{r}
+# Extract first 10 rows
+gap[1:10, ]
+
+# Extract county year for first 10 rows
+gap[1:10, c("country", "year")]
+
+# Extract observations in Africa
+africa <- gap[gap$continent=="Africa",]
+
+# Find average life expectancy for observations in Africa
+mean(gap$life.exp[gap$continent=="Africa"])
+mean(africa$life.exp)
+```
+
+### Basic plotting
+
+We'll go into plotting in greater detail soon, but let's tough on 2 common graphs. First, a scatterplot:
+
+```{r}
+plot(gap$life.exp ~ gap$gdp.percap)
+```
+
+Finally, let's quickly take a look at a histogram of the variable `nyt.count`:
+
+```{r}
+hist(gap$life.exp, breaks = 100)
+```
+
+### Challenges
+1) Read the `polity` dataset. 
+
+2) Report the number and names of each variable in the dataset.
+
+3) Extract the 5th row from the polity dataset.
+
+4) Extract the last row from the polity dataset.
+
+5) Count the percentage of obesrvations with a value of `polity2` greater than 8 in the gapminder dataset (hint: if using sum(), read the help file..
+
+6) Set all of the values of `democ` and `autac` columns less than -10 to NA. (Hint: You should first copy the `polity` object and work on the copy so that the original dataset is unchanged (or just read the data into R again afterwards to get a clean copy).
+
