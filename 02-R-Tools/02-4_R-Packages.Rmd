@@ -1,0 +1,56 @@
+---
+title: "R Packages"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+
+## Packages
+
+The best part about R are its user-contributed packages (also called "libraries"). A _library_ is a collection of functions that can be used by other programs. May also contain data. Library's contents are supposed to be related, but there's no way to enforce that.
+
+### Installing Packages
+
+Using packages requires two steps.
+
+We first download the package from one of the CRAN mirror onto our computer. For this we use  `install.packages("package-name")`. If you have not set a preferred CRAN mirror in your `options()`, then a menu will pop up asking you to choose a location. 
+
+Let's download the package `dplyr`.
+
+```{r eval=F}
+install.packages("dplyr")
+```
+
+If you run into errors later in the course about a function or package not being found, run the `install.packages` function to make sure the package is actually installed. 
+
+**Important**: Once we download the package, we never need to run `install.packages` again (unless we get a new compute.)
+
+### Loading Packages
+
+Once we download the package, we need to load it into our session to use it. It is required at the beginning of each R session. This step is necessary because, if we automatically load every package we have ever downloaded, our computer would fry.
+
+```{r, eval = FALSE}
+library(dplyr)
+```
+
+The message tells you which functions from the dplyr conflict with functions in base R (or from other packages you might have loaded).
+
+### Challenges
+
+Let's go ahead and download some core, important packages we'll use for the rest of the course. Download and load the following packages:
+
+* tidyverse
+* rmarkdown
+* knitr
+* gapminder
+* devtools
+
+#### Acknowledgments
+
+This page is in part derived from the following sources:
+
+1. [R Studio Support](https://support.rstudio.com/hc/en-us/articles/200484448).
+
+2. [Advanced R](https://adv-r.hadley.nz/), licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+3. [R for Data Science](https://r4ds.had.co.nz) licensed under [Creative Commons Attribution-NonCommercial-NoDerivs 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/)

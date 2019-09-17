@@ -1,0 +1,127 @@
+---
+title: "R Markdown"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+
+## R Markdown
+
+Throughout this course, we'll be using [R Markdown](http://rmarkdown.rstudio.com>) for lecture notes and homework assignments. R Markdown documents combine executable code, results, and prose commentary into one document. Think of R Markdown files as modern day lab notebook, where you can capture not only what you did, but also what you were thinking.
+
+The filename should end in `.Rmd` or `.rmd`. They can also be converted to an output format, like PDF, HTML, slideshows, Word files, and more. 
+
+R Markdown documents contain three important types of content:
+
+1. An (optional) YAML header surrounded by `---`s.
+2. Chunks of R code surrounded by ` ``` `.
+3. Text mixed with simple text formatting like `# heading` and `_italics_`.
+
+### YAML header
+
+YAML stands for "yet another markup language". R Markdown uses it to control many details of the output.
+
+```{md}
+---
+title: "Homework 1"
+author: "Rochelle Terman"
+date: "Fall 2019"
+output: html_document
+---
+```
+
+In this example, we specified the document's title, author, and date; we also specified that we want it to eventually convert it into an HTML document.
+
+### Markdown
+
+Prose in `.Rmd` files is written in Markdown, a lightweight set of conventions for formatting plain text files. Markdown is designed to be easy to read and easy to write. It is also very easy to learn. The guide below shows how to use Pandoc’s Markdown, a slightly extended version of Markdown that R Markdown understands.
+
+```{md}
+Text formatting 
+------------------------------------------------------------
+
+*italic*  or _italic_
+**bold**   __bold__
+`code`
+superscript^2^ and subscript~2~
+
+Headings
+------------------------------------------------------------
+
+# 1st Level Header
+
+## 2nd Level Header
+
+### 3rd Level Header
+
+Lists
+------------------------------------------------------------
+
+*   Bulleted list item 1
+
+*   Item 2
+
+    * Item 2a
+
+    * Item 2b
+
+1.  Numbered list item 1
+
+1.  Item 2. The numbers are incremented automatically in the output.
+
+Links and images
+------------------------------------------------------------
+
+<http://example.com>
+
+[linked phrase](http://example.com)
+
+![optional caption text](path/to/img.png)
+
+Tables 
+------------------------------------------------------------
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+```
+
+The best way to learn these is simply to try them out. It will take a few days, but soon they will become second nature, and you won’t need to think about them. If you forget, you can get to a handy reference sheet with Help > Markdown Quick Reference.
+
+### Code Chunks
+
+To run code inside an R Markdown document, you do it inside a "chunk". Think of a chunk like a function. A chunk should be relatively self-contained, and focussed around a single task.
+
+Chunks begin with a header which consists of ` ```{r,` followed by an optional chunk name, followed by comma separated options, followed by `}`. Next comes your R code and the chunk end is indicated by a final ` ```.`
+
+You can continue to run the code using the keyboard shortcut that we learned earlier: `Cmd/Ctrl + Enter`. You can also run the entire chunk by clicking the Run icon (it looks like a play button at the top of the chunk), or by pressing `Cmd/Ctrl + Shift + Enter`.
+
+RStudio executes the code and displays the results inline with the code:
+
+![](img/r-markdown.png)
+
+### Knitting
+
+To produce a complete report containing all text, code, and results, click the "Knit" button (looks like a ball of yarn) or press `Cmd/Ctrl + Shift + K`. This will display the report in the viewer pane, and create a self-contained HTML file that you can share with others. The `.html` file is written in the same directory as your `.Rmd` file.
+
+### Cheatsheets and other Resources
+
+When working in RStudio, you can find an R Markdown cheatsheet by going to Help > Cheatsheets > R Markdown Cheat Sheet. 
+
+A helpful overview of R Markdown can also be found in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
+
+A deep dive into R Markdown can be found [here](https://bookdown.org/yihui/rmarkdown/)
+
+#### Challenges
+
+1. Create a new R Markdown document with *File > New File > R Markdown...* Read the instructions. Practice running the chunks. Verify that you can modify the code, re-run it, and see modified output.
+
+2. Knit the document into an html file. Verify that you can modify the input and see the output update.
+
+#### Acknowledgments
+
+This page is in part derived from the following sources:
+
+1. [R for Data Science](https://r4ds.had.co.nz) licensed under [Creative Commons Attribution-NonCommercial-NoDerivs 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/)
+
