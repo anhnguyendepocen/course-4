@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  16 SEP 2019 21:25
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  16 SEP 2019 21:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1414,108 +1414,95 @@ dia.org/assets/img/sprite-81a290a5.svg);background"[]
 [242] [243]
 File: img/nytimes_key.png Graphic file (type bmp)
 <img/nytimes_key.png>
-[244] [245] [246] [247]
-
-Package natbib Warning: Citation `ProfLupton' on page 248 undefined on input li
-ne 13026.
-
-[248] [249]
-
-Package natbib Warning: Citation `colgateuniv' on page 250 undefined on input l
-ine 13111.
-
-
-Package natbib Warning: Citation `CornellPress' on page 250 undefined on input 
-line 13112.
-
-
-Package natbib Warning: Citation `DukeU' on page 250 undefined on input line 13
-112.
-
-[250]
-Underfull \hbox (badness 10000) in paragraph at lines 13203--13204
+[244] [245] [246] [247] [248] [249] [250]
+Underfull \hbox (badness 10000) in paragraph at lines 13197--13198
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
 
-Package natbib Warning: Citation `bentleyballan' on page 251 undefined on input
- line 13213.
+Package natbib Warning: Citation `ProfLupton' on page 251 undefined on input li
+ne 13208.
 
-[251]
-Overfull \hbox (94.01999pt too wide) in paragraph at lines 13247--13248
+[251] [252]
+
+Package natbib Warning: Citation `colgateuniv' on page 253 undefined on input l
+ine 13293.
+
+
+Package natbib Warning: Citation `CornellPress' on page 253 undefined on input 
+line 13294.
+
+
+Package natbib Warning: Citation `DukeU' on page 253 undefined on input line 13
+294.
+
+[253]
+Underfull \hbox (badness 10000) in paragraph at lines 13385--13386
+[][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
+[][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
+ []
+
+
+Package natbib Warning: Citation `bentleyballan' on page 254 undefined on input
+ line 13395.
+
+[254]
+Overfull \hbox (94.01999pt too wide) in paragraph at lines 13429--13430
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][] [] [][][] [] [][][][][][][][]
 [][][] [] [][][][] [] [][] [] [][] [] [][][][][] [] [][][][][][][][][][] [] [][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
  []
 
-[252] [253]
-Underfull \hbox (badness 10000) in paragraph at lines 13387--13388
-[][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
-[][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
- []
-
-[254]
-
-Package natbib Warning: Citation `ColinKahl' on page 255 undefined on input lin
-e 13397.
-
 [255] [256]
-Underfull \hbox (badness 10000) in paragraph at lines 13575--13576
-[][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
-[][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
- []
-
-[257]
-
-Package natbib Warning: Citation `bentleyballan' on page 258 undefined on input
- line 13585.
-
-[258] [259]
-Underfull \hbox (badness 10000) in paragraph at lines 13760--13761
-[][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
-[][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
- []
-
-[260] [261]
-
-Package natbib Warning: Citation `StanfordCISAC' on page 262 undefined on input
- line 13860.
-
-[262] [263]
-Underfull \hbox (badness 10000) in paragraph at lines 13950--13951
+Underfull \hbox (badness 10000) in paragraph at lines 13569--13570
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
 
-Package natbib Warning: Citation `ProfPaulPoast' on page 264 undefined on input
- line 13960.
+Package natbib Warning: Citation `ColinKahl' on page 257 undefined on input lin
+e 13579.
 
-[264]
-Missing character: There is no 👇 in font [lmroman10-regular]:mapping=tex-text;!
+[257] [258] [259]
+Underfull \hbox (badness 10000) in paragraph at lines 13757--13758
+[][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
+[][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
+ []
 
-Package natbib Warning: Citation `UChicago' on page 265 undefined on input line
- 14046.
+[260]
 
+Package natbib Warning: Citation `bentleyballan' on page 261 undefined on input
+ line 13767.
 
-Package natbib Warning: Citation `ChicagoCouncil' on page 265 undefined on inpu
-t line 14047.
+[261] [262]
+Underfull \hbox (badness 10000) in paragraph at lines 13942--13943
+[][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
+[][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
+ []
 
+[263] [264]
 
-Package natbib Warning: Citation `CornellPress' on page 265 undefined on input 
-line 14048.
+Package natbib Warning: Citation `StanfordCISAC' on page 265 undefined on input
+ line 14042.
 
 [265] [266]
-Underfull \hbox (badness 10000) in paragraph at lines 14138--14139
+Underfull \hbox (badness 10000) in paragraph at lines 14132--14133
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
 File: site1_files/figure-latex/unnamed-chunk-424-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-424-1.pdf>
-[267] [268] [269] [270] [271]
-Overfull \vbox (0.56287pt too high) detected at line 14494
+[267] [268] [269] [270]
+Underfull \vbox (badness 10000) detected at line 14424
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[271]
+Overfull \vbox (0.56287pt too high) detected at line 14488
  []
 
 [272]
@@ -1530,7 +1517,7 @@ File: img/html.png Graphic file (type bmp)
 File: img/layout.png Graphic file (type bmp)
 <img/layout.png>
 
-Overfull \vbox (0.30711pt too high) detected at line 14612
+Overfull \vbox (0.30711pt too high) detected at line 14606
  []
 
 [275]
@@ -1559,12 +1546,12 @@ Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 15162.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 15156.
 [287]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 15162.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 15156.
 (./site1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 15162.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 15162
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 15156.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 15156
 .
 Package rerunfilecheck Info: File `site1.out' has not changed.
 (rerunfilecheck)             Checksum: 6EBCCEE7E9C427D8E297DEC7A62B2C5B.
