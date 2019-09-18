@@ -7,9 +7,9 @@ output: html_document
 
 ## R Markdown
 
-Throughout this course, we'll be using [R Markdown](http://rmarkdown.rstudio.com>) for lecture notes and homework assignments. R Markdown documents combine executable code, results, and prose commentary into one document. Think of R Markdown files as modern day lab notebook, where you can capture not only what you did, but also what you were thinking.
+Throughout this course, we'll be using [R Markdown](http://rmarkdown.rstudio.com>) for lecture notes and homework assignments. R Markdown documents combine executable code, results, and prose commentary into one document. Think of an R Markdown files as a modern day lab notebook, where you can capture not only what you did, but also what you were thinking.
 
-The filename should end in `.Rmd` or `.rmd`. They can also be converted to an output format, like PDF, HTML, slideshows, Word files, and more. 
+The filename of an R Markdown document should end in `.Rmd` or `.rmd`. They can also be converted to an output format, like PDF, HTML, slideshows, Word files, and more. 
 
 R Markdown documents contain three important types of content:
 
@@ -91,7 +91,7 @@ The best way to learn these is simply to try them out. It will take a few days, 
 
 ### Code Chunks
 
-To run code inside an R Markdown document, you do it inside a "chunk". Think of a chunk like a function. A chunk should be relatively self-contained, and focussed around a single task.
+To run code inside an R Markdown document, you do it inside a "chunk". Think of a chunk like a function. A chunk should be relatively self-contained, and focused around a single task.
 
 Chunks begin with a header which consists of ` ```{r,` followed by an optional chunk name, followed by comma separated options, followed by `}`. Next comes your R code and the chunk end is indicated by a final ` ```.`
 
@@ -103,9 +103,9 @@ RStudio executes the code and displays the results inline with the code:
 
 ### Knitting
 
-To produce a complete report containing all text, code, and results, click the "Knit" button (looks like a ball of yarn) or press `Cmd/Ctrl + Shift + K`. This will display the report in the viewer pane, and create a self-contained HTML file that you can share with others. The `.html` file is written in the same directory as your `.Rmd` file.
+To produce a complete report containing all text, code, and results, click the "Knit" button at the top of the script editor (looks like a ball of yarn) or press `Cmd/Ctrl + Shift + K`. This will display the report in the viewer pane, and create a self-contained HTML file that you can share with others. The `.html` file is written in the same directory as your `.Rmd` file.
 
-### Cheatsheets and other Resources
+### Cheatsheets and Other Resources
 
 When working in RStudio, you can find an R Markdown cheatsheet by going to Help > Cheatsheets > R Markdown Cheat Sheet. 
 
@@ -113,13 +113,13 @@ A helpful overview of R Markdown can also be found in [R for Data Science](https
 
 A deep dive into R Markdown can be found [here](https://bookdown.org/yihui/rmarkdown/)
 
-#### Challenges
+#### Challenges {-}
 
 1. Create a new R Markdown document with *File > New File > R Markdown...* Read the instructions. Practice running the chunks. Verify that you can modify the code, re-run it, and see modified output.
 
 2. Knit the document into an html file. Verify that you can modify the input and see the output update.
 
-#### Acknowledgments
+#### Acknowledgments {-}
 
 This page is in part derived from the following sources:
 
