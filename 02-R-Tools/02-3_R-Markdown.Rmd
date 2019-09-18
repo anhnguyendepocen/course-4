@@ -113,7 +113,7 @@ A helpful overview of R Markdown can also be found in [R for Data Science](https
 
 A deep dive into R Markdown can be found [here](https://bookdown.org/yihui/rmarkdown/)
 
-#### Challenges {-}
+### Challenges
 
 1. Create a new R Markdown document with *File > New File > R Markdown...* Read the instructions. Practice running the chunks. Verify that you can modify the code, re-run it, and see modified output.
 
