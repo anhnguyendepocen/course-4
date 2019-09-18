@@ -5,15 +5,15 @@ date: "Fall 2019"
 output: html_document
 ---
 
-## Packages
+## R Packages
 
-The best part about R are its user-contributed packages (also called "libraries"). A _library_ is a collection of functions that can be used by other programs. May also contain data. Library's contents are supposed to be related, but there's no way to enforce that.
+The best part about R are its user-contributed packages (also called "libraries"). A _library_ is a collection of functions (and sometimes data) that can be used by other programers. A library's contents are supposed to be related, but this isn't always the case as there is no enforcement on the issue.
 
 ### Installing Packages
 
 Using packages requires two steps.
 
-We first download the package from one of the CRAN mirror onto our computer. For this we use  `install.packages("package-name")`. If you have not set a preferred CRAN mirror in your `options()`, then a menu will pop up asking you to choose a location. 
+First, we download the package from one of the CRAN mirrors onto our computer. For this we use  `install.packages("package-name")`. If you have not set a preferred CRAN mirror in your `options()`, a menu will pop up asking you to choose a location. 
 
 Let's download the package `dplyr`.
 
@@ -23,19 +23,19 @@ install.packages("dplyr")
 
 If you run into errors later in the course about a function or package not being found, run the `install.packages` function to make sure the package is actually installed. 
 
-**Important**: Once we download the package, we never need to run `install.packages` again (unless we get a new compute.)
+**Important**: Once we download the package, we never need to run `install.packages` again (unless we get a new computer.)
 
 ### Loading Packages
 
-Once we download the package, we need to load it into our session to use it. It is required at the beginning of each R session. This step is necessary because, if we automatically load every package we have ever downloaded, our computer would fry.
+Once we download the package, we need to load it into our session to use it. This is required at the beginning of each R session. This step is necessary because if we automatically loaded every package we have ever downloaded, our computer would fry.
 
 ```{r, eval = FALSE}
 library(dplyr)
 ```
 
-The message tells you which functions from the dplyr conflict with functions in base R (or from other packages you might have loaded).
+The message tells you which functions from dplyr conflict with functions in base R (or from other packages you might have loaded).
 
-### Challenges
+#### Challenges {-}
 
 Let's go ahead and download some core, important packages we'll use for the rest of the course. Download and load the following packages:
 
@@ -45,7 +45,7 @@ Let's go ahead and download some core, important packages we'll use for the rest
 * gapminder
 * devtools
 
-#### Acknowledgments
+#### Acknowledgments{-}
 
 This page is in part derived from the following sources:
 
