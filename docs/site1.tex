@@ -125,7 +125,7 @@ Social Research}
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-16}
+    \date{2019-09-18}
 
 \usepackage{booktabs}
 
@@ -555,53 +555,53 @@ use to program in R. We will explore:
   \textbf{\protect\hyperlink{r-studio}{R Studio}}, a tour of the
   Interactive Development Environment RStudio;
 \item
-  \textbf{\protect\hyperlink{r-syntax}{R Syntax}}, describing how R
-  wants you to write commands;
-\item
-  \textbf{{[}R Packages{]}}, extra tools and functionality;
-\item
-  \textbf{\protect\hyperlink{r-markdown}{R Markdown}}, a kind of R
+  \textbf{\protect\hyperlink{r-markdown}{R Markdown}}, a type of R
   script file we'll be working with in this class.
+\item
+  \textbf{\protect\hyperlink{r-packages}{R Packages}}, extra tools and
+  functionalities;
 \end{enumerate}
 
 \hypertarget{what-is-r}{\section{What is R?}\label{what-is-r}}
 
-R is a versatile, open source programming/scripting language that's
-useful both for statistics but also data science. It's inspired by the
+R is a versatile, open source programming and scripting language that's
+useful both for statistics and data science. It's inspired by the
 programming language
 \href{https://en.wikipedia.org/wiki/S_(programming_language)}{\texttt{S}}.
-Some of it's \textbf{best features} are:
+Some of its \textbf{best features} are:
 
 \begin{itemize}
 \item
   It's free, open source, and available on every major platform. As a
-  result, if you do your analysis in R, anyone can easily replicate it.
-\item
-  A massive set of packages for statistical modelling, machine learning,
-  visualisation, and importing and manipulating data. Over 14,000
-  packages are available as of August 2019. Whatever model or graphic
-  you're trying to do, chances are that someone has already tried to do
+  result, if you do your analysis in R, most people can easily replicate
   it.
 \item
-  Designed for statistics and data analysis, but also general-purpose
-  programming.
+  It contains massive set of packages for statistical modelling, machine
+  learning, visualisation, and importing and manipulating data. Over
+  14,000 packages are available as of August 2019. Whatever model or
+  graphic you're trying to do, chances are that someone has already
+  tried to do it (and a package for it exists).
 \item
-  An \href{http://www.rstudio.com/ide/}{Interactive Development
+  It's designed for statistics and data analysis, but also
+  general-purpose programming.
+\item
+  It's an \href{http://www.rstudio.com/ide/}{Interactive Development
   Environment} tailored to the needs of interactive data analysis and
   statistical programming.
 \item
-  Powerful tools for communicating your results. R packages make it easy
-  to produce html or pdf \href{http://yihui.name/knitr/}{reports}, or
-  create \href{http://www.rstudio.com/shiny/}{interactive websites}.
+  It has powerful tools for communicating your results. R packages make
+  it easy to produce html or pdf
+  \href{http://yihui.name/knitr/}{reports}, or create
+  \href{http://www.rstudio.com/shiny/}{interactive websites}.
 \item
-  Large and growing community of peers.
+  A large and growing community of peers.
 \end{itemize}
 
 R also has a number of \textbf{shortcomings}:
 
 \begin{itemize}
 \item
-  Steeper learning curve than SPSS or Stata.
+  It has a steeper learning curve than SPSS or Stata.
 \item
   R is not a particularly fast programming language, and poorly written
   R code can be terribly slow. R is also a profligate user of memory.
@@ -623,10 +623,11 @@ We can use R in a number of ways. For example, we can write R code in a
 plain text editor (like \texttt{textedit} or \texttt{notepad}), and then
 execute the sript using the shell (e.g. \texttt{terminal} in Mac).
 
-But it's not exactly ideal. We can't easily write and edit scripts as we
-go. It's not very pretty. There are no debugging tools. That's why most
-people who use R (or Python, etc) use an ``integrated development
-environment'' or ``interactive development environment'' (IDE).
+But, this isn't exactly ideal for several reasons. We can't easily write
+and edit scripts as we go, it's not very pretty, there are no debugging
+tools, etc. That's why most people who use R (or Python, etc) use an
+``integrated development environment'' or ``interactive development
+environment'' (IDE).
 
 An IDE is a software application that provides comprehensive facilities
 to computer programmers for software development. An IDE normally
@@ -634,7 +635,7 @@ consists of a source code editor, build automation tools and a debugger.
 Some of them come with package managers and other features, too.
 
 The most popular IDE for R is
-\href{https://www.rstudio.com/products/rstudio/}{RStudio}.It includes a
+\href{https://www.rstudio.com/products/rstudio/}{RStudio}. It includes a
 console, syntax-highlighting editor that supports direct code execution,
 as well as tools for plotting, history, debugging and workspace
 management. It's also free and open-source. Yay!
@@ -665,10 +666,10 @@ with a new \texttt{\textgreater{}}-prompt to wait for new commands.
 
 If R is still waiting for you to enter more data because it isn't
 complete yet, the console will show a \texttt{+} prompt. It means that
-you haven't finished entering a complete command. This is because you
+you haven't finished entering a complete command. This happens when you
 have not `closed' a parenthesis or quotation. If you're in RStudio and
 this happens, click inside the console window and press \texttt{Esc};
-this should help you out of trouble.
+this should help get you out of trouble.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -683,7 +684,7 @@ this should help you out of trouble.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Retreiving previous commands: As you work with R you'll often want to
+  Retrieving previous commands: As you work with R you'll often want to
   re-execute a command which you previously entered. Recall previous
   commands using the up and down arrow keys.
 \item
@@ -707,10 +708,10 @@ this should help you out of trouble.
 
 \subsection{Scripts}\label{scripts}
 
-It is better to enter the commands in the script editor, and save the
-script. This way, you have a complete record of what you did, you can
-easily show others how you did it and you can do it again later on if
-needed. Open it up either by clicking the \emph{File} menu, and
+It's better practice to enter commands in the script editor, and save
+the script. This way, you have a complete record of what you did, you
+can easily show others how you did it and you can do it again later on
+if needed. Open it up either by clicking the \emph{File} menu, and
 selecting \emph{New File}, then R script, or using the keyboard shortcut
 Cmd/Ctrl + Shift + N. Now you'll see four panes.
 
@@ -726,11 +727,12 @@ it's a good idea to save your scripts regularly and to back them up.
 
 \subsection{Running code}\label{running-code}
 
-You can copy-paste code from the editor into the console, but there is a
-better way. The key to using the script editor effectively is to
-memorise one of the most important keyboard shortcuts:
+While you certainly can copy-paste code you'd like to run from the
+editor into the console, this workflow is pretty inefficient. The key to
+using the script editor effectively is to memorize one of the most
+important keyboard shortcuts in RStudio:
 \textbf{\texttt{Cmd/Ctrl\ +\ Enter}}. This executes the current R
-expression in the console.
+expression from the script editor in the console.
 
 For example, take the code below. If your cursor is somewhere on the
 first line, pressing \texttt{Cmd/Ctrl\ +\ Enter} will run the complete
@@ -754,9 +756,10 @@ important parts of your code in the script.
 
 \subsection{Comments}\label{comments}
 
-Use \texttt{\#} signs to comment. Comment liberally in your R scripts.
-Anything to the right of a \texttt{\#} is ignored by R. Add a \# to each
-line of comments.
+Use \texttt{\#} signs to add comments within your code chunks, and you
+are encouraged to regularly comment within your code. Anything to the
+right of a \texttt{\#} is ignored by R. Each line of a comment needs to
+begin with a \#.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -772,7 +775,7 @@ line and a cross in the sidebar:
 
 \begin{center}\includegraphics[width=0.7\linewidth]{img/rstudio-diagnostic} \end{center}
 
-Hover over the cross to see what the problem is:
+You can hover over the cross to see what the problem is:
 
 \begin{center}\includegraphics[width=0.7\linewidth]{img/rstudio-diagnostic-tip} \end{center}
 
@@ -791,7 +794,7 @@ Turn your attention to the upper right pane. This pane displays your
 in your current session. Notice that we have the two objects created
 earlier, \texttt{dems}, and \texttt{reps}, along with their values.
 
-We can list all objects in your current environment by running:
+You can list all objects in your current environment by running:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -809,7 +812,7 @@ Sometimes we want to remove objects that we no longer need.
 \end{Highlighting}
 \end{Shaded}
 
-If we want to remove all objects from your current environment, we can
+If you want to remove all objects from your current environment, you can
 run:
 
 \begin{Shaded}
@@ -844,13 +847,13 @@ This page is in part derived from the following sources:
 Throughout this course, we'll be using
 \href{http://rmarkdown.rstudio.com\%3E}{R Markdown} for lecture notes
 and homework assignments. R Markdown documents combine executable code,
-results, and prose commentary into one document. Think of R Markdown
-files as modern day lab notebook, where you can capture not only what
+results, and prose commentary into one document. Think of an R Markdown
+files as a modern day lab notebook, where you can capture not only what
 you did, but also what you were thinking.
 
-The filename should end in \texttt{.Rmd} or \texttt{.rmd}. They can also
-be converted to an output format, like PDF, HTML, slideshows, Word
-files, and more.
+The filename of an R Markdown document should end in \texttt{.Rmd} or
+\texttt{.rmd}. They can also be converted to an output format, like PDF,
+HTML, slideshows, Word files, and more.
 
 R Markdown documents contain three important types of content:
 
@@ -957,7 +960,7 @@ with Help \textgreater{} Markdown Quick Reference.
 
 To run code inside an R Markdown document, you do it inside a ``chunk''.
 Think of a chunk like a function. A chunk should be relatively
-self-contained, and focussed around a single task.
+self-contained, and focused around a single task.
 
 Chunks begin with a header which consists of
 \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r,}
@@ -983,13 +986,13 @@ RStudio executes the code and displays the results inline with the code:
 \subsection{Knitting}\label{knitting}
 
 To produce a complete report containing all text, code, and results,
-click the ``Knit'' button (looks like a ball of yarn) or press
-\texttt{Cmd/Ctrl\ +\ Shift\ +\ K}. This will display the report in the
-viewer pane, and create a self-contained HTML file that you can share
-with others. The \texttt{.html} file is written in the same directory as
-your \texttt{.Rmd} file.
+click the ``Knit'' button at the top of the script editor (looks like a
+ball of yarn) or press \texttt{Cmd/Ctrl\ +\ Shift\ +\ K}. This will
+display the report in the viewer pane, and create a self-contained HTML
+file that you can share with others. The \texttt{.html} file is written
+in the same directory as your \texttt{.Rmd} file.
 
-\subsection{Cheatsheets and other
+\subsection{Cheatsheets and Other
 Resources}\label{cheatsheets-and-other-resources}
 
 When working in RStudio, you can find an R Markdown cheatsheet by going
@@ -1002,7 +1005,8 @@ A helpful overview of R Markdown can also be found in
 A deep dive into R Markdown can be found
 \href{https://bookdown.org/yihui/rmarkdown/}{here}
 
-\subsubsection{Challenges}\label{challenges}
+\subsubsection*{Challenges}\label{challenges}
+\addcontentsline{toc}{subsubsection}{Challenges}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1016,7 +1020,8 @@ A deep dive into R Markdown can be found
   input and see the output update.
 \end{enumerate}
 
-\subsubsection{Acknowledgments}\label{acknowledgments-1}
+\subsubsection*{Acknowledgments}\label{acknowledgments-1}
+\addcontentsline{toc}{subsubsection}{Acknowledgments}
 
 This page is in part derived from the following sources:
 
@@ -1029,21 +1034,22 @@ This page is in part derived from the following sources:
   Commons Attribution-NonCommercial-NoDerivs 3.0}
 \end{enumerate}
 
-\section{Packages}\label{packages}
+\hypertarget{r-packages}{\section{R Packages}\label{r-packages}}
 
 The best part about R are its user-contributed packages (also called
-``libraries''). A \emph{library} is a collection of functions that can
-be used by other programs. May also contain data. Library's contents are
-supposed to be related, but there's no way to enforce that.
+``libraries''). A \emph{library} is a collection of functions (and
+sometimes data) that can be used by other programers. A library's
+contents are supposed to be related, but this isn't always the case as
+there is no enforcement on the issue.
 
 \subsection{Installing Packages}\label{installing-packages}
 
 Using packages requires two steps.
 
-We first download the package from one of the CRAN mirror onto our
+First, we download the package from one of the CRAN mirrors onto our
 computer. For this we use \texttt{install.packages("package-name")}. If
-you have not set a preferred CRAN mirror in your \texttt{options()},
-then a menu will pop up asking you to choose a location.
+you have not set a preferred CRAN mirror in your \texttt{options()}, a
+menu will pop up asking you to choose a location.
 
 Let's download the package \texttt{dplyr}.
 
@@ -1058,13 +1064,13 @@ not being found, run the \texttt{install.packages} function to make sure
 the package is actually installed.
 
 \textbf{Important}: Once we download the package, we never need to run
-\texttt{install.packages} again (unless we get a new compute.)
+\texttt{install.packages} again (unless we get a new computer.)
 
 \subsection{Loading Packages}\label{loading-packages}
 
 Once we download the package, we need to load it into our session to use
-it. It is required at the beginning of each R session. This step is
-necessary because, if we automatically load every package we have ever
+it. This is required at the beginning of each R session. This step is
+necessary because if we automatically loaded every package we have ever
 downloaded, our computer would fry.
 
 \begin{Shaded}
@@ -1073,10 +1079,11 @@ downloaded, our computer would fry.
 \end{Highlighting}
 \end{Shaded}
 
-The message tells you which functions from the dplyr conflict with
-functions in base R (or from other packages you might have loaded).
+The message tells you which functions from dplyr conflict with functions
+in base R (or from other packages you might have loaded).
 
-\subsection{Challenges}\label{challenges-1}
+\subsubsection*{Challenges}\label{challenges-1}
+\addcontentsline{toc}{subsubsection}{Challenges}
 
 Let's go ahead and download some core, important packages we'll use for
 the rest of the course. Download and load the following packages:
@@ -1095,7 +1102,8 @@ the rest of the course. Download and load the following packages:
   devtools
 \end{itemize}
 
-\subsubsection{Acknowledgments}\label{acknowledgments-2}
+\subsubsection*{Acknowledgments}\label{acknowledgments-2}
+\addcontentsline{toc}{subsubsection}{Acknowledgments}
 
 This page is in part derived from the following sources:
 
@@ -1115,7 +1123,7 @@ This page is in part derived from the following sources:
   Commons Attribution-NonCommercial-NoDerivs 3.0}
 \end{enumerate}
 
-\hypertarget{r-syntax}{\chapter{R Syntax}\label{r-syntax}}
+\chapter{R Syntax}\label{r-syntax}
 
 Frustration is natural when you start programming in R, because it is
 such a stickler for punctuation, and even one character out of place

@@ -12,9 +12,9 @@ This unit introduces you to the R programming language, and the tools we use to 
 
 1. **[What is R?]**, a brief introduction to the R language;
 2. **[R Studio]**, a tour of the Interactive Development Environment RStudio;
-3. **[R Syntax]**, an overview of how to write commands in R;
-4. **[R Packages]**, extra tools and functionalities;
-5. **[R Markdown]**, a type of R script file we'll be working with in this class.
+4. **[R Markdown]**, a type of R script file we'll be working with in this class.
+5. **[R Packages]**, extra tools and functionalities;
+
 
 ## What is R?
 
