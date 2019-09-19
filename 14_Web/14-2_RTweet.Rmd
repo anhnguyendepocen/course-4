@@ -32,7 +32,6 @@ Let's go ahead and load `RTweet` along with some other helpful functions:
 library(tidyverse)
 library(rtweet)
 library(lubridate)
-library(ggplot2)
 library(kableExtra)
 ```
 

@@ -39,8 +39,8 @@ On your own computer, type that line of code in the RStudio console, and then pr
 
 We will also be requiring a few other important packages. Run the following line of code to download all of them at once:
 
-```{r}
-install.packages("knitr", "gapminder", "stargazer", "rtweet", "jsonlite", "httr", "rvest"")
+```{r eval = F}
+install.packages("knitr", "gapminder", "stargazer", "rtweet", "jsonlite", "httr", "rvest")
 ```
 
 ## The Bash Shell
