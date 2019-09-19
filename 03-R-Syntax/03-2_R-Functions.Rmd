@@ -29,9 +29,9 @@ unique(my_var)
 
 An *argument* is a value that is *passed* into a function. Every function returns a **result**.
 
-Let’s try using `seq()` which makes regular sequences of numbers and, while we’re at it, learn more helpful features of RStudio. 
+Let’s try using `seq()`, which makes regular sequences of numbers. While we’re at it, we'll learn more helpful features of RStudio. 
 
-Type `se` and hit TAB. A popup shows you possible completions. Specify `seq()` by typing more (a "q) to disambiguate, or by using ↑/↓ arrows to select. Notice the floating tooltip that pops up, reminding you of the function’s arguments and purpose. 
+Type `se` and hit TAB. A popup shows you possible completions. Specify `seq()` by typing more (a "q") to disambiguate, or by using ↑/↓ arrows to select. Notice the floating tooltip that pops up, reminding you of the function’s arguments and purpose. 
 
 Press TAB once more when you’ve selected the function you want. RStudio will add matching opening (`(`) and closing (`)`) parentheses for you. Type the arguments `1, 10` and hit return.
 
@@ -41,16 +41,16 @@ seq(1, 10)
 
 How many arguments did we pass into the `seq` function?
 
-### Store function output
+### Store Function Output
 
-Notice, when we called the `seq` function, that nothing changed in our environment. That's because we didn't save our results to an object. Let's try it again by assigning a variable.
+Notice, when we called the `seq` function, nothing changed in our environment. That's because we didn't save our results to an object. Let's try it again by assigning a variable.
 
 ```{r}
 y <- seq(1, 10)
 y
 ```
 
-### Argument restrictions and defaults
+### Argument Restrictions and Defaults
 
 Let's use another function, called `round`:
 
@@ -75,9 +75,9 @@ round(60.123, digits = 2)
 round(60.123, 2)
 ```
 
-### Documentation and help files
+### Documentation and Help Files
 
-How do we know what kinds of arguments to pass into a functiion? Every built-in function comes with ___documentation__.
+How do we know what kinds of arguments to pass into a function? Every built-in function comes with ___documentation__.
 
 * `?` + object opens a help page for that specific object
 * `??` + object searches help pages containing the name of the object
@@ -89,11 +89,11 @@ How do we know what kinds of arguments to pass into a functiion? Every built-in 
 
 All help files are structured the same way. The section __Arguments__ tells us exactly what kind of information we can pass into a function. The __Value__ section explains what the output of the function is. The __Examples__ contain real examples of the function in use.
 
-### Challenges - Functions
+### Challenges
 
 #### Challenge 1: What Happens When {-}
 
-Explain in simple terms the order of operations in the following program: when does the addition happen, when does the subtraction happen, when is each function called, etc.
+Explain, in simple terms, the order of operations in the following program: when does the addition happen, when does the subtraction happen, when is each function called, etc.
 
 What is the final value of `radiance`?
 
@@ -112,4 +112,4 @@ poor = "tin"
 max(rich, poor)
 ```
 
-Using the help files for `max`, explain why it return the result it does.
+Using the help files for `max`, explain why it returns the result it does.
