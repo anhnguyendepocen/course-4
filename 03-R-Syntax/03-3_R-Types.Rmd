@@ -7,7 +7,7 @@ output: html_document
 
 ## Data Types
 
-Every value in a program has a specific __type__. The R, those types are classes "classes", and there are 4 of them:
+Every value in a program has a specific __type__. In R, those types are called "classes", and there are 4 of them:
 
 * character (text or "string")
 * numeric (integer or decimal)
@@ -21,11 +21,11 @@ Every value in a program has a specific __type__. The R, those types are classes
 | 2 (Must add a `L` at end to denote integer) | integer |
 | `TRUE`, `FALSE` | logical |
 
-### What's that type?
+### What's that Type?
 
-R is a dynamically typed, meaning that it "guesses" what class a value is. 
+R is dynamically typed, meaning that it "guesses" what class a value is. 
 
-Use the build-in function```class()``` to find out what type a value has.
+Use the built-in function```class()``` to find out what type a value has.
 
 ```{r}
 class(3)
@@ -53,10 +53,10 @@ A value's class determines what the program can do to it.
 
 ### Coercion
 
-We just learned we cannot add numbers and strings. Instead, use  `as..` + name of class as functions to convert a value to that type.
+We just learned we cannot subtract numbers and strings. Instead, use  `as..` + name of class as functions to convert a value to that type.
 
 ```{r eval = F}
-3 + as.numeric("1")
+3 - as.numeric("1")
 ```
 
 This is called `coercion`. Here's another example:
@@ -69,7 +69,7 @@ as.logical(my_var)
 
 What difference did you notice?
 
-### Other objects
+### Other Objects
 
 There are a few other "odd ball" types in R:
 
@@ -102,13 +102,13 @@ You can have either positive or negative infinity.
 
 ### Challenges
 
-#### 1: Making and Coercing Variables
+#### Challenge 1: Making and Coercing Variables {-}
 
 1. Make a variable `year` and assign it as the year you were born.
-3. Coerce that variable to a string, and assign it to a new variable `year_string`.
-4 Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only `year_string`
+2. Coerce that variable to a string, and assign it to a new variable `year_string`.
+3. Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only `year_string`
 
-#### 2: Fix the code.
+#### Challenge 2: Fix the Code {-}
 
 Change the following code to make the output TRUE.
 
