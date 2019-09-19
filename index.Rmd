@@ -121,7 +121,7 @@ By the end of the first week, you should install the following software on your 
 
 This requires a computer that can handle all this software. Almost any Mac will do the job. Most Windows machines are fine too if they have enough space and memory.
 
-See [Install Page](install) for more information. We will be having an **InstallFest on Wednesday, Oct 2 from 10am to 12pm**. for those students experiencing difficulties downloading and installing the requisite software. 
+See [Install Page](installation) for more information. We will be having an **InstallFest on Wednesday, Oct 2 from 10am to 12pm**. for those students experiencing difficulties downloading and installing the requisite software. 
 
 #### Readings and Resources {-}
 

@@ -18,11 +18,9 @@ You can even try it out [here](http://developer.nytimes.com/io-docs).
 Load the following packages to get started:
 
 ```{r message=F}
-library(ggplot2)
-library(dplyr)
+library(tidyverse)
 library(httr)
 library(jsonlite)
-library(purrr)
 library(lubridate)
 ```
 
