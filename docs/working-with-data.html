@@ -110,7 +110,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#activities-and-materials"><i class="fa fa-check"></i><b>1.4</b> Activities and Materials</a></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#curriculum-outline-schedule"><i class="fa fa-check"></i><b>1.5</b> Curriculum Outline / Schedule</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.4</b> The Bash Shell</a></li>
+<li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
+<li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.6</b> Other helpful tools</a></li>
+<li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.7</b> Testing your installation</a></li>
+</ul></li>
 <li class="part"><span><b>II Course Notes</b></span></li>
 <li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a><ul>
 <li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#what-is-r"><i class="fa fa-check"></i><b>3.1</b> What is R?</a></li>
@@ -130,7 +138,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.5" data-path="r-basics.html"><a href="r-basics.html#cheatsheets-and-other-resources"><i class="fa fa-check"></i><b>3.3.5</b> Cheatsheets and Other Resources</a></li>
 <li class="chapter" data-level="3.3.6" data-path="r-basics.html"><a href="r-basics.html#challenges"><i class="fa fa-check"></i><b>3.3.6</b> Challenges</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#r-packages"><i class="fa fa-check"></i><b>3.4</b> R Packages</a><ul>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#r-packages-1"><i class="fa fa-check"></i><b>3.4</b> R Packages</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="r-basics.html"><a href="r-basics.html#installing-packages"><i class="fa fa-check"></i><b>3.4.1</b> Installing Packages</a></li>
 <li class="chapter" data-level="3.4.2" data-path="r-basics.html"><a href="r-basics.html#loading-packages"><i class="fa fa-check"></i><b>3.4.2</b> Loading Packages</a></li>
 </ul></li>
@@ -927,10 +935,10 @@ africa &lt;-<span class="st"> </span>gap[gap<span class="op">$</span>continent<s
 <h3><span class="header-section-number">7.4.6</span> Basic plotting</h3>
 <p>We’ll go into plotting in greater detail soon, but let’s tough on 2 common graphs. First, a scatterplot:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(gap<span class="op">$</span>life.exp <span class="op">~</span><span class="st"> </span>gap<span class="op">$</span>gdp.percap)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-205-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-207-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Finally, let’s quickly take a look at a histogram of the variable <code>nyt.count</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(gap<span class="op">$</span>life.exp, <span class="dt">breaks =</span> <span class="dv">100</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-206-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-208-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="challenges-12" class="section level3">
 <h3><span class="header-section-number">7.4.7</span> Challenges</h3>
@@ -989,7 +997,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["site1.pdf", "site1.epub"],
+"download": ["site1.pdf"],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

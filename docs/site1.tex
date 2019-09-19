@@ -557,6 +557,185 @@ Schedule}\label{curriculum-outline-schedule}
 
 \chapter{Installation}\label{installation}
 
+To participate in PLSC 31101, you will need access to the software
+described below.
+
+Once you've installed all of the software below, test your installation
+by following the instructions at the bottom on this page.
+
+\section{R}\label{r}
+
+\href{http://www.r-project.org/}{R} is a programming language that is
+especially powerful for data exploration, visualization, and statistical
+analysis.
+
+To download R, go to \href{https://cran.r-project.org/}{CRAN} (the
+\textbf{C}omprehensive \textbf{R} \textbf{A}rchive \textbf{N}etwork).
+
+A new major version of R comes out once a year, and there are 2-3 minor
+releases each year. It's a good idea to update regularly. Upgrading can
+be a bit of a hassle, especially for major versions, which require you
+to reinstall all your packages, but putting it off only makes it worse.
+
+\section{RStudio}\label{rstudio}
+
+To interact with R, we use RStudio. Please install the latest desktop
+version of \href{http://www.rstudio.com/ide/download/desktop}{RStudio
+IDE}. We will not support RStudio cloud.
+
+\section{R Packages}\label{r-packages}
+
+You'll also need to install some R packages. An R package is a
+collection of functions, data, and documentation that extends the
+capabilities of base R. Using packages is key to the successful use of
+R.
+
+Many of the packages that you will learn in this class are part of the
+so-called \texttt{tidyverse}. The packages in the \texttt{tidyverse}
+share a common philosophy of data and R programming, and are designed to
+work together naturally.
+
+You can install the complete tidyverse with a single line of code in R
+Studio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+On your own computer, type that line of code in the RStudio console, and
+then press enter to run it. R will download the packages from CRAN and
+install them on to your computer. If you have problems installing, make
+sure that you are connected to the internet, and that
+\url{https://cloud.r-project.org/} isn't blocked by your firewall or
+proxy.
+
+We will also be requiring a few other important packages. Run the
+following line of code to download all of them at once:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"knitr"}\NormalTok{, }\StringTok{"gapminder"}\NormalTok{, }\StringTok{"stargazer"}\NormalTok{, }\StringTok{"rtweet"}\NormalTok{, }\StringTok{"jsonlite"}\NormalTok{, }\StringTok{"httr"}\NormalTok{, }\StringTok{"rvest"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{The Bash Shell}\label{the-bash-shell}
+
+Bash is a commonly-used shell that gives you the power to do simple
+tasks more quickly.
+
+\subsubsection*{Windows}\label{windows}
+\addcontentsline{toc}{subsubsection}{Windows}
+
+Install Git for Windows by downloading and running the
+\href{http://msysgit.github.io/}{installer}. This will provide you with
+both Git and Bash in the Git Bash program. \textbf{NOTE}: on the
+\textasciitilde{}6th step of installation, you will need to select the
+option ``Use Windows' default console window'' rather than the default
+of ``Use MinTTY'' in order for nano to work correctly.
+
+After the installer does its thing, it leaves the window open, so that
+you can play with the ``Git Bash''.
+
+Chances are that you want to have an easy way to restart that Git Bash.
+You can install shortcuts in the start menu, on the desktop or in the
+QuickStart bar by calling the script /share/msysGit/add-shortcut.tcl
+(call it without parameters to see a short help text).
+
+\subsubsection*{Mac OS X}\label{mac-os-x}
+\addcontentsline{toc}{subsubsection}{Mac OS X}
+
+The default shell in all versions of Mac OS X is bash, so no need to
+install anything. You access bash from the Terminal (found in
+\texttt{/Applications/Utilities}). You may want to keep Terminal in your
+dock for this class.
+
+\subsubsection*{Linux}\label{linux}
+\addcontentsline{toc}{subsubsection}{Linux}
+
+The default shell is usually Bash, but if your machine is set up
+differently you can run it by opening a terminal and typing bash. There
+is no need to install anything.
+
+\section{Git}\label{git}
+
+Git is a version control system that lets you track who made changes to
+what when and has options for easily updating a shared or public version
+of your code on github.com. You will need a supported web browser
+(current versions of Chrome, Firefox or Safari, or Internet Explorer
+version 9 or above).
+
+\subsubsection*{Windows}\label{windows-1}
+\addcontentsline{toc}{subsubsection}{Windows}
+
+Git should be installed on your computer as part of your Bash install
+(described above).
+
+\subsubsection*{Mac OS X}\label{mac-os-x-1}
+\addcontentsline{toc}{subsubsection}{Mac OS X}
+
+\textbf{For OS X 10.9 and higher}, install Git for Mac by downloading
+and running the most recent ``mavericks'' installer from
+\href{http://sourceforge.net/projects/git-osx-installer/files/}{this
+list}. After installing Git, there will not be anything in your
+\texttt{/Applications} folder, as Git is a command line program.
+\textbf{For older versions of OS X (10.5-10.8)} use the most recent
+available installer labelled ``snow-leopard'' available
+\href{http://sourceforge.net/projects/git-osx-installer/files/}{here}.
+
+\subsubsection*{Linux}\label{linux-1}
+\addcontentsline{toc}{subsubsection}{Linux}
+
+If Git is not already available on your machine you can try to install
+it via your distro's package manager. For Debian/Ubuntu run sudo apt-get
+install git and for Fedora run sudo yum install git.
+
+\section{Other helpful tools}\label{other-helpful-tools}
+
+While not required, I recommend you install the following tools:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \href{https://www.google.com/chrome/}{Google Chrome} is an up-to-date
+  web browser.
+\item
+  \href{https://www.sublimetext.com/3}{Sublime Text} is a free, advanced
+  text editor.
+\end{enumerate}
+
+\section{Testing your installation}\label{testing-your-installation}
+
+If you have trouble with installation, please come to the Installfest on
+\textbf{Wed Oct 2, 10-12 in Pick 411}.
+
+Open a command line window (`terminal' or, on windows, `git bash'), and
+enter the following commands (without the \$ sign):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\ExtensionTok{R}\NormalTok{ --version}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ --version}
+\end{Highlighting}
+\end{Shaded}
+
+If everything has been installed correctly, those commands \emph{should}
+print output version information.
+
+\textbf{NB}: If you're using git bash, the \texttt{R\ -\/-version}
+command may not work. In this case, just make sure you can open up
+RStudio.
+
+Software Carpentry maintains a list of common issues that occur during
+installation may be useful for our class here:
+\href{https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions}{Configuration
+Problems and Solutions wiki page.}
+
+Credit: Thanks to
+\href{http://software-carpentry.org/workshops/}{Software Carpentry} for
+providing installation guidelines.
+
 \part{Course Notes}\label{part-course-notes}
 
 \chapter{R Basics}\label{r-basics}
@@ -577,7 +756,7 @@ use to program in R. We will explore:
   \textbf{\protect\hyperlink{r-markdown}{R Markdown}}, a type of R
   script file we'll be working with in this class.
 \item
-  \textbf{\protect\hyperlink{r-packages}{R Packages}}, extra tools and
+  \textbf{\protect\hyperlink{r-packages-1}{R Packages}}, extra tools and
   functionalities;
 \end{enumerate}
 
@@ -1052,7 +1231,7 @@ This page is in part derived from the following sources:
   Commons Attribution-NonCommercial-NoDerivs 3.0}
 \end{enumerate}
 
-\hypertarget{r-packages}{\section{R Packages}\label{r-packages}}
+\hypertarget{r-packages-1}{\section{R Packages}\label{r-packages-1}}
 
 The best part about R are its user-contributed packages (also called
 ``libraries''). A \emph{library} is a collection of functions (and
@@ -4953,7 +5132,7 @@ common graphs. First, a scatterplot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-205-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-207-1} \end{center}
 
 Finally, let's quickly take a look at a histogram of the variable
 \texttt{nyt.count}:
@@ -4964,7 +5143,7 @@ Finally, let's quickly take a look at a histogram of the variable
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-206-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-208-1} \end{center}
 
 \subsection{Challenges}\label{challenges-12}
 
@@ -9032,7 +9211,7 @@ The \textbf{basic} call takes the following form:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-264-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-266-1} \end{center}
 
 \subsection{Scatter and Line Plots}\label{scatter-and-line-plots}
 
@@ -9052,11 +9231,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-265-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-267-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-265}
+\caption{ }\label{fig:unnamed-chunk-267}
 \end{figure}
 
 \begin{itemize}
@@ -9074,11 +9253,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-266-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-268-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-266}
+\caption{ }\label{fig:unnamed-chunk-268}
 \end{figure}
 
 \begin{itemize}
@@ -9095,11 +9274,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-267-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-269-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-267}
+\caption{ }\label{fig:unnamed-chunk-269}
 \end{figure}
 
 \subsection{Histograms and density
@@ -9113,7 +9292,7 @@ Histograms display the frequency of different values of a variable.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-268-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-270-1} \end{center}
 
 Histograms require a \texttt{break} argument, which determine the number
 of bins in the plot. Let's play around with different \texttt{break}
@@ -9126,7 +9305,7 @@ values.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-269-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-269-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-271-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-271-2} \end{center}
 
 Density plots are similar, they visualises the distribution of data over
 a continuous interval.
@@ -9143,11 +9322,11 @@ a continuous interval.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-270-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-272-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-270}
+\caption{ }\label{fig:unnamed-chunk-272}
 \end{figure}
 
 Density passes a \texttt{bw} parameter, which determins the plot's
@@ -9164,7 +9343,7 @@ Density passes a \texttt{bw} parameter, which determins the plot's
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-271-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-271-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-271-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-273-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-273-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-273-3} \end{center}
 
 \subsection{Labels}\label{labels}
 
@@ -9186,11 +9365,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-273-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-275-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-273}
+\caption{ }\label{fig:unnamed-chunk-275}
 \end{figure}
 
 \subsection{Axis and size scaling}\label{axis-and-size-scaling}
@@ -9224,11 +9403,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-275-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-275-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-275-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-275-4} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-277-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-277-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-277-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-277-4} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-275}
+\caption{ }\label{fig:unnamed-chunk-277}
 \end{figure}
 
 \subsection{Graphical parameters}\label{graphical-parameters}
@@ -9273,11 +9452,11 @@ Color Infographic}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-278-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-278-2} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-2} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-278}
+\caption{ }\label{fig:unnamed-chunk-280}
 \end{figure}
 
 \begin{itemize}
@@ -9306,11 +9485,11 @@ Reference}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-279-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-279-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-279-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-279-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-279-5} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-5} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-279}
+\caption{ }\label{fig:unnamed-chunk-281}
 \end{figure}
 
 \begin{itemize}
@@ -9338,11 +9517,11 @@ Reference}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-6} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-6} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-280}
+\caption{ }\label{fig:unnamed-chunk-282}
 \end{figure}
 
 \subsection{Annotations, reference lines, and
@@ -9367,11 +9546,11 @@ We can add text to an arbitrary point on the graph like this:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-283-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-281}
+\caption{ }\label{fig:unnamed-chunk-283}
 \end{figure}
 
 We can also add labels for every point by passing in a vector of text:
@@ -9391,11 +9570,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-284-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-282}
+\caption{ }\label{fig:unnamed-chunk-284}
 \end{figure}
 
 \begin{itemize}
@@ -9415,11 +9594,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-283-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-285-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-283}
+\caption{ }\label{fig:unnamed-chunk-285}
 \end{figure}
 
 \section{ggplot2}\label{ggplot2}
@@ -9536,7 +9715,7 @@ points:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-1} \end{center}
 
 \subsubsection*{Challenge 1}\label{challenge-1}
 \addcontentsline{toc}{subsubsection}{Challenge 1}
@@ -9568,7 +9747,7 @@ modify is the point \textbf{color}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-1} \end{center}
 
 Normally, specifying options like \texttt{color="red"} or
 \texttt{size=10} for a given layer results in its contents being red and
@@ -9599,7 +9778,7 @@ plot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} \end{center}
 
 Instead of adding a \texttt{geom\_point} layer, we've added a
 \texttt{geom\_line} layer. We've also added the \textbf{by} aesthetic,
@@ -9616,7 +9795,7 @@ can simply add another layer to the plot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-1} \end{center}
 
 It's important to note that each layer is drawn on top of the previous
 layer. In this example, the points have been drawn on top of the lines.
@@ -9630,7 +9809,7 @@ Here's a demonstration:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-1} \end{center}
 
 In this example, the aesthetic mapping of \textbf{color} has been moved
 from the global plot options in ggplot to the \texttt{geom\_line} layer
@@ -9658,7 +9837,7 @@ Labels are considered to be their own layers in ggplot.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-1} \end{center}
 
 So are scales:
 
@@ -9675,7 +9854,7 @@ So are scales:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-1} \end{center}
 
 \subsection{Transformations and Stats}\label{transformations-and-stats}
 
@@ -9689,7 +9868,7 @@ the data. To demonstrate we'll go back to an earlier example:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} \end{center}
 
 We can change the scale of units on the x axis using the \texttt{scale}
 functions. These control the mapping between the data values and visual
@@ -9703,7 +9882,7 @@ values of an aesthetic.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-1} \end{center}
 
 The \texttt{log10} function applied a transformation to the values of
 the \texttt{gdpPercap} column before rendering them on the plot, so that
@@ -9724,7 +9903,7 @@ We can fit a simple relationship to the data by adding another layer,
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-1} \end{center}
 
 Note that we 5 lines, one for each region, because the \textbf{color}
 option is the global \texttt{aes} function.. But if we move it, we get
@@ -9739,7 +9918,7 @@ different restuls:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-302-1} \end{center}
 
 So there are two ways an aesthetic can be specified. Here we set the
 \textbf{color} aesthetic by passing it as an argument to
@@ -9759,7 +9938,7 @@ the geom\_smooth layer:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-1} \end{center}
 
 \subsubsection*{Challenge 3}\label{challenge-3}
 \addcontentsline{toc}{subsubsection}{Challenge 3}
@@ -9790,7 +9969,7 @@ multiple panels by adding a layer of \textbf{facet} panels:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \end{center}
 
 \subsection{Putting it all together}\label{putting-it-all-together}
 
@@ -9812,7 +9991,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-2} \end{center}
 
 \textbf{box plots}
 
@@ -9823,7 +10002,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} \end{center}
 
 This is just a taste of what you can do with ggplot2.
 
@@ -9966,7 +10145,7 @@ distribution
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-315-1} \end{center}
 
 \subsection{Sampling and simulation}\label{sampling-and-simulation}
 
@@ -10263,7 +10442,7 @@ items of interest.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-328-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-328-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-328-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-328-4} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-4} \end{center}
 
 R also has a helpful \texttt{summary} method for regression objects.
 
@@ -10811,7 +10990,7 @@ regression table in LaTeX:
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Mon, Sep 16, 2019 - 21:47:13}
+\CommentTok{#> % Date and time: Thu, Sep 19, 2019 - 14:02:51}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -12838,7 +13017,6 @@ functions:
 \KeywordTok{library}\NormalTok{(tidyverse)}
 \KeywordTok{library}\NormalTok{(rtweet)}
 \KeywordTok{library}\NormalTok{(lubridate)}
-\KeywordTok{library}\NormalTok{(ggplot2)}
 \KeywordTok{library}\NormalTok{(kableExtra)}
 \end{Highlighting}
 \end{Shaded}
@@ -13048,960 +13226,788 @@ profile\_image\_url
 
 805833715
 
-1173787559476027393
+1174460469387681793
 
-1568687736
+1568848170
 
 carsonaust
 
-Highly recommend \url{https://t.co/barlXuvKli}
-
-Twitter Web App
-
-41
-
-NA
-
-NA
-
-NA
-
-FALSE
-
-FALSE
-
-1
-
-0
-
-NA
-
-NA
-
-NA
-
-NA
-
-warontherocks.com/2019/09/cyber-\ldots{}
-
-\url{https://t.co/barlXuvKli}
-
-\url{https://warontherocks.com/2019/09/cyber-war-as-an-intelligence-contest/}
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1173787559476027393}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1835
-
-997
-
-22
-
-1471
-
-2547
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1173782820730355713
-
-1568686606
-
-carsonaust
-
-A lot of these resonate with me -- super useful advice from
-\citet{ProfLupton} \url{https://t.co/WOGtEZzdHg}
-
-Twitter Web App
-
-71
-
-NA
-
-NA
-
-NA
-
-TRUE
-
-FALSE
-
-1
-
-0
-
-NA
-
-NA
-
-NA
-
-NA
-
-twitter.com/ProfLupton/sta\ldots{}
-
-\url{https://t.co/WOGtEZzdHg}
-
-\url{https://twitter.com/ProfLupton/status/1173755388803604480}
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-835958040360792066
-
-ProfLupton
-
-en
-
-1173755388803604480
-
-I've been reflecting a lot on research productivity and time management
-this semester, and reflecting on what has and hasn't worked for me over
-the past 5 years. Here are my thoughts for anyone who is interested: 1/
-\#acwrichat \#academictwitter
-
-1568680066
-
-Twitter Web App
-
-23
-
-6
-
-835958040360792066
-
-ProfLupton
-
-Danielle Lupton
-
-1087
-
-566
-
-1045
-
-Hamilton, NY
-
-Assistant Professor Political Science at \citet{colgateuniv}; Incoming
-Co-Editor of ISP; \citet{CornellPress} Author; \citet{DukeU} PhD;
-International Security, Foreign Policy
-
-FALSE
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1173782820730355713}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1835
-
-997
-
-22
-
-1471
-
-2547
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1173780824002564096
-
-1568686130
-
-carsonaust
-
-\citet{bentleyballan} Well there ya go
-
-\url{https://t.co/xKHPF6v4kH} \url{https://t.co/3O4r4F2B4U}
-
-Twitter Web App
-
-42
-
-1173774848465743873
-
-805833715
-
-carsonaust
-
-FALSE
-
-FALSE
-
-1
-
-0
-
-NA
-
-NA
-
-NA
-
-NA
-
-nytimes.com/interactive/20\ldots{}
-
-\url{https://t.co/xKHPF6v4kH}
-
-\url{https://www.nytimes.com/interactive/2019/09/16/world/middleeast/trump-saudi-arabia-oil-attack.html?action=click\&module=Top\%20Stories\&pgtype=Homepage}
-
-\url{http://pbs.twimg.com/media/EEobb8VXYAItVLR.jpg}
-
-\url{https://t.co/3O4r4F2B4U}
-
-\url{https://twitter.com/carsonaust/status/1173780824002564096/photo/1}
-
-photo
-
-\url{http://pbs.twimg.com/media/EEobb8VXYAItVLR.jpg}
-
-\url{https://t.co/3O4r4F2B4U}
-
-\url{https://twitter.com/carsonaust/status/1173780824002564096/photo/1}
-
-NA
-
-549256590
-
-bentleyballan
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1173780824002564096}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1835
-
-997
-
-22
-
-1471
-
-2547
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1173775301081477123
-
-1568684814
-
-carsonaust
-
-\citet{ColinKahl} I found this line from WSJ article even more
-revealing: ``Saudi Arabia said it was going to invite U.N. experts to
-investigate and would wait for the results before deciding how to
-respond.''
-
-That is a tell. KSA only does this if it wants things to cool down
-first.
-
-Twitter Web App
-
-265
-
-1173742402076495872
-
-475454826
-
-ColinKahl
-
-FALSE
-
-FALSE
-
-8
-
-3
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-475454826
-
-ColinKahl
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1173775301081477123}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1835
-
-997
-
-22
-
-1471
-
-2547
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1173774848465743873
-
-1568684706
-
-carsonaust
-
-\citet{bentleyballan} Totally agree. The evidence we have seen so far is
-anything but smoking gun. The satellite photos a) didn't show explosions
-that were in the direction of Iran and b) assumed strikes were on a
-straight line which seems questionable
-
-Twitter Web App
-
-230
-
-1173771131549028352
-
-549256590
-
-bentleyballan
-
-FALSE
-
-FALSE
-
-3
-
-0
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-549256590
-
-bentleyballan
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1173774848465743873}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1835
-
-997
-
-22
-
-1471
-
-2547
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1173751273335791616
-
-1568679085
-
-carsonaust
-
-This evidence question is going to be very interesting. Legit ambiguity
-right now about Iran's role and that matters a lot for escalation
-dynamics \url{https://t.co/iXJmCTwsoT}
+\citet{AndyLangenkamp} \citet{shifrinson} Wow that's a great question. I
+hadn't thought about the casualties issue but now that you raise it,
+it's conspicuously absent from discussion. Perhaps there were none. But
+if there were, agree it's the kind of thing that makes restraint harder
 
 Twitter for iPhone
 
-146
+243
+
+1174421603733651457
+
+63691059
+
+AndyLangenkamp
+
+FALSE
+
+FALSE
+
+0
+
+0
 
 NA
 
 NA
 
 NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(``63691059'', ``732781150150774784'')
+
+c(``AndyLangenkamp'', ``shifrinson'')
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1174460469387681793}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1859
+
+998
+
+23
+
+1481
+
+2565
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1174399761044168709
+
+1568833696
+
+carsonaust
+
+Pompeo's rhetoric has been downright Bolton-esque
+
+``Pompeo calls attacks on Saudi oil facilities `act of war'\,''
+
+\url{https://t.co/Lvd9OHsDvh}
+
+Twitter for iPhone
+
+136
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+FALSE
+
+2
+
+0
+
+NA
+
+NA
+
+NA
+
+NA
+
+washingtonpost.com/world/middle\_e\ldots{}
+
+\url{https://t.co/Lvd9OHsDvh}
+
+\url{https://www.washingtonpost.com/world/middle_east/iran-warns-us-of-broad-retaliation-in-case-of-any-attack/2019/09/18/35a1275c-d99f-11e9-a1a5-162b8a9c9ca2_story.html}
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1174399761044168709}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1859
+
+998
+
+23
+
+1481
+
+2565
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1174357621048008704
+
+1568823650
+
+carsonaust
+
+I'm thrilled this is out in \citet{INTPOLITSOCIO} ! On Sociability or
+the ``play form of association'' (Simmel). Fostered over food, drink,
+conversation. We all do it. We all need it. But we don't study it. I
+illustrate w/ golfing and boozing in Cold War SEAsia
+\url{https://t.co/1Acv9GYy1a} \url{https://t.co/EhhVY1jKzX}
+
+Twitter Web App
+
+140
+
+NA
+
+NA
+
+NA
+
+FALSE
 
 TRUE
+
+0
+
+6
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(``894135496569270272'', ``826109223239032832'')
+
+c(``DeepakNair01'', ``INTPOLITSOCIO'')
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1174356899568832513
+
+I'm thrilled this is out in \citet{INTPOLITSOCIO} ! On Sociability or
+the ``play form of association'' (Simmel). Fostered over food, drink,
+conversation. We all do it. We all need it. But we don't study it. I
+illustrate w/ golfing and boozing in Cold War SEAsia
+\url{https://t.co/1Acv9GYy1a} \url{https://t.co/EhhVY1jKzX}
+
+1568823478
+
+Twitter Web App
+
+24
+
+6
+
+894135496569270272
+
+DeepakNair01
+
+Deepak Nair
+
+134
+
+321
+
+11
+
+Singapore
+
+Assistant Professor, NUS, Singapore. International Political Sociology,
+Southeast Asia IR, Diplomacy, Political Ethnography, Practice theory,
+Emotions, ASEAN.
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1174357621048008704}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1859
+
+998
+
+23
+
+1481
+
+2565
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1174348448759472128
+
+1568821463
+
+carsonaust
+
+Echoes distinctions made by \citet{shifrinson} in this thread
+\url{https://t.co/0uO9OS3LsO}
+
+Twitter Web App
+
+78
+
+1174348447618670593
+
+805833715
+
+carsonaust
+
+TRUE
+
+FALSE
+
+2
+
+0
+
+NA
+
+NA
+
+NA
+
+NA
+
+twitter.com/shifrinson/sta\ldots{}
+
+\url{https://t.co/0uO9OS3LsO}
+
+\url{https://twitter.com/shifrinson/status/1174302699594145792?s=20}
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+732781150150774784
+
+shifrinson
+
+en
+
+1174302699594145792
+
+A short thread. There's much chatter on how Iran may have responsibility
+for the Saudi attack by (1) launching the attack on its own, (2)
+providing weapons used in attack to a non-state group, or (2.5)
+assisting a group in planning said attack. BLUF: these aren't the same
+thing!
+
+1568810555
+
+Twitter Web App
+
+12
+
+2
+
+732781150150774784
+
+shifrinson
+
+Josh Shifrinson
+
+2878
+
+1783
+
+4059
+
+Assistant Professor, Pardee School of Global Studies, Boston University.
+Tweeting for myself.
+
+Those who forget history are doomed to lather, rinse, and repeat.
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1174348448759472128}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1859
+
+998
+
+23
+
+1481
+
+2565
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1174348447618670593
+
+1568821462
+
+carsonaust
+
+Saudis: Iran \emph{responsible for} attacks but stops short of saying
+Tehran \emph{conducted} them. ``Iran or one of its proxies launched a
+complex assault involving drones and cruise missiles.''
+
+Ambiguity re: who conducted matters for response \&amp; escalation
+
+\url{https://t.co/KKqkxZHZbp}
+
+Twitter Web App
+
+276
+
+NA
+
+NA
+
+NA
+
+FALSE
 
 FALSE
 
 13
 
-3
+2
 
 NA
 
@@ -14011,11 +14017,11 @@ NA
 
 NA
 
-twitter.com/colinkahl/stat\ldots{}
+wsj.com/articles/saudi\ldots{}
 
-\url{https://t.co/iXJmCTwsoT}
+\url{https://t.co/KKqkxZHZbp}
 
-\url{https://twitter.com/colinkahl/status/1173742402076495872}
+\url{https://www.wsj.com/articles/saudi-arabia-holds-iran-responsible-for-oil-attacks-11568820602?mod=hp_lead_pos6}
 
 NA
 
@@ -14039,41 +14045,35 @@ NA
 
 en
 
-1173742402076495872
+NA
 
-Riyadh questions US intelligence indicating attacks on Saudi oil
-infrastructure originated from Iran. Either the intel is indeterminate
-or the Kingdom is more reluctant to step on an escalatory path than Team
-Trump is, or both. \url{https://t.co/CNFIfxAJkQ}
-\url{https://t.co/1RWNtOmhiQ}
+NA
 
-1568676970
+NA
 
-Twitter for iPhone
+NA
 
-156
+NA
 
-126
+NA
 
-475454826
+NA
 
-ColinKahl
+NA
 
-Colin Kahl
+NA
 
-75281
+NA
 
-938
+NA
 
-16562
+NA
 
-Emerald Hills, CA
+NA
 
-``Likely Ops Chief'' of the Echo Chamber. Former DepAsst to Pres Obama
-\& NatSecAdvisor to VP Biden. Now Co-Director \& Steven C. Házy Senior
-Fellow \citet{StanfordCISAC}.
+NA
 
-TRUE
+NA
 
 NA
 
@@ -14123,7 +14123,7 @@ c(NA, NA)
 
 c(NA, NA, NA, NA, NA, NA, NA, NA)
 
-\url{https://twitter.com/carsonaust/status/1173751273335791616}
+\url{https://twitter.com/carsonaust/status/1174348447618670593}
 
 Austin Carson
 
@@ -14137,15 +14137,204 @@ enthusiast
 
 FALSE
 
-1835
+1859
 
-997
+998
 
-22
+23
 
-1471
+1481
 
-2547
+2565
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1174077680448356361
+
+1568756906
+
+carsonaust
+
+1/ \emph{CALL FOR SUBMISSIONS} I am organizing a panel at MPSA ``New
+Directions in the Political Economy of International Security.'' Open to
+methodological approach, time period, region, and issue. Please DM or
+email me a 200-word abstract by Oct 1. Description to follow.
+
+Twitter for iPhone
+
+140
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+TRUE
+
+0
+
+18
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1702865540
+
+mevers90
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1174077492887543813
+
+1/ \emph{CALL FOR SUBMISSIONS} I am organizing a panel at MPSA ``New
+Directions in the Political Economy of International Security.'' Open to
+methodological approach, time period, region, and issue. Please DM or
+email me a 200-word abstract by Oct 1. Description to follow.
+
+1568756862
+
+Twitter for iPhone
+
+21
+
+18
+
+1702865540
+
+mevers90
+
+Miles Murphy Evers
+
+519
+
+1777
+
+23715
+
+Washington, DC
+
+\emph{On the Job Market} Ph.D Candidate, interested in corporate power,
+public opinion, and rogue states. \citet{GWtweets} \citet{starwars}
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1174077680448356361}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1859
+
+998
+
+23
+
+1481
+
+2565
 
 1346896669
 
@@ -14175,7 +14364,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-424-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-426-1} \end{center}
 
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}
 
@@ -14215,17 +14404,17 @@ exclude retweets from the query.
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 667 x 3}
-\CommentTok{#> # Groups:   user_id [667]}
-\CommentTok{#>   user_id             location                           n}
-\CommentTok{#>   <chr>               <chr>                          <int>}
-\CommentTok{#> 1 2561373848          Florida, USA                     102}
-\CommentTok{#> 2 764290456599396353  Rochester, New York               65}
-\CommentTok{#> 3 1022122568004894720 ""                                39}
-\CommentTok{#> 4 1030069194539368448 ""                                38}
-\CommentTok{#> 5 714738130557992960  Chiclana de la Frontera, Spain    20}
-\CommentTok{#> 6 1048404121206714369 ""                                18}
-\CommentTok{#> # ... with 661 more rows}
+\CommentTok{#> # A tibble: 711 x 3}
+\CommentTok{#> # Groups:   user_id [711]}
+\CommentTok{#>   user_id             location                n}
+\CommentTok{#>   <chr>               <chr>               <int>}
+\CommentTok{#> 1 2561373848          Florida, USA          109}
+\CommentTok{#> 2 764290456599396353  Rochester, New York    40}
+\CommentTok{#> 3 1022122568004894720 ""                     33}
+\CommentTok{#> 4 1030069194539368448 ""                     32}
+\CommentTok{#> 5 1260813006          Redmond, WA            20}
+\CommentTok{#> 6 1048404121206714369 ""                     19}
+\CommentTok{#> # ... with 705 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -14251,11 +14440,9 @@ Load the following packages to get started:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(ggplot2)}
-\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
 \KeywordTok{library}\NormalTok{(httr)}
 \KeywordTok{library}\NormalTok{(jsonlite)}
-\KeywordTok{library}\NormalTok{(purrr)}
 \KeywordTok{library}\NormalTok{(lubridate)}
 \end{Highlighting}
 \end{Shaded}
@@ -14421,17 +14608,17 @@ information on the first ten documents:
 \CommentTok{# What's in 'meta'?}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}
 \CommentTok{#> $hits}
-\CommentTok{#> [1] 3884}
+\CommentTok{#> [1] 3885}
 \CommentTok{#> }
 \CommentTok{#> $offset}
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 14}
+\CommentTok{#> [1] 19}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
-\CommentTok{#> [1] 3884}
+\CommentTok{#> [1] 3885}
 
 \CommentTok{# Check out docs}
 \KeywordTok{names}\NormalTok{(response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{docs)}
@@ -14544,7 +14731,7 @@ was published in.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-437-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-439-1} \end{center}
 
 \subsection{More resources}\label{more-resources-1}
 

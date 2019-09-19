@@ -110,7 +110,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#activities-and-materials"><i class="fa fa-check"></i><b>1.4</b> Activities and Materials</a></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#curriculum-outline-schedule"><i class="fa fa-check"></i><b>1.5</b> Curriculum Outline / Schedule</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.4</b> The Bash Shell</a></li>
+<li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
+<li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.6</b> Other helpful tools</a></li>
+<li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.7</b> Testing your installation</a></li>
+</ul></li>
 <li class="part"><span><b>II Course Notes</b></span></li>
 <li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a><ul>
 <li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#what-is-r"><i class="fa fa-check"></i><b>3.1</b> What is R?</a></li>
@@ -130,7 +138,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.5" data-path="r-basics.html"><a href="r-basics.html#cheatsheets-and-other-resources"><i class="fa fa-check"></i><b>3.3.5</b> Cheatsheets and Other Resources</a></li>
 <li class="chapter" data-level="3.3.6" data-path="r-basics.html"><a href="r-basics.html#challenges"><i class="fa fa-check"></i><b>3.3.6</b> Challenges</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#r-packages"><i class="fa fa-check"></i><b>3.4</b> R Packages</a><ul>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#r-packages-1"><i class="fa fa-check"></i><b>3.4</b> R Packages</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="r-basics.html"><a href="r-basics.html#installing-packages"><i class="fa fa-check"></i><b>3.4.1</b> Installing Packages</a></li>
 <li class="chapter" data-level="3.4.2" data-path="r-basics.html"><a href="r-basics.html#loading-packages"><i class="fa fa-check"></i><b>3.4.2</b> Loading Packages</a></li>
 </ul></li>
@@ -408,7 +416,82 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="installation" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Installation</h1>
+<p>To participate in PLSC 31101, you will need access to the software described below.</p>
+<p>Once you’ve installed all of the software below, test your installation by following the instructions at the bottom on this page.</p>
+<div id="r" class="section level2">
+<h2><span class="header-section-number">2.1</span> R</h2>
+<p><a href="http://www.r-project.org/">R</a> is a programming language that is especially powerful for data exploration, visualization, and statistical analysis.</p>
+<p>To download R, go to <a href="https://cran.r-project.org/">CRAN</a> (the <strong>C</strong>omprehensive <strong>R</strong> <strong>A</strong>rchive <strong>N</strong>etwork).</p>
+<p>A new major version of R comes out once a year, and there are 2-3 minor releases each year. It’s a good idea to update regularly. Upgrading can be a bit of a hassle, especially for major versions, which require you to reinstall all your packages, but putting it off only makes it worse.</p>
+</div>
+<div id="rstudio" class="section level2">
+<h2><span class="header-section-number">2.2</span> RStudio</h2>
+<p>To interact with R, we use RStudio. Please install the latest desktop version of <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>. We will not support RStudio cloud.</p>
+</div>
+<div id="r-packages" class="section level2">
+<h2><span class="header-section-number">2.3</span> R Packages</h2>
+<p>You’ll also need to install some R packages. An R package is a collection of functions, data, and documentation that extends the capabilities of base R. Using packages is key to the successful use of R.</p>
+<p>Many of the packages that you will learn in this class are part of the so-called <code>tidyverse</code>. The packages in the <code>tidyverse</code> share a common philosophy of data and R programming, and are designed to work together naturally.</p>
+<p>You can install the complete tidyverse with a single line of code in R Studio:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<p>On your own computer, type that line of code in the RStudio console, and then press enter to run it. R will download the packages from CRAN and install them on to your computer. If you have problems installing, make sure that you are connected to the internet, and that <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a> isn’t blocked by your firewall or proxy.</p>
+<p>We will also be requiring a few other important packages. Run the following line of code to download all of them at once:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;gapminder&quot;</span>, <span class="st">&quot;stargazer&quot;</span>, <span class="st">&quot;rtweet&quot;</span>, <span class="st">&quot;jsonlite&quot;</span>, <span class="st">&quot;httr&quot;</span>, <span class="st">&quot;rvest&quot;</span>)</code></pre></div>
+</div>
+<div id="the-bash-shell" class="section level2">
+<h2><span class="header-section-number">2.4</span> The Bash Shell</h2>
+<p>Bash is a commonly-used shell that gives you the power to do simple tasks more quickly.</p>
+<div id="windows" class="section level4 unnumbered">
+<h4>Windows</h4>
+<p>Install Git for Windows by downloading and running the <a href="http://msysgit.github.io/">installer</a>. This will provide you with both Git and Bash in the Git Bash program. <strong>NOTE</strong>: on the ~6th step of installation, you will need to select the option “Use Windows’ default console window” rather than the default of “Use MinTTY” in order for nano to work correctly.</p>
+<p>After the installer does its thing, it leaves the window open, so that you can play with the “Git Bash”.</p>
+<p>Chances are that you want to have an easy way to restart that Git Bash. You can install shortcuts in the start menu, on the desktop or in the QuickStart bar by calling the script /share/msysGit/add-shortcut.tcl (call it without parameters to see a short help text).</p>
+</div>
+<div id="mac-os-x" class="section level4 unnumbered">
+<h4>Mac OS X</h4>
+<p>The default shell in all versions of Mac OS X is bash, so no need to install anything. You access bash from the Terminal (found in <code>/Applications/Utilities</code>). You may want to keep Terminal in your dock for this class.</p>
+</div>
+<div id="linux" class="section level4 unnumbered">
+<h4>Linux</h4>
+<p>The default shell is usually Bash, but if your machine is set up differently you can run it by opening a terminal and typing bash. There is no need to install anything.</p>
+</div>
+</div>
+<div id="git" class="section level2">
+<h2><span class="header-section-number">2.5</span> Git</h2>
+<p>Git is a version control system that lets you track who made changes to what when and has options for easily updating a shared or public version of your code on github.com. You will need a supported web browser (current versions of Chrome, Firefox or Safari, or Internet Explorer version 9 or above).</p>
+<div id="windows-1" class="section level4 unnumbered">
+<h4>Windows</h4>
+<p>Git should be installed on your computer as part of your Bash install (described above).</p>
+</div>
+<div id="mac-os-x-1" class="section level4 unnumbered">
+<h4>Mac OS X</h4>
+<p><strong>For OS X 10.9 and higher</strong>, install Git for Mac by downloading and running the most recent “mavericks” installer from <a href="http://sourceforge.net/projects/git-osx-installer/files/">this list</a>. After installing Git, there will not be anything in your <code>/Applications</code> folder, as Git is a command line program. <strong>For older versions of OS X (10.5-10.8)</strong> use the most recent available installer labelled “snow-leopard” available <a href="http://sourceforge.net/projects/git-osx-installer/files/">here</a>.</p>
+</div>
+<div id="linux-1" class="section level4 unnumbered">
+<h4>Linux</h4>
+<p>If Git is not already available on your machine you can try to install it via your distro’s package manager. For Debian/Ubuntu run sudo apt-get install git and for Fedora run sudo yum install git.</p>
+</div>
+</div>
+<div id="other-helpful-tools" class="section level2">
+<h2><span class="header-section-number">2.6</span> Other helpful tools</h2>
+<p>While not required, I recommend you install the following tools:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://www.google.com/chrome/">Google Chrome</a> is an up-to-date web browser.</p></li>
+<li><p><a href="https://www.sublimetext.com/3">Sublime Text</a> is a free, advanced text editor.</p></li>
+</ol>
+</div>
+<div id="testing-your-installation" class="section level2">
+<h2><span class="header-section-number">2.7</span> Testing your installation</h2>
+<p>If you have trouble with installation, please come to the Installfest on <strong>Wed Oct 2, 10-12 in Pick 411</strong>.</p>
+<p>Open a command line window (‘terminal’ or, on windows, ‘git bash’), and enter the following commands (without the $ sign):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">R</span> --version
+$ <span class="fu">git</span> --version</code></pre></div>
+<p>If everything has been installed correctly, those commands <em>should</em> print output version information.</p>
+<p><strong>NB</strong>: If you’re using git bash, the <code>R --version</code> command may not work. In this case, just make sure you can open up RStudio.</p>
+<p>Software Carpentry maintains a list of common issues that occur during installation may be useful for our class here: <a href="https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page.</a></p>
+<p>Credit: Thanks to <a href="http://software-carpentry.org/workshops/">Software Carpentry</a> for providing installation guidelines.</p>
 
+</div>
 </div>
 
 
@@ -456,7 +539,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["site1.pdf", "site1.epub"],
+"download": ["site1.pdf"],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

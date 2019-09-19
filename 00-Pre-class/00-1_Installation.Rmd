@@ -19,7 +19,7 @@ To download R, go to [CRAN](https://cran.r-project.org/) (the **C**omprehensive 
 
 A new major version of R comes out once a year, and there are 2-3 minor releases each year. It’s a good idea to update regularly. Upgrading can be a bit of a hassle, especially for major versions, which require you to reinstall all your packages, but putting it off only makes it worse.
 
-## RStudio
+## R Studio
 
 To interact with R, we use RStudio. Please install the latest desktop version of [RStudio IDE](http://www.rstudio.com/ide/download/desktop). We will not support RStudio cloud.
 
@@ -40,7 +40,7 @@ On your own computer, type that line of code in the RStudio console, and then pr
 We will also be requiring a few other important packages. Run the following line of code to download all of them at once:
 
 ```{r eval = F}
-install.packages("knitr", "gapminder", "stargazer", "rtweet", "jsonlite", "httr", "rvest")
+install.packages("rmarkdown", "knitr", "gapminder", "stargazer", "rtweet", "jsonlite", "httr", "rvest")
 ```
 
 ## The Bash Shell
