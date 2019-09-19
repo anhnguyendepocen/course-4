@@ -35,7 +35,7 @@ party_factor
 
 One of your favorite functions in R will be `summary()`. This will give you a quick overview of the contents of a variable. Let's compare using `summary()` on the character vector, and on the factor:
 
-```{r eval = F}
+```{r}
 summary(party_vector)
 summary(party_factor)
 ```
