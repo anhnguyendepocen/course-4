@@ -23,7 +23,7 @@
 }{}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={PLSC 31101: Introduction To Computational Tools And Techniques For Social Research},
+            pdftitle={PLSC 31101: Introduction To Computational Tools And Techniques For Social Science},
             pdfauthor={Rochelle Terman},
             pdfborder={0 0 0},
             breaklinks=true}
@@ -117,7 +117,7 @@
 \setlength{\droptitle}{-2em}
 
   \title{PLSC 31101: Introduction To Computational Tools And Techniques For
-Social Research}
+Social Science}
     \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
     \author{Rochelle Terman}
@@ -125,7 +125,7 @@ Social Research}
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-18}
+    \date{Fall 2019}
 
 \usepackage{booktabs}
 
@@ -157,7 +157,7 @@ Social Research}
   \begin{itemize}
   \tightlist
   \item
-    Rochelle Terman: TBA
+    Rochelle Terman: Tuesdays, 2:30-4:30, Pick 411
   \item
     Pete Cuppernull: TBA
   \end{itemize}
@@ -171,12 +171,12 @@ critical computing skills necessary to conduct research in quantitative
 statistics, computer science, or specialized social science methods.
 Rather, the focus will be on practical skills necessary to be successful
 in further methods work. The first portion of the class introduces
-students to basic computer literacy, terminologies, and programming
-languages, covering Bash, R, and Git. The second part of the course
-provides students the opportunity to use the skills they learned in part
-1 towards practical applications such as webscraping, data collection
-through APIs, automated text analysis, etc. We will assume no prior
-experience with programming or computer science.
+students to basic computer literacy, terminologies, and the R
+programming language. The second part of the course provides students
+the opportunity to use the skills they learned in part 1 towards
+practical applications such as webscraping, data collection through
+APIs, automated text analysis, etc. We will assume no prior experience
+with programming or computer science.
 
 \subsubsection*{Objectives}\label{objectives}
 \addcontentsline{toc}{subsubsection}{Objectives}
@@ -188,10 +188,6 @@ By the end of the course, students should be able to:
 \item
   Understand basic programming terminologies, structures, and
   conventions.
-\item
-  Navigate and operate effectively in a UNIX environment.
-\item
-  Master basic Git and GitHub workflows.
 \item
   Write, execute, and debug R code.
 \item
@@ -205,11 +201,9 @@ By the end of the course, students should be able to:
   Parse and analyze text documents.
 \item
   Be familiar with the concepts and tools of a variety of computational
-  social science applications
+  social science applications.
 \item
-  Be familiar with the basic guidelines around reproducible research,
-  good scientific computing practices, and ethics/privacy/legal
-  quandaries.
+  Master basic Git and GitHub workflows
 \item
   Learn independently and train themselves in a variety of computational
   applications and tasks through online documentation.
@@ -241,12 +235,11 @@ This is a graded class based on the following:
 \subsubsection*{Assignments}\label{assignments}
 \addcontentsline{toc}{subsubsection}{Assignments}
 
-Assignments will be assigned at the end of every session. They will be
-due at the start of the following class unless otherwise noted. The
-assignments are intended to expand upon the lecture material and to help
-students develop the actual skills that will be useful for applied work.
-The assignments will be frequent but each of them should be fairly
-short.
+Assignments will be assigned at the end of every Thursday session. They
+will be due one week later, unless otherwise noted. The assignments are
+intended to expand upon the lecture material and to help students
+develop the actual skills that will be useful for applied work. The
+assignments will be frequent but each of them should be fairly short.
 
 You are encouraged to work in groups, but the work you turn in must be
 your own. Group submission of homework, or turning in copies of the same
@@ -255,13 +248,11 @@ internet to help you debug, but do not copy and paste large chunks of
 code that you do not understand. Remember, the only way you actually
 learn how to write code is to write code!
 
-Portions of the homework completed in \texttt{R} should be completed
-using \href{https://rmarkdown.rstudio.com/}{R markdown}, a markup
-language for producing well-formatted HTML documents with embedded R
-code and outputs. R markdown requires installation of the \texttt{knitr}
-package. We recommend using \href{https://www.rstudio.com/}{Rstudio}, a
-user interface for R, which is set up well for the creation of R
-markdown documents.
+Portions of the homework in \texttt{R} should be completed using
+\href{https://rmarkdown.rstudio.com/}{R markdown}, a markup language for
+producing well-formatted documents with embedded R code and outputs. To
+submit your homework, knit the R Markdown file to HTML, and then submit
+the HTML file through Canvas.
 
 \subsubsection*{Class Participation}\label{class-participation}
 \addcontentsline{toc}{subsubsection}{Class Participation}
@@ -278,11 +269,11 @@ more of the following ways:
 \item
   attending office hours
 \item
-  contributing to class discussion through the bCourse site, and/or
+  contributing to class discussion through the Canvas site, and/or
 \item
   collaborating with the computing community, either by attending a
-  workshop or meetup, submitting a pull request to a campus github
-  repository (including the class repository), answering a question on
+  workshop or meetup, submitting a pull request to a github repository
+  (including the class repository), answering a question on
   StackExchange, or other involvement in the social computing / digital
   humanities community.
 \end{itemize}
@@ -290,13 +281,27 @@ more of the following ways:
 \subsubsection*{Final Project}\label{final-project}
 \addcontentsline{toc}{subsubsection}{Final Project}
 
-The final project consists of using the tools we learned in class on
-your own data of interest. Students are required to write a short
-proposal by November 7 (no more than 2 paragraphs) in order to get
-approval / feedback from the instructors.
+Students have two options for class projects:
 
-On December 5 we will have a \textbf{lightning talk session} where
-students can present their projects in a maximum 5 minute talk.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Data project}: Use the tools we learned in class on your own
+  data of interest. Collect and/or clean the data, perform some
+  analysis, and visualize the results. Post your reproducible code on
+  Github.
+\item
+  \textbf{Tool project}: Create a tutorial on a tool we didn't cover in
+  class. Ideas include: bash, LaTex, pandoc, quanteda, tidytext, etc.
+  Post it on github.
+\end{enumerate}
+
+Students are required to write a short proposal by \textbf{November 7}
+(no more than 2 paragraphs) in order to get approval / feedback from the
+instructors.
+
+On \textbf{December 10} we will have a \textbf{lightning talk session}
+where students can present their projects in a maximum 5 minute talk.
 
 \subsubsection*{Late Policy and
 Incompletes}\label{late-policy-and-incompletes}
@@ -334,13 +339,13 @@ session. \textbf{You must bring a laptop to class.}
 
 We will use Canvas for communication (announcements and questions) and
 turning in assignments. You should ask questions about class material
-and assignments through the bcourse website so that everyone can benefit
+and assignments through the Canvas website so that everyone can benefit
 from the discussion. We encourage you to respond to each other's
 questions as well. Questions of a personal nature can be emailed to us
 directly.
 
-\subsubsection*{GitHub}\label{github}
-\addcontentsline{toc}{subsubsection}{GitHub}
+\subsubsection*{Course Website}\label{course-website}
+\addcontentsline{toc}{subsubsection}{Course Website}
 
 All course materials will be posted on Github at
 \url{https://github.com/rochelleterman/TBD}, including class notes, code
@@ -373,24 +378,26 @@ This requires a computer that can handle all this software. Almost any
 Mac will do the job. Most Windows machines are fine too if they have
 enough space and memory.
 
-See \url{Install.md} for more information. We will be having an
-\textbf{InstallFest} on TBD for those students experiencing difficulties
-downloading and installing the requisite software.
+See \href{install}{Install Page} for more information. We will be having
+an \textbf{InstallFest on Wednesday, Oct 2 from 10am to 12pm}. for those
+students experiencing difficulties downloading and installing the
+requisite software.
 
-\subsubsection*{Readings and Resources
-(REVISIT)}\label{readings-and-resources-revisit}
-\addcontentsline{toc}{subsubsection}{Readings and Resources (REVISIT)}
+\subsubsection*{Readings and Resources}\label{readings-and-resources}
+\addcontentsline{toc}{subsubsection}{Readings and Resources}
 
-There are no official textbooks for this class. There is a list of
-topic-specific tutorials and resources in the GitHub repo in the
-document \texttt{resources.md}. If you find a good online resources, you
-are encouraged to add to the document.
+There are no official textbooks for this class. Some of the materials
+are drawn from \href{https://r4ds.had.co.nz/}{R for Data Science} by
+Garrett Grolemund and Hadley Wickham. I encourage you to refer back to
+this back, as well as the many other R materials available for free
+online.
 
 \section{Curriculum Outline /
 Schedule}\label{curriculum-outline-schedule}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \textbf{Oct 1} - Introduction
 
@@ -401,24 +408,31 @@ Schedule}\label{curriculum-outline-schedule}
     reproducible research.
   \end{itemize}
 \item
-  \textbf{Oct 3} - R Basics
+  \textbf{Oct 3} - R Tools
 
   \begin{itemize}
   \tightlist
   \item
-    R Studio, basic syntax, packages, getting help, R Markdown.
+    R Studio, R Markdown, packages, help.
   \end{itemize}
 \item
-  \textbf{Oct 8} - R Objects and Data Structures
+  \textbf{Oct 8} - R Syntax
 
   \begin{itemize}
   \tightlist
   \item
-    data structures, classes, coercions, attributes, vectors, lists,
-    factors, matrices, data frames.
+    basic syntax, variables, functions, data types.
   \end{itemize}
 \item
-  \textbf{Oct 10} - Indexing and Subsetting
+  \textbf{Oct 10} - Data Structures
+
+  \begin{itemize}
+  \tightlist
+  \item
+    vectors, lists, factors, matrices, data frames.
+  \end{itemize}
+\item
+  \textbf{Oct 15} - Indexing and Subsetting
 
   \begin{itemize}
   \tightlist
@@ -427,7 +441,7 @@ Schedule}\label{curriculum-outline-schedule}
     applications.
   \end{itemize}
 \item
-  \textbf{Oct 15} - Introduction to Data
+  \textbf{Oct 17} - Introduction to Data
 
   \begin{itemize}
   \tightlist
@@ -436,7 +450,7 @@ Schedule}\label{curriculum-outline-schedule}
     exploratory data analysis.
   \end{itemize}
 \item
-  \textbf{Oct 17} Manipulating data with dplyr
+  \textbf{Oct 22} - Manipulating data with \texttt{dplyr}
 
   \begin{itemize}
   \tightlist
@@ -445,15 +459,15 @@ Schedule}\label{curriculum-outline-schedule}
     across groups, piping.
   \end{itemize}
 \item
-  \textbf{Oct 22} - Tidying data with tidyr
+  \textbf{Oct 24} - Tidying data with \texttt{tidyr}
 
   \begin{itemize}
   \tightlist
   \item
-    tidy data principles, gather, spread, separate, unite.
+    tidy data principles, gather, spread, separate, unite
   \end{itemize}
 \item
-  \textbf{Oct 24} - Merging and Linking Data
+  \textbf{Oct 29} - Merging and Linking Data
 
   \begin{itemize}
   \tightlist
@@ -461,39 +475,46 @@ Schedule}\label{curriculum-outline-schedule}
     relational data, keys, joins, missing values.
   \end{itemize}
 \item
-  \textbf{Oct 29} - Hypothesis testing and regressions
+  \textbf{Oct 31} - Hypothesis testing and regressions
 
   \begin{itemize}
   \tightlist
   \item
-    models, model objects, stargazer,
+    models, model objects, stargazer.
   \end{itemize}
 \item
-  \textbf{Oct 31} - Visualization
+  \textbf{Nov 5} - Visualization
 
   \begin{itemize}
   \tightlist
   \item
     base plotting, ggplot, grammar of graphics, writing images.
   \end{itemize}
+\end{enumerate}
+
+12, \textbf{Nov 7} - Strings and Regex
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{12}
 \item
-  \textbf{Nov 5}- R programming 1
+  \textbf{Nov 12} - R programming 1
 
   \begin{itemize}
   \tightlist
   \item
-    strings, conditional flow, booleans.
+    conditional flow, functios
   \end{itemize}
 \item
-  \textbf{Nov 5} - R Programming 2
+  \textbf{Nov 14} - R Programming 2
 
   \begin{itemize}
   \tightlist
   \item
-    functions, iterations, apply family.
+    iterations, map
   \end{itemize}
 \item
-  \textbf{Nov 12} - Collecting data with APIs
+  \textbf{Nov 19} - Collecting data with APIs
 
   \begin{itemize}
   \tightlist
@@ -501,7 +522,7 @@ Schedule}\label{curriculum-outline-schedule}
     requests, RESTful APIs, queries, API libraries.
   \end{itemize}
 \item
-  \textbf{Nov 14} - Webscraping
+  \textbf{Nov 21} - Webscraping
 
   \begin{itemize}
   \tightlist
@@ -509,7 +530,7 @@ Schedule}\label{curriculum-outline-schedule}
     HTML, CSS, In-Browser tools, scraping tools.
   \end{itemize}
 \item
-  \textbf{Nov 19} - Text analysis 1
+  \textbf{Nov 26} - Text analysis 1
 
   \begin{itemize}
   \tightlist
@@ -518,7 +539,7 @@ Schedule}\label{curriculum-outline-schedule}
     models
   \end{itemize}
 \item
-  \textbf{Nov 21} - Text analysis 2
+  \textbf{Nov 28} - Text analysis 2
 
   \begin{itemize}
   \tightlist
@@ -527,13 +548,11 @@ Schedule}\label{curriculum-outline-schedule}
     models
   \end{itemize}
 \item
-  \textbf{Nov 26} - Regex
+  \textbf{Dec 3} - Git / Github
 \item
-  \textbf{Nov 28} - Git / Github
+  \textbf{Dec 5} - TBD
 \item
-  \textbf{Dec 3} - Final project lightning talks
-\item
-  \textbf{Dec 5} - Final project lightning talks
+  \textbf{Dec 10} - Final project lightning talks
 \end{enumerate}
 
 \chapter{Installation}\label{installation}
@@ -1124,11 +1143,11 @@ This page is in part derived from the following sources:
 
 \chapter{R Syntax}\label{r-syntax}
 
-Frustration is natural when you start programming in R, because it is
-such a stickler for punctuation, and even one character out of place
-will cause it to complain. But while you should expect to be a little
-frustrated, take comfort in that it's both typical and temporary: it
-happens to everyone, and the only way to get over it is to keep trying.
+Frustration is natural when you start programming in R. R is a stickler
+for punctuation, and even one character out of place will cause it to
+complain. But while you should expect to be a little frustrated, take
+comfort in that it's both typical and temporary: it happens to everyone,
+and the only way to get over it is to keep trying.
 
 \begin{quote}
 To understand computations in R, two slogans are helpful: - Everything
@@ -1141,7 +1160,7 @@ that exists is an object. - Everything that happens is a function call.
 
 \section{Variables}\label{variables}
 
-\subsection{Arithmatic}\label{arithmatic}
+\subsection{Arithmetic}\label{arithmetic}
 
 In its most basic form, R can be used as a simple calculator. Consider
 the following arithmetic operators:
@@ -1182,7 +1201,7 @@ variables)\footnote{Technically, objects and variables are different
   things, but we'll use the two interchangeably for now.} Variables are
 names for values.
 
-The variable is created when a value is assigned to it. We do that with
+A variable is created when a value is assigned to it. We do that with
 \texttt{\textless{}-}.
 
 \begin{Shaded}
@@ -1220,8 +1239,8 @@ We can use variables in calculations just as if they were values.
 values.}\label{inspect-objects-to-display-values.}
 \addcontentsline{toc}{subsubsection}{Inspect objects to display values.}
 
-In R, the contents of an object can be printed by either simply
-executing the the object name.
+In R, the contents of an object can be printed by simply executing the
+object name.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1237,7 +1256,7 @@ read.}\label{whitespace-makes-code-easier-to-read.}
 read.}
 
 Notice that we surrounded \texttt{\textless{}-} with spaces. In
-\texttt{R}, white space is ignored (unlike Python). But it is practice
+\texttt{R}, white space is ignored (unlike Python). It is good practice
 to use spaces, because it makes code easier to read.
 
 \begin{Shaded}
@@ -1274,7 +1293,7 @@ Let's make an assignment using snake\_case:
 \end{Highlighting}
 \end{Shaded}
 
-And let's try to inspect is:
+And let's try to inspect it:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1291,10 +1310,10 @@ R is case-sensitive!
 autocomplete.}\label{use-the-tab-key-to-autocomplete.}
 \addcontentsline{toc}{subsubsection}{Use the TAB key to autocomplete.}
 
-Because typos are the devil, we can use R Studio to help us type. Let's
-inspect \texttt{r\_rocks} using RStudio's tab completion facility. Type
-``r\_'', press TAB, add characters until you have a unique prefix, then
-press return.
+Because typos are the absolute worst, we can use R Studio to help us
+type. Let's inspect \texttt{r\_rocks} using RStudio's tab completion
+facility. Type ``r\_'', press TAB, add characters until you have a
+unique prefix, then press return.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1303,7 +1322,7 @@ press return.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges - Variables}\label{challenges---variables}
+\subsection{Challenges}\label{challenges-2}
 
 \subsubsection*{Challenge 1: Making and Printing
 Variables.}\label{challenge-1-making-and-printing-variables.}
@@ -1402,11 +1421,12 @@ Here are some helpful built-in functions:
 An \emph{argument} is a value that is \emph{passed} into a function.
 Every function returns a \textbf{result}.
 
-Let's try using \texttt{seq()} which makes regular sequences of numbers
-and, while we're at it, learn more helpful features of RStudio.
+Let's try using \texttt{seq()}, which makes regular sequences of
+numbers. While we're at it, we'll learn more helpful features of
+RStudio.
 
 Type \texttt{se} and hit TAB. A popup shows you possible completions.
-Specify \texttt{seq()} by typing more (a ``q) to disambiguate, or by
+Specify \texttt{seq()} by typing more (a ``q'') to disambiguate, or by
 using ↑/↓ arrows to select. Notice the floating tooltip that pops up,
 reminding you of the function's arguments and purpose.
 
@@ -1423,11 +1443,11 @@ parentheses for you. Type the arguments \texttt{1,\ 10} and hit return.
 
 How many arguments did we pass into the \texttt{seq} function?
 
-\subsection{Store function output}\label{store-function-output}
+\subsection{Store Function Output}\label{store-function-output}
 
-Notice, when we called the \texttt{seq} function, that nothing changed
-in our environment. That's because we didn't save our results to an
-object. Let's try it again by assigning a variable.
+Notice, when we called the \texttt{seq} function, nothing changed in our
+environment. That's because we didn't save our results to an object.
+Let's try it again by assigning a variable.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1437,8 +1457,8 @@ object. Let's try it again by assigning a variable.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Argument restrictions and
-defaults}\label{argument-restrictions-and-defaults}
+\subsection{Argument Restrictions and
+Defaults}\label{argument-restrictions-and-defaults}
 
 Let's use another function, called \texttt{round}:
 
@@ -1475,10 +1495,10 @@ places. But we can specify the number of decimal places we want.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Documentation and help
-files}\label{documentation-and-help-files}
+\subsection{Documentation and Help
+Files}\label{documentation-and-help-files}
 
-How do we know what kinds of arguments to pass into a functiion? Every
+How do we know what kinds of arguments to pass into a function? Every
 built-in function comes with \_\textbf{documentation}.
 
 \begin{itemize}
@@ -1503,13 +1523,13 @@ into a function. The \textbf{Value} section explains what the output of
 the function is. The \textbf{Examples} contain real examples of the
 function in use.
 
-\subsection{Challenges - Functions}\label{challenges---functions}
+\subsection{Challenges}\label{challenges-3}
 
 \subsubsection*{Challenge 1: What Happens
 When}\label{challenge-1-what-happens-when}
 \addcontentsline{toc}{subsubsection}{Challenge 1: What Happens When}
 
-Explain in simple terms the order of operations in the following
+Explain, in simple terms, the order of operations in the following
 program: when does the addition happen, when does the subtraction
 happen, when is each function called, etc.
 
@@ -1535,13 +1555,13 @@ Run the following code.
 \end{Highlighting}
 \end{Shaded}
 
-Using the help files for \texttt{max}, explain why it return the result
+Using the help files for \texttt{max}, explain why it returns the result
 it does.
 
 \section{Data Types}\label{data-types}
 
-Every value in a program has a specific \textbf{type}. The R, those
-types are classes ``classes'', and there are 4 of them:
+Every value in a program has a specific \textbf{type}. In R, those types
+are called ``classes'', and there are 4 of them:
 
 \begin{itemize}
 \tightlist
@@ -1568,12 +1588,12 @@ integer\tabularnewline
 \bottomrule
 \end{longtable}
 
-\subsection{What's that type?}\label{whats-that-type}
+\subsection{What's that Type?}\label{whats-that-type}
 
-R is a dynamically typed, meaning that it ``guesses'' what class a value
+R is dynamically typed, meaning that it ``guesses'' what class a value
 is.
 
-Use the build-in function\texttt{class()} to find out what type a value
+Use the built-in function\texttt{class()} to find out what type a value
 has.
 
 \begin{Shaded}
@@ -1615,13 +1635,13 @@ A value's class determines what the program can do to it.
 
 \subsection{Coercion}\label{coercion}
 
-We just learned we cannot add numbers and strings. Instead, use
+We just learned we cannot subtract numbers and strings. Instead, use
 \texttt{as..} + name of class as functions to convert a value to that
 type.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\DecValTok{3} \OperatorTok{+}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(}\StringTok{"1"}\NormalTok{)}
+\DecValTok{3} \OperatorTok{-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(}\StringTok{"1"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1639,7 +1659,7 @@ This is called \texttt{coercion}. Here's another example:
 
 What difference did you notice?
 
-\subsection{Other objects}\label{other-objects}
+\subsection{Other Objects}\label{other-objects}
 
 There are a few other ``odd ball'' types in R:
 
@@ -1690,10 +1710,12 @@ number''. It's an undefined value.}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges}\label{challenges-2}
+\subsection{Challenges}\label{challenges-4}
 
-\subsubsection{1: Making and Coercing
-Variables}\label{making-and-coercing-variables}
+\subsubsection*{Challenge 1: Making and Coercing
+Variables}\label{challenge-1-making-and-coercing-variables}
+\addcontentsline{toc}{subsubsection}{Challenge 1: Making and Coercing
+Variables}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1702,12 +1724,15 @@ Variables}\label{making-and-coercing-variables}
   Make a variable \texttt{year} and assign it as the year you were born.
 \item
   Coerce that variable to a string, and assign it to a new variable
-  \texttt{year\_string}. 4 Someone in your class says they were born in
-  2001. Really? Really. Find out what your age difference is, using only
-  \texttt{year\_string}
+  \texttt{year\_string}.
+\item
+  Someone in your class says they were born in 2001. Really? Really.
+  Find out what your age difference is, using only \texttt{year\_string}
 \end{enumerate}
 
-\subsubsection{2: Fix the code.}\label{fix-the-code.}
+\subsubsection*{Challenge 2: Fix the
+Code}\label{challenge-2-fix-the-code}
+\addcontentsline{toc}{subsubsection}{Challenge 2: Fix the Code}
 
 Change the following code to make the output TRUE.
 
@@ -2044,7 +2069,7 @@ Sometimes coercions, especially nonsensical ones, won't work.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges}\label{challenges-3}
+\subsection{Challenges}\label{challenges-5}
 
 \subsubsection{1: Create and examine your
 vector}\label{create-and-examine-your-vector}
@@ -2268,7 +2293,7 @@ object that a function can return.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges}\label{challenges-4}
+\subsection{Challenges}\label{challenges-6}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2431,7 +2456,7 @@ factors to character vectors if you need string-like behaviour.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges}\label{challenges-5}
+\subsection{Challenges}\label{challenges-7}
 
 \subsubsection*{1. What happens to a factor when you modify its
 levels?}\label{what-happens-to-a-factor-when-you-modify-its-levels}
@@ -2813,7 +2838,7 @@ Coerce an object to a dataframe with \texttt{as.data.frame()}:
   rows as the matrix.
 \end{itemize}
 
-\subsection{Challenges}\label{challenges-6}
+\subsection{Challenges}\label{challenges-8}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3180,7 +3205,7 @@ Another way to generate implicit conditional statements is using the
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges}\label{challenges-7}
+\subsection{Challenges}\label{challenges-9}
 
 Subset \texttt{country.vector} below to return every value EXCEPT
 ``Canada'' and ``Brazil''
@@ -3315,7 +3340,7 @@ quotes.
 The \texttt{\$} operator becomes especially helpful when applied to
 dataframes, explained more below.
 
-\subsection{Challenges}\label{challenges-8}
+\subsection{Challenges}\label{challenges-10}
 
 Take a look at the linear model below:
 
@@ -3616,7 +3641,7 @@ matrix subsetting simplifies by default, list subsetting does not.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges}\label{challenges-9}
+\subsection{Challenges}\label{challenges-11}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4941,7 +4966,7 @@ Finally, let's quickly take a look at a histogram of the variable
 
 \begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-206-1} \end{center}
 
-\subsection{Challenges}\label{challenges-10}
+\subsection{Challenges}\label{challenges-12}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -6272,7 +6297,7 @@ you'll run into trouble.
 See the \texttt{rlang} or \texttt{seplyr} packages for how one can deal
 with this problem in this context of using functions.
 
-\section{Challenges}\label{challenges-11}
+\section{Challenges}\label{challenges-13}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -7938,7 +7963,7 @@ others), try:
 \end{Highlighting}
 \end{Shaded}
 
-\section{Challenges}\label{challenges-12}
+\section{Challenges}\label{challenges-14}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -10018,7 +10043,7 @@ seed first. The seed can be arbitrary -- pick your favorite number.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges}\label{challenges-13}
+\subsection{Challenges}\label{challenges-15}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -10849,7 +10874,7 @@ your Microsoft Word document.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Challenges}\label{challenges-14}
+\subsection{Challenges}\label{challenges-16}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -11698,7 +11723,7 @@ as it is very easy to accidentally specifying incorrect argument values.
 Here \texttt{cc} and bcc are \texttt{optional}, and evaluate to
 \texttt{NULL} when they are not passed another value.
 
-\subsection{Challenges}\label{challenges-15}
+\subsection{Challenges}\label{challenges-17}
 
 \subsubsection*{Challenge 1}\label{challenge-1-1}
 \addcontentsline{toc}{subsubsection}{Challenge 1}
@@ -12029,7 +12054,7 @@ a different value for \texttt{i}:
 of \texttt{df} using indices of columns, instead of \texttt{\$} and
 column names.
 
-\subsubsection*{Challenges}\label{challenges-16}
+\subsubsection*{Challenges}\label{challenges-18}
 \addcontentsline{toc}{subsubsection}{Challenges}
 
 \begin{enumerate}
@@ -12293,7 +12318,7 @@ end of \texttt{x} before the \texttt{mean}is computed.
 Check out other fun applications of \texttt{map} functions
 \href{https://r4ds.had.co.nz/iteration.html\#the-map-functions}{here}
 
-\subsubsection*{Challenges}\label{challenges-17}
+\subsubsection*{Challenges}\label{challenges-19}
 \addcontentsline{toc}{subsubsection}{Challenges}
 
 Write code that uses one of the map functions to:
