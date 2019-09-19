@@ -191,7 +191,7 @@ By the end of the course, students should be able to:
 \item
   Write, execute, and debug R code.
 \item
-  Produce reproducible analyses using \texttt{R\ Markdown}.
+  Produce reproducible analyses using R Markdown.
 \item
   Clean, transform, and wrangle data using the \texttt{tidyverse}
   packages.
@@ -577,7 +577,7 @@ releases each year. It's a good idea to update regularly. Upgrading can
 be a bit of a hassle, especially for major versions, which require you
 to reinstall all your packages, but putting it off only makes it worse.
 
-\section{RStudio}\label{rstudio}
+\section{R Studio}\label{r-studio}
 
 To interact with R, we use RStudio. Please install the latest desktop
 version of \href{http://www.rstudio.com/ide/download/desktop}{RStudio
@@ -616,7 +616,7 @@ following line of code to download all of them at once:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"knitr"}\NormalTok{, }\StringTok{"gapminder"}\NormalTok{, }\StringTok{"stargazer"}\NormalTok{, }\StringTok{"rtweet"}\NormalTok{, }\StringTok{"jsonlite"}\NormalTok{, }\StringTok{"httr"}\NormalTok{, }\StringTok{"rvest"}\NormalTok{)}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"rmarkdown"}\NormalTok{, }\StringTok{"knitr"}\NormalTok{, }\StringTok{"gapminder"}\NormalTok{, }\StringTok{"stargazer"}\NormalTok{, }\StringTok{"rtweet"}\NormalTok{, }\StringTok{"jsonlite"}\NormalTok{, }\StringTok{"httr"}\NormalTok{, }\StringTok{"rvest"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -750,7 +750,7 @@ use to program in R. We will explore:
   \textbf{\protect\hyperlink{what-is-r}{What is R?}}, a brief
   introduction to the R language;
 \item
-  \textbf{\protect\hyperlink{r-studio}{R Studio}}, a tour of the
+  \textbf{\protect\hyperlink{r-studio-1}{R Studio}}, a tour of the
   Interactive Development Environment RStudio;
 \item
   \textbf{\protect\hyperlink{r-markdown}{R Markdown}}, a type of R
@@ -815,7 +815,7 @@ R also has a number of \textbf{shortcomings}:
   remember.
 \end{itemize}
 
-\hypertarget{r-studio}{\section{R Studio}\label{r-studio}}
+\hypertarget{r-studio-1}{\section{R Studio}\label{r-studio-1}}
 
 We can use R in a number of ways. For example, we can write R code in a
 plain text editor (like \texttt{textedit} or \texttt{notepad}), and then
@@ -2545,7 +2545,11 @@ factor:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{summary}\NormalTok{(party_vector)}
+\CommentTok{#>    Length     Class      Mode }
+\CommentTok{#>         5 character character}
 \KeywordTok{summary}\NormalTok{(party_factor)}
+\CommentTok{#> Dem Rep }
+\CommentTok{#>   2   3}
 \end{Highlighting}
 \end{Shaded}
 
@@ -15368,6 +15372,76 @@ This involves:
 \CommentTok{# scrape_doc("https://www.presidency.ucsb.edu/documents/letter-t-keith-glennan-administrator-national-aeronautics-and-space-administration")}
 \end{Highlighting}
 \end{Shaded}
+
+\part{Assignments}\label{part-assignments}
+
+\chapter{Assignments}\label{assignments-1}
+
+\section{Assignment 1}\label{assignment-1}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Assigned}:
+\item
+  \textbf{Due}:
+\item
+  \textbf{Download}:
+\end{itemize}
+
+For this assignment, you will confirm that everything is installed and
+setup correctly, and you understand how to interact with R Studio and R
+Markdown.
+
+\subsubsection*{1. Using R Markdown}\label{using-r-markdown}
+\addcontentsline{toc}{subsubsection}{1. Using R Markdown}
+
+In the space below, insert a picture of yourself, and complete the
+following information:
+
+\texttt{{[}your\ picture\ here{]}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Name}:
+\item
+  \textbf{Department and degree program:}
+\item
+  \textbf{Year in the program:}
+\item
+  \textbf{One-sentence description of academic interests:}
+\item
+  \textbf{Some non-academic interests:}
+\item
+  \textbf{R version installed on your computer:} \footnote{To find this
+    information, open a command line window (`terminal' or, on windows,
+    `git bash'), and enter the following command \texttt{R\ -\/-version}}
+\item
+  \textbf{R Studio version installed on your computer:} \footnote{To
+    find the version, open RStudio and, in the navigation menu, click on
+    RStudio --\textgreater{} About RStudio.}
+\end{enumerate}
+
+\subsubsection*{2. Checking packages}\label{checking-packages}
+\addcontentsline{toc}{subsubsection}{2. Checking packages}
+
+Create an R chunk below, where you load the \texttt{tidyverse} library.
+
+\subsubsection*{3. Knit and submit.}\label{knit-and-submit.}
+\addcontentsline{toc}{subsubsection}{3. Knit and submit.}
+
+Knit the R Markdown file to HTML. Submit the HTML file to Canvas.
+
+If you get an error trying to knit, read the error and make sure that
+your R code is correct. If that doesn't work, confirm you've correctly
+installed the requisite packages (\texttt{knit}, \texttt{rmarkdown}). If
+you still can't get it to work, paste the error on Canvas.
+
+{[}hint1{]}: To find this information, open a command line window
+(`terminal' or, on windows, `git bash'), and enter the following command
+\texttt{R\ -\/-version}
 
 \bibliography{book.bib,packages.bib}
 

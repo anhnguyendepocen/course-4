@@ -10,10 +10,10 @@
 
   <meta property="og:title" content="Chapter 5 Data Classes and Structures | PLSC 31101: Introduction To Computational Tools And Techniques For Social Science" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:url" content="https://rochelleterman.github.io/plsc-31101/" />
   
   <meta property="og:description" content="This book contains course notes and other materials for PLSC 31101." />
-  
+  <meta name="github-repo" content="rochelleterman/plsc-31101" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 Data Classes and Structures | PLSC 31101: Introduction To Computational Tools And Techniques For Social Science" />
@@ -112,7 +112,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
 <li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
-<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#r-studio"><i class="fa fa-check"></i><b>2.2</b> R Studio</a></li>
 <li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a></li>
 <li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.4</b> The Bash Shell</a></li>
 <li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
@@ -122,7 +122,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>II Course Notes</b></span></li>
 <li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a><ul>
 <li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#what-is-r"><i class="fa fa-check"></i><b>3.1</b> What is R?</a></li>
-<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#r-studio"><i class="fa fa-check"></i><b>3.2</b> R Studio</a><ul>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#r-studio-1"><i class="fa fa-check"></i><b>3.2</b> R Studio</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#console"><i class="fa fa-check"></i><b>3.2.1</b> Console</a></li>
 <li class="chapter" data-level="3.2.2" data-path="r-basics.html"><a href="r-basics.html#scripts"><i class="fa fa-check"></i><b>3.2.2</b> Scripts</a></li>
 <li class="chapter" data-level="3.2.3" data-path="r-basics.html"><a href="r-basics.html#running-code"><i class="fa fa-check"></i><b>3.2.3</b> Running code</a></li>
@@ -393,6 +393,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.6.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#lets-do-this."><i class="fa fa-check"></i><b>15.6.4</b> Let’s DO this.</a></li>
 <li class="chapter" data-level="15.6.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#challenge-1-make-a-function"><i class="fa fa-check"></i><b>15.6.5</b> Challenge 1: Make a function</a></li>
 </ul></li>
+</ul></li>
+<li class="part"><span><b>III Assignments</b></span></li>
+<li class="chapter" data-level="16" data-path="assignments-1.html"><a href="assignments-1.html"><i class="fa fa-check"></i><b>16</b> Assignments</a><ul>
+<li class="chapter" data-level="16.1" data-path="assignments-1.html"><a href="assignments-1.html#assignment-1"><i class="fa fa-check"></i><b>16.1</b> Assignment 1</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -784,7 +788,11 @@ party_factor
 <h3><span class="header-section-number">5.3.2</span> Summarizing a Factor</h3>
 <p>One of your favorite functions in R will be <code>summary()</code>. This will give you a quick overview of the contents of a variable. Let’s compare using <code>summary()</code> on the character vector, and on the factor:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(party_vector)
-<span class="kw">summary</span>(party_factor)</code></pre></div>
+<span class="co">#&gt;    Length     Class      Mode </span>
+<span class="co">#&gt;         5 character character</span>
+<span class="kw">summary</span>(party_factor)
+<span class="co">#&gt; Dem Rep </span>
+<span class="co">#&gt;   2   3</span></code></pre></div>
 </div>
 <div id="changing-factor-levels" class="section level3">
 <h3><span class="header-section-number">5.3.3</span> Changing Factor Levels</h3>
@@ -1138,31 +1146,21 @@ color =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"google": false,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": false,
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/rochelleterman/plsc-31101/edit/master/04_R-Objects/04-0_Intro.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
-"download": ["site1.pdf"],
+"download": ["https://github.com/rochelleterman/plsc-31101/raw/master/04_R-Objects/04-0_Intro.Rmd"],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

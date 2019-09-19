@@ -10,10 +10,10 @@
 
   <meta property="og:title" content="Chapter 2 Installation | PLSC 31101: Introduction To Computational Tools And Techniques For Social Science" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:url" content="https://rochelleterman.github.io/plsc-31101/" />
   
   <meta property="og:description" content="This book contains course notes and other materials for PLSC 31101." />
-  
+  <meta name="github-repo" content="rochelleterman/plsc-31101" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 2 Installation | PLSC 31101: Introduction To Computational Tools And Techniques For Social Science" />
@@ -112,7 +112,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
 <li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
-<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#r-studio"><i class="fa fa-check"></i><b>2.2</b> R Studio</a></li>
 <li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a></li>
 <li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.4</b> The Bash Shell</a></li>
 <li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
@@ -122,7 +122,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>II Course Notes</b></span></li>
 <li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R Basics</a><ul>
 <li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#what-is-r"><i class="fa fa-check"></i><b>3.1</b> What is R?</a></li>
-<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#r-studio"><i class="fa fa-check"></i><b>3.2</b> R Studio</a><ul>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#r-studio-1"><i class="fa fa-check"></i><b>3.2</b> R Studio</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="r-basics.html"><a href="r-basics.html#console"><i class="fa fa-check"></i><b>3.2.1</b> Console</a></li>
 <li class="chapter" data-level="3.2.2" data-path="r-basics.html"><a href="r-basics.html#scripts"><i class="fa fa-check"></i><b>3.2.2</b> Scripts</a></li>
 <li class="chapter" data-level="3.2.3" data-path="r-basics.html"><a href="r-basics.html#running-code"><i class="fa fa-check"></i><b>3.2.3</b> Running code</a></li>
@@ -394,6 +394,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.6.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#challenge-1-make-a-function"><i class="fa fa-check"></i><b>15.6.5</b> Challenge 1: Make a function</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>III Assignments</b></span></li>
+<li class="chapter" data-level="16" data-path="assignments-1.html"><a href="assignments-1.html"><i class="fa fa-check"></i><b>16</b> Assignments</a><ul>
+<li class="chapter" data-level="16.1" data-path="assignments-1.html"><a href="assignments-1.html#assignment-1"><i class="fa fa-check"></i><b>16.1</b> Assignment 1</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -424,8 +428,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>To download R, go to <a href="https://cran.r-project.org/">CRAN</a> (the <strong>C</strong>omprehensive <strong>R</strong> <strong>A</strong>rchive <strong>N</strong>etwork).</p>
 <p>A new major version of R comes out once a year, and there are 2-3 minor releases each year. It’s a good idea to update regularly. Upgrading can be a bit of a hassle, especially for major versions, which require you to reinstall all your packages, but putting it off only makes it worse.</p>
 </div>
-<div id="rstudio" class="section level2">
-<h2><span class="header-section-number">2.2</span> RStudio</h2>
+<div id="r-studio" class="section level2">
+<h2><span class="header-section-number">2.2</span> R Studio</h2>
 <p>To interact with R, we use RStudio. Please install the latest desktop version of <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>. We will not support RStudio cloud.</p>
 </div>
 <div id="r-packages" class="section level2">
@@ -436,7 +440,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
 <p>On your own computer, type that line of code in the RStudio console, and then press enter to run it. R will download the packages from CRAN and install them on to your computer. If you have problems installing, make sure that you are connected to the internet, and that <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a> isn’t blocked by your firewall or proxy.</p>
 <p>We will also be requiring a few other important packages. Run the following line of code to download all of them at once:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;gapminder&quot;</span>, <span class="st">&quot;stargazer&quot;</span>, <span class="st">&quot;rtweet&quot;</span>, <span class="st">&quot;jsonlite&quot;</span>, <span class="st">&quot;httr&quot;</span>, <span class="st">&quot;rvest&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;gapminder&quot;</span>, <span class="st">&quot;stargazer&quot;</span>, <span class="st">&quot;rtweet&quot;</span>, <span class="st">&quot;jsonlite&quot;</span>, <span class="st">&quot;httr&quot;</span>, <span class="st">&quot;rvest&quot;</span>)</code></pre></div>
 </div>
 <div id="the-bash-shell" class="section level2">
 <h2><span class="header-section-number">2.4</span> The Bash Shell</h2>
@@ -515,31 +519,21 @@ $ <span class="fu">git</span> --version</code></pre></div>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"google": false,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": false,
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/rochelleterman/plsc-31101/edit/master/00-Pre-class/00-1_Installation.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
-"download": ["site1.pdf"],
+"download": ["https://github.com/rochelleterman/plsc-31101/raw/master/00-Pre-class/00-1_Installation.Rmd"],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
