@@ -7,7 +7,7 @@ output: html_document
 
 # R Syntax
 
-Frustration is natural when you start programming in R, because it is such a stickler for punctuation, and even one character out of place will cause it to complain. But while you should expect to be a little frustrated, take comfort in that it’s both typical and temporary: it happens to everyone, and the only way to get over it is to keep trying.
+Frustration is natural when you start programming in R. R is a stickler for punctuation, and even one character out of place will cause it to complain. But while you should expect to be a little frustrated, take comfort in that it’s both typical and temporary: it happens to everyone, and the only way to get over it is to keep trying.
 
 > To understand computations in R, two slogans are helpful:
   - Everything that exists is an object.
@@ -17,7 +17,7 @@ Frustration is natural when you start programming in R, because it is such a sti
 
 ## Variables
 
-### Arithmatic
+### Arithmetic
 
 In its most basic form, R can be used as a simple calculator. Consider the following arithmetic operators:
 
@@ -40,7 +40,7 @@ But when we do this, none of our results are saved for later use.
 
 An essential part of programming is creating objects (or variables)^[Technically, objects and variables are different things, but we'll use the two interchangeably for now.] Variables are names for values. 
 
-The variable is created when a value is assigned to it. We do that with `<-`.
+A variable is created when a value is assigned to it. We do that with `<-`.
 
 ```{r}
 x <- 3
@@ -65,7 +65,7 @@ x + 5
 
 #### Inspect objects to display values. {-}
 
-In R, the contents of an object can be printed by either simply executing the the object name.
+In R, the contents of an object can be printed by simply executing the object name.
 
 ```{r}
 x <- 3
@@ -74,7 +74,7 @@ x
 
 #### Whitespace makes code easier to read. {-}
 
-Notice that we surrounded `<-` with spaces. In `R`, white space is ignored (unlike Python). But it is practice to use spaces, because it makes code easier to read.
+Notice that we surrounded `<-` with spaces. In `R`, white space is ignored (unlike Python). It is good practice to use spaces, because it makes code easier to read.
 
 ```{r}
 experiment<-"current vs. voltage"   # this is bad
@@ -100,7 +100,7 @@ Let's make an assignment using snake_case:
 r_rocks <- 2 ^ 3
 ```
 
-And let's try to inspect is:
+And let's try to inspect it:
 
 ```{r, error = TRUE}
 r_rock
@@ -111,13 +111,13 @@ R is case-sensitive!
 
 #### Use the TAB key to autocomplete. {-}
 
-Because typos are the devil, we can use R Studio to help us type. Let's inspect `r_rocks` using RStudio’s tab completion facility. Type "r_", press TAB, add characters until you have a unique prefix, then press return.
+Because typos are the absolute worst, we can use R Studio to help us type. Let's inspect `r_rocks` using RStudio’s tab completion facility. Type "r_", press TAB, add characters until you have a unique prefix, then press return.
 
 ```{r}
 r_rocks
 ```
 
-### Challenges - Variables
+### Challenges
 
 #### Challenge 1: Making and Printing Variables. {-}
 
