@@ -22,7 +22,7 @@ A dataframe is a 2-dimentional data structure containing heterogeneous data type
 
 > NB: You might have heard of "tibbles," used in the `tidyverse` suite of packages. Tibbles are like dataframes 2.0, tweaking some of the behavior of dataframes to make life easier for data anlysis. For now, just think of tibbles and dataframes as the same thing and don't worry about the difference. 
 
-### Creating dataframes
+### Creating Dataframes
 
 R contains a number of built-in datasets that are stored as dataframes. For example, the `mtcars` dataset contains information on automobile design and performance for 32 automobiles:
 
@@ -83,7 +83,7 @@ nrow(df)
 dim(df)
 ```
 
-### Naming dataframes
+### Naming Dataframes
 
 Like matrices, dataframes have `colnames()`, and `rownames()`. However, since dataframes are really lists (of vectors) under the hood  `names()` and `colnames()` are the same thing. 
 
@@ -126,38 +126,25 @@ Coerce an object to a dataframe with `as.data.frame()`:
 
 ```{r eval = FALSE}
 
+# SOLUTION _ HIDE ME
 fruit = c("apples", "orange", "bananas")
 price = c(.89, .99, 1.00)
-
-basket <- data.frame(_____, ______) # add your vectors here
-class(basket)
-
-data.frame(fruit = c("apples", "orange", "bananas"), price = c(.89, .99, 1.00))
-
-basket
-
-names(basket)
-colnames(basket)
+basket <- data.frame(fruit, price) # add your vectors here
 ```
 
-2. Now give your dataframe appropriate column and row names.
+2. Now give your dataframe appropriate column names.
 
 ```{r eval = FALSE}
 names(basket) <- c("name", "price")
 names(basket)
-
 ```
 
 3. Add a third column called `color`, that tells me what color each fruit is.
 
 ```{r eval = FALSE}
-
-color = c("_______", "_______", "_______")
-
+# Solution- hide me
+color = c("red", "orange", "yellow")
 data.frame(basket, color)
-
-cbind(basket, color)
-
 ```
 
 ## Quiz
@@ -183,5 +170,4 @@ You can check your answers in [answers](#data-structure-answers).
 3.  Names allow you to attach labels to values. You can get and set individual names 
     with `names(x)` and `names(x) <- c("x", "y", ...)`.
 
-4.  Every element of a matrix must be the same type; in a data frame, the different 
-    columns can have different types.
+4.  Every element of a matrix must be the same type; in a data frame, the different columns can have different types.

@@ -1,0 +1,86 @@
+---
+title: "Homework 1"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+
+## Assignment 2
+
+- __Assigned__:
+- __Due__: 
+
+For this assignment, you'll use what you know 
+
+### 1. Basics {-}
+
+```{r}
+setwd(dir="~/Dropbox/berkeley/Git-Repos/PS239T/06_r-basics/")
+```
+
+#### 1.2 Remove all objects from your environment. {-}
+
+```{r}
+rm(list=ls())
+```
+
+### 2. Vectors and Lists {-}
+
+#### 2.1 Create three vectors: {-}
+
+* a character vector, `titles`, that contain the names of 3 of your favorite movies
+
+* a numeric vector, `year`, that contains the years in which those movies were produced
+
+* a boolean vector `bechdel` that TRUE/FALSE according to whether those movies pass the [bechdel test](http://bechdeltest.com/)
+
+```{r}
+titles <- c("Dog Day Afternoon", "The Graduate", "Breakfast Club")
+year <- c(1975, 1967, 1985)
+bechdel <- c(TRUE, FALSE, TRUE)
+```
+
+#### 2.2 Put those three vectors in a list, called `movies`. {-}
+
+```{r}
+movies <- list(titles, year, bechdel)
+```
+
+#### 2.3 Print the structure of the list `movies` {-}
+
+```{r}
+str(movies)
+```
+
+### 3. Factors {-}
+
+Here's some code that prints a simple barplot:
+
+```{r}
+f <- factor(c("low","medium","high","medium","high","medium"))
+table(f)
+barplot(table(f))
+```
+
+#### 3.1 How would you relevel `f` to be in the correct order? {-}
+
+```{r}
+f <- factor(f, levels = c("low", "medium", "high"))
+
+# Test your code
+barplot(table(f))
+```
+
+### 4. Dataframes {-}
+
+#### 4.1 Coerce the `movies` list you made above into a dataframe. Call it `movies_df` {-}
+
+```{r}
+movies_df <- as.data.frame(movies)
+```
+
+#### 4.2 Add appropriate column names to `movies_df` {-}
+
+```{r}
+names(movies) <- c("film", "year", "bechtel")
+```
