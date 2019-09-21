@@ -121,7 +121,7 @@ r_rocks
 
 #### Challenge 1: Making and Printing Variables. {-}
 
-Make 3 variables: name (with your full name), city (where you were born) and year (when you were born.)
+Make 3 variables: `name` (with your full name), `city` (where you were born) and `year` (when you were born.)
 
 #### Challenge 2: Swapping Values {-}
 Draw a table showing the values of the variables in this program after each statement is executed.

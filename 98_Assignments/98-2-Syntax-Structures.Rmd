@@ -10,19 +10,53 @@ output: html_document
 - __Assigned__:
 - __Due__: 
 
-For this assignment, you'll use what you know 
+For this assignment, you'll use what you know about R syntax and data structures to perform some common data operations.
 
 ### 1. Basics {-}
 
-```{r}
-setwd(dir="~/Dropbox/berkeley/Git-Repos/PS239T/06_r-basics/")
+#### 1.1 Fix the following syntax errors. Enter your corrected code in the second chunk. {-}
+
+```{r eval = F}
+# 1
+states <- ("California", "Illinois", "Ohio")
+
+# 2
+countries <- c("Iran", "Indonesia," "India", "Italy")
+
+# 3
+df <- data.frame(age = c(21, 66, 35)
+                 party = c('rep', 'dem', 'rep'))
+
+# 4
+my-vector <- c("apples", "oranges", "kiwis")
+
+# 5
+artists <- list(names = c("Picasso", "Kahlo",
+                genre = c("cubist", "surrealist"))
 ```
 
-#### 1.2 Remove all objects from your environment. {-}
-
 ```{r}
-rm(list=ls())
+# PUT YOUR CORRECTED CODE HERE
+
+# 1
+states <- c("California", "Illinois", "Ohio")
+
+# 2
+countries <- c("Iran", "Indonesia", "India", "Italy")
+
+# 3
+df <- data.frame(age = c(21, 66, 35),
+                 party = c('rep', 'dem', 'rep'))
+
+# 4
+my_vector <- c("apples", "oranges", "kiwis")
+
+# 5
+artists <- list(names = c("Picasso", "Kahlo"),
+                genre = c("cubist", "surrealist"))
 ```
+
+#### 1.2 How many arguments does the `order()` function pass? What are they?
 
 ### 2. Vectors and Lists {-}
 
@@ -73,7 +107,7 @@ barplot(table(f))
 
 ### 4. Dataframes {-}
 
-#### 4.1 Coerce the `movies` list you made above into a dataframe. Call it `movies_df` {-}
+#### 4.1 Coerce the `movies` object you made above from a list to a dataframe. Call it `movies_df` {-}
 
 ```{r}
 movies_df <- as.data.frame(movies)
