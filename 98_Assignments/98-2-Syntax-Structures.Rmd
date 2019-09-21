@@ -36,24 +36,7 @@ artists <- list(names = c("Picasso", "Kahlo",
 ```
 
 ```{r}
-# PUT YOUR CORRECTED CODE HERE
-
-# 1
-states <- c("California", "Illinois", "Ohio")
-
-# 2
-countries <- c("Iran", "Indonesia", "India", "Italy")
-
-# 3
-df <- data.frame(age = c(21, 66, 35),
-                 party = c('rep', 'dem', 'rep'))
-
-# 4
-my_vector <- c("apples", "oranges", "kiwis")
-
-# 5
-artists <- list(names = c("Picasso", "Kahlo"),
-                genre = c("cubist", "surrealist"))
+# YOUR CORRECTED CODE HERE
 ```
 
 #### 1.2 How many arguments does the `order()` function pass? What are they?
@@ -69,21 +52,19 @@ artists <- list(names = c("Picasso", "Kahlo"),
 * a boolean vector `bechdel` that TRUE/FALSE according to whether those movies pass the [bechdel test](http://bechdeltest.com/)
 
 ```{r}
-titles <- c("Dog Day Afternoon", "The Graduate", "Breakfast Club")
-year <- c(1975, 1967, 1985)
-bechdel <- c(TRUE, FALSE, TRUE)
+# YOUR CODE HERE
 ```
 
 #### 2.2 Put those three vectors in a list, called `movies`. {-}
 
 ```{r}
-movies <- list(titles, year, bechdel)
+# YOUR CODE HERE
 ```
 
 #### 2.3 Print the structure of the list `movies` {-}
 
 ```{r}
-str(movies)
+# YOUR CODE HERE
 ```
 
 ### 3. Factors {-}
@@ -99,7 +80,7 @@ barplot(table(f))
 #### 3.1 How would you relevel `f` to be in the correct order? {-}
 
 ```{r}
-f <- factor(f, levels = c("low", "medium", "high"))
+# YOUR CODE HERE
 
 # Test your code
 barplot(table(f))
@@ -110,11 +91,11 @@ barplot(table(f))
 #### 4.1 Coerce the `movies` object you made above from a list to a dataframe. Call it `movies_df` {-}
 
 ```{r}
-movies_df <- as.data.frame(movies)
+# YOUR CODE HERE
 ```
 
 #### 4.2 Add appropriate column names to `movies_df` {-}
 
 ```{r}
-names(movies) <- c("film", "year", "bechtel")
+# YOUR CODE HERE
 ```
