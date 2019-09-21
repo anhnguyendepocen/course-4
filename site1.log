@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  19 SEP 2019 16:52
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  21 SEP 2019 16:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1069,20 +1069,20 @@ Underfull \vbox (badness 1377) has occurred while \output is active []
 
 [64] [65] [66] [67]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3429.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3418.
 [68]
 
 Package natbib Warning: Citation `RLangTip' on page 69 undefined on input line 
-3503.
+3492.
 
 
-Overfull \hbox (0.10204pt too wide) in paragraph at lines 3523--3525
+Overfull \hbox (0.10204pt too wide) in paragraph at lines 3512--3514
 []\TU/lmr/m/n/10 The \TU/lmtt/m/n/10 $ \TU/lmr/m/n/10 operator becomes especial
 ly helpful when applied to dataframes, explained
  []
 
 [69] [70] [71] [72] [73] [74]
-Overfull \vbox (1.26335pt too high) detected at line 3915
+Overfull \vbox (1.26335pt too high) detected at line 3904
  []
 
 [75] [76] [77] [78] [79] [80
@@ -1093,10 +1093,10 @@ File: img/rstudio-workspace.png Graphic file (type bmp)
 <img/rstudio-workspace.png>
 [81] [82] [83]
 
-Package hyperref Warning: Suppressing empty link on input line 4274.
+Package hyperref Warning: Suppressing empty link on input line 4263.
 
 [84] [85]
-Underfull \hbox (badness 1147) in paragraph at lines 4362--4365
+Underfull \hbox (badness 1147) in paragraph at lines 4351--4354
 [][]\TU/lmr/m/n/10 R for Data Science[] licensed under []Creative Commons Attri
 bution-
  []
@@ -1104,7 +1104,7 @@ bution-
 File: img/tidy-1.png Graphic file (type bmp)
 <img/tidy-1.png>
 [86] [87] [88] [89]
-Underfull \hbox (badness 1147) in paragraph at lines 4640--4644
+Underfull \hbox (badness 1147) in paragraph at lines 4629--4633
 [][]\TU/lmr/m/n/10 R for Data Science[] licensed under []Creative Commons Attri
 bution-
  []
@@ -1120,7 +1120,7 @@ File: site1_files/figure-latex/unnamed-chunk-208-1.pdf Graphic file (type pdf)
 Chapter 8.
 [101] [102] [103]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 5377.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 5366.
 [104]
 File: img/dplyr-fig1.png Graphic file (type bmp)
 <img/dplyr-fig1.png>
@@ -1161,7 +1161,7 @@ Chapter 10.
 Underfull \vbox (badness 1102) has occurred while \output is active []
 
 [157] [158] [159] [160] [161] [162] [163] [164] [165] [166] [167]
-Underfull \hbox (badness 1147) in paragraph at lines 9151--9155
+Underfull \hbox (badness 1147) in paragraph at lines 9140--9144
 [][]\TU/lmr/m/n/10 R for Data Science[] licensed under []Creative Commons Attri
 bution-
  []
@@ -1226,7 +1226,7 @@ File: site1_files/figure-latex/unnamed-chunk-281-4.pdf Graphic file (type pdf)
 File: site1_files/figure-latex/unnamed-chunk-281-5.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-281-5.pdf>
 
-LaTeX Warning: Float too large for page by 60.68411pt on input line 9497.
+LaTeX Warning: Float too large for page by 60.68411pt on input line 9486.
 
 [177] [178]
 File: site1_files/figure-latex/unnamed-chunk-282-1.pdf Graphic file (type pdf)
@@ -1242,7 +1242,7 @@ File: site1_files/figure-latex/unnamed-chunk-282-5.pdf Graphic file (type pdf)
 File: site1_files/figure-latex/unnamed-chunk-282-6.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-282-6.pdf>
 
-LaTeX Warning: Float too large for page by 178.20894pt on input line 9529.
+LaTeX Warning: Float too large for page by 178.20894pt on input line 9518.
 
 File: site1_files/figure-latex/unnamed-chunk-283-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-283-1.pdf>
@@ -1287,7 +1287,7 @@ File: site1_files/figure-latex/unnamed-chunk-299-1.pdf Graphic file (type pdf)
 File: site1_files/figure-latex/unnamed-chunk-300-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-300-1.pdf>
 
-Underfull \hbox (badness 1163) in paragraph at lines 9898--9900
+Underfull \hbox (badness 1163) in paragraph at lines 9887--9889
 []\TU/lmr/m/n/10 We can fit a simple relationship to the data by adding another
  layer,
  []
@@ -1320,7 +1320,7 @@ Chapter 12.
 File: site1_files/figure-latex/unnamed-chunk-315-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-315-1.pdf>
 
-Overfull \vbox (1.5156pt too high) detected at line 10192
+Overfull \vbox (1.5156pt too high) detected at line 10181
  []
 
 [196]
@@ -1339,52 +1339,52 @@ File: site1_files/figure-latex/unnamed-chunk-330-4.pdf Graphic file (type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [200] [201] [202]
-Underfull \vbox (badness 10000) detected at line 10672
+Underfull \vbox (badness 10000) detected at line 10661
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10672
+Underfull \vbox (badness 10000) detected at line 10661
  []
 
 [203]
-Underfull \vbox (badness 10000) detected at line 10672
+Underfull \vbox (badness 10000) detected at line 10661
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10672
+Underfull \vbox (badness 10000) detected at line 10661
  []
 
 [204]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [205]
-Underfull \vbox (badness 10000) detected at line 10829
+Underfull \vbox (badness 10000) detected at line 10818
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [206]
-Underfull \vbox (badness 10000) detected at line 10829
+Underfull \vbox (badness 10000) detected at line 10818
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10829
+Underfull \vbox (badness 10000) detected at line 10818
  []
 
 [207]
-Underfull \vbox (badness 10000) detected at line 10829
+Underfull \vbox (badness 10000) detected at line 10818
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10829
+Underfull \vbox (badness 10000) detected at line 10818
  []
 
 [208] [209]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [210] [211] [212]
-Underfull \hbox (badness 1210) in paragraph at lines 11065--11071
+Underfull \hbox (badness 1210) in paragraph at lines 11054--11060
 []\TU/lmr/m/n/10 Fit two linear regression models from the gapminder data, wher
 e
  []
@@ -1404,7 +1404,7 @@ Chapter 14.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [228] [229] [230] [231] [232] [233] [234] [235]
-Overfull \vbox (2.01997pt too high) detected at line 12486
+Overfull \vbox (2.01997pt too high) detected at line 12475
  []
 
 [236] [237] [238] [239] [240
@@ -1425,7 +1425,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: img/wikipedia.png Graphic file (type bmp)
 <img/wikipedia.png>
 [243]
-Overfull \hbox (5220.0pt too wide) in paragraph at lines 12841--12841
+Overfull \hbox (5220.0pt too wide) in paragraph at lines 12830--12830
 []\TU/lmtt/m/n/10 #> [1] "<!DOCTYPE html>\n<html lang=\"mul\" class=\"no-js\">\
 n<head>\n<meta charset=\"utf-8\">\n<title>Wikipedia</title>\n<meta name=\"descr
 iption\" content=\"Wikipedia is a free online encyclopedia, created and edited 
@@ -1448,20 +1448,20 @@ File: img/nytimes_key.png Graphic file (type bmp)
 [246] [247] [248] [249]
 
 Package natbib Warning: Citation `AndyLangenkamp' on page 250 undefined on inpu
-t line 13239.
+t line 13228.
 
 
 Package natbib Warning: Citation `shifrinson' on page 250 undefined on input li
-ne 13239.
+ne 13228.
 
 [250] [251] [252]
-Underfull \hbox (badness 10000) in paragraph at lines 13414--13415
+Underfull \hbox (badness 10000) in paragraph at lines 13403--13404
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
 [253]
-Overfull \hbox (147.10999pt too wide) in paragraph at lines 13460--13461
+Overfull \hbox (147.10999pt too wide) in paragraph at lines 13449--13450
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][] [] [][][] [] []
 [][][][] [] [][][][][][] [] [][][][] [] [][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1469,22 +1469,22 @@ Overfull \hbox (147.10999pt too wide) in paragraph at lines 13460--13461
  []
 
 [254] [255]
-Underfull \hbox (badness 10000) in paragraph at lines 13600--13601
+Underfull \hbox (badness 10000) in paragraph at lines 13589--13590
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
 
 Package natbib Warning: Citation `INTPOLITSOCIO' on page 256 undefined on input
- line 13610.
+ line 13599.
 
 [256] [257]
 
 Package natbib Warning: Citation `INTPOLITSOCIO' on page 258 undefined on input
- line 13702.
+ line 13691.
 
 [258]
-Underfull \hbox (badness 10000) in paragraph at lines 13792--13793
+Underfull \hbox (badness 10000) in paragraph at lines 13781--13782
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
@@ -1492,23 +1492,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 13792--13793
 [259]
 
 Package natbib Warning: Citation `shifrinson' on page 260 undefined on input li
-ne 13802.
+ne 13791.
 
 [260] [261]
-Underfull \hbox (badness 10000) in paragraph at lines 13980--13981
+Underfull \hbox (badness 10000) in paragraph at lines 13969--13970
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
 [262]
-Overfull \hbox (72.54pt too wide) in paragraph at lines 14028--14029
+Overfull \hbox (72.54pt too wide) in paragraph at lines 14017--14018
 [][]$[][][][][] [] [] [] [][][] [] [][][] [] [][][] [] [][][][][][][][] [] [][]
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
  []
 
 [263] [264] [265]
-Underfull \hbox (badness 10000) in paragraph at lines 14168--14169
+Underfull \hbox (badness 10000) in paragraph at lines 14157--14158
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
@@ -1516,14 +1516,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 14168--14169
 [266] [267]
 
 Package natbib Warning: Citation `GWtweets' on page 268 undefined on input line
- 14297.
+ 14286.
 
 
 Package natbib Warning: Citation `starwars' on page 268 undefined on input line
- 14297.
+ 14286.
 
 [268]
-Underfull \hbox (badness 10000) in paragraph at lines 14357--14358
+Underfull \hbox (badness 10000) in paragraph at lines 14346--14347
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
@@ -1531,11 +1531,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 14357--14358
 File: site1_files/figure-latex/unnamed-chunk-426-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-426-1.pdf>
 [269] [270] [271] [272]
-Overfull \vbox (1.48996pt too high) detected at line 14647
+Overfull \vbox (1.48996pt too high) detected at line 14636
  []
 
 [273]
-Overfull \vbox (0.62286pt too high) detected at line 14711
+Overfull \vbox (0.62286pt too high) detected at line 14700
  []
 
 [274]
@@ -1550,7 +1550,7 @@ File: img/html.png Graphic file (type bmp)
 File: img/layout.png Graphic file (type bmp)
 <img/layout.png>
 
-Overfull \vbox (0.30711pt too high) detected at line 14829
+Overfull \vbox (0.30711pt too high) detected at line 14818
  []
 
 [277]
@@ -1575,7 +1575,27 @@ File: img/scraping_links.png Graphic file (type bmp)
 Chapter 16.
 [291
 
-] (./site1.bbl [292]
+]
+Overfull \vbox (0.81918pt too high) detected at line 15472
+ []
+
+[292]
+File: site1_files/figure-latex/unnamed-chunk-468-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-468-1.pdf>
+
+Underfull \vbox (badness 5667) has occurred while \output is active []
+
+[293] [294] [295]
+File: site1_files/figure-latex/unnamed-chunk-478-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-478-1.pdf>
+File: site1_files/figure-latex/unnamed-chunk-479-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-479-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[296] (./site1.bbl [297] [298
+
+]
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
@@ -1583,25 +1603,23 @@ Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 15449.
-[293
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 15449.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 15733.
+[299]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 15733.
 (./site1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 15449.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 15449
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 15733.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 15733
 .
 Package rerunfilecheck Info: File `site1.out' has not changed.
-(rerunfilecheck)             Checksum: 1A64A5C14780C4D230BADFA783072541.
+(rerunfilecheck)             Checksum: 9456AEB2AADD7DB2CC38C27D65CB93A6.
  ) 
 Here is how much of TeX's memory you used:
- 23204 strings out of 492970
- 440912 string characters out of 6133938
- 590699 words of memory out of 5000000
- 26871 multiletter control sequences out of 15000+600000
+ 23226 strings out of 492970
+ 441659 string characters out of 6133938
+ 591268 words of memory out of 5000000
+ 26890 multiletter control sequences out of 15000+600000
  551098 words of font info for 73 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,8n,54p,10446b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on site1.pdf (293 pages).
+Output written on site1.pdf (299 pages).

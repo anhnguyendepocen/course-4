@@ -4,7 +4,7 @@ author: "PLSC 31101"
 date: "Fall 2019"
 output: html_document
 ---
-# (PART) Assignments {-}
+# (PART) Assignments and Projects {-}
 
 # Assignments
 

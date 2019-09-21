@@ -1508,8 +1508,8 @@ Variables.}\label{challenge-1-making-and-printing-variables.}
 \addcontentsline{toc}{subsubsection}{Challenge 1: Making and Printing
 Variables.}
 
-Make 3 variables: name (with your full name), city (where you were born)
-and year (when you were born.)
+Make 3 variables: \texttt{name} (with your full name), \texttt{city}
+(where you were born) and \texttt{year} (when you were born.)
 
 \subsubsection*{Challenge 2: Swapping
 Values}\label{challenge-2-swapping-values}
@@ -2844,7 +2844,7 @@ just think of tibbles and dataframes as the same thing and don't worry
 about the difference.
 \end{quote}
 
-\subsection{Creating dataframes}\label{creating-dataframes}
+\subsection{Creating Dataframes}\label{creating-dataframes}
 
 R contains a number of built-in datasets that are stored as dataframes.
 For example, the \texttt{mtcars} dataset contains information on
@@ -2960,7 +2960,7 @@ number of rows.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Naming dataframes}\label{naming-dataframes}
+\subsection{Naming Dataframes}\label{naming-dataframes}
 
 Like matrices, dataframes have \texttt{colnames()}, and
 \texttt{rownames()}. However, since dataframes are really lists (of
@@ -3035,18 +3035,10 @@ Coerce an object to a dataframe with \texttt{as.data.frame()}:
 \begin{Shaded}
 \begin{Highlighting}[]
 
+\CommentTok{# SOLUTION _ HIDE ME}
 \NormalTok{fruit =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apples"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"bananas"}\NormalTok{)}
 \NormalTok{price =}\StringTok{ }\KeywordTok{c}\NormalTok{(.}\DecValTok{89}\NormalTok{, .}\DecValTok{99}\NormalTok{, }\FloatTok{1.00}\NormalTok{)}
-
-\NormalTok{basket <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(_____, ______) }\CommentTok{# add your vectors here}
-\KeywordTok{class}\NormalTok{(basket)}
-
-\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{fruit =} \KeywordTok{c}\NormalTok{(}\StringTok{"apples"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"bananas"}\NormalTok{), }\DataTypeTok{price =} \KeywordTok{c}\NormalTok{(.}\DecValTok{89}\NormalTok{, .}\DecValTok{99}\NormalTok{, }\FloatTok{1.00}\NormalTok{))}
-
-\NormalTok{basket}
-
-\KeywordTok{names}\NormalTok{(basket)}
-\KeywordTok{colnames}\NormalTok{(basket)}
+\NormalTok{basket <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(fruit, price) }\CommentTok{# add your vectors here}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3055,7 +3047,7 @@ Coerce an object to a dataframe with \texttt{as.data.frame()}:
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Now give your dataframe appropriate column and row names.
+  Now give your dataframe appropriate column names.
 \end{enumerate}
 
 \begin{Shaded}
@@ -3076,12 +3068,9 @@ Coerce an object to a dataframe with \texttt{as.data.frame()}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-
-\NormalTok{color =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"_______"}\NormalTok{, }\StringTok{"_______"}\NormalTok{, }\StringTok{"_______"}\NormalTok{)}
-
+\CommentTok{# Solution- hide me}
+\NormalTok{color =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{)}
 \KeywordTok{data.frame}\NormalTok{(basket, color)}
-
-\KeywordTok{cbind}\NormalTok{(basket, color)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -15373,7 +15362,8 @@ This involves:
 \end{Highlighting}
 \end{Shaded}
 
-\part{Assignments}\label{part-assignments}
+\part{Assignments and
+Projects}\label{part-assignments-and-projects}
 
 \chapter{Assignments}\label{assignments-1}
 
@@ -15385,8 +15375,6 @@ This involves:
   \textbf{Assigned}:
 \item
   \textbf{Due}:
-\item
-  \textbf{Download}:
 \end{itemize}
 
 For this assignment, you will confirm that everything is installed and
@@ -15442,6 +15430,302 @@ you still can't get it to work, paste the error on Canvas.
 {[}hint1{]}: To find this information, open a command line window
 (`terminal' or, on windows, `git bash'), and enter the following command
 \texttt{R\ -\/-version}
+
+\section{Assignment 2}\label{assignment-2}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Assigned}:
+\item
+  \textbf{Due}:
+\end{itemize}
+
+For this assignment, you'll use what you know about R syntax and data
+structures to perform some common data operations.
+
+\subsubsection*{1. Basics}\label{basics}
+\addcontentsline{toc}{subsubsection}{1. Basics}
+
+\textbf{1.1 Fix the following syntax errors. Enter your corrected code
+in the second chunk.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1}
+\NormalTok{states <-}\StringTok{ }\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Illinois"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{)}
+
+\CommentTok{# 2}
+\NormalTok{countries <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Iran"}\NormalTok{, }\StringTok{"Indonesia,"} \StringTok{"India"}\NormalTok{, }\StringTok{"Italy"}\NormalTok{)}
+
+\CommentTok{# 3}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{age =} \KeywordTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{, }\DecValTok{66}\NormalTok{, }\DecValTok{35}\NormalTok{)}
+                 \DataTypeTok{party =} \KeywordTok{c}\NormalTok{(}\StringTok{'rep'}\NormalTok{, }\StringTok{'dem'}\NormalTok{, }\StringTok{'rep'}\NormalTok{))}
+
+\CommentTok{# 4}
+\NormalTok{my}\OperatorTok{-}\NormalTok{vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apples"}\NormalTok{, }\StringTok{"oranges"}\NormalTok{, }\StringTok{"kiwis"}\NormalTok{)}
+
+\CommentTok{# 5}
+\NormalTok{artists <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{names =} \KeywordTok{c}\NormalTok{(}\StringTok{"Picasso"}\NormalTok{, }\StringTok{"Kahlo"}\NormalTok{,}
+                \DataTypeTok{genre =} \KeywordTok{c}\NormalTok{(}\StringTok{"cubist"}\NormalTok{, }\StringTok{"surrealist"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# PUT YOUR CORRECTED CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{1.2 How many arguments does the \texttt{order()} function pass?
+What are they?}
+
+\subsubsection*{2. Vectors and Lists}\label{vectors-and-lists}
+\addcontentsline{toc}{subsubsection}{2. Vectors and Lists}
+
+\textbf{2.1 Create three vectors:}
+
+\begin{itemize}
+\item
+  a character vector, \texttt{titles}, that contain the names of 3 of
+  your favorite movies
+\item
+  a numeric vector, \texttt{year}, that contains the years in which
+  those movies were produced
+\item
+  a boolean vector \texttt{bechdel} that TRUE/FALSE according to whether
+  those movies pass the \href{http://bechdeltest.com/}{bechdel test}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.2 Put those three vectors in a list, called \texttt{movies}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.3 Print the structure of the list \texttt{movies}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{3. Factors}\label{factors-1}
+\addcontentsline{toc}{subsubsection}{3. Factors}
+
+\textbf{3.1 Here's some code that prints a simple barplot:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"low"}\NormalTok{,}\StringTok{"medium"}\NormalTok{,}\StringTok{"high"}\NormalTok{,}\StringTok{"medium"}\NormalTok{,}\StringTok{"high"}\NormalTok{,}\StringTok{"medium"}\NormalTok{))}
+\KeywordTok{table}\NormalTok{(f)}
+\CommentTok{#> f}
+\CommentTok{#>   high    low medium }
+\CommentTok{#>      2      1      3}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{table}\NormalTok{(f))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-468-1} \end{center}
+
+\textbf{How would you relevel \texttt{f} to be in the correct order?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{4. Dataframes}\label{dataframes-1}
+\addcontentsline{toc}{subsubsection}{4. Dataframes}
+
+\textbf{4.1 Coerce the \texttt{movies} object you made above from a list
+to a dataframe. Call it \texttt{movies\_df}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{4.2 Add appropriate column names to \texttt{movies\_df}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Assignment 2 Solutions}\label{assignment-2-solutions}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Assigned}:
+\item
+  \textbf{Due}:
+\end{itemize}
+
+For this assignment, you'll use what you know about R syntax and data
+structures to perform some common data operations.
+
+\subsubsection*{1. Basics}\label{basics-1}
+\addcontentsline{toc}{subsubsection}{1. Basics}
+
+\textbf{1.1 Fix the following syntax errors. Enter your corrected code
+in the second chunk.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1}
+\NormalTok{states <-}\StringTok{ }\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Illinois"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{)}
+
+\CommentTok{# 2}
+\NormalTok{countries <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Iran"}\NormalTok{, }\StringTok{"Indonesia,"} \StringTok{"India"}\NormalTok{, }\StringTok{"Italy"}\NormalTok{)}
+
+\CommentTok{# 3}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{age =} \KeywordTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{, }\DecValTok{66}\NormalTok{, }\DecValTok{35}\NormalTok{)}
+                 \DataTypeTok{party =} \KeywordTok{c}\NormalTok{(}\StringTok{'rep'}\NormalTok{, }\StringTok{'dem'}\NormalTok{, }\StringTok{'rep'}\NormalTok{))}
+
+\CommentTok{# 4}
+\NormalTok{my}\OperatorTok{-}\NormalTok{vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apples"}\NormalTok{, }\StringTok{"oranges"}\NormalTok{, }\StringTok{"kiwis"}\NormalTok{)}
+
+\CommentTok{# 5}
+\NormalTok{artists <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{names =} \KeywordTok{c}\NormalTok{(}\StringTok{"Picasso"}\NormalTok{, }\StringTok{"Kahlo"}\NormalTok{,}
+                \DataTypeTok{genre =} \KeywordTok{c}\NormalTok{(}\StringTok{"cubist"}\NormalTok{, }\StringTok{"surrealist"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# PUT YOUR CORRECTED CODE HERE}
+
+\CommentTok{# 1}
+\NormalTok{states <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Illinois"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{)}
+
+\CommentTok{# 2}
+\NormalTok{countries <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Iran"}\NormalTok{, }\StringTok{"Indonesia"}\NormalTok{, }\StringTok{"India"}\NormalTok{, }\StringTok{"Italy"}\NormalTok{)}
+
+\CommentTok{# 3}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{age =} \KeywordTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{, }\DecValTok{66}\NormalTok{, }\DecValTok{35}\NormalTok{),}
+                 \DataTypeTok{party =} \KeywordTok{c}\NormalTok{(}\StringTok{'rep'}\NormalTok{, }\StringTok{'dem'}\NormalTok{, }\StringTok{'rep'}\NormalTok{))}
+
+\CommentTok{# 4}
+\NormalTok{my_vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apples"}\NormalTok{, }\StringTok{"oranges"}\NormalTok{, }\StringTok{"kiwis"}\NormalTok{)}
+
+\CommentTok{# 5}
+\NormalTok{artists <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{names =} \KeywordTok{c}\NormalTok{(}\StringTok{"Picasso"}\NormalTok{, }\StringTok{"Kahlo"}\NormalTok{),}
+                \DataTypeTok{genre =} \KeywordTok{c}\NormalTok{(}\StringTok{"cubist"}\NormalTok{, }\StringTok{"surrealist"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{1.2 How many arguments does the \texttt{order()} function pass?
+What are they?}
+
+\subsubsection*{2. Vectors and Lists}\label{vectors-and-lists-1}
+\addcontentsline{toc}{subsubsection}{2. Vectors and Lists}
+
+\textbf{2.1 Create three vectors:}
+
+\begin{itemize}
+\item
+  a character vector, \texttt{titles}, that contain the names of 3 of
+  your favorite movies
+\item
+  a numeric vector, \texttt{year}, that contains the years in which
+  those movies were produced
+\item
+  a boolean vector \texttt{bechdel} that TRUE/FALSE according to whether
+  those movies pass the \href{http://bechdeltest.com/}{bechdel test}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{titles <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Dog Day Afternoon"}\NormalTok{, }\StringTok{"The Graduate"}\NormalTok{, }\StringTok{"Breakfast Club"}\NormalTok{)}
+\NormalTok{year <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1975}\NormalTok{, }\DecValTok{1967}\NormalTok{, }\DecValTok{1985}\NormalTok{)}
+\NormalTok{bechdel <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.2 Put those three vectors in a list, called \texttt{movies}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{movies <-}\StringTok{ }\KeywordTok{list}\NormalTok{(titles, year, bechdel)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.3 Print the structure of the list \texttt{movies}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(movies)}
+\CommentTok{#> List of 3}
+\CommentTok{#>  $ : chr [1:3] "Dog Day Afternoon" "The Graduate" "Breakfast Club"}
+\CommentTok{#>  $ : num [1:3] 1975 1967 1985}
+\CommentTok{#>  $ : logi [1:3] TRUE FALSE TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{3. Factors}\label{factors-2}
+\addcontentsline{toc}{subsubsection}{3. Factors}
+
+\textbf{3.1 Here's some code that prints a simple barplot:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"low"}\NormalTok{,}\StringTok{"medium"}\NormalTok{,}\StringTok{"high"}\NormalTok{,}\StringTok{"medium"}\NormalTok{,}\StringTok{"high"}\NormalTok{,}\StringTok{"medium"}\NormalTok{))}
+\KeywordTok{table}\NormalTok{(f)}
+\CommentTok{#> f}
+\CommentTok{#>   high    low medium }
+\CommentTok{#>      2      1      3}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{table}\NormalTok{(f))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-478-1} \end{center}
+
+\textbf{How would you relevel \texttt{f} to be in the correct order?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(f, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"low"}\NormalTok{, }\StringTok{"medium"}\NormalTok{, }\StringTok{"high"}\NormalTok{))}
+
+\CommentTok{# Test your code}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{table}\NormalTok{(f))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-479-1} \end{center}
+
+\subsubsection*{4. Dataframes}\label{dataframes-2}
+\addcontentsline{toc}{subsubsection}{4. Dataframes}
+
+\textbf{4.1 Coerce the \texttt{movies} object you made above from a list
+to a dataframe. Call it \texttt{movies\_df}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{movies_df <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(movies)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{4.2 Add appropriate column names to \texttt{movies\_df}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{names}\NormalTok{(movies) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"film"}\NormalTok{, }\StringTok{"year"}\NormalTok{, }\StringTok{"bechtel"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \bibliography{book.bib,packages.bib}
 

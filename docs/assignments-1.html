@@ -193,9 +193,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenge"><i class="fa fa-check"></i><b>5.4.4</b> Challenge</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#dataframes"><i class="fa fa-check"></i><b>5.5</b> Dataframes</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-dataframes"><i class="fa fa-check"></i><b>5.5.1</b> Creating dataframes</a></li>
+<li class="chapter" data-level="5.5.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-dataframes"><i class="fa fa-check"></i><b>5.5.1</b> Creating Dataframes</a></li>
 <li class="chapter" data-level="5.5.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#the-structure-of-dataframes"><i class="fa fa-check"></i><b>5.5.2</b> The Structure of Dataframes</a></li>
-<li class="chapter" data-level="5.5.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#naming-dataframes"><i class="fa fa-check"></i><b>5.5.3</b> Naming dataframes</a></li>
+<li class="chapter" data-level="5.5.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#naming-dataframes"><i class="fa fa-check"></i><b>5.5.3</b> Naming Dataframes</a></li>
 <li class="chapter" data-level="5.5.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#coercing-dataframes"><i class="fa fa-check"></i><b>5.5.4</b> Coercing dataframes</a></li>
 <li class="chapter" data-level="5.5.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-8"><i class="fa fa-check"></i><b>5.5.5</b> Challenges</a></li>
 </ul></li>
@@ -394,9 +394,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.6.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#challenge-1-make-a-function"><i class="fa fa-check"></i><b>15.6.5</b> Challenge 1: Make a function</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>III Assignments</b></span></li>
+<li class="part"><span><b>III Assignments and Projects</b></span></li>
 <li class="chapter" data-level="16" data-path="assignments-1.html"><a href="assignments-1.html"><i class="fa fa-check"></i><b>16</b> Assignments</a><ul>
 <li class="chapter" data-level="16.1" data-path="assignments-1.html"><a href="assignments-1.html#assignment-1"><i class="fa fa-check"></i><b>16.1</b> Assignment 1</a></li>
+<li class="chapter" data-level="16.2" data-path="assignments-1.html"><a href="assignments-1.html#assignment-2"><i class="fa fa-check"></i><b>16.2</b> Assignment 2</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="assignments-1.html"><a href="assignments-1.html#assignment-2-solutions"><i class="fa fa-check"></i><b>16.2.1</b> Assignment 2 Solutions</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -426,7 +429,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><strong>Assigned</strong>:</li>
 <li><strong>Due</strong>:</li>
-<li><strong>Download</strong>:</li>
 </ul>
 <p>For this assignment, you will confirm that everything is installed and setup correctly, and you understand how to interact with R Studio and R Markdown.</p>
 <div id="using-r-markdown" class="section level4 unnumbered">
@@ -453,6 +455,163 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>If you get an error trying to knit, read the error and make sure that your R code is correct. If that doesn’t work, confirm you’ve correctly installed the requisite packages (<code>knit</code>, <code>rmarkdown</code>). If you still can’t get it to work, paste the error on Canvas.</p>
 <p>[hint1]: To find this information, open a command line window (‘terminal’ or, on windows, ‘git bash’), and enter the following command <code>R --version</code></p>
 
+</div>
+</div>
+<div id="assignment-2" class="section level2">
+<h2><span class="header-section-number">16.2</span> Assignment 2</h2>
+<ul>
+<li><strong>Assigned</strong>:</li>
+<li><strong>Due</strong>:</li>
+</ul>
+<p>For this assignment, you’ll use what you know about R syntax and data structures to perform some common data operations.</p>
+<div id="basics" class="section level4 unnumbered">
+<h4>1. Basics</h4>
+<p><strong>1.1 Fix the following syntax errors. Enter your corrected code in the second chunk.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1</span>
+states &lt;-<span class="st"> </span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)
+
+<span class="co"># 2</span>
+countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia,&quot;</span> <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)
+
+<span class="co"># 3</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>)
+                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))
+
+<span class="co"># 4</span>
+my<span class="op">-</span>vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)
+
+<span class="co"># 5</span>
+artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>,
+                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># PUT YOUR CORRECTED CODE HERE</span></code></pre></div>
+<p><strong>1.2 How many arguments does the <code>order()</code> function pass? What are they?</strong></p>
+</div>
+<div id="vectors-and-lists" class="section level4 unnumbered">
+<h4>2. Vectors and Lists</h4>
+<p><strong>2.1 Create three vectors:</strong></p>
+<ul>
+<li><p>a character vector, <code>titles</code>, that contain the names of 3 of your favorite movies</p></li>
+<li><p>a numeric vector, <code>year</code>, that contains the years in which those movies were produced</p></li>
+<li><p>a boolean vector <code>bechdel</code> that TRUE/FALSE according to whether those movies pass the <a href="http://bechdeltest.com/">bechdel test</a></p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
+<p><strong>2.2 Put those three vectors in a list, called <code>movies</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
+<p><strong>2.3 Print the structure of the list <code>movies</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
+</div>
+<div id="factors-1" class="section level4 unnumbered">
+<h4>3. Factors</h4>
+<p><strong>3.1 Here’s some code that prints a simple barplot:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>))
+<span class="kw">table</span>(f)
+<span class="co">#&gt; f</span>
+<span class="co">#&gt;   high    low medium </span>
+<span class="co">#&gt;      2      1      3</span>
+<span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-468-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><strong>How would you relevel <code>f</code> to be in the correct order?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
+</div>
+<div id="dataframes-1" class="section level4 unnumbered">
+<h4>4. Dataframes</h4>
+<p><strong>4.1 Coerce the <code>movies</code> object you made above from a list to a dataframe. Call it <code>movies_df</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
+<p><strong>4.2 Add appropriate column names to <code>movies_df</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
+
+</div>
+<div id="assignment-2-solutions" class="section level3">
+<h3><span class="header-section-number">16.2.1</span> Assignment 2 Solutions</h3>
+<ul>
+<li><strong>Assigned</strong>:</li>
+<li><strong>Due</strong>:</li>
+</ul>
+<p>For this assignment, you’ll use what you know about R syntax and data structures to perform some common data operations.</p>
+<div id="basics-1" class="section level4 unnumbered">
+<h4>1. Basics</h4>
+<p><strong>1.1 Fix the following syntax errors. Enter your corrected code in the second chunk.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1</span>
+states &lt;-<span class="st"> </span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)
+
+<span class="co"># 2</span>
+countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia,&quot;</span> <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)
+
+<span class="co"># 3</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>)
+                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))
+
+<span class="co"># 4</span>
+my<span class="op">-</span>vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)
+
+<span class="co"># 5</span>
+artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>,
+                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># PUT YOUR CORRECTED CODE HERE</span>
+
+<span class="co"># 1</span>
+states &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)
+
+<span class="co"># 2</span>
+countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia&quot;</span>, <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)
+
+<span class="co"># 3</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>),
+                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))
+
+<span class="co"># 4</span>
+my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)
+
+<span class="co"># 5</span>
+artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>),
+                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</code></pre></div>
+<p><strong>1.2 How many arguments does the <code>order()</code> function pass? What are they?</strong></p>
+</div>
+<div id="vectors-and-lists-1" class="section level4 unnumbered">
+<h4>2. Vectors and Lists</h4>
+<p><strong>2.1 Create three vectors:</strong></p>
+<ul>
+<li><p>a character vector, <code>titles</code>, that contain the names of 3 of your favorite movies</p></li>
+<li><p>a numeric vector, <code>year</code>, that contains the years in which those movies were produced</p></li>
+<li><p>a boolean vector <code>bechdel</code> that TRUE/FALSE according to whether those movies pass the <a href="http://bechdeltest.com/">bechdel test</a></p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dog Day Afternoon&quot;</span>, <span class="st">&quot;The Graduate&quot;</span>, <span class="st">&quot;Breakfast Club&quot;</span>)
+year &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1975</span>, <span class="dv">1967</span>, <span class="dv">1985</span>)
+bechdel &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</code></pre></div>
+<p><strong>2.2 Put those three vectors in a list, called <code>movies</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">movies &lt;-<span class="st"> </span><span class="kw">list</span>(titles, year, bechdel)</code></pre></div>
+<p><strong>2.3 Print the structure of the list <code>movies</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(movies)
+<span class="co">#&gt; List of 3</span>
+<span class="co">#&gt;  $ : chr [1:3] &quot;Dog Day Afternoon&quot; &quot;The Graduate&quot; &quot;Breakfast Club&quot;</span>
+<span class="co">#&gt;  $ : num [1:3] 1975 1967 1985</span>
+<span class="co">#&gt;  $ : logi [1:3] TRUE FALSE TRUE</span></code></pre></div>
+</div>
+<div id="factors-2" class="section level4 unnumbered">
+<h4>3. Factors</h4>
+<p><strong>3.1 Here’s some code that prints a simple barplot:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>))
+<span class="kw">table</span>(f)
+<span class="co">#&gt; f</span>
+<span class="co">#&gt;   high    low medium </span>
+<span class="co">#&gt;      2      1      3</span>
+<span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-478-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><strong>How would you relevel <code>f</code> to be in the correct order?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">factor</span>(f, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))
+
+<span class="co"># Test your code</span>
+<span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-479-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="dataframes-2" class="section level4 unnumbered">
+<h4>4. Dataframes</h4>
+<p><strong>4.1 Coerce the <code>movies</code> object you made above from a list to a dataframe. Call it <code>movies_df</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">movies_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(movies)</code></pre></div>
+<p><strong>4.2 Add appropriate column names to <code>movies_df</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(movies) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;film&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;bechtel&quot;</span>)</code></pre></div>
+
+</div>
 </div>
 </div>
 </div>
