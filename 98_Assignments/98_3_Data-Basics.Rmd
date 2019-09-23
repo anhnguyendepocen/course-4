@@ -1,0 +1,100 @@
+---
+title: "Homework 3 Solutions"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+
+## Assignment 3
+
+For this assignment, you'll be working on some real life data! I've prepared for your a basic country-year dataset, with the following variables:
+
+* Country name
+* Country numerical code
+* Year
+* UN Ideal point
+* Polity2 score of regime type (from Polity VI)
+* Physical Integrity Rights score (from CIRI dataset)
+* Speech Rights score (from CIRI)
+* GDP per capita (from World Bank)
+* Population (from World Bank)
+* Political Terror Scale using Amnesty International reports (from Political Terror Scale project)
+* Composite Index of Military Capabilities (Correlates of War)
+* Region
+
+#### 1. R Projects and Importing {-}
+
+__1.1 Initialize a project where you store this `.Rmd` file. Using `getwd()`, print your working directory below.__
+```{r}
+# YOUR CODE HERE
+```
+
+__1.2 Download the `country-year.csv` file and store it in a subdirectory of your project called `data`.__
+
+__Read `country-year.csv` into R, using a relative path. Store it in an object called `dat`.__
+
+```{r}
+# YOUR CODE HERE
+```
+
+#### 2. Dimensions and Names {-}
+
+__2.1 How many rows and columns are in the dataset?__
+
+```{r}
+# YOUR CODE HERE
+```
+
+__2.2 Print the column names.__
+
+```{r}
+# YOUR CODE HERE
+```
+
+__2.3 Remove the `X` column from the dataset.__
+
+```{r}
+# YOUR CODE HERE
+```
+
+__2.4 One of the variables is called "gdp.pc.wdi". This stands for "Gross Domestic Product Per Capita, from the World Bank Development Indicators". Change this variable name in the dataset from " "gdp.pc.wdi" to "GDP"__
+
+```{r}
+# YOUR CODE HERE
+```
+
+#### 3. Subsetting and Summarizing {-}
+
+__3.1 Subset the data to include only observations from years 1990-2000 (inclusive). Put the subsetted data in a new variable called `dat.1990.2000`__
+
+```{r}
+# YOUR CODE HERE
+```
+
+__3.2 As a sanity check, summarize the `year` column of the subset you created above.__
+
+```{r}
+# YOUR CODE HERE
+```
+
+__3.3 Using `mean()` function, tell me the average GDP of observations from 1990 to 2000.
+
+```{r}
+# YOUR CODE HERE
+```
+
+__3.3 You just calculated the average GDP for years 1990-2000. Now calculate the average GDP from 2001 onwards. Tell me how much larger it is (in percentage).__
+
+```{r}
+# YOUR CODE HERE
+```
+
+__3.4  What does `summary(dat$polity2[dat$region =="Africa"])` do? Explain below in your own words.__
+
+
+
+__3.5 Look up the helpfile for the function `is.na()`. Using this function, replace all the NA values in the `polity2` column of `dat` with 0.__ 
+
+```{r}
+# YOUR CODE HERE
+```
