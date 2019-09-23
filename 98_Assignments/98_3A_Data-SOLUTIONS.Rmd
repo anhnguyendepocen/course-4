@@ -77,13 +77,13 @@ __3.2 As a sanity check, summarize the `year` column of the subset you created a
 summary(dat.1990.2000$year)
 ```
 
-__3.3 Using `mean()` function, tell me the average GDP of observations from 1990 to 2000.
+__3.3 Using `mean()` function, tell me the average GDP of observations from 1990 to 2000.__
 
 ```{r}
 mean(dat.1990.2000$GDP, na.rm = T)
 ```
 
-__3.3 You just calculated the average GDP for years 1990-2000. Now calculate the average GDP from 2001 onwards. Tell me how much larger it is (in percentage).__
+__3.4 You just calculated the average GDP for years 1990-2000. Now calculate the average GDP from 2001 onwards. Tell me how much larger it is (in percentage).__
 
 ```{r}
 dat.2001.plus <- dat[dat$year > 2000,]
@@ -92,11 +92,11 @@ mean2 <- mean(dat.2001.plus$GDP, na.rm = T)
 (mean2 - mean1) / mean1
 ```
 
-__3.4  What does `summary(dat$polity2[dat$region =="Africa"])` do? Explain below in your own words.__
+__3.5  What does `summary(dat$polity2[dat$region =="Africa"])` do? Explain below in your own words.__
 
 It calculates some summary statistics for `polity2` scores from observations in Africa.
 
-__3.5 Look up the helpfile for the function `is.na()`. Using this function, replace all the NA values in the `polity2` column of `dat` with 0.__ 
+__3.6 Look up the helpfile for the function `is.na()`. Using this function, replace all the NA values in the `polity2` column of `dat` with 0.__ 
 
 ```{r}
 ?is.na
