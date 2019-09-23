@@ -1,4 +1,3 @@
-
 ---
 title: "Subsetting"
 author: "PLSC 31101"
@@ -12,7 +11,7 @@ library(kableExtra)
 
 ## Subsetting Lists 
 
-Subsetting a list works in the same way as subsetting an atomic vector. However, there's one important difference `[` will always return a list. `[[` and `$`, as described below, let you pull out the components of the list.
+Subsetting a list works in the same way as subsetting an atomic vector. However, there's one important difference: `[` will always return a list. `[[` and `$`, as described below, let you pull out the components of the list.
 
 Let's illustrate with the following list `my_list`:
 
@@ -22,7 +21,7 @@ my_list <- list(a = 1:3, b = "a string", c = pi, d = list(-1, -5))
 
 ### With `[`
 
-`[` extracts a sub-list. The result will always be a list. Like with vectors, you can subset with a logical, integer, or character vector.
+`[` extracts a sub-list where the result will always be a list. Like with vectors, you can subset with a logical, integer, or character vector.
 
 
 ```{r}
@@ -38,7 +37,7 @@ str(my_list["a"])
 
 ### With `[[`
 
-`[[` extracts a single _component_ from a list. In other words, it remove that hierarchy and returns whatever object is stored inside.
+`[[` extracts a single _component_ from a list. In other words, it removes that hierarchy and returns whatever object is stored inside.
 
 ```{r}
 my_list[[1]]
@@ -69,9 +68,9 @@ my_list[["a"]]
 
 The `$` operator becomes especially helpful when applied to dataframes, explained more below.
 
-### Challenges
+### Challenge
 
-Take a look at the linear model below: 
+Take a look at the linear model below: {-}
 
 ```{r}
 mod <- lm(mpg ~ wt, data = mtcars)
@@ -111,7 +110,7 @@ a[1, -2]
 a[c(1,2), c(1, 3)] 
 ```
 
-Blank subsetting is now useful because it lets you keep all rows or all columns.
+Blank subsetting is also useful because it lets you keep all rows or all columns.
 
 ```{r}
 a[c(1, 2), ] # selects first two rows and all columns

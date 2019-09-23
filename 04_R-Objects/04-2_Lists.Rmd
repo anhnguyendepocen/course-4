@@ -18,7 +18,7 @@ x <- list(1, "a", TRUE, c(4, 5, 6))
 x
 ```
 
-### Naming lists
+### Naming Lists
 
 As with vectors, we can attach names to each element on our list:
 
@@ -27,7 +27,7 @@ my_list <- list(name1 = elem1,
                 name2 = elem2)
 ```
 
-This creates a list with components that are named `name1`, `name2``, and so on. If you want to name your lists after you've created them, you can use the `names()` function as you did with vectors. The following commands are fully equivalent to the assignment above:
+This creates a list with components that are named `name1`, `name2`, and so on. If you want to name your lists after you've created them, you can use the `names()` function as you did with vectors. The following commands are fully equivalent to the assignment above:
 
 ```{r eval = F}
 my_list <- list(elem1, elem2)
@@ -36,7 +36,7 @@ names(my_list) <- c("name1", "name2")
 
 ### List Structure
 
-A very useful tool for working with lists is `str()` because it focusses on the structure, not the contents.
+A very useful tool for working with lists is `str()` because it focuses on reviewing the structure of a list, not the contents.
 
 ```{r}
 x <- list(a = c(1, 2, 3),
@@ -74,10 +74,10 @@ str(mod)
 
 ### Challenges
 
-1. What are the four basic types of atomic vector? How does a list differ from an atomic vector?
+#### Challenge 1. What are the four basic types of atomic vectors? How does a list differ from an atomic vector? {-}
 
-2. Why is `1 == "1"` true? Why is `-1 < FALSE` true? Why is `"one" < 2` false?
+#### Challenge 2. Why is `1 == "1"` true? Why is `-1 < FALSE` true? Why is `"one" < 2` false? {-}
 
-3. Create three vectors and then combine them into a list. Assign them names.
+#### Challenge 3. Create three vectors and combine them into a list. Assign them names. {-}
 
-4.  If `x` is a list, what is the class of `x[1]`?  How about `x[[1]]`?
+#### Challenge 4.  If `x` is a list, what is the class of `x[1]`?  How about `x[[1]]`? {-}

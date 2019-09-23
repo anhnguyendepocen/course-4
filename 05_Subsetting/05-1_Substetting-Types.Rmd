@@ -9,11 +9,11 @@ output: html_document
 
 When working with data, you'll need to subset objects early and often. Luckily, R's subsetting operators are powerful and fast. Mastery of subsetting allows you to succinctly express complex operations in a way that few other languages can match. Subsetting is hard to learn because you need to master a number of interrelated concepts:
 
-* The three subsetting operators, `[`, `[[`, and `$`.
+* The three subsetting operators: `[`, `[[`, and `$`.
 
 * The four types of subsetting.
 
-* Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).
+* The important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).
 
 * The use of subsetting in conjunction with assignment.
 
@@ -21,7 +21,7 @@ This unit helps you master subsetting by starting with the simplest type of subs
 
 ## Subsetting Vectors
 
-It's easiest to learn how subsetting works for vectors, and then how it generalises to higher dimensions and other more complicated objects. We'll start with `[`, the most commonly used operator. [Subsetting operators] will cover `[[` and `$`, the two other main subsetting operators.
+It's easiest to learn how subsetting works for vectors, and then how it generalises to higher dimensions and other more complicated objects. We'll start with `[`, the most commonly used operator.
 
 ### Subsetting Types
 
@@ -81,7 +81,7 @@ x <- c(2.1, 4.2, 3.3, 5.4)
 x[c(-1, 2)]
 ```
 
-#### 3. __Character vectors__ to return elements with matching names. This only works if the vector is named. {-}
+#### 3. __Character vectors__ return elements with matching names. This only works if the vector is named. {-}
  
 ```{r}
 x <- c(2.1, 4.2, 3.3, 5.4)
@@ -95,7 +95,7 @@ x[c("d", "c", "a")]
 # Like integer indices, you can repeat indices
 x[c("a", "a", "a")]
 
-# Careful! names are always matched exactly
+# Careful! Names are always matched exactly
 x <- c(abc = 1, def = 2)
 x[c("a", "d")]
 ```
@@ -109,7 +109,7 @@ x[c(TRUE, TRUE, FALSE, FALSE)]
 
 ### Conditional Subsetting
 
-Logical subsetting the most useful type of subsetting, because you use it to subset based on __conditional__ or __comparative__ statements.
+Logical subsetting is the most useful type of subsetting, because you use it to subset based on __conditional__ or __comparative__ statements.
 
 The (logical) comparison operators known to R are:
 
@@ -163,9 +163,9 @@ x %in% c(3.3, 4.2)
 x[x %in% c(3.3, 4.2)]
 ```
 
-### Challenges
+### Challenge
 
-Subset `country.vector` below to return every value EXCEPT "Canada" and "Brazil"
+Subset `country.vector` below to return every value EXCEPT "Canada" and "Brazil" {-}
 
 ```{r eval = FALSE}
 country.vector<-c("Afghanistan", "Canada", "Sierra Leone", "Denmark", "Japan", "Brazil")

@@ -9,7 +9,7 @@ output: html_document
 
 To make the best use of the R language, you'll need a strong understanding of basic data structures, and how to operate on them. 
 
-It is **critical** to understand, because these are the objects you will manipulate on a day-to-day basis in R. But they are not always as easy to work with as they sound at the outset. Dealing with object types and conversions is one of the most common sources of frustration for beginners.
+This is **critical** to understand because these are the objects you will manipulate on a day-to-day basis in R. But they are not always as easy to work with as they seem at the outset. Dealing with object types and conversions is one of the most common sources of frustration for beginners.
 
 R's base data structures can be organised by their dimensionality (1d, 2d, or nd) and whether they're homogeneous (all contents must be of the same type) or heterogeneous (the contents can be of different types). This gives rise to the five data types most often used in data analysis: 
 
@@ -19,7 +19,7 @@ R's base data structures can be organised by their dimensionality (1d, 2d, or nd
 | 2d | Matrix        | Dataframe    |
 | nd | Array         |               |
 
-Each data structure has its own specifications and behavior. In the rest of this chapter, we cover the types of data objects that exist in R and their attributes.
+Each data structure has its own specifications and behavior. In the rest of this chapter, we will cover the types of data objects that exist in R and their attributes.
 
 1. [Vectors]
 2. [Lists]

@@ -7,11 +7,11 @@ output: html_document
 
 ## Exploring Data
 
-### The Gapminder dataset
+### The Gapminder Dataset
 
-This lessons discusses how to perform basic exploratory data analysis.
+This lesson discusses how to perform basic exploratory data analysis.
 
-For this unit, we'll be working with the "Gapminder" dataset, which is excerpt of the data available at Gapminder.org. For each of 142 countries, the data  provides values for life expectancy, GDP per capita, and population, every five years, from 1952 to 2007.
+For this unit, we'll be working with the "Gapminder" dataset, which is an excerpt of the data available at Gapminder.org. For each of 142 countries, the data provides values for life expectancy, GDP per capita, and population, every five years, from 1952 to 2007.
 
 ```{r}
 gap <- read.csv("data/gapminder.csv", stringsAsFactors = F)
@@ -19,7 +19,7 @@ gap <- read.csv("data/gapminder.csv", stringsAsFactors = F)
 
 ### Structure and Dimensions
 
-The very first thing we want to know about a dataset are its dimensions and basic structure. For instance we can look at the number of rows and columns: 
+The first things we want to know about a dataset are its dimensions and basic structure. For instance, we can look at the number of rows and columns: 
 
 ```{r}
 # get number of rows and columns:
@@ -44,11 +44,11 @@ Finally, I encourage you to actually peak at the data itself. The `head` functio
 head(gap)
 ```
 
-### Common alterations
+### Common Alterations
 
-There are some very common alterations researchs make on their data: changing column names, assigning NA values, changing column type.
+There are some very common alterations researchers make on their data: changing column names, assigning NA values, and changing column types.
 
-Note that we will be cover how to perform these functions using `tidyverse` later in the course. However, these lines are very common, so it's good to know how they work:
+Note that we will cover how to perform these functions using the `tidyverse` later in the course. However, these lines are very common, so it's good to know how they work:
 
 1. change column names
 ```{r}
@@ -83,7 +83,7 @@ summary(gap$year)
 
 Sometimes we need to do some basic checking for the number of observations or types of observations in our dataset. To do this quickly and easily, `table()` is our friend. 
 
-Let's look the number of observations first by region, and then by both region and year.
+Let's look at the number of observations first by region, and then by both region and year.
 
 ```{r}
 table(gap$continent)
@@ -98,7 +98,7 @@ table(gap$continent)/nrow(gap)
 table(gap$continent)/nrow(gap)*100
 ```
 
-### Review of subsetting
+### Review of Subsetting
 
 We learned about subsetting in the previous lesson. Let's do a quick review here:
 
@@ -117,9 +117,9 @@ mean(gap$life.exp[gap$continent=="Africa"])
 mean(africa$life.exp)
 ```
 
-### Basic plotting
+### Basic Plotting
 
-We'll go into plotting in greater detail soon, but let's tough on 2 common graphs. First, a scatterplot:
+We'll go into plotting in greater detail soon, but let's touch on two common graphs. First, a scatterplot:
 
 ```{r}
 plot(gap$life.exp ~ gap$gdp.percap)
@@ -132,15 +132,18 @@ hist(gap$life.exp, breaks = 100)
 ```
 
 ### Challenges
-1) Read the `polity` dataset. 
 
-2) Report the number and names of each variable in the dataset.
+#### Challenge 1. Read the `polity` dataset. {-}
 
-3) Extract the 5th row from the polity dataset.
+#### Challenge 2. Report the number and names of each variable in the dataset. {-}
 
-4) Extract the last row from the polity dataset.
+#### Challenge 3. Extract the 5th row from the polity dataset. {-}
 
-5) Count the percentage of obesrvations with a value of `polity2` greater than 8 in the gapminder dataset (hint: if using sum(), read the help file..
+#### Challenge 4. Extract the last row from the polity dataset. {-}
 
-6) Set all of the values of `democ` and `autac` columns less than -10 to NA. (Hint: You should first copy the `polity` object and work on the copy so that the original dataset is unchanged (or just read the data into R again afterwards to get a clean copy).
+#### Challenge 5. Count the percentage of observations with a value of `polity2` greater than 8 in the gapminder dataset. {-}
+(Hint: if using sum(), read the help file..)
+
+#### Challenge 6. Set all of the values of `democ` and `autac` columns less than -10 to NA. {-}
+(Hint: You should first copy the `polity` object and work on the copy so that the original dataset is unchanged (or just read the data into R again afterwards to get a clean copy) 
 

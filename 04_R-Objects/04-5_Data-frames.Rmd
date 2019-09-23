@@ -7,7 +7,7 @@ output: html_document
 
 ## Dataframes
 
-A dataframe is a very important data type in R. It's pretty much the *de facto* data structure for most tabular data and what we use for statistics. 
+A dataframe is a very important data type in R. It's pretty much the *de facto* data structure for most tabular data and it's also what we use for statistics. 
 
 Let's say we're working with the following survey data:
 
@@ -16,7 +16,7 @@ Let's say we're working with the following survey data:
 * 'What is your opinion on Trump?' or other 'open-ended' questions (`character`)
 * ...
 
-A matrix won't work here, because the dataset contains different data types. 
+A matrix won't work here because the dataset contains different data types. 
 
 A dataframe is a 2-dimentional data structure containing heterogeneous data types. Each column is a variable of a dataset, and the rows are observations.
 
@@ -46,7 +46,7 @@ planets <- data.frame(name, type, diameter, rings)
 planets
 ```
 
-Beware: `data.frame()`'s default behaviour which turns strings into factors. Use `stringAsFactors = FALSE` to suppress this behaviour as needed:
+Beware: `data.frame()`'s default behaviour turns strings into factors. Use `stringAsFactors = FALSE` to suppress this behaviour as needed:
 
 ```{r}
 planets <- data.frame(name, type, diameter, rings, stringsAsFactors = F)
@@ -109,7 +109,7 @@ rownames(df) <- c("donut", "pickle", "pretzel")
 df
 ```
 
-### Coercing dataframes
+### Coercing Dataframes
 
 Coerce an object to a dataframe with `as.data.frame()`:
 
@@ -122,32 +122,45 @@ Coerce an object to a dataframe with `as.data.frame()`:
 
 ### Challenges
 
-1.  Create a 3x2 data frame called `basket`. The first column should contain the names of 3 fruits. The second column should contain the price of those fruits. 
+#### Challenge 1.  Create a 3x2 data frame called `basket`. The first column should contain the names of 3 fruits. The second column should contain the price of those fruits.  {-}
 
 ```{r eval = FALSE}
 
-# SOLUTION _ HIDE ME
 fruit = c("apples", "orange", "bananas")
 price = c(.89, .99, 1.00)
-basket <- data.frame(fruit, price) # add your vectors here
+
+basket <- data.frame(_____, ______) # add your vectors here
+class(basket)
+
+data.frame(fruit = c("apples", "orange", "bananas"), price = c(.89, .99, 1.00))
+
+basket
+
+names(basket)
+colnames(basket)
 ```
 
-2. Now give your dataframe appropriate column names.
+#### Challenge 2. Now give your dataframe appropriate column and row names. {-}
 
 ```{r eval = FALSE}
 names(basket) <- c("name", "price")
 names(basket)
+
 ```
 
-3. Add a third column called `color`, that tells me what color each fruit is.
+#### Challenge 3. Add a third column called `color`, that tells me what color each fruit is. {-}
 
 ```{r eval = FALSE}
-# Solution- hide me
-color = c("red", "orange", "yellow")
+
+color = c("_______", "_______", "_______")
+
 data.frame(basket, color)
+
+cbind(basket, color)
+
 ```
 
-## Quiz
+### Quiz
 
 You can check your answers in [answers](#data-structure-answers).
 
@@ -170,4 +183,5 @@ You can check your answers in [answers](#data-structure-answers).
 3.  Names allow you to attach labels to values. You can get and set individual names 
     with `names(x)` and `names(x) <- c("x", "y", ...)`.
 
-4.  Every element of a matrix must be the same type; in a data frame, the different columns can have different types.
+4.  Every element of a matrix must be the same type; in a data frame, the different 
+    columns can have different types.

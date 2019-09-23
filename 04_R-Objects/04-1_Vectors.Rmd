@@ -16,7 +16,7 @@ We'll discuss **atomic vectors** first.
 
 ### Creating Vectors
 
-Vectors are 1-dimensional chain of values. We call each value an _element_ of a vector. 
+Vectors are 1-dimensional chains of values. We call each value an _element_ of a vector. 
 
 Atomic vectors are usually created with `c()`, which is short for 'combine':
 
@@ -42,7 +42,7 @@ c(1, c(2, c(3, 4)))
 c(1, 2, 3, 4)
 ```
 
-### Naming a vector
+### Naming a Vector
 
 We can also attach names to our vector. This helps us understand what each element refers to.
 
@@ -64,7 +64,7 @@ some_vector
 
 Notice that in the first case, we surrounded each name with quotation marks. But we don't have to do this when creating a named vector. 
 
-Names don't have to be unique, and not all value has to have a name associated. However, names are most useful for subsetting, described in the next chapter. When subsetting, it is most useful when the names are unique. 
+Names don't have to be unique, and not all values need to have a name associated. However, names are most useful for subsetting, described in the next chapter. When subsetting, it is most useful when the names are unique. 
 
 ### Calculations on Vectors
 
@@ -93,7 +93,7 @@ So there are there are four common types of vectors, depending on the class:
 * `numeric` (same as `double`)
 * `character`.
 
-#### Logical vectors {-}
+#### Logical Vectors {-}
 
 Logical vectors take on one of three possible values:
 
@@ -105,7 +105,7 @@ Logical vectors take on one of three possible values:
 c(TRUE, TRUE, FALSE, NA)
 ```
 
-#### Numerical vectors {-}
+#### Numeric Vectors {-}
 
 Numeric vectors contain numbers. They can be stored as *integers* (whole numbers) or *doubles* (numbers with decimal points). In practice, you rarely need to concern yourself with this difference, but just know that they are different but related things.
 
@@ -132,7 +132,7 @@ class(num_var)
 as.character(num_var)
 ```
 
-Remember that elements of a vector must be the same type. So when you attempt to combine different types they will be __coerced__ to the most "flexible" type. 
+Remember that all elements of a vector must be the same type. So when you attempt to combine different types, they will be __coerced__ to the most "flexible" type. 
 
 For example, combining a character and an integer yields a character:
 
@@ -182,7 +182,7 @@ as.logical(x)
 
 ### Challenges
 
-#### 1: Create and examine your vector
+#### Challenge 1: Create and examine your vector {-}
 
 Create a character vector called `fruit` that contain 4 of your favorite fruits. Then evaluate its structure using the commands below.
 
@@ -198,7 +198,7 @@ class(fruit)
 str(fruit)
 ```
 
-#### 2: Coercion
+#### Challenge 2: Coercion {-}
 
 ```{r, eval=FALSE}
 
@@ -211,4 +211,4 @@ str(fruit)
 # 4. Coerce it back to a numeric vector.
 ```
 
-#### 3: Calculations on Vectors
+#### Challenge 3: Calculations on Vectors{-}

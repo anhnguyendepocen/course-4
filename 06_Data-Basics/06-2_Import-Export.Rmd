@@ -9,7 +9,7 @@ output: html_document
 
 ### Importing Data
 
-#### Find paths first. {-}
+#### Find Paths First {-}
 
 In order to import (or read) data into R, you first have to know where it is, and how to find it.
 
@@ -45,9 +45,9 @@ We use `stringsAsFactors = F` in order to treat text columns as character vector
 mydataset <- read.table(file=, header=, sep=, quote=, dec=, fill=, stringsAsFactors=)
 ```
 
-#### Reading Excel files {-}
+#### Reading Excel Files {-}
 
-Don't use Microsoft Excel file (.xls or .xlsx). But if you must:
+Don't use Microsoft Excel files (.xls or .xlsx). But if you must:
 
 ```{r message=F}
 # Make sure you have installed the tidyverse suite (only necessary one time)
@@ -71,7 +71,7 @@ air <- read_excel("data/airline_small.xlsx", sheet = 1)
 air[1:5, 1:5]
 ```
 
-#### Reading Stata (.dta) files {-}
+#### Reading Stata (.dta) Files {-}
 
 There are many ways to read `.dta` files into R. I recommend using `haven` because it is part of the `tidyverse.`
 
@@ -81,20 +81,20 @@ air.dta <- read_dta("data/airline_small.dta")
 air[1:5, 1:5]
 ```
 
-#### For really big data {-}
+#### For Really Big Data {-}
 
 If you have really big data, `read.csv()` will be too slow. In these cases, check out the following options:
 
-1.) `read_csv()` in the `readr` package is a faster, more helpful drop-in replacement for `read.csv()` that plays well with tidyverse packages (discussed in future lessons).
+1) `read_csv()` in the `readr` package is a faster, more helpful drop-in replacement for `read.csv()` that plays well with tidyverse packages (discussed in future lessons).
 2) the `data.table` package is great for reading and manipulating large datasets (orders of gigabytes or 10s of gigabytes)
 
-### Exporting data
+### Exporting Data
 
 You should never go from raw data to results in one script. Typically, you'll want to import raw data, clean it, and then export that cleaned dataset onto your computer. That cleaned dataset will then be imported into another script for analysis, in a modular fashion.
 
 To export (or write) data from R onto your computer, you can create individual `.csv` files, or export many data objects into an `.RData` object.
 
-#### Writing a `csv` spreadsheet. {-}
+#### Writing a `csv` Spreadsheet {-}
 
 To export an individual dataframe as a spreadsheet, use `write.csv()`
 
@@ -110,7 +110,7 @@ Let's write the `air` dataset as a csv.
 write.csv(air, "data/airlines.csv", row.names = F)
 ```
 
-#### Packaging data into .RData {-}
+#### Packaging Data into .RData {-}
 
 Sometimes, it's helpful to write several dataframes at once, to be used in later analysis. To do so, we use the `save()` function to create one file containing many R data objects.
 

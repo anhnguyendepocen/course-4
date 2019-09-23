@@ -7,7 +7,7 @@ output: html_document
 
 ## Introduction to Data
 
-The following weeks will be focused on using R for data cleaning and analysis. Let's first get on the same page on some terms:
+The upcoming weeks will be focused on using R for data cleaning and analysis. Let's first get on the same page with some terms:
 
 * A **variable** is a quantity, quality, or property that you can measure.
 
@@ -15,7 +15,7 @@ The following weeks will be focused on using R for data cleaning and analysis. L
 
 * A **value** is the state of a variable for a particular observation. 
 
-* **Tabular data** is a set of values, each associated with a variable and an observation. Tabular data has rows (observations)  and columns (variables). Also called *rectangular* data or *spreadsheets.* 
+* **Tabular data** is a set of values, each associated with a variable and an observation. Tabular data has rows (observations)  and columns (variables). Also called **rectangular** data or **spreadsheets**. 
 
 ![](img/tidy-1.png)
 
@@ -23,7 +23,7 @@ The following weeks will be focused on using R for data cleaning and analysis. L
 
 To start, you first need to know where your data lives. Sometimes, the data is stored as a file on your computer, e.g. csv, Excel, SPSS, or some other file type. When the data is on your computer, we say the data is stored **locally**.
 
-Data can also stored externally on the Internet, in a package, or obtained through other sources. For example, some R packages contain datasets. The `nycflights13` package contains information on flights that departed NYC in 2013.
+Data can also be stored externally on the Internet, in a package, or obtained through other sources. For example, some R packages contain datasets. The `nycflights13` package contains information on flights that departed NYC in 2013.
 
 ```{r message=FALSE}
 # not run
@@ -35,9 +35,9 @@ rm(flights)
 # 
 ```
 
-Later in this course, we'll discuss how to obtain data from the web APIs and websites. For now, the rest of the unit discusses data that is stored **locally**.
+Later in this course, we'll discuss how to obtain data from web APIs and websites. For now, the rest of the unit discusses data that is stored **locally**.
 
-### Data storage
+### Data Storage
 
 Ideally, your data should be stored in a certain file format. I recommend a `csv` (comma separated value) file, which formats spreadsheet (rectangular) data in a plain-text format. `csv` files are plain-text, and can be read into almost any statistical software program, including R. Try to avoid Excel files if you can. 
 
@@ -45,12 +45,12 @@ Here are some other tips:
 
 * When working with spreadsheets, the first row is usually reserved for the header, while the first column is used to identify the sampling unit (**unique identifier**, see below.)
 * Avoid file names and variable names with blank spaces. This can cause errors when reading in data.
-* If you want to concatenate words, inserting a `.` or `_` in between to words instead of a space;
+* If you want to concatenate words, insert a `.` or `_` in between to words instead of a space;
 * Short names are prefered over longer names;
 * Try to avoid using names that contain symbols such as `?`, `$`,`%`, `^`, `&`, `*`, `(`, `)`, `-`, `#`, `?`, `,`, `<`, `>`, `/`, `|`, `\`, `[` ,`]`,`{`, and `}`;
 * make sure that any missing values in your data set are indicated with `NA` or blank fields (don't use 99 or 77)..
 
-### `tidy` data
+### `tidy` Data
 
 Datasets in the wild can often be messy. For example, check out the following data. 
 
@@ -109,10 +109,10 @@ County population is a property of a county, so it lives in the county table. St
 
 ### Keys
 
-The variables used to connect each pair of tables are called **keys**. A key is a variable (or set of variables) that uniquely identifies an observation. Also called a *unique identifier*. 
+The variables that connect each pair of tables are called **keys**. A key is a variable (or set of variables) that uniquely identifies an observation. It is also called a *unique identifier*. 
 
 * Keys are complete. They never take on missing values.
-* Keys are unique. They are neer duplicated across rows of a table.
+* Keys are unique. They are never duplicated across rows of a table.
 
 In simple cases, a single variable is sufficient to identify an observation. In the example above, each county is identified with **county** (a numeric identifier); each state is identified with **state** (a two-letter string).
 
@@ -120,7 +120,7 @@ There are two types of keys:
 
 * A **primary key** uniquely identifies an observation in its own table. For example, `counties$county` is a primary key because it uniquely identifies each county in the counties table.
 
-* A **foreign key** uniquely identifies an observation in another table. For example, the counties$state is a foreign key because it appears in the counties table where it matches each county to a unique state.
+* A **foreign key** uniquely identifies an observation in another table. For example, `counties$state` is a foreign key because it appears in the counties table where it matches each county to a unique state.
 
 A primary key and the corresponding foreign key in another table form a **relation**.
 
