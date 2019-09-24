@@ -11,7 +11,7 @@ library(kableExtra)
 
 # Relational Data
 
-It’s rare that a data analysis involves only a single table of data. Typically you have many tables of data, and you must combine them to answer the questions that you’re interested in. Collectively, multiple tables of data are called __relational data__ because it is the relations, not just the individual datasets, that are important.
+It’s rare that data analysis involves only a single table of data. Typically, you have many tables of data, and you must combine them to answer the questions that you’re interested in. Collectively, multiple tables of data are called __relational data__ because it is the relations, not just the individual datasets, that are important.
 
 Note that when we say relational database here, we are referring to how the data are structured, not to the use of any fancy software. 
 
@@ -86,16 +86,16 @@ A primary key and the corresponding foreign key in another table form a **relati
 Data stored in the form we have outlined above is considered _normalized_. In general, we should try to keep data normalized as far into the code pipeline as we can. Storing normalized data
 means your data will be easier to understand and it will be harder to make costly mistakes.
 
- At some point, however, we're going to have to merge (or __join__) the table together to produce a single dataframe, and conduct analysis on that dataframe. 
+At some point, however, we're going to have to merge (or __join__) the tables together to produce a single dataframe, and conduct analysis on that dataframe. 
 
 Let's say we wanted to merge tables `x` and `y`. A  __join__ allows you to combine variables from the two tables. It first matches observations by their keys, then copies across variables from one table to the other.
 
-There are four options:
+There are four join options:
 
 1. An __inner join__ keeps observations that appear in both tables.
 2. A __left join__ keeps all observations in `x`.
 3. A __right join__ keeps all observations in `y`.
-4. A __full join__ keeps all observations in `x` and `y`.
+4. A __full join__ keeps all observations in `x` and all observations in `y`.
 
 The most commonly used join is the `left_join()`: you use this whenever you look up additional data from another table, because it preserves the original observations even when there isn’t a match. For example, a `left_join()` on `x` and `y` pulls in variables form `y` while preserving all the observations on `x`.
 
@@ -112,13 +112,13 @@ Notice there are two new columns: `state_pop` and `region`.
 
 The left join should be your default join: use it unless you have a strong reason to prefer one of the others.
 
-## Defining keys
+## Defining Keys
 
 In the example above, the two tables were joined by a single variable, and that variable has the same name in both tables. That constraint was encoded by `by = "key"`. 
 
 You can use other values for `by` to connect the tables in other ways:
 
-1. The default, __`by = NULL`__, uses all variables that appear in both tables, the so called natural join. 
+1. The default, __`by = NULL`__, uses all variables that appear in both tables, what we might call a "natural join". 
 
 For example, let's say we wanted to add a column to the `gapminder` dataset that encodes the regime type of each country-year observation. We'll get that data from the `polityVI` dataset.
 
@@ -165,7 +165,7 @@ We can see some values for `PHYSINT` if we peak at the bottom of the dataset:
 kable(tail(gap2))
 ```
 
-## Duplicate keys
+## Duplicate Keys
 
 So far we have assumed that the keys are unique. But that’s not always the case. For example, 
 
@@ -180,7 +180,6 @@ left_join(x, y, by = "key")
 ```
 
 Notice that this can sometimes cause unintended duplicates.
-
 
 #### Acknowledgements {-}
 
