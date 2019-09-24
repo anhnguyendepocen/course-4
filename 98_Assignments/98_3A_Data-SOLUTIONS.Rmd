@@ -1,0 +1,184 @@
+---
+title: "Homework 3 Solutions"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+
+### Assignment 3 Solutions
+
+For this assignment, you'll be working on some real life data! I've prepared for your a basic country-year dataset, with the following variables:
+
+* Country name
+* Country numerical code
+* Year
+* UN Ideal point
+* Polity2 score of regime type (from Polity VI)
+* Physical Integrity Rights score (from CIRI dataset)
+* Speech Rights score (from CIRI)
+* GDP per capita (from World Bank)
+* Population (from World Bank)
+* Political Terror Scale using Amnesty International reports (from Political Terror Scale project)
+* Composite Index of Military Capabilities (Correlates of War)
+* Region
+
+#### 1. R Projects and Importing {-}
+
+__1.1 Initialize a project where you store this `.Rmd` file. Using `getwd()`, print your working directory below.__
+```{r}
+getwd()
+```
+
+__1.2 Download the `country-year.csv` file and store it in a subdirectory of your project called `data`.__
+
+__Read `country-year.csv` into R, using a relative path. Store it in an object called `dat`.__
+
+```{r}
+dat <- read.csv("data/country-year.csv")
+```
+
+#### 2. Dimensions and Names {-}
+
+__2.1 How many rows and columns are in the dataset?__
+
+```{r}
+dim(dat)
+```
+
+__2.2 Print the column names.__
+
+```{r}
+names(dat)
+```
+
+__2.3 Remove the `X` column from the dataset.__
+
+```{r}
+dat$X <- NULL
+```
+
+__2.4 One of the variables is called "gdp.pc.wdi". This stands for "Gross Domestic Product Per Capita, from the World Bank Development Indicators". Change this variable name in the dataset from " "gdp.pc.wdi" to "GDP"__
+
+```{r}
+names(dat)[8] <- "GDP"
+```
+
+#### 3. Summarizing {-}
+
+__3.1 How many years are covered in the dataset?__
+
+```{r}
+length(unique(dat$year))
+```
+
+__3.2 How many unique countries are covered in the dataset?__
+
+```{r}
+length(unique(dat$country))
+```
+
+__3.3 What is the range of `polity2`? How many NAs are in this column?__
+
+```{r}
+summary(dat$polity2)
+```
+
+
+#### 4. Subsetting {-}
+
+__4.1 Subset the data so that it returns the third column AS ITS OWN A DATAFRAME.__ (Do not print the object; store it in a variable.)
+
+```{r}
+sub <- dat[3]
+```
+
+__4.2 Subset gapminder so that it returns the third column AS A VECTOR__ (Do not print the object; store it in a variable.)
+
+```{r}
+sub <- dat[[3]]
+#OR
+sub <- dat[,3]
+```
+
+__4.3 Fix each of the following common data frame subsetting errors__:
+
+1. Extract observations collected for the year 1980
+
+```{r, eval=FALSE}
+dat[dat$year = 1980,]
+
+# Corrected
+dat[dat$year == 1980,]
+```
+
+2. Extract all columns except 1 through to 4
+
+```{r, eval=FALSE}
+dat[,-1:4]
+
+# Corrected
+dat[,-c(1:4)]
+```
+
+3. Extract the rows where the polity2 score is greater than 5
+
+```{r, eval=FALSE}
+dat[dat$polity2 > 5]
+
+# corrected
+dat[dat$polity2 > 5, ]
+```
+
+4. Extract the first row, and the third and fourth columns
+  (`country` and `idealpoint`).
+
+```{r, eval=FALSE}
+dat[1, 3, 4]
+
+# Corrected
+dat[1, c(3, 4)]
+```
+
+5. Extract rows that contain information for the years 2002
+   and 2007
+
+```{r, eval=FALSE}
+dat[dat$year == 2002 | 2007,]
+
+# Corrected
+dat[dat$year == 2002 | dat$year == 2007,]
+```
+
+__4.4  What does `summary(dat$polity2[dat$region =="Africa"])` do? Explain below in your own words.__
+
+It calculates some summary statistics for `polity2` scores from observations in Africa.
+
+__4.5 Subset the data to include only observations from years 1990-2000 (inclusive). Put the subsetted data in a new variable called `dat.1990.2000`__
+
+```{r}
+dat.1990.2000 <- dat[dat$year >= 1990 & dat$year<=2000,]
+```
+
+__4.6 Using `mean()` function, tell me the average GDP of observations from 1990 to 2000.__
+
+```{r}
+mean(dat.1990.2000$GDP, na.rm = T)
+```
+
+__4.7 You just calculated the average GDP for years 1990-2000. Now calculate the average GDP from 2001 onwards. Tell me how much larger it is (in percentage).__
+
+```{r}
+dat.2001.plus <- dat[dat$year > 2000,]
+mean1 <- mean(dat.1990.2000$GDP, na.rm = T)
+mean2 <- mean(dat.2001.plus$GDP, na.rm = T)
+(mean2 - mean1) / mean1
+```
+
+
+__4.8 Look up the helpfile for the function `is.na()`. Using this function, replace all the NA values in the `polity2` column of `dat` with 0.__ 
+
+```{r}
+?is.na
+dat$polity2[is.na(dat$polity2)] <- 0
+summary(dat$polity2)
+```
