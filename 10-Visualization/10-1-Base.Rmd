@@ -11,20 +11,20 @@ output: html_document
 
 There are two major sets of tools for creating plots in R:
 
-* 1. [base](#1-r-base-graphics), which  come with all R installations 
+* 1. [base](#1-r-base-graphics), which come with all R installations. 
 * 2. [ggplot2](#2-ggplot2), a stand-alone package.  
 
 Note that other plotting facilities do exist (notably **lattice**), but base and ggplot2 are by far the most popular. 
 
-## The dataset
+## The Dataset
 
-For the following examples, we will using the gapminder dataset we were playing around with earlier Gapminder is a country-year dataset with information on life expectancy, among other things.
+For the following examples, we will be using the gapminder dataset we've used previously. Gapminder is a country-year dataset with information on life expectancy, among other things.
 
 ```{r}
 gap <- read.csv("data/gapminder-FiveYearData.csv", stringsAsFactors = F)
 ```
 
-## R base graphics
+## R Base Graphics
 
 The **basic** call takes the following form:
 
@@ -58,7 +58,7 @@ plot(x = gap$gdpPercap, y = gap$lifeExp, type="l")
 plot(x = gap$gdpPercap, y = gap$lifeExp, type="b") 
 ```
 
-### Histograms and density plots
+### Histograms and Density Plots
 
 Histograms display the frequency of different values of a variable.
 
@@ -66,14 +66,14 @@ Histograms display the frequency of different values of a variable.
 hist(x=gap$lifeExp)
 ```
 
-Histograms require a `break` argument, which determine the number of bins in the plot. Let's play around with different `break` values.
+Histograms require a `breaks` argument, which determine the number of bins in the plot. Let's play around with different `breaks` values.
 
 ```{r}
 hist(x=gap$lifeExp, breaks=5)
 hist(x=gap$lifeExp, breaks=10)
 ```
 
-Density plots are similar, they visualises the distribution of data over a continuous interval. 
+Density plots are similar, they visualize the distribution of data over a continuous interval. 
 
 ```{r, fig.cap=" "}
 # Create a density object (NOTE: be sure to remove missing values)
@@ -108,11 +108,11 @@ From the previous example...
 plot(x = gap$gdpPercap, y = gap$lifeExp, type="p", xlab="GDP per cap", ylab="Life Expectancy", main="Life Expectancy ~ GDP") # Add labels for axes and overall plot
 ```
 
-### Axis and size scaling
+### Axis and Size Scaling
 
-Currently it’s hard to see the relationship between the points due to some strong outliers in GDP per capita. We can change the scale of units on the x axis using scaling arguments.
+Currently it’s hard to see the relationship between the points due to some strong outliers in GDP per capita. We can change the scale of units on the x-axis using scaling arguments.
 
-Here's the Bbsic call with popular scaling arguments
+Here's the basic call with popular scaling arguments
 
 ```{r, eval=F}
 plot(x=, y=, type="", xlim=, ylim=, cex=)
@@ -131,7 +131,7 @@ plot(x = gap$gdpPercap, y = gap$lifeExp, xlim = c(1000,20000), cex=2)
 plot(x = gap$gdpPercap, y = gap$lifeExp, xlim = c(1000,20000), cex=0.5)  
 ```
 
-### Graphical parameters
+### Graphical Parameters
 
 We can change the points with a number of graphical options:
 
@@ -186,7 +186,7 @@ plot(x = gap$gdpPercap, y = gap$lifeExp, type="l",  lwd=5)
 plot(x = gap$gdpPercap, y = gap$lifeExp, type="l",  lty=4, lwd=10)
 ```
 
-### Annotations, reference lines, and legends
+### Annotations, Reference Lines, and Legends
 
 * Text
 
