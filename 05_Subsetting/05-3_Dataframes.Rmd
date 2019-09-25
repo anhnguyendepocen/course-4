@@ -141,7 +141,10 @@ mtcars[-1:4, ]
 mtcars[mtcars$cyl <= 5]
 mtcars[mtcars$cyl == 4 | 6, ]
 
-# answers
+```
+
+Solution:
+```{r}
 mtcars[mtcars$cyl == 4, ]
 mtcars[-c(1:4), ]
 mtcars[mtcars$cyl <= 5,]

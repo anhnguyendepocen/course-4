@@ -35,7 +35,7 @@ library(dplyr)
 
 The message tells you which functions from dplyr conflict with functions in base R (or from other packages you might have loaded).
 
-#### Challenges {-}
+### Challenges
 
 Let's go ahead and download some core, important packages we'll use for the rest of the course. Download and load the following packages:
 

@@ -45,7 +45,7 @@ setwd("/path/to/my/CoolProject")
 
 The command above prints out a **path** to your working directory. Think of a path as an address. Paths are incredibly important in programming, but can be a little tricky. Let's go into a bit more detail. 
 
-#### Absolute paths. {-}
+#### Absolute Paths {-}
 
 Absolute paths are paths that point to the same place regardless of your current working directory. They always start with the **root directory** that holds everything else on your computer.
 

@@ -70,7 +70,7 @@ The `$` operator becomes especially helpful when applied to dataframes, explaine
 
 ### Challenge
 
-Take a look at the linear model below: {-}
+Take a look at the linear model below:
 
 ```{r}
 mod <- lm(mpg ~ wt, data = mtcars)
@@ -79,8 +79,8 @@ summary(mod)
 
 Extract the R squared from the model summary.
 
+Solution:
 ```{r}
-# SOLUTION -- HIDE ME
 mod.sum <- summary(mod)
 mod.sum$r.squared
 ```

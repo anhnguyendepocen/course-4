@@ -114,7 +114,7 @@ c(1, 2, 335)
 c(4.2, 4, 6, 53.2)
 ```
 
-#### Character vectors {-}
+#### Character Vectors {-}
 
 Character vectors contain character (or 'string') values. Note that each value has to be surrounded by quotation marks *before* the comma.
 
@@ -211,4 +211,25 @@ str(fruit)
 # 4. Coerce it back to a numeric vector.
 ```
 
+Solution:
+
+```{r}
+# 1. Create a vector of a sequence of numbers between 1 to 10.
+numbers <- c(1:10)
+# 2. Coerce that vector into a character vector
+numbers_char <- as.character(numbers)
+# 3. Add the element "11" to the end of the vector
+numbers_char <- c(numbers_char, 11)
+# 4. Coerce it back to a numeric vector.
+numbers_num <- as.numeric(numbers_char)
+```
+
 #### Challenge 3: Calculations on Vectors{-}
+
+Create a vector of the numbers 11-20, and multiply it by the original vector from Challenge 2.
+
+```{r}
+numbers2 <- c(11:20)
+numbers * numbers2
+```
+

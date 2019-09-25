@@ -104,10 +104,14 @@ levels(f1) <- rev(levels(f1))
 f1
 ```
 
+The vector is ordered in reverse, but the factor assignments per letter stay the same.
+
 #### Challenge 2.  What does this code do? How do `f2` and `f3` differ from `f1`? {-}
 
 ```{r, results = "none"}
 f2 <- rev(factor(letters))
 f3 <- factor(letters, levels = rev(letters))
 ```
+f2 reverses the vector and assigns the factors in the same order is f1 -- z is assigned to a, etc, by reversing the order of the vector.
 
+f3 similarly assigns z to a, etc, but does so by reversing the order of the factor levels.
