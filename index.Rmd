@@ -104,13 +104,21 @@ I follow a zero-tolerance policy on all forms of academic dishonesty. All studen
 
 Classes will follow a "workshop" style, combining lecture, demonstration, and coding exercises. We envision the class to be as interactive / hands on as possible, with students programming every session. **You must bring a laptop to class.** 
 
-#### Canvas {-}
-
-We will use Canvas for communication (announcements and questions) and turning in assignments. You should ask questions about class material and assignments through the Canvas website so that everyone can benefit from the discussion. We encourage you to respond to each other’s questions as well. Questions of a personal nature can be emailed to us directly.
+It is important that students __complete the requisite reading__ before class. I anticipate spending 1/2 the class lecturing, and 1/2 practicing with code challenges. 
 
 #### Course Website {-}
 
-All course materials will be posted on Github at https://github.com/rochelleterman/TBD, including class notes, code demonstrations, sample data, and assignments. Students are encouraged to submit pull requests to this repository, for example if they find a particularly helpful resource that would aid other students. Students are required to use GitHub for their final projects, which will be publically available, unless they have special considerations (e.g. proprietary data). 
+All course notes will be posted on https://rochelleterman.github.io/plsc-31101/, including class notes, code demonstrations, sample data, and assignments. Students will be assigned reading from these notes before every class.
+
+Students are encouraged to submit pull requests to the [website repository](https://github.com/rochelleterman/plsc-31101), for example if they find a typo, or if they found a particularly helpful resource that would aid other students. 
+
+Students projects will also be shared on the course website. 
+
+#### Canvas {-}
+
+We will use Canvas for communication (announcements and questions) and turning in assignments. 
+
+You should ask questions about class material and assignments through the Canvas website so that everyone can benefit from the discussion. We encourage you to respond to each other’s questions as well. Questions of a personal nature can be emailed to us directly.
 
 #### Computer Requirements and Software {-}
 
@@ -124,9 +132,6 @@ This requires a computer that can handle all this software. Almost any Mac will 
 
 See [Install Page](installation) for more information. We will be having an **InstallFest on Wednesday, Oct 2 from 10am to 12pm**. for those students experiencing difficulties downloading and installing the requisite software. 
 
-#### Readings and Resources {-}
-
-There are no official textbooks for this class. Some of the materials are drawn from [R for Data Science](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. I encourage you to refer back to this back, as well as the many other R materials available for free online.
 
 ## Curriculum Outline / Schedule
 
