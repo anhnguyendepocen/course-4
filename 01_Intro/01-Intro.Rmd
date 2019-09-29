@@ -12,14 +12,12 @@ output: html_document
 
 __Here's the dream:__
 
-```{r}
+```{r echo = F}
 if (knitr:::is_latex_output()) {
   knitr::asis_output('\\url{....}')
 } else {
   knitr::include_graphics("img/tony_stark.gif")
 }
-
-#knitr::include_graphics(path = "img/tony_stark.gif")
 ```
 
 > Computers have revolutionized research, and that revolution is only 
@@ -29,8 +27,12 @@ if (knitr:::is_latex_output()) {
 
 __Now here's the reality__
 
-```{r}
-#knitr::include_graphics(path = "img/mulder.gif")
+```{r echo = F}
+if (knitr:::is_latex_output()) {
+  knitr::asis_output('\\url{....}')
+} else {
+  knitr::include_graphics("img/mulder.gif")
+}
 ```
 
 > Every day, scholars all over the world waste time wrestling with 
