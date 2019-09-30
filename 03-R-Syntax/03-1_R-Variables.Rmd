@@ -123,12 +123,18 @@ r_rocks
 
 Make 3 variables: name (with your full name), city (where you were born) and year (when you were born.)
 
+<details> 
+  <summary>Click for the solution</summary>
+  <p>
+  
 ```{r}
 name <- "Pete"
 city <- "Syracuse"
 year <- "1992"
 ```
 
+  </p>
+</details>
 
 #### Challenge 2: Swapping Values {-}
 
