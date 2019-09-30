@@ -377,7 +377,7 @@ gap %>% grouped_mean('continent', 'lifeExp')
 
 See the `rlang` or `seplyr` packages for how one can deal with this problem in this context of using functions. 
 
-### Challenges
+## Challenges
 
 #### Challenge 1. Use `dplyr` to create a data frame containing the median `lifeExp` for each continent. {-}
 

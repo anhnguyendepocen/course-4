@@ -277,9 +277,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.2.6" data-path="data-transformation.html"><a href="data-transformation.html#add-new-variables-with-mutate"><i class="fa fa-check"></i><b>10.2.6</b> Add New Variables with <code>mutate</code></a></li>
 <li class="chapter" data-level="10.2.7" data-path="data-transformation.html"><a href="data-transformation.html#arrange-rows-with-arrange"><i class="fa fa-check"></i><b>10.2.7</b> Arrange Rows with <code>arrange</code></a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="data-transformation.html"><a href="data-transformation.html#dplyr-and-non-standard-evaluation"><i class="fa fa-check"></i><b>10.3</b> <code>dplyr</code> and “Non-Standard Evaluation”</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="data-transformation.html"><a href="data-transformation.html#challenges-11"><i class="fa fa-check"></i><b>10.3.1</b> Challenges</a></li>
-</ul></li>
+<li class="chapter" data-level="10.3" data-path="data-transformation.html"><a href="data-transformation.html#dplyr-and-non-standard-evaluation"><i class="fa fa-check"></i><b>10.3</b> <code>dplyr</code> and “Non-Standard Evaluation”</a></li>
+<li class="chapter" data-level="10.4" data-path="data-transformation.html"><a href="data-transformation.html#challenges-11"><i class="fa fa-check"></i><b>10.4</b> Challenges</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="tidying-data.html"><a href="tidying-data.html"><i class="fa fa-check"></i><b>11</b> Tidying Data</a><ul>
 <li class="chapter" data-level="11.1" data-path="tidying-data.html"><a href="tidying-data.html#wide-vs.long-formats"><i class="fa fa-check"></i><b>11.1</b> Wide vs. Long Formats</a></li>
@@ -1921,8 +1920,9 @@ grouped_mean &lt;-<span class="st"> </span><span class="cf">function</span>(data
 gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">grouped_mean</span>(continent, lifeExp)
 gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">grouped_mean</span>(<span class="st">&#39;continent&#39;</span>, <span class="st">&#39;lifeExp&#39;</span>)</code></pre></div>
 <p>See the <code>rlang</code> or <code>seplyr</code> packages for how one can deal with this problem in this context of using functions.</p>
-<div id="challenges-11" class="section level3">
-<h3><span class="header-section-number">10.3.1</span> Challenges</h3>
+</div>
+<div id="challenges-11" class="section level2">
+<h2><span class="header-section-number">10.4</span> Challenges</h2>
 <div id="challenge-1.-use-dplyr-to-create-a-data-frame-containing-the-median-lifeexp-for-each-continent." class="section level4 unnumbered">
 <h4>Challenge 1. Use <code>dplyr</code> to create a data frame containing the median <code>lifeExp</code> for each continent.</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap <span class="op">%&gt;%</span>
@@ -1983,7 +1983,6 @@ gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">grou
 <li><a href="https://github.com/berkeley-scf/r-bootcamp-fall-2019">R bootcamp at UC Berkeley</a></li>
 </ul>
 
-</div>
 </div>
 </div>
 </div>
