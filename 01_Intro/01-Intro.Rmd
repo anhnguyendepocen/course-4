@@ -241,7 +241,7 @@ The class participation portion of the grade can be satisfied in one or more of 
 - attending the lectures,
 - asking and answering questions in class,
 - attending office hours,
-- contributing to class discussion through the Canvas site,
+- contributing to class discussion through the Canvas/Piazza site,
 - collaborating with the computing community.
 
 __Final Project__
@@ -262,7 +262,7 @@ On __December 10__ we will have a **lightning talk session** where students can 
 
 * Installation instructions are onthe website.
 * Get started **EARLY**.
-* Then go to the Installfest to double check your installation.
+* Then go to the Installfest (Wednesday, Oct 2, 9:30-11:30 in Pick 504) to double check your installation.
 * If you have computer troubles, post the problem on the discussion forums, with as much detail as possible.
 
 ## Learning How to Program
@@ -362,7 +362,7 @@ You should also make use of [Google](https://www.google.com) and [StackOverflow]
 
 #### Asking for Help {-}
 
-We will use Canvas for class-related questions and discussion. You are highly encouraged to ask questions, and answer one another's questions.
+We will use Canvas/Piazza for class-related questions and discussion. You are highly encouraged to ask questions, and answer one another's questions.
 
 1. Include a brief, informative title.
 2. Explain what you're trying to do, and how it failed.
