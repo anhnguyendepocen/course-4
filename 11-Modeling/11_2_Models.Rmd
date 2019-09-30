@@ -5,11 +5,12 @@ date: "Fall 2019"
 output: html_document
 ---
 
-## Inferences and regressions
+## Inferences and Regressions
 
-Once we've imported our data, summarized it, carried out group-wise operations, and perhaps reshaped it, we may also like to attempt causal inference.
+Once we've imported our data, summarized it, carried out group-wise operations, and perhaps reshaped it, we may also want to attempt causal inference.
 
 This often requires doing the following:
+
 1) Carrying out Classical Hypothesis Tests
 2) Estimating Regressions
 
@@ -20,23 +21,23 @@ gap <- read.csv("data/gapminder-FiveYearData.csv", stringsAsFactors = F)
 
 ### Statistical Tests
 
-Let's say we're interested in whether the life expectency in 1967 is differently than in 1977.
+Let's say we're interested in whether the life expectancy in 1967 is different than in 1977.
 
 ```{r message=F}
-# pull out life expectency by different years
+# pull out life expectancy by different years
 life.exp.1967 <- gap$lifeExp[gap$year==1967]
 life.exp.1977 <- gap$lifeExp[gap$year==1977]
 ```
 
 One can test for differences in distributions in either:
 
-1) their means using t-tests:
+1) Their means using t-tests:
 ```{r message=F}
 # t test of means
 t.test(x = life.exp.1967, y = life.exp.1977)
 ```
 
-2) their entire distributions using ks-tests
+2) Their entire distributions using ks-tests
 ```{r message=F}
 # ks tests of distributions
 ks.test(x = life.exp.1967, y = life.exp.1977)
@@ -44,23 +45,23 @@ ks.test(x = life.exp.1967, y = life.exp.1977)
 
 ### Regressions and Linear Models
 
-- Running regressions in R is generally straightforward. There are two basic, catch-all regression functions in R:
+Running regressions in R is generally straightforward. There are two basic, catch-all regression functions in R:
 
 - *glm* fits a generalized linear model with your choice of family/link function (gaussian, logit, poisson, etc.)
 
 - *lm* is just a standard linear regression (equivalent to glm with family = gaussian(link = "identity"))
 
-- The basic `glm` call looks something like this:
+The basic `glm` call looks something like this:
 
 ```{r eval=FALSE}
 glm(formula = y ~ x1 + x2 + x3 + ..., family = familyname(link = "linkname"), data = )
 ```
 
-- There are a bunch of families and links to use (`?family` for a full list), but some essentials are: **binomial(link = "logit")**, **gaussian(link = "identity")**, and **poisson(link = "log")**
+There are a bunch of families and links to use (`?family` for a full list), but some essentials are: **binomial(link = "logit")**, **gaussian(link = "identity")**, and **poisson(link = "log")**
 
 If you're using `lm`, the call looks the same but without the `family` argument. 
 
-- Example: suppose we want to regress the life expectency on the GDP per capita and the population, as well as the continent and year.  The lm call would be something like this:
+- Example: suppose we want to regress the life expectency on the GDP per capita and the population, as well as the continent and year.  The `lm` call would be something like this:
 
 ```{r}
 reg <- lm(formula = lifeExp ~ log(gdpPercap) + log(pop) + continent + year, data = gap)
@@ -68,9 +69,9 @@ reg <- lm(formula = lifeExp ~ log(gdpPercap) + log(pop) + continent + year, data
 
 #### Missing values {-}
 
-Missing values obviously can not convey any information about the relationship between the variables. Most modelling functions will drop any rows that contain missing values.
+Missing values obviously cannot convey any information about the relationship between the variables. Most modeling functions will drop any rows that contain missing values.
 
-### Regression output
+### Regression Output
 
 When we store this regression in an object, we get access to several items of interest.
 
@@ -130,7 +131,7 @@ mod.2 <- lm(lifeExp ~ log(gdpPercap) + log(pop) + continent*factor(year), data =
 summary(mod.2)
 ```
 
-Note that we wrapped the `year` variables into a `factor()` function. By default, R breaks up our variables into their different factor levels (as it will do whenever your regressors have factor levels)
+Note that we wrapped the `year` variables into a `factor()` function. By default, R breaks up our variables into their different factor levels (as it will do whenever your regressors have factor levels).
 
 If your data aren't factorized, you can tell `lm/glm` to factorize a variable (i.e. create dummy variables on the fly) by writing `factor()`
 
@@ -166,7 +167,8 @@ stargazer(mod.1, mod.2, mod.3, title = "Regression Results", type = "text")
 
 #### Customization {-}
 
-`stargazer` is incredably customizable. Let's say we wanted to:
+`stargazer` is incredibly customizable. Let's say we wanted to:
+
 - re-name our explanatory variables; 
 - remove information on the "Constant";  
 - only keep the number of observations from the summary statistics; and 
@@ -181,9 +183,10 @@ stargazer(mod.1, mod.2, mod.3, title = "Regression Results", type = "text",
 
 Check out `?stargazer` to see more options.
 
-#### Output types {-}
+#### Output Types {-}
 
-Once we like the look of our table, we can output/export it in a number of ways. The `type` argument specifies what the outut the command should produce. Possible values are:
+Once we like the look of our table, we can output/export it in a number of ways. The `type` argument specifies what output the command should produce. Possible values are:
+
 - `"latex"` for LaTeX code,
 - `"html"` for HTML code,
 - `"text"` for ASCII text output (what we used above).
@@ -210,7 +213,8 @@ stargazer(mod.1, mod.2, mod.3, title = "Regression Results", type = "latex",
           out = "regression-table.txt")
 ```
 
-To include stargazer tables in Microsoft Word documents (e.g., .doc or .docx),  use the following procedure:
+To include stargazer tables in Microsoft Word documents (e.g., .doc or .docx), use the following procedure:
+
 - Use the `out` argument to save output into an `.html` file. 
 - Open the resulting file in your web browser. 
 - Copy and paste the table from the web browser to your Microsoft Word document.
@@ -225,11 +229,32 @@ stargazer(mod.1, mod.2, mod.3, title = "Regression Results", type = "html",
 
 ### Challenges
 
-1) Fit two linear regression models from the gapminder data, where the outcome is `lifeExp` and the explanatory variables are `log(pop)`, `log(gdpPercap)`, and `year`. In one model, treat `year` as a numeric variable. In the other, factorize the `year` variable. How do you interpret each model?
+#### Challenge 1. Fit two linear regression models from the gapminder data, where the outcome is `lifeExp` and the explanatory variables are `log(pop)`, `log(gdpPercap)`, and `year`. In one model, treat `year` as a numeric variable. In the other, factorize the `year` variable. How do you interpret each model? {-}
 
-2) Fit a logistic regression model where the outcome is whether `lifeExp` is greater than or less than 60 years, exploring the use of different predictors.
+```{r}
+model1 <- lm(lifeExp ~ log(pop) + log(gdpPercap) + year, data = gap)
+model2 <- lm(lifeExp ~ log(pop) + log(gdpPercap) + factor(year), data = gap)
+```
 
-3) Using `stargazer`, format a table reporting the results from the three models you created above (two linear regressions and one logistic). 
+
+#### Challenge 2. Fit a logistic regression model where the outcome is whether `lifeExp` is greater than or less than 60 years, exploring the use of different predictors. {-}
+
+```{r}
+library(dplyr)
+
+gap <- gap %>%
+  mutate(lifeExp60 = as.logical(lifeExp >= 60))
+
+logit_model <- glm(lifeExp60 ~ log(pop) + log(gdpPercap) + year, family = "binomial", data = gap)
+```
+
+
+#### Challenge 3. Using `stargazer`, format a table reporting the results from the three models you created above (two linear regressions and one logistic). {-}
+
+```{r}
+stargazer(model1, model2, logit_model, title = "Challenge Regression Results", type = "text")
+```
+
 
 
 

@@ -325,19 +325,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.1.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#random-seeds"><i class="fa fa-check"></i><b>13.1.2</b> Random Seeds</a></li>
 <li class="chapter" data-level="13.1.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-13"><i class="fa fa-check"></i><b>13.1.3</b> Challenges</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#inferences-and-regressions"><i class="fa fa-check"></i><b>13.2</b> Inferences and regressions</a><ul>
+<li class="chapter" data-level="13.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#inferences-and-regressions"><i class="fa fa-check"></i><b>13.2</b> Inferences and Regressions</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#statistical-tests"><i class="fa fa-check"></i><b>13.2.1</b> Statistical Tests</a></li>
 <li class="chapter" data-level="13.2.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regressions-and-linear-models"><i class="fa fa-check"></i><b>13.2.2</b> Regressions and Linear Models</a></li>
-<li class="chapter" data-level="13.2.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regression-output"><i class="fa fa-check"></i><b>13.2.3</b> Regression output</a></li>
+<li class="chapter" data-level="13.2.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regression-output"><i class="fa fa-check"></i><b>13.2.3</b> Regression Output</a></li>
 <li class="chapter" data-level="13.2.4" data-path="statistical-inferences.html"><a href="statistical-inferences.html#interactions"><i class="fa fa-check"></i><b>13.2.4</b> Interactions</a></li>
 <li class="chapter" data-level="13.2.5" data-path="statistical-inferences.html"><a href="statistical-inferences.html#formatting-regression-tables"><i class="fa fa-check"></i><b>13.2.5</b> Formatting Regression Tables</a></li>
 <li class="chapter" data-level="13.2.6" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-14"><i class="fa fa-check"></i><b>13.2.6</b> Challenges</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html"><i class="fa fa-check"></i><b>14</b> Strings and Regular Expressions</a><ul>
-<li class="chapter" data-level="14.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#common-string-operations"><i class="fa fa-check"></i><b>14.1</b> Common string operations</a><ul>
+<li class="chapter" data-level="14.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#common-string-operations"><i class="fa fa-check"></i><b>14.1</b> Common String Operations</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#concatinating-strings-with-paste"><i class="fa fa-check"></i><b>14.1.1</b> Concatinating strings with <code>paste()</code></a></li>
-<li class="chapter" data-level="14.1.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#extracting-substrings"><i class="fa fa-check"></i><b>14.1.2</b> Extracting substrings</a></li>
+<li class="chapter" data-level="14.1.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#extracting-substrings"><i class="fa fa-check"></i><b>14.1.2</b> Extracting Substrings</a></li>
 <li class="chapter" data-level="14.1.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#replace-substrings-with-gsub"><i class="fa fa-check"></i><b>14.1.3</b> Replace substrings with <code>gsub()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#regular-expressions"><i class="fa fa-check"></i><b>14.2</b> Regular Expressions</a></li>
@@ -788,6 +788,8 @@ VA
 <p>Let’s say we want to combine the <code>countries</code> and <code>states</code> tables we created earlier.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties_states &lt;-<span class="st"> </span>counties <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">left_join</span>(states, <span class="dt">by =</span> <span class="st">&quot;state&quot;</span>)
+<span class="co">#&gt; Warning: `chr_along()` is deprecated as of rlang 0.2.0.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
 
 <span class="kw">kable</span>(counties_states)</code></pre></div>
 <table>

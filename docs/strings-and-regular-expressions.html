@@ -325,19 +325,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.1.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#random-seeds"><i class="fa fa-check"></i><b>13.1.2</b> Random Seeds</a></li>
 <li class="chapter" data-level="13.1.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-13"><i class="fa fa-check"></i><b>13.1.3</b> Challenges</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#inferences-and-regressions"><i class="fa fa-check"></i><b>13.2</b> Inferences and regressions</a><ul>
+<li class="chapter" data-level="13.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#inferences-and-regressions"><i class="fa fa-check"></i><b>13.2</b> Inferences and Regressions</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#statistical-tests"><i class="fa fa-check"></i><b>13.2.1</b> Statistical Tests</a></li>
 <li class="chapter" data-level="13.2.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regressions-and-linear-models"><i class="fa fa-check"></i><b>13.2.2</b> Regressions and Linear Models</a></li>
-<li class="chapter" data-level="13.2.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regression-output"><i class="fa fa-check"></i><b>13.2.3</b> Regression output</a></li>
+<li class="chapter" data-level="13.2.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regression-output"><i class="fa fa-check"></i><b>13.2.3</b> Regression Output</a></li>
 <li class="chapter" data-level="13.2.4" data-path="statistical-inferences.html"><a href="statistical-inferences.html#interactions"><i class="fa fa-check"></i><b>13.2.4</b> Interactions</a></li>
 <li class="chapter" data-level="13.2.5" data-path="statistical-inferences.html"><a href="statistical-inferences.html#formatting-regression-tables"><i class="fa fa-check"></i><b>13.2.5</b> Formatting Regression Tables</a></li>
 <li class="chapter" data-level="13.2.6" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-14"><i class="fa fa-check"></i><b>13.2.6</b> Challenges</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html"><i class="fa fa-check"></i><b>14</b> Strings and Regular Expressions</a><ul>
-<li class="chapter" data-level="14.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#common-string-operations"><i class="fa fa-check"></i><b>14.1</b> Common string operations</a><ul>
+<li class="chapter" data-level="14.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#common-string-operations"><i class="fa fa-check"></i><b>14.1</b> Common String Operations</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#concatinating-strings-with-paste"><i class="fa fa-check"></i><b>14.1.1</b> Concatinating strings with <code>paste()</code></a></li>
-<li class="chapter" data-level="14.1.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#extracting-substrings"><i class="fa fa-check"></i><b>14.1.2</b> Extracting substrings</a></li>
+<li class="chapter" data-level="14.1.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#extracting-substrings"><i class="fa fa-check"></i><b>14.1.2</b> Extracting Substrings</a></li>
 <li class="chapter" data-level="14.1.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#replace-substrings-with-gsub"><i class="fa fa-check"></i><b>14.1.3</b> Replace substrings with <code>gsub()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#regular-expressions"><i class="fa fa-check"></i><b>14.2</b> Regular Expressions</a></li>
@@ -426,13 +426,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="strings-and-regular-expressions" class="section level1">
 <h1><span class="header-section-number">Chapter 14</span> Strings and Regular Expressions</h1>
-<p>This unit focuses on chracter (or “sting”) data. We’ll explore:</p>
+<p>This unit focuses on chracter (or “string”) data. We’ll explore:</p>
 <ol style="list-style-type: decimal">
 <li><strong><a href="strings-and-regular-expressions.html#common-string-operations">common string operations</a></strong>, like concatinating, subsetting, and replacing strings.</li>
 <li><strong><a href="strings-and-regular-expressions.html#regular-expressions">regular expressions</a></strong>, a powerful cross-language tool for working with string data.</li>
 </ol>
 <div id="common-string-operations" class="section level2">
-<h2><span class="header-section-number">14.1</span> Common string operations</h2>
+<h2><span class="header-section-number">14.1</span> Common String Operations</h2>
 <div id="concatinating-strings-with-paste" class="section level3">
 <h3><span class="header-section-number">14.1.1</span> Concatinating strings with <code>paste()</code></h3>
 <p>Let’s say we wanted to concatenate the following two strings into one larger character string:</p>
@@ -447,11 +447,8 @@ fullName &lt;-<span class="st"> </span><span class="kw">c</span>(firstName, last
 <span class="co">#&gt; [1] &quot;Johan&quot;       &quot;Gambolputty&quot;</span>
 <span class="kw">length</span>(fullName)
 <span class="co">#&gt; [1] 2</span></code></pre></div>
-<p>In order to combine two or more character strings into one larger character string requires using the <code>paste()</code> function. This function takes character strings or vectors and collapses their values into a single character string, with each value separated by a character string selected by the user.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">firstName &lt;-<span class="st"> &quot;Johan&quot;</span>
-lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span>
-
-fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)
+<p>Combining two or more character strings into one larger character string requires using the <code>paste()</code> function. This function takes character strings or vectors and collapses their values into a single character string, with each value separated by a character string selected by the user.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)
 <span class="kw">print</span>(fullName)
 <span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span>
 
@@ -464,7 +461,7 @@ fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, 
 <span class="co">#&gt; [1] &quot;Johan___Gambolputty&quot;</span></code></pre></div>
 </div>
 <div id="extracting-substrings" class="section level3">
-<h3><span class="header-section-number">14.1.2</span> Extracting substrings</h3>
+<h3><span class="header-section-number">14.1.2</span> Extracting Substrings</h3>
 <p>R can also extract substrings based on the index position of its characters. Some things to note:</p>
 <ol style="list-style-type: decimal">
 <li><p>Index positions in R start at 1. This is in contrast to Python, where indexation starts at 0.</p></li>

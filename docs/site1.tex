@@ -5004,7 +5004,7 @@ You can print this out in R code by running \texttt{getwd()}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/rochelleterman/Desktop/plsc-31101"}
+\CommentTok{#> [1] "/Users/petecuppernull/Dropbox/UChicago/Work/2019 Summer RA/Repos/plsc-31101"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5122,7 +5122,7 @@ directory:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/rochelleterman/Desktop/plsc-31101"}
+\CommentTok{#> [1] "/Users/petecuppernull/Dropbox/UChicago/Work/2019 Summer RA/Repos/plsc-31101"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11279,14 +11279,22 @@ distribution? What about a t distribution with 1 degree of freedom?}
 \end{Highlighting}
 \end{Shaded}
 
-\section{Inferences and regressions}\label{inferences-and-regressions}
+\section{Inferences and Regressions}\label{inferences-and-regressions}
 
 Once we've imported our data, summarized it, carried out group-wise
-operations, and perhaps reshaped it, we may also like to attempt causal
+operations, and perhaps reshaped it, we may also want to attempt causal
 inference.
 
-This often requires doing the following: 1) Carrying out Classical
-Hypothesis Tests 2) Estimating Regressions
+This often requires doing the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Carrying out Classical Hypothesis Tests
+\item
+  Estimating Regressions
+\end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11297,12 +11305,12 @@ Hypothesis Tests 2) Estimating Regressions
 
 \subsection{Statistical Tests}\label{statistical-tests}
 
-Let's say we're interested in whether the life expectency in 1967 is
-differently than in 1977.
+Let's say we're interested in whether the life expectancy in 1967 is
+different than in 1977.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# pull out life expectency by different years}
+\CommentTok{# pull out life expectancy by different years}
 \NormalTok{life.exp.}\DecValTok{1967}\NormalTok{ <-}\StringTok{ }\NormalTok{gap}\OperatorTok{$}\NormalTok{lifeExp[gap}\OperatorTok{$}\NormalTok{year}\OperatorTok{==}\DecValTok{1967}\NormalTok{]}
 \NormalTok{life.exp.}\DecValTok{1977}\NormalTok{ <-}\StringTok{ }\NormalTok{gap}\OperatorTok{$}\NormalTok{lifeExp[gap}\OperatorTok{$}\NormalTok{year}\OperatorTok{==}\DecValTok{1977}\NormalTok{]}
 \end{Highlighting}
@@ -11314,7 +11322,7 @@ One can test for differences in distributions in either:
 \def\labelenumi{\arabic{enumi})}
 \tightlist
 \item
-  their means using t-tests:
+  Their means using t-tests:
 \end{enumerate}
 
 \begin{Shaded}
@@ -11340,7 +11348,7 @@ One can test for differences in distributions in either:
 \setcounter{enumi}{1}
 \tightlist
 \item
-  their entire distributions using ks-tests
+  Their entire distributions using ks-tests
 \end{enumerate}
 
 \begin{Shaded}
@@ -11361,19 +11369,19 @@ One can test for differences in distributions in either:
 \subsection{Regressions and Linear
 Models}\label{regressions-and-linear-models}
 
+Running regressions in R is generally straightforward. There are two
+basic, catch-all regression functions in R:
+
 \begin{itemize}
-\item
-  Running regressions in R is generally straightforward. There are two
-  basic, catch-all regression functions in R:
 \item
   \emph{glm} fits a generalized linear model with your choice of
   family/link function (gaussian, logit, poisson, etc.)
 \item
   \emph{lm} is just a standard linear regression (equivalent to glm with
   family = gaussian(link = ``identity''))
-\item
-  The basic \texttt{glm} call looks something like this:
 \end{itemize}
+
+The basic \texttt{glm} call looks something like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11381,14 +11389,10 @@ Models}\label{regressions-and-linear-models}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{itemize}
-\tightlist
-\item
-  There are a bunch of families and links to use (\texttt{?family} for a
-  full list), but some essentials are: \textbf{binomial(link =
-  ``logit'')}, \textbf{gaussian(link = ``identity'')}, and
-  \textbf{poisson(link = ``log'')}
-\end{itemize}
+There are a bunch of families and links to use (\texttt{?family} for a
+full list), but some essentials are: \textbf{binomial(link =
+``logit'')}, \textbf{gaussian(link = ``identity'')}, and
+\textbf{poisson(link = ``log'')}
 
 If you're using \texttt{lm}, the call looks the same but without the
 \texttt{family} argument.
@@ -11397,8 +11401,8 @@ If you're using \texttt{lm}, the call looks the same but without the
 \tightlist
 \item
   Example: suppose we want to regress the life expectency on the GDP per
-  capita and the population, as well as the continent and year. The lm
-  call would be something like this:
+  capita and the population, as well as the continent and year. The
+  \texttt{lm} call would be something like this:
 \end{itemize}
 
 \begin{Shaded}
@@ -11410,11 +11414,11 @@ If you're using \texttt{lm}, the call looks the same but without the
 \subsubsection*{Missing values}\label{missing-values}
 \addcontentsline{toc}{subsubsection}{Missing values}
 
-Missing values obviously can not convey any information about the
-relationship between the variables. Most modelling functions will drop
+Missing values obviously cannot convey any information about the
+relationship between the variables. Most modeling functions will drop
 any rows that contain missing values.
 
-\subsection{Regression output}\label{regression-output}
+\subsection{Regression Output}\label{regression-output}
 
 When we store this regression in an object, we get access to several
 items of interest.
@@ -11868,7 +11872,7 @@ terms:
 Note that we wrapped the \texttt{year} variables into a
 \texttt{factor()} function. By default, R breaks up our variables into
 their different factor levels (as it will do whenever your regressors
-have factor levels)
+have factor levels).
 
 If your data aren't factorized, you can tell \texttt{lm/glm} to
 factorize a variable (i.e.~create dummy variables on the fly) by writing
@@ -11970,12 +11974,20 @@ regression analysis results from all these models side-by-side.
 \subsubsection*{Customization}\label{customization}
 \addcontentsline{toc}{subsubsection}{Customization}
 
-\texttt{stargazer} is incredably customizable. Let's say we wanted to: -
-re-name our explanatory variables; - remove information on the
-``Constant'';\\
-- only keep the number of observations from the summary statistics; and
-- style the table to look like those in American Journal of Political
-Science.
+\texttt{stargazer} is incredibly customizable. Let's say we wanted to:
+
+\begin{itemize}
+\tightlist
+\item
+  re-name our explanatory variables;
+\item
+  remove information on the ``Constant'';\\
+\item
+  only keep the number of observations from the summary statistics; and
+\item
+  style the table to look like those in American Journal of Political
+  Science.
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12011,14 +12023,22 @@ Science.
 
 Check out \texttt{?stargazer} to see more options.
 
-\subsubsection*{Output types}\label{output-types}
-\addcontentsline{toc}{subsubsection}{Output types}
+\subsubsection*{Output Types}\label{output-types}
+\addcontentsline{toc}{subsubsection}{Output Types}
 
 Once we like the look of our table, we can output/export it in a number
-of ways. The \texttt{type} argument specifies what the outut the command
-should produce. Possible values are: - \texttt{"latex"} for LaTeX code,
-- \texttt{"html"} for HTML code, - \texttt{"text"} for ASCII text output
-(what we used above).
+of ways. The \texttt{type} argument specifies what output the command
+should produce. Possible values are:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{"latex"} for LaTeX code,
+\item
+  \texttt{"html"} for HTML code,
+\item
+  \texttt{"text"} for ASCII text output (what we used above).
+\end{itemize}
 
 Let's say we're using LaTeX to typeset our paper. We can output our
 regression table in LaTeX:
@@ -12031,7 +12051,7 @@ regression table in LaTeX:
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Sat, Sep 28, 2019 - 15:57:35}
+\CommentTok{#> % Date and time: Mon, Sep 30, 2019 - 09:16:34}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -12079,10 +12099,19 @@ in a .tex or .txt file:
 \end{Shaded}
 
 To include stargazer tables in Microsoft Word documents (e.g., .doc or
-.docx), use the following procedure: - Use the \texttt{out} argument to
-save output into an \texttt{.html} file. - Open the resulting file in
-your web browser. - Copy and paste the table from the web browser to
-your Microsoft Word document.
+.docx), use the following procedure:
+
+\begin{itemize}
+\tightlist
+\item
+  Use the \texttt{out} argument to save output into an \texttt{.html}
+  file.
+\item
+  Open the resulting file in your web browser.
+\item
+  Copy and paste the table from the web browser to your Microsoft Word
+  document.
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12096,28 +12125,129 @@ your Microsoft Word document.
 
 \subsection{Challenges}\label{challenges-14}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi})}
-\item
-  Fit two linear regression models from the gapminder data, where the
-  outcome is \texttt{lifeExp} and the explanatory variables are
-  \texttt{log(pop)}, \texttt{log(gdpPercap)}, and \texttt{year}. In one
-  model, treat \texttt{year} as a numeric variable. In the other,
-  factorize the \texttt{year} variable. How do you interpret each model?
-\item
-  Fit a logistic regression model where the outcome is whether
-  \texttt{lifeExp} is greater than or less than 60 years, exploring the
-  use of different predictors.
-\item
-  Using \texttt{stargazer}, format a table reporting the results from
-  the three models you created above (two linear regressions and one
-  logistic).
-\end{enumerate}
+\subsubsection*{\texorpdfstring{Challenge 1. Fit two linear regression
+models from the gapminder data, where the outcome is \texttt{lifeExp}
+and the explanatory variables are \texttt{log(pop)},
+\texttt{log(gdpPercap)}, and \texttt{year}. In one model, treat
+\texttt{year} as a numeric variable. In the other, factorize the
+\texttt{year} variable. How do you interpret each
+model?}{Challenge 1. Fit two linear regression models from the gapminder data, where the outcome is lifeExp and the explanatory variables are log(pop), log(gdpPercap), and year. In one model, treat year as a numeric variable. In the other, factorize the year variable. How do you interpret each model?}}\label{challenge-1.-fit-two-linear-regression-models-from-the-gapminder-data-where-the-outcome-is-lifeexp-and-the-explanatory-variables-are-logpop-loggdppercap-and-year.-in-one-model-treat-year-as-a-numeric-variable.-in-the-other-factorize-the-year-variable.-how-do-you-interpret-each-model}
+\addcontentsline{toc}{subsubsection}{Challenge 1. Fit two linear
+regression models from the gapminder data, where the outcome is
+\texttt{lifeExp} and the explanatory variables are \texttt{log(pop)},
+\texttt{log(gdpPercap)}, and \texttt{year}. In one model, treat
+\texttt{year} as a numeric variable. In the other, factorize the
+\texttt{year} variable. How do you interpret each model?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(lifeExp }\OperatorTok{~}\StringTok{ }\KeywordTok{log}\NormalTok{(pop) }\OperatorTok{+}\StringTok{ }\KeywordTok{log}\NormalTok{(gdpPercap) }\OperatorTok{+}\StringTok{ }\NormalTok{year, }\DataTypeTok{data =}\NormalTok{ gap)}
+\NormalTok{model2 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(lifeExp }\OperatorTok{~}\StringTok{ }\KeywordTok{log}\NormalTok{(pop) }\OperatorTok{+}\StringTok{ }\KeywordTok{log}\NormalTok{(gdpPercap) }\OperatorTok{+}\StringTok{ }\KeywordTok{factor}\NormalTok{(year), }\DataTypeTok{data =}\NormalTok{ gap)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{\texorpdfstring{Challenge 2. Fit a logistic regression
+model where the outcome is whether \texttt{lifeExp} is greater than or
+less than 60 years, exploring the use of different
+predictors.}{Challenge 2. Fit a logistic regression model where the outcome is whether lifeExp is greater than or less than 60 years, exploring the use of different predictors.}}\label{challenge-2.-fit-a-logistic-regression-model-where-the-outcome-is-whether-lifeexp-is-greater-than-or-less-than-60-years-exploring-the-use-of-different-predictors.}
+\addcontentsline{toc}{subsubsection}{Challenge 2. Fit a logistic
+regression model where the outcome is whether \texttt{lifeExp} is
+greater than or less than 60 years, exploring the use of different
+predictors.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+
+\NormalTok{gap <-}\StringTok{ }\NormalTok{gap }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{lifeExp60 =} \KeywordTok{as.logical}\NormalTok{(lifeExp }\OperatorTok{>=}\StringTok{ }\DecValTok{60}\NormalTok{))}
+
+\NormalTok{logit_model <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(lifeExp60 }\OperatorTok{~}\StringTok{ }\KeywordTok{log}\NormalTok{(pop) }\OperatorTok{+}\StringTok{ }\KeywordTok{log}\NormalTok{(gdpPercap) }\OperatorTok{+}\StringTok{ }\NormalTok{year, }\DataTypeTok{family =} \StringTok{"binomial"}\NormalTok{, }\DataTypeTok{data =}\NormalTok{ gap)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{\texorpdfstring{Challenge 3. Using \texttt{stargazer},
+format a table reporting the results from the three models you created
+above (two linear regressions and one
+logistic).}{Challenge 3. Using stargazer, format a table reporting the results from the three models you created above (two linear regressions and one logistic).}}\label{challenge-3.-using-stargazer-format-a-table-reporting-the-results-from-the-three-models-you-created-above-two-linear-regressions-and-one-logistic.}
+\addcontentsline{toc}{subsubsection}{Challenge 3. Using
+\texttt{stargazer}, format a table reporting the results from the three
+models you created above (two linear regressions and one logistic).}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{stargazer}\NormalTok{(model1, model2, logit_model, }\DataTypeTok{title =} \StringTok{"Challenge Regression Results"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"text"}\NormalTok{)}
+\CommentTok{#> }
+\CommentTok{#> Challenge Regression Results}
+\CommentTok{#> =====================================================================================}
+\CommentTok{#>                                            Dependent variable:                       }
+\CommentTok{#>                     -----------------------------------------------------------------}
+\CommentTok{#>                                            lifeExp                         lifeExp60 }
+\CommentTok{#>                                              OLS                            logistic }
+\CommentTok{#>                                 (1)                        (2)                (3)    }
+\CommentTok{#> -------------------------------------------------------------------------------------}
+\CommentTok{#> log(pop)                     0.885***                    0.881***           0.285*** }
+\CommentTok{#>                               (0.104)                    (0.104)            (0.050)  }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> log(gdpPercap)               7.790***                    7.780***           2.130*** }
+\CommentTok{#>                               (0.135)                    (0.135)            (0.100)  }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> year                         0.178***                                       0.035*** }
+\CommentTok{#>                               (0.010)                                       (0.005)  }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1957                                          1.260                      }
+\CommentTok{#>                                                          (0.798)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1962                                         2.310***                    }
+\CommentTok{#>                                                          (0.799)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1967                                         3.120***                    }
+\CommentTok{#>                                                          (0.801)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1972                                         3.740***                    }
+\CommentTok{#>                                                          (0.803)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1977                                         4.780***                    }
+\CommentTok{#>                                                          (0.805)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1982                                         6.300***                    }
+\CommentTok{#>                                                          (0.807)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1987                                         7.780***                    }
+\CommentTok{#>                                                          (0.808)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1992                                         8.700***                    }
+\CommentTok{#>                                                          (0.809)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)1997                                         8.860***                    }
+\CommentTok{#>                                                          (0.812)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)2002                                         8.910***                    }
+\CommentTok{#>                                                          (0.814)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> factor(year)2007                                         8.920***                    }
+\CommentTok{#>                                                          (0.818)                     }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> Constant                    -370.000***                 -23.300***         -90.000***}
+\CommentTok{#>                              (19.200)                    (1.980)            (9.280)  }
+\CommentTok{#>                                                                                      }
+\CommentTok{#> -------------------------------------------------------------------------------------}
+\CommentTok{#> Observations                   1,704                      1,704              1,704   }
+\CommentTok{#> R2                             0.728                      0.731                      }
+\CommentTok{#> Adjusted R2                    0.728                      0.729                      }
+\CommentTok{#> Log Likelihood                                                              -572.000 }
+\CommentTok{#> Akaike Inf. Crit.                                                          1,151.000 }
+\CommentTok{#> Residual Std. Error      6.740 (df = 1700)          6.730 (df = 1690)                }
+\CommentTok{#> F Statistic         1,520.000*** (df = 3; 1700) 353.000*** (df = 13; 1690)           }
+\CommentTok{#> =====================================================================================}
+\CommentTok{#> Note:                                                     *p<0.1; **p<0.05; ***p<0.01}
+\end{Highlighting}
+\end{Shaded}
 
 \chapter{Strings and Regular
 Expressions}\label{strings-and-regular-expressions}
 
-This unit focuses on chracter (or ``sting'') data. We'll explore:
+This unit focuses on chracter (or ``string'') data. We'll explore:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -12130,8 +12260,8 @@ This unit focuses on chracter (or ``sting'') data. We'll explore:
   a powerful cross-language tool for working with string data.
 \end{enumerate}
 
-\hypertarget{common-string-operations}{\section{Common string
-operations}\label{common-string-operations}}
+\hypertarget{common-string-operations}{\section{Common String
+Operations}\label{common-string-operations}}
 
 \subsection{\texorpdfstring{Concatinating strings with
 \texttt{paste()}}{Concatinating strings with paste()}}\label{concatinating-strings-with-paste}
@@ -12163,17 +12293,14 @@ strings will not create a single character string, but rather a
 \end{Highlighting}
 \end{Shaded}
 
-In order to combine two or more character strings into one larger
-character string requires using the \texttt{paste()} function. This
-function takes character strings or vectors and collapses their values
-into a single character string, with each value separated by a character
-string selected by the user.
+Combining two or more character strings into one larger character string
+requires using the \texttt{paste()} function. This function takes
+character strings or vectors and collapses their values into a single
+character string, with each value separated by a character string
+selected by the user.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{firstName <-}\StringTok{ "Johan"}
-\NormalTok{lastName <-}\StringTok{ "Gambolputty"}
-
 \NormalTok{fullName <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(firstName, lastName)}
 \KeywordTok{print}\NormalTok{(fullName)}
 \CommentTok{#> [1] "Johan Gambolputty"}
@@ -12188,7 +12315,7 @@ string selected by the user.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Extracting substrings}\label{extracting-substrings}
+\subsection{Extracting Substrings}\label{extracting-substrings}
 
 R can also extract substrings based on the index position of its
 characters. Some things to note:
@@ -14113,10 +14240,6 @@ favorite\_count
 
 retweet\_count
 
-quote\_count
-
-reply\_count
-
 hashtags
 
 symbols
@@ -14267,6 +14390,555 @@ profile\_image\_url
 
 805833715
 
+1178392885986770946
+
+1569785732
+
+carsonaust
+
+Excellent and timely \citet{carsonaust} piece: The Dangers of a Loyalist
+Director of National Intelligence \url{https://t.co/Ut9VZV9uEj}
+
+Twitter Web App
+
+135
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+TRUE
+
+0
+
+5
+
+NA
+
+NA
+
+lawfareblog.com/dangers-loyali\ldots{}
+
+\url{https://t.co/Ut9VZV9uEj}
+
+\url{http://www.lawfareblog.com/dangers-loyalist-director-national-intelligence}
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(``297648980'', ``805833715'')
+
+c(``dbyman'', ``carsonaust'')
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1178388272109805568
+
+Excellent and timely \citet{carsonaust} piece: The Dangers of a Loyalist
+Director of National Intelligence \url{https://t.co/Ut9VZV9uEj}
+
+1569784632
+
+Twitter Web Client
+
+9
+
+5
+
+297648980
+
+dbyman
+
+Dan Byman
+
+11900
+
+649
+
+11976
+
+Bethesda, MD
+
+Professor \citet{GeorgetownSFS}. Senior Fellow \citet{BrookingsFP} \&
+Editor \citet{lawfareblog}. I follow terrorism, Middle East, \& Hoyas
+bball. RT ≠ etc
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1178392885986770946}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1899
+
+1007
+
+23
+
+1518
+
+2625
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1178352156358955010
+
+1569776021
+
+carsonaust
+
+If the White House PR plan is ``put Stephen Miller on TV a lot,'' boy
+there really must be something wrong
+
+Twitter for iPhone
+
+104
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+FALSE
+
+9
+
+0
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1178352156358955010}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1899
+
+1007
+
+23
+
+1518
+
+2625
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1178094270957412352
+
+1569714536
+
+carsonaust
+
+My essay in the NYT: ``The government has helped shore up public
+approval by reminding citizens of the nation's long struggle and
+emphasizing that China will ultimately prevail by biding its time for
+future success. Yet this strategy has costs.''
+\url{https://t.co/2lMoExgFKs}
+
+Twitter for iPhone
+
+140
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+TRUE
+
+0
+
+68
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+186177715
+
+jessicacweiss
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1178050311212163072
+
+My essay in the NYT: ``The government has helped shore up public
+approval by reminding citizens of the nation's long struggle and
+emphasizing that China will ultimately prevail by biding its time for
+future success. Yet this strategy has costs.''
+\url{https://t.co/2lMoExgFKs}
+
+1569704055
+
+TweetDeck
+
+133
+
+68
+
+186177715
+
+jessicacweiss
+
+Jessica Chen Weiss
+
+7944
+
+1712
+
+6111
+
+Ithaca, NY
+
+Professor \citet{Cornell}, WaPo Monkey Cage editor, twin mom, author of
+Nationalist Protest in China's Foreign Relations
+\url{https://t.co/foBAvUP3hV}
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1178094270957412352}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1899
+
+1007
+
+23
+
+1518
+
+2625
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
 1178009054695870464
 
 1569694219
@@ -14292,11 +14964,7 @@ TRUE
 
 0
 
-10
-
-NA
-
-NA
+12
 
 NA
 
@@ -14369,9 +15037,9 @@ than these.'' \url{https://t.co/0kttzYrDlg}
 
 Twitter for Android
 
-47
+52
 
-10
+12
 
 26591796
 
@@ -14379,11 +15047,11 @@ jonrlindsay
 
 Jon Lindsay
 
-676
+677
 
 507
 
-748
+750
 
 Toronto, Ontario
 
@@ -14424,15 +15092,15 @@ enthusiast
 
 FALSE
 
-1887
+1899
 
 1007
 
 23
 
-1516
+1518
 
-2623
+2625
 
 1346896669
 
@@ -14476,13 +15144,9 @@ FALSE
 
 FALSE
 
-8
+15
 
-1
-
-NA
-
-NA
+2
 
 NA
 
@@ -14608,15 +15272,15 @@ enthusiast
 
 FALSE
 
-1887
+1899
 
 1007
 
 23
 
-1516
+1518
 
-2623
+2625
 
 1346896669
 
@@ -14661,10 +15325,6 @@ FALSE
 0
 
 0
-
-NA
-
-NA
 
 NA
 
@@ -14790,571 +15450,15 @@ enthusiast
 
 FALSE
 
-1887
+1899
 
 1007
 
 23
 
-1516
+1518
 
-2623
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1177646359903645698
-
-1569607746
-
-carsonaust
-
-\citet{anthlittle} \citet{dhnexon} So defensive, \citet{anthlittle}
-
-Twitter Web App
-
-25
-
-1177630296876797953
-
-522685909
-
-anthlittle
-
-FALSE
-
-FALSE
-
-1
-
-0
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(``522685909'', ``55015468'', ``522685909'')
-
-c(``anthlittle'', ``dhnexon'', ``anthlittle'')
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1177646359903645698}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1887
-
-1007
-
-23
-
-1516
-
-2623
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1177626170583584773
-
-1569602932
-
-carsonaust
-
-Secret Wars, by \citet{UChicago}'s own \citet{carsonaust}, recently won
-the 2018 Lepgold Book Prize in international affairs. Dr.~Carson and
-\citet{pstanpolitics} (a previous winner) join \citet{tyfys_podcast} to
-discuss the book and other topics in \#civmil relations
-\citet{HarrisPolicy} \url{https://t.co/eiFGyuCyHZ}
-
-Twitter Web App
-
-140
-
-NA
-
-NA
-
-NA
-
-FALSE
-
-TRUE
-
-0
-
-4
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(``1055833950403334145'', ``131144285'', ``805833715'')
-
-c(``tyfys\_podcast'', ``UChicago'', ``carsonaust'')
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-1177618081616560128
-
-Secret Wars, by \citet{UChicago}'s own \citet{carsonaust}, recently won
-the 2018 Lepgold Book Prize in international affairs. Dr.~Carson and
-\citet{pstanpolitics} (a previous winner) join \citet{tyfys_podcast} to
-discuss the book and other topics in \#civmil relations
-\citet{HarrisPolicy} \url{https://t.co/eiFGyuCyHZ}
-
-1569601004
-
-Twitter Web App
-
-8
-
-4
-
-1055833950403334145
-
-tyfys\_podcast
-
-``Thank You For Your Service'' Podcast
-
-363
-
-153
-
-255
-
-University of Chicago
-
-A Hard Look at American Civil-Military Affairs from \citet{TheUC3P}
-\citet{HarrisPolicy} \textbar{} Hosted by \citet{krasnican_} \&
-\citet{na_paraiso} \textbar{} New episodes coming soon!
-
-FALSE
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1177626170583584773}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1887
-
-1007
-
-23
-
-1516
-
-2623
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1177618566625058816
-
-1569601120
-
-carsonaust
-
-\citet{dhnexon} Gasp! It can't be true!
-
-Twitter Web App
-
-23
-
-1177617758756003840
-
-55015468
-
-dhnexon
-
-FALSE
-
-FALSE
-
-0
-
-0
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-55015468
-
-dhnexon
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1177618566625058816}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1887
-
-1007
-
-23
-
-1516
-
-2623
+2625
 
 1346896669
 
@@ -15384,7 +15488,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-451-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-454-1} \end{center}
 
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}
 
@@ -15424,17 +15528,17 @@ exclude retweets from the query.
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 657 x 3}
-\CommentTok{#> # Groups:   user_id [657]}
+\CommentTok{#> # A tibble: 668 x 3}
+\CommentTok{#> # Groups:   user_id [668]}
 \CommentTok{#>   user_id             location                           n}
 \CommentTok{#>   <chr>               <chr>                          <int>}
-\CommentTok{#> 1 2561373848          Florida, USA                      91}
-\CommentTok{#> 2 764290456599396353  Rochester, New York               51}
-\CommentTok{#> 3 1030069194539368448 ""                                34}
-\CommentTok{#> 4 1022122568004894720 ""                                33}
-\CommentTok{#> 5 714738130557992960  Chiclana de la Frontera, Spain    28}
-\CommentTok{#> 6 826869114           Paris, Ile-de-France              27}
-\CommentTok{#> # ... with 651 more rows}
+\CommentTok{#> 1 764290456599396353  Rochester, New York               69}
+\CommentTok{#> 2 1022122568004894720 ""                                36}
+\CommentTok{#> 3 1030069194539368448 ""                                36}
+\CommentTok{#> 4 714738130557992960  Chiclana de la Frontera, Spain    32}
+\CommentTok{#> 5 826869114           Paris, Ile-de-France              31}
+\CommentTok{#> 6 496058145           ""                                21}
+\CommentTok{#> # ... with 662 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -15628,17 +15732,17 @@ information on the first ten documents:
 \CommentTok{# What's in 'meta'?}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}
 \CommentTok{#> $hits}
-\CommentTok{#> [1] 3885}
+\CommentTok{#> [1] 3884}
 \CommentTok{#> }
 \CommentTok{#> $offset}
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 15}
+\CommentTok{#> [1] 39}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
-\CommentTok{#> [1] 3885}
+\CommentTok{#> [1] 3884}
 
 \CommentTok{# Check out docs}
 \KeywordTok{names}\NormalTok{(response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{docs)}
@@ -15751,7 +15855,7 @@ was published in.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-464-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-467-1} \end{center}
 
 \subsection{More resources}\label{more-resources-1}
 

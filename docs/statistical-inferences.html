@@ -325,19 +325,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.1.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#random-seeds"><i class="fa fa-check"></i><b>13.1.2</b> Random Seeds</a></li>
 <li class="chapter" data-level="13.1.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-13"><i class="fa fa-check"></i><b>13.1.3</b> Challenges</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#inferences-and-regressions"><i class="fa fa-check"></i><b>13.2</b> Inferences and regressions</a><ul>
+<li class="chapter" data-level="13.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#inferences-and-regressions"><i class="fa fa-check"></i><b>13.2</b> Inferences and Regressions</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#statistical-tests"><i class="fa fa-check"></i><b>13.2.1</b> Statistical Tests</a></li>
 <li class="chapter" data-level="13.2.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regressions-and-linear-models"><i class="fa fa-check"></i><b>13.2.2</b> Regressions and Linear Models</a></li>
-<li class="chapter" data-level="13.2.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regression-output"><i class="fa fa-check"></i><b>13.2.3</b> Regression output</a></li>
+<li class="chapter" data-level="13.2.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regression-output"><i class="fa fa-check"></i><b>13.2.3</b> Regression Output</a></li>
 <li class="chapter" data-level="13.2.4" data-path="statistical-inferences.html"><a href="statistical-inferences.html#interactions"><i class="fa fa-check"></i><b>13.2.4</b> Interactions</a></li>
 <li class="chapter" data-level="13.2.5" data-path="statistical-inferences.html"><a href="statistical-inferences.html#formatting-regression-tables"><i class="fa fa-check"></i><b>13.2.5</b> Formatting Regression Tables</a></li>
 <li class="chapter" data-level="13.2.6" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-14"><i class="fa fa-check"></i><b>13.2.6</b> Challenges</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html"><i class="fa fa-check"></i><b>14</b> Strings and Regular Expressions</a><ul>
-<li class="chapter" data-level="14.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#common-string-operations"><i class="fa fa-check"></i><b>14.1</b> Common string operations</a><ul>
+<li class="chapter" data-level="14.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#common-string-operations"><i class="fa fa-check"></i><b>14.1</b> Common String Operations</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#concatinating-strings-with-paste"><i class="fa fa-check"></i><b>14.1.1</b> Concatinating strings with <code>paste()</code></a></li>
-<li class="chapter" data-level="14.1.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#extracting-substrings"><i class="fa fa-check"></i><b>14.1.2</b> Extracting substrings</a></li>
+<li class="chapter" data-level="14.1.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#extracting-substrings"><i class="fa fa-check"></i><b>14.1.2</b> Extracting Substrings</a></li>
 <li class="chapter" data-level="14.1.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#replace-substrings-with-gsub"><i class="fa fa-check"></i><b>14.1.3</b> Replace substrings with <code>gsub()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#regular-expressions"><i class="fa fa-check"></i><b>14.2</b> Regular Expressions</a></li>
@@ -526,20 +526,24 @@ vals
 </div>
 </div>
 <div id="inferences-and-regressions" class="section level2">
-<h2><span class="header-section-number">13.2</span> Inferences and regressions</h2>
-<p>Once we’ve imported our data, summarized it, carried out group-wise operations, and perhaps reshaped it, we may also like to attempt causal inference.</p>
-<p>This often requires doing the following: 1) Carrying out Classical Hypothesis Tests 2) Estimating Regressions</p>
+<h2><span class="header-section-number">13.2</span> Inferences and Regressions</h2>
+<p>Once we’ve imported our data, summarized it, carried out group-wise operations, and perhaps reshaped it, we may also want to attempt causal inference.</p>
+<p>This often requires doing the following:</p>
+<ol style="list-style-type: decimal">
+<li>Carrying out Classical Hypothesis Tests</li>
+<li>Estimating Regressions</li>
+</ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># setup</span>
 gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)</code></pre></div>
 <div id="statistical-tests" class="section level3">
 <h3><span class="header-section-number">13.2.1</span> Statistical Tests</h3>
-<p>Let’s say we’re interested in whether the life expectency in 1967 is differently than in 1977.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pull out life expectency by different years</span>
+<p>Let’s say we’re interested in whether the life expectancy in 1967 is different than in 1977.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pull out life expectancy by different years</span>
 life.exp.<span class="dv">1967</span> &lt;-<span class="st"> </span>gap<span class="op">$</span>lifeExp[gap<span class="op">$</span>year<span class="op">==</span><span class="dv">1967</span>]
 life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span class="op">$</span>lifeExp[gap<span class="op">$</span>year<span class="op">==</span><span class="dv">1977</span>]</code></pre></div>
 <p>One can test for differences in distributions in either:</p>
 <ol style="list-style-type: decimal">
-<li>their means using t-tests:</li>
+<li>Their means using t-tests:</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># t test of means</span>
 <span class="kw">t.test</span>(<span class="dt">x =</span> life.exp.<span class="dv">1967</span>, <span class="dt">y =</span> life.exp.<span class="dv">1977</span>)
@@ -555,7 +559,7 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 <span class="co">#&gt; mean of x mean of y </span>
 <span class="co">#&gt;      55.7      59.6</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li>their entire distributions using ks-tests</li>
+<li>Their entire distributions using ks-tests</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ks tests of distributions</span>
 <span class="kw">ks.test</span>(<span class="dt">x =</span> life.exp.<span class="dv">1967</span>, <span class="dt">y =</span> life.exp.<span class="dv">1977</span>)
@@ -570,28 +574,26 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 </div>
 <div id="regressions-and-linear-models" class="section level3">
 <h3><span class="header-section-number">13.2.2</span> Regressions and Linear Models</h3>
+<p>Running regressions in R is generally straightforward. There are two basic, catch-all regression functions in R:</p>
 <ul>
-<li><p>Running regressions in R is generally straightforward. There are two basic, catch-all regression functions in R:</p></li>
 <li><p><em>glm</em> fits a generalized linear model with your choice of family/link function (gaussian, logit, poisson, etc.)</p></li>
 <li><p><em>lm</em> is just a standard linear regression (equivalent to glm with family = gaussian(link = “identity”))</p></li>
-<li><p>The basic <code>glm</code> call looks something like this:</p></li>
 </ul>
+<p>The basic <code>glm</code> call looks something like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glm</span>(<span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x1 <span class="op">+</span><span class="st"> </span>x2 <span class="op">+</span><span class="st"> </span>x3 <span class="op">+</span><span class="st"> </span>..., <span class="dt">family =</span> <span class="kw">familyname</span>(<span class="dt">link =</span> <span class="st">&quot;linkname&quot;</span>), <span class="dt">data =</span> )</code></pre></div>
-<ul>
-<li>There are a bunch of families and links to use (<code>?family</code> for a full list), but some essentials are: <strong>binomial(link = “logit”)</strong>, <strong>gaussian(link = “identity”)</strong>, and <strong>poisson(link = “log”)</strong></li>
-</ul>
+<p>There are a bunch of families and links to use (<code>?family</code> for a full list), but some essentials are: <strong>binomial(link = “logit”)</strong>, <strong>gaussian(link = “identity”)</strong>, and <strong>poisson(link = “log”)</strong></p>
 <p>If you’re using <code>lm</code>, the call looks the same but without the <code>family</code> argument.</p>
 <ul>
-<li>Example: suppose we want to regress the life expectency on the GDP per capita and the population, as well as the continent and year. The lm call would be something like this:</li>
+<li>Example: suppose we want to regress the life expectency on the GDP per capita and the population, as well as the continent and year. The <code>lm</code> call would be something like this:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">reg &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> lifeExp <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span>continent <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> gap)</code></pre></div>
 <div id="missing-values" class="section level4 unnumbered">
 <h4>Missing values</h4>
-<p>Missing values obviously can not convey any information about the relationship between the variables. Most modelling functions will drop any rows that contain missing values.</p>
+<p>Missing values obviously cannot convey any information about the relationship between the variables. Most modeling functions will drop any rows that contain missing values.</p>
 </div>
 </div>
 <div id="regression-output" class="section level3">
-<h3><span class="header-section-number">13.2.3</span> Regression output</h3>
+<h3><span class="header-section-number">13.2.3</span> Regression Output</h3>
 <p>When we store this regression in an object, we get access to several items of interest.</p>
 <ol style="list-style-type: decimal">
 <li>All components contained in the regression output:</li>
@@ -967,7 +969,7 @@ summ_reg<span class="op">$</span>coefficients
 <span class="co">#&gt; Residual standard error: 5.65 on 1642 degrees of freedom</span>
 <span class="co">#&gt; Multiple R-squared:  0.816,  Adjusted R-squared:  0.809 </span>
 <span class="co">#&gt; F-statistic:  119 on 61 and 1642 DF,  p-value: &lt;2e-16</span></code></pre></div>
-<p>Note that we wrapped the <code>year</code> variables into a <code>factor()</code> function. By default, R breaks up our variables into their different factor levels (as it will do whenever your regressors have factor levels)</p>
+<p>Note that we wrapped the <code>year</code> variables into a <code>factor()</code> function. By default, R breaks up our variables into their different factor levels (as it will do whenever your regressors have factor levels).</p>
 <p>If your data aren’t factorized, you can tell <code>lm/glm</code> to factorize a variable (i.e. create dummy variables on the fly) by writing <code>factor()</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glm</span>(<span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x1 <span class="op">+</span><span class="st"> </span>x2 <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(x3), <span class="dt">family =</span> <span class="kw">family</span>(<span class="dt">link =</span> <span class="st">&quot;link&quot;</span>),
             <span class="dt">data =</span> )</code></pre></div>
@@ -977,6 +979,10 @@ summ_reg<span class="op">$</span>coefficients
 <p>Most papers report the results of regression analysis in some kind of table. Typically, this table includes the values of coefficients, standard errors, and significance levels from one or more models.</p>
 <p>The <code>stargazer</code> package provides excellent tools to make and format regression tables automatically. It can also output summary statistics from a dataframe:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stargazer)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Please cite as:</span>
+<span class="co">#&gt;  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.</span>
+<span class="co">#&gt;  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer</span>
 <span class="kw">stargazer</span>(gap, <span class="dt">type =</span> <span class="st">&quot;text&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ===========================================================================================</span>
@@ -1035,8 +1041,14 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
 <span class="co">#&gt; Note:                                                                   *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></code></pre></div>
 <div id="customization" class="section level4 unnumbered">
 <h4>Customization</h4>
-<p><code>stargazer</code> is incredably customizable. Let’s say we wanted to: - re-name our explanatory variables; - remove information on the “Constant”;<br />
-- only keep the number of observations from the summary statistics; and - style the table to look like those in American Journal of Political Science.</p>
+<p><code>stargazer</code> is incredibly customizable. Let’s say we wanted to:</p>
+<ul>
+<li>re-name our explanatory variables;</li>
+<li>remove information on the “Constant”;<br />
+</li>
+<li>only keep the number of observations from the summary statistics; and</li>
+<li>style the table to look like those in American Journal of Political Science.</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stargazer</span>(mod.<span class="dv">1</span>, mod.<span class="dv">2</span>, mod.<span class="dv">3</span>, <span class="dt">title =</span> <span class="st">&quot;Regression Results&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;text&quot;</span>, 
           <span class="dt">covariate.labels  =</span> <span class="kw">c</span>(<span class="st">&quot;GDP per capita, logged&quot;</span>, <span class="st">&quot;Population, logged&quot;</span>, <span class="st">&quot;Americas&quot;</span>, <span class="st">&quot;Asia&quot;</span>, <span class="st">&quot;Europe&quot;</span>, <span class="st">&quot;Oceania&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Constant&quot;</span>), 
           <span class="dt">omit =</span> <span class="st">&quot;Constant&quot;</span>, 
@@ -1067,8 +1079,13 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
 <p>Check out <code>?stargazer</code> to see more options.</p>
 </div>
 <div id="output-types" class="section level4 unnumbered">
-<h4>Output types</h4>
-<p>Once we like the look of our table, we can output/export it in a number of ways. The <code>type</code> argument specifies what the outut the command should produce. Possible values are: - <code>&quot;latex&quot;</code> for LaTeX code, - <code>&quot;html&quot;</code> for HTML code, - <code>&quot;text&quot;</code> for ASCII text output (what we used above).</p>
+<h4>Output Types</h4>
+<p>Once we like the look of our table, we can output/export it in a number of ways. The <code>type</code> argument specifies what output the command should produce. Possible values are:</p>
+<ul>
+<li><code>&quot;latex&quot;</code> for LaTeX code,</li>
+<li><code>&quot;html&quot;</code> for HTML code,</li>
+<li><code>&quot;text&quot;</code> for ASCII text output (what we used above).</li>
+</ul>
 <p>Let’s say we’re using LaTeX to typeset our paper. We can output our regression table in LaTeX:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stargazer</span>(mod.<span class="dv">1</span>, mod.<span class="dv">2</span>, mod.<span class="dv">3</span>, <span class="dt">title =</span> <span class="st">&quot;Regression Results&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;latex&quot;</span>, 
           <span class="dt">covariate.labels  =</span> <span class="kw">c</span>(<span class="st">&quot;GDP per capita, logged&quot;</span>, <span class="st">&quot;Population, logged&quot;</span>, <span class="st">&quot;Americas&quot;</span>, <span class="st">&quot;Asia&quot;</span>, <span class="st">&quot;Europe&quot;</span>, <span class="st">&quot;Oceania&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Constant&quot;</span>), 
@@ -1076,7 +1093,7 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
           <span class="dt">keep.stat=</span><span class="st">&quot;n&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;ajps&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu</span>
-<span class="co">#&gt; % Date and time: Sat, Sep 28, 2019 - 15:56:20</span>
+<span class="co">#&gt; % Date and time: Mon, Sep 30, 2019 - 09:14:46</span>
 <span class="co">#&gt; \begin{table}[!htbp] \centering </span>
 <span class="co">#&gt;   \caption{Regression Results} </span>
 <span class="co">#&gt;   \label{} </span>
@@ -1111,7 +1128,12 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
           <span class="dt">omit =</span> <span class="st">&quot;Constant&quot;</span>, 
           <span class="dt">keep.stat=</span><span class="st">&quot;n&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;ajps&quot;</span>,
           <span class="dt">out =</span> <span class="st">&quot;regression-table.txt&quot;</span>)</code></pre></div>
-<p>To include stargazer tables in Microsoft Word documents (e.g., .doc or .docx), use the following procedure: - Use the <code>out</code> argument to save output into an <code>.html</code> file. - Open the resulting file in your web browser. - Copy and paste the table from the web browser to your Microsoft Word document.</p>
+<p>To include stargazer tables in Microsoft Word documents (e.g., .doc or .docx), use the following procedure:</p>
+<ul>
+<li>Use the <code>out</code> argument to save output into an <code>.html</code> file.</li>
+<li>Open the resulting file in your web browser.</li>
+<li>Copy and paste the table from the web browser to your Microsoft Word document.</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stargazer</span>(mod.<span class="dv">1</span>, mod.<span class="dv">2</span>, mod.<span class="dv">3</span>, <span class="dt">title =</span> <span class="st">&quot;Regression Results&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>, 
           <span class="dt">covariate.labels  =</span> <span class="kw">c</span>(<span class="st">&quot;GDP per capita, logged&quot;</span>, <span class="st">&quot;Population, logged&quot;</span>, <span class="st">&quot;Americas&quot;</span>, <span class="st">&quot;Asia&quot;</span>, <span class="st">&quot;Europe&quot;</span>, <span class="st">&quot;Oceania&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Constant&quot;</span>), 
           <span class="dt">omit =</span> <span class="st">&quot;Constant&quot;</span>, 
@@ -1121,12 +1143,89 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
 </div>
 <div id="challenges-14" class="section level3">
 <h3><span class="header-section-number">13.2.6</span> Challenges</h3>
-<ol style="list-style-type: decimal">
-<li><p>Fit two linear regression models from the gapminder data, where the outcome is <code>lifeExp</code> and the explanatory variables are <code>log(pop)</code>, <code>log(gdpPercap)</code>, and <code>year</code>. In one model, treat <code>year</code> as a numeric variable. In the other, factorize the <code>year</code> variable. How do you interpret each model?</p></li>
-<li><p>Fit a logistic regression model where the outcome is whether <code>lifeExp</code> is greater than or less than 60 years, exploring the use of different predictors.</p></li>
-<li><p>Using <code>stargazer</code>, format a table reporting the results from the three models you created above (two linear regressions and one logistic).</p></li>
-</ol>
+<div id="challenge-1.-fit-two-linear-regression-models-from-the-gapminder-data-where-the-outcome-is-lifeexp-and-the-explanatory-variables-are-logpop-loggdppercap-and-year.-in-one-model-treat-year-as-a-numeric-variable.-in-the-other-factorize-the-year-variable.-how-do-you-interpret-each-model" class="section level4 unnumbered">
+<h4>Challenge 1. Fit two linear regression models from the gapminder data, where the outcome is <code>lifeExp</code> and the explanatory variables are <code>log(pop)</code>, <code>log(gdpPercap)</code>, and <code>year</code>. In one model, treat <code>year</code> as a numeric variable. In the other, factorize the <code>year</code> variable. How do you interpret each model?</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> gap)
+model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(year), <span class="dt">data =</span> gap)</code></pre></div>
+</div>
+<div id="challenge-2.-fit-a-logistic-regression-model-where-the-outcome-is-whether-lifeexp-is-greater-than-or-less-than-60-years-exploring-the-use-of-different-predictors." class="section level4 unnumbered">
+<h4>Challenge 2. Fit a logistic regression model where the outcome is whether <code>lifeExp</code> is greater than or less than 60 years, exploring the use of different predictors.</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 
+gap &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lifeExp60 =</span> <span class="kw">as.logical</span>(lifeExp <span class="op">&gt;=</span><span class="st"> </span><span class="dv">60</span>))
+
+logit_model &lt;-<span class="st"> </span><span class="kw">glm</span>(lifeExp60 <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span>year, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, <span class="dt">data =</span> gap)</code></pre></div>
+</div>
+<div id="challenge-3.-using-stargazer-format-a-table-reporting-the-results-from-the-three-models-you-created-above-two-linear-regressions-and-one-logistic." class="section level4 unnumbered">
+<h4>Challenge 3. Using <code>stargazer</code>, format a table reporting the results from the three models you created above (two linear regressions and one logistic).</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stargazer</span>(model1, model2, logit_model, <span class="dt">title =</span> <span class="st">&quot;Challenge Regression Results&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;text&quot;</span>)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Challenge Regression Results</span>
+<span class="co">#&gt; =====================================================================================</span>
+<span class="co">#&gt;                                            Dependent variable:                       </span>
+<span class="co">#&gt;                     -----------------------------------------------------------------</span>
+<span class="co">#&gt;                                            lifeExp                         lifeExp60 </span>
+<span class="co">#&gt;                                              OLS                            logistic </span>
+<span class="co">#&gt;                                 (1)                        (2)                (3)    </span>
+<span class="co">#&gt; -------------------------------------------------------------------------------------</span>
+<span class="co">#&gt; log(pop)                     0.885***                    0.881***           0.285*** </span>
+<span class="co">#&gt;                               (0.104)                    (0.104)            (0.050)  </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; log(gdpPercap)               7.790***                    7.780***           2.130*** </span>
+<span class="co">#&gt;                               (0.135)                    (0.135)            (0.100)  </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; year                         0.178***                                       0.035*** </span>
+<span class="co">#&gt;                               (0.010)                                       (0.005)  </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1957                                          1.260                      </span>
+<span class="co">#&gt;                                                          (0.798)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1962                                         2.310***                    </span>
+<span class="co">#&gt;                                                          (0.799)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1967                                         3.120***                    </span>
+<span class="co">#&gt;                                                          (0.801)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1972                                         3.740***                    </span>
+<span class="co">#&gt;                                                          (0.803)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1977                                         4.780***                    </span>
+<span class="co">#&gt;                                                          (0.805)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1982                                         6.300***                    </span>
+<span class="co">#&gt;                                                          (0.807)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1987                                         7.780***                    </span>
+<span class="co">#&gt;                                                          (0.808)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1992                                         8.700***                    </span>
+<span class="co">#&gt;                                                          (0.809)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)1997                                         8.860***                    </span>
+<span class="co">#&gt;                                                          (0.812)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)2002                                         8.910***                    </span>
+<span class="co">#&gt;                                                          (0.814)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; factor(year)2007                                         8.920***                    </span>
+<span class="co">#&gt;                                                          (0.818)                     </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; Constant                    -370.000***                 -23.300***         -90.000***</span>
+<span class="co">#&gt;                              (19.200)                    (1.980)            (9.280)  </span>
+<span class="co">#&gt;                                                                                      </span>
+<span class="co">#&gt; -------------------------------------------------------------------------------------</span>
+<span class="co">#&gt; Observations                   1,704                      1,704              1,704   </span>
+<span class="co">#&gt; R2                             0.728                      0.731                      </span>
+<span class="co">#&gt; Adjusted R2                    0.728                      0.729                      </span>
+<span class="co">#&gt; Log Likelihood                                                              -572.000 </span>
+<span class="co">#&gt; Akaike Inf. Crit.                                                          1,151.000 </span>
+<span class="co">#&gt; Residual Std. Error      6.740 (df = 1700)          6.730 (df = 1690)                </span>
+<span class="co">#&gt; F Statistic         1,520.000*** (df = 3; 1700) 353.000*** (df = 13; 1690)           </span>
+<span class="co">#&gt; =====================================================================================</span>
+<span class="co">#&gt; Note:                                                     *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></code></pre></div>
+
+</div>
 </div>
 </div>
 </div>

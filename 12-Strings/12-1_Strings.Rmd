@@ -7,12 +7,12 @@ output: html_document
 
 # Strings and Regular Expressions
 
-This unit focuses on chracter (or "sting") data. We'll explore:
+This unit focuses on chracter (or "string") data. We'll explore:
 
 1. **[common string operations]**, like concatinating, subsetting, and replacing strings.
 2. **[regular expressions]**, a powerful cross-language tool for working with string data.
 
-## Common string operations
+## Common String Operations
 
 ### Concatinating strings with `paste()`
 
@@ -34,12 +34,9 @@ print(fullName)
 length(fullName)
 ```
 
-In order to combine two or more character strings into one larger character string requires using the `paste()` function.  This function takes character strings or vectors and collapses their values into a single character string, with each value separated by a character string selected by the user.
+Combining two or more character strings into one larger character string requires using the `paste()` function.  This function takes character strings or vectors and collapses their values into a single character string, with each value separated by a character string selected by the user.
 
 ```{r}
-firstName <- "Johan"
-lastName <- "Gambolputty"
-
 fullName <- paste(firstName, lastName)
 print(fullName)
 
@@ -50,7 +47,7 @@ fullName <- paste(firstName, lastName, sep = "___")
 print(fullName)
 ```
 
-### Extracting substrings
+### Extracting Substrings
 
 R can also extract substrings based on the index position of its characters. Some things to note:
 
@@ -71,7 +68,7 @@ fullName[1]
 fullName[1:4]
 ```
 
-Instead, you must use the ```substr()``` function.  Note that this function must receive both the ```start``` and ```stop``` arguments.  So if you want to get all the characters between some index and the end of the string, you must make use of the `nchar()` function, which will tell you the length of a character string.
+Instead, you must use the ```substr()``` function.  Note that this function must receive both the ```start``` and ```stop``` arguments.  So if you want to get all the characters between some index and the end of the string, you must use the `nchar()` function, which will tell you the length of a character string.
 
 ```{r}
 substr(x = fullName, start = 1, stop = 1)
@@ -81,7 +78,7 @@ substr(x = fullName, start = 6, stop = nchar(fullName))
 substr(x = fullName, start = 6, stop = nchar(fullName)-2)
 ```
 
-### Replace substrings with `gsub()`
+### Replace Substrings with `gsub()`
 
 The function `gsub()` replaces substrings in a larger string using a specified pattern.
 
