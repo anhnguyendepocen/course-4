@@ -5004,7 +5004,7 @@ You can print this out in R code by running \texttt{getwd()}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/petecuppernull/Dropbox/UChicago/Work/2019 Summer RA/Repos/plsc-31101"}
+\CommentTok{#> [1] "/Users/rochelleterman/Desktop/plsc-31101"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5122,7 +5122,7 @@ directory:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/petecuppernull/Dropbox/UChicago/Work/2019 Summer RA/Repos/plsc-31101"}
+\CommentTok{#> [1] "/Users/rochelleterman/Desktop/plsc-31101"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -12051,7 +12051,7 @@ regression table in LaTeX:
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Mon, Sep 30, 2019 - 09:16:34}
+\CommentTok{#> % Date and time: Sat, Sep 28, 2019 - 15:57:35}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -12359,8 +12359,8 @@ characters. Some things to note:
 Instead, you must use the \texttt{substr()} function. Note that this
 function must receive both the \texttt{start} and \texttt{stop}
 arguments. So if you want to get all the characters between some index
-and the end of the string, you must make use of the \texttt{nchar()}
-function, which will tell you the length of a character string.
+and the end of the string, you must use the \texttt{nchar()} function,
+which will tell you the length of a character string.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12377,8 +12377,8 @@ function, which will tell you the length of a character string.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{\texorpdfstring{Replace substrings with
-\texttt{gsub()}}{Replace substrings with gsub()}}\label{replace-substrings-with-gsub}
+\subsection{\texorpdfstring{Replace Substrings with
+\texttt{gsub()}}{Replace Substrings with gsub()}}\label{replace-substrings-with-gsub}
 
 The function \texttt{gsub()} replaces substrings in a larger string
 using a specified pattern.
@@ -14240,6 +14240,10 @@ favorite\_count
 
 retweet\_count
 
+quote\_count
+
+reply\_count
+
 hashtags
 
 symbols
@@ -14421,6 +14425,10 @@ NA
 
 NA
 
+NA
+
+NA
+
 lawfareblog.com/dangers-loyali\ldots{}
 
 \url{https://t.co/Ut9VZV9uEj}
@@ -14498,7 +14506,7 @@ dbyman
 
 Dan Byman
 
-11900
+11899
 
 649
 
@@ -14598,6 +14606,10 @@ FALSE
 9
 
 0
+
+NA
+
+NA
 
 NA
 
@@ -14779,7 +14791,11 @@ TRUE
 
 0
 
-68
+69
+
+NA
+
+NA
 
 NA
 
@@ -14855,9 +14871,9 @@ future success. Yet this strategy has costs.''
 
 TweetDeck
 
-133
+134
 
-68
+69
 
 186177715
 
@@ -14869,7 +14885,7 @@ Jessica Chen Weiss
 
 1712
 
-6111
+6112
 
 Ithaca, NY
 
@@ -14970,6 +14986,10 @@ NA
 
 NA
 
+NA
+
+NA
+
 thehill.com/opinion/white-\ldots{}
 
 \url{https://t.co/0kttzYrDlg}
@@ -15051,7 +15071,7 @@ Jon Lindsay
 
 507
 
-750
+751
 
 Toronto, Ontario
 
@@ -15147,6 +15167,10 @@ FALSE
 15
 
 2
+
+NA
+
+NA
 
 NA
 
@@ -15352,6 +15376,10 @@ NA
 
 NA
 
+NA
+
+NA
+
 769622588
 
 AudieKlotz
@@ -15528,8 +15556,8 @@ exclude retweets from the query.
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 668 x 3}
-\CommentTok{#> # Groups:   user_id [668]}
+\CommentTok{#> # A tibble: 671 x 3}
+\CommentTok{#> # Groups:   user_id [671]}
 \CommentTok{#>   user_id             location                           n}
 \CommentTok{#>   <chr>               <chr>                          <int>}
 \CommentTok{#> 1 764290456599396353  Rochester, New York               69}
@@ -15538,7 +15566,7 @@ exclude retweets from the query.
 \CommentTok{#> 4 714738130557992960  Chiclana de la Frontera, Spain    32}
 \CommentTok{#> 5 826869114           Paris, Ile-de-France              31}
 \CommentTok{#> 6 496058145           ""                                21}
-\CommentTok{#> # ... with 662 more rows}
+\CommentTok{#> # ... with 665 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -15738,7 +15766,7 @@ information on the first ten documents:
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 39}
+\CommentTok{#> [1] 19}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}

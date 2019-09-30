@@ -338,7 +338,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#common-string-operations"><i class="fa fa-check"></i><b>14.1</b> Common String Operations</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#concatinating-strings-with-paste"><i class="fa fa-check"></i><b>14.1.1</b> Concatinating strings with <code>paste()</code></a></li>
 <li class="chapter" data-level="14.1.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#extracting-substrings"><i class="fa fa-check"></i><b>14.1.2</b> Extracting Substrings</a></li>
-<li class="chapter" data-level="14.1.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#replace-substrings-with-gsub"><i class="fa fa-check"></i><b>14.1.3</b> Replace substrings with <code>gsub()</code></a></li>
+<li class="chapter" data-level="14.1.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#replace-substrings-with-gsub"><i class="fa fa-check"></i><b>14.1.3</b> Replace Substrings with <code>gsub()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#regular-expressions"><i class="fa fa-check"></i><b>14.2</b> Regular Expressions</a></li>
 </ul></li>
@@ -480,7 +480,7 @@ fullName[<span class="dv">1</span>]
 fullName[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]
 <span class="co">#&gt; [1] &quot;Johan Gambolputty&quot; NA                  NA                 </span>
 <span class="co">#&gt; [4] NA</span></code></pre></div>
-<p>Instead, you must use the <code>substr()</code> function. Note that this function must receive both the <code>start</code> and <code>stop</code> arguments. So if you want to get all the characters between some index and the end of the string, you must make use of the <code>nchar()</code> function, which will tell you the length of a character string.</p>
+<p>Instead, you must use the <code>substr()</code> function. Note that this function must receive both the <code>start</code> and <code>stop</code> arguments. So if you want to get all the characters between some index and the end of the string, you must use the <code>nchar()</code> function, which will tell you the length of a character string.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">1</span>)
 <span class="co">#&gt; [1] &quot;J&quot;</span>
 <span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">5</span>, <span class="dt">stop =</span> <span class="dv">5</span>)
@@ -493,7 +493,7 @@ fullName[<span class="dv">1</span><span class="op">:</span><span class="dv">4</s
 <span class="co">#&gt; [1] &quot; Gambolput&quot;</span></code></pre></div>
 </div>
 <div id="replace-substrings-with-gsub" class="section level3">
-<h3><span class="header-section-number">14.1.3</span> Replace substrings with <code>gsub()</code></h3>
+<h3><span class="header-section-number">14.1.3</span> Replace Substrings with <code>gsub()</code></h3>
 <p>The function <code>gsub()</code> replaces substrings in a larger string using a specified pattern.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">firstName &lt;-<span class="st"> &quot;Johan&quot;</span>
 lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span>
