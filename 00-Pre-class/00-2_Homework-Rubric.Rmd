@@ -5,7 +5,7 @@ date: "Fall 2019"
 output: html_document
 ---
 
-## Homework Rubric
+# Homework Rubric
 
 Each question will be graded along the following criteria:
 
