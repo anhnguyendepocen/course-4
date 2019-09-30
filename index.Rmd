@@ -25,8 +25,8 @@ description: "This book contains course notes and other materials for PLSC 31101
 * Place: Cobb Hall 303
 
 * Office hours:
-	* Rochelle Terman: Tuesdays, 2:30-4:30, Pick Hall 411
-	* Pete Cuppernull: Mondays, 2:00-4:00, 
+	* Rochelle Terman: Tuesdays, 2:30-4:30, Pick 411. [Sign up here](https://www.wejoinin.com/sheets/offrq)
+	* Pete Cuppernull: Mondays, 2:00-4:00, Pick 507
 
 ## Course Description
 
