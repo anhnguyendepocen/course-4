@@ -118,6 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
 <li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.6</b> Other helpful tools</a></li>
 <li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.7</b> Testing your installation</a></li>
+<li class="chapter" data-level="2.8" data-path="installation.html"><a href="installation.html#homework-rubric"><i class="fa fa-check"></i><b>2.8</b> Homework Rubric</a></li>
 </ul></li>
 <li class="part"><span><b>II Course Notes</b></span></li>
 <li class="chapter" data-level="3" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>3</b> Introduction</a><ul>
@@ -788,6 +789,8 @@ VA
 <p>Let’s say we want to combine the <code>countries</code> and <code>states</code> tables we created earlier.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties_states &lt;-<span class="st"> </span>counties <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">left_join</span>(states, <span class="dt">by =</span> <span class="st">&quot;state&quot;</span>)
+<span class="co">#&gt; Warning: `chr_along()` is deprecated as of rlang 0.2.0.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
 
 <span class="kw">kable</span>(counties_states)</code></pre></div>
 <table>

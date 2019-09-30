@@ -118,6 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
 <li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.6</b> Other helpful tools</a></li>
 <li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.7</b> Testing your installation</a></li>
+<li class="chapter" data-level="2.8" data-path="installation.html"><a href="installation.html#homework-rubric"><i class="fa fa-check"></i><b>2.8</b> Homework Rubric</a></li>
 </ul></li>
 <li class="part"><span><b>II Course Notes</b></span></li>
 <li class="chapter" data-level="3" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>3</b> Introduction</a><ul>
@@ -1197,6 +1198,11 @@ iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map
 <p><code>summarize_all()</code> takes a dataframe and a function and applies that function to each column:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize_all</span>(<span class="dt">.funs =</span> mean)
+<span class="co">#&gt; Warning: `is_lang()` is deprecated as of rlang 0.2.0.</span>
+<span class="co">#&gt; Please use `is_call()` instead.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
+<span class="co">#&gt; Warning: `mut_node_car()` is deprecated as of rlang 0.2.0.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt;    mpg  cyl disp  hp drat   wt qsec    vs    am gear carb</span>
 <span class="co">#&gt; 1 20.1 6.19  231 147  3.6 3.22 17.8 0.438 0.406 3.69 2.81</span></code></pre></div>
 </div>
@@ -1213,6 +1219,9 @@ iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map
 <p><code>summarize_if()</code> allows you to pick variables to summarize based on some property of the column. For example, what if we want to apply a numeric summary function only to numeric columns:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize_if</span>(<span class="dt">.predicate =</span> is.numeric, <span class="dt">.funs =</span> mean)
+<span class="co">#&gt; Warning: `lgl_len()` is deprecated as of rlang 0.2.0.</span>
+<span class="co">#&gt; Please use `new_logical()` instead.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width</span>
 <span class="co">#&gt; 1         5.84        3.06         3.76         1.2</span></code></pre></div>
 <p><code>mutate</code> and <code>filter</code> work in a similar way. To see more, check out <a href="https://dcl-2017-04.github.io/curriculum/manip-scoped.html">Scoped verbs by the Data Challenge Lab</a></p>

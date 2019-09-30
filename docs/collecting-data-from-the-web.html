@@ -118,6 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
 <li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.6</b> Other helpful tools</a></li>
 <li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.7</b> Testing your installation</a></li>
+<li class="chapter" data-level="2.8" data-path="installation.html"><a href="installation.html#homework-rubric"><i class="fa fa-check"></i><b>2.8</b> Homework Rubric</a></li>
 </ul></li>
 <li class="part"><span><b>II Course Notes</b></span></li>
 <li class="chapter" data-level="3" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>3</b> Introduction</a><ul>
@@ -608,12 +609,6 @@ favorite_count
 <th style="text-align:right;">
 retweet_count
 </th>
-<th style="text-align:right;">
-quote_count
-</th>
-<th style="text-align:right;">
-reply_count
-</th>
 <th style="text-align:left;">
 hashtags
 </th>
@@ -882,12 +877,6 @@ TRUE
 <td style="text-align:right;">
 5
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
 <td style="text-align:left;">
 NA
 </td>
@@ -1153,12 +1142,6 @@ FALSE
 </td>
 <td style="text-align:right;">
 0
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
 </td>
 <td style="text-align:left;">
 NA
@@ -1426,12 +1409,6 @@ TRUE
 <td style="text-align:right;">
 69
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
 <td style="text-align:left;">
 NA
 </td>
@@ -1697,12 +1674,6 @@ TRUE
 </td>
 <td style="text-align:right;">
 12
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
 </td>
 <td style="text-align:left;">
 NA
@@ -1971,12 +1942,6 @@ FALSE
 <td style="text-align:right;">
 2
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
 <td style="text-align:left;">
 NA
 </td>
@@ -2243,12 +2208,6 @@ FALSE
 <td style="text-align:right;">
 0
 </td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
 <td style="text-align:left;">
 NA
 </td>
@@ -2480,7 +2439,7 @@ NA
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">created_at =</span> <span class="kw">as.Date</span>(created_at)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(created_at <span class="op">&gt;=</span><span class="st"> &quot;2019-06-15&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ts_plot</span>(<span class="dt">by =</span> <span class="st">&quot;week&quot;</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-454-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-455-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="hashtags-and-text-strings" class="section level3">
 <h3><span class="header-section-number">16.3.3</span> Hashtags and Text Strings</h3>
@@ -2503,8 +2462,8 @@ duke <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(user_id, location) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))
-<span class="co">#&gt; # A tibble: 671 x 3</span>
-<span class="co">#&gt; # Groups:   user_id [671]</span>
+<span class="co">#&gt; # A tibble: 672 x 3</span>
+<span class="co">#&gt; # Groups:   user_id [672]</span>
 <span class="co">#&gt;   user_id             location                           n</span>
 <span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;                          &lt;int&gt;</span>
 <span class="co">#&gt; 1 764290456599396353  Rochester, New York               69</span>
@@ -2513,7 +2472,7 @@ duke <span class="op">%&gt;%</span>
 <span class="co">#&gt; 4 714738130557992960  Chiclana de la Frontera, Spain    32</span>
 <span class="co">#&gt; 5 826869114           Paris, Ile-de-France              31</span>
 <span class="co">#&gt; 6 496058145           &quot;&quot;                                21</span>
-<span class="co">#&gt; # … with 665 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 666 more rows</span></code></pre></div>
 
 </div>
 </div>
@@ -2606,7 +2565,7 @@ response_df<span class="op">$</span>response<span class="op">$</span>meta
 <span class="co">#&gt; [1] 0</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $time</span>
-<span class="co">#&gt; [1] 16</span>
+<span class="co">#&gt; [1] 19</span>
 
 <span class="co"># pull out number of hits</span>
 response_df<span class="op">$</span>response<span class="op">$</span>meta<span class="op">$</span>hits
@@ -2696,7 +2655,7 @@ by_month <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="dt">label =</span> <span class="st">&quot;Date&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="dt">label =</span> <span class="st">&quot;Article Count&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="dt">label =</span> <span class="st">&quot;Coverage of X&quot;</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-467-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-468-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="more-resources-1" class="section level3">
 <h3><span class="header-section-number">16.4.5</span> More resources</h3>

@@ -118,6 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
 <li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.6</b> Other helpful tools</a></li>
 <li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.7</b> Testing your installation</a></li>
+<li class="chapter" data-level="2.8" data-path="installation.html"><a href="installation.html#homework-rubric"><i class="fa fa-check"></i><b>2.8</b> Homework Rubric</a></li>
 </ul></li>
 <li class="part"><span><b>II Course Notes</b></span></li>
 <li class="chapter" data-level="3" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>3</b> Introduction</a><ul>
@@ -627,6 +628,15 @@ Asia
 <h3><span class="header-section-number">9.2.1</span> Select Columns with <code>select</code></h3>
 <p>Imagine that we just received the gapminder dataset, but are only interested in a few variables in it. We could use the <code>select()</code> function to keep only the variables we select.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year_country_gdp &lt;-<span class="st"> </span><span class="kw">select</span>(gap, year, country, gdpPercap)
+<span class="co">#&gt; Warning: `lang()` is deprecated as of rlang 0.2.0.</span>
+<span class="co">#&gt; Please use `call2()` instead.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
+<span class="co">#&gt; Warning: `new_overscope()` is deprecated as of rlang 0.2.0.</span>
+<span class="co">#&gt; Please use `new_data_mask()` instead.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
+<span class="co">#&gt; Warning: `overscope_eval_next()` is deprecated as of rlang 0.2.0.</span>
+<span class="co">#&gt; Please use `eval_tidy()` with a data mask instead.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="kw">kable</span>(<span class="kw">head</span>(year_country_gdp))</code></pre></div>
 <table>
 <thead>
@@ -906,6 +916,8 @@ gap<span class="op">$</span>mean.continent.GDP &lt;-<span class="st"> </span><sp
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gdp_bycontinents &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap))
+<span class="co">#&gt; Warning: The `printer` argument is deprecated as of rlang 0.3.0.</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="kw">kable</span>(<span class="kw">head</span>(gdp_bycontinents))</code></pre></div>
 <table>
 <thead>
