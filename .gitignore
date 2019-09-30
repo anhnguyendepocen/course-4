@@ -45,3 +45,4 @@ rsconnect/
 # misc
 Icon*
 .Rpres
+.DS_Store 
