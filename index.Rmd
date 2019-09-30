@@ -168,7 +168,7 @@ See [Install Page](installation) for more information. We will be having an **In
 11. **Nov 5** - Hypothesis testing and regressions
     * models, model objects, stargazer. 
 
-12, **Nov 7** - Strings and Regex
+12. **Nov 7** - Strings and Regex
 
 13. **Nov 12** - R programming 1
     * conditional flow, functions.
@@ -183,7 +183,7 @@ See [Install Page](installation) for more information. We will be having an **In
      * HTML, CSS, In-Browser tools, scraping tools.
 
 17. **Nov 26** - Text analysis 1
-    * supervised vs. unsupervised learning, Vector-space models, topic models.
+    * preprocessing, DTM, dictionary methods, distinctive words.
 
 18. **Nov 28** - Text analysis 2
     * supervised vs. unsupervised learning, Vector-space models, topic models.
