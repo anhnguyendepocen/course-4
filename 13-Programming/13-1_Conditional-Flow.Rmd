@@ -17,13 +17,13 @@ This unit covers some more advanced programming in R - namely:
 2. [Functions]
 3. [Iteration]
 
-Mastering these skills will make you virtually invinsible in R!
+Mastering these skills will make you virtually invincible in R!
 
 Note that these concepts are __not specific to R__. While the syntax might vary, the basic idea of flow, functions, and iteration are common across all scripting languages. So if you ever think of picking up Python or something else, it's critical to familiarize yourself with these concepts.
 
 ## Conditional Flow 
 
-Sometimes you only want to execute code if a condition is met. To do that, we use an **if-else statement.** It looks like this:
+Sometimes you only want to execute code if a certain condition is met. To do that, we use an **if-else statement.** It looks like this:
 
 ```{r eval = F}
 if (condition) {
@@ -33,7 +33,7 @@ if (condition) {
 }
 ```
 
-`condition` is a statement that must always evaluate to either `TRUE` or `FALSE`. This is similar to `filter()`, except condition can only be a single value (i.e. a vector of length 1), whereas `filter()` works for entire vectors (or columns).
+`condition` is a statement that must always evaluate to either `TRUE` or `FALSE`. This is similar to `filter()`, except `condition` can only be a single value (i.e. a vector of length 1), whereas `filter()` works for entire vectors (or columns).
 
 Let's look at a simple example:
 
@@ -59,7 +59,7 @@ if (age > 60) {
 }
 ```
 
-### Multiple conditions
+### Multiple Conditions
 
 You can chain conditional statements together:
 
@@ -73,9 +73,9 @@ if (this) {
 }
 ```
 
-### Complex statements
+### Complex Statements
 
-We can generate more complex conditional statements with boolean operators like `&` and `||`:
+We can generate more complex conditional statements with boolean operators like `&` and `|`:
 
 ```{r}
 age = 45 
@@ -89,7 +89,7 @@ if (age > 60) {
 }
 ```
 
-### Code style
+### Code Style
 
 Both `if` and `function` should (almost) always be followed by squiggly brackets (`{}`), and the contents should be indented. This makes it easier to see the hierarchy in your code by skimming the left-hand margin.
 
