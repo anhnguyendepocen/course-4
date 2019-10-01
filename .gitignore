@@ -39,7 +39,7 @@ rsconnect/
 
 # bookdown
 *_cache
-*_files
+_bookdown_files/
 *.rds
 
 # misc
