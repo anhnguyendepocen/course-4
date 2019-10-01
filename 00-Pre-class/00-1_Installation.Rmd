@@ -40,7 +40,7 @@ On your own computer, type that line of code in the RStudio console, and then pr
 We will also be requiring a few other important packages. Run the following line of code to download all of them at once:
 
 ```{r eval = F}
-install.packages("rmarkdown", "knitr", "gapminder", "stargazer", "rtweet", "jsonlite", "httr", "rvest", "tidyr", "kableExtra")
+install.packages("rmarkdown", "knitr", "gapminder", "stargazer", "rtweet", "kableExtra")
 ```
 
 ## The Bash Shell
