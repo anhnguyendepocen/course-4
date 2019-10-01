@@ -1459,26 +1459,39 @@ R also has a number of \textbf{shortcomings}:
 
 \hypertarget{r-studio-1}{\section{R Studio}\label{r-studio-1}}
 
-We can use R in a number of ways. For example, we can write R code in a
-plain text editor (like \texttt{textedit} or \texttt{notepad}), and then
-execute the sript using the shell (e.g. \texttt{terminal} in Mac).
+Throughout this class, we will assume that you are using R via RStudio.
+First time users often confuse the two. At its simplest R is like a
+car's engine while RStudio is like a car's dashboard.
 
-But, this isn't exactly ideal for several reasons. We can't easily write
-and edit scripts as we go, it's not very pretty, there are no debugging
-tools, etc. That's why most people who use R (or Python, etc) use an
-``integrated development environment'' or ``interactive development
-environment'' (IDE).
+\begin{center}\includegraphics[width=0.7\linewidth]{img/R_vs_RStudio_1} \end{center}
 
-An IDE is a software application that provides comprehensive facilities
-to computer programmers for software development. An IDE normally
-consists of a source code editor, build automation tools and a debugger.
-Some of them come with package managers and other features, too.
+More precisely, R is a programming language that runs computations,
+while RStudio is an \emph{integrated development environment (IDE)} that
+provides an interface with many convenient features and tools. So just
+as the way of having access to a speedometer, rear-view mirrors, and a
+navigation system makes driving much easier, using RStudio's interface
+makes using R much easier as well.
 
-The most popular IDE for R is
-\href{https://www.rstudio.com/products/rstudio/}{RStudio}. It includes a
-console, syntax-highlighting editor that supports direct code execution,
-as well as tools for plotting, history, debugging and workspace
-management. It's also free and open-source. Yay!
+RStudio includes a console, syntax-highlighting code editor, as well as
+tools for plotting, history, debugging and workspace management. It's
+also free and open-source. Yay!
+
+\begin{quote}
+NB: We don't have to use RStudio to use R. For example, we write R code
+in a plain text editor (like \texttt{textedit} or \texttt{notepad}), and
+then execute the sript using the shell (e.g. \texttt{terminal} in Mac).
+But this is not ideal.
+\end{quote}
+
+After you install R and RStudio on your computer, you'll have two new
+applications you can open. We'll always work in RStudio-- not in the R
+application.
+
+\begin{center}\includegraphics[width=0.7\linewidth]{img/R_vs_RStudio} \end{center}
+
+After you open RStudio, you should see something similar to this:
+
+\begin{center}\includegraphics[width=0.7\linewidth]{img/rstudio} \end{center}
 
 \subsection{Console}\label{console}
 
@@ -1555,7 +1568,7 @@ if needed. Open it up either by clicking the \emph{File} menu, and
 selecting \emph{New File}, then R script, or using the keyboard shortcut
 Cmd/Ctrl + Shift + N. Now you'll see four panes.
 
-\begin{center}\includegraphics[width=0.7\linewidth]{./img/4-panes} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{img/4-panes} \end{center}
 
 The script editor is a great place to put code you care about. Keep
 experimenting in the console, but once you have written code that works
@@ -1627,6 +1640,35 @@ When errors happen, your code is haulted -- meaning it's never executed.
 Errors can be frustrating in R, but with practice you'll be able to
 debug your code quickly.
 
+\subsection{Errors, Messages, and
+Warnings}\label{errors-messages-and-warnings}
+
+One thing that intimidates new R and RStudio users is how it reports
+errors, warnings, and messages. R reports errors, warnings, and messages
+in a glaring font, which makes it seem like it is scolding you. However,
+seeing red text in the console is not always bad.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Errors}: When the text is a legitimate error, it will be
+  prefaced with ``Error:'' and try to explain what went wrong. Generally
+  when there's an error, the code will not run. \emph{Think of errors as
+  a red traffic light: something is wrong!}
+\item
+  \textbf{Warnings}: When the text is a warning, it will be prefaced
+  with ``Warning:'' and R will try to explain why there's a warning.
+  Generally your code will still work, but perhaps not in the way you
+  would expect. \emph{Think of warnings as a yellow traffic light:
+  everything is working fine, but watch out/pay attention.}
+\item
+  \textbf{Messages}: When the text doesn't start with either ``Error''
+  or ``Warning'', it's just a friendly message. These are helpful
+  diagnostic messages and they don't stop your code from working.
+  \emph{Think of messages as a green traffic light: everything is
+  working fine and keep on going!}
+\end{enumerate}
+
 \subsection{R Environment}\label{r-environment}
 
 Turn your attention to the upper right pane. This pane displays your
@@ -1680,6 +1722,144 @@ This page is in part derived from the following sources:
   \href{https://r4ds.had.co.nz}{R for Data Science} licensed under
   \href{https://creativecommons.org/licenses/by-nc-nd/3.0/us/}{Creative
   Commons Attribution-NonCommercial-NoDerivs 3.0}
+\item
+  \href{https://moderndive.netlify.com/1-getting-started.html}{A
+  ModernDive into R and the tidyverse}
+\end{enumerate}
+
+\hypertarget{r-packages-1}{\section{R Packages}\label{r-packages-1}}
+
+The best part about R are its user-contributed packages (also called
+``libraries''). A \emph{package} is a collection of functions (and
+sometimes data) that can be used by other programers.
+
+A good analogy for R packages is they are like apps you can download
+onto a mobile phone:
+
+\begin{center}\includegraphics[width=0.7\linewidth]{img/R_vs_R_packages} \end{center}
+
+So R is like a new mobile phone: while it has a certain amount of
+features when you use it for the first time, it doesn't have everything.
+R packages are like the apps you can download onto your phone from
+Apple's App Store or Android's Google Play.
+
+Let's continue this analogy by considering the Instagram app for editing
+and sharing pictures. Say you have purchased a new phone and you would
+like to share a photo you have just taken with friends and family on
+Instagram. You need to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Install the app}: Since your phone is new and does not include
+  the Instagram app, you need to download the app from either the App
+  Store or Google Play. You do this once and you're set for the time
+  being. You might need to do this again in the future when there is an
+  update to the app.
+\item
+  \emph{Open the app}: After you've installed Instagram, you need to
+  open the app.
+\end{enumerate}
+
+The process is very similar for using an R package. You need to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Install the package}: This is like installing an app on your
+  phone. Most packages are not installed by default when you install R
+  and RStudio. Thus if you want to use a package for the first time, you
+  need to install it first. Once you've installed a package, you likely
+  won't install it again unless you want to update it to a newer
+  version.
+\item
+  \emph{``Load'' the package}: Loading a package is like opening an app
+  on your phone. Packages are not loaded by default when you start
+  RStudio on your computer; you need to load each package you want to
+  use every time you start RStudio.
+\end{enumerate}
+
+\subsection{Installing Packages}\label{installing-packages}
+
+First, we download the package from one of the CRAN mirrors onto our
+computer. For this we use \texttt{install.packages("package-name")}. If
+you have not set a preferred CRAN mirror in your \texttt{options()}, a
+menu will pop up asking you to choose a location.
+
+Let's download the package \texttt{dplyr}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+If you run into errors later in the course about a function or package
+not being found, run the \texttt{install.packages} function to make sure
+the package is actually installed.
+
+\textbf{Important}: Once we download the package, we never need to run
+\texttt{install.packages} again (unless we get a new computer.)
+
+\subsection{Loading Packages}\label{loading-packages}
+
+Once we download the package, we need to load it into our session to use
+it. This is required at the beginning of each R session. This step is
+necessary because if we automatically loaded every package we have ever
+downloaded, our computer would fry.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+The message tells you which functions from \texttt{dplyr} conflict with
+functions in base R (or from other packages you might have loaded).
+
+\subsection{Challenges}\label{challenges}
+
+Let's go ahead and download some core, important packages we'll use for
+the rest of the course. Download and load the following packages:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{tidyverse}
+\item
+  \texttt{rmarkdown}
+\item
+  \texttt{knitr}
+\item
+  \texttt{gapminder}
+\item
+  \texttt{devtools}
+\end{itemize}
+
+\subsubsection*{Acknowledgments}\label{acknowledgments-1}
+\addcontentsline{toc}{subsubsection}{Acknowledgments}
+
+This page is in part derived from the following sources:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \href{https://support.rstudio.com/hc/en-us/articles/200484448}{R
+  Studio Support}.
+\item
+  \href{https://adv-r.hadley.nz/}{Advanced R}, licensed under the
+  \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative
+  Commons Attribution-NonCommercial-ShareAlike 4.0 International Public
+  License}
+\item
+  \href{https://r4ds.had.co.nz}{R for Data Science} licensed under
+  \href{https://creativecommons.org/licenses/by-nc-nd/3.0/us/}{Creative
+  Commons Attribution-NonCommercial-NoDerivs 3.0}
+\item
+  \href{https://moderndive.netlify.com/1-getting-started.html}{A
+  ModernDive into R and the tidyverse}
 \end{enumerate}
 
 \hypertarget{r-markdown}{\section{R Markdown}\label{r-markdown}}
@@ -1845,7 +2025,7 @@ A helpful overview of R Markdown can also be found in
 A deep dive into R Markdown can be found
 \href{https://bookdown.org/yihui/rmarkdown/}{here}
 
-\subsection{Challenges}\label{challenges}
+\subsection{Challenges}\label{challenges-1}
 
 \subsubsection*{Challenge 1.}\label{challenge-1.}
 \addcontentsline{toc}{subsubsection}{Challenge 1.}
@@ -1861,87 +2041,6 @@ see modified output.
 Knit the document into an html file. Verify that you can modify the
 input and see the output update.
 
-\subsubsection*{Acknowledgments}\label{acknowledgments-1}
-\addcontentsline{toc}{subsubsection}{Acknowledgments}
-
-This page is in part derived from the following sources:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \href{https://r4ds.had.co.nz}{R for Data Science} licensed under
-  \href{https://creativecommons.org/licenses/by-nc-nd/3.0/us/}{Creative
-  Commons Attribution-NonCommercial-NoDerivs 3.0}
-\end{enumerate}
-
-\hypertarget{r-packages-1}{\section{R Packages}\label{r-packages-1}}
-
-The best part about R are its user-contributed packages (also called
-``libraries''). A \emph{library} is a collection of functions (and
-sometimes data) that can be used by other programers. A library's
-contents are supposed to be related, but this isn't always the case as
-there is no enforcement on the issue.
-
-\subsection{Installing Packages}\label{installing-packages}
-
-Using packages requires two steps.
-
-First, we download the package from one of the CRAN mirrors onto our
-computer. For this we use \texttt{install.packages("package-name")}. If
-you have not set a preferred CRAN mirror in your \texttt{options()}, a
-menu will pop up asking you to choose a location.
-
-Let's download the package \texttt{dplyr}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-If you run into errors later in the course about a function or package
-not being found, run the \texttt{install.packages} function to make sure
-the package is actually installed.
-
-\textbf{Important}: Once we download the package, we never need to run
-\texttt{install.packages} again (unless we get a new computer.)
-
-\subsection{Loading Packages}\label{loading-packages}
-
-Once we download the package, we need to load it into our session to use
-it. This is required at the beginning of each R session. This step is
-necessary because if we automatically loaded every package we have ever
-downloaded, our computer would fry.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(dplyr)}
-\end{Highlighting}
-\end{Shaded}
-
-The message tells you which functions from dplyr conflict with functions
-in base R (or from other packages you might have loaded).
-
-\subsection{Challenges}\label{challenges-1}
-
-Let's go ahead and download some core, important packages we'll use for
-the rest of the course. Download and load the following packages:
-
-\begin{itemize}
-\tightlist
-\item
-  tidyverse
-\item
-  rmarkdown
-\item
-  knitr
-\item
-  gapminder
-\item
-  devtools
-\end{itemize}
-
 \subsubsection*{Acknowledgments}\label{acknowledgments-2}
 \addcontentsline{toc}{subsubsection}{Acknowledgments}
 
@@ -1949,14 +2048,7 @@ This page is in part derived from the following sources:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  \href{https://support.rstudio.com/hc/en-us/articles/200484448}{R
-  Studio Support}.
-\item
-  \href{https://adv-r.hadley.nz/}{Advanced R}, licensed under the
-  \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative
-  Commons Attribution-NonCommercial-ShareAlike 4.0 International Public
-  License}
+\tightlist
 \item
   \href{https://r4ds.had.co.nz}{R for Data Science} licensed under
   \href{https://creativecommons.org/licenses/by-nc-nd/3.0/us/}{Creative
@@ -5038,7 +5130,7 @@ You can print this out in R code by running \texttt{getwd()}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/rochelleterman/Desktop/plsc-31101"}
+\CommentTok{#> [1] "/Users/rochelleterman/Desktop/PLSC_31101/course-site"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5156,7 +5248,7 @@ directory:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/rochelleterman/Desktop/plsc-31101"}
+\CommentTok{#> [1] "/Users/rochelleterman/Desktop/PLSC_31101/course-site"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6013,7 +6105,7 @@ common graphs. First, a scatterplot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-224-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-228-1} \end{center}
 
 Finally, let's quickly take a look at a histogram of the variable
 \texttt{nyt.count}:
@@ -6024,7 +6116,7 @@ Finally, let's quickly take a look at a histogram of the variable
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-225-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-229-1} \end{center}
 
 \subsection{Challenges}\label{challenges-10}
 
@@ -10221,7 +10313,7 @@ The \textbf{basic} call takes the following form:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-289-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-1} \end{center}
 
 \subsection{Scatter and Line Plots}\label{scatter-and-line-plots}
 
@@ -10241,11 +10333,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-290}
+\caption{ }\label{fig:unnamed-chunk-294}
 \end{figure}
 
 \begin{itemize}
@@ -10263,11 +10355,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-291}
+\caption{ }\label{fig:unnamed-chunk-295}
 \end{figure}
 
 \begin{itemize}
@@ -10284,11 +10376,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-292}
+\caption{ }\label{fig:unnamed-chunk-296}
 \end{figure}
 
 \subsection{Histograms and Density
@@ -10302,7 +10394,7 @@ Histograms display the frequency of different values of a variable.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-1} \end{center}
 
 Histograms require a \texttt{breaks} argument, which determine the
 number of bins in the plot. Let's play around with different
@@ -10315,7 +10407,7 @@ number of bins in the plot. Let's play around with different
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-2} \end{center}
 
 Density plots are similar, they visualize the distribution of data over
 a continuous interval.
@@ -10332,11 +10424,11 @@ a continuous interval.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-295}
+\caption{ }\label{fig:unnamed-chunk-299}
 \end{figure}
 
 Density passes a \texttt{bw} parameter, which determins the plot's
@@ -10353,7 +10445,7 @@ Density passes a \texttt{bw} parameter, which determins the plot's
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-3} \end{center}
 
 \subsection{Labels}\label{labels}
 
@@ -10375,11 +10467,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-302-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-298}
+\caption{ }\label{fig:unnamed-chunk-302}
 \end{figure}
 
 \subsection{Axis and Size Scaling}\label{axis-and-size-scaling}
@@ -10413,11 +10505,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-4} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-4} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-300}
+\caption{ }\label{fig:unnamed-chunk-304}
 \end{figure}
 
 \subsection{Graphical Parameters}\label{graphical-parameters}
@@ -10462,11 +10554,11 @@ Color Infographic}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-2} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-2} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-303}
+\caption{ }\label{fig:unnamed-chunk-307}
 \end{figure}
 
 \begin{itemize}
@@ -10495,11 +10587,11 @@ Reference}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-5} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-5} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-304}
+\caption{ }\label{fig:unnamed-chunk-308}
 \end{figure}
 
 \begin{itemize}
@@ -10527,11 +10619,11 @@ Reference}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-6} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-6} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-305}
+\caption{ }\label{fig:unnamed-chunk-309}
 \end{figure}
 
 \subsection{Annotations, Reference Lines, and
@@ -10556,11 +10648,11 @@ We can add text to an arbitrary point on the graph like this:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-306}
+\caption{ }\label{fig:unnamed-chunk-310}
 \end{figure}
 
 We can also add labels for every point by passing in a vector of text:
@@ -10580,11 +10672,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-311-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-307}
+\caption{ }\label{fig:unnamed-chunk-311}
 \end{figure}
 
 \begin{itemize}
@@ -10604,11 +10696,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-308}
+\caption{ }\label{fig:unnamed-chunk-312}
 \end{figure}
 
 \section{ggplot2}\label{ggplot2}
@@ -10726,7 +10818,7 @@ scatterplot of points:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-317-1} \end{center}
 
 \subsubsection*{Challenge 1}\label{challenge-1-1}
 \addcontentsline{toc}{subsubsection}{Challenge 1}
@@ -10746,7 +10838,7 @@ should appear on the x-axis.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-318-1} \end{center}
 
 \subsection{\texorpdfstring{Anatomy of
 \texttt{aes}}{Anatomy of aes}}\label{anatomy-of-aes}
@@ -10763,7 +10855,7 @@ modify is the point \textbf{color}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-315-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-1} \end{center}
 
 Normally, specifying options like \texttt{color="red"} or
 \texttt{size=10} for a given layer results in its contents being red and
@@ -10794,7 +10886,7 @@ plot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-317-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-321-1} \end{center}
 
 Instead of adding a \texttt{geom\_point} layer, we've added a
 \texttt{geom\_line} layer. We've also added the \textbf{by} aesthetic,
@@ -10811,7 +10903,7 @@ can simply add another layer to the plot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-318-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-322-1} \end{center}
 
 It's important to note that each layer is drawn on top of the previous
 layer. In this example, the points have been drawn on top of the lines.
@@ -10825,7 +10917,7 @@ Here's a demonstration:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-323-1} \end{center}
 
 In this example, the aesthetic mapping of \textbf{color} has been moved
 from the global plot options in \texttt{ggplot} to the
@@ -10853,7 +10945,7 @@ Labels are considered to be their own layers in \texttt{ggplot}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-320-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-324-1} \end{center}
 
 So are scales:
 
@@ -10870,7 +10962,7 @@ So are scales:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-321-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-325-1} \end{center}
 
 \subsection{Transformations and Stats}\label{transformations-and-stats}
 
@@ -10884,7 +10976,7 @@ the data. To demonstrate we'll go back to an earlier example:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-322-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-326-1} \end{center}
 
 We can change the scale of units on the x-axis using the \texttt{scale}
 functions. These control the mapping between the data values and visual
@@ -10898,7 +10990,7 @@ values of an aesthetic.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-323-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-327-1} \end{center}
 
 The \texttt{log10} function applied a transformation to the values of
 the \texttt{gdpPercap} column before rendering them on the plot, so that
@@ -10919,7 +11011,7 @@ We can fit a simple relationship to the data by adding another layer,
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-324-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-328-1} \end{center}
 
 Note that we have 5 lines, one for each region, because of the
 \textbf{color} option is the global \texttt{aes} function. But if we
@@ -10934,7 +11026,7 @@ move it, we get different restuls:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-325-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-329-1} \end{center}
 
 So, there are two ways an aesthetic can be specified. Here, we set the
 \textbf{color} aesthetic by passing it as an argument to
@@ -10954,7 +11046,7 @@ the geom\_smooth layer:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-326-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-1} \end{center}
 
 \subsubsection*{Challenge 3}\label{challenge-3}
 \addcontentsline{toc}{subsubsection}{Challenge 3}
@@ -10976,7 +11068,7 @@ Hint: do not use the \texttt{aes} function.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-327-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-331-1} \end{center}
 
 \subsection{Facets}\label{facets}
 
@@ -10992,7 +11084,7 @@ multiple panels by adding a layer of \textbf{facet} panels:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-328-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-332-1} \end{center}
 
 \subsection{Putting Everything
 Together}\label{putting-everything-together}
@@ -11015,7 +11107,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-329-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-329-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-333-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-333-2} \end{center}
 
 \textbf{box plots}
 
@@ -11026,7 +11118,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-334-1} \end{center}
 
 This is just a taste of what you can do with \texttt{ggplot2}.
 
@@ -11069,7 +11161,7 @@ Add a facet layer to panel the density plots by year.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-331-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-331-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-331-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-335-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-335-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-335-3} \end{center}
 
 \section{Saving plots}\label{saving-plots}
 
@@ -11187,7 +11279,7 @@ distribution
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-342-1} \end{center}
 
 \subsection{Sampling and Simulation}\label{sampling-and-simulation}
 
@@ -11521,7 +11613,7 @@ items of interest.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-356-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-356-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-356-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-356-4} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-360-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-360-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-360-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-360-4} \end{center}
 
 R also has a helpful \texttt{summary} method for regression objects.
 
@@ -12085,7 +12177,7 @@ regression table in LaTeX:
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Mon, Sep 30, 2019 - 13:43:02}
+\CommentTok{#> % Date and time: Tue, Oct 01, 2019 - 11:56:17}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -14435,6 +14527,192 @@ profile\_image\_url
 
 805833715
 
+1179038732231593984
+
+1569939713
+
+carsonaust
+
+Can cyber operations deter Iran? Will they escalate the crisis into
+regional war? My thoughts on both here (no, no).
+\url{https://t.co/8xJ0P55QQr}
+
+Twitter for iPhone
+
+139
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+TRUE
+
+0
+
+16
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+816351261314482177
+
+JackieGSchneid
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1179023709484412933
+
+Can cyber operations deter Iran? Will they escalate the crisis into
+regional war? My thoughts on both here (no, no).
+\url{https://t.co/8xJ0P55QQr}
+
+1569936132
+
+Twitter for iPhone
+
+38
+
+16
+
+816351261314482177
+
+JackieGSchneid
+
+Jacquelyn Schneider
+
+2780
+
+490
+
+1100
+
+Hoover Fellow \citet{hooverInst}, Non-Resident Fellow
+\citet{NavalWarCollege}, specializing in cyber, unmanned weapons, and
+national security. Views are my own.
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1179038732231593984}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1907
+
+1007
+
+23
+
+1528
+
+2632
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
 1178999440780283904
 
 1569930346
@@ -14592,15 +14870,15 @@ enthusiast
 
 FALSE
 
-1906
+1907
 
 1007
 
 23
 
-1527
+1528
 
-2630
+2632
 
 1346896669
 
@@ -14777,15 +15055,15 @@ enthusiast
 
 FALSE
 
-1906
+1907
 
 1007
 
 23
 
-1527
+1528
 
-2630
+2632
 
 1346896669
 
@@ -14962,15 +15240,15 @@ enthusiast
 
 FALSE
 
-1906
+1907
 
 1007
 
 23
 
-1527
+1528
 
-2630
+2632
 
 1346896669
 
@@ -15148,15 +15426,15 @@ enthusiast
 
 FALSE
 
-1906
+1907
 
 1007
 
 23
 
-1527
+1528
 
-2630
+2632
 
 1346896669
 
@@ -15335,202 +15613,15 @@ enthusiast
 
 FALSE
 
-1906
+1907
 
 1007
 
 23
 
-1527
+1528
 
-2630
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1178999436250423296
-
-1569930345
-
-carsonaust
-
-Intel played a key role in Ukraine/impeachment. Key question now is:
-Will Trump try to replace folks like acting DNI Maguire with more loyal
-leaders?
-
-My thoughts in \citet{lawfare} on why any effort by White House to
-install a loyalist DNI is dangerous \url{https://t.co/FMRwWzvL3l}
-
-Twitter Web App
-
-272
-
-NA
-
-NA
-
-NA
-
-FALSE
-
-FALSE
-
-6
-
-2
-
-NA
-
-NA
-
-NA
-
-NA
-
-lawfareblog.com/dangers-loyali\ldots{}
-
-\url{https://t.co/FMRwWzvL3l}
-
-\url{https://www.lawfareblog.com/dangers-loyalist-director-national-intelligence}
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-721058335437516806
-
-lawfare
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1178999436250423296}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1906
-
-1007
-
-23
-
-1527
-
-2630
+2632
 
 1346896669
 
@@ -15560,7 +15651,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-457-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-461-1} \end{center}
 
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}
 
@@ -15600,17 +15691,17 @@ exclude retweets from the query.
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 664 x 3}
-\CommentTok{#> # Groups:   user_id [664]}
+\CommentTok{#> # A tibble: 670 x 3}
+\CommentTok{#> # Groups:   user_id [670]}
 \CommentTok{#>   user_id             location                           n}
 \CommentTok{#>   <chr>               <chr>                          <int>}
-\CommentTok{#> 1 2561373848          Florida, USA                      91}
-\CommentTok{#> 2 764290456599396353  Rochester, New York               60}
-\CommentTok{#> 3 1022122568004894720 ""                                36}
-\CommentTok{#> 4 1030069194539368448 ""                                35}
-\CommentTok{#> 5 714738130557992960  Chiclana de la Frontera, Spain    33}
-\CommentTok{#> 6 826869114           Paris, Ile-de-France              31}
-\CommentTok{#> # ... with 658 more rows}
+\CommentTok{#> 1 2561373848          Florida, USA                      87}
+\CommentTok{#> 2 764290456599396353  Rochester, New York               49}
+\CommentTok{#> 3 1022122568004894720 ""                                34}
+\CommentTok{#> 4 1030069194539368448 ""                                34}
+\CommentTok{#> 5 826869114           Paris, Ile-de-France              31}
+\CommentTok{#> 6 714738130557992960  Chiclana de la Frontera, Spain    30}
+\CommentTok{#> # ... with 664 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -15810,7 +15901,7 @@ information on the first ten documents:
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 18}
+\CommentTok{#> [1] 16}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
@@ -15927,7 +16018,7 @@ was published in.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-470-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-474-1} \end{center}
 
 \subsection{More resources}\label{more-resources-1}
 

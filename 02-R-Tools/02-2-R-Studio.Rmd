@@ -7,13 +7,29 @@ output: html_document
 
 ## R Studio 
 
-We can use R in a number of ways. For example, we can write R code in a plain text editor (like `textedit` or `notepad`), and then execute the sript using the shell (e.g. `terminal` in Mac).
+Throughout this class, we will assume that you are using R via RStudio. First time users often confuse the two. At its simplest R is like a car’s engine while RStudio is like a car's dashboard.
 
-But, this isn't exactly ideal for several reasons. We can't easily write and edit scripts as we go, it's not very pretty, there are no debugging tools, etc. That's why most people who use R (or Python, etc) use an "integrated development environment" or "interactive development environment" (IDE).
+```{r echo = F}
+knitr::include_graphics(path = "img/R_vs_RStudio_1.png")
+```
 
-An IDE is a software application that provides comprehensive facilities to computer programmers for software development. An IDE normally consists of a source code editor, build automation tools and a debugger. Some of them come with package managers and other features, too.
+More precisely, R is a programming language that runs computations, while RStudio is an _integrated development environment (IDE)_ that provides an interface with many convenient features and tools. So just as the way of having access to a speedometer, rear-view mirrors, and a navigation system makes driving much easier, using RStudio’s interface makes using R much easier as well.
 
-The most popular IDE for R is [RStudio](https://www.rstudio.com/products/rstudio/). It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management. It's also free and open-source. Yay!
+RStudio includes a console, syntax-highlighting code editor, as well as tools for plotting, history, debugging and workspace management. It's also free and open-source. Yay!
+
+> NB: We don't have to use RStudio to use R. For example, we write R code in a plain text editor (like `textedit` or `notepad`), and then execute the sript using the shell (e.g. `terminal` in Mac). But this is not ideal.
+
+After you install R and RStudio on your computer, you'll have two new applications you can open. We'll always work in RStudio-- not in the R application. 
+
+```{r echo = F}
+knitr::include_graphics(path = "img/R_vs_RStudio.png")
+```
+
+After you open RStudio, you should see something similar to this:
+
+```{r echo = F}
+knitr::include_graphics(path = "img/rstudio.png")
+```
 
 ### Console
 
@@ -55,7 +71,7 @@ knitr::include_graphics(path = "img/using_console_title_bar.png")
 It's better practice to enter commands in the script editor, and save the script. This way, you have a complete record of what you did, you can easily show others how you did it and you can do it again later on if needed. Open it up either by clicking the *File* menu, and selecting *New File*, then R script, or using the keyboard shortcut Cmd/Ctrl + Shift + N. Now you’ll see four panes.
 
 ```{r echo = F}
-knitr::include_graphics(path = "./img/4-panes.png")
+knitr::include_graphics(path = "img/4-panes.png")
 ```
 
 The script editor is a great place to put code you care about. Keep experimenting in the console, but once you have written code that works and does what you want, put it in the script editor. 
@@ -107,6 +123,16 @@ knitr::include_graphics(path = "img/error.png")
 
 When errors happen, your code is haulted -- meaning it's never executed. Errors can be frustrating in R, but with practice you'll be able to debug your code quickly.
 
+### Errors, Messages, and Warnings
+
+One thing that intimidates new R and RStudio users is how it reports errors, warnings, and messages. R reports errors, warnings, and messages in a glaring font, which makes it seem like it is scolding you. However, seeing red text in the console is not always bad.
+
+1. __Errors__: When the text is a legitimate error, it will be prefaced with "Error:" and try to explain what went wrong. Generally when there’s an error, the code will not run. _Think of errors as a red traffic light: something is wrong!_
+
+2. __Warnings__: When the text is a warning, it will be prefaced with "Warning:" and R will try to explain why there's a warning. Generally your code will still work, but perhaps not in the way you would expect. _Think of warnings as a yellow traffic light: everything is working fine, but watch out/pay attention._
+
+2. __Messages__: When the text doesn’t start with either "Error" or "Warning", it’s just a friendly message. These are helpful diagnostic messages and they don’t stop your code from working. _Think of messages as a green traffic light: everything is working fine and keep on going!_
+
 ###  R Environment
 
 Turn your attention to the upper right pane. This pane displays your "global environment", and it contains the data objects you have saved in your current session. Notice that we have the two objects created earlier, `dems`, and `reps`, along with their values.
@@ -139,3 +165,5 @@ This page is in part derived from the following sources:
 2. [Advanced R](https://adv-r.hadley.nz/), licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 3. [R for Data Science](https://r4ds.had.co.nz) licensed under [Creative Commons Attribution-NonCommercial-NoDerivs 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/)
+
+4. [A ModernDive into R and the tidyverse](https://moderndive.netlify.com/1-getting-started.html)
