@@ -13,7 +13,7 @@ library(purrr)
 
 ## Iteration
 
-In the last unit, we talked about how important it is to reduce duplication in your code by creating functions instead of copying-and-pasting. Avoiding duplication allows for more readible, more flexible, and less error-prone code.
+In the last unit, we talked about how important it is to reduce duplication in your code by creating functions instead of copying-and-pasting. Avoiding duplication allows for more readable, more flexible, and less error-prone code.
 
 Functions are one method of reducing duplication in your code. Another tool for reducing duplication is **iteration**, which lets you do the same task to multiple inputs.
 
@@ -24,7 +24,7 @@ In this chapter you’ll learn about four approaches to iteratation:
 3. `map` and functional programming
 4. Scoped verbs in `dplyr`
 
-### Vectorized functions
+### Vectorized Functions
 
 Most of R’s built-in functions are **vectorized**, meaning that the function will operate on all elements of a vector without needing to loop through and act on each element at a time. 
 
@@ -102,7 +102,7 @@ for (i in seq_along(df)) {            # 2. sequence
 output
 ```
 
-#### Components of a `for` loop {-}
+#### Components of a `for` Loop {-}
 
 Every `for` loop has three components:
 
@@ -114,13 +114,13 @@ Preallocating space for your output is very important for efficiency: if you gro
 
 2. The __sequence__: `i in seq_along(df)`.
 
-This determines what to loop over.In this case, the sequence is `seq_along(df)`, which creates a numeric vector for a sequence of numbers beginning at 1 and continuing until it reaches the length of `df` (the length here is the number of columns in `df`).
+This determines what to loop over. In this case, the sequence is `seq_along(df)`, which creates a numeric vector for a sequence of numbers beginning at 1 and continuing until it reaches the length of `df` (the length here is the number of columns in `df`).
 
 ```{r}
 seq_along(df)
 ```
 
-It's useful to think of `i` as a pronoun, like "it". Each iteration of the `for` loop will assign `i` to a new value from based on the designed sequence:
+It's useful to think of `i` as a pronoun, like "it". Each iteration of the `for` loop will assign `i` to a new value based on the designed sequence:
 
 ```{md}
 | Iteration | i =  |
@@ -140,11 +140,11 @@ seq_along(y)
 1:length(y)
 ```
     
-You probably won't create a zero-length vector deliberately, but it's easy to create them accidentally. If you use `1:length(x)` instead of `seq_along(x)`, you're likely to get a confusing error message.
+You probably won't create a zero-length vector deliberately, but it's easy to create one accidentally. If you use `1:length(x)` instead of `seq_along(x)`, you're likely to get a confusing error message.
 
 3. The __body__: `output[[i]] <- median(df[[i]])`. 
 
-This is the code that does the work. It's run repeatedly, each time with a different value for `i`:
+This is the code that does the work. It runs repeatedly, each time with a different value for `i`:
 
 ```{md}
 | Iteration | i =  | body                           |
@@ -157,17 +157,19 @@ This is the code that does the work. It's run repeatedly, each time with a diffe
 
 **NB:**: We use `[[` notation to reference each column of `df` using indices of columns, instead of `$` and column names.
 
-#### Challenges {-}
+### Challenges
 
-1. Fill in the blanks to write a `for` loop that calculates the arithmetic mean for every column in `mtcars`.
+#### Challenge 1. {-}
+Fill in the blanks to write a `for` loop that calculates the arithmetic mean for every column in `mtcars`.
 
 ```{r eval = F}
 mtcars.means <- vector("double", ______)
 for(i in ______){
   ______[i] <- mean(______[[i]])
 }
+```
 
-# SOLUTION - HIDE ME
+```{r}
 mtcars.means <- vector("double", ncol(mtcars))
 for(i in seq_along(mtcars)){
   mtcars.means[i] <- mean(mtcars[[i]])
@@ -175,7 +177,8 @@ for(i in seq_along(mtcars)){
 mtcars.means
 ```
 
-2. Check out the `iris` dataset:
+#### Challenge 2. {-}
+Check out the `iris` dataset:
 
 ```{r}
 kable(head(iris))
@@ -188,7 +191,6 @@ Write a `for` loop that calculates the number of unique values in each column of
 3. Body
 
 ```{r}
-# SOLUTION - HIDE ME
 out <- vector("double", ncol(iris))
 for(i in seq_along(iris)){
   out[i] <- length(unique(iris[[i]]))
@@ -196,7 +198,8 @@ for(i in seq_along(iris)){
 out
 ```
 
-3. Generate 10 random normals for each of $\mu = -10$, $0$, $10$, and $100$. Store them in a list.
+#### Challenge 3. {-}
+Generate 10 random normals for each of $\mu = -10$, $0$, $10$, and $100$. Store them in a list.
 
 ```{r eval = F}
 # SOLUTION - HIDE ME
@@ -213,7 +216,7 @@ for (i in seq_along(mus)){
 
 Loops are not as important in R as they are in other languages because R is a **functional** programming language. This means that it’s possible to wrap up `for` loops in a function, and call that function instead of using the for loop directly.
 
-The pattern of looping over a vector, doing something to each element and saving the results is so common that the `purrr` package provides a family of functions to do it for you. Thus they eliminate the need for many common `for` loops. 
+The pattern of looping over a vector, doing something to each element and saving the results is so common that the `purrr` package provides a family of functions to do it for you. They effectively eliminate the need for many common `for` loops. 
 
 There is one function for each type of output:
 
@@ -223,9 +226,9 @@ There is one function for each type of output:
 4. `map_dbl()` makes a double vector.
 5. `map_chr()` makes a character vector.
 
-Each function takes a vector as input, applies a function to each piece, and then returns a new vector that’s the same length (and has the same names) as the input. The
+Each function takes a vector as input, applies a function to each piece, and then returns a new vector that’s the same length (and has the same names) as the input.
 
-**NB**: Some people will tell you to avoid `for` loops because they are slow. They’re wrong! (Well at least they’re rather out of date, as for loops haven’t been slow for many years). The chief benefits of using functions like `map()` is not speed, but clarity: they make your code easier to write and to read.
+**NB**: Some people will tell you to avoid `for` loops because they are slow. They’re wrong! (Well, at least they’re rather out of date, as for loops haven’t been slow for many years). The main benefit of using functions like `map()` is not speed, but clarity: they make your code easier to write and to read.
 
 To see how `map` works, consider (again) this simple data frame:
 
@@ -256,7 +259,7 @@ df %>% map_dbl(median)
 df %>% map_dbl(sd)
 ```
 
-We can also pass additional arguments. For example, the function `mean` passes an optional argument `trim`. Them the help file: "the fraction (0 to 0.5) of observations to be trimmed from each end of `x` before the `mean`is computed.
+We can also pass additional arguments. For example, the function `mean` passes an optional argument `trim`. From the help file: "the fraction (0 to 0.5) of observations to be trimmed from each end of `x` before the `mean`is computed.
 
 ```{r}
 map_dbl(df, mean, trim = 0.5)
@@ -265,37 +268,36 @@ map_dbl(df, mean, trim = 0.5)
 Check out other fun applications of `map` functions [here](https://r4ds.had.co.nz/iteration.html#the-map-functions)
 
 
-#### Challenges {-}
+### Challenges
+
+#### Challenge 1. {-}
 
 Write code that uses one of the map functions to:
 
 1. Calculates the arithmetic mean for every column in `mtcars`.
 
 ```{r eval = F}
-# SOLUTION - HIDE ME
 map(mtcars, mean)
 ```
 
 2. Calculates the number of unique values in each column of `iris`. 
 
 ```{r}
-# SOLUTION - HIDE ME
 iris %>% map(unique) %>% map_dbl(length)
 ```
 
 3. Generate 10 random normals for each of $\mu = -10$, $0$, $10$, and $100$.
 
 ```{r}
-# SOLUTION - HIDE ME
 map(c(-10, 0, 10, 100), ~rnorm(n = 10, mean = .))
 ```
 
 
-### Scoped verbs
+### Scoped Verbs
 
 The last iteration technique we'll discuss is scoped verbs in `dplyr`.
 
-Frequently when working with dataframes, we want to apply a function to multiple columns. For example, let's say we want to calculate the mean value of each column in `mtcars`. 
+Frequently, when working with dataframes, we want to apply a function to multiple columns. For example, let's say we want to calculate the mean value of each column in `mtcars`. 
 
 If we wanted to calculate the average of a single column, it would be pretty simple using just regular `dplyr` functions:
 
@@ -321,7 +323,7 @@ mtcars %>%
             carb = mean(carb))
 ```
 
-But this is very repetitive and prone to mistakes! 
+This is very repetitive and prone to mistakes! 
 
 We just saw one approach to solve this problem: `map`. Another approach is __scoped verbs__. 
 
