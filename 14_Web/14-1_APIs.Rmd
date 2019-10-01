@@ -9,7 +9,7 @@ output: html_document
 
 ## Introduction
 
-There's a ton of web data useful for social scientists, including:
+There's a ton of web data that's useful to social scientists, including:
 
 * social media
 * news media
@@ -25,7 +25,7 @@ __Rule of Thumb__: Check for API first. If not available, scrape.
 
 ## Web APIs 
 
-API stands for **Application Programming Interface**. Broadly defined, an API a set of rules and procedures that facilitate interactions between computers and their applications.
+API stands for **Application Programming Interface**. Broadly defined, an API is a set of rules and procedures that facilitate interactions between computers and their applications.
 
 A very common type of API is the __Web API__, which (among other things) allows users to query a remote database over the internet.
 
@@ -39,7 +39,7 @@ Consider a simple Google search:
 knitr::include_graphics(path = "img/google_search.png")
 ```
 
-Ever wonder what all that extra stuff in the address bar was all about?  In this case, the full address is Google's way of sending a query to its databases asking requesting information related to the search term "golden state warriors". 
+Ever wonder what all that extra stuff in the address bar was all about?  In this case, the full address is Google's way of sending a query to its databases requesting information related to the search term "golden state warriors". 
 
 ```{r echo = F}
 knitr::include_graphics(path = "img/google_link.png")
@@ -57,7 +57,7 @@ Learning how to use RESTful APIs is all about learning how to format these URLs 
 
 Let's get on the same page with some basic terminology:
 
-* **Uniform Resource Location (URL)**: a string of characters that, when interpreted via the Hypertext Transfer Protocol (HTTP), points to a data resource, notably files written in Hypertext Markup Language (HTML) or a subset of a database.  This is often referred to as a "call".
+* **Uniform Resource Location (URL)**: a string of characters that, when interpreted via the Hypertext Transfer Protocol (HTTP), points to a data resource, notably files written in Hypertext Markup Language (HTML) or a subset of a database. This is often referred to as a "call".
 
 * **HTTP Methods/Verbs**:
 
@@ -137,5 +137,5 @@ Many common APIs are available through user-written R Packages. These packages o
 
 2. [**Writing our own API request**][Writing API Queries]
 
-If no wrapper function is available, we have to write our own API request, and format the response ourslves using R. This is trickier, but definitely do-able.
+If no wrapper function is available, we have to write our own API request, and format the response ourselves using R. This is trickier, but definitely do-able.
 
