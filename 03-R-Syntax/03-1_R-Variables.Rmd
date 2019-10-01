@@ -150,7 +150,12 @@ lowest = highest
 highest = temp
 ```
 
+<details> 
+  <summary>Click for the solution</summary>
+  <p>
 The last three lines set temp equal to the value of lowest (1.0),  set lowest equal to the value of highest (3.0), and set highest equal to temp (1.0). 
+  </p>
+</details>
 
 #### Challenge 3: Predicting Values {-}
 
@@ -169,18 +174,26 @@ Why does the following code fail?
 ```{r eval = F}
 age == 31
 ```
-
+<details> 
+  <summary>Click for the solution</summary>
+  <p>
 The object `age` has not been created yet.
+  </p>
+</details>
 
 and the following?
 
 ```{r eval = F}
 31 <-  age
 ```
-
+<details> 
+  <summary>Click for the solution</summary>
+  <p>
 Object names cannot start with a number and "age" would have to be in quotations. In general, you would probably want to assign the number 31 to the object `age`:
 
 ```{r}
 age <- 31
 ```
 
+  </p>
+</details>

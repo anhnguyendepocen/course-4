@@ -115,9 +115,13 @@ A deep dive into R Markdown can be found [here](https://bookdown.org/yihui/rmark
 
 ### Challenges
 
-#### Challenge 1. Create a new R Markdown document with *File > New File > R Markdown...* Read the instructions. Practice running the chunks. Verify that you can modify the code, re-run it, and see modified output. {-}
+#### Challenge 1. {-}
 
-#### Challenge 2. Knit the document into an html file. Verify that you can modify the input and see the output update. {-}
+Create a new R Markdown document with *File > New File > R Markdown...* Read the instructions. Practice running the chunks. Verify that you can modify the code, re-run it, and see modified output. 
+
+#### Challenge 2. {-}
+
+Knit the document into an html file. Verify that you can modify the input and see the output update.
 
 #### Acknowledgments {-}
 
