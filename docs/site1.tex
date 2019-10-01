@@ -5037,7 +5037,7 @@ You can print this out in R code by running \texttt{getwd()}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/rochelleterman/Desktop/plsc-31101"}
+\CommentTok{#> [1] "/Users/petecuppernull/Dropbox/UChicago/Work/2019 Summer RA/Repos/plsc-31101"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5155,7 +5155,7 @@ directory:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/rochelleterman/Desktop/plsc-31101"}
+\CommentTok{#> [1] "/Users/petecuppernull/Dropbox/UChicago/Work/2019 Summer RA/Repos/plsc-31101"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -12084,7 +12084,7 @@ regression table in LaTeX:
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Mon, Sep 30, 2019 - 13:43:02}
+\CommentTok{#> % Date and time: Mon, Sep 30, 2019 - 10:14:11}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -12474,7 +12474,7 @@ This unit covers some more advanced programming in R - namely:
   \protect\hyperlink{iteration}{Iteration}
 \end{enumerate}
 
-Mastering these skills will make you virtually invinsible in R!
+Mastering these skills will make you virtually invincible in R!
 
 Note that these concepts are \textbf{not specific to R}. While the
 syntax might vary, the basic idea of flow, functions, and iteration are
@@ -12485,8 +12485,8 @@ these concepts.
 \hypertarget{conditional-flow}{\section{Conditional
 Flow}\label{conditional-flow}}
 
-Sometimes you only want to execute code if a condition is met. To do
-that, we use an \textbf{if-else statement.} It looks like this:
+Sometimes you only want to execute code if a certain condition is met.
+To do that, we use an \textbf{if-else statement.} It looks like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12500,8 +12500,9 @@ that, we use an \textbf{if-else statement.} It looks like this:
 
 \texttt{condition} is a statement that must always evaluate to either
 \texttt{TRUE} or \texttt{FALSE}. This is similar to \texttt{filter()},
-except condition can only be a single value (i.e.~a vector of length 1),
-whereas \texttt{filter()} works for entire vectors (or columns).
+except \texttt{condition} can only be a single value (i.e.~a vector of
+length 1), whereas \texttt{filter()} works for entire vectors (or
+columns).
 
 Let's look at a simple example:
 
@@ -12533,7 +12534,7 @@ Let's change the \texttt{age} variable to execute the second branch:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Multiple conditions}\label{multiple-conditions}
+\subsection{Multiple Conditions}\label{multiple-conditions}
 
 You can chain conditional statements together:
 
@@ -12549,10 +12550,10 @@ You can chain conditional statements together:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Complex statements}\label{complex-statements}
+\subsection{Complex Statements}\label{complex-statements}
 
 We can generate more complex conditional statements with boolean
-operators like \texttt{\&} and \texttt{\textbar{}\textbar{}}:
+operators like \texttt{\&} and \texttt{\textbar{}}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12569,7 +12570,7 @@ operators like \texttt{\&} and \texttt{\textbar{}\textbar{}}:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Code style}\label{code-style}
+\subsection{Code Style}\label{code-style}
 
 Both \texttt{if} and \texttt{function} should (almost) always be
 followed by squiggly brackets (\texttt{\{\}}), and the contents should
@@ -12691,15 +12692,15 @@ generate this new column.
 
 \hypertarget{functions-1}{\section{Functions}\label{functions-1}}
 
-Functions are the basic building blocks of programs. Think of them
+Functions are the basic building blocks of programs. Think of them as
 ``mini-scripts'' or ``tiny commands.'' We've already used dozens of
 functions created by others (e.g. \texttt{filter()}, \texttt{mean()}.)
 
 This lesson teaches you how to write you own functions, and why you
-would want to do so.The details are pretty simple, but this is one of
+would want to do so. The details are pretty simple, but this is one of
 those ideas where it's good to get lots of practice!
 
-\subsection{Why write functions?}\label{why-write-functions}
+\subsection{Why Write Functions?}\label{why-write-functions}
 
 Functions allow you to automate common tasks in a more powerful and
 general way than copy-and-pasting. For example, take a look at the
@@ -12743,7 +12744,7 @@ approach:
   variable name in one place, but not in another).
 \end{itemize}
 
-\subsection{Anatomy of a function}\label{anatomy-of-a-function}
+\subsection{Anatomy of a Function}\label{anatomy-of-a-function}
 
 Functions have three key components:
 
@@ -12759,7 +12760,7 @@ Functions have three key components:
 \item
   The \textbf{body}. This is the block of code within \texttt{\{\}} that
   immediately follows \texttt{function(...)}, and is the code that you
-  developed to perform the action described in the name using the
+  develop to perform the action described in the name using the
   arguments you provide.
 \end{enumerate}
 
@@ -12778,10 +12779,10 @@ In this example, \texttt{my\_function} is the \textbf{name} of the
 function, \texttt{x} and \texttt{y} are the \textbf{arguments}, and the
 stuff inside the \texttt{\{\}} is the \textbf{body}.
 
-\subsection{Writing a function}\label{writing-a-function}
+\subsection{Writing a Function}\label{writing-a-function}
 
 Let's re-write the scaling code above as a function. To write a function
-you need to first analyse the code. How many inputs does it have?
+you need to first analyze the code. How many inputs does it have?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12825,7 +12826,7 @@ data three times, so it makes sense to do it in one step:
 \end{Shaded}
 
 Pulling out intermediate calculations into named variables is a good
-practice because it makes it more clear what the code is doing. Now that
+practice because it becomes more clear what the code is doing. Now that
 I've simplified the code, and checked that it still works, I can turn it
 into a function:
 
@@ -12857,7 +12858,7 @@ different inputs:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Using a function}\label{using-a-function}
+\subsection{Using a Function}\label{using-a-function}
 
 Two important points about using (or *calling**) functions:
 
@@ -12960,7 +12961,7 @@ Why does this generate an error? Why can we not see the results of
 \texttt{pythagorean}, right?
 
 When you call a function, a temporary workspace is set up that will be
-destroyed when the function returns by:
+destroyed when the function returns, either by:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -12968,7 +12969,7 @@ destroyed when the function returns by:
 \item
   getting to the end, or
 \item
-  explicity by a return statement
+  an explicit return statement
 \end{enumerate}
 
 So think of functions as an alternative reality, where objects are
@@ -12999,7 +13000,7 @@ inside and outside a function. Check out this example:
 \end{Shaded}
 
 \texttt{t} and \texttt{temperature} are \textbf{local} variables in
-\texttt{adjust}.
+\texttt{adjust}. Local variables are:
 
 \begin{itemize}
 \tightlist
@@ -13012,7 +13013,7 @@ inside and outside a function. Check out this example:
   assigned a value when the function is called.
 \end{itemize}
 
-\texttt{pressure} is a \textbf{global} variable.
+\texttt{pressure} is a \textbf{global} variable. Global variables are:
 
 \begin{itemize}
 \tightlist
@@ -13062,8 +13063,8 @@ different ways.
 \end{Shaded}
 
 In the case above, it is possible to use argument \textbf{names} when
-calling the functions and, doing so, it is possible to switch the order
-of arguments. Tor instance:
+calling the functions and, by doing so, it is possible to switch the
+order of arguments. For instance:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13115,6 +13116,18 @@ numbers. For instance, it should generate the following output:
 \begin{Highlighting}[]
 \KeywordTok{my_function}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
 \CommentTok{# [1] 25}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, b) \{}
+\NormalTok{  sum <-}\StringTok{ }\NormalTok{a}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{b}\OperatorTok{^}\DecValTok{2}
+  \KeywordTok{return}\NormalTok{(sum)}
+\NormalTok{\}}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\CommentTok{#> [1] 25}
 \end{Highlighting}
 \end{Shaded}
 
@@ -13195,7 +13208,7 @@ Resources}\label{acknowledgements-and-resources}
 
 In the last unit, we talked about how important it is to reduce
 duplication in your code by creating functions instead of
-copying-and-pasting. Avoiding duplication allows for more readible, more
+copying-and-pasting. Avoiding duplication allows for more readable, more
 flexible, and less error-prone code.
 
 Functions are one method of reducing duplication in your code. Another
@@ -13217,7 +13230,7 @@ In this chapter you'll learn about four approaches to iteratation:
   Scoped verbs in \texttt{dplyr}
 \end{enumerate}
 
-\subsection{Vectorized functions}\label{vectorized-functions}
+\subsection{Vectorized Functions}\label{vectorized-functions}
 
 Most of R's built-in functions are \textbf{vectorized}, meaning that the
 function will operate on all elements of a vector without needing to
@@ -13331,8 +13344,8 @@ Instead, we could use a \texttt{for} loop:
 \end{Shaded}
 
 \subsubsection*{\texorpdfstring{Components of a \texttt{for}
-loop}{Components of a for loop}}\label{components-of-a-for-loop}
-\addcontentsline{toc}{subsubsection}{Components of a \texttt{for} loop}
+Loop}{Components of a for Loop}}\label{components-of-a-for-loop}
+\addcontentsline{toc}{subsubsection}{Components of a \texttt{for} Loop}
 
 Every \texttt{for} loop has three components:
 
@@ -13360,7 +13373,7 @@ example), your \texttt{for} loop will be very slow.
   The \textbf{sequence}: \texttt{i\ in\ seq\_along(df)}.
 \end{enumerate}
 
-This determines what to loop over.In this case, the sequence is
+This determines what to loop over. In this case, the sequence is
 \texttt{seq\_along(df)}, which creates a numeric vector for a sequence
 of numbers beginning at 1 and continuing until it reaches the length of
 \texttt{df} (the length here is the number of columns in \texttt{df}).
@@ -13374,7 +13387,7 @@ of numbers beginning at 1 and continuing until it reaches the length of
 
 It's useful to think of \texttt{i} as a pronoun, like ``it''. Each
 iteration of the \texttt{for} loop will assign \texttt{i} to a new value
-from based on the designed sequence:
+based on the designed sequence:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13403,9 +13416,9 @@ zero-length vector, \texttt{seq\_along()} does the right thing:
 \end{Shaded}
 
 You probably won't create a zero-length vector deliberately, but it's
-easy to create them accidentally. If you use \texttt{1:length(x)}
-instead of \texttt{seq\_along(x)}, you're likely to get a confusing
-error message.
+easy to create one accidentally. If you use \texttt{1:length(x)} instead
+of \texttt{seq\_along(x)}, you're likely to get a confusing error
+message.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -13416,7 +13429,7 @@ error message.
   \texttt{output{[}{[}i{]}{]}\ \textless{}-\ median(df{[}{[}i{]}{]})}.
 \end{enumerate}
 
-This is the code that does the work. It's run repeatedly, each time with
+This is the code that does the work. It runs repeatedly, each time with
 a different value for \texttt{i}:
 
 \begin{Shaded}
@@ -13434,16 +13447,13 @@ a different value for \texttt{i}:
 of \texttt{df} using indices of columns, instead of \texttt{\$} and
 column names.
 
-\subsubsection*{Challenges}\label{challenges-16}
-\addcontentsline{toc}{subsubsection}{Challenges}
+\subsection{Challenges}\label{challenges-16}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Fill in the blanks to write a \texttt{for} loop that calculates the
-  arithmetic mean for every column in \texttt{mtcars}.
-\end{enumerate}
+\subsubsection*{Challenge 1.}\label{challenge-1.}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
+
+Fill in the blanks to write a \texttt{for} loop that calculates the
+arithmetic mean for every column in \texttt{mtcars}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13451,23 +13461,25 @@ column names.
 \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in}\NormalTok{ ______)\{}
 \NormalTok{  ______[i] <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(______[[i]])}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{# SOLUTION - HIDE ME}
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{mtcars.means <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\StringTok{"double"}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(mtcars))}
 \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(mtcars))\{}
 \NormalTok{  mtcars.means[i] <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(mtcars[[i]])}
 \NormalTok{\}}
 \NormalTok{mtcars.means}
+\CommentTok{#>  [1]  20.091   6.188 230.722 146.688   3.597   3.217  17.849   0.438}
+\CommentTok{#>  [9]   0.406   3.688   2.812}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Check out the \texttt{iris} dataset:
-\end{enumerate}
+\subsubsection*{Challenge 2.}\label{challenge-2.}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
+
+Check out the \texttt{iris} dataset:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13562,7 +13574,6 @@ identify the three components you need:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# SOLUTION - HIDE ME}
 \NormalTok{out <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\StringTok{"double"}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(iris))}
 \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(iris))\{}
 \NormalTok{  out[i] <-}\StringTok{ }\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(iris[[i]]))}
@@ -13572,14 +13583,11 @@ identify the three components you need:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  Generate 10 random normals for each of \(\mu = -10\), \(0\), \(10\),
-  and \(100\). Store them in a list.
-\end{enumerate}
+\subsubsection*{Challenge 3.}\label{challenge-3.}
+\addcontentsline{toc}{subsubsection}{Challenge 3.}
+
+Generate 10 random normals for each of \(\mu = -10\), \(0\), \(10\), and
+\(100\). Store them in a list.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13603,8 +13611,8 @@ function instead of using the for loop directly.
 
 The pattern of looping over a vector, doing something to each element
 and saving the results is so common that the \texttt{purrr} package
-provides a family of functions to do it for you. Thus they eliminate the
-need for many common \texttt{for} loops.
+provides a family of functions to do it for you. They effectively
+eliminate the need for many common \texttt{for} loops.
 
 There is one function for each type of output:
 
@@ -13625,12 +13633,12 @@ There is one function for each type of output:
 
 Each function takes a vector as input, applies a function to each piece,
 and then returns a new vector that's the same length (and has the same
-names) as the input. The
+names) as the input.
 
 \textbf{NB}: Some people will tell you to avoid \texttt{for} loops
-because they are slow. They're wrong! (Well at least they're rather out
-of date, as for loops haven't been slow for many years). The chief
-benefits of using functions like \texttt{map()} is not speed, but
+because they are slow. They're wrong! (Well, at least they're rather out
+of date, as for loops haven't been slow for many years). The main
+benefit of using functions like \texttt{map()} is not speed, but
 clarity: they make your code easier to write and to read.
 
 To see how \texttt{map} works, consider (again) this simple data frame:
@@ -13683,7 +13691,7 @@ The data can even be piped!
 \end{Shaded}
 
 We can also pass additional arguments. For example, the function
-\texttt{mean} passes an optional argument \texttt{trim}. Them the help
+\texttt{mean} passes an optional argument \texttt{trim}. From the help
 file: ``the fraction (0 to 0.5) of observations to be trimmed from each
 end of \texttt{x} before the \texttt{mean}is computed.
 
@@ -13698,8 +13706,10 @@ end of \texttt{x} before the \texttt{mean}is computed.
 Check out other fun applications of \texttt{map} functions
 \href{https://r4ds.had.co.nz/iteration.html\#the-map-functions}{here}
 
-\subsubsection*{Challenges}\label{challenges-17}
-\addcontentsline{toc}{subsubsection}{Challenges}
+\subsection{Challenges}\label{challenges-17}
+
+\subsubsection*{Challenge 1.}\label{challenge-1.-1}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
 
 Write code that uses one of the map functions to:
 
@@ -13712,7 +13722,6 @@ Write code that uses one of the map functions to:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# SOLUTION - HIDE ME}
 \KeywordTok{map}\NormalTok{(mtcars, mean)}
 \end{Highlighting}
 \end{Shaded}
@@ -13728,7 +13737,6 @@ Write code that uses one of the map functions to:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# SOLUTION - HIDE ME}
 \NormalTok{iris }\OperatorTok{%>%}\StringTok{ }\KeywordTok{map}\NormalTok{(unique) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{map_dbl}\NormalTok{(length)}
 \CommentTok{#> Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species }
 \CommentTok{#>           35           23           43           22            3}
@@ -13746,7 +13754,6 @@ Write code that uses one of the map functions to:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# SOLUTION - HIDE ME}
 \KeywordTok{map}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{100}\NormalTok{), }\OperatorTok{~}\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{10}\NormalTok{, }\DataTypeTok{mean =}\NormalTok{ .))}
 \CommentTok{#> [[1]]}
 \CommentTok{#>  [1]  -8.08  -8.70  -9.25  -9.44 -10.55  -8.89 -12.61 -10.16  -9.57 -10.38}
@@ -13763,12 +13770,12 @@ Write code that uses one of the map functions to:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Scoped verbs}\label{scoped-verbs}
+\subsection{Scoped Verbs}\label{scoped-verbs}
 
 The last iteration technique we'll discuss is scoped verbs in
 \texttt{dplyr}.
 
-Frequently when working with dataframes, we want to apply a function to
+Frequently, when working with dataframes, we want to apply a function to
 multiple columns. For example, let's say we want to calculate the mean
 value of each column in \texttt{mtcars}.
 
@@ -13806,7 +13813,7 @@ duplicate this code many times over:
 \end{Highlighting}
 \end{Shaded}
 
-But this is very repetitive and prone to mistakes!
+This is very repetitive and prone to mistakes!
 
 We just saw one approach to solve this problem: \texttt{map}. Another
 approach is \textbf{scoped verbs}.
@@ -14273,10 +14280,6 @@ favorite\_count
 
 retweet\_count
 
-quote\_count
-
-reply\_count
-
 hashtags
 
 symbols
@@ -14427,6 +14430,193 @@ profile\_image\_url
 
 805833715
 
+1178759447352659968
+
+1569873127
+
+carsonaust
+
+The paperback of my first book is finally shipping -- get 'em while they
+are as hot as
+an-academic-book-that-took-ten-years-to-write-and-came-out-a-year-ago-but-is-FINALLY-affordable
+can be.
+
+\url{https://t.co/o0YcxlQldu}
+
+Twitter Web App
+
+140
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+TRUE
+
+0
+
+6
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+549256590
+
+bentleyballan
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1178746274193039361
+
+The paperback of my first book is finally shipping -- get 'em while they
+are as hot as
+an-academic-book-that-took-ten-years-to-write-and-came-out-a-year-ago-but-is-FINALLY-affordable
+can be.
+
+\url{https://t.co/o0YcxlQldu}
+
+1569869986
+
+Twitter Web App
+
+38
+
+6
+
+549256590
+
+bentleyballan
+
+Bentley Allan
+
+1341
+
+1267
+
+1420
+
+Assistant Professor, Johns Hopkins University 🌐 IR Theory, Science and
+Politics, Global Environmental Politics
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1178759447352659968}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1902
+
+1007
+
+23
+
+1521
+
+2630
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
 1178702831714525184
 
 1569859628
@@ -14455,10 +14645,6 @@ FALSE
 2
 
 0
-
-NA
-
-NA
 
 NA
 
@@ -14513,11 +14699,11 @@ carsonaust
 
 Austin Carson
 
-1900
+1902
 
 1007
 
-1520
+1521
 
 Chicago, IL
 
@@ -14589,15 +14775,15 @@ enthusiast
 
 FALSE
 
-1900
+1902
 
 1007
 
 23
 
-1520
+1521
 
-2626
+2630
 
 1346896669
 
@@ -14646,10 +14832,6 @@ TRUE
 0
 
 2
-
-NA
-
-NA
 
 NA
 
@@ -14735,11 +14917,11 @@ mevers90
 
 Miles Murphy Evers
 
-526
+525
 
 1780
 
-23723
+23724
 
 Washington, DC
 
@@ -14780,15 +14962,15 @@ enthusiast
 
 FALSE
 
-1900
+1902
 
 1007
 
 23
 
-1520
+1521
 
-2626
+2630
 
 1346896669
 
@@ -14834,10 +15016,6 @@ TRUE
 0
 
 5
-
-NA
-
-NA
 
 NA
 
@@ -14920,7 +15098,7 @@ dbyman
 
 Dan Byman
 
-11903
+11906
 
 649
 
@@ -14966,15 +15144,15 @@ enthusiast
 
 FALSE
 
-1900
+1902
 
 1007
 
 23
 
-1520
+1521
 
-2626
+2630
 
 1346896669
 
@@ -15020,10 +15198,6 @@ FALSE
 9
 
 0
-
-NA
-
-NA
 
 NA
 
@@ -15149,15 +15323,15 @@ enthusiast
 
 FALSE
 
-1900
+1902
 
 1007
 
 23
 
-1520
+1521
 
-2626
+2630
 
 1346896669
 
@@ -15233,10 +15407,6 @@ NA
 
 NA
 
-NA
-
-NA
-
 186177715
 
 jessicacweiss
@@ -15285,7 +15455,7 @@ future success. Yet this strategy has costs.''
 
 TweetDeck
 
-139
+140
 
 69
 
@@ -15295,7 +15465,7 @@ jessicacweiss
 
 Jessica Chen Weiss
 
-7950
+7958
 
 1712
 
@@ -15341,200 +15511,15 @@ enthusiast
 
 FALSE
 
-1900
+1902
 
 1007
 
 23
 
-1520
+1521
 
-2626
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1178009054695870464
-
-1569694219
-
-carsonaust
-
-``I have never seen a more buttoned-up set of whistleblower allegations
-than these.'' \url{https://t.co/0kttzYrDlg}
-
-Twitter for iPhone
-
-124
-
-NA
-
-NA
-
-NA
-
-FALSE
-
-TRUE
-
-0
-
-12
-
-NA
-
-NA
-
-NA
-
-NA
-
-thehill.com/opinion/white-\ldots{}
-
-\url{https://t.co/0kttzYrDlg}
-
-\url{https://thehill.com/opinion/white-house/463396-the-intelligence-community-strikes-back-an-impeachment-game-changer?amp\&__twitter_impression=true}
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-26591796
-
-jonrlindsay
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-1177994523953291265
-
-``I have never seen a more buttoned-up set of whistleblower allegations
-than these.'' \url{https://t.co/0kttzYrDlg}
-
-1569690755
-
-Twitter for Android
-
-52
-
-12
-
-26591796
-
-jonrlindsay
-
-Jon Lindsay
-
-677
-
-507
-
-751
-
-Toronto, Ontario
-
-Assistant Professor of Digital Media and Global Affairs at the
-University of Toronto, Munk School of Global Affairs
-
-FALSE
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1178009054695870464}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1900
-
-1007
-
-23
-
-1520
-
-2626
+2630
 
 1346896669
 
@@ -15564,7 +15549,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-455-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-457-1} \end{center}
 
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}
 
@@ -15604,17 +15589,17 @@ exclude retweets from the query.
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 646 x 3}
-\CommentTok{#> # Groups:   user_id [646]}
+\CommentTok{#> # A tibble: 668 x 3}
+\CommentTok{#> # Groups:   user_id [668]}
 \CommentTok{#>   user_id             location                           n}
 \CommentTok{#>   <chr>               <chr>                          <int>}
-\CommentTok{#> 1 764290456599396353  Rochester, New York               68}
-\CommentTok{#> 2 1022122568004894720 ""                                35}
-\CommentTok{#> 3 1030069194539368448 ""                                35}
-\CommentTok{#> 4 826869114           Paris, Ile-de-France              32}
-\CommentTok{#> 5 714738130557992960  Chiclana de la Frontera, Spain    30}
-\CommentTok{#> 6 496058145           ""                                21}
-\CommentTok{#> # ... with 640 more rows}
+\CommentTok{#> 1 2561373848          Florida, USA                      97}
+\CommentTok{#> 2 764290456599396353  Rochester, New York               68}
+\CommentTok{#> 3 1022122568004894720 ""                                35}
+\CommentTok{#> 4 1030069194539368448 ""                                35}
+\CommentTok{#> 5 826869114           Paris, Ile-de-France              34}
+\CommentTok{#> 6 714738130557992960  Chiclana de la Frontera, Spain    32}
+\CommentTok{#> # ... with 662 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -15808,17 +15793,17 @@ information on the first ten documents:
 \CommentTok{# What's in 'meta'?}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}
 \CommentTok{#> $hits}
-\CommentTok{#> [1] 3884}
+\CommentTok{#> [1] 3885}
 \CommentTok{#> }
 \CommentTok{#> $offset}
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 17}
+\CommentTok{#> [1] 16}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
-\CommentTok{#> [1] 3884}
+\CommentTok{#> [1] 3885}
 
 \CommentTok{# Check out docs}
 \KeywordTok{names}\NormalTok{(response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{docs)}
@@ -15931,7 +15916,7 @@ was published in.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-468-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-470-1} \end{center}
 
 \subsection{More resources}\label{more-resources-1}
 
