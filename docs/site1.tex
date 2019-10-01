@@ -611,7 +611,7 @@ following line of code to download all of them at once:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"rmarkdown"}\NormalTok{, }\StringTok{"knitr"}\NormalTok{, }\StringTok{"gapminder"}\NormalTok{, }\StringTok{"stargazer"}\NormalTok{, }\StringTok{"rtweet"}\NormalTok{, }\StringTok{"jsonlite"}\NormalTok{, }\StringTok{"httr"}\NormalTok{, }\StringTok{"rvest"}\NormalTok{, }\StringTok{"tidyr"}\NormalTok{, }\StringTok{"kableExtra"}\NormalTok{)}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"rmarkdown"}\NormalTok{, }\StringTok{"knitr"}\NormalTok{, }\StringTok{"gapminder"}\NormalTok{, }\StringTok{"stargazer"}\NormalTok{, }\StringTok{"rtweet"}\NormalTok{, }\StringTok{"kableExtra"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1758,13 +1758,13 @@ Instagram. You need to:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \emph{Install the app}: Since your phone is new and does not include
+  \textbf{Install the app}: Since your phone is new and does not include
   the Instagram app, you need to download the app from either the App
   Store or Google Play. You do this once and you're set for the time
   being. You might need to do this again in the future when there is an
   update to the app.
 \item
-  \emph{Open the app}: After you've installed Instagram, you need to
+  \textbf{Open the app}: After you've installed Instagram, you need to
   open the app.
 \end{enumerate}
 
@@ -1774,15 +1774,15 @@ The process is very similar for using an R package. You need to:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \emph{Install the package}: This is like installing an app on your
+  \textbf{Install the package}: This is like installing an app on your
   phone. Most packages are not installed by default when you install R
   and RStudio. Thus if you want to use a package for the first time, you
   need to install it first. Once you've installed a package, you likely
   won't install it again unless you want to update it to a newer
   version.
 \item
-  \emph{``Load'' the package}: Loading a package is like opening an app
-  on your phone. Packages are not loaded by default when you start
+  \textbf{``Load'' the package}: Loading a package is like opening an
+  app on your phone. Packages are not loaded by default when you start
   RStudio on your computer; you need to load each package you want to
   use every time you start RStudio.
 \end{enumerate}
@@ -1828,7 +1828,8 @@ functions in base R (or from other packages you might have loaded).
 \subsection{Challenges}\label{challenges}
 
 Let's go ahead and download some core, important packages we'll use for
-the rest of the course. Download and load the following packages:
+the rest of the course. Download (if you haven't done so already) and
+load the following packages:
 
 \begin{itemize}
 \tightlist
@@ -1842,6 +1843,12 @@ the rest of the course. Download and load the following packages:
   \texttt{gapminder}
 \item
   \texttt{devtools}
+\item
+  \texttt{stargazer}
+\item
+  \texttt{rtweet}
+\item
+  \texttt{kableExtra}
 \end{itemize}
 
 \subsubsection*{Acknowledgments}\label{acknowledgments-1}
@@ -1985,8 +1992,8 @@ with Help \textgreater{} Markdown Quick Reference.
 \subsection{Code Chunks}\label{code-chunks}
 
 To run code inside an R Markdown document, you do it inside a ``chunk''.
-Think of a chunk like a function. A chunk should be relatively
-self-contained, and focused around a single task.
+Think of a chunk like a step in a larger process. A chunk should be
+relatively self-contained, and focused around a single task.
 
 Chunks begin with a header which consists of
 \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r,}
@@ -2038,14 +2045,22 @@ A deep dive into R Markdown can be found
 
 Create a new R Markdown document with \emph{File \textgreater{} New File
 \textgreater{} R Markdown\ldots{}} Read the instructions. Practice
-running the chunks. Verify that you can modify the code, re-run it, and
-see modified output.
+running the chunks.
+
+Now add some new markdown. Try adding some first-, second-, and
+third-level headers. Insert a link to a website.
 
 \subsubsection*{Challenge 2.}\label{challenge-2.}
 \addcontentsline{toc}{subsubsection}{Challenge 2.}
 
-Knit the document into an html file. Verify that you can modify the
-input and see the output update.
+In the first code chunk, modify \texttt{cars} to \texttt{mtcars}. Re-run
+the chunk, and see modified output.
+
+\subsubsection*{Challenge 3.}\label{challenge-3.}
+\addcontentsline{toc}{subsubsection}{Challenge 3.}
+
+Knit the document into an PDF file. Verify that you can modify the input
+and see the output update.
 
 \subsubsection*{Acknowledgments}\label{acknowledgments-2}
 \addcontentsline{toc}{subsubsection}{Acknowledgments}
@@ -13682,7 +13697,7 @@ identify the three components you need:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 3.}\label{challenge-3.}
+\subsubsection*{Challenge 3.}\label{challenge-3.-1}
 \addcontentsline{toc}{subsubsection}{Challenge 3.}
 
 Generate 10 random normals for each of \(\mu = -10\), \(0\), \(10\), and

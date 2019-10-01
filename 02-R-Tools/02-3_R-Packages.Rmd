@@ -19,13 +19,13 @@ So R is like a new mobile phone: while it has a certain amount of features when 
 
 Let’s continue this analogy by considering the Instagram app for editing and sharing pictures. Say you have purchased a new phone and you would like to share a photo you have just taken with friends and family on Instagram. You need to:
 
-1. _Install the app_: Since your phone is new and does not include the Instagram app, you need to download the app from either the App Store or Google Play. You do this once and you’re set for the time being. You might need to do this again in the future when there is an update to the app.
-2. _Open the app_: After you’ve installed Instagram, you need to open the app.
+1. __Install the app__: Since your phone is new and does not include the Instagram app, you need to download the app from either the App Store or Google Play. You do this once and you’re set for the time being. You might need to do this again in the future when there is an update to the app.
+2. __Open the app__: After you’ve installed Instagram, you need to open the app.
 
 The process is very similar for using an R package. You need to:
 
-1. _Install the package_: This is like installing an app on your phone. Most packages are not installed by default when you install R and RStudio. Thus if you want to use a package for the first time, you need to install it first. Once you’ve installed a package, you likely won’t install it again unless you want to update it to a newer version.
-2. _"Load" the package_: Loading a package is like opening an app on your phone. Packages are not loaded by default when you start RStudio on your computer; you need to load each package you want to use every time you start RStudio.
+1. __Install the package__: This is like installing an app on your phone. Most packages are not installed by default when you install R and RStudio. Thus if you want to use a package for the first time, you need to install it first. Once you’ve installed a package, you likely won’t install it again unless you want to update it to a newer version.
+2. __"Load" the package__: Loading a package is like opening an app on your phone. Packages are not loaded by default when you start RStudio on your computer; you need to load each package you want to use every time you start RStudio.
 
 ### Installing Packages
 
@@ -53,13 +53,16 @@ The message tells you which functions from `dplyr` conflict with functions in ba
 
 ### Challenges
 
-Let's go ahead and download some core, important packages we'll use for the rest of the course. Download and load the following packages:
+Let's go ahead and download some core, important packages we'll use for the rest of the course. Download (if you haven't done so already) and load the following packages:
 
 * `tidyverse`
 * `rmarkdown`
 * `knitr`
 * `gapminder`
 * `devtools`
+* `stargazer` 
+* `rtweet`
+* `kableExtra`
 
 #### Acknowledgments{-}
 

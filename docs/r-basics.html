@@ -564,13 +564,13 @@ reps &lt;-<span class="st"> </span>(<span class="dv">20</span> <span class="op">
 <p>So R is like a new mobile phone: while it has a certain amount of features when you use it for the first time, it doesn’t have everything. R packages are like the apps you can download onto your phone from Apple’s App Store or Android’s Google Play.</p>
 <p>Let’s continue this analogy by considering the Instagram app for editing and sharing pictures. Say you have purchased a new phone and you would like to share a photo you have just taken with friends and family on Instagram. You need to:</p>
 <ol style="list-style-type: decimal">
-<li><em>Install the app</em>: Since your phone is new and does not include the Instagram app, you need to download the app from either the App Store or Google Play. You do this once and you’re set for the time being. You might need to do this again in the future when there is an update to the app.</li>
-<li><em>Open the app</em>: After you’ve installed Instagram, you need to open the app.</li>
+<li><strong>Install the app</strong>: Since your phone is new and does not include the Instagram app, you need to download the app from either the App Store or Google Play. You do this once and you’re set for the time being. You might need to do this again in the future when there is an update to the app.</li>
+<li><strong>Open the app</strong>: After you’ve installed Instagram, you need to open the app.</li>
 </ol>
 <p>The process is very similar for using an R package. You need to:</p>
 <ol style="list-style-type: decimal">
-<li><em>Install the package</em>: This is like installing an app on your phone. Most packages are not installed by default when you install R and RStudio. Thus if you want to use a package for the first time, you need to install it first. Once you’ve installed a package, you likely won’t install it again unless you want to update it to a newer version.</li>
-<li><em>“Load” the package</em>: Loading a package is like opening an app on your phone. Packages are not loaded by default when you start RStudio on your computer; you need to load each package you want to use every time you start RStudio.</li>
+<li><strong>Install the package</strong>: This is like installing an app on your phone. Most packages are not installed by default when you install R and RStudio. Thus if you want to use a package for the first time, you need to install it first. Once you’ve installed a package, you likely won’t install it again unless you want to update it to a newer version.</li>
+<li><strong>“Load” the package</strong>: Loading a package is like opening an app on your phone. Packages are not loaded by default when you start RStudio on your computer; you need to load each package you want to use every time you start RStudio.</li>
 </ol>
 <div id="installing-packages" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Installing Packages</h3>
@@ -588,13 +588,16 @@ reps &lt;-<span class="st"> </span>(<span class="dv">20</span> <span class="op">
 </div>
 <div id="challenges" class="section level3">
 <h3><span class="header-section-number">5.3.3</span> Challenges</h3>
-<p>Let’s go ahead and download some core, important packages we’ll use for the rest of the course. Download and load the following packages:</p>
+<p>Let’s go ahead and download some core, important packages we’ll use for the rest of the course. Download (if you haven’t done so already) and load the following packages:</p>
 <ul>
 <li><code>tidyverse</code></li>
 <li><code>rmarkdown</code></li>
 <li><code>knitr</code></li>
 <li><code>gapminder</code></li>
 <li><code>devtools</code></li>
+<li><code>stargazer</code></li>
+<li><code>rtweet</code></li>
+<li><code>kableExtra</code></li>
 </ul>
 <div id="acknowledgments-1" class="section level4 unnumbered">
 <h4>Acknowledgments</h4>
@@ -685,7 +688,7 @@ Content Cell  | Content Cell</code></pre></div>
 </div>
 <div id="code-chunks" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> Code Chunks</h3>
-<p>To run code inside an R Markdown document, you do it inside a “chunk”. Think of a chunk like a function. A chunk should be relatively self-contained, and focused around a single task.</p>
+<p>To run code inside an R Markdown document, you do it inside a “chunk”. Think of a chunk like a step in a larger process. A chunk should be relatively self-contained, and focused around a single task.</p>
 <p>Chunks begin with a header which consists of <code>```{r,</code> followed by an optional chunk name, followed by comma separated options, followed by <code>}</code>. Next comes your R code and the chunk end is indicated by a final <code>```.</code></p>
 <p>You can continue to run the code using the keyboard shortcut that we learned earlier: <code>Cmd/Ctrl + Enter</code>. You can also run the entire chunk by clicking the Run icon (it looks like a play button at the top of the chunk), or by pressing <code>Cmd/Ctrl + Shift + Enter</code>.</p>
 <p>RStudio executes the code and displays the results inline with the code:</p>
@@ -708,11 +711,16 @@ Content Cell  | Content Cell</code></pre></div>
 <h3><span class="header-section-number">5.4.6</span> Challenges</h3>
 <div id="challenge-1." class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
-<p>Create a new R Markdown document with <em>File &gt; New File &gt; R Markdown…</em> Read the instructions. Practice running the chunks. Verify that you can modify the code, re-run it, and see modified output.</p>
+<p>Create a new R Markdown document with <em>File &gt; New File &gt; R Markdown…</em> Read the instructions. Practice running the chunks.</p>
+<p>Now add some new markdown. Try adding some first-, second-, and third-level headers. Insert a link to a website.</p>
 </div>
 <div id="challenge-2." class="section level4 unnumbered">
 <h4>Challenge 2.</h4>
-<p>Knit the document into an html file. Verify that you can modify the input and see the output update.</p>
+<p>In the first code chunk, modify <code>cars</code> to <code>mtcars</code>. Re-run the chunk, and see modified output.</p>
+</div>
+<div id="challenge-3." class="section level4 unnumbered">
+<h4>Challenge 3.</h4>
+<p>Knit the document into an PDF file. Verify that you can modify the input and see the output update.</p>
 </div>
 <div id="acknowledgments-2" class="section level4 unnumbered">
 <h4>Acknowledgments</h4>
