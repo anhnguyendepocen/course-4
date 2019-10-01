@@ -91,7 +91,7 @@ The best way to learn these is simply to try them out. It will take a few days, 
 
 ### Code Chunks
 
-To run code inside an R Markdown document, you do it inside a "chunk". Think of a chunk like a function. A chunk should be relatively self-contained, and focused around a single task.
+To run code inside an R Markdown document, you do it inside a "chunk". Think of a chunk like a step in a larger process. A chunk should be relatively self-contained, and focused around a single task.
 
 Chunks begin with a header which consists of ` ```{r,` followed by an optional chunk name, followed by comma separated options, followed by `}`. Next comes your R code and the chunk end is indicated by a final ` ```.`
 
@@ -119,9 +119,13 @@ A deep dive into R Markdown can be found [here](https://bookdown.org/yihui/rmark
 
 Create a new R Markdown document with *File > New File > R Markdown...* Read the instructions. Practice running the chunks. 
 
-In the first chunk, modify `cars` to `mtcars`. Re-run the chunk, and see modified output. 
+Now add some new markdown. Try adding some first-, second-, and third-level headers. Insert a link to a website.
 
 #### Challenge 2. {-}
+
+In the first code chunk, modify `cars` to `mtcars`. Re-run the chunk, and see modified output. 
+
+#### Challenge 3. {-}
 
 Knit the document into an PDF file. Verify that you can modify the input and see the output update.
 
