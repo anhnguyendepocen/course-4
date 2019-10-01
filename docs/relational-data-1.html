@@ -790,8 +790,6 @@ VA
 <p>Let’s say we want to combine the <code>countries</code> and <code>states</code> tables we created earlier.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties_states &lt;-<span class="st"> </span>counties <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">left_join</span>(states, <span class="dt">by =</span> <span class="st">&quot;state&quot;</span>)
-<span class="co">#&gt; Warning: `chr_along()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
 
 <span class="kw">kable</span>(counties_states)</code></pre></div>
 <table>

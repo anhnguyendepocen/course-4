@@ -920,7 +920,7 @@ output
 </div>
 <div id="challenges-16" class="section level3">
 <h3><span class="header-section-number">16.3.3</span> Challenges</h3>
-<div id="challenge-1." class="section level4 unnumbered">
+<div id="challenge-1.-1" class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
 <p>Fill in the blanks to write a <code>for</code> loop that calculates the arithmetic mean for every column in <code>mtcars</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars.means &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;double&quot;</span>, ______)
@@ -935,7 +935,7 @@ mtcars.means
 <span class="co">#&gt;  [1]  20.091   6.188 230.722 146.688   3.597   3.217  17.849   0.438</span>
 <span class="co">#&gt;  [9]   0.406   3.688   2.812</span></code></pre></div>
 </div>
-<div id="challenge-2." class="section level4 unnumbered">
+<div id="challenge-2.-1" class="section level4 unnumbered">
 <h4>Challenge 2.</h4>
 <p>Check out the <code>iris</code> dataset:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(<span class="kw">head</span>(iris))</code></pre></div>
@@ -1139,7 +1139,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_d
 </div>
 <div id="challenges-17" class="section level3">
 <h3><span class="header-section-number">16.3.5</span> Challenges</h3>
-<div id="challenge-1.-1" class="section level4 unnumbered">
+<div id="challenge-1.-2" class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
 <p>Write code that uses one of the map functions to:</p>
 <ol style="list-style-type: decimal">
@@ -1177,8 +1177,6 @@ df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_d
 <p>If we wanted to calculate the average of a single column, it would be pretty simple using just regular <code>dplyr</code> functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mpg =</span> <span class="kw">mean</span>(mpg))
-<span class="co">#&gt; Warning: The `printer` argument is deprecated as of rlang 0.3.0.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt;    mpg</span>
 <span class="co">#&gt; 1 20.1</span></code></pre></div>
 <p>But if we want to calculate the mean for all of them, we’d have to duplicate this code many times over:</p>
@@ -1210,14 +1208,6 @@ df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_d
 <p><code>summarize_all()</code> takes a dataframe and a function and applies that function to each column:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize_all</span>(<span class="dt">.funs =</span> mean)
-<span class="co">#&gt; Warning: `is_lang()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; Please use `is_call()` instead.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
-<span class="co">#&gt; Warning: `lang()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; Please use `call2()` instead.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
-<span class="co">#&gt; Warning: `mut_node_car()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt;    mpg  cyl disp  hp drat   wt qsec    vs    am gear carb</span>
 <span class="co">#&gt; 1 20.1 6.19  231 147  3.6 3.22 17.8 0.438 0.406 3.69 2.81</span></code></pre></div>
 </div>
@@ -1226,12 +1216,6 @@ df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_d
 <p><code>summarize_at()</code> allows you to pick columns in the same way as <code>select()</code>, that is, based on their names. There is one small difference: you need to wrap the complete selection with the <code>vars()</code> helper (this avoids ambiguity).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize_at</span>(<span class="dt">.vars =</span> <span class="kw">vars</span>(mpg, wt), <span class="dt">.funs =</span> mean)
-<span class="co">#&gt; Warning: `new_overscope()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; Please use `new_data_mask()` instead.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
-<span class="co">#&gt; Warning: `overscope_eval_next()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; Please use `eval_tidy()` with a data mask instead.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt;    mpg   wt</span>
 <span class="co">#&gt; 1 20.1 3.22</span></code></pre></div>
 </div>
@@ -1240,9 +1224,6 @@ df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_d
 <p><code>summarize_if()</code> allows you to pick variables to summarize based on some property of the column. For example, what if we want to apply a numeric summary function only to numeric columns:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize_if</span>(<span class="dt">.predicate =</span> is.numeric, <span class="dt">.funs =</span> mean)
-<span class="co">#&gt; Warning: `lgl_len()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; Please use `new_logical()` instead.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width</span>
 <span class="co">#&gt; 1         5.84        3.06         3.76         1.2</span></code></pre></div>
 <p><code>mutate</code> and <code>filter</code> work in a similar way. To see more, check out <a href="https://dcl-2017-04.github.io/curriculum/manip-scoped.html">Scoped verbs by the Data Challenge Lab</a></p>

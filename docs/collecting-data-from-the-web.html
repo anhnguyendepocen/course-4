@@ -430,7 +430,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 17</span> Collecting Data from the Web</h1>
 <div id="introduction-2" class="section level2">
 <h2><span class="header-section-number">17.1</span> Introduction</h2>
-<p>There’s a ton of web data useful for social scientists, including:</p>
+<p>There’s a ton of web data that’s useful to social scientists, including:</p>
 <ul>
 <li>social media</li>
 <li>news media</li>
@@ -446,14 +446,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="web-apis" class="section level2">
 <h2><span class="header-section-number">17.2</span> Web APIs</h2>
-<p>API stands for <strong>Application Programming Interface</strong>. Broadly defined, an API a set of rules and procedures that facilitate interactions between computers and their applications.</p>
+<p>API stands for <strong>Application Programming Interface</strong>. Broadly defined, an API is a set of rules and procedures that facilitate interactions between computers and their applications.</p>
 <p>A very common type of API is the <strong>Web API</strong>, which (among other things) allows users to query a remote database over the internet.</p>
 <p>Web APIs take on a variety of formats, but the vast majority adhere to a particular style known as <strong>Reperesentational State Transfer</strong> or <strong>REST</strong>. What makes these “RESTful” APIs so convenient is that we can use them to query databases using URLs.</p>
 <div id="restful-web-apis-are-all-around-you" class="section level4 unnumbered">
 <h4>RESTful Web APIs are All Around You…</h4>
 <p>Consider a simple Google search:</p>
 <p><img src="img/google_search.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>Ever wonder what all that extra stuff in the address bar was all about? In this case, the full address is Google’s way of sending a query to its databases asking requesting information related to the search term “golden state warriors”.</p>
+<p>Ever wonder what all that extra stuff in the address bar was all about? In this case, the full address is Google’s way of sending a query to its databases requesting information related to the search term “golden state warriors”.</p>
 <p><img src="img/google_link.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>In fact, it looks like Google makes its query by taking the search terms, separating each of them with a “+”, and appending them to the link “<a href="https://www.google.com/#q" class="uri">https://www.google.com/#q</a>=”. Therefore, we should be able to actually change our Google search by adding some terms to the URL and following the general format…</p>
 <p><img src="img/google_link_change.png" width="70%" style="display: block; margin: auto;" /></p>
@@ -526,7 +526,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol start="2" style="list-style-type: decimal">
 <li><a href="collecting-data-from-the-web.html#writing-api-queries"><strong>Writing our own API request</strong></a></li>
 </ol>
-<p>If no wrapper function is available, we have to write our own API request, and format the response ourslves using R. This is trickier, but definitely do-able.</p>
+<p>If no wrapper function is available, we have to write our own API request, and format the response ourselves using R. This is trickier, but definitely do-able.</p>
 
 </div>
 </div>
@@ -609,6 +609,12 @@ favorite_count
 </th>
 <th style="text-align:right;">
 retweet_count
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+<th style="text-align:right;">
+reply_count
 </th>
 <th style="text-align:left;">
 hashtags
@@ -840,46 +846,48 @@ profile_image_url
 805833715
 </td>
 <td style="text-align:left;">
-1178759447352659968
+1178999440780283904
 </td>
 <td style="text-align:left;">
-1569873127
+1569930346
 </td>
 <td style="text-align:left;">
 carsonaust
 </td>
 <td style="text-align:left;">
-<p>The paperback of my first book is finally shipping – get ’em while they are as hot as an-academic-book-that-took-ten-years-to-write-and-came-out-a-year-ago-but-is-FINALLY-affordable can be.</p>
-<a href="https://t.co/o0YcxlQldu" class="uri">https://t.co/o0YcxlQldu</a>
+Important to think a few steps ahead of White House reaction to impeachment inquiry. If Trump’s tweets are any indication, his rearguard actions – even short of craziness like starting a war – may be abrupt and extreme. Targeting intel leaders who show independence is one route
 </td>
 <td style="text-align:left;">
 Twitter Web App
 </td>
 <td style="text-align:right;">
-140
+278
 </td>
 <td style="text-align:left;">
-NA
+1178999439983288320
 </td>
 <td style="text-align:left;">
-NA
+805833715
 </td>
 <td style="text-align:left;">
-NA
+carsonaust
 </td>
 <td style="text-align:left;">
 FALSE
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
-<td style="text-align:left;">
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:left;">
@@ -919,10 +927,13 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-549256590
+NA
 </td>
 <td style="text-align:left;">
-bentleyballan
+NA
+</td>
+<td style="text-align:left;">
+NA
 </td>
 <td style="text-align:left;">
 en
@@ -971,272 +982,6 @@ NA
 </td>
 <td style="text-align:left;">
 NA
-</td>
-<td style="text-align:left;">
-1178746274193039361
-</td>
-<td style="text-align:left;">
-<p>The paperback of my first book is finally shipping – get ’em while they are as hot as an-academic-book-that-took-ten-years-to-write-and-came-out-a-year-ago-but-is-FINALLY-affordable can be.</p>
-<a href="https://t.co/o0YcxlQldu" class="uri">https://t.co/o0YcxlQldu</a>
-</td>
-<td style="text-align:left;">
-1569869986
-</td>
-<td style="text-align:left;">
-Twitter Web App
-</td>
-<td style="text-align:right;">
-38
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:left;">
-549256590
-</td>
-<td style="text-align:left;">
-bentleyballan
-</td>
-<td style="text-align:left;">
-Bentley Allan
-</td>
-<td style="text-align:right;">
-1341
-</td>
-<td style="text-align:right;">
-1267
-</td>
-<td style="text-align:right;">
-1420
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Assistant Professor, Johns Hopkins University 🌐 IR Theory, Science and Politics, Global Environmental Politics
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-c(NA, NA)
-</td>
-<td style="text-align:left;">
-c(NA, NA)
-</td>
-<td style="text-align:left;">
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-</td>
-<td style="text-align:left;">
-<a href="https://twitter.com/carsonaust/status/1178759447352659968" class="uri">https://twitter.com/carsonaust/status/1178759447352659968</a>
-</td>
-<td style="text-align:left;">
-Austin Carson
-</td>
-<td style="text-align:left;">
-Chicago, IL
-</td>
-<td style="text-align:left;">
-Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert Conflict in International Politics</em>. Dad &amp; NBA / Pistons enthusiast
-</td>
-<td style="text-align:left;">
-<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-1902
-</td>
-<td style="text-align:right;">
-1007
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-1521
-</td>
-<td style="text-align:right;">
-2630
-</td>
-<td style="text-align:left;">
-1346896669
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
-</td>
-<td style="text-align:left;">
-<a href="https://austinmcarson.com/" class="uri">https://austinmcarson.com/</a>
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-<a href="https://pbs.twimg.com/profile_banners/805833715/1533067436" class="uri">https://pbs.twimg.com/profile_banners/805833715/1533067436</a>
-</td>
-<td style="text-align:left;">
-<a href="http://abs.twimg.com/images/themes/theme1/bg.png" class="uri">http://abs.twimg.com/images/themes/theme1/bg.png</a>
-</td>
-<td style="text-align:left;">
-<a href="http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg" class="uri">http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg</a>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-805833715
-</td>
-<td style="text-align:left;">
-1178702831714525184
-</td>
-<td style="text-align:left;">
-1569859628
-</td>
-<td style="text-align:left;">
-carsonaust
-</td>
-<td style="text-align:left;">
-<strong>REMINDER</strong> Submission deadline for Midwest this week. IR folks, please consider joining us in Chicago. As the foreign policy section chair, I am excited to help put together an excellent program for 2020 Submit here: <a href="https://t.co/neMX4EXwt6" class="uri">https://t.co/neMX4EXwt6</a> <a href="https://t.co/z3iPuhLxeR" class="uri">https://t.co/z3iPuhLxeR</a>
-</td>
-<td style="text-align:left;">
-Twitter Web App
-</td>
-<td style="text-align:right;">
-243
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-c(“mpsanet.org/Annual-Confere…”, “twitter.com/carsonaust/sta…”)
-</td>
-<td style="text-align:left;">
-c(“<a href="https://t.co/neMX4EXwt6%22" class="uri">https://t.co/neMX4EXwt6&quot;</a>,”<a href="https://t.co/z3iPuhLxeR%22" class="uri">https://t.co/z3iPuhLxeR&quot;</a>)
-</td>
-<td style="text-align:left;">
-c(“<a href="https://www.mpsanet.org/Annual-Conference/2020-Conference/Submission-Guidelines%22" class="uri">https://www.mpsanet.org/Annual-Conference/2020-Conference/Submission-Guidelines&quot;</a>,”<a href="https://twitter.com/carsonaust/status/1170065710225272832%22" class="uri">https://twitter.com/carsonaust/status/1170065710225272832&quot;</a>)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-en
-</td>
-<td style="text-align:left;">
-1170065710225272832
-</td>
-<td style="text-align:left;">
-IR folks: you should apply for MPSA 2020 this year. Especially if you don’t normally go. Why? Because it’s gonna be awesome. THREAD (Pls retweet!) 1/ <a href="https://t.co/neMX4EXwt6" class="uri">https://t.co/neMX4EXwt6</a>
-</td>
-<td style="text-align:left;">
-1567800378
-</td>
-<td style="text-align:left;">
-Twitter for iPhone
-</td>
-<td style="text-align:right;">
-49
-</td>
-<td style="text-align:right;">
-25
-</td>
-<td style="text-align:left;">
-805833715
-</td>
-<td style="text-align:left;">
-carsonaust
-</td>
-<td style="text-align:left;">
-Austin Carson
-</td>
-<td style="text-align:right;">
-1902
-</td>
-<td style="text-align:right;">
-1007
-</td>
-<td style="text-align:right;">
-1521
-</td>
-<td style="text-align:left;">
-Chicago, IL
-</td>
-<td style="text-align:left;">
-Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert Conflict in International Politics</em>. Dad &amp; NBA / Pistons enthusiast
-</td>
-<td style="text-align:left;">
-FALSE
 </td>
 <td style="text-align:left;">
 NA
@@ -1311,7 +1056,7 @@ c(NA, NA)
 c(NA, NA, NA, NA, NA, NA, NA, NA)
 </td>
 <td style="text-align:left;">
-<a href="https://twitter.com/carsonaust/status/1178702831714525184" class="uri">https://twitter.com/carsonaust/status/1178702831714525184</a>
+<a href="https://twitter.com/carsonaust/status/1178999440780283904" class="uri">https://twitter.com/carsonaust/status/1178999440780283904</a>
 </td>
 <td style="text-align:left;">
 Austin Carson
@@ -1329,7 +1074,7 @@ Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert C
 FALSE
 </td>
 <td style="text-align:right;">
-1902
+1906
 </td>
 <td style="text-align:right;">
 1007
@@ -1338,7 +1083,7 @@ FALSE
 23
 </td>
 <td style="text-align:right;">
-1521
+1527
 </td>
 <td style="text-align:right;">
 2630
@@ -1373,45 +1118,48 @@ NA
 805833715
 </td>
 <td style="text-align:left;">
-1178702104896180226
+1178999439983288320
 </td>
 <td style="text-align:left;">
-1569859455
+1569930345
 </td>
 <td style="text-align:left;">
 carsonaust
 </td>
 <td style="text-align:left;">
-REMINDER: Submissions for the panel are due by tomorrow. The papers so far look really cool! If anyone is interested in serving as a co-discussant, I promise to provide you with enough beer, wine, fancy cocktails, or candy (that I don’t eat first) to get you through the day. <a href="https://t.co/70bjWVM3lR" class="uri">https://t.co/70bjWVM3lR</a>
+Another possible casualty: US election security. Outgoing DNI Dan Coats appointed a new coordinator for election security and elevated the issue within IC. A loyalist DNI replacement may quietly slow play, starve of resources, or ignore those efforts
 </td>
 <td style="text-align:left;">
 Twitter Web App
 </td>
 <td style="text-align:right;">
-140
+251
 </td>
 <td style="text-align:left;">
-NA
+1178999439173853184
 </td>
 <td style="text-align:left;">
-NA
+805833715
 </td>
 <td style="text-align:left;">
-NA
+carsonaust
 </td>
 <td style="text-align:left;">
 FALSE
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
-<td style="text-align:left;">
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:left;">
@@ -1451,10 +1199,13 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-1702865540
+NA
 </td>
 <td style="text-align:left;">
-mevers90
+NA
+</td>
+<td style="text-align:left;">
+NA
 </td>
 <td style="text-align:left;">
 en
@@ -1505,49 +1256,49 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-1178700440969584642
+NA
 </td>
 <td style="text-align:left;">
-REMINDER: Submissions for the panel are due by tomorrow. The papers so far look really cool! If anyone is interested in serving as a co-discussant, I promise to provide you with enough beer, wine, fancy cocktails, or candy (that I don’t eat first) to get you through the day. <a href="https://t.co/70bjWVM3lR" class="uri">https://t.co/70bjWVM3lR</a>
+NA
 </td>
 <td style="text-align:left;">
-1569859058
+NA
 </td>
 <td style="text-align:left;">
-Twitter Web App
+NA
 </td>
 <td style="text-align:right;">
-3
+NA
 </td>
 <td style="text-align:right;">
-2
+NA
 </td>
 <td style="text-align:left;">
-1702865540
+NA
 </td>
 <td style="text-align:left;">
-mevers90
+NA
 </td>
 <td style="text-align:left;">
-Miles Murphy Evers
+NA
 </td>
 <td style="text-align:right;">
-525
+NA
 </td>
 <td style="text-align:right;">
-1780
+NA
 </td>
 <td style="text-align:right;">
-23724
+NA
 </td>
 <td style="text-align:left;">
-Washington, DC
+NA
 </td>
 <td style="text-align:left;">
-<em>On the Job Market</em> Ph.D Candidate, interested in corporate power, public opinion, and rogue states. <span class="citation">(<span class="citeproc-not-found" data-reference-id="GWtweets"><strong>???</strong></span>)</span> <span class="citation">(<span class="citeproc-not-found" data-reference-id="starwars"><strong>???</strong></span>)</span>
+NA
 </td>
 <td style="text-align:left;">
-FALSE
+NA
 </td>
 <td style="text-align:left;">
 NA
@@ -1577,7 +1328,7 @@ c(NA, NA)
 c(NA, NA, NA, NA, NA, NA, NA, NA)
 </td>
 <td style="text-align:left;">
-<a href="https://twitter.com/carsonaust/status/1178702104896180226" class="uri">https://twitter.com/carsonaust/status/1178702104896180226</a>
+<a href="https://twitter.com/carsonaust/status/1178999439983288320" class="uri">https://twitter.com/carsonaust/status/1178999439983288320</a>
 </td>
 <td style="text-align:left;">
 Austin Carson
@@ -1595,7 +1346,7 @@ Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert C
 FALSE
 </td>
 <td style="text-align:right;">
-1902
+1906
 </td>
 <td style="text-align:right;">
 1007
@@ -1604,7 +1355,7 @@ FALSE
 23
 </td>
 <td style="text-align:right;">
-1521
+1527
 </td>
 <td style="text-align:right;">
 2630
@@ -1639,22 +1390,840 @@ NA
 805833715
 </td>
 <td style="text-align:left;">
-1178392885986770946
+1178999439173853184
 </td>
 <td style="text-align:left;">
-1569785732
+1569930345
 </td>
 <td style="text-align:left;">
 carsonaust
 </td>
 <td style="text-align:left;">
-Excellent and timely <span class="citation">(<span class="citeproc-not-found" data-reference-id="carsonaust"><strong>???</strong></span>)</span> piece: The Dangers of a Loyalist Director of National Intelligence <a href="https://t.co/Ut9VZV9uEj" class="uri">https://t.co/Ut9VZV9uEj</a>
+There’s a signaling problem, too. A loyalist DNI will stop publicly breaking with the White House every so often. No more Coats disputing “North Korea isn’t a threat” or Maguire saying “no one is above the law.” We lose periodic indicators of intel independence
 </td>
 <td style="text-align:left;">
 Twitter Web App
 </td>
 <td style="text-align:right;">
-135
+261
+</td>
+<td style="text-align:left;">
+1178999438334943232
+</td>
+<td style="text-align:left;">
+805833715
+</td>
+<td style="text-align:left;">
+carsonaust
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+en
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+c(NA, NA)
+</td>
+<td style="text-align:left;">
+c(NA, NA)
+</td>
+<td style="text-align:left;">
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+</td>
+<td style="text-align:left;">
+<a href="https://twitter.com/carsonaust/status/1178999439173853184" class="uri">https://twitter.com/carsonaust/status/1178999439173853184</a>
+</td>
+<td style="text-align:left;">
+Austin Carson
+</td>
+<td style="text-align:left;">
+Chicago, IL
+</td>
+<td style="text-align:left;">
+Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert Conflict in International Politics</em>. Dad &amp; NBA / Pistons enthusiast
+</td>
+<td style="text-align:left;">
+<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+1906
+</td>
+<td style="text-align:right;">
+1007
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+1527
+</td>
+<td style="text-align:right;">
+2630
+</td>
+<td style="text-align:left;">
+1346896669
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
+</td>
+<td style="text-align:left;">
+<a href="https://austinmcarson.com/" class="uri">https://austinmcarson.com/</a>
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+<a href="https://pbs.twimg.com/profile_banners/805833715/1533067436" class="uri">https://pbs.twimg.com/profile_banners/805833715/1533067436</a>
+</td>
+<td style="text-align:left;">
+<a href="http://abs.twimg.com/images/themes/theme1/bg.png" class="uri">http://abs.twimg.com/images/themes/theme1/bg.png</a>
+</td>
+<td style="text-align:left;">
+<a href="http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg" class="uri">http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+805833715
+</td>
+<td style="text-align:left;">
+1178999438334943232
+</td>
+<td style="text-align:left;">
+1569930345
+</td>
+<td style="text-align:left;">
+carsonaust
+</td>
+<td style="text-align:left;">
+Take gov’t-wide intel assessments, like National intelligence Estimates. ODNI helps coordinate different views. A loyalist DNI will be well placed to shape conclusions or block NIEs in line with White House preferences (I draw here on <span class="citation">(<span class="citeproc-not-found" data-reference-id="JoshRovner1"><strong>???</strong></span>)</span>’s fab book Fixing the Facts)
+</td>
+<td style="text-align:left;">
+Twitter Web App
+</td>
+<td style="text-align:right;">
+276
+</td>
+<td style="text-align:left;">
+1178999437332537344
+</td>
+<td style="text-align:left;">
+805833715
+</td>
+<td style="text-align:left;">
+carsonaust
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+1151193788
+</td>
+<td style="text-align:left;">
+JoshRovner1
+</td>
+<td style="text-align:left;">
+en
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+c(NA, NA)
+</td>
+<td style="text-align:left;">
+c(NA, NA)
+</td>
+<td style="text-align:left;">
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+</td>
+<td style="text-align:left;">
+<a href="https://twitter.com/carsonaust/status/1178999438334943232" class="uri">https://twitter.com/carsonaust/status/1178999438334943232</a>
+</td>
+<td style="text-align:left;">
+Austin Carson
+</td>
+<td style="text-align:left;">
+Chicago, IL
+</td>
+<td style="text-align:left;">
+Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert Conflict in International Politics</em>. Dad &amp; NBA / Pistons enthusiast
+</td>
+<td style="text-align:left;">
+<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+1906
+</td>
+<td style="text-align:right;">
+1007
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+1527
+</td>
+<td style="text-align:right;">
+2630
+</td>
+<td style="text-align:left;">
+1346896669
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
+</td>
+<td style="text-align:left;">
+<a href="https://austinmcarson.com/" class="uri">https://austinmcarson.com/</a>
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+<a href="https://pbs.twimg.com/profile_banners/805833715/1533067436" class="uri">https://pbs.twimg.com/profile_banners/805833715/1533067436</a>
+</td>
+<td style="text-align:left;">
+<a href="http://abs.twimg.com/images/themes/theme1/bg.png" class="uri">http://abs.twimg.com/images/themes/theme1/bg.png</a>
+</td>
+<td style="text-align:left;">
+<a href="http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg" class="uri">http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+805833715
+</td>
+<td style="text-align:left;">
+1178999437332537344
+</td>
+<td style="text-align:left;">
+1569930345
+</td>
+<td style="text-align:left;">
+carsonaust
+</td>
+<td style="text-align:left;">
+<p>I outline three dangers of a loyalist DNI. These risks come <em>despite</em> the inherent weakness of the DNI. As <span class="citation">(<span class="citeproc-not-found" data-reference-id="AmyZegart"><strong>???</strong></span>)</span> and others have noted, the director’s actual authority falls far short of what reforms intended after 9/11.</p>
+But a loyalist DNI matters!
+</td>
+<td style="text-align:left;">
+Twitter Web App
+</td>
+<td style="text-align:right;">
+255
+</td>
+<td style="text-align:left;">
+1178999436250423296
+</td>
+<td style="text-align:left;">
+805833715
+</td>
+<td style="text-align:left;">
+carsonaust
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+778995402
+</td>
+<td style="text-align:left;">
+AmyZegart
+</td>
+<td style="text-align:left;">
+en
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+c(NA, NA)
+</td>
+<td style="text-align:left;">
+c(NA, NA)
+</td>
+<td style="text-align:left;">
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+</td>
+<td style="text-align:left;">
+<a href="https://twitter.com/carsonaust/status/1178999437332537344" class="uri">https://twitter.com/carsonaust/status/1178999437332537344</a>
+</td>
+<td style="text-align:left;">
+Austin Carson
+</td>
+<td style="text-align:left;">
+Chicago, IL
+</td>
+<td style="text-align:left;">
+Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert Conflict in International Politics</em>. Dad &amp; NBA / Pistons enthusiast
+</td>
+<td style="text-align:left;">
+<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+1906
+</td>
+<td style="text-align:right;">
+1007
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+1527
+</td>
+<td style="text-align:right;">
+2630
+</td>
+<td style="text-align:left;">
+1346896669
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
+</td>
+<td style="text-align:left;">
+<a href="https://austinmcarson.com/" class="uri">https://austinmcarson.com/</a>
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+<a href="https://pbs.twimg.com/profile_banners/805833715/1533067436" class="uri">https://pbs.twimg.com/profile_banners/805833715/1533067436</a>
+</td>
+<td style="text-align:left;">
+<a href="http://abs.twimg.com/images/themes/theme1/bg.png" class="uri">http://abs.twimg.com/images/themes/theme1/bg.png</a>
+</td>
+<td style="text-align:left;">
+<a href="http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg" class="uri">http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+805833715
+</td>
+<td style="text-align:left;">
+1178999436250423296
+</td>
+<td style="text-align:left;">
+1569930345
+</td>
+<td style="text-align:left;">
+carsonaust
+</td>
+<td style="text-align:left;">
+<p>Intel played a key role in Ukraine/impeachment. Key question now is: Will Trump try to replace folks like acting DNI Maguire with more loyal leaders?</p>
+My thoughts in <span class="citation">(<span class="citeproc-not-found" data-reference-id="lawfare"><strong>???</strong></span>)</span> on why any effort by White House to install a loyalist DNI is dangerous <a href="https://t.co/FMRwWzvL3l" class="uri">https://t.co/FMRwWzvL3l</a>
+</td>
+<td style="text-align:left;">
+Twitter Web App
+</td>
+<td style="text-align:right;">
+272
 </td>
 <td style="text-align:left;">
 NA
@@ -1669,13 +2238,19 @@ NA
 FALSE
 </td>
 <td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-0
+FALSE
 </td>
 <td style="text-align:right;">
 5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
 </td>
 <td style="text-align:left;">
 NA
@@ -1687,261 +2262,10 @@ NA
 lawfareblog.com/dangers-loyali…
 </td>
 <td style="text-align:left;">
-<a href="https://t.co/Ut9VZV9uEj" class="uri">https://t.co/Ut9VZV9uEj</a>
+<a href="https://t.co/FMRwWzvL3l" class="uri">https://t.co/FMRwWzvL3l</a>
 </td>
 <td style="text-align:left;">
-<a href="http://www.lawfareblog.com/dangers-loyalist-director-national-intelligence" class="uri">http://www.lawfareblog.com/dangers-loyalist-director-national-intelligence</a>
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-c(“297648980”, “805833715”)
-</td>
-<td style="text-align:left;">
-c(“dbyman”, “carsonaust”)
-</td>
-<td style="text-align:left;">
-en
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-1178388272109805568
-</td>
-<td style="text-align:left;">
-Excellent and timely <span class="citation">(<span class="citeproc-not-found" data-reference-id="carsonaust"><strong>???</strong></span>)</span> piece: The Dangers of a Loyalist Director of National Intelligence <a href="https://t.co/Ut9VZV9uEj" class="uri">https://t.co/Ut9VZV9uEj</a>
-</td>
-<td style="text-align:left;">
-1569784632
-</td>
-<td style="text-align:left;">
-Twitter Web Client
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-297648980
-</td>
-<td style="text-align:left;">
-dbyman
-</td>
-<td style="text-align:left;">
-Dan Byman
-</td>
-<td style="text-align:right;">
-11906
-</td>
-<td style="text-align:right;">
-649
-</td>
-<td style="text-align:right;">
-11977
-</td>
-<td style="text-align:left;">
-Bethesda, MD
-</td>
-<td style="text-align:left;">
-Professor <span class="citation">(<span class="citeproc-not-found" data-reference-id="GeorgetownSFS"><strong>???</strong></span>)</span>. Senior Fellow <span class="citation">(<span class="citeproc-not-found" data-reference-id="BrookingsFP"><strong>???</strong></span>)</span> &amp; Editor <span class="citation">(<span class="citeproc-not-found" data-reference-id="lawfareblog"><strong>???</strong></span>)</span>. I follow terrorism, Middle East, &amp; Hoyas bball. RT ≠ etc
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-c(NA, NA)
-</td>
-<td style="text-align:left;">
-c(NA, NA)
-</td>
-<td style="text-align:left;">
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-</td>
-<td style="text-align:left;">
-<a href="https://twitter.com/carsonaust/status/1178392885986770946" class="uri">https://twitter.com/carsonaust/status/1178392885986770946</a>
-</td>
-<td style="text-align:left;">
-Austin Carson
-</td>
-<td style="text-align:left;">
-Chicago, IL
-</td>
-<td style="text-align:left;">
-Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert Conflict in International Politics</em>. Dad &amp; NBA / Pistons enthusiast
-</td>
-<td style="text-align:left;">
-<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-1902
-</td>
-<td style="text-align:right;">
-1007
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-1521
-</td>
-<td style="text-align:right;">
-2630
-</td>
-<td style="text-align:left;">
-1346896669
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
-</td>
-<td style="text-align:left;">
-<a href="https://austinmcarson.com/" class="uri">https://austinmcarson.com/</a>
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-<a href="https://pbs.twimg.com/profile_banners/805833715/1533067436" class="uri">https://pbs.twimg.com/profile_banners/805833715/1533067436</a>
-</td>
-<td style="text-align:left;">
-<a href="http://abs.twimg.com/images/themes/theme1/bg.png" class="uri">http://abs.twimg.com/images/themes/theme1/bg.png</a>
-</td>
-<td style="text-align:left;">
-<a href="http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg" class="uri">http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg</a>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-805833715
-</td>
-<td style="text-align:left;">
-1178352156358955010
-</td>
-<td style="text-align:left;">
-1569776021
-</td>
-<td style="text-align:left;">
-carsonaust
-</td>
-<td style="text-align:left;">
-If the White House PR plan is “put Stephen Miller on TV a lot,” boy there really must be something wrong
-</td>
-<td style="text-align:left;">
-Twitter for iPhone
-</td>
-<td style="text-align:right;">
-104
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-0
+<a href="https://www.lawfareblog.com/dangers-loyalist-director-national-intelligence" class="uri">https://www.lawfareblog.com/dangers-loyalist-director-national-intelligence</a>
 </td>
 <td style="text-align:left;">
 NA
@@ -1968,25 +2292,10 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-NA
+721058335437516806
 </td>
 <td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
+lawfare
 </td>
 <td style="text-align:left;">
 en
@@ -2109,7 +2418,7 @@ c(NA, NA)
 c(NA, NA, NA, NA, NA, NA, NA, NA)
 </td>
 <td style="text-align:left;">
-<a href="https://twitter.com/carsonaust/status/1178352156358955010" class="uri">https://twitter.com/carsonaust/status/1178352156358955010</a>
+<a href="https://twitter.com/carsonaust/status/1178999436250423296" class="uri">https://twitter.com/carsonaust/status/1178999436250423296</a>
 </td>
 <td style="text-align:left;">
 Austin Carson
@@ -2127,7 +2436,7 @@ Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert C
 FALSE
 </td>
 <td style="text-align:right;">
-1902
+1906
 </td>
 <td style="text-align:right;">
 1007
@@ -2136,273 +2445,7 @@ FALSE
 23
 </td>
 <td style="text-align:right;">
-1521
-</td>
-<td style="text-align:right;">
-2630
-</td>
-<td style="text-align:left;">
-1346896669
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
-</td>
-<td style="text-align:left;">
-<a href="https://austinmcarson.com/" class="uri">https://austinmcarson.com/</a>
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-<a href="https://pbs.twimg.com/profile_banners/805833715/1533067436" class="uri">https://pbs.twimg.com/profile_banners/805833715/1533067436</a>
-</td>
-<td style="text-align:left;">
-<a href="http://abs.twimg.com/images/themes/theme1/bg.png" class="uri">http://abs.twimg.com/images/themes/theme1/bg.png</a>
-</td>
-<td style="text-align:left;">
-<a href="http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg" class="uri">http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg</a>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-805833715
-</td>
-<td style="text-align:left;">
-1178094270957412352
-</td>
-<td style="text-align:left;">
-1569714536
-</td>
-<td style="text-align:left;">
-carsonaust
-</td>
-<td style="text-align:left;">
-My essay in the NYT: “The government has helped shore up public approval by reminding citizens of the nation’s long struggle and emphasizing that China will ultimately prevail by biding its time for future success. Yet this strategy has costs.” <a href="https://t.co/2lMoExgFKs" class="uri">https://t.co/2lMoExgFKs</a>
-</td>
-<td style="text-align:left;">
-Twitter for iPhone
-</td>
-<td style="text-align:right;">
-140
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-69
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-186177715
-</td>
-<td style="text-align:left;">
-jessicacweiss
-</td>
-<td style="text-align:left;">
-en
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-1178050311212163072
-</td>
-<td style="text-align:left;">
-My essay in the NYT: “The government has helped shore up public approval by reminding citizens of the nation’s long struggle and emphasizing that China will ultimately prevail by biding its time for future success. Yet this strategy has costs.” <a href="https://t.co/2lMoExgFKs" class="uri">https://t.co/2lMoExgFKs</a>
-</td>
-<td style="text-align:left;">
-1569704055
-</td>
-<td style="text-align:left;">
-TweetDeck
-</td>
-<td style="text-align:right;">
-140
-</td>
-<td style="text-align:right;">
-69
-</td>
-<td style="text-align:left;">
-186177715
-</td>
-<td style="text-align:left;">
-jessicacweiss
-</td>
-<td style="text-align:left;">
-Jessica Chen Weiss
-</td>
-<td style="text-align:right;">
-7958
-</td>
-<td style="text-align:right;">
-1712
-</td>
-<td style="text-align:right;">
-6115
-</td>
-<td style="text-align:left;">
-Ithaca, NY
-</td>
-<td style="text-align:left;">
-Professor <span class="citation">(<span class="citeproc-not-found" data-reference-id="Cornell"><strong>???</strong></span>)</span>, WaPo Monkey Cage editor, twin mom, author of Nationalist Protest in China’s Foreign Relations <a href="https://t.co/foBAvUP3hV" class="uri">https://t.co/foBAvUP3hV</a>
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-c(NA, NA)
-</td>
-<td style="text-align:left;">
-c(NA, NA)
-</td>
-<td style="text-align:left;">
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-</td>
-<td style="text-align:left;">
-<a href="https://twitter.com/carsonaust/status/1178094270957412352" class="uri">https://twitter.com/carsonaust/status/1178094270957412352</a>
-</td>
-<td style="text-align:left;">
-Austin Carson
-</td>
-<td style="text-align:left;">
-Chicago, IL
-</td>
-<td style="text-align:left;">
-Assistant Professor @ University of Chicago, author of <em>Secret Wars: Covert Conflict in International Politics</em>. Dad &amp; NBA / Pistons enthusiast
-</td>
-<td style="text-align:left;">
-<a href="https://t.co/kApIyoe7RG" class="uri">https://t.co/kApIyoe7RG</a>
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-<td style="text-align:right;">
-1902
-</td>
-<td style="text-align:right;">
-1007
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-1521
+1527
 </td>
 <td style="text-align:right;">
 2630
@@ -2463,17 +2506,17 @@ duke <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(user_id, location) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))
-<span class="co">#&gt; # A tibble: 668 x 3</span>
-<span class="co">#&gt; # Groups:   user_id [668]</span>
+<span class="co">#&gt; # A tibble: 664 x 3</span>
+<span class="co">#&gt; # Groups:   user_id [664]</span>
 <span class="co">#&gt;   user_id             location                           n</span>
 <span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;                          &lt;int&gt;</span>
-<span class="co">#&gt; 1 2561373848          Florida, USA                      97</span>
-<span class="co">#&gt; 2 764290456599396353  Rochester, New York               68</span>
-<span class="co">#&gt; 3 1022122568004894720 &quot;&quot;                                35</span>
+<span class="co">#&gt; 1 2561373848          Florida, USA                      91</span>
+<span class="co">#&gt; 2 764290456599396353  Rochester, New York               60</span>
+<span class="co">#&gt; 3 1022122568004894720 &quot;&quot;                                36</span>
 <span class="co">#&gt; 4 1030069194539368448 &quot;&quot;                                35</span>
-<span class="co">#&gt; 5 826869114           Paris, Ile-de-France              34</span>
-<span class="co">#&gt; 6 714738130557992960  Chiclana de la Frontera, Spain    32</span>
-<span class="co">#&gt; # … with 662 more rows</span></code></pre></div>
+<span class="co">#&gt; 5 714738130557992960  Chiclana de la Frontera, Spain    33</span>
+<span class="co">#&gt; 6 826869114           Paris, Ile-de-France              31</span>
+<span class="co">#&gt; # … with 658 more rows</span></code></pre></div>
 
 </div>
 </div>
@@ -2566,7 +2609,7 @@ response_df<span class="op">$</span>response<span class="op">$</span>meta
 <span class="co">#&gt; [1] 0</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $time</span>
-<span class="co">#&gt; [1] 49</span>
+<span class="co">#&gt; [1] 30</span>
 
 <span class="co"># pull out number of hits</span>
 response_df<span class="op">$</span>response<span class="op">$</span>meta<span class="op">$</span>hits
