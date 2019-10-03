@@ -40,7 +40,20 @@ On your own computer, type that line of code in the RStudio console, and then pr
 We will also be requiring a few other important packages. Run the following line of code to download all of them at once:
 
 ```{r eval = F}
-install.packages("rmarkdown", "knitr", "gapminder", "stargazer", "rtweet", "kableExtra")
+install.packages("rmarkdown", "knitr", "gapminder", 
+                 "stargazer", "rtweet", "kableExtra",
+                 "nycflights13")
+```
+ 
+## LaTex
+
+In order to knit rmarkdown files to pdf files, we need to install some version of Latex. For students who have not installed LaTeX before, we recommend that you install TinyTeX (https://yihui.name/tinytex/).
+
+Open RStudio and type these lines into the command-line console:
+
+```{r eval = F}
+install.packages("tinytex")
+tinytex::install_tinytex() 
 ```
 
 ## The Bash Shell

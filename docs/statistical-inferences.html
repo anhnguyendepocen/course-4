@@ -117,10 +117,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
 <li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#r-studio"><i class="fa fa-check"></i><b>2.2</b> R Studio</a></li>
 <li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a></li>
-<li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.4</b> The Bash Shell</a></li>
-<li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
-<li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.6</b> Other helpful tools</a></li>
-<li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.7</b> Testing your installation</a></li>
+<li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#latex"><i class="fa fa-check"></i><b>2.4</b> LaTex</a></li>
+<li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.5</b> The Bash Shell</a></li>
+<li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.6</b> Git</a></li>
+<li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.7</b> Other helpful tools</a></li>
+<li class="chapter" data-level="2.8" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.8</b> Testing your installation</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="homework-rubric.html"><a href="homework-rubric.html"><i class="fa fa-check"></i><b>3</b> Homework Rubric</a></li>
 <li class="part"><span><b>II Course Notes</b></span></li>
@@ -460,7 +461,7 @@ gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 
 x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dt">length =</span> <span class="dv">100</span>)
 <span class="kw">plot</span>(x, <span class="kw">dnorm</span>(x), <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-342-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-343-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <div id="sampling-and-simulation" class="section level3">
 <h3><span class="header-section-number">14.1.1</span> Sampling and Simulation</h3>
 <p>We can draw a sample with or without replacement with <code>sample</code>.</p>
@@ -555,7 +556,7 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 <span class="co">#&gt;  Welch Two Sample t-test</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; data:  life.exp.1967 and life.exp.1977</span>
-<span class="co">#&gt; t = -3, df = 300, p-value = 0.005</span>
+<span class="co">#&gt; t = -3, df = 281, p-value = 0.005</span>
 <span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span>
 <span class="co">#&gt; 95 percent confidence interval:</span>
 <span class="co">#&gt;  -6.57 -1.21</span>
@@ -624,7 +625,7 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 <li>Standard (diagnostic) plots for a regression</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(reg)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-360-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-360-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-360-3.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-360-4.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-361-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-361-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-361-3.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-361-4.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>R also has a helpful <code>summary</code> method for regression objects.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(reg)
 <span class="co">#&gt; </span>
@@ -1093,7 +1094,7 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
           <span class="dt">keep.stat=</span><span class="st">&quot;n&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;ajps&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu</span>
-<span class="co">#&gt; % Date and time: Tue, Oct 01, 2019 - 11:55:08</span>
+<span class="co">#&gt; % Date and time: Thu, Oct 03, 2019 - 08:24:44</span>
 <span class="co">#&gt; \begin{table}[!htbp] \centering </span>
 <span class="co">#&gt;   \caption{Regression Results} </span>
 <span class="co">#&gt;   \label{} </span>

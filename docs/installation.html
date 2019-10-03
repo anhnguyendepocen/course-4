@@ -117,10 +117,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
 <li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#r-studio"><i class="fa fa-check"></i><b>2.2</b> R Studio</a></li>
 <li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a></li>
-<li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.4</b> The Bash Shell</a></li>
-<li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.5</b> Git</a></li>
-<li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.6</b> Other helpful tools</a></li>
-<li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.7</b> Testing your installation</a></li>
+<li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#latex"><i class="fa fa-check"></i><b>2.4</b> LaTex</a></li>
+<li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.5</b> The Bash Shell</a></li>
+<li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.6</b> Git</a></li>
+<li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.7</b> Other helpful tools</a></li>
+<li class="chapter" data-level="2.8" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.8</b> Testing your installation</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="homework-rubric.html"><a href="homework-rubric.html"><i class="fa fa-check"></i><b>3</b> Homework Rubric</a></li>
 <li class="part"><span><b>II Course Notes</b></span></li>
@@ -450,10 +451,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
 <p>On your own computer, type that line of code in the RStudio console, and then press enter to run it. R will download the packages from CRAN and install them on to your computer. If you have problems installing, make sure that you are connected to the internet, and that <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a> isn’t blocked by your firewall or proxy.</p>
 <p>We will also be requiring a few other important packages. Run the following line of code to download all of them at once:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;gapminder&quot;</span>, <span class="st">&quot;stargazer&quot;</span>, <span class="st">&quot;rtweet&quot;</span>, <span class="st">&quot;kableExtra&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;gapminder&quot;</span>, 
+                 <span class="st">&quot;stargazer&quot;</span>, <span class="st">&quot;rtweet&quot;</span>, <span class="st">&quot;kableExtra&quot;</span>,
+                 <span class="st">&quot;nycflights13&quot;</span>)</code></pre></div>
+</div>
+<div id="latex" class="section level2">
+<h2><span class="header-section-number">2.4</span> LaTex</h2>
+<p>In order to knit rmarkdown files to pdf files, we need to install some version of Latex. For students who have not installed LaTeX before, we recommend that you install TinyTeX (<a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>).</p>
+<p>Open RStudio and type these lines into the command-line console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)
+tinytex<span class="op">::</span><span class="kw">install_tinytex</span>() </code></pre></div>
 </div>
 <div id="the-bash-shell" class="section level2">
-<h2><span class="header-section-number">2.4</span> The Bash Shell</h2>
+<h2><span class="header-section-number">2.5</span> The Bash Shell</h2>
 <p>Bash is a commonly-used shell that gives you the power to do simple tasks more quickly.</p>
 <div id="windows" class="section level4 unnumbered">
 <h4>Windows</h4>
@@ -471,7 +481,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="git" class="section level2">
-<h2><span class="header-section-number">2.5</span> Git</h2>
+<h2><span class="header-section-number">2.6</span> Git</h2>
 <p>Git is a version control system that lets you track who made changes to what when and has options for easily updating a shared or public version of your code on github.com. You will need a supported web browser (current versions of Chrome, Firefox or Safari, or Internet Explorer version 9 or above).</p>
 <div id="windows-1" class="section level4 unnumbered">
 <h4>Windows</h4>
@@ -487,7 +497,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="other-helpful-tools" class="section level2">
-<h2><span class="header-section-number">2.6</span> Other helpful tools</h2>
+<h2><span class="header-section-number">2.7</span> Other helpful tools</h2>
 <p>While not required, I recommend you install the following tools:</p>
 <ol style="list-style-type: decimal">
 <li><p><a href="https://www.google.com/chrome/">Google Chrome</a> is an up-to-date web browser.</p></li>
@@ -495,7 +505,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 </div>
 <div id="testing-your-installation" class="section level2">
-<h2><span class="header-section-number">2.7</span> Testing your installation</h2>
+<h2><span class="header-section-number">2.8</span> Testing your installation</h2>
 <p>If you have trouble with installation, please come to the Installfest on <strong>Wed Oct 2, 10-12 in Pick 411</strong>.</p>
 <p>Open a command line window (‘terminal’ or, on windows, ‘git bash’), and enter the following commands (without the $ sign):</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">R</span> --version
