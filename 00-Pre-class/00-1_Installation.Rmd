@@ -47,7 +47,7 @@ install.packages("rmarkdown", "knitr", "gapminder",
  
 ## LaTex
 
-In order to knit rmarkdown files to pdf files, we need to install some version of Latex. For students who have not installed LaTeX before, we recommend that you install TinyTeX (https://yihui.name/tinytex/).
+In order to knit rmarkdown files to pdf files, you need to install some version of Latex. For students who have not installed LaTeX before, we recommend that you install TinyTeX (https://yihui.name/tinytex/).
 
 Open RStudio and type these lines into the command-line console:
 
