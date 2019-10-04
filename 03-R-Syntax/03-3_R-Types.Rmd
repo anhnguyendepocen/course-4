@@ -108,13 +108,6 @@ You can have either positive or negative infinity.
 2. Coerce that variable to a string, and assign it to a new variable `year_string`.
 3. Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only `year_string`
 
-```{r}
-year <- 1992
-year_string <- as.character(year)
-2001 - as.numeric(year_string)
-```
-
-
 #### Challenge 2: Fix the Code {-}
 
 Change the following code to make the output TRUE.
@@ -125,12 +118,3 @@ val_2 = "F"
 
 class(val_1) == class(val_2)
 ```
-
-Solution:
-```{r}
-val_1 = F
-val_2 = "F"
-
-class(as.character(val_1)) == class(val_2)
-```
-

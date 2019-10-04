@@ -2284,16 +2284,6 @@ Variables.}
 Make 3 variables: name (with your full name), city (where you were born)
 and year (when you were born.)
 
- Click for the solution
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{name <-}\StringTok{ "Pete"}
-\NormalTok{city <-}\StringTok{ "Syracuse"}
-\NormalTok{year <-}\StringTok{ "1992"}
-\end{Highlighting}
-\end{Shaded}
-
 \subsubsection*{Challenge 2: Swapping
 Values}\label{challenge-2-swapping-values}
 \addcontentsline{toc}{subsubsection}{Challenge 2: Swapping Values}
@@ -2312,12 +2302,6 @@ In simple terms, what do the last three lines of this program do?
 \NormalTok{highest =}\StringTok{ }\NormalTok{temp}
 \end{Highlighting}
 \end{Shaded}
-
- Click for the solution
-
-The last three lines set temp equal to the value of lowest (1.0), set
-lowest equal to the value of highest (3.0), and set highest equal to
-temp (1.0).
 
 \subsubsection*{Challenge 3: Predicting
 Values}\label{challenge-3-predicting-values}
@@ -2346,27 +2330,11 @@ Why does the following code fail?
 \end{Highlighting}
 \end{Shaded}
 
- Click for the solution
-
-The object \texttt{age} has not been created yet.
-
 and the following?
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \DecValTok{31}\NormalTok{ <-}\StringTok{  }\NormalTok{age}
-\end{Highlighting}
-\end{Shaded}
-
- Click for the solution
-
-Object names cannot start with a number and ``age'' would have to be in
-quotations. In general, you would probably want to assign the number 31
-to the object \texttt{age}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{age <-}\StringTok{ }\DecValTok{31}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2526,13 +2494,6 @@ What is the final value of \texttt{radiance}?
 \end{Highlighting}
 \end{Shaded}
 
-Order of operations: 1. radiance - 0.5 2. 1.1 * (radiance - 0.5) 3.
-Determine the minimum between Step 2 and radiance. 4. Add 2.0 to Step 3.
-5. Find the maximum between Step 4 and 2.1 6. Assign the value of Step 5
-to radiance.
-
-Final value = 2.6
-
 \subsubsection*{Challenge 2: Why?}\label{challenge-2-why}
 \addcontentsline{toc}{subsubsection}{Challenge 2: Why?}
 
@@ -2548,9 +2509,6 @@ Run the following code.
 
 Using the help files for \texttt{max}, explain why it returns the result
 it does.
-
-Character strings are sorted lexicographically: since ``tin'' begins
-with a letter later in the alphabet than ``gold'', it is seen as larger.
 
 \section{Data Types}\label{data-types}
 
@@ -2724,15 +2682,6 @@ Variables}
   Find out what your age difference is, using only \texttt{year\_string}
 \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{year <-}\StringTok{ }\DecValTok{1992}
-\NormalTok{year_string <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(year)}
-\DecValTok{2001} \OperatorTok{-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(year_string)}
-\CommentTok{#> [1] 9}
-\end{Highlighting}
-\end{Shaded}
-
 \subsubsection*{Challenge 2: Fix the
 Code}\label{challenge-2-fix-the-code}
 \addcontentsline{toc}{subsubsection}{Challenge 2: Fix the Code}
@@ -2746,18 +2695,6 @@ Change the following code to make the output TRUE.
 
 \KeywordTok{class}\NormalTok{(val_}\DecValTok{1}\NormalTok{) }\OperatorTok{==}\StringTok{ }\KeywordTok{class}\NormalTok{(val_}\DecValTok{2}\NormalTok{)}
 \CommentTok{#> [1] FALSE}
-\end{Highlighting}
-\end{Shaded}
-
-Solution:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{val_}\DecValTok{1}\NormalTok{ =}\StringTok{ }\NormalTok{F}
-\NormalTok{val_}\DecValTok{2}\NormalTok{ =}\StringTok{ "F"}
-
-\KeywordTok{class}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(val_}\DecValTok{1}\NormalTok{)) }\OperatorTok{==}\StringTok{ }\KeywordTok{class}\NormalTok{(val_}\DecValTok{2}\NormalTok{)}
-\CommentTok{#> [1] TRUE}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6143,7 +6080,7 @@ common graphs. First, a scatterplot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-229-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-225-1} \end{center}
 
 Finally, let's quickly take a look at a histogram of the variable
 \texttt{nyt.count}:
@@ -6154,7 +6091,7 @@ Finally, let's quickly take a look at a histogram of the variable
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-230-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-226-1} \end{center}
 
 \subsection{Challenges}\label{challenges-10}
 
@@ -10351,7 +10288,7 @@ The \textbf{basic} call takes the following form:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-1} \end{center}
 
 \subsection{Scatter and Line Plots}\label{scatter-and-line-plots}
 
@@ -10371,11 +10308,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-295}
+\caption{ }\label{fig:unnamed-chunk-291}
 \end{figure}
 
 \begin{itemize}
@@ -10393,11 +10330,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-296}
+\caption{ }\label{fig:unnamed-chunk-292}
 \end{figure}
 
 \begin{itemize}
@@ -10414,11 +10351,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-297}
+\caption{ }\label{fig:unnamed-chunk-293}
 \end{figure}
 
 \subsection{Histograms and Density
@@ -10432,7 +10369,7 @@ Histograms display the frequency of different values of a variable.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} \end{center}
 
 Histograms require a \texttt{breaks} argument, which determine the
 number of bins in the plot. Let's play around with different
@@ -10445,7 +10382,7 @@ number of bins in the plot. Let's play around with different
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-2} \end{center}
 
 Density plots are similar, they visualize the distribution of data over
 a continuous interval.
@@ -10462,11 +10399,11 @@ a continuous interval.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-300}
+\caption{ }\label{fig:unnamed-chunk-296}
 \end{figure}
 
 Density passes a \texttt{bw} parameter, which determins the plot's
@@ -10483,7 +10420,7 @@ Density passes a \texttt{bw} parameter, which determins the plot's
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-3} \end{center}
 
 \subsection{Labels}\label{labels}
 
@@ -10505,11 +10442,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-303}
+\caption{ }\label{fig:unnamed-chunk-299}
 \end{figure}
 
 \subsection{Axis and Size Scaling}\label{axis-and-size-scaling}
@@ -10543,11 +10480,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-4} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-4} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-305}
+\caption{ }\label{fig:unnamed-chunk-301}
 \end{figure}
 
 \subsection{Graphical Parameters}\label{graphical-parameters}
@@ -10592,11 +10529,11 @@ Color Infographic}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-2} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-2} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-308}
+\caption{ }\label{fig:unnamed-chunk-304}
 \end{figure}
 
 \begin{itemize}
@@ -10625,11 +10562,11 @@ Reference}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-5} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-5} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-309}
+\caption{ }\label{fig:unnamed-chunk-305}
 \end{figure}
 
 \begin{itemize}
@@ -10657,11 +10594,11 @@ Reference}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-6} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-6} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-310}
+\caption{ }\label{fig:unnamed-chunk-306}
 \end{figure}
 
 \subsection{Annotations, Reference Lines, and
@@ -10686,11 +10623,11 @@ We can add text to an arbitrary point on the graph like this:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-311-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-311}
+\caption{ }\label{fig:unnamed-chunk-307}
 \end{figure}
 
 We can also add labels for every point by passing in a vector of text:
@@ -10710,11 +10647,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-312}
+\caption{ }\label{fig:unnamed-chunk-308}
 \end{figure}
 
 \begin{itemize}
@@ -10734,11 +10671,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-313}
+\caption{ }\label{fig:unnamed-chunk-309}
 \end{figure}
 
 \section{ggplot2}\label{ggplot2}
@@ -10856,7 +10793,7 @@ scatterplot of points:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-318-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-1} \end{center}
 
 \subsubsection*{Challenge 1}\label{challenge-1-1}
 \addcontentsline{toc}{subsubsection}{Challenge 1}
@@ -10876,7 +10813,7 @@ should appear on the x-axis.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-315-1} \end{center}
 
 \subsection{\texorpdfstring{Anatomy of
 \texttt{aes}}{Anatomy of aes}}\label{anatomy-of-aes}
@@ -10893,7 +10830,7 @@ modify is the point \textbf{color}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-320-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-1} \end{center}
 
 Normally, specifying options like \texttt{color="red"} or
 \texttt{size=10} for a given layer results in its contents being red and
@@ -10924,7 +10861,7 @@ plot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-322-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-318-1} \end{center}
 
 Instead of adding a \texttt{geom\_point} layer, we've added a
 \texttt{geom\_line} layer. We've also added the \textbf{by} aesthetic,
@@ -10941,7 +10878,7 @@ can simply add another layer to the plot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-323-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-1} \end{center}
 
 It's important to note that each layer is drawn on top of the previous
 layer. In this example, the points have been drawn on top of the lines.
@@ -10955,7 +10892,7 @@ Here's a demonstration:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-324-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-320-1} \end{center}
 
 In this example, the aesthetic mapping of \textbf{color} has been moved
 from the global plot options in \texttt{ggplot} to the
@@ -10983,7 +10920,7 @@ Labels are considered to be their own layers in \texttt{ggplot}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-325-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-321-1} \end{center}
 
 So are scales:
 
@@ -11000,7 +10937,7 @@ So are scales:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-326-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-322-1} \end{center}
 
 \subsection{Transformations and Stats}\label{transformations-and-stats}
 
@@ -11014,7 +10951,7 @@ the data. To demonstrate we'll go back to an earlier example:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-327-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-323-1} \end{center}
 
 We can change the scale of units on the x-axis using the \texttt{scale}
 functions. These control the mapping between the data values and visual
@@ -11028,7 +10965,7 @@ values of an aesthetic.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-328-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-324-1} \end{center}
 
 The \texttt{log10} function applied a transformation to the values of
 the \texttt{gdpPercap} column before rendering them on the plot, so that
@@ -11049,7 +10986,7 @@ We can fit a simple relationship to the data by adding another layer,
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-329-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-325-1} \end{center}
 
 Note that we have 5 lines, one for each region, because of the
 \textbf{color} option is the global \texttt{aes} function. But if we
@@ -11064,7 +11001,7 @@ move it, we get different restuls:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-326-1} \end{center}
 
 So, there are two ways an aesthetic can be specified. Here, we set the
 \textbf{color} aesthetic by passing it as an argument to
@@ -11084,7 +11021,7 @@ the geom\_smooth layer:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-331-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-327-1} \end{center}
 
 \subsubsection*{Challenge 3}\label{challenge-3}
 \addcontentsline{toc}{subsubsection}{Challenge 3}
@@ -11106,7 +11043,7 @@ Hint: do not use the \texttt{aes} function.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-332-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-328-1} \end{center}
 
 \subsection{Facets}\label{facets}
 
@@ -11122,7 +11059,7 @@ multiple panels by adding a layer of \textbf{facet} panels:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-333-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-329-1} \end{center}
 
 \subsection{Putting Everything
 Together}\label{putting-everything-together}
@@ -11145,7 +11082,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-334-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-334-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-330-2} \end{center}
 
 \textbf{box plots}
 
@@ -11156,7 +11093,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-335-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-331-1} \end{center}
 
 This is just a taste of what you can do with \texttt{ggplot2}.
 
@@ -11199,7 +11136,7 @@ Add a facet layer to panel the density plots by year.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-336-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-336-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-336-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-332-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-332-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-332-3} \end{center}
 
 \section{Saving plots}\label{saving-plots}
 
@@ -11317,7 +11254,7 @@ distribution
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-343-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-339-1} \end{center}
 
 \subsection{Sampling and Simulation}\label{sampling-and-simulation}
 
@@ -11651,7 +11588,7 @@ items of interest.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-361-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-361-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-361-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-361-4} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-357-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-357-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-357-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-357-4} \end{center}
 
 R also has a helpful \texttt{summary} method for regression objects.
 
@@ -12215,7 +12152,7 @@ regression table in LaTeX:
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Thu, Oct 03, 2019 - 08:26:15}
+\CommentTok{#> % Date and time: Fri, Oct 04, 2019 - 13:09:14}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -14565,6 +14502,198 @@ profile\_image\_url
 
 805833715
 
+1179794348709498880
+
+1570119866
+
+carsonaust
+
+Was just told it's sad women don't do strategic studies. Through my
+tears I used Google to locate smthg called ``Journal of Strategic
+Studies.'' 🧐 Current issue co-edited by woman 🙋‍♀️ \&amp; 4/7 articles
+have female authors 🙋‍♀️ But yes, stop hiding, lady experts!
+\url{https://t.co/T2Xkx7CdGU}
+
+Twitter Web App
+
+140
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+TRUE
+
+0
+
+101
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1036404458161426432
+
+ProfTalmadge
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1179762232910995457
+
+Was just told it's sad women don't do strategic studies. Through my
+tears I used Google to locate smthg called ``Journal of Strategic
+Studies.'' 🧐 Current issue co-edited by woman 🙋‍♀️ \&amp; 4/7 articles
+have female authors 🙋‍♀️ But yes, stop hiding, lady experts!
+\url{https://t.co/T2Xkx7CdGU}
+
+1570112209
+
+Twitter Web App
+
+350
+
+101
+
+1036404458161426432
+
+ProfTalmadge
+
+ProfTalmadge
+
+2673
+
+931
+
+1340
+
+Washington, DC
+
+Associate Professor \citet{GeorgetownCSS} \citet{GeorgetownSFS}. Senior
+Fellow \citet{BrookingsFP}. Military ops, defense policy, nuclear
+deterrence \& escalation, authoritarianism.
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1179794348709498880}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret
+Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
+enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1915
+
+1008
+
+23
+
+1530
+
+2639
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
 1179595524283998209
 
 1570072463
@@ -14591,7 +14720,7 @@ TRUE
 
 0
 
-5
+6
 
 NA
 
@@ -14671,7 +14800,7 @@ Twitter Web Client
 
 10
 
-5
+6
 
 15706926
 
@@ -14679,11 +14808,11 @@ sekreps
 
 Sarah Kreps
 
-2427
+2438
 
 694
 
-1008
+1009
 
 Ithaca, NY
 
@@ -14725,15 +14854,15 @@ enthusiast
 
 FALSE
 
-1908
+1915
 
 1008
 
 23
 
-1529
+1530
 
-2636
+2639
 
 1346896669
 
@@ -14867,11 +14996,11 @@ JackieGSchneid
 
 Jacquelyn Schneider
 
-2802
+2806
 
-491
+494
 
-1105
+1109
 
 Hoover Fellow \citet{hooverInst}, Non-Resident Fellow
 \citet{NavalWarCollege}, specializing in cyber, unmanned weapons, and
@@ -14911,15 +15040,15 @@ enthusiast
 
 FALSE
 
-1908
+1915
 
 1008
 
 23
 
-1529
+1530
 
-2636
+2639
 
 1346896669
 
@@ -15096,15 +15225,15 @@ enthusiast
 
 FALSE
 
-1908
+1915
 
 1008
 
 23
 
-1529
+1530
 
-2636
+2639
 
 1346896669
 
@@ -15281,15 +15410,15 @@ enthusiast
 
 FALSE
 
-1908
+1915
 
 1008
 
 23
 
-1529
+1530
 
-2636
+2639
 
 1346896669
 
@@ -15466,201 +15595,15 @@ enthusiast
 
 FALSE
 
-1908
+1915
 
 1008
 
 23
 
-1529
+1530
 
-2636
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1178999438334943232
-
-1569930345
-
-carsonaust
-
-Take gov't-wide intel assessments, like National intelligence Estimates.
-ODNI helps coordinate different views. A loyalist DNI will be well
-placed to shape conclusions or block NIEs in line with White House
-preferences (I draw here on \citet{JoshRovner1}'s fab book Fixing the
-Facts)
-
-Twitter Web App
-
-276
-
-1178999437332537344
-
-805833715
-
-carsonaust
-
-FALSE
-
-FALSE
-
-1
-
-0
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-1151193788
-
-JoshRovner1
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1178999438334943232}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret
-Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons
-enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1908
-
-1008
-
-23
-
-1529
-
-2636
+2639
 
 1346896669
 
@@ -15690,7 +15633,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-462-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-458-1} \end{center}
 
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}
 
@@ -15730,17 +15673,17 @@ exclude retweets from the query.
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 665 x 3}
-\CommentTok{#> # Groups:   user_id [665]}
+\CommentTok{#> # A tibble: 652 x 3}
+\CommentTok{#> # Groups:   user_id [652]}
 \CommentTok{#>   user_id             location                           n}
 \CommentTok{#>   <chr>               <chr>                          <int>}
-\CommentTok{#> 1 2561373848          Florida, USA                      93}
+\CommentTok{#> 1 2561373848          Florida, USA                      89}
 \CommentTok{#> 2 1022122568004894720 ""                                38}
 \CommentTok{#> 3 1030069194539368448 ""                                37}
 \CommentTok{#> 4 764290456599396353  Rochester, New York               35}
-\CommentTok{#> 5 714738130557992960  Chiclana de la Frontera, Spain    31}
-\CommentTok{#> 6 826869114           Paris, Ile-de-France              18}
-\CommentTok{#> # ... with 659 more rows}
+\CommentTok{#> 5 714738130557992960  Chiclana de la Frontera, Spain    33}
+\CommentTok{#> 6 826869114           Paris, Ile-de-France              14}
+\CommentTok{#> # ... with 646 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -15934,17 +15877,17 @@ information on the first ten documents:
 \CommentTok{# What's in 'meta'?}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}
 \CommentTok{#> $hits}
-\CommentTok{#> [1] 3887}
+\CommentTok{#> [1] 3888}
 \CommentTok{#> }
 \CommentTok{#> $offset}
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 16}
+\CommentTok{#> [1] 19}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
-\CommentTok{#> [1] 3887}
+\CommentTok{#> [1] 3888}
 
 \CommentTok{# Check out docs}
 \KeywordTok{names}\NormalTok{(response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{docs)}
@@ -16057,7 +16000,7 @@ was published in.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-475-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-471-1} \end{center}
 
 \subsection{More resources}\label{more-resources-1}
 

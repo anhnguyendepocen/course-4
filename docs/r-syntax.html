@@ -514,13 +514,6 @@ R_rocks
 <div id="challenge-1-making-and-printing-variables." class="section level4 unnumbered">
 <h4>Challenge 1: Making and Printing Variables.</h4>
 <p>Make 3 variables: name (with your full name), city (where you were born) and year (when you were born.)</p>
-<details> <summary>Click for the solution</summary>
-<p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">name &lt;-<span class="st"> &quot;Pete&quot;</span>
-city &lt;-<span class="st"> &quot;Syracuse&quot;</span>
-year &lt;-<span class="st"> &quot;1992&quot;</span></code></pre></div>
-</p>
-<p></details></p>
 </div>
 <div id="challenge-2-swapping-values" class="section level4 unnumbered">
 <h4>Challenge 2: Swapping Values</h4>
@@ -531,11 +524,6 @@ highest =<span class="st"> </span><span class="fl">3.0</span>
 temp =<span class="st"> </span>lowest
 lowest =<span class="st"> </span>highest
 highest =<span class="st"> </span>temp</code></pre></div>
-<details> <summary>Click for the solution</summary>
-<p>
-The last three lines set temp equal to the value of lowest (1.0), set lowest equal to the value of highest (3.0), and set highest equal to temp (1.0).
-</p>
-<p></details></p>
 </div>
 <div id="challenge-3-predicting-values" class="section level4 unnumbered">
 <h4>Challenge 3: Predicting Values</h4>
@@ -548,19 +536,8 @@ initial =<span class="st"> &quot;right&quot;</span></code></pre></div>
 <h4>Challenge 4: Syntax</h4>
 <p>Why does the following code fail?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">age <span class="op">==</span><span class="st"> </span><span class="dv">31</span></code></pre></div>
-<details> <summary>Click for the solution</summary>
-<p>
-The object <code>age</code> has not been created yet.
-</p>
-<p></details></p>
 <p>and the following?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">31</span> &lt;-<span class="st">  </span>age</code></pre></div>
-<details> <summary>Click for the solution</summary>
-<p>
-<p>Object names cannot start with a number and “age” would have to be in quotations. In general, you would probably want to assign the number 31 to the object <code>age</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">age &lt;-<span class="st"> </span><span class="dv">31</span></code></pre></div>
-</p>
-<p></details></p>
 
 </div>
 </div>
@@ -635,8 +612,6 @@ y
 <p>What is the final value of <code>radiance</code>?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">radiance =<span class="st"> </span><span class="fl">1.0</span>
 radiance =<span class="st"> </span><span class="kw">max</span>(<span class="fl">2.1</span>, <span class="fl">2.0</span> <span class="op">+</span><span class="st"> </span><span class="kw">min</span>(radiance, <span class="fl">1.1</span> <span class="op">*</span><span class="st"> </span>radiance <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span>))</code></pre></div>
-<p>Order of operations: 1. radiance - 0.5 2. 1.1 * (radiance - 0.5) 3. Determine the minimum between Step 2 and radiance. 4. Add 2.0 to Step 3. 5. Find the maximum between Step 4 and 2.1 6. Assign the value of Step 5 to radiance.</p>
-<p>Final value = 2.6</p>
 </div>
 <div id="challenge-2-why" class="section level4 unnumbered">
 <h4>Challenge 2: Why?</h4>
@@ -645,7 +620,6 @@ radiance =<span class="st"> </span><span class="kw">max</span>(<span class="fl">
 poor =<span class="st"> &quot;tin&quot;</span>
 <span class="kw">max</span>(rich, poor)</code></pre></div>
 <p>Using the help files for <code>max</code>, explain why it returns the result it does.</p>
-<p>Character strings are sorted lexicographically: since “tin” begins with a letter later in the alphabet than “gold”, it is seen as larger.</p>
 
 </div>
 </div>
@@ -758,10 +732,6 @@ x
 <li>Coerce that variable to a string, and assign it to a new variable <code>year_string</code>.</li>
 <li>Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only <code>year_string</code></li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year &lt;-<span class="st"> </span><span class="dv">1992</span>
-year_string &lt;-<span class="st"> </span><span class="kw">as.character</span>(year)
-<span class="dv">2001</span> <span class="op">-</span><span class="st"> </span><span class="kw">as.numeric</span>(year_string)
-<span class="co">#&gt; [1] 9</span></code></pre></div>
 </div>
 <div id="challenge-2-fix-the-code" class="section level4 unnumbered">
 <h4>Challenge 2: Fix the Code</h4>
@@ -771,12 +741,6 @@ val_<span class="dv">2</span> =<span class="st"> &quot;F&quot;</span>
 
 <span class="kw">class</span>(val_<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="kw">class</span>(val_<span class="dv">2</span>)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
-<p>Solution:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">val_<span class="dv">1</span> =<span class="st"> </span>F
-val_<span class="dv">2</span> =<span class="st"> &quot;F&quot;</span>
-
-<span class="kw">class</span>(<span class="kw">as.character</span>(val_<span class="dv">1</span>)) <span class="op">==</span><span class="st"> </span><span class="kw">class</span>(val_<span class="dv">2</span>)
-<span class="co">#&gt; [1] TRUE</span></code></pre></div>
 
 </div>
 </div>

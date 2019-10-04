@@ -102,16 +102,6 @@ radiance = 1.0
 radiance = max(2.1, 2.0 + min(radiance, 1.1 * radiance - 0.5))
 ```
 
-Order of operations:
-1. radiance - 0.5
-2. 1.1 * (radiance - 0.5)
-3. Determine the minimum between Step 2 and radiance.
-4. Add 2.0 to Step 3.
-5. Find the maximum between Step 4 and 2.1
-6. Assign the value of Step 5 to radiance.
-
-Final value = 2.6
-
 #### Challenge 2: Why? {-}
 
 Run the following code.
@@ -123,5 +113,3 @@ max(rich, poor)
 ```
 
 Using the help files for `max`, explain why it returns the result it does.
-
-Character strings are sorted lexicographically: since "tin" begins with a letter later in the alphabet than "gold", it is seen as larger.
