@@ -11,7 +11,7 @@ A dataframe is a very important data type in R. It's pretty much the *de facto* 
 
 Let's say we're working with the following survey data:
 
-* 'Are you married?' or 'yes/no' questions (logical`)
+* 'Are you married?' or 'yes/no' questions (`logical`)
 * 'How old are you?' (`numeric`)
 * 'What is your opinion on Trump?' or other 'open-ended' questions (`character`)
 * ...
