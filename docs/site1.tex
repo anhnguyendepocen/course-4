@@ -3427,11 +3427,10 @@ factors to character vectors if you need string-like behaviour.
 
 \subsection{Challenges}\label{challenges-7}
 
-\subsubsection*{Challenge 1. What happens to a factor when you modify
-its
-levels?}\label{challenge-1.-what-happens-to-a-factor-when-you-modify-its-levels}
-\addcontentsline{toc}{subsubsection}{Challenge 1. What happens to a
-factor when you modify its levels?}
+\subsubsection*{Challenge 1.}\label{challenge-1.-2}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
+
+What happens to a factor when you modify its levels?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3443,14 +3442,11 @@ factor when you modify its levels?}
 \end{Highlighting}
 \end{Shaded}
 
-The vector is ordered in reverse, but the factor assignments per letter
-stay the same.
+\subsubsection*{Challenge 2.}\label{challenge-2.-2}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
 
-\subsubsection*{\texorpdfstring{Challenge 2. What does this code do? How
-do \texttt{f2} and \texttt{f3} differ from
-\texttt{f1}?}{Challenge 2. What does this code do? How do f2 and f3 differ from f1?}}\label{challenge-2.-what-does-this-code-do-how-do-f2-and-f3-differ-from-f1}
-\addcontentsline{toc}{subsubsection}{Challenge 2. What does this code
-do? How do \texttt{f2} and \texttt{f3} differ from \texttt{f1}?}
+What does this code do? How do \texttt{f2} and \texttt{f3} differ from
+\texttt{f1}?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3458,12 +3454,6 @@ do? How do \texttt{f2} and \texttt{f3} differ from \texttt{f1}?}
 \NormalTok{f3 <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(letters, }\DataTypeTok{levels =} \KeywordTok{rev}\NormalTok{(letters))}
 \end{Highlighting}
 \end{Shaded}
-
-f2 reverses the vector and assigns the factors in the same order is f1
--- z is assigned to a, etc, by reversing the order of the vector.
-
-f3 similarly assigns z to a, etc, but does so by reversing the order of
-the factor levels.
 
 \hypertarget{matrices}{\section{Matrices}\label{matrices}}
 
@@ -13473,7 +13463,7 @@ column names.
 
 \subsection{Challenges}\label{challenges-16}
 
-\subsubsection*{Challenge 1.}\label{challenge-1.-2}
+\subsubsection*{Challenge 1.}\label{challenge-1.-3}
 \addcontentsline{toc}{subsubsection}{Challenge 1.}
 
 Fill in the blanks to write a \texttt{for} loop that calculates the
@@ -13500,7 +13490,7 @@ arithmetic mean for every column in \texttt{mtcars}.
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 2.}\label{challenge-2.-2}
+\subsubsection*{Challenge 2.}\label{challenge-2.-3}
 \addcontentsline{toc}{subsubsection}{Challenge 2.}
 
 Check out the \texttt{iris} dataset:
@@ -13732,7 +13722,7 @@ Check out other fun applications of \texttt{map} functions
 
 \subsection{Challenges}\label{challenges-17}
 
-\subsubsection*{Challenge 1.}\label{challenge-1.-3}
+\subsubsection*{Challenge 1.}\label{challenge-1.-4}
 \addcontentsline{toc}{subsubsection}{Challenge 1.}
 
 Write code that uses one of the map functions to:

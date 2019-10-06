@@ -855,21 +855,20 @@ x &lt;-<span class="st"> </span><span class="kw">as.character</span>(x)
 </div>
 <div id="challenges-7" class="section level3">
 <h3><span class="header-section-number">7.3.5</span> Challenges</h3>
-<div id="challenge-1.-what-happens-to-a-factor-when-you-modify-its-levels" class="section level4 unnumbered">
-<h4>Challenge 1. What happens to a factor when you modify its levels?</h4>
+<div id="challenge-1.-2" class="section level4 unnumbered">
+<h4>Challenge 1.</h4>
+<p>What happens to a factor when you modify its levels?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f1 &lt;-<span class="st"> </span><span class="kw">factor</span>(letters)
 <span class="kw">levels</span>(f1) &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">levels</span>(f1))
 f1
 <span class="co">#&gt;  [1] z y x w v u t s r q p o n m l k j i h g f e d c b a</span>
 <span class="co">#&gt; Levels: z y x w v u t s r q p o n m l k j i h g f e d c b a</span></code></pre></div>
-<p>The vector is ordered in reverse, but the factor assignments per letter stay the same.</p>
 </div>
-<div id="challenge-2.-what-does-this-code-do-how-do-f2-and-f3-differ-from-f1" class="section level4 unnumbered">
-<h4>Challenge 2. What does this code do? How do <code>f2</code> and <code>f3</code> differ from <code>f1</code>?</h4>
+<div id="challenge-2.-2" class="section level4 unnumbered">
+<h4>Challenge 2.</h4>
+<p>What does this code do? How do <code>f2</code> and <code>f3</code> differ from <code>f1</code>?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f2 &lt;-<span class="st"> </span><span class="kw">rev</span>(<span class="kw">factor</span>(letters))
 f3 &lt;-<span class="st"> </span><span class="kw">factor</span>(letters, <span class="dt">levels =</span> <span class="kw">rev</span>(letters))</code></pre></div>
-<p>f2 reverses the vector and assigns the factors in the same order is f1 – z is assigned to a, etc, by reversing the order of the vector.</p>
-<p>f3 similarly assigns z to a, etc, but does so by reversing the order of the factor levels.</p>
 
 </div>
 </div>
