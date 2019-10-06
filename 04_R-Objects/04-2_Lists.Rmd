@@ -74,25 +74,18 @@ str(mod)
 
 ### Challenges
 
-#### Challenge 1. What are the four basic types of atomic vectors? How does a list differ from an atomic vector? {-}
+#### Challenge 1. {-}
 
-Logical, integer, numeric, character. A list can contains elements of multiple classes, while all the elements of a vector must be of the same class.
+What are the four basic types of atomic vectors? How does a list differ from an atomic vector?
 
-#### Challenge 2. Why is `1 == "1"` true? Why is `-1 < FALSE` true? Why is `"one" < 2` false? {-}
+#### Challenge 2. {-}
 
-Vectors are coerced to their most flexible type. So, `1 == "1"` evaluates both as characters, and so they are equal. FALSE coerces to 0, which is greater than -1. 
+Why is `1 == "1"` true? Why is `-1 < FALSE` true? Why is `"one" < 2` false?
 
-#### Challenge 3. Create three vectors and combine them into a list. Assign them names. {-}
+#### Challenge 3. {-}
 
-```{r}
-v1 <- c("Saturday", "Sunday")
-v2 <- c(76, 58)
-v3 <- c(TRUE, FALSE)
+Create three vectors and combine them into a list. Assign them names.
 
-weekend <- list(v1, v2, v3)
-names(weekend) <- c("Day", "High Temp", "Will I go to the lake?")
-```
+#### Challenge 4.  {-}
 
-
-#### Challenge 4.  If `x` is a list, what is the class of `x[1]`?  How about `x[[1]]`? {-}
-
+If `x` is a list, what is the class of `x[1]`?  How about `x[[1]]`?

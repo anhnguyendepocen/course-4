@@ -629,22 +629,10 @@ some_vector
 <span class="co"># 3. Add the element &quot;11&quot; to the end of the vector</span>
 
 <span class="co"># 4. Coerce it back to a numeric vector.</span></code></pre></div>
-<p>Solution:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1. Create a vector of a sequence of numbers between 1 to 10.</span>
-numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
-<span class="co"># 2. Coerce that vector into a character vector</span>
-numbers_char &lt;-<span class="st"> </span><span class="kw">as.character</span>(numbers)
-<span class="co"># 3. Add the element &quot;11&quot; to the end of the vector</span>
-numbers_char &lt;-<span class="st"> </span><span class="kw">c</span>(numbers_char, <span class="dv">11</span>)
-<span class="co"># 4. Coerce it back to a numeric vector.</span>
-numbers_num &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(numbers_char)</code></pre></div>
 </div>
 <div id="challenge-3-calculations-on-vectors" class="section level4 unnumbered">
 <h4>Challenge 3: Calculations on Vectors</h4>
 <p>Create a vector of the numbers 11-20, and multiply it by the original vector from Challenge 2.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numbers2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>)
-numbers <span class="op">*</span><span class="st"> </span>numbers2
-<span class="co">#&gt;  [1]  11  24  39  56  75  96 119 144 171 200</span></code></pre></div>
 
 </div>
 </div>
@@ -781,25 +769,21 @@ mod &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op
 </div>
 <div id="challenges-6" class="section level3">
 <h3><span class="header-section-number">7.2.4</span> Challenges</h3>
-<div id="challenge-1.-what-are-the-four-basic-types-of-atomic-vectors-how-does-a-list-differ-from-an-atomic-vector" class="section level4 unnumbered">
-<h4>Challenge 1. What are the four basic types of atomic vectors? How does a list differ from an atomic vector?</h4>
-<p>Logical, integer, numeric, character. A list can contains elements of multiple classes, while all the elements of a vector must be of the same class.</p>
+<div id="challenge-1.-1" class="section level4 unnumbered">
+<h4>Challenge 1.</h4>
+<p>What are the four basic types of atomic vectors? How does a list differ from an atomic vector?</p>
 </div>
-<div id="challenge-2.-why-is-1-1-true-why-is--1-false-true-why-is-one-2-false" class="section level4 unnumbered">
-<h4>Challenge 2. Why is <code>1 == &quot;1&quot;</code> true? Why is <code>-1 &lt; FALSE</code> true? Why is <code>&quot;one&quot; &lt; 2</code> false?</h4>
-<p>Vectors are coerced to their most flexible type. So, <code>1 == &quot;1&quot;</code> evaluates both as characters, and so they are equal. FALSE coerces to 0, which is greater than -1.</p>
+<div id="challenge-2.-1" class="section level4 unnumbered">
+<h4>Challenge 2.</h4>
+<p>Why is <code>1 == &quot;1&quot;</code> true? Why is <code>-1 &lt; FALSE</code> true? Why is <code>&quot;one&quot; &lt; 2</code> false?</p>
 </div>
-<div id="challenge-3.-create-three-vectors-and-combine-them-into-a-list.-assign-them-names." class="section level4 unnumbered">
-<h4>Challenge 3. Create three vectors and combine them into a list. Assign them names.</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Saturday&quot;</span>, <span class="st">&quot;Sunday&quot;</span>)
-v2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">76</span>, <span class="dv">58</span>)
-v3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)
-
-weekend &lt;-<span class="st"> </span><span class="kw">list</span>(v1, v2, v3)
-<span class="kw">names</span>(weekend) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Day&quot;</span>, <span class="st">&quot;High Temp&quot;</span>, <span class="st">&quot;Will I go to the lake?&quot;</span>)</code></pre></div>
+<div id="challenge-3.-1" class="section level4 unnumbered">
+<h4>Challenge 3.</h4>
+<p>Create three vectors and combine them into a list. Assign them names.</p>
 </div>
-<div id="challenge-4.-if-x-is-a-list-what-is-the-class-of-x1-how-about-x1" class="section level4 unnumbered">
-<h4>Challenge 4. If <code>x</code> is a list, what is the class of <code>x[1]</code>? How about <code>x[[1]]</code>?</h4>
+<div id="challenge-4." class="section level4 unnumbered">
+<h4>Challenge 4.</h4>
+<p>If <code>x</code> is a list, what is the class of <code>x[1]</code>? How about <code>x[[1]]</code>?</p>
 
 </div>
 </div>
