@@ -87,11 +87,4 @@ Your challenge is to:
 2. Add names for the matrix's rows (`titles`) and columns (`region`)
 3. Use `rowSums()` to find the total Worldwide Box Office sales for each movie.
 
-Solution
-```{r}
-movie_matrix <- rbind(philosophers_stone, chamber_secrets, prisoner_azkaban)
-rownames(movie_matrix) <- titles
-colnames(movie_matrix) <- region
-rowSums(movie_matrix)
-```
 

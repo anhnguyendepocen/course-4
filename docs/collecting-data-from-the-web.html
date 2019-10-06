@@ -1014,7 +1014,7 @@ ProfTalmadge
 ProfTalmadge
 </td>
 <td style="text-align:right;">
-2682
+2684
 </td>
 <td style="text-align:right;">
 937
@@ -2483,7 +2483,7 @@ NA
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">created_at =</span> <span class="kw">as.Date</span>(created_at)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(created_at <span class="op">&gt;=</span><span class="st"> &quot;2019-06-15&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">ts_plot</span>(<span class="dt">by =</span> <span class="st">&quot;week&quot;</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-455-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-451-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="hashtags-and-text-strings" class="section level3">
 <h3><span class="header-section-number">17.3.3</span> Hashtags and Text Strings</h3>
@@ -2506,8 +2506,8 @@ duke <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(user_id, location) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))
-<span class="co">#&gt; # A tibble: 777 x 3</span>
-<span class="co">#&gt; # Groups:   user_id [777]</span>
+<span class="co">#&gt; # A tibble: 782 x 3</span>
+<span class="co">#&gt; # Groups:   user_id [782]</span>
 <span class="co">#&gt;   user_id             location                n</span>
 <span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;               &lt;int&gt;</span>
 <span class="co">#&gt; 1 2561373848          Florida, USA           87</span>
@@ -2516,7 +2516,7 @@ duke <span class="op">%&gt;%</span>
 <span class="co">#&gt; 4 1030069194539368448 &quot;&quot;                     35</span>
 <span class="co">#&gt; 5 1026490600349229058 United States          15</span>
 <span class="co">#&gt; 6 259312208           Traverse City, MI      13</span>
-<span class="co">#&gt; # … with 771 more rows</span></code></pre></div>
+<span class="co">#&gt; # … with 776 more rows</span></code></pre></div>
 
 </div>
 </div>
@@ -2609,7 +2609,7 @@ response_df<span class="op">$</span>response<span class="op">$</span>meta
 <span class="co">#&gt; [1] 0</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $time</span>
-<span class="co">#&gt; [1] 16</span>
+<span class="co">#&gt; [1] 18</span>
 
 <span class="co"># pull out number of hits</span>
 response_df<span class="op">$</span>response<span class="op">$</span>meta<span class="op">$</span>hits
@@ -2699,7 +2699,7 @@ by_month <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="dt">label =</span> <span class="st">&quot;Date&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="dt">label =</span> <span class="st">&quot;Article Count&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="dt">label =</span> <span class="st">&quot;Coverage of X&quot;</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-468-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-464-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="more-resources-1" class="section level3">
 <h3><span class="header-section-number">17.4.5</span> More resources</h3>
