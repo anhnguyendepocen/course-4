@@ -65,7 +65,7 @@ round()
 round('a')
 ```
 
-Functions may have __default__ values for some arguments.{-}
+Functions may have __default__ values for some arguments.
 
 By default, `round` will round off any number to zero decimal places. But we can specify the number of decimal places we want.
 

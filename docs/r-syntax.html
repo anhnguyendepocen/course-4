@@ -584,7 +584,7 @@ y
 <p><code>round</code> must be given at least one argument. And it must be given things that can be meaningful rounded.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>()
 <span class="kw">round</span>(<span class="st">&#39;a&#39;</span>)</code></pre></div>
-<p>Functions may have <strong>default</strong> values for some arguments.{-}</p>
+<p>Functions may have <strong>default</strong> values for some arguments.</p>
 <p>By default, <code>round</code> will round off any number to zero decimal places. But we can specify the number of decimal places we want.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">60.123</span>)
 <span class="co">#&gt; [1] 60</span>
@@ -662,7 +662,7 @@ poor =<span class="st"> &quot;tin&quot;</span>
 <div id="whats-that-type" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> What’s that Type?</h3>
 <p>R is dynamically typed, meaning that it “guesses” what class a value is.</p>
-<p>Use the built-in function<code>class()</code> to find out what type a value has.</p>
+<p>Use the built-in function <code>class()</code> to find out what type a value has.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">3</span>)
 <span class="co">#&gt; [1] &quot;numeric&quot;</span>
 <span class="kw">class</span>(3L)
@@ -681,7 +681,9 @@ three &lt;-<span class="st"> &quot;three&quot;</span>
 <span class="co">#&gt; [1] &quot;character&quot;</span></code></pre></div>
 <p>A value’s class determines what the program can do to it.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>
-<span class="dv">3</span> <span class="op">-</span><span class="st"> &quot;1&quot;</span></code></pre></div>
+<span class="co">#&gt; [1] 2</span>
+<span class="dv">3</span> <span class="op">-</span><span class="st"> &quot;1&quot;</span>
+<span class="co">#&gt; Error in 3 - &quot;1&quot;: non-numeric argument to binary operator</span></code></pre></div>
 </div>
 <div id="coercion" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Coercion</h3>
@@ -730,12 +732,12 @@ x
 <ol style="list-style-type: decimal">
 <li>Make a variable <code>year</code> and assign it as the year you were born.</li>
 <li>Coerce that variable to a string, and assign it to a new variable <code>year_string</code>.</li>
-<li>Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only <code>year_string</code></li>
+<li>Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only <code>year_string</code>.</li>
 </ol>
 </div>
 <div id="challenge-2-fix-the-code" class="section level4 unnumbered">
 <h4>Challenge 2: Fix the Code</h4>
-<p>Change the following code to make the output TRUE.</p>
+<p>Change the following code to make the output <code>TRUE</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">val_<span class="dv">1</span> =<span class="st"> </span>F
 val_<span class="dv">2</span> =<span class="st"> &quot;F&quot;</span>
 

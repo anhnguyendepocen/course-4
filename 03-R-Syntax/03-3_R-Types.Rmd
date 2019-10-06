@@ -25,7 +25,7 @@ Every value in a program has a specific __type__. In R, those types are called "
 
 R is dynamically typed, meaning that it "guesses" what class a value is. 
 
-Use the built-in function```class()``` to find out what type a value has.
+Use the built-in function ```class()``` to find out what type a value has.
 
 ```{r}
 class(3)
@@ -46,7 +46,7 @@ class(three)
 
 A value's class determines what the program can do to it.
 
-```{r eval = F}
+```{r error = T}
 3 - 1
 3 - "1"
 ```
@@ -88,14 +88,14 @@ typeof(x)
 
 You can have either positive or negative infinity.
 
-```{r, eval = TRUE}
+```{r}
 1/0
 1/Inf
 ```
 
 #### `NaN` means "Not a number". It's an undefined value. {-}
 
-```{r, eval = TRUE}
+```{r}
 0/0
 ```
 
@@ -106,11 +106,11 @@ You can have either positive or negative infinity.
 
 1. Make a variable `year` and assign it as the year you were born.
 2. Coerce that variable to a string, and assign it to a new variable `year_string`.
-3. Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only `year_string`
+3. Someone in your class says they were born in 2001. Really? Really. Find out what your age difference is, using only `year_string`.
 
 #### Challenge 2: Fix the Code {-}
 
-Change the following code to make the output TRUE.
+Change the following code to make the output `TRUE`.
 
 ```{r}
 val_1 = F

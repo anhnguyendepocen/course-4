@@ -2431,7 +2431,7 @@ things that can be meaningful rounded.
 \end{Highlighting}
 \end{Shaded}
 
-Functions may have \textbf{default} values for some arguments.\{-\}
+Functions may have \textbf{default} values for some arguments.
 
 By default, \texttt{round} will round off any number to zero decimal
 places. But we can specify the number of decimal places we want.
@@ -2545,7 +2545,7 @@ integer\tabularnewline
 R is dynamically typed, meaning that it ``guesses'' what class a value
 is.
 
-Use the built-in function\texttt{class()} to find out what type a value
+Use the built-in function \texttt{class()} to find out what type a value
 has.
 
 \begin{Shaded}
@@ -2581,7 +2581,9 @@ A value's class determines what the program can do to it.
 \begin{Shaded}
 \begin{Highlighting}[]
 \DecValTok{3} \OperatorTok{-}\StringTok{ }\DecValTok{1}
+\CommentTok{#> [1] 2}
 \DecValTok{3} \OperatorTok{-}\StringTok{ "1"}
+\CommentTok{#> Error in 3 - "1": non-numeric argument to binary operator}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2679,14 +2681,15 @@ Variables}
   \texttt{year\_string}.
 \item
   Someone in your class says they were born in 2001. Really? Really.
-  Find out what your age difference is, using only \texttt{year\_string}
+  Find out what your age difference is, using only
+  \texttt{year\_string}.
 \end{enumerate}
 
 \subsubsection*{Challenge 2: Fix the
 Code}\label{challenge-2-fix-the-code}
 \addcontentsline{toc}{subsubsection}{Challenge 2: Fix the Code}
 
-Change the following code to make the output TRUE.
+Change the following code to make the output \texttt{TRUE}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
