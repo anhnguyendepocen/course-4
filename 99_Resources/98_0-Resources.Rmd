@@ -1,0 +1,22 @@
+---
+title: "Resources"
+author: "PLSC 31101"
+date: "Fall 2019"
+output: html_document
+---
+# (PART) Resources {-}
+
+# Cheat Sheets and Guides
+
+1. [RStudio IDE Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+
+2. [R Markdown Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+
+3. [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+[Base R Cheat Sheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
+
+4. [Data Transformation with `dplyr` Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+
+5. [Data Visualization Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+6. [Regular Expressions Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/regex.pdf)
