@@ -113,8 +113,8 @@ You can have either positive or negative infinity.
 Change the following code to make the output `TRUE`.
 
 ```{r}
-val_1 = F
-val_2 = "F"
+val_1 <- F
+val_2 <- "F"
 
 class(val_1) == class(val_2)
 ```
