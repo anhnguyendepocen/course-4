@@ -130,11 +130,11 @@ Draw a table showing the values of the variables in this program after each stat
 In simple terms, what do the last three lines of this program do?
 
 ```{r}
-lowest = 1.0
-highest = 3.0
-temp = lowest
-lowest = highest
-highest = temp
+lowest <- 1.0
+highest <- 3.0
+temp <- lowest
+lowest <- highest
+highest <- temp
 ```
 
 #### Challenge 3: Predicting Values {-}
@@ -142,9 +142,9 @@ highest = temp
 What is the final value of `position` in the program below? Try to predict the value without running the program, then check your prediction.
 
 ```{r}
-initial = "left"
-position = initial
-initial = "right"
+initial <- "left"
+position <- initial
+initial <- "right"
 ```
 
 #### Challenge 4: Syntax {-}
