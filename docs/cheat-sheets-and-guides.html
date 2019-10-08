@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 15 Strings and Regular Expressions | PLSC 31101: Computational Tools for Social Science</title>
+  <title>Chapter 19 Cheat Sheets and Guides | PLSC 31101: Computational Tools for Social Science</title>
   <meta name="description" content="This book contains course notes and other materials for PLSC 31101." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 15 Strings and Regular Expressions | PLSC 31101: Computational Tools for Social Science" />
+  <meta property="og:title" content="Chapter 19 Cheat Sheets and Guides | PLSC 31101: Computational Tools for Social Science" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://rochelleterman.github.io/plsc-31101/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rochelleterman/plsc-31101" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 Strings and Regular Expressions | PLSC 31101: Computational Tools for Social Science" />
+  <meta name="twitter:title" content="Chapter 19 Cheat Sheets and Guides | PLSC 31101: Computational Tools for Social Science" />
   
   <meta name="twitter:description" content="This book contains course notes and other materials for PLSC 31101." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="statistical-inferences.html"/>
-<link rel="next" href="programming-in-r.html"/>
+<link rel="prev" href="assignments-1.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -431,111 +431,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="strings-and-regular-expressions" class="section level1">
-<h1><span class="header-section-number">Chapter 15</span> Strings and Regular Expressions</h1>
-<p>This unit focuses on chracter (or “string”) data. We’ll explore:</p>
+<div id="cheat-sheets-and-guides" class="section level1">
+<h1><span class="header-section-number">Chapter 19</span> Cheat Sheets and Guides</h1>
 <ol style="list-style-type: decimal">
-<li><strong><a href="strings-and-regular-expressions.html#common-string-operations">common string operations</a></strong>, like concatinating, subsetting, and replacing strings.</li>
-<li><strong><a href="strings-and-regular-expressions.html#regular-expressions">regular expressions</a></strong>, a powerful cross-language tool for working with string data.</li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio IDE Cheat Sheet</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">R Markdown Cheat Sheet</a></p></li>
+<li><p><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown Reference Guide</a> <a href="http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf">Base R Cheat Sheet</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">Data Transformation with <code>dplyr</code> Cheat Sheet</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">Data Visualization Cheat Sheet</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/regex.pdf">Regular Expressions Cheat Sheet</a></p></li>
 </ol>
-<div id="common-string-operations" class="section level2">
-<h2><span class="header-section-number">15.1</span> Common String Operations</h2>
-<div id="concatinating-strings-with-paste" class="section level3">
-<h3><span class="header-section-number">15.1.1</span> Concatinating strings with <code>paste()</code></h3>
-<p>Let’s say we wanted to concatenate the following two strings into one larger character string:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">firstName &lt;-<span class="st"> &quot;Johan&quot;</span>
-lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></code></pre></div>
-<p>Using the usual combine operator <code>c()</code> on two or more character strings will not create a single character string, but rather a <strong>vector</strong> of character strings.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">firstName &lt;-<span class="st"> &quot;Johan&quot;</span>
-lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span>
-
-fullName &lt;-<span class="st"> </span><span class="kw">c</span>(firstName, lastName)
-<span class="kw">print</span>(fullName)
-<span class="co">#&gt; [1] &quot;Johan&quot;       &quot;Gambolputty&quot;</span>
-<span class="kw">length</span>(fullName)
-<span class="co">#&gt; [1] 2</span></code></pre></div>
-<p>Combining two or more character strings into one larger character string requires using the <code>paste()</code> function. This function takes character strings or vectors and collapses their values into a single character string, with each value separated by a character string selected by the user.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)
-<span class="kw">print</span>(fullName)
-<span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span>
-
-fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName, <span class="dt">sep =</span> <span class="st">&quot;+&quot;</span>)
-<span class="kw">print</span>(fullName)
-<span class="co">#&gt; [1] &quot;Johan+Gambolputty&quot;</span>
-
-fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName, <span class="dt">sep =</span> <span class="st">&quot;___&quot;</span>)
-<span class="kw">print</span>(fullName)
-<span class="co">#&gt; [1] &quot;Johan___Gambolputty&quot;</span></code></pre></div>
-</div>
-<div id="extracting-substrings" class="section level3">
-<h3><span class="header-section-number">15.1.2</span> Extracting Substrings</h3>
-<p>R can also extract substrings based on the index position of its characters. Some things to note:</p>
-<ol style="list-style-type: decimal">
-<li><p>Index positions in R start at 1. This is in contrast to Python, where indexation starts at 0.</p></li>
-<li><p>Object subsets using index positions in R contain all the elements in the specified range. If some object called <code>data</code> contains five elements, <code>data[2:4]</code> will return the elements at the second, third, and fourth positions. By contrast, the same subset in Python would return the objects at the third and fourth positions (or second and third positions, depending upon whether your index starts at 0 or 1).</p></li>
-<li><p>R does not allow index-based character string subsetting using the object name, as this functionality is generally reserved for vector subsetting.</p></li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">firstName &lt;-<span class="st"> &quot;Johan&quot;</span>
-lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span>
-fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)
-
-<span class="co"># This won&#39;t work</span>
-fullName[<span class="dv">0</span>]
-<span class="co">#&gt; character(0)</span>
-fullName[<span class="dv">1</span>]
-<span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span>
-fullName[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]
-<span class="co">#&gt; [1] &quot;Johan Gambolputty&quot; NA                  NA                 </span>
-<span class="co">#&gt; [4] NA</span></code></pre></div>
-<p>Instead, you must use the <code>substr()</code> function. Note that this function must receive both the <code>start</code> and <code>stop</code> arguments. So if you want to get all the characters between some index and the end of the string, you must use the <code>nchar()</code> function, which will tell you the length of a character string.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">1</span>)
-<span class="co">#&gt; [1] &quot;J&quot;</span>
-<span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">5</span>, <span class="dt">stop =</span> <span class="dv">5</span>)
-<span class="co">#&gt; [1] &quot;n&quot;</span>
-<span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">5</span>)
-<span class="co">#&gt; [1] &quot;Johan&quot;</span>
-<span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">6</span>, <span class="dt">stop =</span> <span class="kw">nchar</span>(fullName))
-<span class="co">#&gt; [1] &quot; Gambolputty&quot;</span>
-<span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">6</span>, <span class="dt">stop =</span> <span class="kw">nchar</span>(fullName)<span class="op">-</span><span class="dv">2</span>)
-<span class="co">#&gt; [1] &quot; Gambolput&quot;</span></code></pre></div>
-</div>
-<div id="replace-substrings-with-gsub" class="section level3">
-<h3><span class="header-section-number">15.1.3</span> Replace Substrings with <code>gsub()</code></h3>
-<p>The function <code>gsub()</code> replaces substrings in a larger string using a specified pattern.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">firstName &lt;-<span class="st"> &quot;Johan&quot;</span>
-lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span>
-fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)
-
-<span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;G&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;B&quot;</span>, <span class="dt">x =</span> fullName)
-<span class="co">#&gt; [1] &quot;Johan Bambolputty&quot;</span>
-<span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;Johan&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Mike&quot;</span>, <span class="dt">x =</span> fullName)
-<span class="co">#&gt; [1] &quot;Mike Gambolputty&quot;</span>
-<span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;johan&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Mike&quot;</span>, <span class="dt">x =</span> fullName) <span class="co"># Note the importance of cases!</span>
-<span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span></code></pre></div>
-<p>The same function is used for replacements and stripping:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> fullName) 
-<span class="co">#&gt; [1] &quot;JohanGambolputty&quot;</span></code></pre></div>
 
 </div>
-</div>
-<div id="regular-expressions" class="section level2">
-<h2><span class="header-section-number">15.2</span> Regular Expressions</h2>
-<p><code>gsub()</code> is part of a suite of functions to search and substitute substrings using <strong>regular expressions</strong> (or “regex” for short). For more information on regular expressions, see:</p>
-<ol style="list-style-type: decimal">
-<li><a href="https://regexr.com/">regexr.com</a></li>
-<li><a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">this cheatsheet</a></li>
-</ol>
-<p>MORE HERE</p>
 
-</div>
-</div>
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="statistical-inferences.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="programming-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="assignments-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -557,14 +477,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rochelleterman/plsc-31101/edit/master/12-Strings/12-1_Strings.Rmd",
+"link": "https://github.com/rochelleterman/plsc-31101/edit/master/99_Resources/98_0-Resources.Rmd",
 "text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
-"download": ["https://github.com/rochelleterman/plsc-31101/raw/master/12-Strings/12-1_Strings.Rmd"],
+"download": ["https://github.com/rochelleterman/plsc-31101/raw/master/99_Resources/98_0-Resources.Rmd"],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
