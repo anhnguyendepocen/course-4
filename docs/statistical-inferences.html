@@ -558,7 +558,7 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 <span class="co">#&gt;  Welch Two Sample t-test</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; data:  life.exp.1967 and life.exp.1977</span>
-<span class="co">#&gt; t = -3, df = 281, p-value = 0.005</span>
+<span class="co">#&gt; t = -3, df = 300, p-value = 0.005</span>
 <span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span>
 <span class="co">#&gt; 95 percent confidence interval:</span>
 <span class="co">#&gt;  -6.57 -1.21</span>
@@ -986,6 +986,10 @@ summ_reg<span class="op">$</span>coefficients
 <p>Most papers report the results of regression analysis in some kind of table. Typically, this table includes the values of coefficients, standard errors, and significance levels from one or more models.</p>
 <p>The <code>stargazer</code> package provides excellent tools to make and format regression tables automatically. It can also output summary statistics from a dataframe:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stargazer)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Please cite as:</span>
+<span class="co">#&gt;  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.</span>
+<span class="co">#&gt;  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer</span>
 <span class="kw">stargazer</span>(gap, <span class="dt">type =</span> <span class="st">&quot;text&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ===========================================================================================</span>
@@ -1096,7 +1100,7 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
           <span class="dt">keep.stat=</span><span class="st">&quot;n&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;ajps&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu</span>
-<span class="co">#&gt; % Date and time: Sun, Oct 06, 2019 - 14:52:00</span>
+<span class="co">#&gt; % Date and time: Wed, Oct 09, 2019 - 11:49:43</span>
 <span class="co">#&gt; \begin{table}[!htbp] \centering </span>
 <span class="co">#&gt;   \caption{Regression Results} </span>
 <span class="co">#&gt;   \label{} </span>

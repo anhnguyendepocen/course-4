@@ -129,7 +129,9 @@ class(df[, "x"])
 
 ### Challenges
 
-#### Challenge 1. Fix each of the following common data frame subsetting errors: {-}
+#### Challenge 1. {-}
+
+Fix each of the following common data frame subsetting errors:
 
 ```{r eval = F}
 # check out what we're dealing with
@@ -151,4 +153,6 @@ mtcars[mtcars$cyl <= 5,]
 mtcars[mtcars$cyl == 4 | mtcars$cyl == 6, ]
 ```
 
-#### Challenge 2. Why does `mtcars[1:20]` return an error? How does it differ from the similar `mtcars[1:20, ]`? {-}
+#### Challenge 2. {-} 
+
+Why does `mtcars[1:20]` return an error? How does it differ from the similar `mtcars[1:20, ]`? {-}

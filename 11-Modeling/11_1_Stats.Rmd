@@ -102,7 +102,9 @@ vals
 
 ### Challenges
 
-#### Challenge 1. Generate 100 random Poisson values with a population mean of 5. How close is the mean of those 100 values to the value of 5? {-}
+#### Challenge 1. {-}
+
+Generate 100 random Poisson values with a population mean of 5. How close is the mean of those 100 values to the value of 5? 
 
 ```{r}
 poisson <- rpois(100, 5)
@@ -110,14 +112,18 @@ mean(poisson)
 ```
 
 
-#### Challenge 2. What is the 95th percentile of a chi-square distribution with 1 degree of freedom? {-}
+#### Challenge 2. {-}
+
+What is the 95th percentile of a chi-square distribution with 1 degree of freedom? 
 
 ```{r}
 qchisq(.95, df = 1)
 ```
 
 
-#### Challenge 3. What's the probability of getting a value greater than 5 if you draw from a standard normal distribution? What about a t distribution with 1 degree of freedom? {-}
+#### Challenge 3. {-}
+
+What's the probability of getting a value greater than 5 if you draw from a standard normal distribution? What about a t distribution with 1 degree of freedom?
 
 ```{r}
 pnorm(5, 0, 1, FALSE)

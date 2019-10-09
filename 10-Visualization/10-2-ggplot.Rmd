@@ -71,7 +71,7 @@ ggplot(data = gap, aes(x = gdpPercap, y = lifeExp)) +
 # my_plot + geom_point()
 ```
 
-#### Challenge 1 {-}
+#### Challenge 1. {-}
 
 Modify the example so that the figure visualises how life expectancy has changed over time:
 
@@ -130,7 +130,7 @@ ggplot(data = gap, aes(x=year, y=lifeExp, by=country)) +
 
 In this example, the aesthetic mapping of **color** has been moved from the global plot options in `ggplot` to the `geom_line` layer so it no longer applies to the points. Now we can clearly see that the points are drawn on top of the lines.
 
-#### Challenge 2 {-}
+#### Challenge 2. {-}
 
 Switch the order of the point and line layers from the previous example. What happened?
 
@@ -207,7 +207,7 @@ ggplot(data = gap, aes(x = gdpPercap, y = lifeExp)) +
   geom_smooth(method="lm", size = 1.5)
 ```
 
-#### Challenge 3 {-}
+#### Challenge 3. {-}
 
 Modify the color and size of the points on the point layer in the previous example so that they are fixed (i.e. not reflective of continent).
 
@@ -261,7 +261,7 @@ RStudio provides a really useful [cheat sheet](https://www.rstudio.com/wp-conten
 
 Finally, if you have no idea how to change something, a quick Google search will usually send you to a relevant question and answer on Stack Overflow with reusable code to modify!
 
-#### Challenge 4 {-}
+#### Challenge 4. {-}
 
 Create a density plot of GDP per capita, filled by continent.
 

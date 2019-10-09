@@ -229,7 +229,9 @@ stargazer(mod.1, mod.2, mod.3, title = "Regression Results", type = "html",
 
 ### Challenges
 
-#### Challenge 1. Fit two linear regression models from the gapminder data, where the outcome is `lifeExp` and the explanatory variables are `log(pop)`, `log(gdpPercap)`, and `year`. In one model, treat `year` as a numeric variable. In the other, factorize the `year` variable. How do you interpret each model? {-}
+#### Challenge 1. {-}
+
+Fit two linear regression models from the gapminder data, where the outcome is `lifeExp` and the explanatory variables are `log(pop)`, `log(gdpPercap)`, and `year`. In one model, treat `year` as a numeric variable. In the other, factorize the `year` variable. How do you interpret each model?
 
 ```{r}
 model1 <- lm(lifeExp ~ log(pop) + log(gdpPercap) + year, data = gap)
@@ -237,7 +239,9 @@ model2 <- lm(lifeExp ~ log(pop) + log(gdpPercap) + factor(year), data = gap)
 ```
 
 
-#### Challenge 2. Fit a logistic regression model where the outcome is whether `lifeExp` is greater than or less than 60 years, exploring the use of different predictors. {-}
+#### Challenge 2. {-}
+
+Fit a logistic regression model where the outcome is whether `lifeExp` is greater than or less than 60 years, exploring the use of different predictors.
 
 ```{r}
 library(dplyr)
@@ -249,7 +253,9 @@ logit_model <- glm(lifeExp60 ~ log(pop) + log(gdpPercap) + year, family = "binom
 ```
 
 
-#### Challenge 3. Using `stargazer`, format a table reporting the results from the three models you created above (two linear regressions and one logistic). {-}
+#### Challenge 3. {-}
+
+Using `stargazer`, format a table reporting the results from the three models you created above (two linear regressions and one logistic).
 
 ```{r}
 stargazer(model1, model2, logit_model, title = "Challenge Regression Results", type = "text")

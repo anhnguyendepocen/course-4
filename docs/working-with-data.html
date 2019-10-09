@@ -457,7 +457,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Like many programming languages, R has a powerful notion of the <strong>working directory</strong>. This is where R looks for files that you ask it to load, and where it will put any files that you ask it to save.</p>
 <p>RStudio shows your current working directory at the top of the console. You can print this out in R code by running <code>getwd()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()
-<span class="co">#&gt; [1] &quot;/Users/rochelleterman/Desktop/PLSC_31101/course-site&quot;</span></code></pre></div>
+<span class="co">#&gt; [1] &quot;/Users/petecuppernull/Desktop/course&quot;</span></code></pre></div>
 <p>I do not recommend it, but you can set the working directory from within R:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;/path/to/my/CoolProject&quot;</span>)</code></pre></div>
 <p>The command above prints out a <strong>path</strong> to your working directory. Think of a path as an address. Paths are incredibly important in programming, but can be a little tricky. Let’s go into a bit more detail.</p>
@@ -498,7 +498,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Think carefully about which subdirectory you put the project in. If you don’t store it somewhere sensible, it will be hard to find in the future!</p>
 <p>Once this process is complete, you’ll get a new RStudio project. Check that the “home” directory of your project is the current working directory:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()
-<span class="co">#&gt; [1] &quot;/Users/rochelleterman/Desktop/PLSC_31101/course-site&quot;</span></code></pre></div>
+<span class="co">#&gt; [1] &quot;/Users/petecuppernull/Desktop/course&quot;</span></code></pre></div>
 <p>Now whenever you refer to a file with a relative path, it will look for it there.</p>
 <p>Go ahead and create a new R script and save it inside the project folder.</p>
 <p>Quit RStudio. Inspect the folder associated with your project — notice the .Rproj file. Double-click that file to re-open the project. Notice you get back to where you left off: it’s the same working directory and command history, and all the files you were working on are still open. Because you followed my instructions above, you will, however, have a completely fresh environment, guaranteeing that you’re starting with a clean slate.</p>
