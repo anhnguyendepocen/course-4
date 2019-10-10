@@ -142,17 +142,8 @@ mtcars[mtcars$cyl = 4, ]
 mtcars[-1:4, ]
 mtcars[mtcars$cyl <= 5]
 mtcars[mtcars$cyl == 4 | 6, ]
-
-```
-
-Solution:
-```{r}
-mtcars[mtcars$cyl == 4, ]
-mtcars[-c(1:4), ]
-mtcars[mtcars$cyl <= 5,]
-mtcars[mtcars$cyl == 4 | mtcars$cyl == 6, ]
 ```
 
 #### Challenge 2. {-} 
 
-Why does `mtcars[1:20]` return an error? How does it differ from the similar `mtcars[1:20, ]`? {-}
+Why does `mtcars[1:20]` return an error? How does it differ from the similar `mtcars[1:20, ]`? 

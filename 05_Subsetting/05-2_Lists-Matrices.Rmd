@@ -79,12 +79,6 @@ summary(mod)
 
 Extract the R squared from the model summary.
 
-Solution:
-```{r}
-mod.sum <- summary(mod)
-mod.sum$r.squared
-```
-
 ## Subsetting Matrices
 
 Similar to vectors, you can use the square brackets `[ ]` to select one or multiple elements from a matrix. But whereas vectors have one dimension, matrices have two dimensions. We therefore have to use two subsetting vectors -- one for rows to select, another for columns -- separated by a comma.

@@ -165,7 +165,7 @@ x[x %in% c(3.3, 4.2)]
 
 ### Challenge
 
-Subset `country.vector` below to return every value EXCEPT "Canada" and "Brazil" {-}
+Subset `country.vector` below to return every value EXCEPT "Canada" and "Brazil"
 
 ```{r}
 country.vector<-c("Afghanistan", "Canada", "Sierra Leone", "Denmark", "Japan", "Brazil")
@@ -177,24 +177,4 @@ country.vector<-c("Afghanistan", "Canada", "Sierra Leone", "Denmark", "Japan", "
 # Do it using a logical vector
 
 # Do it using a conditional statement (and an implicit logical vector)
-
-```
-
-Solution:
-
-```{r eval = FALSE}
-country.vector<-c("Afghanistan", "Canada", "Sierra Leone", "Denmark", "Japan", "Brazil")
-
-# Do it using positive integers
-country.vector[c(1, 3, 4, 5)]
-
-# Do it using negative integers
-country.vector[-c(2, 6)]
-
-# Do it using a logical vector
-country.vector[c(TRUE, FALSE, TRUE, TRUE, TRUE, FALSE)]
-
-# Do it using a conditional statement (and an implicit logical vector)
-country.vector[!country.vector %in% c("Canada", "Brazil")]
-
 ```

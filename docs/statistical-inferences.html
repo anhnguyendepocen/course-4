@@ -463,7 +463,7 @@ gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 
 x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dt">length =</span> <span class="dv">100</span>)
 <span class="kw">plot</span>(x, <span class="kw">dnorm</span>(x), <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-332-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-329-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <div id="sampling-and-simulation" class="section level3">
 <h3><span class="header-section-number">14.1.1</span> Sampling and Simulation</h3>
 <p>We can draw a sample with or without replacement with <code>sample</code>.</p>
@@ -510,19 +510,22 @@ vals
 </div>
 <div id="challenges-13" class="section level3">
 <h3><span class="header-section-number">14.1.3</span> Challenges</h3>
-<div id="challenge-1.-generate-100-random-poisson-values-with-a-population-mean-of-5.-how-close-is-the-mean-of-those-100-values-to-the-value-of-5" class="section level4 unnumbered">
-<h4>Challenge 1. Generate 100 random Poisson values with a population mean of 5. How close is the mean of those 100 values to the value of 5?</h4>
+<div id="challenge-1.-9" class="section level4 unnumbered">
+<h4>Challenge 1.</h4>
+<p>Generate 100 random Poisson values with a population mean of 5. How close is the mean of those 100 values to the value of 5?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">poisson &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dv">100</span>, <span class="dv">5</span>)
 <span class="kw">mean</span>(poisson)
 <span class="co">#&gt; [1] 5.1</span></code></pre></div>
 </div>
-<div id="challenge-2.-what-is-the-95th-percentile-of-a-chi-square-distribution-with-1-degree-of-freedom" class="section level4 unnumbered">
-<h4>Challenge 2. What is the 95th percentile of a chi-square distribution with 1 degree of freedom?</h4>
+<div id="challenge-2.-9" class="section level4 unnumbered">
+<h4>Challenge 2.</h4>
+<p>What is the 95th percentile of a chi-square distribution with 1 degree of freedom?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qchisq</span>(.<span class="dv">95</span>, <span class="dt">df =</span> <span class="dv">1</span>)
 <span class="co">#&gt; [1] 3.84</span></code></pre></div>
 </div>
-<div id="challenge-3.-whats-the-probability-of-getting-a-value-greater-than-5-if-you-draw-from-a-standard-normal-distribution-what-about-a-t-distribution-with-1-degree-of-freedom" class="section level4 unnumbered">
-<h4>Challenge 3. What’s the probability of getting a value greater than 5 if you draw from a standard normal distribution? What about a t distribution with 1 degree of freedom?</h4>
+<div id="challenge-3.-6" class="section level4 unnumbered">
+<h4>Challenge 3.</h4>
+<p>What’s the probability of getting a value greater than 5 if you draw from a standard normal distribution? What about a t distribution with 1 degree of freedom?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="ot">FALSE</span>)
 <span class="co">#&gt; [1] 2.87e-07</span>
 
@@ -558,7 +561,7 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 <span class="co">#&gt;  Welch Two Sample t-test</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; data:  life.exp.1967 and life.exp.1977</span>
-<span class="co">#&gt; t = -3, df = 300, p-value = 0.005</span>
+<span class="co">#&gt; t = -3, df = 281, p-value = 0.005</span>
 <span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span>
 <span class="co">#&gt; 95 percent confidence interval:</span>
 <span class="co">#&gt;  -6.57 -1.21</span>
@@ -627,7 +630,7 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 <li>Standard (diagnostic) plots for a regression</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(reg)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-350-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-350-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-350-3.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-350-4.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-347-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-347-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-347-3.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-347-4.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>R also has a helpful <code>summary</code> method for regression objects.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(reg)
 <span class="co">#&gt; </span>
@@ -986,10 +989,6 @@ summ_reg<span class="op">$</span>coefficients
 <p>Most papers report the results of regression analysis in some kind of table. Typically, this table includes the values of coefficients, standard errors, and significance levels from one or more models.</p>
 <p>The <code>stargazer</code> package provides excellent tools to make and format regression tables automatically. It can also output summary statistics from a dataframe:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stargazer)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Please cite as:</span>
-<span class="co">#&gt;  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.</span>
-<span class="co">#&gt;  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer</span>
 <span class="kw">stargazer</span>(gap, <span class="dt">type =</span> <span class="st">&quot;text&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ===========================================================================================</span>
@@ -1100,7 +1099,7 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
           <span class="dt">keep.stat=</span><span class="st">&quot;n&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;ajps&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu</span>
-<span class="co">#&gt; % Date and time: Wed, Oct 09, 2019 - 11:49:43</span>
+<span class="co">#&gt; % Date and time: Thu, Oct 10, 2019 - 14:44:44</span>
 <span class="co">#&gt; \begin{table}[!htbp] \centering </span>
 <span class="co">#&gt;   \caption{Regression Results} </span>
 <span class="co">#&gt;   \label{} </span>
@@ -1150,13 +1149,15 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
 </div>
 <div id="challenges-14" class="section level3">
 <h3><span class="header-section-number">14.2.6</span> Challenges</h3>
-<div id="challenge-1.-fit-two-linear-regression-models-from-the-gapminder-data-where-the-outcome-is-lifeexp-and-the-explanatory-variables-are-logpop-loggdppercap-and-year.-in-one-model-treat-year-as-a-numeric-variable.-in-the-other-factorize-the-year-variable.-how-do-you-interpret-each-model" class="section level4 unnumbered">
-<h4>Challenge 1. Fit two linear regression models from the gapminder data, where the outcome is <code>lifeExp</code> and the explanatory variables are <code>log(pop)</code>, <code>log(gdpPercap)</code>, and <code>year</code>. In one model, treat <code>year</code> as a numeric variable. In the other, factorize the <code>year</code> variable. How do you interpret each model?</h4>
+<div id="challenge-1.-10" class="section level4 unnumbered">
+<h4>Challenge 1.</h4>
+<p>Fit two linear regression models from the gapminder data, where the outcome is <code>lifeExp</code> and the explanatory variables are <code>log(pop)</code>, <code>log(gdpPercap)</code>, and <code>year</code>. In one model, treat <code>year</code> as a numeric variable. In the other, factorize the <code>year</code> variable. How do you interpret each model?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> gap)
 model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(year), <span class="dt">data =</span> gap)</code></pre></div>
 </div>
-<div id="challenge-2.-fit-a-logistic-regression-model-where-the-outcome-is-whether-lifeexp-is-greater-than-or-less-than-60-years-exploring-the-use-of-different-predictors." class="section level4 unnumbered">
-<h4>Challenge 2. Fit a logistic regression model where the outcome is whether <code>lifeExp</code> is greater than or less than 60 years, exploring the use of different predictors.</h4>
+<div id="challenge-2.-10" class="section level4 unnumbered">
+<h4>Challenge 2.</h4>
+<p>Fit a logistic regression model where the outcome is whether <code>lifeExp</code> is greater than or less than 60 years, exploring the use of different predictors.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 
 gap &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
@@ -1164,8 +1165,9 @@ gap &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
 
 logit_model &lt;-<span class="st"> </span><span class="kw">glm</span>(lifeExp60 <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span>year, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, <span class="dt">data =</span> gap)</code></pre></div>
 </div>
-<div id="challenge-3.-using-stargazer-format-a-table-reporting-the-results-from-the-three-models-you-created-above-two-linear-regressions-and-one-logistic." class="section level4 unnumbered">
-<h4>Challenge 3. Using <code>stargazer</code>, format a table reporting the results from the three models you created above (two linear regressions and one logistic).</h4>
+<div id="challenge-3.-7" class="section level4 unnumbered">
+<h4>Challenge 3.</h4>
+<p>Using <code>stargazer</code>, format a table reporting the results from the three models you created above (two linear regressions and one logistic).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stargazer</span>(model1, model2, logit_model, <span class="dt">title =</span> <span class="st">&quot;Challenge Regression Results&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;text&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Challenge Regression Results</span>

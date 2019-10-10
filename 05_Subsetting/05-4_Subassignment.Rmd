@@ -5,7 +5,6 @@ date: "Fall 2019"
 output: html_document
 ---
 
-
 ## Sub-assignment
 
 ### Basics of Sub-assignment

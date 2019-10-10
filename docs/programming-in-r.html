@@ -757,7 +757,7 @@ temperature
 </div>
 <div id="challenges-15" class="section level3">
 <h3><span class="header-section-number">16.2.7</span> Challenges</h3>
-<div id="challenge-1-2" class="section level4 unnumbered">
+<div id="challenge-1-1" class="section level4 unnumbered">
 <h4>Challenge 1</h4>
 <p>Write a function that calculates the sum of the squared value of two numbers. For instance, it should generate the following output:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">my_function</span>(<span class="dv">3</span>, <span class="dv">4</span>)
@@ -770,11 +770,11 @@ temperature
 <span class="kw">my_function</span>(<span class="dv">3</span>, <span class="dv">4</span>)
 <span class="co">#&gt; [1] 25</span></code></pre></div>
 </div>
-<div id="challenge-2-2" class="section level4 unnumbered">
+<div id="challenge-2-1" class="section level4 unnumbered">
 <h4>Challenge 2</h4>
 <p>Write <code>both_na()</code>, a function that takes two vectors of the same length and returns the number of positions that have an NA in both vectors.</p>
 </div>
-<div id="challenge-3-1" class="section level4 unnumbered">
+<div id="challenge-3" class="section level4 unnumbered">
 <h4>Challenge 3</h4>
 <p>Fill in the blanks to create a function that takes a name like “Rochelle Terman” and returns that name in uppercase and reversed, like “TERMAN, ROCHELLE”</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">standard_names &lt;-<span class="st"> </span><span class="cf">function</span>(name){
@@ -797,7 +797,7 @@ standard_names &lt;-<span class="st"> </span><span class="cf">function</span>(na
 }
 <span class="kw">standard_names</span>(<span class="st">&#39;Rochelle Terman&#39;</span>)</code></pre></div>
 </div>
-<div id="challenge-4-1" class="section level4 unnumbered">
+<div id="challenge-4" class="section level4 unnumbered">
 <h4>Challenge 4</h4>
 <p>Look at the following function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">print_date &lt;-<span class="st"> </span><span class="cf">function</span>(year, month, day){
@@ -925,7 +925,7 @@ output
 </div>
 <div id="challenges-16" class="section level3">
 <h3><span class="header-section-number">16.3.3</span> Challenges</h3>
-<div id="challenge-1.-4" class="section level4 unnumbered">
+<div id="challenge-1.-11" class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
 <p>Fill in the blanks to write a <code>for</code> loop that calculates the arithmetic mean for every column in <code>mtcars</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars.means &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;double&quot;</span>, ______)
@@ -940,7 +940,7 @@ mtcars.means
 <span class="co">#&gt;  [1]  20.091   6.188 230.722 146.688   3.597   3.217  17.849   0.438</span>
 <span class="co">#&gt;  [9]   0.406   3.688   2.812</span></code></pre></div>
 </div>
-<div id="challenge-2.-4" class="section level4 unnumbered">
+<div id="challenge-2.-11" class="section level4 unnumbered">
 <h4>Challenge 2.</h4>
 <p>Check out the <code>iris</code> dataset:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(<span class="kw">head</span>(iris))</code></pre></div>
@@ -1082,7 +1082,7 @@ setosa
 out
 <span class="co">#&gt; [1] 35 23 43 22  3</span></code></pre></div>
 </div>
-<div id="challenge-3.-3" class="section level4 unnumbered">
+<div id="challenge-3.-8" class="section level4 unnumbered">
 <h4>Challenge 3.</h4>
 <p>Generate 10 random normals for each of <span class="math inline">\(\mu = -10\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(10\)</span>, and <span class="math inline">\(100\)</span>. Store them in a list.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># SOLUTION - HIDE ME</span>
@@ -1144,7 +1144,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_d
 </div>
 <div id="challenges-17" class="section level3">
 <h3><span class="header-section-number">16.3.5</span> Challenges</h3>
-<div id="challenge-1.-5" class="section level4 unnumbered">
+<div id="challenge-1.-12" class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
 <p>Write code that uses one of the map functions to:</p>
 <ol style="list-style-type: decimal">
@@ -1213,11 +1213,6 @@ df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_d
 <p><code>summarize_all()</code> takes a dataframe and a function and applies that function to each column:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize_all</span>(<span class="dt">.funs =</span> mean)
-<span class="co">#&gt; Warning: `is_lang()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; Please use `is_call()` instead.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
-<span class="co">#&gt; Warning: `mut_node_car()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt;    mpg  cyl disp  hp drat   wt qsec    vs    am gear carb</span>
 <span class="co">#&gt; 1 20.1 6.19  231 147  3.6 3.22 17.8 0.438 0.406 3.69 2.81</span></code></pre></div>
 </div>
@@ -1234,9 +1229,6 @@ df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">map_d
 <p><code>summarize_if()</code> allows you to pick variables to summarize based on some property of the column. For example, what if we want to apply a numeric summary function only to numeric columns:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize_if</span>(<span class="dt">.predicate =</span> is.numeric, <span class="dt">.funs =</span> mean)
-<span class="co">#&gt; Warning: `lgl_len()` is deprecated as of rlang 0.2.0.</span>
-<span class="co">#&gt; Please use `new_logical()` instead.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width</span>
 <span class="co">#&gt; 1         5.84        3.06         3.76         1.2</span></code></pre></div>
 <p><code>mutate</code> and <code>filter</code> work in a similar way. To see more, check out <a href="https://dcl-2017-04.github.io/curriculum/manip-scoped.html">Scoped verbs by the Data Challenge Lab</a></p>

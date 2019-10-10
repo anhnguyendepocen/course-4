@@ -3336,7 +3336,11 @@ factor:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{summary}\NormalTok{(party_vector)}
+\CommentTok{#>    Length     Class      Mode }
+\CommentTok{#>         5 character character}
 \KeywordTok{summary}\NormalTok{(party_factor)}
+\CommentTok{#> Dem Rep }
+\CommentTok{#>   2   3}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4131,7 +4135,7 @@ Another way to generate implicit conditional statements is using the
 \subsection{Challenge}\label{challenge-1}
 
 Subset \texttt{country.vector} below to return every value EXCEPT
-``Canada'' and ``Brazil'' \{-\}
+``Canada'' and ``Brazil''
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4144,26 +4148,6 @@ Subset \texttt{country.vector} below to return every value EXCEPT
 \CommentTok{# Do it using a logical vector}
 
 \CommentTok{# Do it using a conditional statement (and an implicit logical vector)}
-\end{Highlighting}
-\end{Shaded}
-
-Solution:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{country.vector<-}\KeywordTok{c}\NormalTok{(}\StringTok{"Afghanistan"}\NormalTok{, }\StringTok{"Canada"}\NormalTok{, }\StringTok{"Sierra Leone"}\NormalTok{, }\StringTok{"Denmark"}\NormalTok{, }\StringTok{"Japan"}\NormalTok{, }\StringTok{"Brazil"}\NormalTok{)}
-
-\CommentTok{# Do it using positive integers}
-\NormalTok{country.vector[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)]}
-
-\CommentTok{# Do it using negative integers}
-\NormalTok{country.vector[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{6}\NormalTok{)]}
-
-\CommentTok{# Do it using a logical vector}
-\NormalTok{country.vector[}\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)]}
-
-\CommentTok{# Do it using a conditional statement (and an implicit logical vector)}
-\NormalTok{country.vector[}\OperatorTok{!}\NormalTok{country.vector }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Canada"}\NormalTok{, }\StringTok{"Brazil"}\NormalTok{)]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4309,16 +4293,6 @@ Take a look at the linear model below:
 \end{Shaded}
 
 Extract the R squared from the model summary.
-
-Solution:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mod.sum <-}\StringTok{ }\KeywordTok{summary}\NormalTok{(mod)}
-\NormalTok{mod.sum}\OperatorTok{$}\NormalTok{r.squared}
-\CommentTok{#> [1] 0.753}
-\end{Highlighting}
-\end{Shaded}
 
 \section{Subsetting Matrices}\label{subsetting-matrices}
 
@@ -4583,11 +4557,10 @@ matrix subsetting simplifies by default, list subsetting does not.
 
 \subsection{Challenges}\label{challenges-9}
 
-\subsubsection*{Challenge 1. Fix each of the following common data frame
-subsetting
-errors:}\label{challenge-1.-fix-each-of-the-following-common-data-frame-subsetting-errors}
-\addcontentsline{toc}{subsubsection}{Challenge 1. Fix each of the
-following common data frame subsetting errors:}
+\subsubsection*{Challenge 1.}\label{challenge-1.-4}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
+
+Fix each of the following common data frame subsetting errors:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4602,96 +4575,11 @@ following common data frame subsetting errors:}
 \end{Highlighting}
 \end{Shaded}
 
-Solution:
+\subsubsection*{Challenge 2.}\label{challenge-2.-4}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mtcars[mtcars}\OperatorTok{$}\NormalTok{cyl }\OperatorTok{==}\StringTok{ }\DecValTok{4}\NormalTok{, ]}
-\CommentTok{#>                 mpg cyl  disp  hp drat   wt qsec vs am gear carb}
-\CommentTok{#> Datsun 710     22.8   4 108.0  93 3.85 2.32 18.6  1  1    4    1}
-\CommentTok{#> Merc 240D      24.4   4 146.7  62 3.69 3.19 20.0  1  0    4    2}
-\CommentTok{#> Merc 230       22.8   4 140.8  95 3.92 3.15 22.9  1  0    4    2}
-\CommentTok{#> Fiat 128       32.4   4  78.7  66 4.08 2.20 19.5  1  1    4    1}
-\CommentTok{#> Honda Civic    30.4   4  75.7  52 4.93 1.61 18.5  1  1    4    2}
-\CommentTok{#> Toyota Corolla 33.9   4  71.1  65 4.22 1.83 19.9  1  1    4    1}
-\CommentTok{#> Toyota Corona  21.5   4 120.1  97 3.70 2.46 20.0  1  0    3    1}
-\CommentTok{#> Fiat X1-9      27.3   4  79.0  66 4.08 1.94 18.9  1  1    4    1}
-\CommentTok{#> Porsche 914-2  26.0   4 120.3  91 4.43 2.14 16.7  0  1    5    2}
-\CommentTok{#> Lotus Europa   30.4   4  95.1 113 3.77 1.51 16.9  1  1    5    2}
-\CommentTok{#> Volvo 142E     21.4   4 121.0 109 4.11 2.78 18.6  1  1    4    2}
-\NormalTok{mtcars[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{), ]}
-\CommentTok{#>                      mpg cyl  disp  hp drat   wt qsec vs am gear carb}
-\CommentTok{#> Hornet Sportabout   18.7   8 360.0 175 3.15 3.44 17.0  0  0    3    2}
-\CommentTok{#> Valiant             18.1   6 225.0 105 2.76 3.46 20.2  1  0    3    1}
-\CommentTok{#> Duster 360          14.3   8 360.0 245 3.21 3.57 15.8  0  0    3    4}
-\CommentTok{#> Merc 240D           24.4   4 146.7  62 3.69 3.19 20.0  1  0    4    2}
-\CommentTok{#> Merc 230            22.8   4 140.8  95 3.92 3.15 22.9  1  0    4    2}
-\CommentTok{#> Merc 280            19.2   6 167.6 123 3.92 3.44 18.3  1  0    4    4}
-\CommentTok{#> Merc 280C           17.8   6 167.6 123 3.92 3.44 18.9  1  0    4    4}
-\CommentTok{#> Merc 450SE          16.4   8 275.8 180 3.07 4.07 17.4  0  0    3    3}
-\CommentTok{#> Merc 450SL          17.3   8 275.8 180 3.07 3.73 17.6  0  0    3    3}
-\CommentTok{#> Merc 450SLC         15.2   8 275.8 180 3.07 3.78 18.0  0  0    3    3}
-\CommentTok{#> Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.25 18.0  0  0    3    4}
-\CommentTok{#> Lincoln Continental 10.4   8 460.0 215 3.00 5.42 17.8  0  0    3    4}
-\CommentTok{#> Chrysler Imperial   14.7   8 440.0 230 3.23 5.34 17.4  0  0    3    4}
-\CommentTok{#> Fiat 128            32.4   4  78.7  66 4.08 2.20 19.5  1  1    4    1}
-\CommentTok{#> Honda Civic         30.4   4  75.7  52 4.93 1.61 18.5  1  1    4    2}
-\CommentTok{#> Toyota Corolla      33.9   4  71.1  65 4.22 1.83 19.9  1  1    4    1}
-\CommentTok{#> Toyota Corona       21.5   4 120.1  97 3.70 2.46 20.0  1  0    3    1}
-\CommentTok{#> Dodge Challenger    15.5   8 318.0 150 2.76 3.52 16.9  0  0    3    2}
-\CommentTok{#> AMC Javelin         15.2   8 304.0 150 3.15 3.44 17.3  0  0    3    2}
-\CommentTok{#> Camaro Z28          13.3   8 350.0 245 3.73 3.84 15.4  0  0    3    4}
-\CommentTok{#> Pontiac Firebird    19.2   8 400.0 175 3.08 3.85 17.1  0  0    3    2}
-\CommentTok{#> Fiat X1-9           27.3   4  79.0  66 4.08 1.94 18.9  1  1    4    1}
-\CommentTok{#> Porsche 914-2       26.0   4 120.3  91 4.43 2.14 16.7  0  1    5    2}
-\CommentTok{#> Lotus Europa        30.4   4  95.1 113 3.77 1.51 16.9  1  1    5    2}
-\CommentTok{#> Ford Pantera L      15.8   8 351.0 264 4.22 3.17 14.5  0  1    5    4}
-\CommentTok{#> Ferrari Dino        19.7   6 145.0 175 3.62 2.77 15.5  0  1    5    6}
-\CommentTok{#> Maserati Bora       15.0   8 301.0 335 3.54 3.57 14.6  0  1    5    8}
-\CommentTok{#> Volvo 142E          21.4   4 121.0 109 4.11 2.78 18.6  1  1    4    2}
-\NormalTok{mtcars[mtcars}\OperatorTok{$}\NormalTok{cyl }\OperatorTok{<=}\StringTok{ }\DecValTok{5}\NormalTok{,]}
-\CommentTok{#>                 mpg cyl  disp  hp drat   wt qsec vs am gear carb}
-\CommentTok{#> Datsun 710     22.8   4 108.0  93 3.85 2.32 18.6  1  1    4    1}
-\CommentTok{#> Merc 240D      24.4   4 146.7  62 3.69 3.19 20.0  1  0    4    2}
-\CommentTok{#> Merc 230       22.8   4 140.8  95 3.92 3.15 22.9  1  0    4    2}
-\CommentTok{#> Fiat 128       32.4   4  78.7  66 4.08 2.20 19.5  1  1    4    1}
-\CommentTok{#> Honda Civic    30.4   4  75.7  52 4.93 1.61 18.5  1  1    4    2}
-\CommentTok{#> Toyota Corolla 33.9   4  71.1  65 4.22 1.83 19.9  1  1    4    1}
-\CommentTok{#> Toyota Corona  21.5   4 120.1  97 3.70 2.46 20.0  1  0    3    1}
-\CommentTok{#> Fiat X1-9      27.3   4  79.0  66 4.08 1.94 18.9  1  1    4    1}
-\CommentTok{#> Porsche 914-2  26.0   4 120.3  91 4.43 2.14 16.7  0  1    5    2}
-\CommentTok{#> Lotus Europa   30.4   4  95.1 113 3.77 1.51 16.9  1  1    5    2}
-\CommentTok{#> Volvo 142E     21.4   4 121.0 109 4.11 2.78 18.6  1  1    4    2}
-\NormalTok{mtcars[mtcars}\OperatorTok{$}\NormalTok{cyl }\OperatorTok{==}\StringTok{ }\DecValTok{4} \OperatorTok{|}\StringTok{ }\NormalTok{mtcars}\OperatorTok{$}\NormalTok{cyl }\OperatorTok{==}\StringTok{ }\DecValTok{6}\NormalTok{, ]}
-\CommentTok{#>                 mpg cyl  disp  hp drat   wt qsec vs am gear carb}
-\CommentTok{#> Mazda RX4      21.0   6 160.0 110 3.90 2.62 16.5  0  1    4    4}
-\CommentTok{#> Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.88 17.0  0  1    4    4}
-\CommentTok{#> Datsun 710     22.8   4 108.0  93 3.85 2.32 18.6  1  1    4    1}
-\CommentTok{#> Hornet 4 Drive 21.4   6 258.0 110 3.08 3.21 19.4  1  0    3    1}
-\CommentTok{#> Valiant        18.1   6 225.0 105 2.76 3.46 20.2  1  0    3    1}
-\CommentTok{#> Merc 240D      24.4   4 146.7  62 3.69 3.19 20.0  1  0    4    2}
-\CommentTok{#> Merc 230       22.8   4 140.8  95 3.92 3.15 22.9  1  0    4    2}
-\CommentTok{#> Merc 280       19.2   6 167.6 123 3.92 3.44 18.3  1  0    4    4}
-\CommentTok{#> Merc 280C      17.8   6 167.6 123 3.92 3.44 18.9  1  0    4    4}
-\CommentTok{#> Fiat 128       32.4   4  78.7  66 4.08 2.20 19.5  1  1    4    1}
-\CommentTok{#> Honda Civic    30.4   4  75.7  52 4.93 1.61 18.5  1  1    4    2}
-\CommentTok{#> Toyota Corolla 33.9   4  71.1  65 4.22 1.83 19.9  1  1    4    1}
-\CommentTok{#> Toyota Corona  21.5   4 120.1  97 3.70 2.46 20.0  1  0    3    1}
-\CommentTok{#> Fiat X1-9      27.3   4  79.0  66 4.08 1.94 18.9  1  1    4    1}
-\CommentTok{#> Porsche 914-2  26.0   4 120.3  91 4.43 2.14 16.7  0  1    5    2}
-\CommentTok{#> Lotus Europa   30.4   4  95.1 113 3.77 1.51 16.9  1  1    5    2}
-\CommentTok{#> Ferrari Dino   19.7   6 145.0 175 3.62 2.77 15.5  0  1    5    6}
-\CommentTok{#> Volvo 142E     21.4   4 121.0 109 4.11 2.78 18.6  1  1    4    2}
-\end{Highlighting}
-\end{Shaded}
-
-\subsubsection*{\texorpdfstring{Challenge 2. Why does
-\texttt{mtcars{[}1:20{]}} return an error? How does it differ from the
-similar
-\texttt{mtcars{[}1:20,\ {]}}?}{Challenge 2. Why does mtcars{[}1:20{]} return an error? How does it differ from the similar mtcars{[}1:20, {]}?}}\label{challenge-2.-why-does-mtcars120-return-an-error-how-does-it-differ-from-the-similar-mtcars120}
-\addcontentsline{toc}{subsubsection}{Challenge 2. Why does
-\texttt{mtcars{[}1:20{]}} return an error? How does it differ from the
-similar \texttt{mtcars{[}1:20,\ {]}}?}
+Why does \texttt{mtcars{[}1:20{]}} return an error? How does it differ
+from the similar \texttt{mtcars{[}1:20,\ {]}}?
 
 \section{Sub-assignment}\label{sub-assignment}
 
@@ -4999,7 +4887,7 @@ You can print this out in R code by running \texttt{getwd()}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/petecuppernull/Desktop/course"}
+\CommentTok{#> [1] "/Users/rochelleterman/Desktop/PLSC_31101/course-site"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5117,7 +5005,7 @@ directory:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{getwd}\NormalTok{()}
-\CommentTok{#> [1] "/Users/petecuppernull/Desktop/course"}
+\CommentTok{#> [1] "/Users/rochelleterman/Desktop/PLSC_31101/course-site"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5787,7 +5675,7 @@ common, so it's good to know how they work:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  change column names
+  Change column names
 \end{enumerate}
 
 \begin{Shaded}
@@ -5974,7 +5862,7 @@ common graphs. First, a scatterplot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-218-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-215-1} \end{center}
 
 Finally, let's quickly take a look at a histogram of the variable
 \texttt{nyt.count}:
@@ -5985,14 +5873,14 @@ Finally, let's quickly take a look at a histogram of the variable
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-219-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-216-1} \end{center}
 
 \subsection{Challenges}\label{challenges-10}
 
-\subsubsection*{\texorpdfstring{Challenge 1. Read the \texttt{polity}
-dataset.}{Challenge 1. Read the polity dataset.}}\label{challenge-1.-read-the-polity-dataset.}
-\addcontentsline{toc}{subsubsection}{Challenge 1. Read the
-\texttt{polity} dataset.}
+\subsubsection*{Challenge 1.}\label{challenge-1.-5}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
+
+Read the \texttt{polity} dataset.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6000,11 +5888,10 @@ dataset.}{Challenge 1. Read the polity dataset.}}\label{challenge-1.-read-the-po
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 2. Report the number and names of each
-variable in the
-dataset.}\label{challenge-2.-report-the-number-and-names-of-each-variable-in-the-dataset.}
-\addcontentsline{toc}{subsubsection}{Challenge 2. Report the number and
-names of each variable in the dataset.}
+\subsubsection*{Challenge 2.}\label{challenge-2.-5}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
+
+Report the number and names of each variable in the dataset.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6020,10 +5907,10 @@ names of each variable in the dataset.}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 3. Extract the 5th row from the polity
-dataset.}\label{challenge-3.-extract-the-5th-row-from-the-polity-dataset.}
-\addcontentsline{toc}{subsubsection}{Challenge 3. Extract the 5th row
-from the polity dataset.}
+\subsubsection*{Challenge 3.}\label{challenge-3.-3}
+\addcontentsline{toc}{subsubsection}{Challenge 3.}
+
+Extract the 5th row from the polity dataset.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6039,26 +5926,24 @@ from the polity dataset.}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 4. Extract the last row from the polity
-dataset.}\label{challenge-4.-extract-the-last-row-from-the-polity-dataset.}
-\addcontentsline{toc}{subsubsection}{Challenge 4. Extract the last row
-from the polity dataset.}
+\subsubsection*{Challenge 4.}\label{challenge-4.-1}
+\addcontentsline{toc}{subsubsection}{Challenge 4.}
 
-\subsubsection*{\texorpdfstring{Challenge 5. Count the percentage of
-observations with a value of \texttt{polity2} greater than 8 in the
-gapminder
-dataset.}{Challenge 5. Count the percentage of observations with a value of polity2 greater than 8 in the gapminder dataset.}}\label{challenge-5.-count-the-percentage-of-observations-with-a-value-of-polity2-greater-than-8-in-the-gapminder-dataset.}
-\addcontentsline{toc}{subsubsection}{Challenge 5. Count the percentage
-of observations with a value of \texttt{polity2} greater than 8 in the
-gapminder dataset.}
+Extract the last row from the polity dataset.
+
+\subsubsection*{Challenge 5.}\label{challenge-5.}
+\addcontentsline{toc}{subsubsection}{Challenge 5.}
+
+Count the percentage of observations with a value of \texttt{polity2}
+greater than 8 in the gapminder dataset.
 
 (Hint: if using sum(), read the help file..)
 
-\subsubsection*{\texorpdfstring{Challenge 6. Set all of the values of
-\texttt{democ} and \texttt{autac} columns less than -10 to
-NA.}{Challenge 6. Set all of the values of democ and autac columns less than -10 to NA.}}\label{challenge-6.-set-all-of-the-values-of-democ-and-autac-columns-less-than--10-to-na.}
-\addcontentsline{toc}{subsubsection}{Challenge 6. Set all of the values
-of \texttt{democ} and \texttt{autac} columns less than -10 to NA.}
+\subsubsection*{Challenge 6.}\label{challenge-6.}
+\addcontentsline{toc}{subsubsection}{Challenge 6.}
+
+Set all of the values of \texttt{democ} and \texttt{autac} columns less
+than -10 to NA.
 
 (Hint: You should first copy the \texttt{polity} object and work on the
 copy so that the original dataset is unchanged (or just read the data
@@ -7371,12 +7256,11 @@ with this problem in this context of using functions.
 
 \section{Challenges}\label{challenges-11}
 
-\subsubsection*{\texorpdfstring{Challenge 1. Use \texttt{dplyr} to
-create a data frame containing the median \texttt{lifeExp} for each
-continent.}{Challenge 1. Use dplyr to create a data frame containing the median lifeExp for each continent.}}\label{challenge-1.-use-dplyr-to-create-a-data-frame-containing-the-median-lifeexp-for-each-continent.}
-\addcontentsline{toc}{subsubsection}{Challenge 1. Use \texttt{dplyr} to
-create a data frame containing the median \texttt{lifeExp} for each
-continent.}
+\subsubsection*{Challenge 1.}\label{challenge-1.-6}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
+
+Use \texttt{dplyr} to create a data frame containing the median
+\texttt{lifeExp} for each continent.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7394,17 +7278,13 @@ continent.}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{\texorpdfstring{Challenge 2. Use \texttt{dplyr} to add a
-column to the gapminder dataset that contains the total population of
-the continent of each observation in a given year. For example, if the
-first observation is Afghanistan in 1952, the new column would contain
-the population of Asia in
-1952.}{Challenge 2. Use dplyr to add a column to the gapminder dataset that contains the total population of the continent of each observation in a given year. For example, if the first observation is Afghanistan in 1952, the new column would contain the population of Asia in 1952.}}\label{challenge-2.-use-dplyr-to-add-a-column-to-the-gapminder-dataset-that-contains-the-total-population-of-the-continent-of-each-observation-in-a-given-year.-for-example-if-the-first-observation-is-afghanistan-in-1952-the-new-column-would-contain-the-population-of-asia-in-1952.}
-\addcontentsline{toc}{subsubsection}{Challenge 2. Use \texttt{dplyr} to
-add a column to the gapminder dataset that contains the total population
-of the continent of each observation in a given year. For example, if
-the first observation is Afghanistan in 1952, the new column would
-contain the population of Asia in 1952.}
+\subsubsection*{Challenge 2.}\label{challenge-2.-6}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
+
+Use \texttt{dplyr} to add a column to the gapminder dataset that
+contains the total population of the continent of each observation in a
+given year. For example, if the first observation is Afghanistan in
+1952, the new column would contain the population of Asia in 1952.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7425,19 +7305,15 @@ contain the population of Asia in 1952.}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{\texorpdfstring{Challenge 3. Use \texttt{dplyr} to: (a)
-add a column called \texttt{gdpPercap\_diff} that contains the
-difference between the observation's \texttt{gdpPercap} and the mean
-\texttt{gdpPercap} of the continent in that year, (b) arrange the
-dataframe by the column you just created, in descending order (so that
-the relatively richest country-years are listed
-first).}{Challenge 3. Use dplyr to: (a) add a column called gdpPercap\_diff that contains the difference between the observation's gdpPercap and the mean gdpPercap of the continent in that year, (b) arrange the dataframe by the column you just created, in descending order (so that the relatively richest country-years are listed first).}}\label{challenge-3.-use-dplyr-to-a-add-a-column-called-gdppercap_diff-that-contains-the-difference-between-the-observations-gdppercap-and-the-mean-gdppercap-of-the-continent-in-that-year-b-arrange-the-dataframe-by-the-column-you-just-created-in-descending-order-so-that-the-relatively-richest-country-years-are-listed-first.}
-\addcontentsline{toc}{subsubsection}{Challenge 3. Use \texttt{dplyr} to:
-(a) add a column called \texttt{gdpPercap\_diff} that contains the
-difference between the observation's \texttt{gdpPercap} and the mean
-\texttt{gdpPercap} of the continent in that year, (b) arrange the
-dataframe by the column you just created, in descending order (so that
-the relatively richest country-years are listed first).}
+\subsubsection*{Challenge 3.}\label{challenge-3.-4}
+\addcontentsline{toc}{subsubsection}{Challenge 3.}
+
+Use \texttt{dplyr} to: (a) add a column called \texttt{gdpPercap\_diff}
+that contains the difference between the observation's
+\texttt{gdpPercap} and the mean \texttt{gdpPercap} of the continent in
+that year, (b) arrange the dataframe by the column you just created, in
+descending order (so that the relatively richest country-years are
+listed first).
 
 \textbf{hint}: You might have to \texttt{ungroup()} before you
 \texttt{arrange()}.
@@ -9110,23 +8986,18 @@ others), try:
 
 \section{Challenges}\label{challenges-12}
 
-\subsubsection*{\texorpdfstring{Challenge 1. Subset the results from
-challenge \#3 (above) to select only the \texttt{country},
-\texttt{year}, and \texttt{gdpPercap\_diff} columns. Use \texttt{tidyr}
-put it in wide format so that countries are rows and years are
-columns.}{Challenge 1. Subset the results from challenge \#3 (above) to select only the country, year, and gdpPercap\_diff columns. Use tidyr put it in wide format so that countries are rows and years are columns.}}\label{challenge-1.-subset-the-results-from-challenge-3-above-to-select-only-the-country-year-and-gdppercap_diff-columns.-use-tidyr-put-it-in-wide-format-so-that-countries-are-rows-and-years-are-columns.}
-\addcontentsline{toc}{subsubsection}{Challenge 1. Subset the results
-from challenge \#3 (above) to select only the \texttt{country},
-\texttt{year}, and \texttt{gdpPercap\_diff} columns. Use \texttt{tidyr}
-put it in wide format so that countries are rows and years are columns.}
+\subsubsection*{Challenge 1.}\label{challenge-1.-7}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
 
-\subsubsection*{\texorpdfstring{Challenge 2. Now turn the dataframe
-above back into the long format with three columns: \texttt{country},
-\texttt{year}, and
-\texttt{gdpPercap\_diff}.}{Challenge 2. Now turn the dataframe above back into the long format with three columns: country, year, and gdpPercap\_diff.}}\label{challenge-2.-now-turn-the-dataframe-above-back-into-the-long-format-with-three-columns-country-year-and-gdppercap_diff.}
-\addcontentsline{toc}{subsubsection}{Challenge 2. Now turn the dataframe
-above back into the long format with three columns: \texttt{country},
-\texttt{year}, and \texttt{gdpPercap\_diff}.}
+Subset the results from challenge \#3 (above) to select only the
+\texttt{country}, \texttt{year}, and \texttt{gdpPercap\_diff} columns.
+Use \texttt{tidyr} put it in wide format so that countries are rows and
+years are columns.
+
+\subsubsection{Challenge 2.}\label{challenge-2.-7}
+
+Now turn the dataframe above back into the long format with three
+columns: \texttt{country}, \texttt{year}, and \texttt{gdpPercap\_diff}.
 
 \subsubsection*{Acknowledgments}\label{acknowledgments-4}
 \addcontentsline{toc}{subsubsection}{Acknowledgments}
@@ -10182,7 +10053,7 @@ The \textbf{basic} call takes the following form:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-283-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-1} \end{center}
 
 \subsection{Scatter and Line Plots}\label{scatter-and-line-plots}
 
@@ -10202,11 +10073,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-284-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-284}
+\caption{ }\label{fig:unnamed-chunk-281}
 \end{figure}
 
 \begin{itemize}
@@ -10224,11 +10095,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-285-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-285}
+\caption{ }\label{fig:unnamed-chunk-282}
 \end{figure}
 
 \begin{itemize}
@@ -10245,11 +10116,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-286-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-283-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-286}
+\caption{ }\label{fig:unnamed-chunk-283}
 \end{figure}
 
 \subsection{Histograms and Density
@@ -10263,7 +10134,7 @@ Histograms display the frequency of different values of a variable.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-287-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-284-1} \end{center}
 
 Histograms require a \texttt{breaks} argument, which determine the
 number of bins in the plot. Let's play around with different
@@ -10276,7 +10147,7 @@ number of bins in the plot. Let's play around with different
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-285-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-285-2} \end{center}
 
 Density plots are similar, they visualize the distribution of data over
 a continuous interval.
@@ -10293,11 +10164,11 @@ a continuous interval.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-289-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-286-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-289}
+\caption{ }\label{fig:unnamed-chunk-286}
 \end{figure}
 
 Density passes a \texttt{bw} parameter, which determins the plot's
@@ -10314,7 +10185,7 @@ Density passes a \texttt{bw} parameter, which determins the plot's
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-287-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-287-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-287-3} \end{center}
 
 \subsection{Labels}\label{labels}
 
@@ -10336,11 +10207,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-289-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-292}
+\caption{ }\label{fig:unnamed-chunk-289}
 \end{figure}
 
 \subsection{Axis and Size Scaling}\label{axis-and-size-scaling}
@@ -10374,11 +10245,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-4} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-4} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-294}
+\caption{ }\label{fig:unnamed-chunk-291}
 \end{figure}
 
 \subsection{Graphical Parameters}\label{graphical-parameters}
@@ -10423,11 +10294,11 @@ Color Infographic}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-2} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-2} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-297}
+\caption{ }\label{fig:unnamed-chunk-294}
 \end{figure}
 
 \begin{itemize}
@@ -10456,11 +10327,11 @@ Reference}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-5} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-5} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-298}
+\caption{ }\label{fig:unnamed-chunk-295}
 \end{figure}
 
 \begin{itemize}
@@ -10488,11 +10359,11 @@ Reference}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-6} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-6} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-299}
+\caption{ }\label{fig:unnamed-chunk-296}
 \end{figure}
 
 \subsection{Annotations, Reference Lines, and
@@ -10517,11 +10388,11 @@ We can add text to an arbitrary point on the graph like this:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-297-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-300}
+\caption{ }\label{fig:unnamed-chunk-297}
 \end{figure}
 
 We can also add labels for every point by passing in a vector of text:
@@ -10541,11 +10412,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-301}
+\caption{ }\label{fig:unnamed-chunk-298}
 \end{figure}
 
 \begin{itemize}
@@ -10565,11 +10436,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-302-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-302}
+\caption{ }\label{fig:unnamed-chunk-299}
 \end{figure}
 
 \section{ggplot2}\label{ggplot2}
@@ -10687,10 +10558,10 @@ scatterplot of points:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-1} \end{center}
 
-\subsubsection*{Challenge 1}\label{challenge-1-1}
-\addcontentsline{toc}{subsubsection}{Challenge 1}
+\subsubsection*{Challenge 1.}\label{challenge-1.-8}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
 
 Modify the example so that the figure visualises how life expectancy has
 changed over time:
@@ -10707,7 +10578,7 @@ should appear on the x-axis.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \end{center}
 
 \subsection{\texorpdfstring{Anatomy of
 \texttt{aes}}{Anatomy of aes}}\label{anatomy-of-aes}
@@ -10724,7 +10595,7 @@ modify is the point \textbf{color}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-1} \end{center}
 
 Normally, specifying options like \texttt{color="red"} or
 \texttt{size=10} for a given layer results in its contents being red and
@@ -10755,7 +10626,7 @@ plot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-311-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} \end{center}
 
 Instead of adding a \texttt{geom\_point} layer, we've added a
 \texttt{geom\_line} layer. We've also added the \textbf{by} aesthetic,
@@ -10772,7 +10643,7 @@ can simply add another layer to the plot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} \end{center}
 
 It's important to note that each layer is drawn on top of the previous
 layer. In this example, the points have been drawn on top of the lines.
@@ -10786,15 +10657,15 @@ Here's a demonstration:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-1} \end{center}
 
 In this example, the aesthetic mapping of \textbf{color} has been moved
 from the global plot options in \texttt{ggplot} to the
 \texttt{geom\_line} layer so it no longer applies to the points. Now we
 can clearly see that the points are drawn on top of the lines.
 
-\subsubsection*{Challenge 2}\label{challenge-2-1}
-\addcontentsline{toc}{subsubsection}{Challenge 2}
+\subsubsection*{Challenge 2.}\label{challenge-2.-8}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
 
 Switch the order of the point and line layers from the previous example.
 What happened?
@@ -10814,7 +10685,7 @@ Labels are considered to be their own layers in \texttt{ggplot}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-311-1} \end{center}
 
 So are scales:
 
@@ -10831,7 +10702,7 @@ So are scales:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-315-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-1} \end{center}
 
 \subsection{Transformations and Stats}\label{transformations-and-stats}
 
@@ -10845,7 +10716,7 @@ the data. To demonstrate we'll go back to an earlier example:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} \end{center}
 
 We can change the scale of units on the x-axis using the \texttt{scale}
 functions. These control the mapping between the data values and visual
@@ -10859,7 +10730,7 @@ values of an aesthetic.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-317-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-1} \end{center}
 
 The \texttt{log10} function applied a transformation to the values of
 the \texttt{gdpPercap} column before rendering them on the plot, so that
@@ -10880,7 +10751,7 @@ We can fit a simple relationship to the data by adding another layer,
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-318-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-315-1} \end{center}
 
 Note that we have 5 lines, one for each region, because of the
 \textbf{color} option is the global \texttt{aes} function. But if we
@@ -10895,7 +10766,7 @@ move it, we get different restuls:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-1} \end{center}
 
 So, there are two ways an aesthetic can be specified. Here, we set the
 \textbf{color} aesthetic by passing it as an argument to
@@ -10915,10 +10786,10 @@ the geom\_smooth layer:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-320-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-317-1} \end{center}
 
-\subsubsection*{Challenge 3}\label{challenge-3}
-\addcontentsline{toc}{subsubsection}{Challenge 3}
+\subsubsection*{Challenge 3.}\label{challenge-3.-5}
+\addcontentsline{toc}{subsubsection}{Challenge 3.}
 
 Modify the color and size of the points on the point layer in the
 previous example so that they are fixed (i.e.~not reflective of
@@ -10937,7 +10808,7 @@ Hint: do not use the \texttt{aes} function.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-321-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-318-1} \end{center}
 
 \subsection{Facets}\label{facets}
 
@@ -10953,7 +10824,7 @@ multiple panels by adding a layer of \textbf{facet} panels:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-322-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-1} \end{center}
 
 \subsection{Putting Everything
 Together}\label{putting-everything-together}
@@ -10976,7 +10847,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-323-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-323-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-320-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-320-2} \end{center}
 
 \textbf{box plots}
 
@@ -10987,7 +10858,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-324-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-321-1} \end{center}
 
 This is just a taste of what you can do with \texttt{ggplot2}.
 
@@ -11001,8 +10872,8 @@ Finally, if you have no idea how to change something, a quick Google
 search will usually send you to a relevant question and answer on Stack
 Overflow with reusable code to modify!
 
-\subsubsection*{Challenge 4}\label{challenge-4}
-\addcontentsline{toc}{subsubsection}{Challenge 4}
+\subsubsection*{Challenge 4.}\label{challenge-4.-2}
+\addcontentsline{toc}{subsubsection}{Challenge 4.}
 
 Create a density plot of GDP per capita, filled by continent.
 
@@ -11030,7 +10901,7 @@ Add a facet layer to panel the density plots by year.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-325-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-325-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-325-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-322-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-322-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-322-3} \end{center}
 
 \section{Saving plots}\label{saving-plots}
 
@@ -11148,7 +11019,7 @@ distribution
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-332-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-329-1} \end{center}
 
 \subsection{Sampling and Simulation}\label{sampling-and-simulation}
 
@@ -11227,13 +11098,11 @@ seed first. The seed can be arbitrary -- pick your favorite number.
 
 \subsection{Challenges}\label{challenges-13}
 
-\subsubsection*{Challenge 1. Generate 100 random Poisson values with a
-population mean of 5. How close is the mean of those 100 values to the
-value of
-5?}\label{challenge-1.-generate-100-random-poisson-values-with-a-population-mean-of-5.-how-close-is-the-mean-of-those-100-values-to-the-value-of-5}
-\addcontentsline{toc}{subsubsection}{Challenge 1. Generate 100 random
-Poisson values with a population mean of 5. How close is the mean of
-those 100 values to the value of 5?}
+\subsubsection*{Challenge 1.}\label{challenge-1.-9}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
+
+Generate 100 random Poisson values with a population mean of 5. How
+close is the mean of those 100 values to the value of 5?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11243,11 +11112,11 @@ those 100 values to the value of 5?}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 2. What is the 95th percentile of a chi-square
-distribution with 1 degree of
-freedom?}\label{challenge-2.-what-is-the-95th-percentile-of-a-chi-square-distribution-with-1-degree-of-freedom}
-\addcontentsline{toc}{subsubsection}{Challenge 2. What is the 95th
-percentile of a chi-square distribution with 1 degree of freedom?}
+\subsubsection*{Challenge 2.}\label{challenge-2.-9}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
+
+What is the 95th percentile of a chi-square distribution with 1 degree
+of freedom?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11256,13 +11125,12 @@ percentile of a chi-square distribution with 1 degree of freedom?}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 3. What's the probability of getting a value
-greater than 5 if you draw from a standard normal distribution? What
-about a t distribution with 1 degree of
-freedom?}\label{challenge-3.-whats-the-probability-of-getting-a-value-greater-than-5-if-you-draw-from-a-standard-normal-distribution-what-about-a-t-distribution-with-1-degree-of-freedom}
-\addcontentsline{toc}{subsubsection}{Challenge 3. What's the probability
-of getting a value greater than 5 if you draw from a standard normal
-distribution? What about a t distribution with 1 degree of freedom?}
+\subsubsection*{Challenge 3.}\label{challenge-3.-6}
+\addcontentsline{toc}{subsubsection}{Challenge 3.}
+
+What's the probability of getting a value greater than 5 if you draw
+from a standard normal distribution? What about a t distribution with 1
+degree of freedom?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11328,7 +11196,7 @@ One can test for differences in distributions in either:
 \CommentTok{#>  Welch Two Sample t-test}
 \CommentTok{#> }
 \CommentTok{#> data:  life.exp.1967 and life.exp.1977}
-\CommentTok{#> t = -3, df = 300, p-value = 0.005}
+\CommentTok{#> t = -3, df = 281, p-value = 0.005}
 \CommentTok{#> alternative hypothesis: true difference in means is not equal to 0}
 \CommentTok{#> 95 percent confidence interval:}
 \CommentTok{#>  -6.57 -1.21}
@@ -11482,7 +11350,7 @@ items of interest.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-350-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-350-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-350-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-350-4} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-347-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-347-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-347-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-347-4} \end{center}
 
 R also has a helpful \texttt{summary} method for regression objects.
 
@@ -12046,7 +11914,7 @@ regression table in LaTeX:
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Wed, Oct 09, 2019 - 11:51:44}
+\CommentTok{#> % Date and time: Thu, Oct 10, 2019 - 14:45:52}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -12120,19 +11988,14 @@ To include stargazer tables in Microsoft Word documents (e.g., .doc or
 
 \subsection{Challenges}\label{challenges-14}
 
-\subsubsection*{\texorpdfstring{Challenge 1. Fit two linear regression
-models from the gapminder data, where the outcome is \texttt{lifeExp}
-and the explanatory variables are \texttt{log(pop)},
-\texttt{log(gdpPercap)}, and \texttt{year}. In one model, treat
-\texttt{year} as a numeric variable. In the other, factorize the
-\texttt{year} variable. How do you interpret each
-model?}{Challenge 1. Fit two linear regression models from the gapminder data, where the outcome is lifeExp and the explanatory variables are log(pop), log(gdpPercap), and year. In one model, treat year as a numeric variable. In the other, factorize the year variable. How do you interpret each model?}}\label{challenge-1.-fit-two-linear-regression-models-from-the-gapminder-data-where-the-outcome-is-lifeexp-and-the-explanatory-variables-are-logpop-loggdppercap-and-year.-in-one-model-treat-year-as-a-numeric-variable.-in-the-other-factorize-the-year-variable.-how-do-you-interpret-each-model}
-\addcontentsline{toc}{subsubsection}{Challenge 1. Fit two linear
-regression models from the gapminder data, where the outcome is
-\texttt{lifeExp} and the explanatory variables are \texttt{log(pop)},
-\texttt{log(gdpPercap)}, and \texttt{year}. In one model, treat
-\texttt{year} as a numeric variable. In the other, factorize the
-\texttt{year} variable. How do you interpret each model?}
+\subsubsection*{Challenge 1.}\label{challenge-1.-10}
+\addcontentsline{toc}{subsubsection}{Challenge 1.}
+
+Fit two linear regression models from the gapminder data, where the
+outcome is \texttt{lifeExp} and the explanatory variables are
+\texttt{log(pop)}, \texttt{log(gdpPercap)}, and \texttt{year}. In one
+model, treat \texttt{year} as a numeric variable. In the other,
+factorize the \texttt{year} variable. How do you interpret each model?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12141,14 +12004,12 @@ regression models from the gapminder data, where the outcome is
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{\texorpdfstring{Challenge 2. Fit a logistic regression
-model where the outcome is whether \texttt{lifeExp} is greater than or
-less than 60 years, exploring the use of different
-predictors.}{Challenge 2. Fit a logistic regression model where the outcome is whether lifeExp is greater than or less than 60 years, exploring the use of different predictors.}}\label{challenge-2.-fit-a-logistic-regression-model-where-the-outcome-is-whether-lifeexp-is-greater-than-or-less-than-60-years-exploring-the-use-of-different-predictors.}
-\addcontentsline{toc}{subsubsection}{Challenge 2. Fit a logistic
-regression model where the outcome is whether \texttt{lifeExp} is
-greater than or less than 60 years, exploring the use of different
-predictors.}
+\subsubsection*{Challenge 2.}\label{challenge-2.-10}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
+
+Fit a logistic regression model where the outcome is whether
+\texttt{lifeExp} is greater than or less than 60 years, exploring the
+use of different predictors.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12161,13 +12022,12 @@ predictors.}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{\texorpdfstring{Challenge 3. Using \texttt{stargazer},
-format a table reporting the results from the three models you created
-above (two linear regressions and one
-logistic).}{Challenge 3. Using stargazer, format a table reporting the results from the three models you created above (two linear regressions and one logistic).}}\label{challenge-3.-using-stargazer-format-a-table-reporting-the-results-from-the-three-models-you-created-above-two-linear-regressions-and-one-logistic.}
-\addcontentsline{toc}{subsubsection}{Challenge 3. Using
-\texttt{stargazer}, format a table reporting the results from the three
-models you created above (two linear regressions and one logistic).}
+\subsubsection*{Challenge 3.}\label{challenge-3.-7}
+\addcontentsline{toc}{subsubsection}{Challenge 3.}
+
+Using \texttt{stargazer}, format a table reporting the results from the
+three models you created above (two linear regressions and one
+logistic).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13068,7 +12928,7 @@ Here \texttt{cc} and bcc are \texttt{optional}, and evaluate to
 
 \subsection{Challenges}\label{challenges-15}
 
-\subsubsection*{Challenge 1}\label{challenge-1-2}
+\subsubsection*{Challenge 1}\label{challenge-1-1}
 \addcontentsline{toc}{subsubsection}{Challenge 1}
 
 Write a function that calculates the sum of the squared value of two
@@ -13093,14 +12953,14 @@ numbers. For instance, it should generate the following output:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 2}\label{challenge-2-2}
+\subsubsection*{Challenge 2}\label{challenge-2-1}
 \addcontentsline{toc}{subsubsection}{Challenge 2}
 
 Write \texttt{both\_na()}, a function that takes two vectors of the same
 length and returns the number of positions that have an NA in both
 vectors.
 
-\subsubsection*{Challenge 3}\label{challenge-3-1}
+\subsubsection*{Challenge 3}\label{challenge-3}
 \addcontentsline{toc}{subsubsection}{Challenge 3}
 
 Fill in the blanks to create a function that takes a name like
@@ -13131,7 +12991,7 @@ like ``TERMAN, ROCHELLE''
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 4}\label{challenge-4-1}
+\subsubsection*{Challenge 4}\label{challenge-4}
 \addcontentsline{toc}{subsubsection}{Challenge 4}
 
 Look at the following function:
@@ -13411,7 +13271,7 @@ column names.
 
 \subsection{Challenges}\label{challenges-16}
 
-\subsubsection*{Challenge 1.}\label{challenge-1.-4}
+\subsubsection*{Challenge 1.}\label{challenge-1.-11}
 \addcontentsline{toc}{subsubsection}{Challenge 1.}
 
 Fill in the blanks to write a \texttt{for} loop that calculates the
@@ -13438,7 +13298,7 @@ arithmetic mean for every column in \texttt{mtcars}.
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 2.}\label{challenge-2.-4}
+\subsubsection*{Challenge 2.}\label{challenge-2.-11}
 \addcontentsline{toc}{subsubsection}{Challenge 2.}
 
 Check out the \texttt{iris} dataset:
@@ -13545,7 +13405,7 @@ identify the three components you need:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 3.}\label{challenge-3.-3}
+\subsubsection*{Challenge 3.}\label{challenge-3.-8}
 \addcontentsline{toc}{subsubsection}{Challenge 3.}
 
 Generate 10 random normals for each of \(\mu = -10\), \(0\), \(10\), and
@@ -13670,7 +13530,7 @@ Check out other fun applications of \texttt{map} functions
 
 \subsection{Challenges}\label{challenges-17}
 
-\subsubsection*{Challenge 1.}\label{challenge-1.-5}
+\subsubsection*{Challenge 1.}\label{challenge-1.-12}
 \addcontentsline{toc}{subsubsection}{Challenge 1.}
 
 Write code that uses one of the map functions to:
@@ -14242,6 +14102,10 @@ favorite\_count
 
 retweet\_count
 
+quote\_count
+
+reply\_count
+
 hashtags
 
 symbols
@@ -14429,6 +14293,10 @@ NA
 
 NA
 
+NA
+
+NA
+
 \url{http://pbs.twimg.com/media/EGStvNyWoAExuf5.jpg}
 
 \url{https://t.co/KfZSPg6o7f}
@@ -14543,7 +14411,7 @@ enthusiast
 
 FALSE
 
-1929
+1934
 
 1012
 
@@ -14551,7 +14419,7 @@ FALSE
 
 1531
 
-2648
+2649
 
 1346896669
 
@@ -14627,6 +14495,10 @@ NA
 
 NA
 
+NA
+
+NA
+
 1036404458161426432
 
 ProfTalmadge
@@ -14675,7 +14547,7 @@ have female authors 🙋‍♀️ But yes, stop hiding, lady experts!
 
 Twitter Web App
 
-377
+378
 
 112
 
@@ -14687,7 +14559,7 @@ ProfTalmadge
 
 2709
 
-945
+948
 
 1357
 
@@ -14731,7 +14603,7 @@ enthusiast
 
 FALSE
 
-1929
+1934
 
 1012
 
@@ -14739,7 +14611,7 @@ FALSE
 
 1531
 
-2648
+2649
 
 1346896669
 
@@ -14786,6 +14658,10 @@ TRUE
 0
 
 6
+
+NA
+
+NA
 
 NA
 
@@ -14869,7 +14745,7 @@ sekreps
 
 Sarah Kreps
 
-2447
+2448
 
 696
 
@@ -14915,7 +14791,7 @@ enthusiast
 
 FALSE
 
-1929
+1934
 
 1012
 
@@ -14923,7 +14799,7 @@ FALSE
 
 1531
 
-2648
+2649
 
 1346896669
 
@@ -14970,6 +14846,10 @@ TRUE
 0
 
 30
+
+NA
+
+NA
 
 NA
 
@@ -15053,11 +14933,11 @@ JackieGSchneid
 
 Jacquelyn Schneider
 
-2822
+2823
 
-497
+498
 
-1112
+1115
 
 Hoover Fellow \citet{hooverInst}, Non-Resident Fellow
 \citet{NavalWarCollege}, specializing in cyber, unmanned weapons, and
@@ -15097,7 +14977,7 @@ enthusiast
 
 FALSE
 
-1929
+1934
 
 1012
 
@@ -15105,7 +14985,7 @@ FALSE
 
 1531
 
-2648
+2649
 
 1346896669
 
@@ -15153,6 +15033,10 @@ FALSE
 0
 
 0
+
+NA
+
+NA
 
 NA
 
@@ -15278,7 +15162,7 @@ enthusiast
 
 FALSE
 
-1929
+1934
 
 1012
 
@@ -15286,7 +15170,7 @@ FALSE
 
 1531
 
-2648
+2649
 
 1346896669
 
@@ -15334,6 +15218,10 @@ FALSE
 0
 
 0
+
+NA
+
+NA
 
 NA
 
@@ -15459,7 +15347,7 @@ enthusiast
 
 FALSE
 
-1929
+1934
 
 1012
 
@@ -15467,7 +15355,7 @@ FALSE
 
 1531
 
-2648
+2649
 
 1346896669
 
@@ -15497,7 +15385,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-451-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-448-1} \end{center}
 
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}
 
@@ -15537,17 +15425,17 @@ exclude retweets from the query.
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 973 x 3}
-\CommentTok{#> # Groups:   user_id [973]}
+\CommentTok{#> # A tibble: 1,026 x 3}
+\CommentTok{#> # Groups:   user_id [1,026]}
 \CommentTok{#>   user_id             location                           n}
 \CommentTok{#>   <chr>               <chr>                          <int>}
-\CommentTok{#> 1 2561373848          Florida, USA                      94}
-\CommentTok{#> 2 764290456599396353  Rochester, New York               45}
-\CommentTok{#> 3 1022122568004894720 ""                                37}
-\CommentTok{#> 4 1030069194539368448 ""                                36}
-\CommentTok{#> 5 714738130557992960  Chiclana de la Frontera, Spain    29}
-\CommentTok{#> 6 2375819586          Villavicencio, Colombia           22}
-\CommentTok{#> # ... with 967 more rows}
+\CommentTok{#> 1 764290456599396353  Rochester, New York               39}
+\CommentTok{#> 2 1030069194539368448 ""                                34}
+\CommentTok{#> 3 1022122568004894720 ""                                33}
+\CommentTok{#> 4 714738130557992960  Chiclana de la Frontera, Spain    28}
+\CommentTok{#> 5 2375819586          Villavicencio, Colombia           26}
+\CommentTok{#> 6 1048404121206714369 ""                                14}
+\CommentTok{#> # ... with 1,020 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -15741,17 +15629,17 @@ information on the first ten documents:
 \CommentTok{# What's in 'meta'?}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}
 \CommentTok{#> $hits}
-\CommentTok{#> [1] 3892}
+\CommentTok{#> [1] 3880}
 \CommentTok{#> }
 \CommentTok{#> $offset}
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 21}
+\CommentTok{#> [1] 50}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
-\CommentTok{#> [1] 3892}
+\CommentTok{#> [1] 3880}
 
 \CommentTok{# Check out docs}
 \KeywordTok{names}\NormalTok{(response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{docs)}
@@ -15864,7 +15752,7 @@ was published in.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-464-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-461-1} \end{center}
 
 \subsection{More resources}\label{more-resources-1}
 
@@ -16112,7 +16000,7 @@ contain the data you need.
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Challenge 1}\label{challenge-1-3}
+\subsubsection*{Challenge 1}\label{challenge-1-2}
 \addcontentsline{toc}{subsubsection}{Challenge 1}
 
 Find the CSS selectors for the following elements in the HTML above.
@@ -16159,7 +16047,7 @@ Here's the basic strategy of webscraping:
   data.
 \end{enumerate}
 
-\subsubsection*{Challenge 2}\label{challenge-2-3}
+\subsubsection*{Challenge 2}\label{challenge-2-2}
 \addcontentsline{toc}{subsubsection}{Challenge 2}
 
 Go to \url{http://rochelleterman.github.io/}. Using Selector Gadget,
@@ -16228,7 +16116,7 @@ object.
 
 \CommentTok{#Let's take a look at the object we just created}
 \NormalTok{space}
-\CommentTok{#> \{xml_document\}}
+\CommentTok{#> \{html_document\}}
 \CommentTok{#> <html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">}
 \CommentTok{#> [1] <head profile="http://www.w3.org/1999/xhtml/vocab">\textbackslash{}n<meta charset=" ...}
 \CommentTok{#> [2] <body class="html not-front not-logged-in one-sidebar sidebar-first  ...}

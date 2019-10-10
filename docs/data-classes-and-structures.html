@@ -812,7 +812,11 @@ party_factor
 <h3><span class="header-section-number">7.3.2</span> Summarizing a Factor</h3>
 <p>One of your favorite functions in R will be <code>summary()</code>. This will give you a quick overview of the contents of a variable. Let’s compare using <code>summary()</code> on both the character vector and the factor:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(party_vector)
-<span class="kw">summary</span>(party_factor)</code></pre></div>
+<span class="co">#&gt;    Length     Class      Mode </span>
+<span class="co">#&gt;         5 character character</span>
+<span class="kw">summary</span>(party_factor)
+<span class="co">#&gt; Dem Rep </span>
+<span class="co">#&gt;   2   3</span></code></pre></div>
 </div>
 <div id="changing-factor-levels" class="section level3">
 <h3><span class="header-section-number">7.3.3</span> Changing Factor Levels</h3>
