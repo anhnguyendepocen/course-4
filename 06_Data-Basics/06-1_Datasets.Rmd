@@ -43,88 +43,12 @@ Ideally, your data should be stored in a certain file format. I recommend a `csv
 
 Here are some other tips:
 
-* When working with spreadsheets, the first row is usually reserved for the header, while the first column is used to identify the sampling unit (**unique identifier**, see below.)
+* When working with spreadsheets, the first row is usually reserved for the header, while the first column is used to identify the sampling unit (**unique identifier**, or **key**.)
 * Avoid file names and variable names with blank spaces. This can cause errors when reading in data.
 * If you want to concatenate words, insert a `.` or `_` in between to words instead of a space;
 * Short names are prefered over longer names;
 * Try to avoid using names that contain symbols such as `?`, `$`,`%`, `^`, `&`, `*`, `(`, `)`, `-`, `#`, `?`, `,`, `<`, `>`, `/`, `|`, `\`, `[` ,`]`,`{`, and `}`;
 * make sure that any missing values in your data set are indicated with `NA` or blank fields (don't use 99 or 77)..
-
-### `tidy` Data
-
-Datasets in the wild can often be messy. For example, check out the following data. 
-
-```{r}
-messy <- data.frame(
-  county = c(36037, 36038, 36039, 36040, NA , 37001, 37002, 37003),
-  state = c('NY', 'NY', 'NY', NA, NA, 'VA', 'VA', 'VA'),
-  cnty_pop = c(3817735, 422999, 324920, 143432, NA, 3228290, 449499, 383888),
-  state_pop = c(43320903, 43320903, NA, 43320903, 43320903, 7173000, 7173000, 7173000),
-  region = c(1, 1, 1, 1, 1, 3, 3, 4)
-)
-messy
-
-```
-
-What a mess! How can the population of the state of New York be 43 million for one county but "missing" for another? If this is a dataset of counties, what does it mean when the "county" field is missing? If region is something like Census region, how can two counties in the same state be in different regions? And why is it that all the counties whose codes start with 36 are in New York except for one, where the state is unknown?
-
-The goal should be to put our data in a tidy format. The two most important properties of tidy data are:
-
-1. Each variable forms a column.
-2. Each observation forms a row.
-3. Each type of observational unit forms a table.
-
-If we follow these principles, our data should look like:
-
-```{r}
-counties <- data.frame(
-  county = c(36037, 36038, 36039, 36040, 37001, 37002, 37003),
-  state = c('NY', 'NY', 'NY', 'NY', 'VA', 'VA', 'VA'),
-  population = c(3817735, 422999, 324920, 143432, 3228290, 449499, 383888)
-)
-counties
-
-states <- data.frame(
-  state = c("NY", "VA"),
-  population = c(43320903, 7173000),
-  region = c(1, 3)
-)
-states
-```
-
-Now the ambiguity is gone. Every county has a population and a state. Every state has a population and a region. There are no missing states, no missing counties, and no conflicting definitions. The database is self-documenting. In fact, the database is now so clear that we can forget about names like county_pop and state_pop and just stick to "population." Anyone would know which entity’s population you mean.
-
-We'll talk more about tidying data in later units.
-
-### Relational data
-
-Collectively, multiple tables of data are called **relational data** because it is the relations, not just the individual datasets, that are important. Note that when we say relational database here, we are referring to how the data are structured, not to the use of any fancy software. 
-
-The main principle of relational data is that each table is structured around the same observational unit. 
-
-* counties contains data on counties.
-* states contains data on states
-
-County population is a property of a county, so it lives in the county table. State population is a property of a state, so it cannot live in the county table. If we had panel data on counties, we would need separate tables for things that vary at the county level (like state) and things that vary at the county-year level (like population).
-
-### Keys
-
-The variables that connect each pair of tables are called **keys**. A key is a variable (or set of variables) that uniquely identifies an observation. It is also called a *unique identifier*. 
-
-* Keys are complete. They never take on missing values.
-* Keys are unique. They are never duplicated across rows of a table.
-
-In simple cases, a single variable is sufficient to identify an observation. In the example above, each county is identified with **county** (a numeric identifier); each state is identified with **state** (a two-letter string).
-
-There are two types of keys:
-
-* A **primary key** uniquely identifies an observation in its own table. For example, `counties$county` is a primary key because it uniquely identifies each county in the counties table.
-
-* A **foreign key** uniquely identifies an observation in another table. For example, `counties$state` is a foreign key because it appears in the counties table where it matches each county to a unique state.
-
-A primary key and the corresponding foreign key in another table form a **relation**.
-
-Sometimes a table doesn’t have an explicit primary key: each row is an observation, but no combination of variables reliably identifies it. If a table lacks a primary key, it's useful to add one.
 
 #### Acknowledgements {-}
 

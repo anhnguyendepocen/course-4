@@ -68,6 +68,7 @@ R can work with either type, no matter what platform you’re currently using. U
 #### Home Directory {-}
 
 Sometimes you'll see a `~` character in a path. 
+
 * In Mac/Linux, the `~` is a convenient shortcut to your **home directory** (`/users/rterman`). 
 * Windows doesn’t really have the notion of a home directory, so it usually points to your documents directory (`C:\Documents` and `Settings\rterman`)
 
@@ -75,7 +76,7 @@ Sometimes you'll see a `~` character in a path.
 
 You should try not to use absolute paths in your scripts, because they hinder sharing: no one else will have exactly the same directory configuration as you. Another way to direct R to something is to give it a **relative path**.
 
-Relative paths point to something relative to where you are, rather than from the root of the file system. For example, if your current working directory is `/home/rterman`, then the relative path `data/un.csv` directs to the full absolute path: `/home/rterman/data/un.csv`
+Relative paths point to something relative to where you are, rather than from the root of the file system. For example, if your current working directory is `/home/rterman`, then the relative path `data/un.csv` directs to the full absolute path: `/home/rterman/data/un.csv`.
 
 ### R Projects
 

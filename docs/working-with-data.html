@@ -249,9 +249,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.2" data-path="working-with-data.html"><a href="working-with-data.html#introduction-to-data"><i class="fa fa-check"></i><b>9.2</b> Introduction to Data</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="working-with-data.html"><a href="working-with-data.html#wheres-my-data"><i class="fa fa-check"></i><b>9.2.1</b> Where’s my data?</a></li>
 <li class="chapter" data-level="9.2.2" data-path="working-with-data.html"><a href="working-with-data.html#data-storage"><i class="fa fa-check"></i><b>9.2.2</b> Data Storage</a></li>
-<li class="chapter" data-level="9.2.3" data-path="working-with-data.html"><a href="working-with-data.html#tidy-data"><i class="fa fa-check"></i><b>9.2.3</b> <code>tidy</code> Data</a></li>
-<li class="chapter" data-level="9.2.4" data-path="working-with-data.html"><a href="working-with-data.html#relational-data"><i class="fa fa-check"></i><b>9.2.4</b> Relational data</a></li>
-<li class="chapter" data-level="9.2.5" data-path="working-with-data.html"><a href="working-with-data.html#keys"><i class="fa fa-check"></i><b>9.2.5</b> Keys</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="working-with-data.html"><a href="working-with-data.html#importing-and-exporting"><i class="fa fa-check"></i><b>9.3</b> Importing and Exporting</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="working-with-data.html"><a href="working-with-data.html#importing-data"><i class="fa fa-check"></i><b>9.3.1</b> Importing Data</a></li>
@@ -296,12 +293,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.4" data-path="tidying-data.html"><a href="tidying-data.html#more-tidyverse"><i class="fa fa-check"></i><b>11.4</b> More <code>tidyverse</code></a></li>
 <li class="chapter" data-level="11.5" data-path="tidying-data.html"><a href="tidying-data.html#challenges-12"><i class="fa fa-check"></i><b>11.5</b> Challenges</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="relational-data-1.html"><a href="relational-data-1.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a><ul>
-<li class="chapter" data-level="12.1" data-path="relational-data-1.html"><a href="relational-data-1.html#why-relational-data"><i class="fa fa-check"></i><b>12.1</b> Why Relational Data</a></li>
-<li class="chapter" data-level="12.2" data-path="relational-data-1.html"><a href="relational-data-1.html#keys-1"><i class="fa fa-check"></i><b>12.2</b> Keys</a></li>
-<li class="chapter" data-level="12.3" data-path="relational-data-1.html"><a href="relational-data-1.html#joins"><i class="fa fa-check"></i><b>12.3</b> Joins</a></li>
-<li class="chapter" data-level="12.4" data-path="relational-data-1.html"><a href="relational-data-1.html#defining-keys"><i class="fa fa-check"></i><b>12.4</b> Defining Keys</a></li>
-<li class="chapter" data-level="12.5" data-path="relational-data-1.html"><a href="relational-data-1.html#duplicate-keys"><i class="fa fa-check"></i><b>12.5</b> Duplicate Keys</a></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a><ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#why-relational-data"><i class="fa fa-check"></i><b>12.1</b> Why Relational Data</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#keys"><i class="fa fa-check"></i><b>12.2</b> Keys</a></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#joins"><i class="fa fa-check"></i><b>12.3</b> Joins</a></li>
+<li class="chapter" data-level="12.4" data-path="relational-data.html"><a href="relational-data.html#defining-keys"><i class="fa fa-check"></i><b>12.4</b> Defining Keys</a></li>
+<li class="chapter" data-level="12.5" data-path="relational-data.html"><a href="relational-data.html#duplicate-keys"><i class="fa fa-check"></i><b>12.5</b> Duplicate Keys</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>13</b> Plotting</a><ul>
 <li class="chapter" data-level="13.1" data-path="plotting.html"><a href="plotting.html#the-dataset"><i class="fa fa-check"></i><b>13.1</b> The Dataset</a></li>
@@ -480,12 +477,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="home-directory" class="section level4 unnumbered">
 <h4>Home Directory</h4>
-<p>Sometimes you’ll see a <code>~</code> character in a path. * In Mac/Linux, the <code>~</code> is a convenient shortcut to your <strong>home directory</strong> (<code>/users/rterman</code>). * Windows doesn’t really have the notion of a home directory, so it usually points to your documents directory (<code>C:\Documents</code> and <code>Settings\rterman</code>)</p>
+<p>Sometimes you’ll see a <code>~</code> character in a path.</p>
+<ul>
+<li>In Mac/Linux, the <code>~</code> is a convenient shortcut to your <strong>home directory</strong> (<code>/users/rterman</code>).</li>
+<li>Windows doesn’t really have the notion of a home directory, so it usually points to your documents directory (<code>C:\Documents</code> and <code>Settings\rterman</code>)</li>
+</ul>
 </div>
 <div id="absolute-vs.relative-paths" class="section level4 unnumbered">
 <h4>Absolute vs. Relative Paths</h4>
 <p>You should try not to use absolute paths in your scripts, because they hinder sharing: no one else will have exactly the same directory configuration as you. Another way to direct R to something is to give it a <strong>relative path</strong>.</p>
-<p>Relative paths point to something relative to where you are, rather than from the root of the file system. For example, if your current working directory is <code>/home/rterman</code>, then the relative path <code>data/un.csv</code> directs to the full absolute path: <code>/home/rterman/data/un.csv</code></p>
+<p>Relative paths point to something relative to where you are, rather than from the root of the file system. For example, if your current working directory is <code>/home/rterman</code>, then the relative path <code>data/un.csv</code> directs to the full absolute path: <code>/home/rterman/data/un.csv</code>.</p>
 </div>
 </div>
 <div id="r-projects" class="section level3">
@@ -585,94 +586,13 @@ masters_thesis:
 <p>Ideally, your data should be stored in a certain file format. I recommend a <code>csv</code> (comma separated value) file, which formats spreadsheet (rectangular) data in a plain-text format. <code>csv</code> files are plain-text, and can be read into almost any statistical software program, including R. Try to avoid Excel files if you can.</p>
 <p>Here are some other tips:</p>
 <ul>
-<li>When working with spreadsheets, the first row is usually reserved for the header, while the first column is used to identify the sampling unit (<strong>unique identifier</strong>, see below.)</li>
+<li>When working with spreadsheets, the first row is usually reserved for the header, while the first column is used to identify the sampling unit (<strong>unique identifier</strong>, or <strong>key</strong>.)</li>
 <li>Avoid file names and variable names with blank spaces. This can cause errors when reading in data.</li>
 <li>If you want to concatenate words, insert a <code>.</code> or <code>_</code> in between to words instead of a space;</li>
 <li>Short names are prefered over longer names;</li>
 <li>Try to avoid using names that contain symbols such as <code>?</code>, <code>$</code>,<code>%</code>, <code>^</code>, <code>&amp;</code>, <code>*</code>, <code>(</code>, <code>)</code>, <code>-</code>, <code>#</code>, <code>?</code>, <code>,</code>, <code>&lt;</code>, <code>&gt;</code>, <code>/</code>, <code>|</code>, <code>\</code>, <code>[</code> ,<code>]</code>,<code>{</code>, and <code>}</code>;</li>
 <li>make sure that any missing values in your data set are indicated with <code>NA</code> or blank fields (don’t use 99 or 77)..</li>
 </ul>
-</div>
-<div id="tidy-data" class="section level3">
-<h3><span class="header-section-number">9.2.3</span> <code>tidy</code> Data</h3>
-<p>Datasets in the wild can often be messy. For example, check out the following data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">messy &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">county =</span> <span class="kw">c</span>(<span class="dv">36037</span>, <span class="dv">36038</span>, <span class="dv">36039</span>, <span class="dv">36040</span>, <span class="ot">NA</span> , <span class="dv">37001</span>, <span class="dv">37002</span>, <span class="dv">37003</span>),
-  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>),
-  <span class="dt">cnty_pop =</span> <span class="kw">c</span>(<span class="dv">3817735</span>, <span class="dv">422999</span>, <span class="dv">324920</span>, <span class="dv">143432</span>, <span class="ot">NA</span>, <span class="dv">3228290</span>, <span class="dv">449499</span>, <span class="dv">383888</span>),
-  <span class="dt">state_pop =</span> <span class="kw">c</span>(<span class="dv">43320903</span>, <span class="dv">43320903</span>, <span class="ot">NA</span>, <span class="dv">43320903</span>, <span class="dv">43320903</span>, <span class="dv">7173000</span>, <span class="dv">7173000</span>, <span class="dv">7173000</span>),
-  <span class="dt">region =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>)
-)
-messy
-<span class="co">#&gt;   county state cnty_pop state_pop region</span>
-<span class="co">#&gt; 1  36037    NY  3817735  43320903      1</span>
-<span class="co">#&gt; 2  36038    NY   422999  43320903      1</span>
-<span class="co">#&gt; 3  36039    NY   324920        NA      1</span>
-<span class="co">#&gt; 4  36040  &lt;NA&gt;   143432  43320903      1</span>
-<span class="co">#&gt; 5     NA  &lt;NA&gt;       NA  43320903      1</span>
-<span class="co">#&gt; 6  37001    VA  3228290   7173000      3</span>
-<span class="co">#&gt; 7  37002    VA   449499   7173000      3</span>
-<span class="co">#&gt; 8  37003    VA   383888   7173000      4</span></code></pre></div>
-<p>What a mess! How can the population of the state of New York be 43 million for one county but “missing” for another? If this is a dataset of counties, what does it mean when the “county” field is missing? If region is something like Census region, how can two counties in the same state be in different regions? And why is it that all the counties whose codes start with 36 are in New York except for one, where the state is unknown?</p>
-<p>The goal should be to put our data in a tidy format. The two most important properties of tidy data are:</p>
-<ol style="list-style-type: decimal">
-<li>Each variable forms a column.</li>
-<li>Each observation forms a row.</li>
-<li>Each type of observational unit forms a table.</li>
-</ol>
-<p>If we follow these principles, our data should look like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">county =</span> <span class="kw">c</span>(<span class="dv">36037</span>, <span class="dv">36038</span>, <span class="dv">36039</span>, <span class="dv">36040</span>, <span class="dv">37001</span>, <span class="dv">37002</span>, <span class="dv">37003</span>),
-  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>),
-  <span class="dt">population =</span> <span class="kw">c</span>(<span class="dv">3817735</span>, <span class="dv">422999</span>, <span class="dv">324920</span>, <span class="dv">143432</span>, <span class="dv">3228290</span>, <span class="dv">449499</span>, <span class="dv">383888</span>)
-)
-counties
-<span class="co">#&gt;   county state population</span>
-<span class="co">#&gt; 1  36037    NY    3817735</span>
-<span class="co">#&gt; 2  36038    NY     422999</span>
-<span class="co">#&gt; 3  36039    NY     324920</span>
-<span class="co">#&gt; 4  36040    NY     143432</span>
-<span class="co">#&gt; 5  37001    VA    3228290</span>
-<span class="co">#&gt; 6  37002    VA     449499</span>
-<span class="co">#&gt; 7  37003    VA     383888</span>
-
-states &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&quot;NY&quot;</span>, <span class="st">&quot;VA&quot;</span>),
-  <span class="dt">population =</span> <span class="kw">c</span>(<span class="dv">43320903</span>, <span class="dv">7173000</span>),
-  <span class="dt">region =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)
-)
-states
-<span class="co">#&gt;   state population region</span>
-<span class="co">#&gt; 1    NY   43320903      1</span>
-<span class="co">#&gt; 2    VA    7173000      3</span></code></pre></div>
-<p>Now the ambiguity is gone. Every county has a population and a state. Every state has a population and a region. There are no missing states, no missing counties, and no conflicting definitions. The database is self-documenting. In fact, the database is now so clear that we can forget about names like county_pop and state_pop and just stick to “population.” Anyone would know which entity’s population you mean.</p>
-<p>We’ll talk more about tidying data in later units.</p>
-</div>
-<div id="relational-data" class="section level3">
-<h3><span class="header-section-number">9.2.4</span> Relational data</h3>
-<p>Collectively, multiple tables of data are called <strong>relational data</strong> because it is the relations, not just the individual datasets, that are important. Note that when we say relational database here, we are referring to how the data are structured, not to the use of any fancy software.</p>
-<p>The main principle of relational data is that each table is structured around the same observational unit.</p>
-<ul>
-<li>counties contains data on counties.</li>
-<li>states contains data on states</li>
-</ul>
-<p>County population is a property of a county, so it lives in the county table. State population is a property of a state, so it cannot live in the county table. If we had panel data on counties, we would need separate tables for things that vary at the county level (like state) and things that vary at the county-year level (like population).</p>
-</div>
-<div id="keys" class="section level3">
-<h3><span class="header-section-number">9.2.5</span> Keys</h3>
-<p>The variables that connect each pair of tables are called <strong>keys</strong>. A key is a variable (or set of variables) that uniquely identifies an observation. It is also called a <em>unique identifier</em>.</p>
-<ul>
-<li>Keys are complete. They never take on missing values.</li>
-<li>Keys are unique. They are never duplicated across rows of a table.</li>
-</ul>
-<p>In simple cases, a single variable is sufficient to identify an observation. In the example above, each county is identified with <strong>county</strong> (a numeric identifier); each state is identified with <strong>state</strong> (a two-letter string).</p>
-<p>There are two types of keys:</p>
-<ul>
-<li><p>A <strong>primary key</strong> uniquely identifies an observation in its own table. For example, <code>counties$county</code> is a primary key because it uniquely identifies each county in the counties table.</p></li>
-<li><p>A <strong>foreign key</strong> uniquely identifies an observation in another table. For example, <code>counties$state</code> is a foreign key because it appears in the counties table where it matches each county to a unique state.</p></li>
-</ul>
-<p>A primary key and the corresponding foreign key in another table form a <strong>relation</strong>.</p>
-<p>Sometimes a table doesn’t have an explicit primary key: each row is an observation, but no combination of variables reliably identifies it. If a table lacks a primary key, it’s useful to add one.</p>
 <div id="acknowledgements-1" class="section level4 unnumbered">
 <h4>Acknowledgements</h4>
 <p>This page is in part derived from the following sources:</p>
@@ -955,10 +875,10 @@ africa &lt;-<span class="st"> </span>gap[gap<span class="op">$</span>continent<s
 <h3><span class="header-section-number">9.4.6</span> Basic Plotting</h3>
 <p>We’ll go into plotting in greater detail soon, but let’s touch on two common graphs. First, a scatterplot:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(gap<span class="op">$</span>life.exp <span class="op">~</span><span class="st"> </span>gap<span class="op">$</span>gdp.percap)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-215-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-213-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Finally, let’s quickly take a look at a histogram of the variable <code>nyt.count</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(gap<span class="op">$</span>life.exp, <span class="dt">breaks =</span> <span class="dv">100</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-216-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-214-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="challenges-10" class="section level3">
 <h3><span class="header-section-number">9.4.7</span> Challenges</h3>

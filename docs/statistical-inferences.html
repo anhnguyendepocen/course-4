@@ -249,9 +249,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.2" data-path="working-with-data.html"><a href="working-with-data.html#introduction-to-data"><i class="fa fa-check"></i><b>9.2</b> Introduction to Data</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="working-with-data.html"><a href="working-with-data.html#wheres-my-data"><i class="fa fa-check"></i><b>9.2.1</b> Where’s my data?</a></li>
 <li class="chapter" data-level="9.2.2" data-path="working-with-data.html"><a href="working-with-data.html#data-storage"><i class="fa fa-check"></i><b>9.2.2</b> Data Storage</a></li>
-<li class="chapter" data-level="9.2.3" data-path="working-with-data.html"><a href="working-with-data.html#tidy-data"><i class="fa fa-check"></i><b>9.2.3</b> <code>tidy</code> Data</a></li>
-<li class="chapter" data-level="9.2.4" data-path="working-with-data.html"><a href="working-with-data.html#relational-data"><i class="fa fa-check"></i><b>9.2.4</b> Relational data</a></li>
-<li class="chapter" data-level="9.2.5" data-path="working-with-data.html"><a href="working-with-data.html#keys"><i class="fa fa-check"></i><b>9.2.5</b> Keys</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="working-with-data.html"><a href="working-with-data.html#importing-and-exporting"><i class="fa fa-check"></i><b>9.3</b> Importing and Exporting</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="working-with-data.html"><a href="working-with-data.html#importing-data"><i class="fa fa-check"></i><b>9.3.1</b> Importing Data</a></li>
@@ -296,12 +293,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.4" data-path="tidying-data.html"><a href="tidying-data.html#more-tidyverse"><i class="fa fa-check"></i><b>11.4</b> More <code>tidyverse</code></a></li>
 <li class="chapter" data-level="11.5" data-path="tidying-data.html"><a href="tidying-data.html#challenges-12"><i class="fa fa-check"></i><b>11.5</b> Challenges</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="relational-data-1.html"><a href="relational-data-1.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a><ul>
-<li class="chapter" data-level="12.1" data-path="relational-data-1.html"><a href="relational-data-1.html#why-relational-data"><i class="fa fa-check"></i><b>12.1</b> Why Relational Data</a></li>
-<li class="chapter" data-level="12.2" data-path="relational-data-1.html"><a href="relational-data-1.html#keys-1"><i class="fa fa-check"></i><b>12.2</b> Keys</a></li>
-<li class="chapter" data-level="12.3" data-path="relational-data-1.html"><a href="relational-data-1.html#joins"><i class="fa fa-check"></i><b>12.3</b> Joins</a></li>
-<li class="chapter" data-level="12.4" data-path="relational-data-1.html"><a href="relational-data-1.html#defining-keys"><i class="fa fa-check"></i><b>12.4</b> Defining Keys</a></li>
-<li class="chapter" data-level="12.5" data-path="relational-data-1.html"><a href="relational-data-1.html#duplicate-keys"><i class="fa fa-check"></i><b>12.5</b> Duplicate Keys</a></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a><ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#why-relational-data"><i class="fa fa-check"></i><b>12.1</b> Why Relational Data</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#keys"><i class="fa fa-check"></i><b>12.2</b> Keys</a></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#joins"><i class="fa fa-check"></i><b>12.3</b> Joins</a></li>
+<li class="chapter" data-level="12.4" data-path="relational-data.html"><a href="relational-data.html#defining-keys"><i class="fa fa-check"></i><b>12.4</b> Defining Keys</a></li>
+<li class="chapter" data-level="12.5" data-path="relational-data.html"><a href="relational-data.html#duplicate-keys"><i class="fa fa-check"></i><b>12.5</b> Duplicate Keys</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>13</b> Plotting</a><ul>
 <li class="chapter" data-level="13.1" data-path="plotting.html"><a href="plotting.html#the-dataset"><i class="fa fa-check"></i><b>13.1</b> The Dataset</a></li>
@@ -463,7 +460,7 @@ gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 
 x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dt">length =</span> <span class="dv">100</span>)
 <span class="kw">plot</span>(x, <span class="kw">dnorm</span>(x), <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-329-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-327-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <div id="sampling-and-simulation" class="section level3">
 <h3><span class="header-section-number">14.1.1</span> Sampling and Simulation</h3>
 <p>We can draw a sample with or without replacement with <code>sample</code>.</p>
@@ -630,7 +627,7 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 <li>Standard (diagnostic) plots for a regression</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(reg)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-347-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-347-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-347-3.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-347-4.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-345-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-345-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-345-3.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-345-4.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>R also has a helpful <code>summary</code> method for regression objects.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(reg)
 <span class="co">#&gt; </span>
@@ -1099,7 +1096,7 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
           <span class="dt">keep.stat=</span><span class="st">&quot;n&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;ajps&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu</span>
-<span class="co">#&gt; % Date and time: Thu, Oct 10, 2019 - 14:44:44</span>
+<span class="co">#&gt; % Date and time: Mon, Oct 14, 2019 - 17:04:20</span>
 <span class="co">#&gt; \begin{table}[!htbp] \centering </span>
 <span class="co">#&gt;   \caption{Regression Results} </span>
 <span class="co">#&gt;   \label{} </span>
