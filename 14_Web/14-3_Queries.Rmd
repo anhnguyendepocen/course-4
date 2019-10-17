@@ -132,7 +132,7 @@ That's great. But we only have 10 items. The original response said we had 3,876
 
 First, let's write a function that passes a search term and a page number, and returns a dataframe of articles.
 
-```{r}
+```{r error = F}
 nytapi <- function(term = NULL, n){
     base.url = "http://api.nytimes.com/svc/search/v2/articlesearch.json" 
     key = "Onz0BobMTn2IRJ7krcT5RXHknkGLqiaI"
@@ -158,7 +158,7 @@ Now, we're ready to iterate over each page. First, let's review what've done so 
 # set key and base
 base.url = "http://api.nytimes.com/svc/search/v2/articlesearch.json" 
 key = "Onz0BobMTn2IRJ7krcT5RXHknkGLqiaI"
-search_term = "fleek"
+search_term = "fleek" #change me
   
 # Send GET request
 r <- GET(base.url, query = list(`q` = search_term,

@@ -6,7 +6,7 @@ site: bookdown::bookdown_site
 url: https\://rochelleterman.github.io/plsc-31101/
 github-repo: "rochelleterman/plsc-31101"
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: []
 biblio-style: apalike
 link-citations: yes
 description: "This book contains course notes and other materials for PLSC 31101."

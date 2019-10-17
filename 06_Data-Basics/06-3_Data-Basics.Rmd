@@ -137,29 +137,13 @@ hist(gap$life.exp, breaks = 100)
 
 Read the `polity` dataset.
 
-```{r}
-polity <- read.csv("data/polity.csv", stringsAsFactors = F)
-```
-
-
 #### Challenge 2. {-}
 
 Report the number and names of each variable in the dataset.
 
-```{r}
-dim(polity)
-names(polity)
-```
-
-
 #### Challenge 3. {-}
 
 Extract the 5th row from the polity dataset.
-
-```{r}
-polity[5, ]
-```
-
 
 #### Challenge 4. {-}
 

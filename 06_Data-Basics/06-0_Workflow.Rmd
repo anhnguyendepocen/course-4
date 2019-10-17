@@ -7,7 +7,7 @@ output: html_document
 
 # Working with Data
 
-Insert some introduction here.
+This unit will cover the basics of working with data, including project workflow, data terms and concepts, importing data, and exploring data.
 
 ## Project Workflow
 
@@ -17,13 +17,15 @@ One day...
 * you will be working on multiple projects simultaneously, and you'll want to keep them separate.
 * you will need to bring data from the outside world into R, and send numerical results and figures from R back out into the world. 
 
-This unit teaches these topics.
+This unit will teach you how to set up your workflow to make the best use of R.
 
 ### Store Analyses in Scripts, Not Workspaces.
 
 R Studio automatically preserves your workspace (environment and command history) when you quit R, and re-loads it the next session. I recommend you turn this behavior off.
 
-![](img/rstudio-workspace.png)
+```{r echo = F}
+knitr::include_graphics(path = "img/rstudio-workspace.png")
+```
 
 This will cause you some short-term pain, because now when you restart RStudio, it will not remember the results of the code that you ran last time. But this short-term pain will save you long-term agony, because it forces you to capture all important interactions in your scripts. 
 
@@ -88,7 +90,9 @@ This is such a common practice that RStudio has built-in support for this via **
 
 Let's make a project together. Click `File > New Project`, then:
 
-~[](rstudio-project-1.png)
+```{r echo = F}
+knitr::include_graphics(path = "img/rstudio-project-1.png")
+```
 
 Think carefully about which subdirectory you put the project in. If you don’t store it somewhere sensible, it will be hard to find in the future!
 
