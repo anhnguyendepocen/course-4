@@ -1958,57 +1958,15 @@ Africa
 <div id="challenge-1.-6" class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
 <p>Use <code>dplyr</code> to create a data frame containing the median <code>lifeExp</code> for each continent.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1">gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb202-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb202-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">median_lifeexp =</span> <span class="kw">median</span>(lifeExp))</a>
-<a class="sourceLine" id="cb202-4" data-line-number="4"><span class="co">#&gt; # A tibble: 5 x 2</span></a>
-<a class="sourceLine" id="cb202-5" data-line-number="5"><span class="co">#&gt;   continent median_lifeexp</span></a>
-<a class="sourceLine" id="cb202-6" data-line-number="6"><span class="co">#&gt;   &lt;fct&gt;              &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb202-7" data-line-number="7"><span class="co">#&gt; 1 Africa              47.8</span></a>
-<a class="sourceLine" id="cb202-8" data-line-number="8"><span class="co">#&gt; 2 Americas            67.0</span></a>
-<a class="sourceLine" id="cb202-9" data-line-number="9"><span class="co">#&gt; 3 Asia                61.8</span></a>
-<a class="sourceLine" id="cb202-10" data-line-number="10"><span class="co">#&gt; 4 Europe              72.2</span></a>
-<a class="sourceLine" id="cb202-11" data-line-number="11"><span class="co">#&gt; 5 Oceania             73.7</span></a></code></pre></div>
 </div>
 <div id="challenge-2.-6" class="section level4 unnumbered">
 <h4>Challenge 2.</h4>
 <p>Use <code>dplyr</code> to add a column to the gapminder dataset that contains the total population of the continent of each observation in a given year. For example, if the first observation is Afghanistan in 1952, the new column would contain the population of Asia in 1952.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1">gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb203-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb203-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">continent_pop =</span> <span class="kw">sum</span>(pop))</a>
-<a class="sourceLine" id="cb203-4" data-line-number="4"><span class="co">#&gt; # A tibble: 1,704 x 7</span></a>
-<a class="sourceLine" id="cb203-5" data-line-number="5"><span class="co">#&gt; # Groups:   continent, year [60]</span></a>
-<a class="sourceLine" id="cb203-6" data-line-number="6"><span class="co">#&gt;   country      year      pop continent lifeExp gdpPercap continent_pop</span></a>
-<a class="sourceLine" id="cb203-7" data-line-number="7"><span class="co">#&gt;   &lt;fct&gt;       &lt;int&gt;    &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb203-8" data-line-number="8"><span class="co">#&gt; 1 Afghanistan  1952  8425333 Asia         28.8      779.   1395357352.</span></a>
-<a class="sourceLine" id="cb203-9" data-line-number="9"><span class="co">#&gt; 2 Afghanistan  1957  9240934 Asia         30.3      821.   1562780599 </span></a>
-<a class="sourceLine" id="cb203-10" data-line-number="10"><span class="co">#&gt; 3 Afghanistan  1962 10267083 Asia         32.0      853.   1696357182 </span></a>
-<a class="sourceLine" id="cb203-11" data-line-number="11"><span class="co">#&gt; 4 Afghanistan  1967 11537966 Asia         34.0      836.   1905662900 </span></a>
-<a class="sourceLine" id="cb203-12" data-line-number="12"><span class="co">#&gt; 5 Afghanistan  1972 13079460 Asia         36.1      740.   2150972248 </span></a>
-<a class="sourceLine" id="cb203-13" data-line-number="13"><span class="co">#&gt; 6 Afghanistan  1977 14880372 Asia         38.4      786.   2384513556 </span></a>
-<a class="sourceLine" id="cb203-14" data-line-number="14"><span class="co">#&gt; # … with 1,698 more rows</span></a></code></pre></div>
 </div>
 <div id="challenge-3.-4" class="section level4 unnumbered">
 <h4>Challenge 3.</h4>
 <p>Use <code>dplyr</code> to: (a) add a column called <code>gdpPercap_diff</code> that contains the difference between the observation’s <code>gdpPercap</code> and the mean <code>gdpPercap</code> of the continent in that year, (b) arrange the dataframe by the column you just created, in descending order (so that the relatively richest country-years are listed first).</p>
 <p><strong>hint</strong>: You might have to <code>ungroup()</code> before you <code>arrange()</code>.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1">gap <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb204-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb204-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb204-4" data-line-number="4"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb204-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gdpPercap_diff =</span> gdpPercap <span class="op">-</span><span class="st"> </span>mean_gdpPercap) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb204-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>mean_gdpPercap) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb204-7" data-line-number="7"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(gdpPercap_diff))</a>
-<a class="sourceLine" id="cb204-8" data-line-number="8"><span class="co">#&gt; # A tibble: 1,704 x 7</span></a>
-<a class="sourceLine" id="cb204-9" data-line-number="9"><span class="co">#&gt;   country  year     pop continent lifeExp gdpPercap gdpPercap_diff</span></a>
-<a class="sourceLine" id="cb204-10" data-line-number="10"><span class="co">#&gt;   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb204-11" data-line-number="11"><span class="co">#&gt; 1 Kuwait   1957  212846 Asia         58.0   113523.        107735.</span></a>
-<a class="sourceLine" id="cb204-12" data-line-number="12"><span class="co">#&gt; 2 Kuwait   1952  160000 Asia         55.6   108382.        103187.</span></a>
-<a class="sourceLine" id="cb204-13" data-line-number="13"><span class="co">#&gt; 3 Kuwait   1972  841934 Asia         67.7   109348.        101160.</span></a>
-<a class="sourceLine" id="cb204-14" data-line-number="14"><span class="co">#&gt; 4 Kuwait   1962  358266 Asia         60.5    95458.         89729.</span></a>
-<a class="sourceLine" id="cb204-15" data-line-number="15"><span class="co">#&gt; 5 Kuwait   1967  575003 Asia         64.6    80895.         74924.</span></a>
-<a class="sourceLine" id="cb204-16" data-line-number="16"><span class="co">#&gt; 6 Kuwait   1977 1140357 Asia         69.3    59265.         51474.</span></a>
-<a class="sourceLine" id="cb204-17" data-line-number="17"><span class="co">#&gt; # … with 1,698 more rows</span></a></code></pre></div>
 </div>
 <div id="acknowledgments-3" class="section level4 unnumbered">
 <h4>Acknowledgments</h4>

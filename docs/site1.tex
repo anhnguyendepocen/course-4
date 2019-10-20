@@ -6265,46 +6265,11 @@ See the \texttt{rlang} or \texttt{seplyr} packages for how one can deal with thi
 
 Use \texttt{dplyr} to create a data frame containing the median \texttt{lifeExp} for each continent.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{gap }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(continent) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{median_lifeexp =} \KeywordTok{median}\NormalTok{(lifeExp))}
-\CommentTok{#> # A tibble: 5 x 2}
-\CommentTok{#>   continent median_lifeexp}
-\CommentTok{#>   <fct>              <dbl>}
-\CommentTok{#> 1 Africa              47.8}
-\CommentTok{#> 2 Americas            67.0}
-\CommentTok{#> 3 Asia                61.8}
-\CommentTok{#> 4 Europe              72.2}
-\CommentTok{#> 5 Oceania             73.7}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{challenge-2.-6}{%
 \subsubsection*{Challenge 2.}\label{challenge-2.-6}}
 \addcontentsline{toc}{subsubsection}{Challenge 2.}
 
 Use \texttt{dplyr} to add a column to the gapminder dataset that contains the total population of the continent of each observation in a given year. For example, if the first observation is Afghanistan in 1952, the new column would contain the population of Asia in 1952.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{gap }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(continent, year) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{continent_pop =} \KeywordTok{sum}\NormalTok{(pop))}
-\CommentTok{#> # A tibble: 1,704 x 7}
-\CommentTok{#> # Groups:   continent, year [60]}
-\CommentTok{#>   country      year      pop continent lifeExp gdpPercap continent_pop}
-\CommentTok{#>   <fct>       <int>    <dbl> <fct>       <dbl>     <dbl>         <dbl>}
-\CommentTok{#> 1 Afghanistan  1952  8425333 Asia         28.8      779.   1395357352.}
-\CommentTok{#> 2 Afghanistan  1957  9240934 Asia         30.3      821.   1562780599 }
-\CommentTok{#> 3 Afghanistan  1962 10267083 Asia         32.0      853.   1696357182 }
-\CommentTok{#> 4 Afghanistan  1967 11537966 Asia         34.0      836.   1905662900 }
-\CommentTok{#> 5 Afghanistan  1972 13079460 Asia         36.1      740.   2150972248 }
-\CommentTok{#> 6 Afghanistan  1977 14880372 Asia         38.4      786.   2384513556 }
-\CommentTok{#> # ... with 1,698 more rows}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{challenge-3.-4}{%
 \subsubsection*{Challenge 3.}\label{challenge-3.-4}}
@@ -6313,28 +6278,6 @@ Use \texttt{dplyr} to add a column to the gapminder dataset that contains the to
 Use \texttt{dplyr} to: (a) add a column called \texttt{gdpPercap\_diff} that contains the difference between the observation's \texttt{gdpPercap} and the mean \texttt{gdpPercap} of the continent in that year, (b) arrange the dataframe by the column you just created, in descending order (so that the relatively richest country-years are listed first).
 
 \textbf{hint}: You might have to \texttt{ungroup()} before you \texttt{arrange()}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{gap }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(continent, year) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{mean_gdpPercap =} \KeywordTok{mean}\NormalTok{(gdpPercap)) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{ungroup}\NormalTok{() }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{gdpPercap_diff =}\NormalTok{ gdpPercap }\OperatorTok{-}\StringTok{ }\NormalTok{mean_gdpPercap) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{mean_gdpPercap) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(gdpPercap_diff))}
-\CommentTok{#> # A tibble: 1,704 x 7}
-\CommentTok{#>   country  year     pop continent lifeExp gdpPercap gdpPercap_diff}
-\CommentTok{#>   <fct>   <int>   <dbl> <fct>       <dbl>     <dbl>          <dbl>}
-\CommentTok{#> 1 Kuwait   1957  212846 Asia         58.0   113523.        107735.}
-\CommentTok{#> 2 Kuwait   1952  160000 Asia         55.6   108382.        103187.}
-\CommentTok{#> 3 Kuwait   1972  841934 Asia         67.7   109348.        101160.}
-\CommentTok{#> 4 Kuwait   1962  358266 Asia         60.5    95458.         89729.}
-\CommentTok{#> 5 Kuwait   1967  575003 Asia         64.6    80895.         74924.}
-\CommentTok{#> 6 Kuwait   1977 1140357 Asia         69.3    59265.         51474.}
-\CommentTok{#> # ... with 1,698 more rows}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{acknowledgments-3}{%
 \subsubsection*{Acknowledgments}\label{acknowledgments-3}}
@@ -7919,10 +7862,11 @@ There are some other useful packages in the \href{http://www.tidyverse.org}{tidy
 \subsubsection*{Challenge 1.}\label{challenge-1.-7}}
 \addcontentsline{toc}{subsubsection}{Challenge 1.}
 
-Subset the results from challenge \#3 (above) to select only the \texttt{country}, \texttt{year}, and \texttt{gdpPercap\_diff} columns. Use \texttt{tidyr} put it in wide format so that countries are rows and years are columns.
+Subset the results from Challenge \#3 (of the previous chapter) to select only the \texttt{country}, \texttt{year}, and \texttt{gdpPercap\_diff} columns. Use \texttt{tidyr} put it in wide format so that countries are rows and years are columns.
 
 \hypertarget{challenge-2.-7}{%
-\subsubsection{Challenge 2.}\label{challenge-2.-7}}
+\subsubsection*{Challenge 2.}\label{challenge-2.-7}}
+\addcontentsline{toc}{subsubsection}{Challenge 2.}
 
 Now turn the dataframe above back into the long format with three columns: \texttt{country}, \texttt{year}, and \texttt{gdpPercap\_diff}.
 
@@ -8909,7 +8853,7 @@ The \textbf{basic} call takes the following form:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-277-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-274-1} \end{center}
 
 \hypertarget{scatter-and-line-plots}{%
 \subsection{Scatter and Line Plots}\label{scatter-and-line-plots}}
@@ -8930,11 +8874,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-278-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-275-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-278}
+\caption{ }\label{fig:unnamed-chunk-275}
 \end{figure}
 
 \begin{itemize}
@@ -8952,11 +8896,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-279-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-276-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-279}
+\caption{ }\label{fig:unnamed-chunk-276}
 \end{figure}
 
 \begin{itemize}
@@ -8973,11 +8917,11 @@ The ``type'' argument accepts the following character indicators.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-277-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-280}
+\caption{ }\label{fig:unnamed-chunk-277}
 \end{figure}
 
 \hypertarget{histograms-and-density-plots}{%
@@ -8991,7 +8935,7 @@ Histograms display the frequency of different values of a variable.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-278-1} \end{center}
 
 Histograms require a \texttt{breaks} argument, which determine the number of bins in the plot. Let's play around with different \texttt{breaks} values.
 
@@ -9002,7 +8946,7 @@ Histograms require a \texttt{breaks} argument, which determine the number of bin
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-282-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-279-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-279-2} \end{center}
 
 Density plots are similar, they visualize the distribution of data over a continuous interval.
 
@@ -9018,11 +8962,11 @@ Density plots are similar, they visualize the distribution of data over a contin
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-283-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-280-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-283}
+\caption{ }\label{fig:unnamed-chunk-280}
 \end{figure}
 
 Density passes a \texttt{bw} parameter, which determins the plot's ``bandwidth''.
@@ -9038,7 +8982,7 @@ Density passes a \texttt{bw} parameter, which determins the plot's ``bandwidth''
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-284-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-284-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-284-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-281-3} \end{center}
 
 \hypertarget{labels}{%
 \subsection{Labels}\label{labels}}
@@ -9061,11 +9005,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-286-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-283-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-286}
+\caption{ }\label{fig:unnamed-chunk-283}
 \end{figure}
 
 \hypertarget{axis-and-size-scaling}{%
@@ -9098,11 +9042,11 @@ From the previous example\ldots{}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-4} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-285-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-285-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-285-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-285-4} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-288}
+\caption{ }\label{fig:unnamed-chunk-285}
 \end{figure}
 
 \hypertarget{graphical-parameters}{%
@@ -9146,11 +9090,11 @@ Another option: \href{http://research.stowers-institute.org/efg/R/Color/Chart/Co
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-2} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-288-2} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-291}
+\caption{ }\label{fig:unnamed-chunk-288}
 \end{figure}
 
 \begin{itemize}
@@ -9178,11 +9122,11 @@ Another option: \href{http://research.stowers-institute.org/efg/R/Color/Chart/Co
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-5} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-289-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-289-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-289-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-289-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-289-5} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-292}
+\caption{ }\label{fig:unnamed-chunk-289}
 \end{figure}
 
 \begin{itemize}
@@ -9210,11 +9154,11 @@ Another option: \href{http://research.stowers-institute.org/efg/R/Color/Chart/Co
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-6} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-4} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-5} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-290-6} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-293}
+\caption{ }\label{fig:unnamed-chunk-290}
 \end{figure}
 
 \hypertarget{annotations-reference-lines-and-legends}{%
@@ -9239,11 +9183,11 @@ We can add text to an arbitrary point on the graph like this:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-294-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-291-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-294}
+\caption{ }\label{fig:unnamed-chunk-291}
 \end{figure}
 
 We can also add labels for every point by passing in a vector of text:
@@ -9263,11 +9207,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-295-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-292-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-295}
+\caption{ }\label{fig:unnamed-chunk-292}
 \end{figure}
 
 \begin{itemize}
@@ -9287,11 +9231,11 @@ We can also add labels for every point by passing in a vector of text:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-296-1} 
+{\centering \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-293-1} 
 
 }
 
-\caption{ }\label{fig:unnamed-chunk-296}
+\caption{ }\label{fig:unnamed-chunk-293}
 \end{figure}
 
 \hypertarget{ggplot2}{%
@@ -9388,7 +9332,7 @@ We need to tell \texttt{ggplot} how we want to visually represent the data, whic
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-298-1} \end{center}
 
 \hypertarget{challenge-1.-8}{%
 \subsubsection*{Challenge 1.}\label{challenge-1.-8}}
@@ -9407,7 +9351,7 @@ Hint: the gapminder dataset has a column called \texttt{year}, which should appe
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-302-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} \end{center}
 
 \hypertarget{anatomy-of-aes}{%
 \subsection{\texorpdfstring{Anatomy of \texttt{aes}}{Anatomy of aes}}\label{anatomy-of-aes}}
@@ -9421,7 +9365,7 @@ In the previous examples and challenge we've used the \texttt{aes} function to t
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-1} \end{center}
 
 Normally, specifying options like \texttt{color="red"} or \texttt{size=10} for a given layer results in its contents being red and quite large. Inside the \texttt{aes()} function, however, these arguments are given entire variables whose values will then be displayed using different realizations of that aesthetic.
 
@@ -9445,7 +9389,7 @@ In the previous challenge, you plotted \texttt{lifExp} over time. Using a scatte
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-302-1} \end{center}
 
 Instead of adding a \texttt{geom\_point} layer, we've added a \texttt{geom\_line} layer. We've also added the \textbf{by} aesthetic, which tells \texttt{ggplot} to draw a line for each country.
 
@@ -9459,7 +9403,7 @@ But what if we want to visualise both lines and points on the plot? We can simpl
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-1} \end{center}
 
 It's important to note that each layer is drawn on top of the previous layer. In this example, the points have been drawn on top of the lines. Here's a demonstration:
 
@@ -9471,7 +9415,7 @@ It's important to note that each layer is drawn on top of the previous layer. In
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-1} \end{center}
 
 In this example, the aesthetic mapping of \textbf{color} has been moved from the global plot options in \texttt{ggplot} to the \texttt{geom\_line} layer so it no longer applies to the points. Now we can clearly see that the points are drawn on top of the lines.
 
@@ -9497,7 +9441,7 @@ Labels are considered to be their own layers in \texttt{ggplot}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \end{center}
 
 So are scales:
 
@@ -9514,7 +9458,7 @@ So are scales:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-1} \end{center}
 
 \hypertarget{transformations-and-stats}{%
 \subsection{Transformations and Stats}\label{transformations-and-stats}}
@@ -9528,7 +9472,7 @@ So are scales:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} \end{center}
 
 We can change the scale of units on the x-axis using the \texttt{scale} functions. These control the mapping between the data values and visual values of an aesthetic.
 
@@ -9540,7 +9484,7 @@ We can change the scale of units on the x-axis using the \texttt{scale} function
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-311-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} \end{center}
 
 The \texttt{log10} function applied a transformation to the values of the \texttt{gdpPercap} column before rendering them on the plot, so that each multiple of 10 now only corresponds to an increase in 1 on the transformed scale, e.g.~a GDP per capita of 1,000 is now 3 on the y axis, a value of 10,000 corresponds to 4 on the x-axis and so on. This makes it easier to visualise the spread of data on the x-axis.
 
@@ -9555,7 +9499,7 @@ We can fit a simple relationship to the data by adding another layer, \texttt{ge
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} \end{center}
 
 Note that we have 5 lines, one for each region, because of the \textbf{color} option is the global \texttt{aes} function. But if we move it, we get different restuls:
 
@@ -9568,7 +9512,7 @@ Note that we have 5 lines, one for each region, because of the \textbf{color} op
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-1} \end{center}
 
 So, there are two ways an aesthetic can be specified. Here, we set the \textbf{color} aesthetic by passing it as an argument to \texttt{geom\_point}. Previously in the lesson, we used the \texttt{aes} function to define a \emph{mapping} between data variables and their visual representation.
 
@@ -9583,7 +9527,7 @@ We can make the line thicker by setting the \textbf{size} aesthetic in the geom\
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-311-1} \end{center}
 
 \hypertarget{challenge-3.-5}{%
 \subsubsection*{Challenge 3.}\label{challenge-3.-5}}
@@ -9604,7 +9548,7 @@ Hint: do not use the \texttt{aes} function.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-315-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-1} \end{center}
 
 \hypertarget{facets}{%
 \subsection{Facets}\label{facets}}
@@ -9619,7 +9563,7 @@ Earlier, we visualised the change in life expectancy over time across all countr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} \end{center}
 
 \hypertarget{putting-everything-together}{%
 \subsection{Putting Everything Together}\label{putting-everything-together}}
@@ -9642,7 +9586,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-317-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-317-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-2} \end{center}
 
 \textbf{box plots}
 
@@ -9653,7 +9597,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-318-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-315-1} \end{center}
 
 This is just a taste of what you can do with \texttt{ggplot2}.
 
@@ -9692,7 +9636,7 @@ Advanced:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-319-3} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-3} \end{center}
 
 \hypertarget{saving-plots}{%
 \section{Saving plots}\label{saving-plots}}
@@ -9810,7 +9754,7 @@ We can also use these functions on other distributions:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-326-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-323-1} \end{center}
 
 \hypertarget{sampling-and-simulation}{%
 \subsection{Sampling and Simulation}\label{sampling-and-simulation}}
@@ -10128,7 +10072,7 @@ When we store this regression in an object, we get access to several items of in
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-344-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-344-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-344-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-344-4} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-341-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-341-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-341-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-341-4} \end{center}
 
 R also has a helpful \texttt{summary} method for regression objects.
 
@@ -10680,7 +10624,7 @@ Let's say we're using LaTeX to typeset our paper. We can output our regression t
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Wed, Oct 16, 2019 - 19:55:25}
+\CommentTok{#> % Date and time: Sun, Oct 20, 2019 - 13:18:06}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -12732,6 +12676,552 @@ profile\_image\_url
 
 805833715
 
+1185927508816027648
+
+1571582126
+
+carsonaust
+
+\citet{ryan_brutger} This has become normal for me (4 yo and 17 month old). And it is righteous and amazing
+
+Twitter for iPhone
+
+86
+
+1185917214102212609
+
+930168033552879617
+
+ryan\_brutger
+
+FALSE
+
+FALSE
+
+1
+
+0
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+930168033552879617
+
+ryan\_brutger
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1185927508816027648}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1947
+
+1023
+
+23
+
+1538
+
+2668
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1185920154716254213
+
+1571580372
+
+carsonaust
+
+\url{https://t.co/KMtm254ftQ}
+
+Twitter for iPhone
+
+23
+
+1185920150672990208
+
+805833715
+
+carsonaust
+
+TRUE
+
+FALSE
+
+0
+
+0
+
+NA
+
+NA
+
+NA
+
+NA
+
+twitter.com/carsonaust/sta\ldots{}
+
+\url{https://t.co/KMtm254ftQ}
+
+\url{https://twitter.com/carsonaust/status/1182701646536728581?s=21}
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+und
+
+1182701646536728581
+
+ICYMI: Should senior intelligence leaders avoid taking public stances contradicting White House claims? Can they avoid it if Congress requires public statements?
+
+I debate it with \citet{JoshRovner1} in \citet{lawfareblog}. An issue of growing import as impeachment inquiry progresses \url{https://t.co/7aOWod93RU}
+
+1570813020
+
+Twitter Web App
+
+37
+
+7
+
+805833715
+
+carsonaust
+
+Austin Carson
+
+1947
+
+1023
+
+1538
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons enthusiast
+
+FALSE
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1185920154716254213}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1947
+
+1023
+
+23
+
+1538
+
+2668
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
+1185920150672990208
+
+1571580371
+
+carsonaust
+
+Public dissent by military leaders: appropriate? When? Why?
+
+Similar issues at stake for intelligence leaders, as I debated with \citet{JoshRovner1} recently (see next tweet for links)
+
+\url{https://t.co/ucdu5qpa6h}
+
+Twitter for iPhone
+
+203
+
+NA
+
+NA
+
+NA
+
+FALSE
+
+FALSE
+
+4
+
+1
+
+NA
+
+NA
+
+NA
+
+NA
+
+washingtonpost.com/world/national\ldots{}
+
+\url{https://t.co/ucdu5qpa6h}
+
+\url{https://www.washingtonpost.com/world/national-security/they-are-livid-trumps-withdrawal-from-syria-prompts-rare-public-criticism-from-current-former-military-officials/2019/10/19/d9455f08-f1ba-11e9-8693-f487e46784aa_story.html}
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+1151193788
+
+JoshRovner1
+
+en
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+NA
+
+c(NA, NA)
+
+c(NA, NA)
+
+c(NA, NA, NA, NA, NA, NA, NA, NA)
+
+\url{https://twitter.com/carsonaust/status/1185920150672990208}
+
+Austin Carson
+
+Chicago, IL
+
+Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons enthusiast
+
+\url{https://t.co/kApIyoe7RG}
+
+FALSE
+
+1947
+
+1023
+
+23
+
+1538
+
+2668
+
+1346896669
+
+FALSE
+
+\url{https://t.co/kApIyoe7RG}
+
+\url{https://austinmcarson.com/}
+
+NA
+
+\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
+
+\url{http://abs.twimg.com/images/themes/theme1/bg.png}
+
+\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
+
+805833715
+
 1184464745216299008
 
 1571233376
@@ -12832,7 +13322,7 @@ Please don't say that your paper fills a gap. If you have the urge, just ignore 
 
 Twitter Web App
 
-74
+76
 
 9
 
@@ -12840,13 +13330,13 @@ Twitter Web App
 
 dhnexon
 
-Dan ``Evil Gnome'' Nexon 🧙‍♂️🎃
+Dan Nexon 🧙‍♂️🎃
 
-12527
+12554
 
-4466
+4475
 
-2488
+2531
 
 Washington, DC
 
@@ -12884,15 +13374,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1940
+1947
 
-1022
+1023
 
 23
 
-1535
+1538
 
-2658
+2668
 
 1346896669
 
@@ -13012,7 +13502,7 @@ NA
 
 Twitter Web App
 
-22
+21
 
 15
 
@@ -13022,11 +13512,11 @@ pstanpolitics
 
 Paul Staniland
 
-13589
+13629
 
-3039
+3048
 
-20533
+20576
 
 Chicago, IL
 
@@ -13064,15 +13554,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1940
+1947
 
-1022
+1023
 
 23
 
-1535
+1538
 
-2658
+2668
 
 1346896669
 
@@ -13166,7 +13656,7 @@ Should intelligence officials publicly dissent from policy? \citet{carsonaust} a
 
 Twitter Web App
 
-21
+22
 
 13
 
@@ -13176,11 +13666,11 @@ JoshRovner1
 
 Josh Rovner
 
-1830
+1829
 
 684
 
-1751
+1752
 
 Washington, DC
 
@@ -13248,564 +13738,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1940
+1947
 
-1022
+1023
 
 23
 
-1535
+1538
 
-2658
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1182700887304744962
-
-1570812839
-
-carsonaust
-
-In a recent essay, \citet{UChicagoPoliSci}'s Austin Carson (\citet{carsonaust}) discusses instances when the Director of National Intelligence must be willing to disagree with the President, via \citet{lawfareblog}
-
-Read at \url{https://t.co/YkCxR8BMvd}
-
-Twitter Web App
-
-140
-
-NA
-
-NA
-
-NA
-
-FALSE
-
-TRUE
-
-0
-
-1
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(``568282577'', ``390823537'', ``805833715'')
-
-c(``UChicagoSSD'', ``UChicagoPoliSci'', ``carsonaust'')
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-1182409239245021184
-
-In a recent essay, \citet{UChicagoPoliSci}'s Austin Carson (\citet{carsonaust}) discusses instances when the Director of National Intelligence must be willing to disagree with the President, via \citet{lawfareblog}
-
-Read at \url{https://t.co/YkCxR8BMvd}
-
-1570743305
-
-Hootsuite Inc.
-
-8
-
-1
-
-568282577
-
-UChicagoSSD
-
-UChi Social Sciences
-
-2636
-
-195
-
-2287
-
-Chicago, Illinois
-
-The official page of the University of Chicago Division of the Social Sciences. News, events, and updates for students, faculty, staff, alumni, and friends.
-
-FALSE
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1182700887304744962}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1940
-
-1022
-
-23
-
-1535
-
-2658
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1181260032916250624
-
-1570469313
-
-carsonaust
-
-\textbf{MPSA deadline extended}
-If you didn't have a chance to submit, you still can! \url{https://t.co/KfZSPg6o7f}
-
-Twitter Web App
-
-80
-
-NA
-
-NA
-
-NA
-
-FALSE
-
-FALSE
-
-2
-
-1
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-\url{http://pbs.twimg.com/media/EGStvNyWoAExuf5.jpg}
-
-\url{https://t.co/KfZSPg6o7f}
-
-\url{https://twitter.com/carsonaust/status/1181260032916250624/photo/1}
-
-photo
-
-\url{http://pbs.twimg.com/media/EGStvNyWoAExuf5.jpg}
-
-\url{https://t.co/KfZSPg6o7f}
-
-\url{https://twitter.com/carsonaust/status/1181260032916250624/photo/1}
-
-NA
-
-NA
-
-NA
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1181260032916250624}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1940
-
-1022
-
-23
-
-1535
-
-2658
-
-1346896669
-
-FALSE
-
-\url{https://t.co/kApIyoe7RG}
-
-\url{https://austinmcarson.com/}
-
-NA
-
-\url{https://pbs.twimg.com/profile_banners/805833715/1533067436}
-
-\url{http://abs.twimg.com/images/themes/theme1/bg.png}
-
-\url{http://pbs.twimg.com/profile_images/1024384740181336064/ROqTG_uN_normal.jpg}
-
-805833715
-
-1179794348709498880
-
-1570119866
-
-carsonaust
-
-Was just told it's sad women don't do strategic studies. Through my tears I used Google to locate smthg called ``Journal of Strategic Studies.'' 🧐 Current issue co-edited by woman 🙋‍♀️ \&amp; 4/7 articles have female authors 🙋‍♀️
-But yes, stop hiding, lady experts!
-\url{https://t.co/T2Xkx7CdGU}
-
-Twitter Web App
-
-140
-
-NA
-
-NA
-
-NA
-
-FALSE
-
-TRUE
-
-0
-
-113
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-1036404458161426432
-
-ProfTalmadge
-
-en
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-1179762232910995457
-
-Was just told it's sad women don't do strategic studies. Through my tears I used Google to locate smthg called ``Journal of Strategic Studies.'' 🧐 Current issue co-edited by woman 🙋‍♀️ \&amp; 4/7 articles have female authors 🙋‍♀️
-But yes, stop hiding, lady experts!
-\url{https://t.co/T2Xkx7CdGU}
-
-1570112209
-
-Twitter Web App
-
-379
-
-113
-
-1036404458161426432
-
-ProfTalmadge
-
-ProfTalmadge
-
-2724
-
-950
-
-1364
-
-Washington, DC
-
-Associate Professor \citet{GeorgetownCSS} \citet{GeorgetownSFS}. Senior Fellow \citet{BrookingsFP}. Military ops, defense policy, nuclear deterrence \& escalation, authoritarianism.
-
-FALSE
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-NA
-
-c(NA, NA)
-
-c(NA, NA)
-
-c(NA, NA, NA, NA, NA, NA, NA, NA)
-
-\url{https://twitter.com/carsonaust/status/1179794348709498880}
-
-Austin Carson
-
-Chicago, IL
-
-Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert Conflict in International Politics}. Dad \& NBA / Pistons enthusiast
-
-\url{https://t.co/kApIyoe7RG}
-
-FALSE
-
-1940
-
-1022
-
-23
-
-1535
-
-2658
+2668
 
 1346896669
 
@@ -13835,7 +13776,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-445-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-442-1} \end{center}
 
 \hypertarget{hashtags-and-text-strings}{%
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}}
@@ -13870,17 +13811,17 @@ Using the documentation for \texttt{search\_tweets} as a guide, try pulling the 
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 922 x 3}
-\CommentTok{#> # Groups:   user_id [922]}
-\CommentTok{#>   user_id             location                 n}
-\CommentTok{#>   <chr>               <chr>                <int>}
-\CommentTok{#> 1 2561373848          Florida, USA           101}
-\CommentTok{#> 2 764290456599396353  Rochester, New York     45}
-\CommentTok{#> 3 826869114           Paris, Ile-de-France    26}
-\CommentTok{#> 4 84950267            ""                      20}
-\CommentTok{#> 5 1030069194539368448 ""                      14}
-\CommentTok{#> 6 1022122568004894720 ""                      13}
-\CommentTok{#> # ... with 916 more rows}
+\CommentTok{#> # A tibble: 759 x 3}
+\CommentTok{#> # Groups:   user_id [759]}
+\CommentTok{#>   user_id            location                           n}
+\CommentTok{#>   <chr>              <chr>                          <int>}
+\CommentTok{#> 1 2561373848         Florida, USA                      79}
+\CommentTok{#> 2 764290456599396353 Rochester, New York               75}
+\CommentTok{#> 3 12666752           land-O-Lakes, Florida             36}
+\CommentTok{#> 4 714738130557992960 Chiclana de la Frontera, Spain    28}
+\CommentTok{#> 5 20948837           Tokyo, Japan                      21}
+\CommentTok{#> 6 826869114          Paris, Ile-de-France              14}
+\CommentTok{#> # ... with 753 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -14034,17 +13975,17 @@ Within \texttt{response\_df\$response}, we can extract a number of interesting r
 \CommentTok{# What's in 'meta'?}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}
 \CommentTok{#> $hits}
-\CommentTok{#> [1] 3902}
+\CommentTok{#> [1] 3907}
 \CommentTok{#> }
 \CommentTok{#> $offset}
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 17}
+\CommentTok{#> [1] 62}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
-\CommentTok{#> [1] 3902}
+\CommentTok{#> [1] 3907}
 
 \CommentTok{# Check out docs}
 \KeywordTok{names}\NormalTok{(response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{docs)}
@@ -14152,7 +14093,7 @@ To figure out how Adam Rippon's's popularity is changing over time, all we need 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-458-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-455-1} \end{center}
 
 \hypertarget{more-resources-1}{%
 \subsection{More resources}\label{more-resources-1}}
