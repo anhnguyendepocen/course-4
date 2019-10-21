@@ -52,66 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -430,7 +405,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Assignments and Projects</b></span></li>
-<li class="chapter" data-level="18" data-path="assignments-1.html"><a href="assignments-1.html"><i class="fa fa-check"></i><b>18</b> Assignments</a></li>
+<li class="chapter" data-level="18" data-path="assignments-1.html"><a href="assignments-1.html"><i class="fa fa-check"></i><b>18</b> Assignments</a><ul>
+<li class="chapter" data-level="18.1" data-path="assignments-1.html"><a href="assignments-1.html#assignment-1-solutions"><i class="fa fa-check"></i><b>18.1</b> Assignment 1 Solutions</a></li>
+<li class="chapter" data-level="18.2" data-path="assignments-1.html"><a href="assignments-1.html#assignment-2-solutions"><i class="fa fa-check"></i><b>18.2</b> Assignment 2 Solutions</a></li>
+</ul></li>
 <li class="part"><span><b>IV Resources</b></span></li>
 <li class="chapter" data-level="19" data-path="cheat-sheets-and-guides.html"><a href="cheat-sheets-and-guides.html"><i class="fa fa-check"></i><b>19</b> Cheat Sheets and Guides</a></li>
 <li class="divider"></li>
@@ -469,13 +447,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>“Tidy datasets are all alike but every messy dataset is messy in its own way.” – Hadley Wickham</p>
 </blockquote>
 <p>Tabular datasets can be arranged in many ways. For instance, consider the data below. Each data set displays information on heart rates observed in individuals across 3 different time periods. But the data are organized differently in each table.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1">wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb202-2" data-line-number="2">  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;Wilbur&quot;</span>, <span class="st">&quot;Petunia&quot;</span>, <span class="st">&quot;Gregory&quot;</span>),</a>
-<a class="sourceLine" id="cb202-3" data-line-number="3">  <span class="dt">time1 =</span> <span class="kw">c</span>(<span class="dv">67</span>, <span class="dv">80</span>, <span class="dv">64</span>),</a>
-<a class="sourceLine" id="cb202-4" data-line-number="4">  <span class="dt">time2 =</span> <span class="kw">c</span>(<span class="dv">56</span>, <span class="dv">90</span>, <span class="dv">50</span>),</a>
-<a class="sourceLine" id="cb202-5" data-line-number="5">  <span class="dt">time3 =</span> <span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">67</span>, <span class="dv">101</span>)</a>
-<a class="sourceLine" id="cb202-6" data-line-number="6">)</a>
-<a class="sourceLine" id="cb202-7" data-line-number="7"><span class="kw">kable</span>(wide)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;Wilbur&quot;</span>, <span class="st">&quot;Petunia&quot;</span>, <span class="st">&quot;Gregory&quot;</span>),
+  <span class="dt">time1 =</span> <span class="kw">c</span>(<span class="dv">67</span>, <span class="dv">80</span>, <span class="dv">64</span>),
+  <span class="dt">time2 =</span> <span class="kw">c</span>(<span class="dv">56</span>, <span class="dv">90</span>, <span class="dv">50</span>),
+  <span class="dt">time3 =</span> <span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">67</span>, <span class="dv">101</span>)
+)
+<span class="kw">kable</span>(wide)</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -538,13 +516,13 @@ Gregory
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb203-2" data-line-number="2">long &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb203-3" data-line-number="3">  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;Wilbur&quot;</span>, <span class="st">&quot;Petunia&quot;</span>, <span class="st">&quot;Gregory&quot;</span>, <span class="st">&quot;Wilbur&quot;</span>, <span class="st">&quot;Petunia&quot;</span>, <span class="st">&quot;Gregory&quot;</span>, <span class="st">&quot;Wilbur&quot;</span>, <span class="st">&quot;Petunia&quot;</span>, <span class="st">&quot;Gregory&quot;</span>),</a>
-<a class="sourceLine" id="cb203-4" data-line-number="4">  <span class="dt">time =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb203-5" data-line-number="5">  <span class="dt">heartrate =</span> <span class="kw">c</span>(<span class="dv">67</span>, <span class="dv">80</span>, <span class="dv">64</span>, <span class="dv">56</span>, <span class="dv">90</span>, <span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">67</span>, <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb203-6" data-line-number="6">)</a>
-<a class="sourceLine" id="cb203-7" data-line-number="7"><span class="kw">kable</span>(long)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+long &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;Wilbur&quot;</span>, <span class="st">&quot;Petunia&quot;</span>, <span class="st">&quot;Gregory&quot;</span>, <span class="st">&quot;Wilbur&quot;</span>, <span class="st">&quot;Petunia&quot;</span>, <span class="st">&quot;Gregory&quot;</span>, <span class="st">&quot;Wilbur&quot;</span>, <span class="st">&quot;Petunia&quot;</span>, <span class="st">&quot;Gregory&quot;</span>),
+  <span class="dt">time =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>),
+  <span class="dt">heartrate =</span> <span class="kw">c</span>(<span class="dv">67</span>, <span class="dv">80</span>, <span class="dv">64</span>, <span class="dv">56</span>, <span class="dv">90</span>, <span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">67</span>, <span class="dv">10</span>)
+)
+<span class="kw">kable</span>(long)</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -665,15 +643,15 @@ Gregory
 <p><strong>Answer</strong>: The first dataframe (the “wide” one) would not be considered <em>tidy</em> because values (i.e., heart rate) are spread across multiple columns.</p>
 <p>We often refer to these different structures as “long” vs. “wide” formats. In the “long” format, you usually have 1 column for the observed variable and the other columns are ID variables.</p>
 <p>For the “wide” format each row is often a site/subject/patient and you have multiple observation variables containing the same type of data. These can be either repeated observations over time, or observation of multiple variables (or a mix of both). In the above case, we had the same kind of data (heart rate) entered across 3 different columns, corresponding to three different time periods.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/tidyr-fig1.png&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/tidyr-fig1.png&quot;</span>)</code></pre></div>
 <p><img src="img/tidyr-fig1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>You may find data input in the “wide” format to be simpler, and some other applications may prefer “wide” format data. However, many of R’s functions have been designed assuming you have “long” format data.</p>
 </div>
 <div id="tidying-the-gapminder-data" class="section level2">
 <h2><span class="header-section-number">11.2</span> Tidying the Gapminder Data</h2>
 <p>Let’s look at the structure of our original gapminder dataframe:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb205-2" data-line-number="2"><span class="kw">kable</span>(<span class="kw">head</span>(gap))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)
+<span class="kw">kable</span>(<span class="kw">head</span>(gap))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -828,16 +806,16 @@ Asia
 <div id="tidyr-functions" class="section level2">
 <h2><span class="header-section-number">11.3</span> <code>tidyr</code> Functions</h2>
 <p>Thankfully, the <code>tidyr</code> package will help you efficiently transform your data regardless of original format.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="co"># Install the &quot;tidyr&quot; package (only necessary one time)</span></a>
-<a class="sourceLine" id="cb206-2" data-line-number="2"><span class="co"># install.packages(&quot;tidyr&quot;) # Not Run</span></a>
-<a class="sourceLine" id="cb206-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb206-4" data-line-number="4"><span class="co"># Load the &quot;tidyr&quot; package (necessary every new R session)</span></a>
-<a class="sourceLine" id="cb206-5" data-line-number="5"><span class="kw">library</span>(tidyr)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install the &quot;tidyr&quot; package (only necessary one time)</span>
+<span class="co"># install.packages(&quot;tidyr&quot;) # Not Run</span>
+
+<span class="co"># Load the &quot;tidyr&quot; package (necessary every new R session)</span>
+<span class="kw">library</span>(tidyr)</code></pre></div>
 <div id="gather" class="section level3">
 <h3><span class="header-section-number">11.3.1</span> <code>gather</code></h3>
 <p>Until now, we’ve been using the nicely formatted original gapminder dataset. This dataset is not quite wide and not quite long – it’s something in the middle, but ‘real’ data (i.e. our own research data) will never be so well organized. Here let’s start with the wide format version of the gapminder dataset.</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1">gap_wide &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder_wide.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb207-2" data-line-number="2"><span class="kw">kable</span>(<span class="kw">head</span>(gap_wide))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap_wide &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder_wide.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">kable</span>(<span class="kw">head</span>(gap_wide))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1658,9 +1636,9 @@ Burundi
 </table>
 <p>The first step towards getting our nice intermediate data format is to first convert from the wide to the long format.</p>
 <p>The function <code>gather()</code> will ‘gather’ the observation variables into a single variable. This is sometimes called “melting” your data, because it melts the table from wide to long. Those data will be melted into two variables: one for the variable names, and the other for the variable values.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">gap_long &lt;-<span class="st"> </span>gap_wide <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb208-2" data-line-number="2"><span class="st">    </span><span class="kw">gather</span>(obstype_year, obs_values, <span class="dv">3</span><span class="op">:</span><span class="dv">38</span>)</a>
-<a class="sourceLine" id="cb208-3" data-line-number="3"><span class="kw">kable</span>(<span class="kw">head</span>(gap_long))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap_long &lt;-<span class="st"> </span>gap_wide <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">gather</span>(obstype_year, obs_values, <span class="dv">3</span><span class="op">:</span><span class="dv">38</span>)
+<span class="kw">kable</span>(<span class="kw">head</span>(gap_long))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1783,11 +1761,11 @@ gdpPercap_1952
 </ul>
 <p>See the <code>select()</code> function in <code>dplyr</code> for more options.</p>
 <p>For instance, here we do the same thing with (1) the <code>starts_with</code> function, and (2) the <code>-</code> operator:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="co"># 1. with the starts_with() function</span></a>
-<a class="sourceLine" id="cb209-2" data-line-number="2">gap_long &lt;-<span class="st"> </span>gap_wide <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb209-3" data-line-number="3"><span class="st">    </span><span class="kw">gather</span>(obstype_year, obs_values, <span class="kw">starts_with</span>(<span class="st">&#39;pop&#39;</span>),</a>
-<a class="sourceLine" id="cb209-4" data-line-number="4">           <span class="kw">starts_with</span>(<span class="st">&#39;lifeExp&#39;</span>), <span class="kw">starts_with</span>(<span class="st">&#39;gdpPercap&#39;</span>))</a>
-<a class="sourceLine" id="cb209-5" data-line-number="5"><span class="kw">kable</span>(<span class="kw">head</span>(gap_long))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1. with the starts_with() function</span>
+gap_long &lt;-<span class="st"> </span>gap_wide <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">gather</span>(obstype_year, obs_values, <span class="kw">starts_with</span>(<span class="st">&#39;pop&#39;</span>),
+           <span class="kw">starts_with</span>(<span class="st">&#39;lifeExp&#39;</span>), <span class="kw">starts_with</span>(<span class="st">&#39;gdpPercap&#39;</span>))
+<span class="kw">kable</span>(<span class="kw">head</span>(gap_long))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1892,11 +1870,11 @@ pop_1952
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb210-2" data-line-number="2"><span class="co"># 2. with the - operator</span></a>
-<a class="sourceLine" id="cb210-3" data-line-number="3">gap_long &lt;-<span class="st"> </span>gap_wide <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb210-4" data-line-number="4"><span class="st">  </span><span class="kw">gather</span>(obstype_year, obs_values, <span class="op">-</span>continent, <span class="op">-</span>country)</a>
-<a class="sourceLine" id="cb210-5" data-line-number="5"><span class="kw">kable</span>(<span class="kw">head</span>(gap_long))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># 2. with the - operator</span>
+gap_long &lt;-<span class="st"> </span>gap_wide <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(obstype_year, obs_values, <span class="op">-</span>continent, <span class="op">-</span>country)
+<span class="kw">kable</span>(<span class="kw">head</span>(gap_long))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2007,10 +1985,10 @@ gdpPercap_1952
 <h3><span class="header-section-number">11.3.2</span> <code>separate</code></h3>
 <p>You’ll notice that in our long dataset, <code>obstype_year</code> actually contains 2 pieces of information, the observation type (<code>pop</code>, <code>lifeExp</code>, or <code>gdpPercap</code>) and the <code>year</code>.</p>
 <p>We can use the <code>separate()</code> function to split the character strings into multiple variables:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">gap_long_sep &lt;-<span class="st"> </span>gap_long <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb211-2" data-line-number="2"><span class="st">  </span><span class="kw">separate</span>(obstype_year, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&#39;obs_type&#39;</span>,<span class="st">&#39;year&#39;</span>), <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb211-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year))</a>
-<a class="sourceLine" id="cb211-4" data-line-number="4"><span class="kw">kable</span>(<span class="kw">head</span>(gap_long_sep))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap_long_sep &lt;-<span class="st"> </span>gap_long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">separate</span>(obstype_year, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&#39;obs_type&#39;</span>,<span class="st">&#39;year&#39;</span>), <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year))
+<span class="kw">kable</span>(<span class="kw">head</span>(gap_long_sep))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2140,9 +2118,9 @@ gdpPercap
 <div id="spread" class="section level3">
 <h3><span class="header-section-number">11.3.3</span> <code>spread</code></h3>
 <p>The opposite of <code>gather()</code> is <code>spread()</code>. It spreads our observation variables back out to make a wider table. We can use this function to spread our <code>gap_long()</code> to the original “medium” format.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1">gap_medium &lt;-<span class="st"> </span>gap_long_sep <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb212-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(obs_type, obs_values)</a>
-<a class="sourceLine" id="cb212-3" data-line-number="3"><span class="kw">kable</span>(<span class="kw">head</span>(gap_medium))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap_medium &lt;-<span class="st"> </span>gap_long_sep <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">spread</span>(obs_type, obs_values)
+<span class="kw">kable</span>(<span class="kw">head</span>(gap_medium))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2290,8 +2268,8 @@ Algeria
 </tbody>
 </table>
 <p>All we need is some quick fixes to make this dataset identical to the original <code>gapminder</code> dataset:</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb213-2" data-line-number="2"><span class="kw">kable</span>(<span class="kw">head</span>(gap))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>)
+<span class="kw">kable</span>(<span class="kw">head</span>(gap))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2438,9 +2416,9 @@ Asia
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1"><span class="co"># rearrange columns</span></a>
-<a class="sourceLine" id="cb214-2" data-line-number="2">gap_medium &lt;-<span class="st"> </span>gap_medium[,<span class="kw">names</span>(gap)]</a>
-<a class="sourceLine" id="cb214-3" data-line-number="3"><span class="kw">kable</span>(<span class="kw">head</span>(gap_medium))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rearrange columns</span>
+gap_medium &lt;-<span class="st"> </span>gap_medium[,<span class="kw">names</span>(gap)]
+<span class="kw">kable</span>(<span class="kw">head</span>(gap_medium))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2587,10 +2565,10 @@ Africa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1"><span class="co"># arrange by country, continent, and year</span></a>
-<a class="sourceLine" id="cb215-2" data-line-number="2">gap_medium &lt;-<span class="st"> </span>gap_medium <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb215-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(country,continent,year)</a>
-<a class="sourceLine" id="cb215-4" data-line-number="4"><span class="kw">kable</span>(<span class="kw">head</span>(gap_medium))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># arrange by country, continent, and year</span>
+gap_medium &lt;-<span class="st"> </span>gap_medium <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(country,continent,year)
+<span class="kw">kable</span>(<span class="kw">head</span>(gap_medium))</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2743,8 +2721,7 @@ Asia
 </div>
 <div id="more-tidyverse" class="section level2">
 <h2><span class="header-section-number">11.4</span> More <code>tidyverse</code></h2>
-<p><code>dplyr</code> and <code>tidyr</code> have many more functions to help you wrangle and manipulate
-your data. See the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling Cheat Sheet</a> for more.</p>
+<p><code>dplyr</code> and <code>tidyr</code> have many more functions to help you wrangle and manipulate your data. See the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling Cheat Sheet</a> for more.</p>
 <p>There are some other useful packages in the <a href="http://www.tidyverse.org">tidyverse</a>:</p>
 <ul>
 <li><code>ggplot2</code> for plotting (we’ll cover this in the Visualization module.)</li>
@@ -2753,19 +2730,19 @@ your data. See the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/d
 <li><code>stringr</code>, <code>lubridate</code>, <code>forcats</code> for manipulating strings, dates, and factors, respectively</li>
 <li>many many more! Take a peak at the <a href="https://github.com/tidyverse">tidyverse github page</a>…</li>
 </ul>
-<p><strong>Pro Tip:</strong> To install and load the core tidyverse packages (includes <code>tidyr</code>, <code>dplyr</code>, and <code>ggplot2</code>, among others), try:</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1"><span class="co">## NOT run</span></a>
-<a class="sourceLine" id="cb216-2" data-line-number="2"><span class="co"># install.packages(&quot;tidyverse&quot;)</span></a>
-<a class="sourceLine" id="cb216-3" data-line-number="3"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>**Pro <a href="Tip:**" class="uri">Tip:**</a> To install and load the core tidyverse packages (includes <code>tidyr</code>, <code>dplyr</code>, and <code>ggplot2</code>, among others), try:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## NOT run
+<span class="co"># install.packages(&quot;tidyverse&quot;)</span>
+<span class="kw">library</span>(tidyverse)</code></pre></div>
 </div>
 <div id="challenges-12" class="section level2">
 <h2><span class="header-section-number">11.5</span> Challenges</h2>
 <div id="challenge-1.-7" class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
-<p>Subset the results from challenge #3 (above) to select only the <code>country</code>, <code>year</code>, and <code>gdpPercap_diff</code> columns. Use <code>tidyr</code> put it in wide format so that countries are rows and years are columns.</p>
+<p>Subset the results from Challenge #3 (of the previous chapter) to select only the <code>country</code>, <code>year</code>, and <code>gdpPercap_diff</code> columns. Use <code>tidyr</code> put it in wide format so that countries are rows and years are columns.</p>
 </div>
-<div id="challenge-2.-7" class="section level4">
-<h4><span class="header-section-number">11.5.0.1</span> Challenge 2.</h4>
+<div id="challenge-2.-7" class="section level4 unnumbered">
+<h4>Challenge 2.</h4>
 <p>Now turn the dataframe above back into the long format with three columns: <code>country</code>, <code>year</code>, and <code>gdpPercap_diff</code>.</p>
 </div>
 <div id="acknowledgments-4" class="section level4 unnumbered">
@@ -2776,7 +2753,7 @@ your data. See the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/d
 <li><a href="https://github.com/berkeley-scf/r-bootcamp-fall-2019">R bootcamp at UC Berkeley</a></li>
 </ul>
 
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1"><span class="kw">library</span>(kableExtra)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(kableExtra)</code></pre></div>
 </div>
 </div>
 </div>
@@ -2829,7 +2806,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
