@@ -77,14 +77,14 @@ There are two types of keys:
 
 * A **foreign key** uniquely identifies an observation in another table. For example, the counties$state is a foreign key because it appears in the counties table where it matches each county to a unique state.
 
+A primary key and the corresponding foreign key in another table form a **relation**.
+
 Sometimes a table doesn’t have an explicit primary key: each row is an observation, but no combination of variables reliably identifies it. If a table lacks a primary key, it's useful to add one with `mutate()` and `row_number()`. This is called a __surrogate key__.
 
-A primary key and the corresponding foreign key in another table form a **relation**.
 
 ## Joins
 
-Data stored in the form we have outlined above is considered _normalized_. In general, we should try to keep data normalized as far into the code pipeline as we can. Storing normalized data
-means your data will be easier to understand and it will be harder to make costly mistakes.
+Data stored in the form we have outlined above is considered _normalized_. In general, we should try to keep data normalized as far into the code pipeline as we can. Storing normalized data means your data will be easier to understand and it will be harder to make costly mistakes.
 
 At some point, however, we're going to have to merge (or __join__) the tables together to produce a single dataframe, and conduct analysis on that dataframe. 
 

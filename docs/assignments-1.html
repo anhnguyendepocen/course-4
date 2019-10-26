@@ -52,41 +52,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -445,10 +470,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="using-r-markdown" class="section level4 unnumbered">
 <h4>1. Using R Markdown</h4>
 <p>In the space below, insert a picture of yourself, and complete the following information:</p>
-<div class="figure">
-<img src="img/dany.jpg" />
-
-</div>
+<p><img src="img/dany.jpg" /></p>
 <ol style="list-style-type: decimal">
 <li><strong>Name</strong>: Daenerys Targaryen</li>
 <li><strong>Department and degree program</strong>: Queen of the Andals and the First Men, Protector of the Seven Kingdoms, the Mother of Dragons, the Khaleesi of the Great Grass Sea, the Unburnt, the Breaker of Chains.</li>
@@ -464,7 +486,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="checking-packages" class="section level4 unnumbered">
 <h4>2. Checking packages</h4>
 <p>Create an R chunk below, where you load the <code>tidyverse</code> library.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 </div>
 <div id="knit-and-submit." class="section level4 unnumbered">
 <h4>3. Knit and submit.</h4>
@@ -483,40 +505,40 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="basics" class="section level4 unnumbered">
 <h4>1. Basics</h4>
 <p><strong>1.1 Fix the following syntax errors. Enter your corrected code in the second chunk.</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1</span>
-states &lt;-<span class="st"> </span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)
-
-<span class="co"># 2</span>
-countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia,&quot;</span> <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)
-
-<span class="co"># 3</span>
-df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>)
-                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))
-
-<span class="co"># 4</span>
-my<span class="op">-</span>vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)
-
-<span class="co"># 5</span>
-artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>,
-                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># PUT YOUR CORRECTED CODE HERE</span>
-
-<span class="co"># 1</span>
-states &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)
-
-<span class="co"># 2</span>
-countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia&quot;</span>, <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)
-
-<span class="co"># 3</span>
-df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>),
-                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))
-
-<span class="co"># 4</span>
-my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)
-
-<span class="co"># 5</span>
-artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>),
-                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1"><span class="co"># 1</span></a>
+<a class="sourceLine" id="cb409-2" data-line-number="2">states &lt;-<span class="st"> </span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)</a>
+<a class="sourceLine" id="cb409-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb409-4" data-line-number="4"><span class="co"># 2</span></a>
+<a class="sourceLine" id="cb409-5" data-line-number="5">countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia,&quot;</span> <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)</a>
+<a class="sourceLine" id="cb409-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb409-7" data-line-number="7"><span class="co"># 3</span></a>
+<a class="sourceLine" id="cb409-8" data-line-number="8">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>)</a>
+<a class="sourceLine" id="cb409-9" data-line-number="9">                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))</a>
+<a class="sourceLine" id="cb409-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb409-11" data-line-number="11"><span class="co"># 4</span></a>
+<a class="sourceLine" id="cb409-12" data-line-number="12">my<span class="op">-</span>vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)</a>
+<a class="sourceLine" id="cb409-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb409-14" data-line-number="14"><span class="co"># 5</span></a>
+<a class="sourceLine" id="cb409-15" data-line-number="15">artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>,</a>
+<a class="sourceLine" id="cb409-16" data-line-number="16">                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1"><span class="co"># PUT YOUR CORRECTED CODE HERE</span></a>
+<a class="sourceLine" id="cb410-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb410-3" data-line-number="3"><span class="co"># 1</span></a>
+<a class="sourceLine" id="cb410-4" data-line-number="4">states &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)</a>
+<a class="sourceLine" id="cb410-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb410-6" data-line-number="6"><span class="co"># 2</span></a>
+<a class="sourceLine" id="cb410-7" data-line-number="7">countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia&quot;</span>, <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)</a>
+<a class="sourceLine" id="cb410-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb410-9" data-line-number="9"><span class="co"># 3</span></a>
+<a class="sourceLine" id="cb410-10" data-line-number="10">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>),</a>
+<a class="sourceLine" id="cb410-11" data-line-number="11">                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))</a>
+<a class="sourceLine" id="cb410-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb410-13" data-line-number="13"><span class="co"># 4</span></a>
+<a class="sourceLine" id="cb410-14" data-line-number="14">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)</a>
+<a class="sourceLine" id="cb410-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb410-16" data-line-number="16"><span class="co"># 5</span></a>
+<a class="sourceLine" id="cb410-17" data-line-number="17">artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>),</a>
+<a class="sourceLine" id="cb410-18" data-line-number="18">                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</a></code></pre></div>
 <p><strong>1.2 How many arguments does the <code>order()</code> function pass? What are they?</strong></p>
 </div>
 <div id="vectors-and-lists" class="section level4 unnumbered">
@@ -527,41 +549,41 @@ artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="
 <li><p>a numeric vector, <code>year</code>, that contains the years in which those movies were produced</p></li>
 <li><p>a boolean vector <code>bechdel</code> that TRUE/FALSE according to whether those movies pass the <a href="http://bechdeltest.com/">bechdel test</a></p></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dog Day Afternoon&quot;</span>, <span class="st">&quot;The Graduate&quot;</span>, <span class="st">&quot;Breakfast Club&quot;</span>)
-year &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1975</span>, <span class="dv">1967</span>, <span class="dv">1985</span>)
-bechdel &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">titles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dog Day Afternoon&quot;</span>, <span class="st">&quot;The Graduate&quot;</span>, <span class="st">&quot;Breakfast Club&quot;</span>)</a>
+<a class="sourceLine" id="cb411-2" data-line-number="2">year &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1975</span>, <span class="dv">1967</span>, <span class="dv">1985</span>)</a>
+<a class="sourceLine" id="cb411-3" data-line-number="3">bechdel &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><strong>2.2 Put those three vectors in a list, called <code>movies</code>.</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">movies &lt;-<span class="st"> </span><span class="kw">list</span>(titles, year, bechdel)</code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">movies &lt;-<span class="st"> </span><span class="kw">list</span>(titles, year, bechdel)</a></code></pre></div>
 <p><strong>2.3 Print the structure of the list <code>movies</code>.</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(movies)
-<span class="co">#&gt; List of 3</span>
-<span class="co">#&gt;  $ : chr [1:3] &quot;Dog Day Afternoon&quot; &quot;The Graduate&quot; &quot;Breakfast Club&quot;</span>
-<span class="co">#&gt;  $ : num [1:3] 1975 1967 1985</span>
-<span class="co">#&gt;  $ : logi [1:3] TRUE FALSE TRUE</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1"><span class="kw">str</span>(movies)</a>
+<a class="sourceLine" id="cb413-2" data-line-number="2"><span class="co">#&gt; List of 3</span></a>
+<a class="sourceLine" id="cb413-3" data-line-number="3"><span class="co">#&gt;  $ : chr [1:3] &quot;Dog Day Afternoon&quot; &quot;The Graduate&quot; &quot;Breakfast Club&quot;</span></a>
+<a class="sourceLine" id="cb413-4" data-line-number="4"><span class="co">#&gt;  $ : num [1:3] 1975 1967 1985</span></a>
+<a class="sourceLine" id="cb413-5" data-line-number="5"><span class="co">#&gt;  $ : logi [1:3] TRUE FALSE TRUE</span></a></code></pre></div>
 </div>
 <div id="factors-1" class="section level4 unnumbered">
 <h4>3. Factors</h4>
 <p><strong>3.1 Here’s some code that prints a simple barplot:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>))
-<span class="kw">table</span>(f)
-<span class="co">#&gt; f</span>
-<span class="co">#&gt;   high    low medium </span>
-<span class="co">#&gt;      2      1      3</span>
-<span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">f &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>))</a>
+<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="kw">table</span>(f)</a>
+<a class="sourceLine" id="cb414-3" data-line-number="3"><span class="co">#&gt; f</span></a>
+<a class="sourceLine" id="cb414-4" data-line-number="4"><span class="co">#&gt;   high    low medium </span></a>
+<a class="sourceLine" id="cb414-5" data-line-number="5"><span class="co">#&gt;      2      1      3</span></a>
+<a class="sourceLine" id="cb414-6" data-line-number="6"><span class="kw">barplot</span>(<span class="kw">table</span>(f))</a></code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-485-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>How would you relevel <code>f</code> to be in the correct order?</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">factor</span>(f, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))
-
-<span class="co"># Test your code</span>
-<span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1">f &lt;-<span class="st"> </span><span class="kw">factor</span>(f, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))</a>
+<a class="sourceLine" id="cb415-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb415-3" data-line-number="3"><span class="co"># Test your code</span></a>
+<a class="sourceLine" id="cb415-4" data-line-number="4"><span class="kw">barplot</span>(<span class="kw">table</span>(f))</a></code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-486-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="dataframes-1" class="section level4 unnumbered">
 <h4>4. Dataframes</h4>
 <p><strong>4.1 Coerce the <code>movies</code> object you made above from a list to a dataframe. Call it <code>movies_df</code>.</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">movies_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(movies)</code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1">movies_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(movies)</a></code></pre></div>
 <p><strong>4.2 Add appropriate column names to <code>movies_df</code>.</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(movies) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;film&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;bechtel&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1"><span class="kw">names</span>(movies) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;film&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;bechtel&quot;</span>)</a></code></pre></div>
 
 </div>
 </div>
@@ -618,7 +640,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

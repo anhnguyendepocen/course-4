@@ -5,9 +5,9 @@ date: "Fall 2019"
 output: html_document
 ---
 
-> "Make it informative, then make it pretty"
-
 # Plotting
+
+> "Make it informative, then make it pretty"
 
 There are two major sets of tools for creating plots in R:
 
