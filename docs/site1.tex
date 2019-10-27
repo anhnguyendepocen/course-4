@@ -9341,17 +9341,6 @@ Modify the example so that the figure visualises how life expectancy has changed
 
 Hint: the gapminder dataset has a column called \texttt{year}, which should appear on the x-axis.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# YOUR CODE HERE}
-
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ gap, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ year, }\DataTypeTok{y =}\NormalTok{ lifeExp)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} \end{center}
-
 \hypertarget{anatomy-of-aes}{%
 \subsection{\texorpdfstring{Anatomy of \texttt{aes}}{Anatomy of aes}}\label{anatomy-of-aes}}
 
@@ -9364,7 +9353,7 @@ In the previous examples and challenge we've used the \texttt{aes} function to t
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-300-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-299-1} \end{center}
 
 Normally, specifying options like \texttt{color="red"} or \texttt{size=10} for a given layer results in its contents being red and quite large. Inside the \texttt{aes()} function, however, these arguments are given entire variables whose values will then be displayed using different realizations of that aesthetic.
 
@@ -9388,7 +9377,7 @@ In the previous challenge, you plotted \texttt{lifExp} over time. Using a scatte
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-302-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-301-1} \end{center}
 
 Instead of adding a \texttt{geom\_point} layer, we've added a \texttt{geom\_line} layer. We've also added the \textbf{by} aesthetic, which tells \texttt{ggplot} to draw a line for each country.
 
@@ -9402,7 +9391,7 @@ But what if we want to visualise both lines and points on the plot? We can simpl
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-302-1} \end{center}
 
 It's important to note that each layer is drawn on top of the previous layer. In this example, the points have been drawn on top of the lines. Here's a demonstration:
 
@@ -9414,7 +9403,7 @@ It's important to note that each layer is drawn on top of the previous layer. In
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-303-1} \end{center}
 
 In this example, the aesthetic mapping of \textbf{color} has been moved from the global plot options in \texttt{ggplot} to the \texttt{geom\_line} layer so it no longer applies to the points. Now we can clearly see that the points are drawn on top of the lines.
 
@@ -9440,7 +9429,7 @@ Labels are considered to be their own layers in \texttt{ggplot}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-304-1} \end{center}
 
 So are scales:
 
@@ -9457,7 +9446,7 @@ So are scales:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-305-1} \end{center}
 
 \hypertarget{transformations-and-stats}{%
 \subsection{Transformations and Stats}\label{transformations-and-stats}}
@@ -9471,7 +9460,7 @@ So are scales:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-306-1} \end{center}
 
 We can change the scale of units on the x-axis using the \texttt{scale} functions. These control the mapping between the data values and visual values of an aesthetic.
 
@@ -9483,7 +9472,7 @@ We can change the scale of units on the x-axis using the \texttt{scale} function
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-307-1} \end{center}
 
 The \texttt{log10} function applied a transformation to the values of the \texttt{gdpPercap} column before rendering them on the plot, so that each multiple of 10 now only corresponds to an increase in 1 on the transformed scale, e.g.~a GDP per capita of 1,000 is now 3 on the y axis, a value of 10,000 corresponds to 4 on the x-axis and so on. This makes it easier to visualise the spread of data on the x-axis.
 
@@ -9498,9 +9487,9 @@ We can fit a simple relationship to the data by adding another layer, \texttt{ge
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-308-1} \end{center}
 
-Note that we have 5 lines, one for each region, because of the \textbf{color} option is the global \texttt{aes} function. But if we move it, we get different restuls:
+Note that we have 5 lines, one for each region, because of the \textbf{color} option is the global \texttt{aes} function. But if we move it, we get different results:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9511,7 +9500,7 @@ Note that we have 5 lines, one for each region, because of the \textbf{color} op
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-309-1} \end{center}
 
 So, there are two ways an aesthetic can be specified. Here, we set the \textbf{color} aesthetic by passing it as an argument to \texttt{geom\_point}. Previously in the lesson, we used the \texttt{aes} function to define a \emph{mapping} between data variables and their visual representation.
 
@@ -9526,7 +9515,7 @@ We can make the line thicker by setting the \textbf{size} aesthetic in the geom\
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-311-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-310-1} \end{center}
 
 \hypertarget{challenge-3.-5}{%
 \subsubsection*{Challenge 3.}\label{challenge-3.-5}}
@@ -9536,19 +9525,6 @@ Modify the color and size of the points on the point layer in the previous examp
 
 Hint: do not use the \texttt{aes} function.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# YOUR CODE HERE}
-
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ gap, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ gdpPercap, }\DataTypeTok{y =}\NormalTok{ lifeExp)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{color =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{() }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method=}\StringTok{"lm"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{1.5}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-1} \end{center}
-
 \hypertarget{facets}{%
 \subsection{Facets}\label{facets}}
 
@@ -9556,13 +9532,13 @@ Earlier, we visualised the change in life expectancy over time across all countr
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ gap, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ year, }\DataTypeTok{y =}\NormalTok{ lifeExp, }\DataTypeTok{color=}\NormalTok{continent)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{( }\OperatorTok{~}\StringTok{ }\NormalTok{country)}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ gap, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ year, }\DataTypeTok{y =}\NormalTok{ lifeExp)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{( }\OperatorTok{~}\StringTok{ }\NormalTok{continent)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-311-1} \end{center}
 
 \hypertarget{putting-everything-together}{%
 \subsection{Putting Everything Together}\label{putting-everything-together}}
@@ -9585,7 +9561,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-314-2} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-312-2} \end{center}
 
 \textbf{box plots}
 
@@ -9596,7 +9572,7 @@ Here are some other common \texttt{geom} layers:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-315-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-313-1} \end{center}
 
 This is just a taste of what you can do with \texttt{ggplot2}.
 
@@ -9613,29 +9589,6 @@ Create a density plot of GDP per capita, filled by continent.
 Advanced:
 - Transform the x-axis to better visualise the data spread.
 - Add a facet layer to panel the density plots by year.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# YOUR CODE HERE.}
-
-\KeywordTok{ggplot}\NormalTok{(gap, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ gdpPercap)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{color =}\NormalTok{ continent))}
-
-\CommentTok{##Advanced}
-\CommentTok{# Transform the x-axis to better visualise the data spread}
-\KeywordTok{ggplot}\NormalTok{(gap, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ gdpPercap)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{color =}\NormalTok{ continent)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{()}
-
-\CommentTok{#Add a facet layer to panel the density plots by year}
-\KeywordTok{ggplot}\NormalTok{(gap, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ gdpPercap)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_density}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{continent) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_x_log10}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-316-3} \end{center}
 
 \hypertarget{saving-plots}{%
 \section{Saving plots}\label{saving-plots}}
@@ -9753,7 +9706,7 @@ We can also use these functions on other distributions:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-323-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-320-1} \end{center}
 
 \hypertarget{sampling-and-simulation}{%
 \subsection{Sampling and Simulation}\label{sampling-and-simulation}}
@@ -10071,7 +10024,7 @@ When we store this regression in an object, we get access to several items of in
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-341-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-341-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-341-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-341-4} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-4} \end{center}
 
 R also has a helpful \texttt{summary} method for regression objects.
 
@@ -10623,7 +10576,7 @@ Let's say we're using LaTeX to typeset our paper. We can output our regression t
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Sun, Oct 20, 2019 - 13:18:06}
+\CommentTok{#> % Date and time: Sun, Oct 27, 2019 - 15:34:27}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -12697,7 +12650,7 @@ FALSE
 
 FALSE
 
-1
+2
 
 0
 
@@ -12827,15 +12780,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1947
+1957
 
 1023
 
 23
 
-1538
+1537
 
-2668
+2678
 
 1346896669
 
@@ -12937,11 +12890,11 @@ carsonaust
 
 Austin Carson
 
-1947
+1957
 
 1023
 
-1538
+1537
 
 Chicago, IL
 
@@ -13009,15 +12962,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1947
+1957
 
 1023
 
 23
 
-1538
+1537
 
-2668
+2678
 
 1346896669
 
@@ -13063,7 +13016,7 @@ FALSE
 
 FALSE
 
-4
+6
 
 1
 
@@ -13193,15 +13146,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1947
+1957
 
 1023
 
 23
 
-1538
+1537
 
-2668
+2678
 
 1346896669
 
@@ -13245,7 +13198,7 @@ TRUE
 
 0
 
-9
+8
 
 NA
 
@@ -13321,9 +13274,9 @@ Please don't say that your paper fills a gap. If you have the urge, just ignore 
 
 Twitter Web App
 
-76
+77
 
-9
+8
 
 55015468
 
@@ -13331,11 +13284,11 @@ dhnexon
 
 Dan Nexon 🧙‍♂️🎃
 
-12554
+12576
 
-4475
+4482
 
-2531
+2404
 
 Washington, DC
 
@@ -13373,15 +13326,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1947
+1957
 
 1023
 
 23
 
-1538
+1537
 
-2668
+2678
 
 1346896669
 
@@ -13511,11 +13464,11 @@ pstanpolitics
 
 Paul Staniland
 
-13629
+13751
 
-3048
+3055
 
-20576
+20628
 
 Chicago, IL
 
@@ -13553,15 +13506,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1947
+1957
 
 1023
 
 23
 
-1538
+1537
 
-2668
+2678
 
 1346896669
 
@@ -13665,11 +13618,11 @@ JoshRovner1
 
 Josh Rovner
 
-1829
+1841
 
 684
 
-1752
+1773
 
 Washington, DC
 
@@ -13737,15 +13690,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1947
+1957
 
 1023
 
 23
 
-1538
+1537
 
-2668
+2678
 
 1346896669
 
@@ -13775,7 +13728,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-442-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-439-1} \end{center}
 
 \hypertarget{hashtags-and-text-strings}{%
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}}
@@ -13810,17 +13763,17 @@ Using the documentation for \texttt{search\_tweets} as a guide, try pulling the 
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 759 x 3}
-\CommentTok{#> # Groups:   user_id [759]}
-\CommentTok{#>   user_id            location                           n}
-\CommentTok{#>   <chr>              <chr>                          <int>}
-\CommentTok{#> 1 2561373848         Florida, USA                      79}
-\CommentTok{#> 2 764290456599396353 Rochester, New York               75}
-\CommentTok{#> 3 12666752           land-O-Lakes, Florida             36}
-\CommentTok{#> 4 714738130557992960 Chiclana de la Frontera, Spain    28}
-\CommentTok{#> 5 20948837           Tokyo, Japan                      21}
-\CommentTok{#> 6 826869114          Paris, Ile-de-France              14}
-\CommentTok{#> # ... with 753 more rows}
+\CommentTok{#> # A tibble: 744 x 3}
+\CommentTok{#> # Groups:   user_id [744]}
+\CommentTok{#>   user_id             location                           n}
+\CommentTok{#>   <chr>               <chr>                          <int>}
+\CommentTok{#> 1 2561373848          Florida, USA                      92}
+\CommentTok{#> 2 764290456599396353  Rochester, New York               64}
+\CommentTok{#> 3 12666752            land-O-Lakes, Florida             36}
+\CommentTok{#> 4 1022122568004894720 ""                                33}
+\CommentTok{#> 5 1030069194539368448 ""                                33}
+\CommentTok{#> 6 714738130557992960  Chiclana de la Frontera, Spain    27}
+\CommentTok{#> # ... with 738 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -13920,7 +13873,7 @@ We can read the content of the server's response using the \texttt{content()} fu
 \begin{Highlighting}[]
 \NormalTok{response <-}\StringTok{ }\KeywordTok{content}\NormalTok{(r, }\StringTok{"text"}\NormalTok{)}
 \KeywordTok{substr}\NormalTok{(response, }\DataTypeTok{start =} \DecValTok{1}\NormalTok{, }\DataTypeTok{stop =} \DecValTok{1000}\NormalTok{)}
-\CommentTok{#> [1] "\{\textbackslash{}"status\textbackslash{}":\textbackslash{}"OK\textbackslash{}",\textbackslash{}"copyright\textbackslash{}":\textbackslash{}"Copyright (c) 2019 The New York Times Company. All Rights Reserved.\textbackslash{}",\textbackslash{}"response\textbackslash{}":\{\textbackslash{}"docs\textbackslash{}":[\{\textbackslash{}"web_url\textbackslash{}":\textbackslash{}"https://www.nytimes.com/2019/07/19/movies/beyonce-lion-king.html\textbackslash{}",\textbackslash{}"snippet\textbackslash{}":\textbackslash{}"The superstar is all over the 2019 remake’s promotional tour. But how much of her will you hear in the actual film? We counted her lines.\textbackslash{}",\textbackslash{}"lead_paragraph\textbackslash{}":\textbackslash{}"To hear Beyoncé speak is such a rare occurrence that any new instance of it, no matter how fleeting, feels special, like catching a glimpse of a shooting star. So naturally, her involvement with Disney’s remake of “The Lion King”— she voices the adult Nala and created a companion album featuring new music inspired by the movie — has dominated the film’s promotional tour, complete with a meeting between Queen Bey and Meghan, Duchess of Sussex,  at the British premiere.\textbackslash{}",\textbackslash{}"abstract\textbackslash{}":\textbackslash{}"The superstar is all over the 2019 remake’s promotional tour. But how much of her will you hear in the actual film? We counted her lines.\textbackslash{}",\textbackslash{}"print_page\textbackslash{}""}
+\CommentTok{#> [1] "\{\textbackslash{}"status\textbackslash{}":\textbackslash{}"OK\textbackslash{}",\textbackslash{}"copyright\textbackslash{}":\textbackslash{}"Copyright (c) 2019 The New York Times Company. All Rights Reserved.\textbackslash{}",\textbackslash{}"response\textbackslash{}":\{\textbackslash{}"docs\textbackslash{}":[\{\textbackslash{}"web_url\textbackslash{}":\textbackslash{}"https://www.nytimes.com/2019/10/21/arts/music/beyonce-mass.html\textbackslash{}",\textbackslash{}"snippet\textbackslash{}":\textbackslash{}"The Beyoncé Mass explores how issues of race and gender impact the lives, voices and bodies of black women. (It’s not, however, about worshiping Beyoncé.)\textbackslash{}",\textbackslash{}"lead_paragraph\textbackslash{}":\textbackslash{}"In April 2018, 900 people turned out for a midweek evening church service that typically draws 50 participants at Grace Cathedral in San Francisco. Days later, a YouTube video of the proceedings went viral, followed by invitations clamoring for the event to be reprised in cities from Los Angeles to Lisbon.\textbackslash{}",\textbackslash{}"abstract\textbackslash{}":\textbackslash{}"The Beyoncé Mass explores how issues of race and gender impact the lives, voices and bodies of black women. (It’s not, however, about worshiping Beyoncé.)\textbackslash{}",\textbackslash{}"print_page\textbackslash{}":\textbackslash{}"3\textbackslash{}",\textbackslash{}"source\textbackslash{}":\textbackslash{}"The New York Times\textbackslash{}",\textbackslash{}"multimedia\textbackslash{}":[\{\textbackslash{}"rank\textbackslash{}":0,\textbackslash{}"subtype\textbackslash{}":\textbackslash{}"xlarge\textbackslash{}",\textbackslash{}"caption\textbackslash{}":null,\textbackslash{}"credit\textbackslash{}":null,\textbackslash{}"type\textbackslash{}":\textbackslash{}"image\textbackslash{}",\textbackslash{}"url\textbackslash{}":\textbackslash{}"ima"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -13974,17 +13927,17 @@ Within \texttt{response\_df\$response}, we can extract a number of interesting r
 \CommentTok{# What's in 'meta'?}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}
 \CommentTok{#> $hits}
-\CommentTok{#> [1] 3907}
+\CommentTok{#> [1] 3899}
 \CommentTok{#> }
 \CommentTok{#> $offset}
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 62}
+\CommentTok{#> [1] 16}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
-\CommentTok{#> [1] 3907}
+\CommentTok{#> [1] 3899}
 
 \CommentTok{# Check out docs}
 \KeywordTok{names}\NormalTok{(response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{docs)}
@@ -13994,9 +13947,9 @@ Within \texttt{response\_df\$response}, we can extract a number of interesting r
 \CommentTok{#>  [7] "multimedia"              "keywords"               }
 \CommentTok{#>  [9] "pub_date"                "document_type"          }
 \CommentTok{#> [11] "news_desk"               "section_name"           }
-\CommentTok{#> [13] "type_of_material"        "_id"                    }
-\CommentTok{#> [15] "word_count"              "uri"                    }
-\CommentTok{#> [17] "subsection_name"         "headline.main"          }
+\CommentTok{#> [13] "subsection_name"         "type_of_material"       }
+\CommentTok{#> [15] "_id"                     "word_count"             }
+\CommentTok{#> [17] "uri"                     "headline.main"          }
 \CommentTok{#> [19] "headline.kicker"         "headline.content_kicker"}
 \CommentTok{#> [21] "headline.print_headline" "headline.name"          }
 \CommentTok{#> [23] "headline.seo"            "headline.sub"           }
@@ -14092,7 +14045,7 @@ To figure out how Adam Rippon's's popularity is changing over time, all we need 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-455-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-452-1} \end{center}
 
 \hypertarget{more-resources-1}{%
 \subsection{More resources}\label{more-resources-1}}
@@ -14877,7 +14830,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-485-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-482-1} \end{center}
 
 \textbf{How would you relevel \texttt{f} to be in the correct order?}
 
@@ -14890,7 +14843,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-486-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-483-1} \end{center}
 
 \hypertarget{dataframes-1}{%
 \subsubsection*{4. Dataframes}\label{dataframes-1}}

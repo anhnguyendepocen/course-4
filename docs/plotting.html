@@ -730,40 +730,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4>Challenge 1.</h4>
 <p>Modify the example so that the figure visualises how life expectancy has changed over time:</p>
 <p>Hint: the gapminder dataset has a column called <code>year</code>, which should appear on the x-axis.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="co"># YOUR CODE HERE</span></a>
-<a class="sourceLine" id="cb255-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb255-3" data-line-number="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb255-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-299-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="anatomy-of-aes" class="section level3">
 <h3><span class="header-section-number">13.3.2</span> Anatomy of <code>aes</code></h3>
 <p>In the previous examples and challenge we’ve used the <code>aes</code> function to tell the scatterplot <code>geom</code> about the <strong>x</strong> and <strong>y</strong> locations of each point. Another aesthetic property we can modify is the point <strong>color</strong>.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb256-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-300-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb255-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-299-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Normally, specifying options like <code>color=&quot;red&quot;</code> or <code>size=10</code> for a given layer results in its contents being red and quite large. Inside the <code>aes()</code> function, however, these arguments are given entire variables whose values will then be displayed using different realizations of that aesthetic.</p>
 <p><strong>Color</strong> isn’t the only aesthetic argument we can set to display variation in the data. We can also vary by shape, size, etc.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>, <span class="kw">aes</span>(<span class="dt">x=</span>, <span class="dt">y=</span>, <span class="dt">by =</span>, <span class="dt">color=</span>, <span class="dt">linetype=</span>, <span class="dt">shape=</span>, <span class="dt">size=</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>, <span class="kw">aes</span>(<span class="dt">x=</span>, <span class="dt">y=</span>, <span class="dt">by =</span>, <span class="dt">color=</span>, <span class="dt">linetype=</span>, <span class="dt">shape=</span>, <span class="dt">size=</span>))</a></code></pre></div>
 </div>
 <div id="layers" class="section level3">
 <h3><span class="header-section-number">13.3.3</span> Layers</h3>
 <p>In the previous challenge, you plotted <code>lifExp</code> over time. Using a scatterplot probably isn’t the best for visualising change over time. Instead, let’s tell <code>ggplot</code> to visualise the data as a line plot:</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb258-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-302-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb257-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-301-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Instead of adding a <code>geom_point</code> layer, we’ve added a <code>geom_line</code> layer. We’ve also added the <strong>by</strong> aesthetic, which tells <code>ggplot</code> to draw a line for each country.</p>
 <p>But what if we want to visualise both lines and points on the plot? We can simply add another layer to the plot:</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb259-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb258-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb258-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-302-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>It’s important to note that each layer is drawn on top of the previous layer. In this example, the points have been drawn on top of the lines. Here’s a demonstration:</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb259-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb259-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-303-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>It’s important to note that each layer is drawn on top of the previous layer. In this example, the points have been drawn on top of the lines. Here’s a demonstration:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>lifeExp, <span class="dt">by=</span>country)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb260-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb260-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-304-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>In this example, the aesthetic mapping of <strong>color</strong> has been moved from the global plot options in <code>ggplot</code> to the <code>geom_line</code> layer so it no longer applies to the points. Now we can clearly see that the points are drawn on top of the lines.</p>
 <div id="challenge-2.-8" class="section level4 unnumbered">
 <h4>Challenge 2.</h4>
@@ -773,94 +768,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="labels-1" class="section level3">
 <h3><span class="header-section-number">13.3.4</span> Labels</h3>
 <p>Labels are considered to be their own layers in <code>ggplot</code>.</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1"><span class="co"># add x and y axis labels</span></a>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1"><span class="co"># add x and y axis labels</span></a>
+<a class="sourceLine" id="cb260-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb260-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb260-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;GDP per capita&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb260-5" data-line-number="5"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb260-6" data-line-number="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;My fancy graph&quot;</span>)</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-304-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>So are scales:</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1"><span class="co"># limit x-axis from 1,000 to 20,000</span></a>
 <a class="sourceLine" id="cb261-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb261-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb261-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;GDP per capita&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb261-5" data-line-number="5"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb261-6" data-line-number="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;My fancy graph&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb261-6" data-line-number="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;My fancy graph&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb261-7" data-line-number="7"><span class="st">  </span><span class="kw">xlim</span>(<span class="dv">1000</span>, <span class="dv">20000</span>)</a>
+<a class="sourceLine" id="cb261-8" data-line-number="8"><span class="co">#&gt; Warning: Removed 515 rows containing missing values (geom_point).</span></a></code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-305-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>So are scales:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1"><span class="co"># limit x-axis from 1,000 to 20,000</span></a>
-<a class="sourceLine" id="cb262-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb262-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb262-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;GDP per capita&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb262-5" data-line-number="5"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb262-6" data-line-number="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;My fancy graph&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb262-7" data-line-number="7"><span class="st">  </span><span class="kw">xlim</span>(<span class="dv">1000</span>, <span class="dv">20000</span>)</a>
-<a class="sourceLine" id="cb262-8" data-line-number="8"><span class="co">#&gt; Warning: Removed 515 rows containing missing values (geom_point).</span></a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-306-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="transformations-and-stats" class="section level3">
 <h3><span class="header-section-number">13.3.5</span> Transformations and Stats</h3>
 <p><code>ggplot</code> also makes it easy to overlay statistical models over the data. To demonstrate we’ll go back to an earlier example:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb263-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-307-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb262-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-306-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We can change the scale of units on the x-axis using the <code>scale</code> functions. These control the mapping between the data values and visual values of an aesthetic.</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb264-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb264-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-308-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb263-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb263-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-307-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The <code>log10</code> function applied a transformation to the values of the <code>gdpPercap</code> column before rendering them on the plot, so that each multiple of 10 now only corresponds to an increase in 1 on the transformed scale, e.g. a GDP per capita of 1,000 is now 3 on the y axis, a value of 10,000 corresponds to 4 on the x-axis and so on. This makes it easier to visualise the spread of data on the x-axis.</p>
 <p>We can fit a simple relationship to the data by adding another layer, <code>geom_smooth</code>:</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb265-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb264-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb264-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb264-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-308-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Note that we have 5 lines, one for each region, because of the <strong>color</strong> option is the global <code>aes</code> function. But if we move it, we get different results:</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb265-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb265-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb265-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-309-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>Note that we have 5 lines, one for each region, because of the <strong>color</strong> option is the global <code>aes</code> function. But if we move it, we get different restuls:</p>
+<p>So, there are two ways an aesthetic can be specified. Here, we set the <strong>color</strong> aesthetic by passing it as an argument to <code>geom_point</code>. Previously in the lesson, we used the <code>aes</code> function to define a <em>mapping</em> between data variables and their visual representation.</p>
+<p>We can make the line thicker by setting the <strong>size</strong> aesthetic in the geom_smooth layer:</p>
 <div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb266-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb266-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb266-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb266-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>)</a></code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-310-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>So, there are two ways an aesthetic can be specified. Here, we set the <strong>color</strong> aesthetic by passing it as an argument to <code>geom_point</code>. Previously in the lesson, we used the <code>aes</code> function to define a <em>mapping</em> between data variables and their visual representation.</p>
-<p>We can make the line thicker by setting the <strong>size</strong> aesthetic in the geom_smooth layer:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb267-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb267-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb267-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>)</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-311-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <div id="challenge-3.-5" class="section level4 unnumbered">
 <h4>Challenge 3.</h4>
 <p>Modify the color and size of the points on the point layer in the previous example so that they are fixed (i.e. not reflective of continent).</p>
 <p>Hint: do not use the <code>aes</code> function.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1"><span class="co"># YOUR CODE HERE</span></a>
-<a class="sourceLine" id="cb268-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb268-3" data-line-number="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb268-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb268-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb268-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>)</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-312-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="facets" class="section level3">
 <h3><span class="header-section-number">13.3.6</span> Facets</h3>
 <p>Earlier, we visualised the change in life expectancy over time across all countries in one plot. Alternatively, we can split this out over multiple panels by adding a layer of <strong>facet</strong> panels:</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">color=</span>continent)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb269-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb269-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-313-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb267-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb267-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>continent)</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-311-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="putting-everything-together" class="section level3">
 <h3><span class="header-section-number">13.3.7</span> Putting Everything Together</h3>
 <p>Here are some other common <code>geom</code> layers:</p>
 <p><strong>bar plots</strong></p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1"><span class="co"># count of lifeExp bins</span></a>
-<a class="sourceLine" id="cb270-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb270-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;bin&quot;</span>)</a>
-<a class="sourceLine" id="cb270-4" data-line-number="4"><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></a>
-<a class="sourceLine" id="cb270-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb270-6" data-line-number="6"><span class="co"># with color representing regions</span></a>
-<a class="sourceLine" id="cb270-7" data-line-number="7"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb270-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;bin&quot;</span>)</a>
-<a class="sourceLine" id="cb270-9" data-line-number="9"><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-314-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-314-2.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1"><span class="co"># count of lifeExp bins</span></a>
+<a class="sourceLine" id="cb268-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb268-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;bin&quot;</span>)</a>
+<a class="sourceLine" id="cb268-4" data-line-number="4"><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></a>
+<a class="sourceLine" id="cb268-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb268-6" data-line-number="6"><span class="co"># with color representing regions</span></a>
+<a class="sourceLine" id="cb268-7" data-line-number="7"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb268-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;bin&quot;</span>)</a>
+<a class="sourceLine" id="cb268-9" data-line-number="9"><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-312-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-312-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>box plots</strong></p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb271-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-315-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gap, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb269-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-313-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>This is just a taste of what you can do with <code>ggplot2</code>.</p>
 <p>RStudio provides a really useful <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">cheat sheet</a> of the different layers available, and more extensive documentation is available on the <a href="http://docs.ggplot2.org/current/">ggplot2 website</a>.</p>
 <p>Finally, if you have no idea how to change something, a quick Google search will usually send you to a relevant question and answer on Stack Overflow with reusable code to modify!</p>
@@ -870,23 +858,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Advanced:
 - Transform the x-axis to better visualise the data spread.
 - Add a facet layer to panel the density plots by year.</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" data-line-number="1"><span class="co"># YOUR CODE HERE.</span></a>
-<a class="sourceLine" id="cb272-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb272-3" data-line-number="3"><span class="kw">ggplot</span>(gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb272-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">color =</span> continent))</a>
-<a class="sourceLine" id="cb272-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb272-6" data-line-number="6"><span class="co">##Advanced</span></a>
-<a class="sourceLine" id="cb272-7" data-line-number="7"><span class="co"># Transform the x-axis to better visualise the data spread</span></a>
-<a class="sourceLine" id="cb272-8" data-line-number="8"><span class="kw">ggplot</span>(gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb272-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">color =</span> continent)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb272-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a>
-<a class="sourceLine" id="cb272-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb272-12" data-line-number="12"><span class="co">#Add a facet layer to panel the density plots by year</span></a>
-<a class="sourceLine" id="cb272-13" data-line-number="13"><span class="kw">ggplot</span>(gap, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb272-14" data-line-number="14"><span class="st">  </span><span class="kw">geom_density</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb272-15" data-line-number="15"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>continent) <span class="op">+</span></a>
-<a class="sourceLine" id="cb272-16" data-line-number="16"><span class="st">  </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-316-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-316-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-316-3.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -897,19 +868,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Raster/Bitmap</strong> (.png, .jpeg)</li>
 </ol>
 <p>Every pixel of a plot contains its own separate coding; not so great if you want to resize the image.</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1"><span class="kw">jpeg</span>(<span class="dt">filename=</span><span class="st">&quot;example.png&quot;</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)</a>
-<a class="sourceLine" id="cb273-2" data-line-number="2"><span class="kw">plot</span>(x,y)</a>
-<a class="sourceLine" id="cb273-3" data-line-number="3"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1"><span class="kw">jpeg</span>(<span class="dt">filename=</span><span class="st">&quot;example.png&quot;</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)</a>
+<a class="sourceLine" id="cb270-2" data-line-number="2"><span class="kw">plot</span>(x,y)</a>
+<a class="sourceLine" id="cb270-3" data-line-number="3"><span class="kw">dev.off</span>()</a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Vector</strong> (.pdf, .ps)</li>
 </ol>
 <p>Every element of a plot is encoded with a function that gives its coding conditional on several factors; this is great for resizing.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1"><span class="kw">pdf</span>(<span class="dt">filename=</span><span class="st">&quot;example.pdf&quot;</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)</a>
-<a class="sourceLine" id="cb274-2" data-line-number="2"><span class="kw">plot</span>(x,y)</a>
-<a class="sourceLine" id="cb274-3" data-line-number="3"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1"><span class="kw">pdf</span>(<span class="dt">filename=</span><span class="st">&quot;example.pdf&quot;</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)</a>
+<a class="sourceLine" id="cb271-2" data-line-number="2"><span class="kw">plot</span>(x,y)</a>
+<a class="sourceLine" id="cb271-3" data-line-number="3"><span class="kw">dev.off</span>()</a></code></pre></div>
 <p><strong>Exporting with ggplot</strong></p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1"><span class="co"># Assume we saved our plot is an object called example.plot</span></a>
-<a class="sourceLine" id="cb275-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="dt">filename=</span><span class="st">&quot;example.pdf&quot;</span>, <span class="dt">plot=</span>example.plot, <span class="dt">scale=</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" data-line-number="1"><span class="co"># Assume we saved our plot is an object called example.plot</span></a>
+<a class="sourceLine" id="cb272-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="dt">filename=</span><span class="st">&quot;example.pdf&quot;</span>, <span class="dt">plot=</span>example.plot, <span class="dt">scale=</span>, <span class="dt">width=</span>, <span class="dt">height=</span>)</a></code></pre></div>
 
 </div>
 </div>

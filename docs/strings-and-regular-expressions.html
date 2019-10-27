@@ -468,29 +468,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="concatinating-strings-with-paste" class="section level3">
 <h3><span class="header-section-number">15.1.1</span> Concatinating strings with <code>paste()</code></h3>
 <p>Let’s say we wanted to concatenate the following two strings into one larger character string:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">firstName &lt;-<span class="st"> &quot;Johan&quot;</span></a>
-<a class="sourceLine" id="cb311-2" data-line-number="2">lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1">firstName &lt;-<span class="st"> &quot;Johan&quot;</span></a>
+<a class="sourceLine" id="cb308-2" data-line-number="2">lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></a></code></pre></div>
 <p>Using the usual combine operator <code>c()</code> on two or more character strings will not create a single character string, but rather a <strong>vector</strong> of character strings.</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">firstName &lt;-<span class="st"> &quot;Johan&quot;</span></a>
-<a class="sourceLine" id="cb312-2" data-line-number="2">lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb312-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb312-4" data-line-number="4">fullName &lt;-<span class="st"> </span><span class="kw">c</span>(firstName, lastName)</a>
-<a class="sourceLine" id="cb312-5" data-line-number="5"><span class="kw">print</span>(fullName)</a>
-<a class="sourceLine" id="cb312-6" data-line-number="6"><span class="co">#&gt; [1] &quot;Johan&quot;       &quot;Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb312-7" data-line-number="7"><span class="kw">length</span>(fullName)</a>
-<a class="sourceLine" id="cb312-8" data-line-number="8"><span class="co">#&gt; [1] 2</span></a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">firstName &lt;-<span class="st"> &quot;Johan&quot;</span></a>
+<a class="sourceLine" id="cb309-2" data-line-number="2">lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb309-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb309-4" data-line-number="4">fullName &lt;-<span class="st"> </span><span class="kw">c</span>(firstName, lastName)</a>
+<a class="sourceLine" id="cb309-5" data-line-number="5"><span class="kw">print</span>(fullName)</a>
+<a class="sourceLine" id="cb309-6" data-line-number="6"><span class="co">#&gt; [1] &quot;Johan&quot;       &quot;Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb309-7" data-line-number="7"><span class="kw">length</span>(fullName)</a>
+<a class="sourceLine" id="cb309-8" data-line-number="8"><span class="co">#&gt; [1] 2</span></a></code></pre></div>
 <p>Combining two or more character strings into one larger character string requires using the <code>paste()</code> function. This function takes character strings or vectors and collapses their values into a single character string, with each value separated by a character string selected by the user.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)</a>
-<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="kw">print</span>(fullName)</a>
-<a class="sourceLine" id="cb313-3" data-line-number="3"><span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb313-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb313-5" data-line-number="5">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName, <span class="dt">sep =</span> <span class="st">&quot;+&quot;</span>)</a>
-<a class="sourceLine" id="cb313-6" data-line-number="6"><span class="kw">print</span>(fullName)</a>
-<a class="sourceLine" id="cb313-7" data-line-number="7"><span class="co">#&gt; [1] &quot;Johan+Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb313-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb313-9" data-line-number="9">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName, <span class="dt">sep =</span> <span class="st">&quot;___&quot;</span>)</a>
-<a class="sourceLine" id="cb313-10" data-line-number="10"><span class="kw">print</span>(fullName)</a>
-<a class="sourceLine" id="cb313-11" data-line-number="11"><span class="co">#&gt; [1] &quot;Johan___Gambolputty&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)</a>
+<a class="sourceLine" id="cb310-2" data-line-number="2"><span class="kw">print</span>(fullName)</a>
+<a class="sourceLine" id="cb310-3" data-line-number="3"><span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb310-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb310-5" data-line-number="5">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName, <span class="dt">sep =</span> <span class="st">&quot;+&quot;</span>)</a>
+<a class="sourceLine" id="cb310-6" data-line-number="6"><span class="kw">print</span>(fullName)</a>
+<a class="sourceLine" id="cb310-7" data-line-number="7"><span class="co">#&gt; [1] &quot;Johan+Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb310-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb310-9" data-line-number="9">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName, <span class="dt">sep =</span> <span class="st">&quot;___&quot;</span>)</a>
+<a class="sourceLine" id="cb310-10" data-line-number="10"><span class="kw">print</span>(fullName)</a>
+<a class="sourceLine" id="cb310-11" data-line-number="11"><span class="co">#&gt; [1] &quot;Johan___Gambolputty&quot;</span></a></code></pre></div>
 </div>
 <div id="extracting-substrings" class="section level3">
 <h3><span class="header-section-number">15.1.2</span> Extracting Substrings</h3>
@@ -500,46 +500,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Object subsets using index positions in R contain all the elements in the specified range. If some object called <code>data</code> contains five elements, <code>data[2:4]</code> will return the elements at the second, third, and fourth positions. By contrast, the same subset in Python would return the objects at the third and fourth positions (or second and third positions, depending upon whether your index starts at 0 or 1).</p></li>
 <li><p>R does not allow index-based character string subsetting using the object name, as this functionality is generally reserved for vector subsetting.</p></li>
 </ol>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">firstName &lt;-<span class="st"> &quot;Johan&quot;</span></a>
-<a class="sourceLine" id="cb314-2" data-line-number="2">lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb314-3" data-line-number="3">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)</a>
-<a class="sourceLine" id="cb314-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb314-5" data-line-number="5"><span class="co"># This won&#39;t work</span></a>
-<a class="sourceLine" id="cb314-6" data-line-number="6">fullName[<span class="dv">0</span>]</a>
-<a class="sourceLine" id="cb314-7" data-line-number="7"><span class="co">#&gt; character(0)</span></a>
-<a class="sourceLine" id="cb314-8" data-line-number="8">fullName[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb314-9" data-line-number="9"><span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb314-10" data-line-number="10">fullName[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</a>
-<a class="sourceLine" id="cb314-11" data-line-number="11"><span class="co">#&gt; [1] &quot;Johan Gambolputty&quot; NA                  NA                 </span></a>
-<a class="sourceLine" id="cb314-12" data-line-number="12"><span class="co">#&gt; [4] NA</span></a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">firstName &lt;-<span class="st"> &quot;Johan&quot;</span></a>
+<a class="sourceLine" id="cb311-2" data-line-number="2">lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb311-3" data-line-number="3">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)</a>
+<a class="sourceLine" id="cb311-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb311-5" data-line-number="5"><span class="co"># This won&#39;t work</span></a>
+<a class="sourceLine" id="cb311-6" data-line-number="6">fullName[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb311-7" data-line-number="7"><span class="co">#&gt; character(0)</span></a>
+<a class="sourceLine" id="cb311-8" data-line-number="8">fullName[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb311-9" data-line-number="9"><span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb311-10" data-line-number="10">fullName[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb311-11" data-line-number="11"><span class="co">#&gt; [1] &quot;Johan Gambolputty&quot; NA                  NA                 </span></a>
+<a class="sourceLine" id="cb311-12" data-line-number="12"><span class="co">#&gt; [4] NA</span></a></code></pre></div>
 <p>Instead, you must use the <code>substr()</code> function. Note that this function must receive both the <code>start</code> and <code>stop</code> arguments. So if you want to get all the characters between some index and the end of the string, you must use the <code>nchar()</code> function, which will tell you the length of a character string.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb315-2" data-line-number="2"><span class="co">#&gt; [1] &quot;J&quot;</span></a>
-<a class="sourceLine" id="cb315-3" data-line-number="3"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">5</span>, <span class="dt">stop =</span> <span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb315-4" data-line-number="4"><span class="co">#&gt; [1] &quot;n&quot;</span></a>
-<a class="sourceLine" id="cb315-5" data-line-number="5"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb315-6" data-line-number="6"><span class="co">#&gt; [1] &quot;Johan&quot;</span></a>
-<a class="sourceLine" id="cb315-7" data-line-number="7"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">6</span>, <span class="dt">stop =</span> <span class="kw">nchar</span>(fullName))</a>
-<a class="sourceLine" id="cb315-8" data-line-number="8"><span class="co">#&gt; [1] &quot; Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb315-9" data-line-number="9"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">6</span>, <span class="dt">stop =</span> <span class="kw">nchar</span>(fullName)<span class="op">-</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb315-10" data-line-number="10"><span class="co">#&gt; [1] &quot; Gambolput&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb312-2" data-line-number="2"><span class="co">#&gt; [1] &quot;J&quot;</span></a>
+<a class="sourceLine" id="cb312-3" data-line-number="3"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">5</span>, <span class="dt">stop =</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb312-4" data-line-number="4"><span class="co">#&gt; [1] &quot;n&quot;</span></a>
+<a class="sourceLine" id="cb312-5" data-line-number="5"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb312-6" data-line-number="6"><span class="co">#&gt; [1] &quot;Johan&quot;</span></a>
+<a class="sourceLine" id="cb312-7" data-line-number="7"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">6</span>, <span class="dt">stop =</span> <span class="kw">nchar</span>(fullName))</a>
+<a class="sourceLine" id="cb312-8" data-line-number="8"><span class="co">#&gt; [1] &quot; Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb312-9" data-line-number="9"><span class="kw">substr</span>(<span class="dt">x =</span> fullName, <span class="dt">start =</span> <span class="dv">6</span>, <span class="dt">stop =</span> <span class="kw">nchar</span>(fullName)<span class="op">-</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb312-10" data-line-number="10"><span class="co">#&gt; [1] &quot; Gambolput&quot;</span></a></code></pre></div>
 </div>
 <div id="replace-substrings-with-gsub" class="section level3">
 <h3><span class="header-section-number">15.1.3</span> Replace Substrings with <code>gsub()</code></h3>
 <p>The function <code>gsub()</code> replaces substrings in a larger string using a specified pattern.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1">firstName &lt;-<span class="st"> &quot;Johan&quot;</span></a>
-<a class="sourceLine" id="cb316-2" data-line-number="2">lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb316-3" data-line-number="3">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)</a>
-<a class="sourceLine" id="cb316-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb316-5" data-line-number="5"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;G&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;B&quot;</span>, <span class="dt">x =</span> fullName)</a>
-<a class="sourceLine" id="cb316-6" data-line-number="6"><span class="co">#&gt; [1] &quot;Johan Bambolputty&quot;</span></a>
-<a class="sourceLine" id="cb316-7" data-line-number="7"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;Johan&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Mike&quot;</span>, <span class="dt">x =</span> fullName)</a>
-<a class="sourceLine" id="cb316-8" data-line-number="8"><span class="co">#&gt; [1] &quot;Mike Gambolputty&quot;</span></a>
-<a class="sourceLine" id="cb316-9" data-line-number="9"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;johan&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Mike&quot;</span>, <span class="dt">x =</span> fullName) <span class="co"># Note the importance of cases!</span></a>
-<a class="sourceLine" id="cb316-10" data-line-number="10"><span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">firstName &lt;-<span class="st"> &quot;Johan&quot;</span></a>
+<a class="sourceLine" id="cb313-2" data-line-number="2">lastName &lt;-<span class="st"> &quot;Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb313-3" data-line-number="3">fullName &lt;-<span class="st"> </span><span class="kw">paste</span>(firstName, lastName)</a>
+<a class="sourceLine" id="cb313-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb313-5" data-line-number="5"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;G&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;B&quot;</span>, <span class="dt">x =</span> fullName)</a>
+<a class="sourceLine" id="cb313-6" data-line-number="6"><span class="co">#&gt; [1] &quot;Johan Bambolputty&quot;</span></a>
+<a class="sourceLine" id="cb313-7" data-line-number="7"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;Johan&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Mike&quot;</span>, <span class="dt">x =</span> fullName)</a>
+<a class="sourceLine" id="cb313-8" data-line-number="8"><span class="co">#&gt; [1] &quot;Mike Gambolputty&quot;</span></a>
+<a class="sourceLine" id="cb313-9" data-line-number="9"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;johan&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Mike&quot;</span>, <span class="dt">x =</span> fullName) <span class="co"># Note the importance of cases!</span></a>
+<a class="sourceLine" id="cb313-10" data-line-number="10"><span class="co">#&gt; [1] &quot;Johan Gambolputty&quot;</span></a></code></pre></div>
 <p>The same function is used for replacements and stripping:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> fullName) </a>
-<a class="sourceLine" id="cb317-2" data-line-number="2"><span class="co">#&gt; [1] &quot;JohanGambolputty&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> fullName) </a>
+<a class="sourceLine" id="cb314-2" data-line-number="2"><span class="co">#&gt; [1] &quot;JohanGambolputty&quot;</span></a></code></pre></div>
 
 </div>
 </div>
