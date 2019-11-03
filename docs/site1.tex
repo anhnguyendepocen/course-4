@@ -10773,152 +10773,1065 @@ This unit focuses on chracter (or ``string'') data. We'll explore:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{\protect\hyperlink{common-string-operations}{common string operations}}, like concatinating, subsetting, and replacing strings.
+  \textbf{\protect\hyperlink{string-basics}{string basics}}, like concatinating and subsettings.
 \item
   \textbf{\protect\hyperlink{regular-expressions}{regular expressions}}, a powerful cross-language tool for working with string data.
+\item
+  \textbf{\protect\hyperlink{common-tools}{common tools}}, that take regex and apply them to real problems.
 \end{enumerate}
 
-\hypertarget{common-string-operations}{%
-\section{Common String Operations}\label{common-string-operations}}
-
-\hypertarget{concatinating-strings-with-paste}{%
-\subsection{\texorpdfstring{Concatinating strings with \texttt{paste()}}{Concatinating strings with paste()}}\label{concatinating-strings-with-paste}}
-
-Let's say we wanted to concatenate the following two strings into one larger character string:
+This chapter will focus on the \textbf{stringr} package for string manipulation. stringr is not part of the core tidyverse because you don't always have textual data, so we need to load it explicitly.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{firstName <-}\StringTok{ "Johan"}
-\NormalTok{lastName <-}\StringTok{ "Gambolputty"}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(stringr)}
 \end{Highlighting}
 \end{Shaded}
 
-Using the usual combine operator \texttt{c()} on two or more character strings will not create a single character string, but rather a \textbf{vector} of character strings.
+\hypertarget{string-basics}{%
+\section{String Basics}\label{string-basics}}
+
+\hypertarget{creating-strings}{%
+\subsection{Creating Strings}\label{creating-strings}}
+
+You can create strings with either single quotes or double quotes. Unlike other languages, there is no difference in behaviour. I recommend always using \texttt{"}, unless you want to create a string that contains multiple \texttt{"}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{firstName <-}\StringTok{ "Johan"}
-\NormalTok{lastName <-}\StringTok{ "Gambolputty"}
-
-\NormalTok{fullName <-}\StringTok{ }\KeywordTok{c}\NormalTok{(firstName, lastName)}
-\KeywordTok{print}\NormalTok{(fullName)}
-\CommentTok{#> [1] "Johan"       "Gambolputty"}
-\KeywordTok{length}\NormalTok{(fullName)}
-\CommentTok{#> [1] 2}
+\NormalTok{string1 <-}\StringTok{ "This is a string"}
+\NormalTok{string2 <-}\StringTok{ 'If I want to include a "quote" inside a string, I use single quotes'}
 \end{Highlighting}
 \end{Shaded}
 
-Combining two or more character strings into one larger character string requires using the \texttt{paste()} function. This function takes character strings or vectors and collapses their values into a single character string, with each value separated by a character string selected by the user.
+\hypertarget{escape-and-special-characters}{%
+\subsection{Escape and Special Characters}\label{escape-and-special-characters}}
+
+Single and double quotes are known as ``metacharacters,'' meaning that they have special meaning to the R language. To include a literal single or double quote in a string you can use \texttt{\textbackslash{}} to ``escape'' it:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{fullName <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(firstName, lastName)}
-\KeywordTok{print}\NormalTok{(fullName)}
-\CommentTok{#> [1] "Johan Gambolputty"}
-
-\NormalTok{fullName <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(firstName, lastName, }\DataTypeTok{sep =} \StringTok{"+"}\NormalTok{)}
-\KeywordTok{print}\NormalTok{(fullName)}
-\CommentTok{#> [1] "Johan+Gambolputty"}
-
-\NormalTok{fullName <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(firstName, lastName, }\DataTypeTok{sep =} \StringTok{"___"}\NormalTok{)}
-\KeywordTok{print}\NormalTok{(fullName)}
-\CommentTok{#> [1] "Johan___Gambolputty"}
+\NormalTok{double_quote <-}\StringTok{ "}\CharTok{\textbackslash{}"}\StringTok{"} \CommentTok{# or '"'}
+\NormalTok{single_quote <-}\StringTok{ '}\CharTok{\textbackslash{}'}\StringTok{'} \CommentTok{# or "'"}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{extracting-substrings}{%
-\subsection{Extracting Substrings}\label{extracting-substrings}}
+That means if you want to include a literal backslash, you'll need to double it up: \texttt{"\textbackslash{}\textbackslash{}"}.
 
-R can also extract substrings based on the index position of its characters. Some things to note:
+Beware that the printed representation of a string is not the same as string itself, because the printed representation shows the escapes. To see the raw contents of the string, use \texttt{writeLines()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}"}\StringTok{"}\NormalTok{, }\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{"}\NormalTok{)}
+\NormalTok{x}
+\CommentTok{#> [1] "\textbackslash{}"" "\textbackslash{}\textbackslash{}"}
+\KeywordTok{writeLines}\NormalTok{(x)}
+\CommentTok{#> "}
+\CommentTok{#> \textbackslash{}}
+\end{Highlighting}
+\end{Shaded}
+
+There are a handful of other special characters. The most common are \texttt{"\textbackslash{}n"}, newline, and \texttt{"\textbackslash{}t"}, tab, but you can see the complete list by requesting help on \texttt{"}: \texttt{?\textquotesingle{}"\textquotesingle{}}, or \texttt{?"\textquotesingle{}"}. You'll also sometimes see strings like \texttt{"\textbackslash{}u00b5"}, this is a way of writing non-English characters that works on all platforms:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ "\textbackslash{}u00b5"}
+\NormalTok{x}
+\CommentTok{#> [1] "µ"}
+\end{Highlighting}
+\end{Shaded}
+
+Multiple strings are often stored in a character vector, which you can create with \texttt{c()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{c}\NormalTok{(}\StringTok{"one"}\NormalTok{, }\StringTok{"two"}\NormalTok{, }\StringTok{"three"}\NormalTok{)}
+\CommentTok{#> [1] "one"   "two"   "three"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{string-length}{%
+\subsection{String length}\label{string-length}}
+
+Base R contains many functions to work with strings but we'll avoid them because they can be inconsistent, which makes them hard to remember. Instead we'll use functions from \texttt{stringr}. These have more intuitive names, and all start with \texttt{str\_}. For example, \texttt{str\_length()} tells you the number of characters in a string:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_length}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{, }\StringTok{"R for data science"}\NormalTok{, }\OtherTok{NA}\NormalTok{))}
+\CommentTok{#> [1]  1 18 NA}
+\end{Highlighting}
+\end{Shaded}
+
+The common \texttt{str\_} prefix is particularly useful if you use RStudio, because typing \texttt{str\_} will trigger autocomplete, allowing you to see all stringr functions:
+
+\hypertarget{combining-strings}{%
+\subsection{Combining strings}\label{combining-strings}}
+
+To combine two or more strings, use \texttt{str\_c()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{)}
+\CommentTok{#> [1] "xy"}
+\KeywordTok{str_c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"z"}\NormalTok{)}
+\CommentTok{#> [1] "xyz"}
+\end{Highlighting}
+\end{Shaded}
+
+Use the \texttt{sep} argument to control how they're separated:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{", "}\NormalTok{)}
+\CommentTok{#> [1] "x, y"}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{str\_c()} is vectorised, and it automatically recycles shorter vectors to the same length as the longest:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{, }\StringTok{"b"}\NormalTok{, }\StringTok{"c"}\NormalTok{)}
+\KeywordTok{str_c}\NormalTok{(}\StringTok{"prefix-"}\NormalTok{)}
+\CommentTok{#> [1] "prefix-"}
+\end{Highlighting}
+\end{Shaded}
+
+To collapse a vector of strings into a single string, use \texttt{collapse}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"z"}\NormalTok{)}
+\KeywordTok{str_c}\NormalTok{(x, }\DataTypeTok{collapse =} \StringTok{", "}\NormalTok{)}
+\CommentTok{#> [1] "x, y, z"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{subsetting-strings}{%
+\subsection{Subsetting strings}\label{subsetting-strings}}
+
+You can extract parts of a string using \texttt{str\_sub()}. As well as the string, \texttt{str\_sub()} takes \texttt{start} and \texttt{end} arguments, which give the (inclusive) position of the substring:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Rochelle is the Greatest"}\NormalTok{)}
+\KeywordTok{str_sub}\NormalTok{(x, }\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{)}
+\CommentTok{#> [1] "Rochelle"}
+
+\CommentTok{# negative numbers count backwards from end}
+\KeywordTok{str_sub}\NormalTok{(x, }\DecValTok{-8}\NormalTok{, }\DecValTok{-1}\NormalTok{)}
+\CommentTok{#> [1] "Greatest"}
+\end{Highlighting}
+\end{Shaded}
+
+Note that \texttt{str\_sub()} won't fail if the string is too short: it will just return as much as possible:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_sub}\NormalTok{(}\StringTok{"a"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\CommentTok{#> [1] "a"}
+\end{Highlighting}
+\end{Shaded}
+
+You can also use the assignment form of \texttt{str\_sub()} to modify strings:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Rochelle is the Greatest"}\NormalTok{)}
+\KeywordTok{str_sub}\NormalTok{(x, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) <-}\StringTok{ }\KeywordTok{str_to_lower}\NormalTok{(}\KeywordTok{str_sub}\NormalTok{(x, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\NormalTok{x}
+\CommentTok{#> [1] "rochelle is the Greatest"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{locales}{%
+\subsection{Locales}\label{locales}}
+
+Above I used \texttt{str\_to\_lower()} to change the text to lower case. You can also use \texttt{str\_to\_upper()} or \texttt{str\_to\_title()}. However, changing case is more complicated than it might at first appear because different languages have different rules for changing case. You can pick which set of rules to use by specifying a locale:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Turkish has two i's: with and without a dot, and it}
+\CommentTok{# has a different rule for capitalising them:}
+\KeywordTok{str_to_upper}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"i"}\NormalTok{, }\StringTok{"ı"}\NormalTok{))}
+\CommentTok{#> [1] "I" "I"}
+\KeywordTok{str_to_upper}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"i"}\NormalTok{, }\StringTok{"ı"}\NormalTok{), }\DataTypeTok{locale =} \StringTok{"tr"}\NormalTok{)}
+\CommentTok{#> [1] "İ" "I"}
+\end{Highlighting}
+\end{Shaded}
+
+The locale is specified as a ISO 639 language code, which is a two or three letter abbreviation. If you don't already know the code for your language, \href{https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes}{Wikipedia} has a good list. If you leave the locale blank, it will use the current locale, as provided by your operating system.
+
+Another important operation that's affected by the locale is sorting. The base R \texttt{order()} and \texttt{sort()} functions sort strings using the current locale. If you want robust behaviour across different computers, you may want to use \texttt{str\_sort()} and \texttt{str\_order()} which take an additional \texttt{locale} argument:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"eggplant"}\NormalTok{, }\StringTok{"banana"}\NormalTok{)}
+\KeywordTok{str_sort}\NormalTok{(x, }\DataTypeTok{locale =} \StringTok{"en"}\NormalTok{)  }\CommentTok{# English}
+\CommentTok{#> [1] "apple"    "banana"   "eggplant"}
+\KeywordTok{str_sort}\NormalTok{(x, }\DataTypeTok{locale =} \StringTok{"haw"}\NormalTok{) }\CommentTok{# Hawaiian}
+\CommentTok{#> [1] "apple"    "eggplant" "banana"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenges-15}{%
+\subsection*{Challenges}\label{challenges-15}}
+\addcontentsline{toc}{subsection}{Challenges}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Index positions in R start at 1. This is in contrast to Python, where indexation starts at 0.
+  In code that doesn't use \texttt{stringr}, you'll often see \texttt{paste()} and \texttt{paste0()}.
+  What's the difference between the two functions? What stringr function are
+  they equivalent to? How do the functions differ in their handling of
+  \texttt{NA}?
 \item
-  Object subsets using index positions in R contain all the elements in the specified range. If some object called \texttt{data} contains five elements, \texttt{data{[}2:4{]}} will return the elements at the second, third, and fourth positions. By contrast, the same subset in Python would return the objects at the third and fourth positions (or second and third positions, depending upon whether your index starts at 0 or 1).
+  In your own words, describe the difference between the \texttt{sep} and \texttt{collapse}
+  arguments to \texttt{str\_c()}.
 \item
-  R does not allow index-based character string subsetting using the object name, as this functionality is generally reserved for vector subsetting.
+  Use \texttt{str\_length()} and \texttt{str\_sub()} to extract the middle character from
+  a string. What will you do if the string has an even number of characters?
+\item
+  What does \texttt{str\_trim()} do? What's the opposite of \texttt{str\_trim()}?
 \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{firstName <-}\StringTok{ "Johan"}
-\NormalTok{lastName <-}\StringTok{ "Gambolputty"}
-\NormalTok{fullName <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(firstName, lastName)}
-
-\CommentTok{# This won't work}
-\NormalTok{fullName[}\DecValTok{0}\NormalTok{]}
-\CommentTok{#> character(0)}
-\NormalTok{fullName[}\DecValTok{1}\NormalTok{]}
-\CommentTok{#> [1] "Johan Gambolputty"}
-\NormalTok{fullName[}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
-\CommentTok{#> [1] "Johan Gambolputty" NA                  NA                 }
-\CommentTok{#> [4] NA}
-\end{Highlighting}
-\end{Shaded}
-
-Instead, you must use the \texttt{substr()} function. Note that this function must receive both the \texttt{start} and \texttt{stop} arguments. So if you want to get all the characters between some index and the end of the string, you must use the \texttt{nchar()} function, which will tell you the length of a character string.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{substr}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ fullName, }\DataTypeTok{start =} \DecValTok{1}\NormalTok{, }\DataTypeTok{stop =} \DecValTok{1}\NormalTok{)}
-\CommentTok{#> [1] "J"}
-\KeywordTok{substr}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ fullName, }\DataTypeTok{start =} \DecValTok{5}\NormalTok{, }\DataTypeTok{stop =} \DecValTok{5}\NormalTok{)}
-\CommentTok{#> [1] "n"}
-\KeywordTok{substr}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ fullName, }\DataTypeTok{start =} \DecValTok{1}\NormalTok{, }\DataTypeTok{stop =} \DecValTok{5}\NormalTok{)}
-\CommentTok{#> [1] "Johan"}
-\KeywordTok{substr}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ fullName, }\DataTypeTok{start =} \DecValTok{6}\NormalTok{, }\DataTypeTok{stop =} \KeywordTok{nchar}\NormalTok{(fullName))}
-\CommentTok{#> [1] " Gambolputty"}
-\KeywordTok{substr}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ fullName, }\DataTypeTok{start =} \DecValTok{6}\NormalTok{, }\DataTypeTok{stop =} \KeywordTok{nchar}\NormalTok{(fullName)}\OperatorTok{-}\DecValTok{2}\NormalTok{)}
-\CommentTok{#> [1] " Gambolput"}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{replace-substrings-with-gsub}{%
-\subsection{\texorpdfstring{Replace Substrings with \texttt{gsub()}}{Replace Substrings with gsub()}}\label{replace-substrings-with-gsub}}
-
-The function \texttt{gsub()} replaces substrings in a larger string using a specified pattern.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{firstName <-}\StringTok{ "Johan"}
-\NormalTok{lastName <-}\StringTok{ "Gambolputty"}
-\NormalTok{fullName <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(firstName, lastName)}
-
-\KeywordTok{gsub}\NormalTok{(}\DataTypeTok{pattern =} \StringTok{"G"}\NormalTok{, }\DataTypeTok{replacement =} \StringTok{"B"}\NormalTok{, }\DataTypeTok{x =}\NormalTok{ fullName)}
-\CommentTok{#> [1] "Johan Bambolputty"}
-\KeywordTok{gsub}\NormalTok{(}\DataTypeTok{pattern =} \StringTok{"Johan"}\NormalTok{, }\DataTypeTok{replacement =} \StringTok{"Mike"}\NormalTok{, }\DataTypeTok{x =}\NormalTok{ fullName)}
-\CommentTok{#> [1] "Mike Gambolputty"}
-\KeywordTok{gsub}\NormalTok{(}\DataTypeTok{pattern =} \StringTok{"johan"}\NormalTok{, }\DataTypeTok{replacement =} \StringTok{"Mike"}\NormalTok{, }\DataTypeTok{x =}\NormalTok{ fullName) }\CommentTok{# Note the importance of cases!}
-\CommentTok{#> [1] "Johan Gambolputty"}
-\end{Highlighting}
-\end{Shaded}
-
-The same function is used for replacements and stripping:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{gsub}\NormalTok{(}\DataTypeTok{pattern =} \StringTok{" "}\NormalTok{, }\DataTypeTok{replacement =} \StringTok{""}\NormalTok{, }\DataTypeTok{x =}\NormalTok{ fullName) }
-\CommentTok{#> [1] "JohanGambolputty"}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{regular-expressions}{%
-\section{Regular Expressions}\label{regular-expressions}}
+\section{Regular expressions}\label{regular-expressions}}
 
-\texttt{gsub()} is part of a suite of functions to search and substitute substrings using \textbf{regular expressions} (or ``regex'' for short). For more information on regular expressions, see:
+Regular expressions are a very terse language that allow you to describe patterns in strings. They take a little while to get your head around, but once you understand them, you'll find them extremely useful.
+
+To learn regular expressions, we'll use \texttt{str\_view()} and \texttt{str\_view\_all()}. These functions take a character vector and a regular expression, and show you how they match. We'll start with very simple regular expressions and then gradually get more and more complicated. Once you've mastered pattern matching, you'll learn how to apply those ideas with various stringr functions.
+
+\hypertarget{basic-matches}{%
+\subsection{Basic matches}\label{basic-matches}}
+
+The simplest patterns match exact strings:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"banana"}\NormalTok{, }\StringTok{"pear"}\NormalTok{)}
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"an"}\NormalTok{)}
+\CommentTok{#> PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-febe03efa1a2d8d52a86}{}
+
+The next step up in complexity is \texttt{.}, which matches any character (except a newline):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"banana"}\NormalTok{, }\StringTok{"pear"}\NormalTok{)}
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{".a."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-1fb4450895fe099f74a1}{}
+
+\hypertarget{escape-characters}{%
+\subsection{Escape Characters}\label{escape-characters}}
+
+If ``\texttt{.}'' matches any character, how do you match the character ``\texttt{.}''? You need to use an ``escape'' to tell the regular expression you want to match it exactly, not use its special behaviour.
+
+Regexps use the backslash, \texttt{\textbackslash{}}, to escape special behaviour. So to match an \texttt{.}, you need the regexp \texttt{\textbackslash{}.}. Unfortunately this creates a problem. We use \emph{strings} to represent regular expressions, and \texttt{\textbackslash{}} is also used as an escape symbol in strings. So to create the regular expression \texttt{\textbackslash{}.} we need the string \texttt{"\textbackslash{}\textbackslash{}."}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# To create the regular expression, we need \textbackslash{}\textbackslash{}}
+\NormalTok{dot <-}\StringTok{ "}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{."}
+\CommentTok{# But the expression itself only contains one:}
+\KeywordTok{writeLines}\NormalTok{(dot)}
+\CommentTok{#> \textbackslash{}.}
+\end{Highlighting}
+\end{Shaded}
+
+In this lesson, I'll write regular expression as \texttt{\textbackslash{}.} and strings that represent the regular expression as \texttt{"\textbackslash{}\textbackslash{}."}.
+
+\hypertarget{anchors}{%
+\subsection{Anchors}\label{anchors}}
+
+By default, regular expressions will match any part of a string. It's often useful to \emph{anchor} the regular expression so that it matches from the start or end of the string. You can use:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\^{}} to match the start of the string.
+\item
+  \texttt{\$} to match the end of the string.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"banana"}\NormalTok{, }\StringTok{"pear"}\NormalTok{)}
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"^a"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-10b3b7155e8045a1b2ad}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"a$"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-4018eef1a407a0df6b52}{}
+
+To remember which is which, try this mnemonic which I learned from \href{https://twitter.com/emisshula/status/323863393167613953}{Evan Misshula}: if you begin with power (\texttt{\^{}}), you end up with money (\texttt{\$}).
+
+To force a regular expression to only match a complete string, anchor it with both \texttt{\^{}} and \texttt{\$}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple pie"}\NormalTok{, }\StringTok{"apple"}\NormalTok{, }\StringTok{"apple cake"}\NormalTok{)}
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"apple"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-5b1b2f4ad92281566982}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"^apple$"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-25c3e940e6859592f801}{}
+
+\hypertarget{character-classes-and-alternatives}{%
+\subsection{Character classes and alternatives}\label{character-classes-and-alternatives}}
+
+There are a number of special patterns that match more than one character. You've already seen \texttt{.}, which matches any character apart from a newline. There are four other useful tools:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textbackslash{}d}: matches any digit.
+\item
+  \texttt{\textbackslash{}s}: matches any whitespace (e.g.~space, tab, newline).
+\item
+  \texttt{{[}abc{]}}: matches a, b, or c.
+\item
+  \texttt{{[}\^{}abc{]}}: matches anything except a, b, or c.
+\end{itemize}
+
+Remember, to create a regular expression containing \texttt{\textbackslash{}d} or \texttt{\textbackslash{}s}, you'll need to escape the \texttt{\textbackslash{}} for the string, so you'll type \texttt{"\textbackslash{}\textbackslash{}d"} or \texttt{"\textbackslash{}\textbackslash{}s"}.
+
+A character class containing a single character is a nice alternative to backslash escapes when you want to include a single metacharacter in a regex. Many people find this more readable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Look for a literal character that normally has special meaning in a regex}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"abc"}\NormalTok{, }\StringTok{"a.c"}\NormalTok{, }\StringTok{"a*c"}\NormalTok{, }\StringTok{"a c"}\NormalTok{)}
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"a[.]c"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-3f27c09be0c60bb52829}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{".[*]c"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-416566eb193bf50d04e6}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"a[ ]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-72cbf064100ce560a04c}{}
+
+This works for most (but not all) regex metacharacters: \texttt{\$} \texttt{.} \texttt{\textbar{}} \texttt{?} \texttt{*} \texttt{+} \texttt{(} \texttt{)} \texttt{{[}} \texttt{\{}. Unfortunately, a few characters have special meaning even inside a character class and must be handled with backslash escapes: \texttt{{]}} \texttt{\textbackslash{}} \texttt{\^{}} and \texttt{-}.
+
+You can use \emph{alternation} to pick between one or more alternative patterns. For example, \texttt{abc\textbar{}deaf} will match either `\,``abc''\,', or \texttt{"deaf"}.
+
+Like with mathematical expressions, if precedence ever gets confusing, use parentheses to make it clear what you want:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"grey"}\NormalTok{, }\StringTok{"gray"}\NormalTok{)}
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"gr(e|a)y"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-d11fc4360aa0230696d7}{}
+
+\hypertarget{challenges-16}{%
+\subsubsection*{Challenges}\label{challenges-16}}
+\addcontentsline{toc}{subsubsection}{Challenges}
+
+Create regular expressions to find all words that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Start with a vowel.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    That only contain consonants. (Hint: thinking about matching
+    ``not''-vowels.)
+  \item
+    End with \texttt{ed}, but not with \texttt{eed}.
+  \item
+    End with \texttt{ing} or \texttt{ise}.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{repetition}{%
+\subsection{Repetition}\label{repetition}}
+
+The next step up in power involves controlling how many times a pattern matches:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{?}: 0 or 1
+\item
+  \texttt{+}: 1 or more
+\item
+  \texttt{*}: 0 or more
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ "1888 is the longest year in Roman numerals: MDCCCLXXXVIII"}
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"CC?"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-21c7483268bafca56cec}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{"CC+"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-1834a22cd196f3aa03a1}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_view}\NormalTok{(x, }\StringTok{'C[LX]+'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-28515d92cb327f90c9eb}{}
+
+\hypertarget{regex-resources}{%
+\subsection{Regex Resources}\label{regex-resources}}
+
+For more information on regular expressions, see:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{https://regexr.com/}{regexr.com}
+  \href{http://regextutorials.com/}{this tutorial}
 \item
   \href{https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285}{this cheatsheet}
 \end{enumerate}
 
-MORE HERE
+\hypertarget{common-tools}{%
+\section{Common Tools}\label{common-tools}}
+
+Now that you've learned the basics of regular expressions, it's time to learn how to apply them to real problems. In this section you'll learn a wide array of \texttt{stringr} functions that let you:
+
+\begin{itemize}
+\tightlist
+\item
+  Determine which strings match a pattern.
+\item
+  Find the positions of matches.
+\item
+  Extract the content of matches.
+\item
+  Replace matches with new values.
+\item
+  Split a string based on a match.
+\end{itemize}
+
+A word of caution before we continue: because regular expressions are so powerful, it's easy to try and solve every problem with a single regular expression. In the words of Jamie Zawinski:
+
+\begin{quote}
+Some people, when confronted with a problem, think ``I know, I'll use regular
+expressions.'' Now they have two problems.
+As a cautionary tale, check out this regular expression that checks if a email address is valid:
+\end{quote}
+
+\begin{verbatim}
+(?:(?:\r\n)?[ \t])*(?:(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t]
+)+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:
+\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(
+?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ 
+\t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\0
+31]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\
+](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+
+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:
+(?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z
+|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)
+?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\
+r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[
+ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)
+?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t]
+)*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[
+ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*
+)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t]
+)+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)
+*:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+
+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r
+\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:
+\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t
+]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031
+]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](
+?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?
+:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?
+:\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*)|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?
+:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?
+[ \t]))*"(?:(?:\r\n)?[ \t])*)*:(?:(?:\r\n)?[ \t])*(?:(?:(?:[^()<>@,;:\\".\[\] 
+\000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|
+\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>
+@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"
+(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t]
+)*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\
+".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?
+:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[
+\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-
+\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(
+?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;
+:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([
+^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\"
+.\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\
+]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\
+[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\
+r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] 
+\000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]
+|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \0
+00-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\
+.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,
+;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?
+:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*
+(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".
+\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[
+^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]
+]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*)(?:,\s*(
+?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\
+".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(
+?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[
+\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t
+])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t
+])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?
+:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|
+\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:
+[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\
+]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)
+?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["
+()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)
+?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>
+@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[
+ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,
+;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t]
+)*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\
+".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?
+(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".
+\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:
+\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\[
+"()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])
+*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])
++|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\
+.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z
+|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(
+?:\r\n)?[ \t])*))*)?;\s*)
+\end{verbatim}
+
+This is a somewhat pathological example (because email addresses are actually surprisingly complex), but is used in real code. See the stackoverflow discussion at \url{http://stackoverflow.com/a/201378} for more details.
+
+Don't forget that you're in a programming language and you have other tools at your disposal. Instead of creating one complex regular expression, it's often easier to write a series of simpler regexps. If you get stuck trying to create a single regexp that solves your problem, take a step back and think if you could break the problem down into smaller pieces, solving each challenge before moving onto the next one.
+
+\hypertarget{detect-matches}{%
+\subsection{Detect matches}\label{detect-matches}}
+
+To determine if a character vector matches a pattern, use \texttt{str\_detect()}. It returns a logical vector the same length as the input:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"banana"}\NormalTok{, }\StringTok{"pear"}\NormalTok{)}
+\KeywordTok{str_detect}\NormalTok{(x, }\StringTok{"e"}\NormalTok{)}
+\CommentTok{#> [1]  TRUE FALSE  TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+Remember that when you use a logical vector in a numeric context, \texttt{FALSE} becomes 0 and \texttt{TRUE} becomes 1. That makes \texttt{sum()} and \texttt{mean()} useful if you want to answer questions about matches across a larger vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# see common words}
+\NormalTok{words[}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{]}
+\CommentTok{#>  [1] "a"        "able"     "about"    "absolute" "accept"   "account" }
+\CommentTok{#>  [7] "achieve"  "across"   "act"      "active"}
+\CommentTok{# How many common words start with t?}
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{str_detect}\NormalTok{(words, }\StringTok{"^t"}\NormalTok{))}
+\CommentTok{#> [1] 65}
+\CommentTok{# What proportion of common words end with a vowel?}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{str_detect}\NormalTok{(words, }\StringTok{"[aeiou]$"}\NormalTok{))}
+\CommentTok{#> [1] 0.277}
+\end{Highlighting}
+\end{Shaded}
+
+A common use of \texttt{str\_detect()} is to select the elements that match a pattern. You can do this with logical subsetting, or the convenient \texttt{str\_subset()} wrapper:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{words[}\KeywordTok{str_detect}\NormalTok{(words, }\StringTok{"x$"}\NormalTok{)]}
+\CommentTok{#> [1] "box" "sex" "six" "tax"}
+\KeywordTok{str_subset}\NormalTok{(words, }\StringTok{"x$"}\NormalTok{)}
+\CommentTok{#> [1] "box" "sex" "six" "tax"}
+\end{Highlighting}
+\end{Shaded}
+
+Typically, however, your strings will be one column of a data frame, and you'll want to use filter instead:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{i =} \KeywordTok{seq_along}\NormalTok{(words),}
+  \DataTypeTok{word =}\NormalTok{ words}
+\NormalTok{)}
+\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(}\KeywordTok{str_detect}\NormalTok{(word, }\StringTok{"x$"}\NormalTok{))}
+\CommentTok{#>     i word}
+\CommentTok{#> 1 108  box}
+\CommentTok{#> 2 747  sex}
+\CommentTok{#> 3 772  six}
+\CommentTok{#> 4 841  tax}
+\end{Highlighting}
+\end{Shaded}
+
+A variation on \texttt{str\_detect()} is \texttt{str\_count()}: rather than a simple yes or no, it tells you how many matches there are in a string:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"banana"}\NormalTok{, }\StringTok{"pear"}\NormalTok{)}
+\KeywordTok{str_count}\NormalTok{(x, }\StringTok{"a"}\NormalTok{)}
+\CommentTok{#> [1] 1 3 1}
+\CommentTok{# On average, how many vowels per word?}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{str_count}\NormalTok{(words, }\StringTok{"[aeiou]"}\NormalTok{))}
+\CommentTok{#> [1] 1.99}
+\end{Highlighting}
+\end{Shaded}
+
+It's natural to use \texttt{str\_count()} with \texttt{mutate()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df1 <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}
+    \DataTypeTok{vowels =} \KeywordTok{str_count}\NormalTok{(word, }\StringTok{"[aeiou]"}\NormalTok{),}
+    \DataTypeTok{consonants =} \KeywordTok{str_count}\NormalTok{(word, }\StringTok{"[^aeiou]"}\NormalTok{)}
+\NormalTok{  )}
+
+\KeywordTok{head}\NormalTok{(df1)}
+\CommentTok{#>   i     word vowels consonants}
+\CommentTok{#> 1 1        a      1          0}
+\CommentTok{#> 2 2     able      2          2}
+\CommentTok{#> 3 3    about      3          2}
+\CommentTok{#> 4 4 absolute      4          4}
+\CommentTok{#> 5 5   accept      2          4}
+\CommentTok{#> 6 6  account      3          4}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenges-17}{%
+\subsubsection{Challenges}\label{challenges-17}}
+
+For each of the following challenges, try solving it by using both a single regular expression, and a combination of multiple \texttt{str\_detect()} calls.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Find all words that start or end with \texttt{x}.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Find all words that start with a vowel and end with a consonant.
+\end{enumerate}
+
+\hypertarget{extract-matches}{%
+\subsection{Extract matches}\label{extract-matches}}
+
+To extract the actual text of a match, use \texttt{str\_extract()}. To show that off, we're going to need a more complicated example. I'm going to use the \href{https://en.wikipedia.org/wiki/Harvard_sentences}{Harvard sentences}. These are provided in \texttt{stringr::sentences}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{length}\NormalTok{(sentences)}
+\CommentTok{#> [1] 720}
+\KeywordTok{head}\NormalTok{(sentences)}
+\CommentTok{#> [1] "The birch canoe slid on the smooth planks." }
+\CommentTok{#> [2] "Glue the sheet to the dark blue background."}
+\CommentTok{#> [3] "It's easy to tell the depth of a well."     }
+\CommentTok{#> [4] "These days a chicken leg is a rare dish."   }
+\CommentTok{#> [5] "Rice is often served in round bowls."       }
+\CommentTok{#> [6] "The juice of lemons makes fine punch."}
+\end{Highlighting}
+\end{Shaded}
+
+Imagine we want to find all sentences that contain a color. We first create a vector of color names, and then turn it into a single regular expression:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{colors <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{, }\StringTok{"green"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"purple"}\NormalTok{)}
+\NormalTok{color_match <-}\StringTok{ }\KeywordTok{str_c}\NormalTok{(colors, }\DataTypeTok{collapse =} \StringTok{"|"}\NormalTok{)}
+\NormalTok{color_match}
+\CommentTok{#> [1] "red|orange|yellow|green|blue|purple"}
+\end{Highlighting}
+\end{Shaded}
+
+Now we can select the sentences that contain a color, and then extract the color to figure out which one it is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# find sentences with colors}
+\NormalTok{has_color <-}\StringTok{ }\KeywordTok{str_subset}\NormalTok{(sentences, color_match)}
+\KeywordTok{head}\NormalTok{(has_color)}
+\CommentTok{#> [1] "Glue the sheet to the dark blue background."}
+\CommentTok{#> [2] "Two blue fish swam in the tank."            }
+\CommentTok{#> [3] "The colt reared and threw the tall rider."  }
+\CommentTok{#> [4] "The wide road shimmered in the hot sun."    }
+\CommentTok{#> [5] "See the cat glaring at the scared mouse."   }
+\CommentTok{#> [6] "A wisp of cloud hung in the blue air."}
+
+\CommentTok{# extract the color}
+\NormalTok{matches <-}\StringTok{ }\KeywordTok{str_extract}\NormalTok{(has_color, color_match)}
+\KeywordTok{head}\NormalTok{(matches)}
+\CommentTok{#> [1] "blue" "blue" "red"  "red"  "red"  "blue"}
+\end{Highlighting}
+\end{Shaded}
+
+Note that \texttt{str\_extract()} only extracts the first match. This is a common pattern for stringr functions, because working with a single match allows you to use much simpler data structures. To get all matches, use \texttt{str\_extract\_all()}. It returns a list:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all_colors <-}\StringTok{ }\KeywordTok{str_extract_all}\NormalTok{(has_color, color_match)}
+\NormalTok{all_colors[}\DecValTok{15}\OperatorTok{:}\DecValTok{20}\NormalTok{]}
+\CommentTok{#> [[1]]}
+\CommentTok{#> [1] "red"}
+\CommentTok{#> }
+\CommentTok{#> [[2]]}
+\CommentTok{#> [1] "red"}
+\CommentTok{#> }
+\CommentTok{#> [[3]]}
+\CommentTok{#> [1] "red"}
+\CommentTok{#> }
+\CommentTok{#> [[4]]}
+\CommentTok{#> [1] "blue"}
+\CommentTok{#> }
+\CommentTok{#> [[5]]}
+\CommentTok{#> [1] "red"}
+\CommentTok{#> }
+\CommentTok{#> [[6]]}
+\CommentTok{#> [1] "blue" "red"}
+\end{Highlighting}
+\end{Shaded}
+
+If you use \texttt{simplify\ =\ TRUE}, \texttt{str\_extract\_all()} will return a matrix with short matches expanded to the same length as the longest:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_extract_all}\NormalTok{(has_color, color_match, }\DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{#>       [,1]     [,2] }
+\CommentTok{#>  [1,] "blue"   ""   }
+\CommentTok{#>  [2,] "blue"   ""   }
+\CommentTok{#>  [3,] "red"    ""   }
+\CommentTok{#>  [4,] "red"    ""   }
+\CommentTok{#>  [5,] "red"    ""   }
+\CommentTok{#>  [6,] "blue"   ""   }
+\CommentTok{#>  [7,] "yellow" ""   }
+\CommentTok{#>  [8,] "red"    ""   }
+\CommentTok{#>  [9,] "red"    ""   }
+\CommentTok{#> [10,] "green"  ""   }
+\CommentTok{#> [11,] "red"    ""   }
+\CommentTok{#> [12,] "red"    ""   }
+\CommentTok{#> [13,] "blue"   ""   }
+\CommentTok{#> [14,] "red"    ""   }
+\CommentTok{#> [15,] "red"    ""   }
+\CommentTok{#> [16,] "red"    ""   }
+\CommentTok{#> [17,] "red"    ""   }
+\CommentTok{#> [18,] "blue"   ""   }
+\CommentTok{#> [19,] "red"    ""   }
+\CommentTok{#> [20,] "blue"   "red"}
+\CommentTok{#> [21,] "red"    ""   }
+\CommentTok{#> [22,] "green"  ""   }
+\CommentTok{#> [23,] "red"    ""   }
+\CommentTok{#> [24,] "red"    ""   }
+\CommentTok{#> [25,] "red"    ""   }
+\CommentTok{#> [26,] "red"    ""   }
+\CommentTok{#> [27,] "red"    ""   }
+\CommentTok{#> [28,] "red"    ""   }
+\CommentTok{#> [29,] "green"  ""   }
+\CommentTok{#> [30,] "red"    ""   }
+\CommentTok{#> [31,] "green"  ""   }
+\CommentTok{#> [32,] "red"    ""   }
+\CommentTok{#> [33,] "purple" ""   }
+\CommentTok{#> [34,] "green"  ""   }
+\CommentTok{#> [35,] "red"    ""   }
+\CommentTok{#> [36,] "red"    ""   }
+\CommentTok{#> [37,] "red"    ""   }
+\CommentTok{#> [38,] "red"    ""   }
+\CommentTok{#> [39,] "red"    ""   }
+\CommentTok{#> [40,] "blue"   ""   }
+\CommentTok{#> [41,] "red"    ""   }
+\CommentTok{#> [42,] "blue"   ""   }
+\CommentTok{#> [43,] "red"    ""   }
+\CommentTok{#> [44,] "red"    ""   }
+\CommentTok{#> [45,] "red"    ""   }
+\CommentTok{#> [46,] "red"    ""   }
+\CommentTok{#> [47,] "green"  ""   }
+\CommentTok{#> [48,] "green"  ""   }
+\CommentTok{#> [49,] "green"  "red"}
+\CommentTok{#> [50,] "red"    ""   }
+\CommentTok{#> [51,] "red"    ""   }
+\CommentTok{#> [52,] "yellow" ""   }
+\CommentTok{#> [53,] "red"    ""   }
+\CommentTok{#> [54,] "orange" "red"}
+\CommentTok{#> [55,] "red"    ""   }
+\CommentTok{#> [56,] "red"    ""   }
+\CommentTok{#> [57,] "red"    ""}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenges-18}{%
+\subsubsection{Challenges}\label{challenges-18}}
+
+In the previous example, you might have noticed that the regular expression matched ``flickered'', which is not a color. Modify the regex to fix the problem.
+
+\hypertarget{replacing-matches}{%
+\subsection{Replacing matches}\label{replacing-matches}}
+
+\texttt{str\_replace()} and \texttt{str\_replace\_all()} allow you to replace matches with new strings. The simplest use is to replace a pattern with a fixed string:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"pear"}\NormalTok{, }\StringTok{"banana"}\NormalTok{)}
+\KeywordTok{str_replace}\NormalTok{(x, }\StringTok{"[aeiou]"}\NormalTok{, }\StringTok{"-"}\NormalTok{) }\CommentTok{# replace the first instance of a match}
+\CommentTok{#> [1] "-pple"  "p-ar"   "b-nana"}
+\KeywordTok{str_replace_all}\NormalTok{(x, }\StringTok{"[aeiou]"}\NormalTok{, }\StringTok{"-"}\NormalTok{) }\CommentTok{# replace all instances of a match}
+\CommentTok{#> [1] "-ppl-"  "p--r"   "b-n-n-"}
+\end{Highlighting}
+\end{Shaded}
+
+With \texttt{str\_replace\_all()} you can perform multiple replacements by supplying a named vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"1 house"}\NormalTok{, }\StringTok{"2 cars"}\NormalTok{, }\StringTok{"3 people"}\NormalTok{)}
+\KeywordTok{str_replace_all}\NormalTok{(x, }\KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{ =}\StringTok{ "one"}\NormalTok{, }\StringTok{"2"}\NormalTok{ =}\StringTok{ "two"}\NormalTok{, }\StringTok{"3"}\NormalTok{ =}\StringTok{ "three"}\NormalTok{))}
+\CommentTok{#> [1] "one house"    "two cars"     "three people"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{splitting}{%
+\subsection{Splitting}\label{splitting}}
+
+Use \texttt{str\_split()} to split a string up into pieces. For example, we could split sentences into words:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sentences }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{head}\NormalTok{(}\DecValTok{5}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{str_split}\NormalTok{(}\StringTok{" "}\NormalTok{)}
+\CommentTok{#> [[1]]}
+\CommentTok{#> [1] "The"     "birch"   "canoe"   "slid"    "on"      "the"     "smooth" }
+\CommentTok{#> [8] "planks."}
+\CommentTok{#> }
+\CommentTok{#> [[2]]}
+\CommentTok{#> [1] "Glue"        "the"         "sheet"       "to"          "the"        }
+\CommentTok{#> [6] "dark"        "blue"        "background."}
+\CommentTok{#> }
+\CommentTok{#> [[3]]}
+\CommentTok{#> [1] "It's"  "easy"  "to"    "tell"  "the"   "depth" "of"    "a"     "well."}
+\CommentTok{#> }
+\CommentTok{#> [[4]]}
+\CommentTok{#> [1] "These"   "days"    "a"       "chicken" "leg"     "is"      "a"      }
+\CommentTok{#> [8] "rare"    "dish."  }
+\CommentTok{#> }
+\CommentTok{#> [[5]]}
+\CommentTok{#> [1] "Rice"   "is"     "often"  "served" "in"     "round"  "bowls."}
+\end{Highlighting}
+\end{Shaded}
+
+Like the other stringr functions that return a list, you can use \texttt{simplify\ =\ TRUE} to return a matrix:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sentences }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{head}\NormalTok{(}\DecValTok{5}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{str_split}\NormalTok{(}\StringTok{" "}\NormalTok{, }\DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{#>      [,1]    [,2]    [,3]    [,4]      [,5]  [,6]    [,7]    }
+\CommentTok{#> [1,] "The"   "birch" "canoe" "slid"    "on"  "the"   "smooth"}
+\CommentTok{#> [2,] "Glue"  "the"   "sheet" "to"      "the" "dark"  "blue"  }
+\CommentTok{#> [3,] "It's"  "easy"  "to"    "tell"    "the" "depth" "of"    }
+\CommentTok{#> [4,] "These" "days"  "a"     "chicken" "leg" "is"    "a"     }
+\CommentTok{#> [5,] "Rice"  "is"    "often" "served"  "in"  "round" "bowls."}
+\CommentTok{#>      [,8]          [,9]   }
+\CommentTok{#> [1,] "planks."     ""     }
+\CommentTok{#> [2,] "background." ""     }
+\CommentTok{#> [3,] "a"           "well."}
+\CommentTok{#> [4,] "rare"        "dish."}
+\CommentTok{#> [5,] ""            ""}
+\end{Highlighting}
+\end{Shaded}
+
+You can also request a maximum number of pieces:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fields <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Name: Hadley"}\NormalTok{, }\StringTok{"Country: NZ"}\NormalTok{, }\StringTok{"Age: 35"}\NormalTok{)}
+\NormalTok{fields }\OperatorTok{%>%}\StringTok{ }\KeywordTok{str_split}\NormalTok{(}\StringTok{": "}\NormalTok{, }\DataTypeTok{n =} \DecValTok{2}\NormalTok{, }\DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{#>      [,1]      [,2]    }
+\CommentTok{#> [1,] "Name"    "Hadley"}
+\CommentTok{#> [2,] "Country" "NZ"    }
+\CommentTok{#> [3,] "Age"     "35"}
+\end{Highlighting}
+\end{Shaded}
+
+Instead of splitting up strings by patterns, you can also split up by character, line, sentence and word \texttt{boundary()}s:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ "This is a sentence.  This is another sentence."}
+\KeywordTok{str_view_all}\NormalTok{(x, }\KeywordTok{boundary}\NormalTok{(}\StringTok{"word"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{htmlwidget-0caf26d4e3c00206b0c5}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_split}\NormalTok{(x, }\StringTok{" "}\NormalTok{)[[}\DecValTok{1}\NormalTok{]]}
+\CommentTok{#> [1] "This"      "is"        "a"         "sentence." ""          "This"     }
+\CommentTok{#> [7] "is"        "another"   "sentence."}
+\KeywordTok{str_split}\NormalTok{(x, }\KeywordTok{boundary}\NormalTok{(}\StringTok{"word"}\NormalTok{))[[}\DecValTok{1}\NormalTok{]]}
+\CommentTok{#> [1] "This"     "is"       "a"        "sentence" "This"     "is"      }
+\CommentTok{#> [7] "another"  "sentence"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenges-19}{%
+\subsubsection{Challenges}\label{challenges-19}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Split up a string like \texttt{"apples,\ pears,\ and\ bananas"} into individual
+  components.
+\item
+  What does splitting with an empty string (\texttt{""}) do? Experiment, and
+  then read the documentation.
+\end{enumerate}
+
+\hypertarget{other-types-of-patterns}{%
+\section{Other types of patterns}\label{other-types-of-patterns}}
+
+When you use a pattern that's a string, it's automatically wrapped into a call to \texttt{regex()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The regular call:}
+\KeywordTok{str_view}\NormalTok{(fruit, }\StringTok{"nana"}\NormalTok{)}
+\CommentTok{# Is shorthand for}
+\KeywordTok{str_view}\NormalTok{(fruit, }\KeywordTok{regex}\NormalTok{(}\StringTok{"nana"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+You can use the other arguments of \texttt{regex()} to control details of the match:
+
+\begin{itemize}
+\item
+  \texttt{ignore\_case\ =\ TRUE} allows characters to match either their uppercase or
+  lowercase forms. This always uses the current locale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bananas <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"banana"}\NormalTok{, }\StringTok{"Banana"}\NormalTok{, }\StringTok{"BANANA"}\NormalTok{)}
+\KeywordTok{str_view}\NormalTok{(bananas, }\StringTok{"banana"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \hypertarget{htmlwidget-da0b268a2927f570ebf3}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str_view}\NormalTok{(bananas, }\KeywordTok{regex}\NormalTok{(}\StringTok{"banana"}\NormalTok{, }\DataTypeTok{ignore_case =} \OtherTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+  \hypertarget{htmlwidget-0ed12bb554391c49c2e3}{}
+\item
+  \texttt{multiline\ =\ TRUE} allows \texttt{\^{}} and \texttt{\$} to match the start and end of each
+  line rather than the start and end of the complete string.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ "Line 1}\CharTok{\textbackslash{}n}\StringTok{Line 2}\CharTok{\textbackslash{}n}\StringTok{Line 3"}
+\KeywordTok{str_extract_all}\NormalTok{(x, }\StringTok{"^Line"}\NormalTok{)[[}\DecValTok{1}\NormalTok{]]}
+\CommentTok{#> [1] "Line"}
+\KeywordTok{str_extract_all}\NormalTok{(x, }\KeywordTok{regex}\NormalTok{(}\StringTok{"^Line"}\NormalTok{, }\DataTypeTok{multiline =} \OtherTok{TRUE}\NormalTok{))[[}\DecValTok{1}\NormalTok{]]}
+\CommentTok{#> [1] "Line" "Line" "Line"}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{stringi}{%
+\subsection{stringi}\label{stringi}}
+
+stringr is built on top of the \textbf{stringi} package. stringr is useful when you're learning because it exposes a minimal set of functions, which have been carefully picked to handle the most common string manipulation functions. stringi, on the other hand, is designed to be comprehensive. It contains almost every function you might ever need.
+
+If you find yourself struggling to do something in stringr, it's worth taking a look at stringi. The packages work very similarly, so you should be able to translate your stringr knowledge in a natural way. The main difference is the prefix: \texttt{str\_} vs. \texttt{stri\_}.
+
+\hypertarget{challenges-20}{%
+\subsection{Challenges}\label{challenges-20}}
+
+Find the stringi functions that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Count the number of words.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \setcounter{enumii}{1}
+  \tightlist
+  \item
+    Find duplicated strings.
+  \item
+    Generate random text.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{acknowledgments-5}{%
+\section*{Acknowledgments}\label{acknowledgments-5}}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+This page was adapted from the following sources:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://r4ds.had.co.nz}{R for Data Science} licensed under \href{https://creativecommons.org/licenses/by-nc-nd/3.0/us/}{Creative Commons Attribution-NonCommercial-NoDerivs 3.0}
+\end{enumerate}
 
 \hypertarget{programming-in-r}{%
 \chapter{Programming in R}\label{programming-in-r}}
@@ -11475,8 +12388,8 @@ However, positional arguments (\texttt{send(\textquotesingle{}Hello\textquotesin
 
 Here \texttt{cc} and bcc are \texttt{optional}, and evaluate to \texttt{NULL} when they are not passed another value.
 
-\hypertarget{challenges-15}{%
-\subsection{Challenges}\label{challenges-15}}
+\hypertarget{challenges-21}{%
+\subsection{Challenges}\label{challenges-21}}
 
 \hypertarget{challenge-1-1}{%
 \subsubsection*{Challenge 1}\label{challenge-1-1}}
@@ -11786,8 +12699,8 @@ This is the code that does the work. It runs repeatedly, each time with a differ
 
 \textbf{NB:}: We use \texttt{{[}{[}} notation to reference each column of \texttt{df} using indices of columns, instead of \texttt{\$} and column names.
 
-\hypertarget{challenges-16}{%
-\subsection{Challenges}\label{challenges-16}}
+\hypertarget{challenges-22}{%
+\subsection{Challenges}\label{challenges-22}}
 
 \hypertarget{challenge-1.-11}{%
 \subsubsection*{Challenge 1.}\label{challenge-1.-11}}
@@ -12027,8 +12940,8 @@ We can also pass additional arguments. For example, the function \texttt{mean} p
 
 Check out other fun applications of \texttt{map} functions \href{https://r4ds.had.co.nz/iteration.html\#the-map-functions}{here}
 
-\hypertarget{challenges-17}{%
-\subsection{Challenges}\label{challenges-17}}
+\hypertarget{challenges-23}{%
+\subsection{Challenges}\label{challenges-23}}
 
 \hypertarget{challenge-1.-12}{%
 \subsubsection*{Challenge 1.}\label{challenge-1.-12}}
@@ -12195,8 +13108,8 @@ These verbs can apply to \texttt{summarize}, \texttt{filter}, or \texttt{mutate}
 
 \texttt{mutate} and \texttt{filter} work in a similar way. To see more, check out \href{https://dcl-2017-04.github.io/curriculum/manip-scoped.html}{Scoped verbs by the Data Challenge Lab}
 
-\hypertarget{acknowledgments-5}{%
-\subsubsection*{Acknowledgments}\label{acknowledgments-5}}
+\hypertarget{acknowledgments-6}{%
+\subsubsection*{Acknowledgments}\label{acknowledgments-6}}
 \addcontentsline{toc}{subsubsection}{Acknowledgments}
 
 A good portion of this lesson is based on:
@@ -12792,15 +13705,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1957
+1964
 
-1023
+1024
 
 23
 
-1537
+1536
 
-2678
+2681
 
 1346896669
 
@@ -12844,7 +13757,7 @@ FALSE
 
 0
 
-0
+1
 
 NA
 
@@ -12902,11 +13815,11 @@ carsonaust
 
 Austin Carson
 
-1957
+1964
 
-1023
+1024
 
-1537
+1536
 
 Chicago, IL
 
@@ -12974,15 +13887,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1957
+1964
 
-1023
+1024
 
 23
 
-1537
+1536
 
-2678
+2681
 
 1346896669
 
@@ -13030,7 +13943,7 @@ FALSE
 
 6
 
-1
+2
 
 NA
 
@@ -13158,15 +14071,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1957
+1964
 
-1023
+1024
 
 23
 
-1537
+1536
 
-2678
+2681
 
 1346896669
 
@@ -13296,11 +14209,11 @@ dhnexon
 
 Dan Nexon 🧙‍♂️🎃
 
-12576
+12577
 
-4482
+4490
 
-2404
+2383
 
 Washington, DC
 
@@ -13338,15 +14251,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1957
+1964
 
-1023
+1024
 
 23
 
-1537
+1536
 
-2678
+2681
 
 1346896669
 
@@ -13466,7 +14379,7 @@ NA
 
 Twitter Web App
 
-21
+22
 
 15
 
@@ -13476,11 +14389,11 @@ pstanpolitics
 
 Paul Staniland
 
-13751
+13836
 
-3055
+3076
 
-20628
+20662
 
 Chicago, IL
 
@@ -13518,15 +14431,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1957
+1964
 
-1023
+1024
 
 23
 
-1537
+1536
 
-2678
+2681
 
 1346896669
 
@@ -13630,11 +14543,11 @@ JoshRovner1
 
 Josh Rovner
 
-1841
+1843
 
 684
 
-1773
+1777
 
 Washington, DC
 
@@ -13702,15 +14615,15 @@ Assistant Professor @ University of Chicago, author of \emph{Secret Wars: Covert
 
 FALSE
 
-1957
+1964
 
-1023
+1024
 
 23
 
-1537
+1536
 
-2678
+2681
 
 1346896669
 
@@ -13740,7 +14653,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-439-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-476-1} \end{center}
 
 \hypertarget{hashtags-and-text-strings}{%
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}}
@@ -13775,17 +14688,17 @@ Using the documentation for \texttt{search\_tweets} as a guide, try pulling the 
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 744 x 3}
-\CommentTok{#> # Groups:   user_id [744]}
+\CommentTok{#> # A tibble: 826 x 3}
+\CommentTok{#> # Groups:   user_id [826]}
 \CommentTok{#>   user_id             location                           n}
 \CommentTok{#>   <chr>               <chr>                          <int>}
-\CommentTok{#> 1 2561373848          Florida, USA                      92}
-\CommentTok{#> 2 764290456599396353  Rochester, New York               64}
-\CommentTok{#> 3 12666752            land-O-Lakes, Florida             36}
-\CommentTok{#> 4 1022122568004894720 ""                                33}
-\CommentTok{#> 5 1030069194539368448 ""                                33}
-\CommentTok{#> 6 714738130557992960  Chiclana de la Frontera, Spain    27}
-\CommentTok{#> # ... with 738 more rows}
+\CommentTok{#> 1 2561373848          Florida, USA                     107}
+\CommentTok{#> 2 764290456599396353  Rochester, New York               68}
+\CommentTok{#> 3 1030069194539368448 ""                                39}
+\CommentTok{#> 4 1022122568004894720 ""                                38}
+\CommentTok{#> 5 714738130557992960  Chiclana de la Frontera, Spain    27}
+\CommentTok{#> 6 1048404121206714369 ""                                16}
+\CommentTok{#> # ... with 820 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -13939,17 +14852,17 @@ Within \texttt{response\_df\$response}, we can extract a number of interesting r
 \CommentTok{# What's in 'meta'?}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}
 \CommentTok{#> $hits}
-\CommentTok{#> [1] 3899}
+\CommentTok{#> [1] 3911}
 \CommentTok{#> }
 \CommentTok{#> $offset}
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 16}
+\CommentTok{#> [1] 47}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
-\CommentTok{#> [1] 3899}
+\CommentTok{#> [1] 3911}
 
 \CommentTok{# Check out docs}
 \KeywordTok{names}\NormalTok{(response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{docs)}
@@ -14057,7 +14970,7 @@ To figure out how Adam Rippon's's popularity is changing over time, all we need 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-452-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-489-1} \end{center}
 
 \hypertarget{more-resources-1}{%
 \subsection{More resources}\label{more-resources-1}}
@@ -14842,7 +15755,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-482-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-519-1} \end{center}
 
 \textbf{How would you relevel \texttt{f} to be in the correct order?}
 
@@ -14855,7 +15768,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-483-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-520-1} \end{center}
 
 \hypertarget{dataframes-1}{%
 \subsubsection*{4. Dataframes}\label{dataframes-1}}

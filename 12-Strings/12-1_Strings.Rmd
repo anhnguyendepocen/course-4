@@ -9,91 +9,161 @@ output: html_document
 
 This unit focuses on chracter (or "string") data. We'll explore:
 
-1. **[common string operations]**, like concatinating, subsetting, and replacing strings.
+1. **[string basics]**, like concatinating and subsettings.
 2. **[regular expressions]**, a powerful cross-language tool for working with string data.
+3. **[common tools]**, that take regex and apply them to real problems.
 
-## Common String Operations
+This chapter will focus on the __stringr__ package for string manipulation. stringr is not part of the core tidyverse because you don't always have textual data, so we need to load it explicitly.
 
-### Concatinating strings with `paste()`
-
-Let's say we wanted to concatenate the following two strings into one larger character string:
-
-```{r}
-firstName <- "Johan"
-lastName <- "Gambolputty"
+```{r setup, message = FALSE}
+library(tidyverse)
+library(stringr)
 ```
 
-Using the usual combine operator `c()` on two or more character strings will not create a single character string, but rather a **vector** of character strings. 
+## String Basics
+
+### Creating Strings
+
+You can create strings with either single quotes or double quotes. Unlike other languages, there is no difference in behaviour. I recommend always using `"`, unless you want to create a string that contains multiple `"`.
 
 ```{r}
-firstName <- "Johan"
-lastName <- "Gambolputty"
-
-fullName <- c(firstName, lastName)
-print(fullName)
-length(fullName)
+string1 <- "This is a string"
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
 ```
 
-Combining two or more character strings into one larger character string requires using the `paste()` function.  This function takes character strings or vectors and collapses their values into a single character string, with each value separated by a character string selected by the user.
+### Escape and Special Characters 
+
+Single and double quotes are known as "metacharacters," meaning that they have special meaning to the R language. To include a literal single or double quote in a string you can use `\` to "escape" it:
 
 ```{r}
-fullName <- paste(firstName, lastName)
-print(fullName)
-
-fullName <- paste(firstName, lastName, sep = "+")
-print(fullName)
-
-fullName <- paste(firstName, lastName, sep = "___")
-print(fullName)
+double_quote <- "\"" # or '"'
+single_quote <- '\'' # or "'"
 ```
 
-### Extracting Substrings
+That means if you want to include a literal backslash, you'll need to double it up: `"\\"`.
 
-R can also extract substrings based on the index position of its characters. Some things to note:
-
-1. Index positions in R start at 1. This is in contrast to Python, where indexation starts at 0. 
-
-2. Object subsets using index positions in R contain all the elements in the specified range.  If some object called `data` contains five elements, ```data[2:4]``` will return the elements at the second, third, and fourth positions. By contrast, the same subset in Python would return the objects at the third and fourth positions (or second and third positions, depending upon whether your index starts at 0 or 1).  
-
-3. R does not allow index-based character string subsetting using the object name, as this functionality is generally reserved for vector subsetting.
+Beware that the printed representation of a string is not the same as string itself, because the printed representation shows the escapes. To see the raw contents of the string, use `writeLines()`:
 
 ```{r}
-firstName <- "Johan"
-lastName <- "Gambolputty"
-fullName <- paste(firstName, lastName)
-
-# This won't work
-fullName[0]
-fullName[1]
-fullName[1:4]
+x <- c("\"", "\\")
+x
+writeLines(x)
 ```
 
-Instead, you must use the ```substr()``` function.  Note that this function must receive both the ```start``` and ```stop``` arguments.  So if you want to get all the characters between some index and the end of the string, you must use the `nchar()` function, which will tell you the length of a character string.
+There are a handful of other special characters. The most common are `"\n"`, newline, and `"\t"`, tab, but you can see the complete list by requesting help on `"`: `?'"'`, or `?"'"`. You'll also sometimes see strings like `"\u00b5"`, this is a way of writing non-English characters that works on all platforms:
 
 ```{r}
-substr(x = fullName, start = 1, stop = 1)
-substr(x = fullName, start = 5, stop = 5)
-substr(x = fullName, start = 1, stop = 5)
-substr(x = fullName, start = 6, stop = nchar(fullName))
-substr(x = fullName, start = 6, stop = nchar(fullName)-2)
+x <- "\u00b5"
+x
 ```
 
-### Replace Substrings with `gsub()`
-
-The function `gsub()` replaces substrings in a larger string using a specified pattern.
+Multiple strings are often stored in a character vector, which you can create with `c()`:
 
 ```{r}
-firstName <- "Johan"
-lastName <- "Gambolputty"
-fullName <- paste(firstName, lastName)
-
-gsub(pattern = "G", replacement = "B", x = fullName)
-gsub(pattern = "Johan", replacement = "Mike", x = fullName)
-gsub(pattern = "johan", replacement = "Mike", x = fullName) # Note the importance of cases!
+c("one", "two", "three")
 ```
 
-The same function is used for replacements and stripping:
+### String length
+
+Base R contains many functions to work with strings but we'll avoid them because they can be inconsistent, which makes them hard to remember. Instead we'll use functions from `stringr`. These have more intuitive names, and all start with `str_`. For example, `str_length()` tells you the number of characters in a string:
 
 ```{r}
-gsub(pattern = " ", replacement = "", x = fullName) 
+str_length(c("a", "R for data science", NA))
 ```
+
+The common `str_` prefix is particularly useful if you use RStudio, because typing `str_` will trigger autocomplete, allowing you to see all stringr functions:
+
+### Combining strings
+
+To combine two or more strings, use `str_c()`:
+
+```{r}
+str_c("x", "y")
+str_c("x", "y", "z")
+```
+
+Use the `sep` argument to control how they're separated:
+
+```{r}
+str_c("x", "y", sep = ", ")
+```
+
+`str_c()` is vectorised, and it automatically recycles shorter vectors to the same length as the longest:
+
+```{r}
+x <- c("a", "b", "c")
+str_c("prefix-")
+```
+
+To collapse a vector of strings into a single string, use `collapse`:
+
+```{r}
+x <- c("x", "y", "z")
+str_c(x, collapse = ", ")
+```
+
+### Subsetting strings
+
+You can extract parts of a string using `str_sub()`. As well as the string, `str_sub()` takes `start` and `end` arguments, which give the (inclusive) position of the substring:
+
+```{r}
+x <- c("Rochelle is the Greatest")
+str_sub(x, 1, 8)
+
+# negative numbers count backwards from end
+str_sub(x, -8, -1)
+```
+
+Note that `str_sub()` won't fail if the string is too short: it will just return as much as possible:
+
+```{r}
+str_sub("a", 1, 3)
+```
+
+You can also use the assignment form of `str_sub()` to modify strings:
+
+```{r}
+x <- c("Rochelle is the Greatest")
+str_sub(x, 1, 1) <- str_to_lower(str_sub(x, 1, 1))
+x
+```
+
+### Locales
+
+Above I used `str_to_lower()` to change the text to lower case. You can also use `str_to_upper()` or `str_to_title()`. However, changing case is more complicated than it might at first appear because different languages have different rules for changing case. You can pick which set of rules to use by specifying a locale:
+
+```{r}
+# Turkish has two i's: with and without a dot, and it
+# has a different rule for capitalising them:
+str_to_upper(c("i", "ı"))
+str_to_upper(c("i", "ı"), locale = "tr")
+```
+
+The locale is specified as a ISO 639 language code, which is a two or three letter abbreviation. If you don't already know the code for your language, [Wikipedia](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) has a good list. If you leave the locale blank, it will use the current locale, as provided by your operating system.
+
+Another important operation that's affected by the locale is sorting. The base R `order()` and `sort()` functions sort strings using the current locale. If you want robust behaviour across different computers, you may want to use `str_sort()` and `str_order()` which take an additional `locale` argument:
+
+```{r}
+x <- c("apple", "eggplant", "banana")
+str_sort(x, locale = "en")  # English
+str_sort(x, locale = "haw") # Hawaiian
+```
+
+### Challenges {-}
+
+1.  In code that doesn't use `stringr`, you'll often see `paste()` and `paste0()`.
+    What's the difference between the two functions? What stringr function are
+    they equivalent to? How do the functions differ in their handling of 
+    `NA`?
+    
+1.  In your own words, describe the difference between the `sep` and `collapse`
+    arguments to `str_c()`.
+
+1.  Use `str_length()` and `str_sub()` to extract the middle character from 
+    a string. What will you do if the string has an even number of characters?
+
+1.  What does `str_trim()` do? What's the opposite of `str_trim()`?
+
+
+
+

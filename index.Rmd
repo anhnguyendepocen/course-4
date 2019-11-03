@@ -10,6 +10,7 @@ bibliography: []
 biblio-style: apalike
 link-citations: yes
 description: "This book contains course notes and other materials for PLSC 31101."
+always_allow_html: true
 ---
 
 # (PART) Before Class {-}
