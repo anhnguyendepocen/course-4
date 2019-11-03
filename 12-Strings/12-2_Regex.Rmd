@@ -103,12 +103,12 @@ Create regular expressions to find all words that:
 
     1. Start with a vowel.
 
-    1. That only contain consonants. (Hint: thinking about matching 
+    2. That only contain consonants. (Hint: thinking about matching 
        "not"-vowels.)
 
-    1. End with `ed`, but not with `eed`.
+    3. End with `ed`, but not with `eed`.
     
-    1. End with `ing` or `ise`.
+    4. End with `ing` or `ise`.
 
 ### Repetition
 

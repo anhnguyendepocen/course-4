@@ -390,7 +390,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#other-types-of-patterns"><i class="fa fa-check"></i><b>15.4</b> Other types of patterns</a><ul>
 <li class="chapter" data-level="15.4.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#stringi"><i class="fa fa-check"></i><b>15.4.1</b> stringi</a></li>
-<li class="chapter" data-level="15.4.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#challenges-20"><i class="fa fa-check"></i><b>15.4.2</b> Challenges</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#acknowledgments-5"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
@@ -685,7 +684,7 @@ a string. What will you do if the string has an even number of characters?</p></
 <p>Create regular expressions to find all words that:</p>
 <ol style="list-style-type: decimal">
 <li><p>Start with a vowel.</p>
-<ol style="list-style-type: decimal">
+<ol start="2" style="list-style-type: decimal">
 <li><p>That only contain consonants. (Hint: thinking about matching
 “not”-vowels.)</p></li>
 <li><p>End with <code>ed</code>, but not with <code>eed</code>.</p></li>
@@ -879,8 +878,8 @@ r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()&lt;&gt;@,;:\\&qu
 <a class="sourceLine" id="cb344-12" data-line-number="12"><span class="co">#&gt; 4 4 absolute      4          4</span></a>
 <a class="sourceLine" id="cb344-13" data-line-number="13"><span class="co">#&gt; 5 5   accept      2          4</span></a>
 <a class="sourceLine" id="cb344-14" data-line-number="14"><span class="co">#&gt; 6 6  account      3          4</span></a></code></pre></div>
-<div id="challenges-17" class="section level4">
-<h4><span class="header-section-number">15.3.1.1</span> Challenges</h4>
+<div id="challenges-17" class="section level4 unnumbered">
+<h4>Challenges</h4>
 <p>For each of the following challenges, try solving it by using both a single regular expression, and a combination of multiple <code>str_detect()</code> calls.</p>
 <ol style="list-style-type: decimal">
 <li>Find all words that start or end with <code>x</code>.</li>
@@ -1077,8 +1076,8 @@ r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()&lt;&gt;@,;:\\&qu
 <a class="sourceLine" id="cb356-4" data-line-number="4"><span class="kw">str_split</span>(x, <span class="kw">boundary</span>(<span class="st">&quot;word&quot;</span>))[[<span class="dv">1</span>]]</a>
 <a class="sourceLine" id="cb356-5" data-line-number="5"><span class="co">#&gt; [1] &quot;This&quot;     &quot;is&quot;       &quot;a&quot;        &quot;sentence&quot; &quot;This&quot;     &quot;is&quot;      </span></a>
 <a class="sourceLine" id="cb356-6" data-line-number="6"><span class="co">#&gt; [7] &quot;another&quot;  &quot;sentence&quot;</span></a></code></pre></div>
-<div id="challenges-19" class="section level4">
-<h4><span class="header-section-number">15.3.4.1</span> Challenges</h4>
+<div id="challenges-19" class="section level4 unnumbered">
+<h4>Challenges</h4>
 <ol style="list-style-type: decimal">
 <li><p>Split up a string like <code>&quot;apples, pears, and bananas&quot;</code> into individual
 components.</p></li>
@@ -1118,9 +1117,8 @@ line rather than the start and end of the complete string.</p>
 <h3><span class="header-section-number">15.4.1</span> stringi</h3>
 <p>stringr is built on top of the <strong>stringi</strong> package. stringr is useful when you’re learning because it exposes a minimal set of functions, which have been carefully picked to handle the most common string manipulation functions. stringi, on the other hand, is designed to be comprehensive. It contains almost every function you might ever need.</p>
 <p>If you find yourself struggling to do something in stringr, it’s worth taking a look at stringi. The packages work very similarly, so you should be able to translate your stringr knowledge in a natural way. The main difference is the prefix: <code>str_</code> vs. <code>stri_</code>.</p>
-</div>
-<div id="challenges-20" class="section level3">
-<h3><span class="header-section-number">15.4.2</span> Challenges</h3>
+<div id="challenges-20" class="section level4 unnumbered">
+<h4>Challenges</h4>
 <p>Find the stringi functions that:</p>
 <ol style="list-style-type: decimal">
 <li>Count the number of words.
@@ -1129,6 +1127,7 @@ line rather than the start and end of the complete string.</p>
 <li>Generate random text.</li>
 </ol></li>
 </ol>
+</div>
 </div>
 </div>
 <div id="acknowledgments-5" class="section level2 unnumbered">

@@ -171,7 +171,7 @@ head(df1)
 ```
 
 
-#### Challenges
+#### Challenges {-}
 
 For each of the following challenges, try solving it by using both a single regular expression, and a combination of multiple `str_detect()` calls.
     
@@ -277,7 +277,7 @@ str_split(x, " ")[[1]]
 str_split(x, boundary("word"))[[1]]
 ```
 
-#### Challenges
+#### Challenges {-}
 
 1.  Split up a string like `"apples, pears, and bananas"` into individual
     components.
@@ -323,7 +323,7 @@ stringr is built on top of the __stringi__ package. stringr is useful when you'r
 
 If you find yourself struggling to do something in stringr, it's worth taking a look at stringi. The packages work very similarly, so you should be able to translate your stringr knowledge in a natural way. The main difference is the prefix: `str_` vs. `stri_`.
 
-### Challenges
+#### Challenges {-}
 
 Find the stringi functions that:
 
