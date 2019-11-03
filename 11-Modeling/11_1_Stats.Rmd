@@ -33,6 +33,7 @@ qnorm(.975) # inverse cumulative distribution function
 ```
 
 We can also use these functions on other distributions:
+
 * `rnorm()` # normal distribution
 * `runif()` # uniform distribution
 * `rbinom()` # binomial distribution

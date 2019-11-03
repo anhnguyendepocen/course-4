@@ -480,15 +480,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb274-7" data-line-number="7"><span class="co">#&gt; [1] 0.975</span></a>
 <a class="sourceLine" id="cb274-8" data-line-number="8"><span class="kw">qnorm</span>(.<span class="dv">975</span>) <span class="co"># inverse cumulative distribution function</span></a>
 <a class="sourceLine" id="cb274-9" data-line-number="9"><span class="co">#&gt; [1] 1.96</span></a></code></pre></div>
-<p>We can also use these functions on other distributions:
-* <code>rnorm()</code> # normal distribution
-* <code>runif()</code> # uniform distribution
-* <code>rbinom()</code> # binomial distribution
-* <code>rpois()</code> # poisson distribtion
-* <code>rbeta()</code> # beta distribution
-* <code>rgamma()</code> # gamma distribution
-* <code>rt()</code> # student t distribution
-* <code>rchisq()</code>. # chi-squared distribution</p>
+<p>We can also use these functions on other distributions:</p>
+<ul>
+<li><code>rnorm()</code> # normal distribution</li>
+<li><code>runif()</code> # uniform distribution</li>
+<li><code>rbinom()</code> # binomial distribution</li>
+<li><code>rpois()</code> # poisson distribtion</li>
+<li><code>rbeta()</code> # beta distribution</li>
+<li><code>rgamma()</code> # gamma distribution</li>
+<li><code>rt()</code> # student t distribution</li>
+<li><code>rchisq()</code>. # chi-squared distribution</li>
+</ul>
 <div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1"><span class="kw">rbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">prob =</span> <span class="fl">0.3</span>)</a>
 <a class="sourceLine" id="cb275-2" data-line-number="2"><span class="co">#&gt;  [1] 2 4 4 2 6 4 1 3 4 4 1</span></a>
 <a class="sourceLine" id="cb275-3" data-line-number="3"><span class="kw">dt</span>(<span class="dv">5</span>, <span class="dt">df =</span> <span class="dv">1</span>)</a>

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  27 OCT 2019 15:35
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  2 NOV 2019 19:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1373,10 +1373,6 @@ Chapter 14.
 ]
 File: site1_files/figure-latex/unnamed-chunk-320-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-320-1.pdf>
-
-Overfull \vbox (1.5156pt too high) detected at line 9749
- []
-
 [208] [209] [210] [211]
 File: site1_files/figure-latex/unnamed-chunk-338-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-338-1.pdf>
@@ -1387,60 +1383,64 @@ File: site1_files/figure-latex/unnamed-chunk-338-3.pdf Graphic file (type pdf)
 File: site1_files/figure-latex/unnamed-chunk-338-4.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-338-4.pdf>
 
-Underfull \vbox (badness 6641) has occurred while \output is active []
+Underfull \vbox (badness 3000) has occurred while \output is active []
 
 [212]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [213] [214] [215]
-Underfull \vbox (badness 10000) detected at line 10250
+Underfull \vbox (badness 10000) detected at line 10262
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10250
+Underfull \vbox (badness 10000) detected at line 10262
  []
 
 [216]
-Underfull \vbox (badness 10000) detected at line 10250
+Underfull \vbox (badness 10000) detected at line 10262
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10250
+Underfull \vbox (badness 10000) detected at line 10262
  []
 
-[217] [218]
-Underfull \vbox (badness 10000) detected at line 10407
+[217]
+Overfull \vbox (0.37997pt too high) detected at line 10419
+ []
+
+[218]
+Underfull \vbox (badness 10000) detected at line 10419
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10407
+Underfull \vbox (badness 10000) detected at line 10419
  []
 
 [219]
-Underfull \vbox (badness 10000) detected at line 10407
+Underfull \vbox (badness 10000) detected at line 10419
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10407
+Underfull \vbox (badness 10000) detected at line 10419
  []
 
 [220]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [221] [222]
-Underfull \hbox (badness 10000) in paragraph at lines 10512--10514
+Underfull \hbox (badness 10000) in paragraph at lines 10524--10526
 
  []
 
 [223] [224]
-Underfull \vbox (badness 1014) has occurred while \output is active []
+Underfull \vbox (badness 2012) has occurred while \output is active []
 
 [225] [226]
-Underfull \vbox (badness 10000) detected at line 10753
+Underfull \vbox (badness 10000) detected at line 10765
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10753
+Underfull \vbox (badness 10000) detected at line 10765
  []
 
 [227] [228]
@@ -1458,7 +1458,7 @@ Chapter 16.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [242] [243] [244] [245] [246]
-Overfull \vbox (0.72787pt too high) detected at line 11793
+Overfull \vbox (0.72787pt too high) detected at line 11805
  []
 
 [247] [248] [249] [250] [251] [252] [253] [254]
@@ -1479,7 +1479,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: img/wikipedia.png Graphic file (type bmp)
 <img/wikipedia.png>
 [257]
-Overfull \hbox (5220.0pt too wide) in paragraph at lines 12307--12307
+Overfull \hbox (5220.0pt too wide) in paragraph at lines 12319--12319
 []\TU/lmtt/m/n/10 #> [1] "<!DOCTYPE html>\n<html lang=\"mul\" class=\"no-js\">\
 n<head>\n<meta charset=\"utf-8\">\n<title>Wikipedia</title>\n<meta name=\"descr
 iption\" content=\"Wikipedia is a free online encyclopedia, created and edited 
@@ -1502,10 +1502,10 @@ File: img/nytimes_key.png Graphic file (type bmp)
 [260] [261] [262] [263]
 
 Package natbib Warning: Citation `ryan_brutger' on page 264 undefined on input 
-line 12637.
+line 12649.
 
 [264] [265] [266]
-Underfull \hbox (badness 10000) in paragraph at lines 12807--12808
+Underfull \hbox (badness 10000) in paragraph at lines 12819--12820
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
@@ -1513,24 +1513,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 12807--12808
 [267]
 
 Package natbib Warning: Citation `JoshRovner1' on page 268 undefined on input l
-ine 12877.
+ine 12889.
 
 
 Package natbib Warning: Citation `lawfareblog' on page 268 undefined on input l
-ine 12877.
+ine 12889.
 
 [268] [269]
-Underfull \hbox (badness 10000) in paragraph at lines 12989--12990
+Underfull \hbox (badness 10000) in paragraph at lines 13001--13002
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
 
 Package natbib Warning: Citation `JoshRovner1' on page 270 undefined on input l
-ine 13001.
+ine 13013.
 
 [270]
-Overfull \hbox (416.42996pt too wide) in paragraph at lines 13035--13036
+Overfull \hbox (416.42996pt too wide) in paragraph at lines 13047--13048
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][] [] [][][] [] []
 [][][][] [] [][][][][][][][][][][][][][][][][][] [] [][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1539,7 +1539,7 @@ Overfull \hbox (416.42996pt too wide) in paragraph at lines 13035--13036
  []
 
 [271] [272]
-Underfull \hbox (badness 10000) in paragraph at lines 13173--13174
+Underfull \hbox (badness 10000) in paragraph at lines 13185--13186
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
@@ -1552,22 +1552,22 @@ Missing character: There is no ️ in font [lmroman10-regular]:mapping=tex-text;
 Missing character: There is no 🎃 in font [lmroman10-regular]:mapping=tex-text;!
 
 Package natbib Warning: Citation `georgetownsfs' on page 275 undefined on input
- line 13295.
+ line 13307.
 
 
 Package natbib Warning: Citation `GUGovt' on page 275 undefined on input line 1
-3295.
+3307.
 
 
 Package natbib Warning: Citation `lefarkins' on page 275 undefined on input lin
-e 13295.
+e 13307.
 
 
 Package natbib Warning: Citation `OUPAcademic' on page 275 undefined on input l
-ine 13295.
+ine 13307.
 
 [275]
-Underfull \hbox (badness 10000) in paragraph at lines 13353--13354
+Underfull \hbox (badness 10000) in paragraph at lines 13365--13366
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
@@ -1575,25 +1575,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 13353--13354
 [276]
 
 Package natbib Warning: Citation `tanishafazal' on page 277 undefined on input 
-line 13363.
+line 13375.
 
 
 Package natbib Warning: Citation `ProfPaulPoast' on page 277 undefined on input
- line 13363.
+ line 13375.
 
 
 Package natbib Warning: Citation `ForeignAffairs' on page 277 undefined on inpu
-t line 13363.
+t line 13375.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13395--13396
+Underfull \hbox (badness 10000) in paragraph at lines 13407--13408
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][] [] [][][] [] []
 [][][][][][][] [] [][][][][][][][][][][][] [] [][][][][][][][][][][][][][] [] [
 ][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13395--13396
+Underfull \hbox (badness 10000) in paragraph at lines 13407--13408
 [][][][][][] [] [][][][][][] [] [][][] [] [][][][][][] [] [][][][][][][] [] [][
 ][] [] [][][] [] [][][][][][][][] [] [][][] [] [][][][][] []
  []
@@ -1601,26 +1601,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 13395--13396
 [277]
 
 Package natbib Warning: Citation `tanishafazal' on page 278 undefined on input 
-line 13451.
+line 13463.
 
 
 Package natbib Warning: Citation `ProfPaulPoast' on page 278 undefined on input
- line 13451.
+ line 13463.
 
 
 Package natbib Warning: Citation `ForeignAffairs' on page 278 undefined on inpu
-t line 13451.
+t line 13463.
 
 
 Package natbib Warning: Citation `UChicago' on page 278 undefined on input line
- 13475.
+ 13487.
 
 
 Package natbib Warning: Citation `UChicagoCIR' on page 278 undefined on input l
-ine 13475.
+ine 13487.
 
 [278]
-Underfull \hbox (badness 10000) in paragraph at lines 13533--13534
+Underfull \hbox (badness 10000) in paragraph at lines 13545--13546
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
@@ -1628,23 +1628,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 13533--13534
 [279]
 
 Package natbib Warning: Citation `JoshRovner1' on page 280 undefined on input l
-ine 13545.
+ine 13557.
 
 
 Package natbib Warning: Citation `lawfareblog' on page 280 undefined on input l
-ine 13545.
+ine 13557.
 
 [280]
 
 Package natbib Warning: Citation `carsonaust' on page 281 undefined on input li
-ne 13603.
+ne 13615.
 
 
 Package natbib Warning: Citation `lawfareblog' on page 281 undefined on input l
-ine 13603.
+ine 13615.
 
 [281] [282]
-Underfull \hbox (badness 10000) in paragraph at lines 13717--13718
+Underfull \hbox (badness 10000) in paragraph at lines 13729--13730
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
@@ -1652,14 +1652,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 13717--13718
 File: site1_files/figure-latex/unnamed-chunk-439-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-439-1.pdf>
 [283] [284] [285] [286]
-Underfull \vbox (badness 10000) detected at line 13962
+Underfull \vbox (badness 10000) detected at line 13974
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [287]
-Overfull \vbox (0.56287pt too high) detected at line 14022
+Overfull \vbox (0.56287pt too high) detected at line 14034
  []
 
 [288]
@@ -1674,7 +1674,7 @@ File: img/html.png Graphic file (type bmp)
 File: img/layout.png Graphic file (type bmp)
 <img/layout.png>
 
-Overfull \vbox (0.30711pt too high) detected at line 14135
+Overfull \vbox (0.30711pt too high) detected at line 14147
  []
 
 [291]
@@ -1719,14 +1719,14 @@ Chapter 19.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 14892.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 14904.
 [313
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 14892.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 14904.
 (./site1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 14892.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 14892
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 14904.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 14904
 .
 Package rerunfilecheck Info: File `site1.out' has not changed.
 (rerunfilecheck)             Checksum: FB835C1EFBC836EEC9391BF5143D8EC2.
@@ -1734,7 +1734,7 @@ Package rerunfilecheck Info: File `site1.out' has not changed.
 Here is how much of TeX's memory you used:
  23309 strings out of 492970
  443111 string characters out of 6133938
- 596036 words of memory out of 5000000
+ 593036 words of memory out of 5000000
  26970 multiletter control sequences out of 15000+600000
  551090 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
