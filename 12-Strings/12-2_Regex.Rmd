@@ -101,14 +101,14 @@ str_view(x, "gr(e|a)y")
 
 Create regular expressions to find all words that:
 
-    1. Start with a vowel.
-
-    2. That only contain consonants. (Hint: thinking about matching 
-       "not"-vowels.)
-
-    3. End with `ed`, but not with `eed`.
-    
-    4. End with `ing` or `ise`.
+  1. Start with a vowel.
+  
+  2. That only contain consonants. (Hint: thinking about matching 
+         "not"-vowels.)
+  
+  3. End with `ed`, but not with `eed`.
+      
+  4. End with `ing` or `ise`.
 
 ### Repetition
 

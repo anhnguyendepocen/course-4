@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  3 NOV 2019 12:35
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  3 NOV 2019 12:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1448,525 +1448,41 @@ Chapter 15.
 [229
 
 ] [230] [231] [232] [233] [234] [235]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 (?:(?:\r\n)?[ \t])*(?:(?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:
-(?:(?:\r\n)?[ \t][] 
+Overfull \vbox (0.21413pt too high) detected at line 11283
  []
 
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 )+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n
-)?[ \t]))*"(?:(?:[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \
-000-\031]+(?:(?:([] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\
-\.|(?:(?:\r\n)?[[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \t]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;
-:\\".\[\] \000-\0[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 31]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([
-^\[\]\r\\]|\\.)*\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\"
-.\[\] \000-\031]+[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 (?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\
-]\r\\]|\\.)*\](?:[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 (?:\r\n)?[ \t])*))*|(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?
-:\r\n)?[ \t])+|\Z[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 |(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \
-t]))*"(?:(?:\r\n)[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?[ \t])*)*\<(?:(?:\r\n)?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000
--\031]+(?:(?:(?:\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.
-)*\](?:(?:\r\n)?[[] 
- []
-
-[236]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[] \TU/lmtt/m/n/10 \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\03
-1]+(?:(?:(?:\r\n)[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\]
-(?:(?:\r\n)?[ \t][] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 )*))*(?:,@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]
-+(?:(?:(?:\r\n)?[[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[] \TU/lmtt/m/n/10 \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?
-:(?:\r\n)?[ \t])*[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 )(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:
-(?:(?:\r\n)?[ \t][] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 )+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:
-\r\n)?[ \t])*))*)[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 *:(?:(?:\r\n)?[ \t])*)?(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?
-:(?:\r\n)?[ \t])+[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 |\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?
-[ \t]))*"(?:(?:\r[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \00
-0-\031]+(?:(?:(?:[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.
-|(?:(?:\r\n)?[ \t[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ]))*"(?:(?:\r\n)?[ \t])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\
-\".\[\] \000-\031[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\
-[\]\r\\]|\\.)*\]([] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\
-[\] \000-\031]+(?[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 :(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\
-r\\]|\\.)*\](?:(?[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 :\r\n)?[ \t])*))*\>(?:(?:\r\n)?[ \t])*)|(?:[^()<>@,;:\\".\[\]
- \000-\031]+(?:(?[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 :(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]
-|\\.|(?:(?:\r\n)?[] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 [ \t]))*"(?:(?:\r\n)?[ \t])*)*:(?:(?:\r\n)?[ \t])*(?:(?:(?:[^
-()<>@,;:\\".\[\][] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]
-))|"(?:[^\"\r\\]|[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)
-?[ \t])*(?:[^()<>[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 @,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>
-@,;:\\".\[\]]))|"[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 (?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@
-(?:(?:\r\n)?[ \t][] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 )*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|
-(?=[\["()<>@,;:\\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(
-?:\r\n)?[ \t])*(?[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 :[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[
-\["()<>@,;:\\".\[[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*|(?:[^()<>@
-,;:\\".\[\] \000-[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|"(
-?:[^\"\r\\]|\\.|([] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)*\<(?:(?:\r\n)?[ \t])
-*(?:@(?:[^()<>@,;[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 :\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;
-:\\".\[\]]))|\[([[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])
-*(?:[^()<>@,;:\\"[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 .\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\"
-.\[\]]))|\[([^\[\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(?:,@(?:(?:\r\n)?[ \t])*(
-?:[^()<>@,;:\\".\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 [\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\
-[\]]))|\[([^\[\]\[] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[ \t])*(?:[^
-()<>@,;:\\".\[\][] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]
-))|\[([^\[\]\r\\][] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 |\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(?:\r\n)?[ \t])*)?(?:[^()
-<>@,;:\\".\[\] \0[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 00-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,;:\\".\[\]]))
-|"(?:[^\"\r\\]|\\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 .|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*)(?:\.(?:(?:\r\n)?[
- \t])*(?:[^()<>@,[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\["()<>@,
-;:\\".\[\]]))|"(?[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 :[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t])*))*@(?
-:(?:\r\n)?[ \t])*[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 (?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?
-=[\["()<>@,;:\\".[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.(?:(?:
-\r\n)?[ \t])*(?:[[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\[
-"()<>@,;:\\".\[\][] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*\>(?:(?:\r\n)
-?[ \t])*)(?:,\s*([] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?:(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|
-(?=[\["()<>@,;:\\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?
-[ \t])*)(?:\.(?:([] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n
-)?[ \t])+|\Z|(?=[[] 
- []
-
-[237]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \["()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*
-"(?:(?:\r\n)?[ \t[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ])*))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?
-:(?:(?:\r\n)?[ \t[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ])+|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?
-:\r\n)?[ \t])*)(?[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 :\.(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:
-(?:\r\n)?[ \t])+|[] 
+[236] [237] [238]
+Overfull \vbox (0.69997pt too high) detected at line 11510
  []
 
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\
-n)?[ \t])*))*|(?:[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 [^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[\
-["()<>@,;:\\".\[\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ \t]
-)*)*\<(?:(?:\r\n)[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?[ \t])*(?:@(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[
- \t])+|\Z|(?=[\["[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*
-)(?:\.(?:(?:\r\n)[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t]
-)+|\Z|(?=[\["()<>[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 @,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*(
-?:,@(?:(?:\r\n)?[[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[] \TU/lmtt/m/n/10 \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+
-|\Z|(?=[\["()<>@,[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*)(?:\.
-(?:(?:\r\n)?[ \t][] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 )*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|
-(?=[\["()<>@,;:\\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 ".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)?[ \t])*))*)*:(?:(
-?:\r\n)?[ \t])*)?[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 (?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?
-=[\["()<>@,;:\\".[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(?:(?:\r\n)?[ 
-\t])*)(?:\.(?:(?:[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 \r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?:\r\n)?
-[ \t])+|\Z|(?=[\[[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 "()<>@,;:\\".\[\]]))|"(?:[^\"\r\\]|\\.|(?:(?:\r\n)?[ \t]))*"(
-?:(?:\r\n)?[ \t])[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 *))*@(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(
-?:(?:\r\n)?[ \t])[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 +|\Z|(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\
-r\n)?[ \t])*)(?:\[] 
- []
-
-
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 .(?:(?:\r\n)?[ \t])*(?:[^()<>@,;:\\".\[\] \000-\031]+(?:(?:(?
-:\r\n)?[ \t])+|\Z[] 
+[239]
+Underfull \vbox (badness 10000) detected at line 11510
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 11351--11351
-[]\TU/lmtt/m/n/10 |(?=[\["()<>@,;:\\".\[\]]))|\[([^\[\]\r\\]|\\.)*\](?:(?:\r\n)
-?[ \t])*))*\>(?:([] 
+Underfull \vbox (badness 10000) detected at line 11510
  []
-
-[238] [239] [240] [241]
-Underfull \vbox (badness 10000) detected at line 11612
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[242] [243]
-Underfull \vbox (badness 2401) detected at line 11707
- []
-
-
-Underfull \vbox (badness 1242) has occurred while \output is active []
 
-[244] [245]
-Underfull \hbox (badness 1147) in paragraph at lines 11837--11838
+[240] [241] [242] [243]
+Underfull \hbox (badness 1147) in paragraph at lines 11727--11728
 [][]\TU/lmr/m/n/10 R for Data Science[] licensed under []Creative Commons Attri
 bution-
  []
 
-[246]
+[244]
 Chapter 16.
-[247
+[245
 
-] [248] [249] [250] [251] [252] [253] [254] [255]
+] [246] [247] [248] [249] [250] [251] [252] [253]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[256] [257] [258] [259] [260]
-Overfull \vbox (0.72787pt too high) detected at line 12722
+[254] [255] [256] [257] [258]
+Overfull \vbox (0.72787pt too high) detected at line 12612
  []
 
-[261] [262] [263] [264] [265] [266] [267] [268]
+[259] [260] [261] [262] [263] [264] [265] [266]
 Chapter 17.
-[269
+[267
 
 ]
 File: img/google_search.png Graphic file (type bmp)
@@ -1978,11 +1494,11 @@ File: img/google_link_change.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[270]
+[268]
 File: img/wikipedia.png Graphic file (type bmp)
 <img/wikipedia.png>
-[271]
-Overfull \hbox (5220.0pt too wide) in paragraph at lines 13236--13236
+[269]
+Overfull \hbox (5220.0pt too wide) in paragraph at lines 13126--13126
 []\TU/lmtt/m/n/10 #> [1] "<!DOCTYPE html>\n<html lang=\"mul\" class=\"no-js\">\
 n<head>\n<meta charset=\"utf-8\">\n<title>Wikipedia</title>\n<meta name=\"descr
 iption\" content=\"Wikipedia is a free online encyclopedia, created and edited 
@@ -1999,41 +1515,41 @@ ng);background-image:linear-gradient(transparent,transparent),url(portal/wikipe
 dia.org/assets/img/sprite-81a290a5.svg);background"[] 
  []
 
-[272] [273]
+[270] [271]
 File: img/nytimes_key.png Graphic file (type bmp)
 <img/nytimes_key.png>
-[274] [275] [276] [277]
+[272] [273] [274] [275]
 
-Package natbib Warning: Citation `ryan_brutger' on page 278 undefined on input 
-line 13566.
+Package natbib Warning: Citation `ryan_brutger' on page 276 undefined on input 
+line 13456.
 
-[278] [279] [280]
-Underfull \hbox (badness 10000) in paragraph at lines 13736--13737
+[276] [277] [278]
+Underfull \hbox (badness 10000) in paragraph at lines 13626--13627
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
-[281]
+[279]
+
+Package natbib Warning: Citation `JoshRovner1' on page 280 undefined on input l
+ine 13696.
+
+
+Package natbib Warning: Citation `lawfareblog' on page 280 undefined on input l
+ine 13696.
+
+[280] [281]
+Underfull \hbox (badness 10000) in paragraph at lines 13808--13809
+[][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
+[][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
+ []
+
 
 Package natbib Warning: Citation `JoshRovner1' on page 282 undefined on input l
-ine 13806.
+ine 13820.
 
-
-Package natbib Warning: Citation `lawfareblog' on page 282 undefined on input l
-ine 13806.
-
-[282] [283]
-Underfull \hbox (badness 10000) in paragraph at lines 13918--13919
-[][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
-[][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
- []
-
-
-Package natbib Warning: Citation `JoshRovner1' on page 284 undefined on input l
-ine 13930.
-
-[284]
-Overfull \hbox (416.42996pt too wide) in paragraph at lines 13964--13965
+[282]
+Overfull \hbox (416.42996pt too wide) in paragraph at lines 13854--13855
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][] [] [][][] [] []
 [][][][] [] [][][][][][][][][][][][][][][][][][] [] [][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -2041,206 +1557,206 @@ Overfull \hbox (416.42996pt too wide) in paragraph at lines 13964--13965
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
  []
 
-[285] [286]
-Underfull \hbox (badness 10000) in paragraph at lines 14102--14103
+[283] [284]
+Underfull \hbox (badness 10000) in paragraph at lines 13992--13993
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
-[287] [288]
+[285] [286]
 Missing character: There is no 🧙 in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ‍ in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ♂ in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ️ in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no 🎃 in font [lmroman10-regular]:mapping=tex-text;!
 
-Package natbib Warning: Citation `georgetownsfs' on page 289 undefined on input
- line 14224.
+Package natbib Warning: Citation `georgetownsfs' on page 287 undefined on input
+ line 14114.
 
 
-Package natbib Warning: Citation `GUGovt' on page 289 undefined on input line 1
-4224.
+Package natbib Warning: Citation `GUGovt' on page 287 undefined on input line 1
+4114.
 
 
-Package natbib Warning: Citation `lefarkins' on page 289 undefined on input lin
-e 14224.
+Package natbib Warning: Citation `lefarkins' on page 287 undefined on input lin
+e 14114.
 
 
-Package natbib Warning: Citation `OUPAcademic' on page 289 undefined on input l
-ine 14224.
+Package natbib Warning: Citation `OUPAcademic' on page 287 undefined on input l
+ine 14114.
 
-[289]
-Underfull \hbox (badness 10000) in paragraph at lines 14282--14283
+[287]
+Underfull \hbox (badness 10000) in paragraph at lines 14172--14173
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
-[290]
+[288]
 
-Package natbib Warning: Citation `tanishafazal' on page 291 undefined on input 
-line 14292.
-
-
-Package natbib Warning: Citation `ProfPaulPoast' on page 291 undefined on input
- line 14292.
+Package natbib Warning: Citation `tanishafazal' on page 289 undefined on input 
+line 14182.
 
 
-Package natbib Warning: Citation `ForeignAffairs' on page 291 undefined on inpu
-t line 14292.
+Package natbib Warning: Citation `ProfPaulPoast' on page 289 undefined on input
+ line 14182.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14324--14325
+Package natbib Warning: Citation `ForeignAffairs' on page 289 undefined on inpu
+t line 14182.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14214--14215
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][] [] [][][] [] []
 [][][][][][][] [] [][][][][][][][][][][][] [] [][][][][][][][][][][][][][] [] [
 ][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14324--14325
+Underfull \hbox (badness 10000) in paragraph at lines 14214--14215
 [][][][][][] [] [][][][][][] [] [][][] [] [][][][][][] [] [][][][][][][] [] [][
 ][] [] [][][] [] [][][][][][][][] [] [][][] [] [][][][][] []
  []
 
-[291]
+[289]
 
-Package natbib Warning: Citation `tanishafazal' on page 292 undefined on input 
-line 14380.
-
-
-Package natbib Warning: Citation `ProfPaulPoast' on page 292 undefined on input
- line 14380.
+Package natbib Warning: Citation `tanishafazal' on page 290 undefined on input 
+line 14270.
 
 
-Package natbib Warning: Citation `ForeignAffairs' on page 292 undefined on inpu
-t line 14380.
+Package natbib Warning: Citation `ProfPaulPoast' on page 290 undefined on input
+ line 14270.
 
 
-Package natbib Warning: Citation `UChicago' on page 292 undefined on input line
- 14404.
+Package natbib Warning: Citation `ForeignAffairs' on page 290 undefined on inpu
+t line 14270.
 
 
-Package natbib Warning: Citation `UChicagoCIR' on page 292 undefined on input l
-ine 14404.
+Package natbib Warning: Citation `UChicago' on page 290 undefined on input line
+ 14294.
 
-[292]
-Underfull \hbox (badness 10000) in paragraph at lines 14462--14463
+
+Package natbib Warning: Citation `UChicagoCIR' on page 290 undefined on input l
+ine 14294.
+
+[290]
+Underfull \hbox (badness 10000) in paragraph at lines 14352--14353
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
-[293]
+[291]
 
-Package natbib Warning: Citation `JoshRovner1' on page 294 undefined on input l
-ine 14474.
-
-
-Package natbib Warning: Citation `lawfareblog' on page 294 undefined on input l
-ine 14474.
-
-[294]
-
-Package natbib Warning: Citation `carsonaust' on page 295 undefined on input li
-ne 14532.
+Package natbib Warning: Citation `JoshRovner1' on page 292 undefined on input l
+ine 14364.
 
 
-Package natbib Warning: Citation `lawfareblog' on page 295 undefined on input l
-ine 14532.
+Package natbib Warning: Citation `lawfareblog' on page 292 undefined on input l
+ine 14364.
 
-[295] [296]
-Underfull \hbox (badness 10000) in paragraph at lines 14646--14647
+[292]
+
+Package natbib Warning: Citation `carsonaust' on page 293 undefined on input li
+ne 14422.
+
+
+Package natbib Warning: Citation `lawfareblog' on page 293 undefined on input l
+ine 14422.
+
+[293] [294]
+Underfull \hbox (badness 10000) in paragraph at lines 14536--14537
 [][]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][]
 [][][][] [] [][][][][][][][][][][][][][][][][][][] [] [][][][][] [] [][] []
  []
 
 File: site1_files/figure-latex/unnamed-chunk-476-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-476-1.pdf>
-[297] [298] [299] [300]
-Underfull \vbox (badness 10000) detected at line 14891
+[295] [296] [297] [298]
+Underfull \vbox (badness 10000) detected at line 14781
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[301]
-Overfull \vbox (0.56287pt too high) detected at line 14951
+[299]
+Overfull \vbox (0.56287pt too high) detected at line 14841
  []
 
-[302]
+[300]
 File: site1_files/figure-latex/unnamed-chunk-489-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-489-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[303] [304]
+[301] [302]
 File: img/html.png Graphic file (type bmp)
 <img/html.png>
 File: img/layout.png Graphic file (type bmp)
 <img/layout.png>
 
-Overfull \vbox (0.30711pt too high) detected at line 15064
+Overfull \vbox (0.30711pt too high) detected at line 14954
  []
 
-[305]
+[303]
 File: img/HTMLDOMTree.png Graphic file (type bmp)
 <img/HTMLDOMTree.png>
 File: img/html-element.png Graphic file (type bmp)
 <img/html-element.png>
 File: img/html-tags.png Graphic file (type bmp)
 <img/html-tags.png>
-[306]
+[304]
 File: img/html-attributes.png Graphic file (type bmp)
 <img/html-attributes.png>
-[307]
+[305]
 File: img/css-rule-2.png Graphic file (type bmp)
 <img/css-rule-2.png>
-[308] [309] [310] [311]
+[306] [307] [308] [309]
 File: img/scraping_links.png Graphic file (type bmp)
 <img/scraping_links.png>
-[312] [313] [314] [315] [316
+[310] [311] [312] [313] [314
 
-] [317] [318]
+] [315] [316]
 Chapter 18.
 File: img/dany.jpg Graphic file (type bmp)
 <img/dany.jpg>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[319
+[317
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[320] [321] [322]
+[318] [319] [320]
 File: site1_files/figure-latex/unnamed-chunk-519-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-519-1.pdf>
 File: site1_files/figure-latex/unnamed-chunk-520-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-520-1.pdf>
-[323] [324] [325
+[321] [322] [323
 
-] [326]
+] [324]
 Chapter 19.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 15821.
-[327
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 15711.
+[325
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 15821.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 15711.
 (./site1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 15821.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 15821
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 15711.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 15711
 .
 Package rerunfilecheck Info: File `site1.out' has not changed.
-(rerunfilecheck)             Checksum: 06D6CB666E8AE14617378F8173DECE58.
+(rerunfilecheck)             Checksum: 3FD6390F139401879E6CE27C83D5AE51.
  ) 
 Here is how much of TeX's memory you used:
  23332 strings out of 492970
  443453 string characters out of 6133938
- 594290 words of memory out of 5000000
+ 594278 words of memory out of 5000000
  26993 multiletter control sequences out of 15000+600000
  551090 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,8n,54p,10446b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on site1.pdf (327 pages).
+Output written on site1.pdf (325 pages).
