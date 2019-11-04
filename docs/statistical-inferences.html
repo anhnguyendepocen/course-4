@@ -548,24 +548,14 @@ vals
 <div id="challenge-1.-9" class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
 <p>Generate 100 random Poisson values with a population mean of 5. How close is the mean of those 100 values to the value of 5?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">poisson &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dv">100</span>, <span class="dv">5</span>)
-<span class="kw">mean</span>(poisson)
-<span class="co">#&gt; [1] 5.1</span></code></pre></div>
 </div>
 <div id="challenge-2.-9" class="section level4 unnumbered">
 <h4>Challenge 2.</h4>
 <p>What is the 95th percentile of a chi-square distribution with 1 degree of freedom?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qchisq</span>(.<span class="dv">95</span>, <span class="dt">df =</span> <span class="dv">1</span>)
-<span class="co">#&gt; [1] 3.84</span></code></pre></div>
 </div>
 <div id="challenge-3.-6" class="section level4 unnumbered">
 <h4>Challenge 3.</h4>
 <p>What’s the probability of getting a value greater than 5 if you draw from a standard normal distribution? What about a t distribution with 1 degree of freedom?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="ot">FALSE</span>)
-<span class="co">#&gt; [1] 2.87e-07</span>
-
-<span class="kw">pt</span>(<span class="dv">5</span>, <span class="dt">df =</span> <span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
-<span class="co">#&gt; [1] 0.0628</span></code></pre></div>
 
 </div>
 </div>
@@ -665,7 +655,7 @@ life.exp.<span class="dv">1977</span> &lt;-<span class="st"> </span>gap<span cla
 <li>Standard (diagnostic) plots for a regression</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(reg)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-338-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-338-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-338-3.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-338-4.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-335-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-335-2.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-335-3.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-335-4.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>R also has a helpful <code>summary</code> method for regression objects.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(reg)
 <span class="co">#&gt; </span>
@@ -1134,7 +1124,7 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
           <span class="dt">keep.stat=</span><span class="st">&quot;n&quot;</span>, <span class="dt">style =</span> <span class="st">&quot;ajps&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu</span>
-<span class="co">#&gt; % Date and time: Mon, Nov 04, 2019 - 12:53:07</span>
+<span class="co">#&gt; % Date and time: Mon, Nov 04, 2019 - 13:04:49</span>
 <span class="co">#&gt; \begin{table}[!htbp] \centering </span>
 <span class="co">#&gt;   \caption{Regression Results} </span>
 <span class="co">#&gt;   \label{} </span>
@@ -1187,87 +1177,14 @@ mod.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm<
 <div id="challenge-1.-10" class="section level4 unnumbered">
 <h4>Challenge 1.</h4>
 <p>Fit two linear regression models from the gapminder data, where the outcome is <code>lifeExp</code> and the explanatory variables are <code>log(pop)</code>, <code>log(gdpPercap)</code>, and <code>year</code>. In one model, treat <code>year</code> as a numeric variable. In the other, factorize the <code>year</code> variable. How do you interpret each model?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> gap)
-model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(year), <span class="dt">data =</span> gap)</code></pre></div>
 </div>
 <div id="challenge-2.-10" class="section level4 unnumbered">
 <h4>Challenge 2.</h4>
 <p>Fit a logistic regression model where the outcome is whether <code>lifeExp</code> is greater than or less than 60 years, exploring the use of different predictors.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-
-gap &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lifeExp60 =</span> <span class="kw">as.logical</span>(lifeExp <span class="op">&gt;=</span><span class="st"> </span><span class="dv">60</span>))
-
-logit_model &lt;-<span class="st"> </span><span class="kw">glm</span>(lifeExp60 <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(pop) <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span>year, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, <span class="dt">data =</span> gap)</code></pre></div>
 </div>
 <div id="challenge-3.-7" class="section level4 unnumbered">
 <h4>Challenge 3.</h4>
 <p>Using <code>stargazer</code>, format a table reporting the results from the three models you created above (two linear regressions and one logistic).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stargazer</span>(model1, model2, logit_model, <span class="dt">title =</span> <span class="st">&quot;Challenge Regression Results&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;text&quot;</span>)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Challenge Regression Results</span>
-<span class="co">#&gt; =====================================================================================</span>
-<span class="co">#&gt;                                            Dependent variable:                       </span>
-<span class="co">#&gt;                     -----------------------------------------------------------------</span>
-<span class="co">#&gt;                                            lifeExp                         lifeExp60 </span>
-<span class="co">#&gt;                                              OLS                            logistic </span>
-<span class="co">#&gt;                                 (1)                        (2)                (3)    </span>
-<span class="co">#&gt; -------------------------------------------------------------------------------------</span>
-<span class="co">#&gt; log(pop)                     0.885***                    0.881***           0.285*** </span>
-<span class="co">#&gt;                               (0.104)                    (0.104)            (0.050)  </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; log(gdpPercap)               7.790***                    7.780***           2.130*** </span>
-<span class="co">#&gt;                               (0.135)                    (0.135)            (0.100)  </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; year                         0.178***                                       0.035*** </span>
-<span class="co">#&gt;                               (0.010)                                       (0.005)  </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1957                                          1.260                      </span>
-<span class="co">#&gt;                                                          (0.798)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1962                                         2.310***                    </span>
-<span class="co">#&gt;                                                          (0.799)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1967                                         3.120***                    </span>
-<span class="co">#&gt;                                                          (0.801)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1972                                         3.740***                    </span>
-<span class="co">#&gt;                                                          (0.803)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1977                                         4.780***                    </span>
-<span class="co">#&gt;                                                          (0.805)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1982                                         6.300***                    </span>
-<span class="co">#&gt;                                                          (0.807)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1987                                         7.780***                    </span>
-<span class="co">#&gt;                                                          (0.808)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1992                                         8.700***                    </span>
-<span class="co">#&gt;                                                          (0.809)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)1997                                         8.860***                    </span>
-<span class="co">#&gt;                                                          (0.812)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)2002                                         8.910***                    </span>
-<span class="co">#&gt;                                                          (0.814)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; factor(year)2007                                         8.920***                    </span>
-<span class="co">#&gt;                                                          (0.818)                     </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; Constant                    -370.000***                 -23.300***         -90.000***</span>
-<span class="co">#&gt;                              (19.200)                    (1.980)            (9.280)  </span>
-<span class="co">#&gt;                                                                                      </span>
-<span class="co">#&gt; -------------------------------------------------------------------------------------</span>
-<span class="co">#&gt; Observations                   1,704                      1,704              1,704   </span>
-<span class="co">#&gt; R2                             0.728                      0.731                      </span>
-<span class="co">#&gt; Adjusted R2                    0.728                      0.729                      </span>
-<span class="co">#&gt; Log Likelihood                                                              -572.000 </span>
-<span class="co">#&gt; Akaike Inf. Crit.                                                          1,151.000 </span>
-<span class="co">#&gt; Residual Std. Error      6.740 (df = 1700)          6.730 (df = 1690)                </span>
-<span class="co">#&gt; F Statistic         1,520.000*** (df = 3; 1700) 353.000*** (df = 13; 1690)           </span>
-<span class="co">#&gt; =====================================================================================</span>
-<span class="co">#&gt; Note:                                                     *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></code></pre></div>
 
 </div>
 </div>

@@ -10831,26 +10831,11 @@ seed first. The seed can be arbitrary -- pick your favorite number.
 Generate 100 random Poisson values with a population mean of 5. How
 close is the mean of those 100 values to the value of 5?
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{poisson <-}\StringTok{ }\KeywordTok{rpois}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{5}\NormalTok{)}
-\KeywordTok{mean}\NormalTok{(poisson)}
-\CommentTok{#> [1] 5.1}
-\end{Highlighting}
-\end{Shaded}
-
 \subsubsection*{Challenge 2.}\label{challenge-2.-9}
 \addcontentsline{toc}{subsubsection}{Challenge 2.}
 
 What is the 95th percentile of a chi-square distribution with 1 degree
 of freedom?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{qchisq}\NormalTok{(.}\DecValTok{95}\NormalTok{, }\DataTypeTok{df =} \DecValTok{1}\NormalTok{)}
-\CommentTok{#> [1] 3.84}
-\end{Highlighting}
-\end{Shaded}
 
 \subsubsection*{Challenge 3.}\label{challenge-3.-6}
 \addcontentsline{toc}{subsubsection}{Challenge 3.}
@@ -10858,16 +10843,6 @@ of freedom?
 What's the probability of getting a value greater than 5 if you draw
 from a standard normal distribution? What about a t distribution with 1
 degree of freedom?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{pnorm}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)}
-\CommentTok{#> [1] 2.87e-07}
-
-\KeywordTok{pt}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DataTypeTok{df =} \DecValTok{1}\NormalTok{, }\DataTypeTok{lower.tail =} \OtherTok{FALSE}\NormalTok{)}
-\CommentTok{#> [1] 0.0628}
-\end{Highlighting}
-\end{Shaded}
 
 \section{Inferences and Regressions}\label{inferences-and-regressions}
 
@@ -11077,7 +11052,7 @@ items of interest.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-338-4} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-335-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-335-2} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-335-3} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-335-4} \end{center}
 
 R also has a helpful \texttt{summary} method for regression objects.
 
@@ -11641,7 +11616,7 @@ regression table in LaTeX:
           \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{)}
 \CommentTok{#> }
 \CommentTok{#> % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu}
-\CommentTok{#> % Date and time: Mon, Nov 04, 2019 - 12:53:55}
+\CommentTok{#> % Date and time: Mon, Nov 04, 2019 - 13:05:26}
 \CommentTok{#> \textbackslash{}begin\{table\}[!htbp] \textbackslash{}centering }
 \CommentTok{#>   \textbackslash{}caption\{Regression Results\} }
 \CommentTok{#>   \textbackslash{}label\{\} }
@@ -11724,13 +11699,6 @@ outcome is \texttt{lifeExp} and the explanatory variables are
 model, treat \texttt{year} as a numeric variable. In the other,
 factorize the \texttt{year} variable. How do you interpret each model?
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{model1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(lifeExp }\OperatorTok{~}\StringTok{ }\KeywordTok{log}\NormalTok{(pop) }\OperatorTok{+}\StringTok{ }\KeywordTok{log}\NormalTok{(gdpPercap) }\OperatorTok{+}\StringTok{ }\NormalTok{year, }\DataTypeTok{data =}\NormalTok{ gap)}
-\NormalTok{model2 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(lifeExp }\OperatorTok{~}\StringTok{ }\KeywordTok{log}\NormalTok{(pop) }\OperatorTok{+}\StringTok{ }\KeywordTok{log}\NormalTok{(gdpPercap) }\OperatorTok{+}\StringTok{ }\KeywordTok{factor}\NormalTok{(year), }\DataTypeTok{data =}\NormalTok{ gap)}
-\end{Highlighting}
-\end{Shaded}
-
 \subsubsection*{Challenge 2.}\label{challenge-2.-10}
 \addcontentsline{toc}{subsubsection}{Challenge 2.}
 
@@ -11738,93 +11706,12 @@ Fit a logistic regression model where the outcome is whether
 \texttt{lifeExp} is greater than or less than 60 years, exploring the
 use of different predictors.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(dplyr)}
-
-\NormalTok{gap <-}\StringTok{ }\NormalTok{gap }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{lifeExp60 =} \KeywordTok{as.logical}\NormalTok{(lifeExp }\OperatorTok{>=}\StringTok{ }\DecValTok{60}\NormalTok{))}
-
-\NormalTok{logit_model <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(lifeExp60 }\OperatorTok{~}\StringTok{ }\KeywordTok{log}\NormalTok{(pop) }\OperatorTok{+}\StringTok{ }\KeywordTok{log}\NormalTok{(gdpPercap) }\OperatorTok{+}\StringTok{ }\NormalTok{year, }\DataTypeTok{family =} \StringTok{"binomial"}\NormalTok{, }\DataTypeTok{data =}\NormalTok{ gap)}
-\end{Highlighting}
-\end{Shaded}
-
 \subsubsection*{Challenge 3.}\label{challenge-3.-7}
 \addcontentsline{toc}{subsubsection}{Challenge 3.}
 
 Using \texttt{stargazer}, format a table reporting the results from the
 three models you created above (two linear regressions and one
 logistic).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{stargazer}\NormalTok{(model1, model2, logit_model, }\DataTypeTok{title =} \StringTok{"Challenge Regression Results"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"text"}\NormalTok{)}
-\CommentTok{#> }
-\CommentTok{#> Challenge Regression Results}
-\CommentTok{#> =====================================================================================}
-\CommentTok{#>                                            Dependent variable:                       }
-\CommentTok{#>                     -----------------------------------------------------------------}
-\CommentTok{#>                                            lifeExp                         lifeExp60 }
-\CommentTok{#>                                              OLS                            logistic }
-\CommentTok{#>                                 (1)                        (2)                (3)    }
-\CommentTok{#> -------------------------------------------------------------------------------------}
-\CommentTok{#> log(pop)                     0.885***                    0.881***           0.285*** }
-\CommentTok{#>                               (0.104)                    (0.104)            (0.050)  }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> log(gdpPercap)               7.790***                    7.780***           2.130*** }
-\CommentTok{#>                               (0.135)                    (0.135)            (0.100)  }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> year                         0.178***                                       0.035*** }
-\CommentTok{#>                               (0.010)                                       (0.005)  }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1957                                          1.260                      }
-\CommentTok{#>                                                          (0.798)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1962                                         2.310***                    }
-\CommentTok{#>                                                          (0.799)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1967                                         3.120***                    }
-\CommentTok{#>                                                          (0.801)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1972                                         3.740***                    }
-\CommentTok{#>                                                          (0.803)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1977                                         4.780***                    }
-\CommentTok{#>                                                          (0.805)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1982                                         6.300***                    }
-\CommentTok{#>                                                          (0.807)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1987                                         7.780***                    }
-\CommentTok{#>                                                          (0.808)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1992                                         8.700***                    }
-\CommentTok{#>                                                          (0.809)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)1997                                         8.860***                    }
-\CommentTok{#>                                                          (0.812)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)2002                                         8.910***                    }
-\CommentTok{#>                                                          (0.814)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> factor(year)2007                                         8.920***                    }
-\CommentTok{#>                                                          (0.818)                     }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> Constant                    -370.000***                 -23.300***         -90.000***}
-\CommentTok{#>                              (19.200)                    (1.980)            (9.280)  }
-\CommentTok{#>                                                                                      }
-\CommentTok{#> -------------------------------------------------------------------------------------}
-\CommentTok{#> Observations                   1,704                      1,704              1,704   }
-\CommentTok{#> R2                             0.728                      0.731                      }
-\CommentTok{#> Adjusted R2                    0.728                      0.729                      }
-\CommentTok{#> Log Likelihood                                                              -572.000 }
-\CommentTok{#> Akaike Inf. Crit.                                                          1,151.000 }
-\CommentTok{#> Residual Std. Error      6.740 (df = 1700)          6.730 (df = 1690)                }
-\CommentTok{#> F Statistic         1,520.000*** (df = 3; 1700) 353.000*** (df = 13; 1690)           }
-\CommentTok{#> =====================================================================================}
-\CommentTok{#> Note:                                                     *p<0.1; **p<0.05; ***p<0.01}
-\end{Highlighting}
-\end{Shaded}
 
 \chapter{Strings and Regular
 Expressions}\label{strings-and-regular-expressions}
@@ -15540,7 +15427,7 @@ dhnexon
 
 Dan Nexon
 
-12589
+12590
 
 4491
 
@@ -15729,7 +15616,7 @@ pstanpolitics
 
 Paul Staniland
 
-13849
+13850
 
 3077
 
@@ -16005,7 +15892,7 @@ Now, let's visualize which professors are tweeting the most, by week.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-476-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-470-1} \end{center}
 
 \subsection{Hashtags and Text Strings}\label{hashtags-and-text-strings}
 
@@ -16045,8 +15932,8 @@ exclude retweets from the query.
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(user_id, location) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(n))}
-\CommentTok{#> # A tibble: 792 x 3}
-\CommentTok{#> # Groups:   user_id [792]}
+\CommentTok{#> # A tibble: 794 x 3}
+\CommentTok{#> # Groups:   user_id [794]}
 \CommentTok{#>   user_id             location                n}
 \CommentTok{#>   <chr>               <chr>               <int>}
 \CommentTok{#> 1 2561373848          Florida, USA           93}
@@ -16055,7 +15942,7 @@ exclude retweets from the query.
 \CommentTok{#> 4 1022122568004894720 ""                     35}
 \CommentTok{#> 5 1048404121206714369 ""                     17}
 \CommentTok{#> 6 1026490600349229058 United States          13}
-\CommentTok{#> # ... with 786 more rows}
+\CommentTok{#> # ... with 788 more rows}
 \end{Highlighting}
 \end{Shaded}
 
@@ -16255,7 +16142,7 @@ information on the first ten documents:
 \CommentTok{#> [1] 0}
 \CommentTok{#> }
 \CommentTok{#> $time}
-\CommentTok{#> [1] 75}
+\CommentTok{#> [1] 32}
 
 \CommentTok{# pull out number of hits}
 \NormalTok{response_df}\OperatorTok{$}\NormalTok{response}\OperatorTok{$}\NormalTok{meta}\OperatorTok{$}\NormalTok{hits}
@@ -16372,7 +16259,7 @@ was published in.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-489-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-483-1} \end{center}
 
 \subsection{More resources}\label{more-resources-1}
 
@@ -17226,7 +17113,7 @@ What are they?}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-519-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-513-1} \end{center}
 
 \textbf{How would you relevel \texttt{f} to be in the correct order?}
 
@@ -17239,7 +17126,7 @@ What are they?}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-520-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-514-1} \end{center}
 
 \subsubsection*{4. Dataframes}\label{dataframes-1}
 \addcontentsline{toc}{subsubsection}{4. Dataframes}
