@@ -49,72 +49,47 @@
 
 
 
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -457,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18" data-path="assignments-1.html"><a href="assignments-1.html"><i class="fa fa-check"></i><b>18</b> Assignments</a><ul>
 <li class="chapter" data-level="18.1" data-path="assignments-1.html"><a href="assignments-1.html#assignment-1-solutions"><i class="fa fa-check"></i><b>18.1</b> Assignment 1 Solutions</a></li>
 <li class="chapter" data-level="18.2" data-path="assignments-1.html"><a href="assignments-1.html#assignment-2-solutions"><i class="fa fa-check"></i><b>18.2</b> Assignment 2 Solutions</a></li>
+<li class="chapter" data-level="18.3" data-path="assignments-1.html"><a href="assignments-1.html#assignment-3-solutions"><i class="fa fa-check"></i><b>18.3</b> Assignment 3 Solutions</a></li>
 </ul></li>
 <li class="part"><span><b>IV Resources</b></span></li>
 <li class="chapter" data-level="19" data-path="cheat-sheets-and-guides.html"><a href="cheat-sheets-and-guides.html"><i class="fa fa-check"></i><b>19</b> Cheat Sheets and Guides</a></li>
@@ -494,7 +470,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="using-r-markdown" class="section level4 unnumbered">
 <h4>1. Using R Markdown</h4>
 <p>In the space below, insert a picture of yourself, and complete the following information:</p>
-<p><img src="img/dany.jpg" /></p>
+<div class="figure">
+<img src="img/dany.jpg" />
+
+</div>
 <ol style="list-style-type: decimal">
 <li><strong>Name</strong>: Daenerys Targaryen</li>
 <li><strong>Department and degree program</strong>: Queen of the Andals and the First Men, Protector of the Seven Kingdoms, the Mother of Dragons, the Khaleesi of the Great Grass Sea, the Unburnt, the Breaker of Chains.</li>
@@ -510,7 +489,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="checking-packages" class="section level4 unnumbered">
 <h4>2. Checking packages</h4>
 <p>Create an R chunk below, where you load the <code>tidyverse</code> library.</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
 </div>
 <div id="knit-and-submit." class="section level4 unnumbered">
 <h4>3. Knit and submit.</h4>
@@ -529,40 +508,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="basics" class="section level4 unnumbered">
 <h4>1. Basics</h4>
 <p><strong>1.1 Fix the following syntax errors. Enter your corrected code in the second chunk.</strong></p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1"><span class="co"># 1</span></a>
-<a class="sourceLine" id="cb451-2" data-line-number="2">states &lt;-<span class="st"> </span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)</a>
-<a class="sourceLine" id="cb451-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb451-4" data-line-number="4"><span class="co"># 2</span></a>
-<a class="sourceLine" id="cb451-5" data-line-number="5">countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia,&quot;</span> <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)</a>
-<a class="sourceLine" id="cb451-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb451-7" data-line-number="7"><span class="co"># 3</span></a>
-<a class="sourceLine" id="cb451-8" data-line-number="8">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>)</a>
-<a class="sourceLine" id="cb451-9" data-line-number="9">                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))</a>
-<a class="sourceLine" id="cb451-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb451-11" data-line-number="11"><span class="co"># 4</span></a>
-<a class="sourceLine" id="cb451-12" data-line-number="12">my<span class="op">-</span>vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)</a>
-<a class="sourceLine" id="cb451-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb451-14" data-line-number="14"><span class="co"># 5</span></a>
-<a class="sourceLine" id="cb451-15" data-line-number="15">artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>,</a>
-<a class="sourceLine" id="cb451-16" data-line-number="16">                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</a></code></pre></div>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1"><span class="co"># PUT YOUR CORRECTED CODE HERE</span></a>
-<a class="sourceLine" id="cb452-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb452-3" data-line-number="3"><span class="co"># 1</span></a>
-<a class="sourceLine" id="cb452-4" data-line-number="4">states &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)</a>
-<a class="sourceLine" id="cb452-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb452-6" data-line-number="6"><span class="co"># 2</span></a>
-<a class="sourceLine" id="cb452-7" data-line-number="7">countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia&quot;</span>, <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)</a>
-<a class="sourceLine" id="cb452-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb452-9" data-line-number="9"><span class="co"># 3</span></a>
-<a class="sourceLine" id="cb452-10" data-line-number="10">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>),</a>
-<a class="sourceLine" id="cb452-11" data-line-number="11">                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))</a>
-<a class="sourceLine" id="cb452-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb452-13" data-line-number="13"><span class="co"># 4</span></a>
-<a class="sourceLine" id="cb452-14" data-line-number="14">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)</a>
-<a class="sourceLine" id="cb452-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb452-16" data-line-number="16"><span class="co"># 5</span></a>
-<a class="sourceLine" id="cb452-17" data-line-number="17">artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>),</a>
-<a class="sourceLine" id="cb452-18" data-line-number="18">                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1</span>
+states &lt;-<span class="st"> </span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)
+
+<span class="co"># 2</span>
+countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia,&quot;</span> <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)
+
+<span class="co"># 3</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>)
+                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))
+
+<span class="co"># 4</span>
+my<span class="op">-</span>vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)
+
+<span class="co"># 5</span>
+artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>,
+                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># PUT YOUR CORRECTED CODE HERE</span>
+
+<span class="co"># 1</span>
+states &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Ohio&quot;</span>)
+
+<span class="co"># 2</span>
+countries &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Iran&quot;</span>, <span class="st">&quot;Indonesia&quot;</span>, <span class="st">&quot;India&quot;</span>, <span class="st">&quot;Italy&quot;</span>)
+
+<span class="co"># 3</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">21</span>, <span class="dv">66</span>, <span class="dv">35</span>),
+                 <span class="dt">party =</span> <span class="kw">c</span>(<span class="st">&#39;rep&#39;</span>, <span class="st">&#39;dem&#39;</span>, <span class="st">&#39;rep&#39;</span>))
+
+<span class="co"># 4</span>
+my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;kiwis&quot;</span>)
+
+<span class="co"># 5</span>
+artists &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Picasso&quot;</span>, <span class="st">&quot;Kahlo&quot;</span>),
+                <span class="dt">genre =</span> <span class="kw">c</span>(<span class="st">&quot;cubist&quot;</span>, <span class="st">&quot;surrealist&quot;</span>))</code></pre></div>
 <p><strong>1.2 How many arguments does the <code>order()</code> function pass? What are they?</strong></p>
 </div>
 <div id="vectors-and-lists" class="section level4 unnumbered">
@@ -573,41 +552,166 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>a numeric vector, <code>year</code>, that contains the years in which those movies were produced</p></li>
 <li><p>a boolean vector <code>bechdel</code> that TRUE/FALSE according to whether those movies pass the <a href="http://bechdeltest.com/">bechdel test</a></p></li>
 </ul>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1">titles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dog Day Afternoon&quot;</span>, <span class="st">&quot;The Graduate&quot;</span>, <span class="st">&quot;Breakfast Club&quot;</span>)</a>
-<a class="sourceLine" id="cb453-2" data-line-number="2">year &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1975</span>, <span class="dv">1967</span>, <span class="dv">1985</span>)</a>
-<a class="sourceLine" id="cb453-3" data-line-number="3">bechdel &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Dog Day Afternoon&quot;</span>, <span class="st">&quot;The Graduate&quot;</span>, <span class="st">&quot;Breakfast Club&quot;</span>)
+year &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1975</span>, <span class="dv">1967</span>, <span class="dv">1985</span>)
+bechdel &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</code></pre></div>
 <p><strong>2.2 Put those three vectors in a list, called <code>movies</code>.</strong></p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1">movies &lt;-<span class="st"> </span><span class="kw">list</span>(titles, year, bechdel)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">movies &lt;-<span class="st"> </span><span class="kw">list</span>(titles, year, bechdel)</code></pre></div>
 <p><strong>2.3 Print the structure of the list <code>movies</code>.</strong></p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="kw">str</span>(movies)</a>
-<a class="sourceLine" id="cb455-2" data-line-number="2"><span class="co">#&gt; List of 3</span></a>
-<a class="sourceLine" id="cb455-3" data-line-number="3"><span class="co">#&gt;  $ : chr [1:3] &quot;Dog Day Afternoon&quot; &quot;The Graduate&quot; &quot;Breakfast Club&quot;</span></a>
-<a class="sourceLine" id="cb455-4" data-line-number="4"><span class="co">#&gt;  $ : num [1:3] 1975 1967 1985</span></a>
-<a class="sourceLine" id="cb455-5" data-line-number="5"><span class="co">#&gt;  $ : logi [1:3] TRUE FALSE TRUE</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(movies)
+<span class="co">#&gt; List of 3</span>
+<span class="co">#&gt;  $ : chr [1:3] &quot;Dog Day Afternoon&quot; &quot;The Graduate&quot; &quot;Breakfast Club&quot;</span>
+<span class="co">#&gt;  $ : num [1:3] 1975 1967 1985</span>
+<span class="co">#&gt;  $ : logi [1:3] TRUE FALSE TRUE</span></code></pre></div>
 </div>
 <div id="factors-1" class="section level4 unnumbered">
 <h4>3. Factors</h4>
 <p><strong>3.1 Here’s some code that prints a simple barplot:</strong></p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1">f &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>))</a>
-<a class="sourceLine" id="cb456-2" data-line-number="2"><span class="kw">table</span>(f)</a>
-<a class="sourceLine" id="cb456-3" data-line-number="3"><span class="co">#&gt; f</span></a>
-<a class="sourceLine" id="cb456-4" data-line-number="4"><span class="co">#&gt;   high    low medium </span></a>
-<a class="sourceLine" id="cb456-5" data-line-number="5"><span class="co">#&gt;      2      1      3</span></a>
-<a class="sourceLine" id="cb456-6" data-line-number="6"><span class="kw">barplot</span>(<span class="kw">table</span>(f))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;medium&quot;</span>))
+<span class="kw">table</span>(f)
+<span class="co">#&gt; f</span>
+<span class="co">#&gt;   high    low medium </span>
+<span class="co">#&gt;      2      1      3</span>
+<span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-519-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>How would you relevel <code>f</code> to be in the correct order?</strong></p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1">f &lt;-<span class="st"> </span><span class="kw">factor</span>(f, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))</a>
-<a class="sourceLine" id="cb457-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb457-3" data-line-number="3"><span class="co"># Test your code</span></a>
-<a class="sourceLine" id="cb457-4" data-line-number="4"><span class="kw">barplot</span>(<span class="kw">table</span>(f))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">factor</span>(f, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))
+
+<span class="co"># Test your code</span>
+<span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-520-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="dataframes-1" class="section level4 unnumbered">
 <h4>4. Dataframes</h4>
 <p><strong>4.1 Coerce the <code>movies</code> object you made above from a list to a dataframe. Call it <code>movies_df</code>.</strong></p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">movies_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(movies)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">movies_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(movies)</code></pre></div>
 <p><strong>4.2 Add appropriate column names to <code>movies_df</code>.</strong></p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1"><span class="kw">names</span>(movies) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;film&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;bechtel&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(movies) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;film&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;bechtel&quot;</span>)</code></pre></div>
+
+</div>
+</div>
+<div id="assignment-3-solutions" class="section level2">
+<h2><span class="header-section-number">18.3</span> Assignment 3 Solutions</h2>
+<ul>
+<li><strong>Assigned</strong>: Oct 17, 2019.</li>
+<li><strong>Due</strong>: Oct 24, 2019 at 12:29pm.</li>
+</ul>
+<p>For this assignment, you’ll be working on some real life data! I’ve prepared for your a basic country-year dataset, with the following variables:</p>
+<ul>
+<li>Country name</li>
+<li>Country numerical code</li>
+<li>Year</li>
+<li>UN Ideal point</li>
+<li>Polity2 score of regime type (from Polity VI)</li>
+<li>Physical Integrity Rights score (from CIRI dataset)</li>
+<li>Speech Rights score (from CIRI)</li>
+<li>GDP per capita (from World Bank)</li>
+<li>Population (from World Bank)</li>
+<li>Political Terror Scale using Amnesty International reports (from Political Terror Scale project)</li>
+<li>Composite Index of Military Capabilities (Correlates of War)</li>
+<li>Region</li>
+</ul>
+<div id="r-projects-and-importing" class="section level4 unnumbered">
+<h4>1. R Projects and Importing</h4>
+<p><strong>1.1 Using <code>getwd()</code>, print your working directory below.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()
+<span class="co">#&gt; [1] &quot;/Users/rochelleterman/Desktop/course-site&quot;</span></code></pre></div>
+<p><strong>1.2 Read <code>country-year.csv</code> into R, using a relative path. Store it in an object called <code>dat</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/country-year.csv&quot;</span>)</code></pre></div>
+</div>
+<div id="dimensions-and-names" class="section level4 unnumbered">
+<h4>2. Dimensions and Names</h4>
+<p><strong>2.1 How many rows and columns are in the dataset?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(dat)
+<span class="co">#&gt; [1] 6416   13</span></code></pre></div>
+<p><strong>2.2 Print the column names.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(dat)
+<span class="co">#&gt;  [1] &quot;X&quot;          &quot;year&quot;       &quot;ccode&quot;      &quot;country&quot;    &quot;idealpoint&quot;</span>
+<span class="co">#&gt;  [6] &quot;polity2&quot;    &quot;physint&quot;    &quot;speech&quot;     &quot;gdp.pc.wdi&quot; &quot;pop.wdi&quot;   </span>
+<span class="co">#&gt; [11] &quot;amnesty&quot;    &quot;cinc&quot;       &quot;region&quot;</span></code></pre></div>
+<p><strong>2.3 Remove the <code>X</code> column from the dataset.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>X &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<p><strong>2.4 One of the variables is called “gdp.pc.wdi”. This stands for “Gross Domestic Product Per Capita, from the World Bank Development Indicators”. Change this variable name in the dataset from &quot; “gdp.pc.wdi” to “GDP”</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(dat)[<span class="dv">8</span>] &lt;-<span class="st"> &quot;GDP&quot;</span></code></pre></div>
+</div>
+<div id="summarizing" class="section level4 unnumbered">
+<h4>3. Summarizing</h4>
+<p><strong>3.1 How many years are covered in the dataset?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="kw">unique</span>(dat<span class="op">$</span>year))
+<span class="co">#&gt; [1] 36</span></code></pre></div>
+<p><strong>3.2 How many unique countries are covered in the dataset?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="kw">unique</span>(dat<span class="op">$</span>country))
+<span class="co">#&gt; [1] 196</span></code></pre></div>
+<p><strong>3.3 What is the range of <code>polity2</code>? How many NAs are in this column?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dat<span class="op">$</span>polity2)
+<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s </span>
+<span class="co">#&gt;     -10      -6       5       2       9      10    1214</span></code></pre></div>
+</div>
+<div id="subsetting-1" class="section level4 unnumbered">
+<h4>4. Subsetting</h4>
+<p><strong>4.1 Subset dat so that it returns the third column AS A VECTOR</strong> (Do not print the object; store it in a variable.)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sub &lt;-<span class="st"> </span>dat[[<span class="dv">3</span>]]
+<span class="co">#OR</span>
+sub &lt;-<span class="st"> </span>dat[,<span class="dv">3</span>]
+<span class="co">#OR</span>
+<span class="kw">names</span>(dat)[<span class="dv">3</span>]
+<span class="co">#&gt; [1] &quot;country&quot;</span>
+sub &lt;-<span class="st"> </span>dat<span class="op">$</span>country</code></pre></div>
+<p><strong>4.2 Fix each of the following common data frame subsetting errors</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Extract observations collected for the year 1980</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat[dat<span class="op">$</span>year =<span class="st"> </span><span class="dv">1980</span>,]
+
+<span class="co"># Corrected</span>
+dat[dat<span class="op">$</span>year <span class="op">==</span><span class="st"> </span><span class="dv">1980</span>,]</code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Extract all columns except 1 through to 4</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat[,<span class="op">-</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]
+
+<span class="co"># Corrected</span>
+dat[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)]</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Extract the rows where the polity2 score is greater than 5</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat[dat<span class="op">$</span>polity2 <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>]
+
+<span class="co"># corrected</span>
+dat[dat<span class="op">$</span>polity2 <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>, ]</code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Extract the first row, and the third and fourth columns (<code>country</code> and <code>idealpoint</code>).</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>]
+
+<span class="co"># Corrected</span>
+dat[<span class="dv">1</span>, <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>)]</code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Extract rows that contain information for the years 2002 and 2007</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat[dat<span class="op">$</span>year <span class="op">==</span><span class="st"> </span><span class="dv">2002</span> <span class="op">|</span><span class="st"> </span><span class="dv">2007</span>,]
+
+<span class="co"># Corrected</span>
+dat[dat<span class="op">$</span>year <span class="op">==</span><span class="st"> </span><span class="dv">2002</span> <span class="op">|</span><span class="st"> </span>dat<span class="op">$</span>year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>,]</code></pre></div>
+<p><strong>4.3 What does <code>summary(dat$polity2[dat$region ==&quot;Africa&quot;])</code> do? Explain below in your own words.</strong></p>
+<p>It calculates some summary statistics for <code>polity2</code> scores from observations in Africa.</p>
+<p><strong>4.4 Subset the data to include only observations from years 1990-2000 (inclusive). Put the subsetted data in a new variable called <code>dat.1990.2000</code></strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat.<span class="fl">1990.2000</span> &lt;-<span class="st"> </span>dat[dat<span class="op">$</span>year <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1990</span> <span class="op">&amp;</span><span class="st"> </span>dat<span class="op">$</span>year<span class="op">&lt;=</span><span class="dv">2000</span>,]</code></pre></div>
+<p><strong>4.5 Using <code>mean()</code> function, tell me the average GDP of observations from 1990 to 2000.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(dat.<span class="fl">1990.2000</span><span class="op">$</span>GDP, <span class="dt">na.rm =</span> T)
+<span class="co">#&gt; [1] 6611</span></code></pre></div>
+<p><strong>4.6 You just calculated the average GDP for years 1990-2000. Now calculate the average GDP from 2001 onwards. Tell me how much larger it is (in percentage).</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat.<span class="fl">2001.</span>plus &lt;-<span class="st"> </span>dat[dat<span class="op">$</span>year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>,]
+mean1 &lt;-<span class="st"> </span><span class="kw">mean</span>(dat.<span class="fl">1990.2000</span><span class="op">$</span>GDP, <span class="dt">na.rm =</span> T)
+mean2 &lt;-<span class="st"> </span><span class="kw">mean</span>(dat.<span class="fl">2001.</span>plus<span class="op">$</span>GDP, <span class="dt">na.rm =</span> T)
+(mean2 <span class="op">-</span><span class="st"> </span>mean1) <span class="op">/</span><span class="st"> </span>mean1
+<span class="co">#&gt; [1] 0.825</span></code></pre></div>
+<p><strong>4.7 Look up the helpfile for the function <code>is.na()</code>. Using this function, replace all the NA values in the <code>polity2</code> column of <code>dat</code> with 0.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?is.na
+dat<span class="op">$</span>polity2[<span class="kw">is.na</span>(dat<span class="op">$</span>polity2)] &lt;-<span class="st"> </span><span class="dv">0</span>
+<span class="kw">summary</span>(dat<span class="op">$</span>polity2)
+<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
+<span class="co">#&gt;  -10.00   -5.00    0.00    1.46    8.00   10.00</span></code></pre></div>
 
 </div>
 </div>
@@ -664,7 +768,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
