@@ -464,7 +464,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><strong><a href="strings-and-regular-expressions.html#regular-expressions">regular expressions</a></strong>, a powerful cross-language tool for working with string data.</li>
 <li><strong><a href="strings-and-regular-expressions.html#common-tools">common tools</a></strong>, that take regex and apply them to real problems.</li>
 </ol>
-<p>This chapter will focus on the <strong>stringr</strong> package for string manipulation. stringr is not part of the core tidyverse because you don’t always have textual data, so we need to load it explicitly.</p>
+<p>This chapter will focus on the <strong><code>stringr</code></strong> package for string manipulation. <code>stringr</code> is not part of the core <code>tidyverse</code> because you don’t always have textual data, so we need to load it explicitly.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(stringr)</code></pre></div>
 <div id="string-basics" class="section level2">
@@ -501,7 +501,7 @@ x
 <p>Base R contains many functions to work with strings but we’ll avoid them because they can be inconsistent, which makes them hard to remember. Instead we’ll use functions from <code>stringr</code>. These have more intuitive names, and all start with <code>str_</code>. For example, <code>str_length()</code> tells you the number of characters in a string:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_length</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;R for data science&quot;</span>, <span class="ot">NA</span>))
 <span class="co">#&gt; [1]  1 18 NA</span></code></pre></div>
-<p>The common <code>str_</code> prefix is particularly useful if you use RStudio, because typing <code>str_</code> will trigger autocomplete, allowing you to see all stringr functions:</p>
+<p>The common <code>str_</code> prefix is particularly useful if you use RStudio, because typing <code>str_</code> will trigger autocomplete, allowing you to see all <code>stringr</code> functions:</p>
 </div>
 <div id="combining-strings" class="section level3">
 <h3><span class="header-section-number">15.1.4</span> Combining strings</h3>
@@ -561,7 +561,7 @@ x
 <div id="challenges-15" class="section level3 unnumbered">
 <h3>Challenges</h3>
 <ol style="list-style-type: decimal">
-<li><p>In code that doesn’t use <code>stringr</code>, you’ll often see <code>paste()</code> and <code>paste0()</code>. What’s the difference between the two functions? What stringr function are they equivalent to? How do the functions differ in their handling of <code>NA</code>?</p></li>
+<li><p>In code that doesn’t use <code>stringr</code>, you’ll often see <code>paste()</code> and <code>paste0()</code>. What’s the difference between the two functions? What <code>stringr</code> function are they equivalent to? How do the functions differ in their handling of <code>NA</code>?</p></li>
 <li><p>In your own words, describe the difference between the <code>sep</code> and <code>collapse</code> arguments to <code>str_c()</code>.</p></li>
 <li><p>Use <code>str_length()</code> and <code>str_sub()</code> to extract the middle character from a string. What will you do if the string has an even number of characters?</p></li>
 <li><p>What does <code>str_trim()</code> do? What’s the opposite of <code>str_trim()</code>?</p></li>

@@ -13,7 +13,7 @@ This unit focuses on chracter (or "string") data. We'll explore:
 2. **[regular expressions]**, a powerful cross-language tool for working with string data.
 3. **[common tools]**, that take regex and apply them to real problems.
 
-This chapter will focus on the __stringr__ package for string manipulation. stringr is not part of the core tidyverse because you don't always have textual data, so we need to load it explicitly.
+This chapter will focus on the __`stringr`__ package for string manipulation. `stringr` is not part of the core `tidyverse` because you don't always have textual data, so we need to load it explicitly.
 
 ```{r setup, message = FALSE}
 library(tidyverse)
@@ -71,7 +71,7 @@ Base R contains many functions to work with strings but we'll avoid them because
 str_length(c("a", "R for data science", NA))
 ```
 
-The common `str_` prefix is particularly useful if you use RStudio, because typing `str_` will trigger autocomplete, allowing you to see all stringr functions:
+The common `str_` prefix is particularly useful if you use RStudio, because typing `str_` will trigger autocomplete, allowing you to see all `stringr` functions:
 
 ### Combining strings
 
@@ -152,7 +152,7 @@ str_sort(x, locale = "haw") # Hawaiian
 ### Challenges {-}
 
 1.  In code that doesn't use `stringr`, you'll often see `paste()` and `paste0()`.
-    What's the difference between the two functions? What stringr function are
+    What's the difference between the two functions? What `stringr` function are
     they equivalent to? How do the functions differ in their handling of 
     `NA`?
     
