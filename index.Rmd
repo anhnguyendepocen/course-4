@@ -188,11 +188,11 @@ See [Install Page](installation) for more information. We will be having an **In
 17. **Nov 26** - Text analysis 1
     * preprocessing, DTM, dictionary methods, distinctive words.
 
-18. **Nov 28** - Text analysis 2
+18. **Nov 28** - No class, Thanksgiving
+
+19. **Dec 3** - Text analysis 2
     * supervised vs. unsupervised learning, Vector-space models, topic models.
 
-19. **Dec 3** - Git / Github
-
-20. **Dec 5** - TBD
+20. **Dec 5** - Git / Github
 
 21. **Dec 10, 1:30-3:30pm** - Final project lightning talks
