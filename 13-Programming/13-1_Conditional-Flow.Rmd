@@ -40,7 +40,7 @@ Let's look at a simple example:
 ```{r}
 age = 84
 if (age > 60) {
-    print(paste(age, "is old"))
+    print("OK Boomer")
 } else {
     print("But you don't look like a professor!")
 }
@@ -53,7 +53,7 @@ Let's change the `age` variable to execute the second branch:
 ```{r}
 age = 20
 if (age > 60) {
-    print(paste(age, "is old"))
+    print("OK Boomer")
 } else {
     print("But you don't look like a professor!")
 }
@@ -81,7 +81,7 @@ We can generate more complex conditional statements with boolean operators like 
 age = 45 
 
 if (age > 60) {
-    print(paste(age, "is old"))
+    print("OK Boomer")
 } else if (age < 60 & age > 40) {
     print("How's the midlife crisis?")
 } else {

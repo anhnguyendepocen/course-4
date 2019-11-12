@@ -11750,7 +11750,7 @@ Basics}\label{string-basics}}
 \subsection{Creating Strings}\label{creating-strings}
 
 You can create strings with either single quotes or double quotes.
-Unlike other languages, there is no difference in behaviour. I recommend
+Unlike other languages, there is no difference in behavior. I recommend
 always using \texttt{"}, unless you want to create a string that
 contains multiple \texttt{"}.
 
@@ -11867,8 +11867,8 @@ vectors to the same length as the longest:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{, }\StringTok{"b"}\NormalTok{, }\StringTok{"c"}\NormalTok{)}
-\KeywordTok{str_c}\NormalTok{(}\StringTok{"prefix-"}\NormalTok{)}
-\CommentTok{#> [1] "prefix-"}
+\KeywordTok{str_c}\NormalTok{(}\StringTok{"prefix-"}\NormalTok{, x)}
+\CommentTok{#> [1] "prefix-a" "prefix-b" "prefix-c"}
 \end{Highlighting}
 \end{Shaded}
 

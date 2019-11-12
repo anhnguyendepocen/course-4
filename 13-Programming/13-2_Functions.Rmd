@@ -264,15 +264,6 @@ my_function(3, 4)
 # [1] 25
 ```
 
-```{r}
-my_function <- function(a, b) {
-  sum <- a^2 + b^2
-  return(sum)
-}
-
-my_function(3, 4)
-```
-
 #### Challenge 2 {-}
 
 Write `both_na()`, a function that takes two vectors of the same length and returns the number of positions that have an NA in both vectors.
@@ -290,17 +281,6 @@ standard_names <- function(name){
     reversed_name = paste(______, _______, sep = ", ") # reverse and separate by a comma and space
     return(reversed_name)
 }
-
-#Solution -- HIDE ME
-standard_names <- function(name){
-    upper_case = toupper(name) # make upper
-    upper_case_vec = strsplit(upper_case, split = ' ')[[1]]  # turn into a list
-    first_name = upper_case_vec[1]# take first name
-    last_name = upper_case_vec[2] # take last name
-    reversed_name = paste(last_name, first_name, sep = ", ") # reverse and separate by a comma and space
-    return(reversed_name)
-}
-standard_names('Rochelle Terman')
 ```
 
 #### Challenge 4 {-}

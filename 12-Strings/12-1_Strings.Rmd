@@ -24,7 +24,7 @@ library(stringr)
 
 ### Creating Strings
 
-You can create strings with either single quotes or double quotes. Unlike other languages, there is no difference in behaviour. I recommend always using `"`, unless you want to create a string that contains multiple `"`.
+You can create strings with either single quotes or double quotes. Unlike other languages, there is no difference in behavior. I recommend always using `"`, unless you want to create a string that contains multiple `"`.
 
 ```{r}
 string1 <- "This is a string"
@@ -92,7 +92,7 @@ str_c("x", "y", sep = ", ")
 
 ```{r}
 x <- c("a", "b", "c")
-str_c("prefix-")
+str_c("prefix-", x)
 ```
 
 To collapse a vector of strings into a single string, use `collapse`:
