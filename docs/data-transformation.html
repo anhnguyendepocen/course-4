@@ -49,47 +49,72 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -407,18 +432,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="17.3.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#uchicago-political-science-prof-tweets"><i class="fa fa-check"></i><b>17.3.2</b> UChicago Political Science Prof Tweets</a></li>
 <li class="chapter" data-level="17.3.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#hashtags-and-text-strings"><i class="fa fa-check"></i><b>17.3.3</b> Hashtags and Text Strings</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#webscraping"><i class="fa fa-check"></i><b>17.4</b> Webscraping</a><ul>
-<li class="chapter" data-level="17.4.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#whats-a-website"><i class="fa fa-check"></i><b>17.4.1</b> What’s a website?</a></li>
-<li class="chapter" data-level="17.4.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#html"><i class="fa fa-check"></i><b>17.4.2</b> HTML</a></li>
-<li class="chapter" data-level="17.4.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#css"><i class="fa fa-check"></i><b>17.4.3</b> CSS</a></li>
-<li class="chapter" data-level="17.4.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#finding-elements-with-selector-gadget"><i class="fa fa-check"></i><b>17.4.4</b> Finding Elements with Selector Gadget</a></li>
+<li class="chapter" data-level="17.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#writing-api-queries"><i class="fa fa-check"></i><b>17.4</b> Writing API Queries</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#constructing-the-api-get-request"><i class="fa fa-check"></i><b>17.4.1</b> Constructing the API GET Request</a></li>
+<li class="chapter" data-level="17.4.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#parsing-the-response"><i class="fa fa-check"></i><b>17.4.2</b> Parsing the response</a></li>
+<li class="chapter" data-level="17.4.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#iteration-through-results-pager"><i class="fa fa-check"></i><b>17.4.3</b> Iteration through results pager</a></li>
+<li class="chapter" data-level="17.4.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#visualizing-results"><i class="fa fa-check"></i><b>17.4.4</b> Visualizing Results</a></li>
+<li class="chapter" data-level="17.4.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#more-resources-1"><i class="fa fa-check"></i><b>17.4.5</b> More resources</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#scraping-presidential-statements"><i class="fa fa-check"></i><b>17.5</b> Scraping Presidential Statements</a><ul>
-<li class="chapter" data-level="17.5.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#using-rvest-to-read-html"><i class="fa fa-check"></i><b>17.5.1</b> Using <code>RVest</code> to Read HTML</a></li>
-<li class="chapter" data-level="17.5.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#find-page-elements"><i class="fa fa-check"></i><b>17.5.2</b> Find Page Elements</a></li>
-<li class="chapter" data-level="17.5.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#get-attributes-and-text-of-elements"><i class="fa fa-check"></i><b>17.5.3</b> Get Attributes and Text of Elements</a></li>
-<li class="chapter" data-level="17.5.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#lets-do-this."><i class="fa fa-check"></i><b>17.5.4</b> Let’s DO this.</a></li>
-<li class="chapter" data-level="17.5.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#challenge-1-make-a-function"><i class="fa fa-check"></i><b>17.5.5</b> Challenge 1: Make a function</a></li>
+<li class="chapter" data-level="17.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#webscraping"><i class="fa fa-check"></i><b>17.5</b> Webscraping</a><ul>
+<li class="chapter" data-level="17.5.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#whats-a-website"><i class="fa fa-check"></i><b>17.5.1</b> What’s a website?</a></li>
+<li class="chapter" data-level="17.5.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#html"><i class="fa fa-check"></i><b>17.5.2</b> HTML</a></li>
+<li class="chapter" data-level="17.5.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#css"><i class="fa fa-check"></i><b>17.5.3</b> CSS</a></li>
+<li class="chapter" data-level="17.5.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#finding-elements-with-selector-gadget"><i class="fa fa-check"></i><b>17.5.4</b> Finding Elements with Selector Gadget</a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#scraping-presidential-statements"><i class="fa fa-check"></i><b>17.6</b> Scraping Presidential Statements</a><ul>
+<li class="chapter" data-level="17.6.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#using-rvest-to-read-html"><i class="fa fa-check"></i><b>17.6.1</b> Using <code>RVest</code> to Read HTML</a></li>
+<li class="chapter" data-level="17.6.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#find-page-elements"><i class="fa fa-check"></i><b>17.6.2</b> Find Page Elements</a></li>
+<li class="chapter" data-level="17.6.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#get-attributes-and-text-of-elements"><i class="fa fa-check"></i><b>17.6.3</b> Get Attributes and Text of Elements</a></li>
+<li class="chapter" data-level="17.6.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#lets-do-this."><i class="fa fa-check"></i><b>17.6.4</b> Let’s DO this.</a></li>
+<li class="chapter" data-level="17.6.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#challenge-1-make-a-function"><i class="fa fa-check"></i><b>17.6.5</b> Challenge 1: Make a function</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Assignments and Projects</b></span></li>
@@ -470,8 +502,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="gapminder" class="section level3">
 <h3><span class="header-section-number">10.1.2</span> Gapminder</h3>
 <p>For this unit, we’ll be working with the “Gapminder” dataset again.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)
-<span class="kw">kable</span>(<span class="kw">head</span>(gap))</code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1">gap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder-FiveYearData.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb174-2" data-line-number="2"><span class="kw">kable</span>(<span class="kw">head</span>(gap))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -622,12 +654,12 @@ Asia
 <div id="why-dplyr" class="section level3">
 <h3><span class="header-section-number">10.1.3</span> Why <code>dplyr</code>?</h3>
 <p>So far, you’ve seen the basics of manipulating data frames, e.g. subsetting and basic calculations. For instance, we can use base R functions to calculate summary statistics across groups of observations, e.g., the mean GDP per capita within each region:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(gap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>, <span class="st">&quot;gdpPercap&quot;</span>])
-<span class="co">#&gt; [1] 2194</span>
-<span class="kw">mean</span>(gap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Americas&quot;</span>, <span class="st">&quot;gdpPercap&quot;</span>])
-<span class="co">#&gt; [1] 7136</span>
-<span class="kw">mean</span>(gap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>, <span class="st">&quot;gdpPercap&quot;</span>])
-<span class="co">#&gt; [1] 7902</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="kw">mean</span>(gap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>, <span class="st">&quot;gdpPercap&quot;</span>])</a>
+<a class="sourceLine" id="cb175-2" data-line-number="2"><span class="co">#&gt; [1] 2194</span></a>
+<a class="sourceLine" id="cb175-3" data-line-number="3"><span class="kw">mean</span>(gap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Americas&quot;</span>, <span class="st">&quot;gdpPercap&quot;</span>])</a>
+<a class="sourceLine" id="cb175-4" data-line-number="4"><span class="co">#&gt; [1] 7136</span></a>
+<a class="sourceLine" id="cb175-5" data-line-number="5"><span class="kw">mean</span>(gap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>, <span class="st">&quot;gdpPercap&quot;</span>])</a>
+<a class="sourceLine" id="cb175-6" data-line-number="6"><span class="co">#&gt; [1] 7902</span></a></code></pre></div>
 <p>But this isn’t ideal because it involves a fair bit of repetition. Repeating yourself will cost you time, both now and later, and potentially introduce some nasty bugs.</p>
 <p>Luckily, the <a href="https://cran.r-project.org/web/packages/dplyr/dplyr.pdf"><code>dplyr</code></a> package provides a number of very useful functions for manipulating dataframes. These functions will save you time by reducing repetition. As an added bonus, you might even find the <code>dplyr</code> grammar easier to read.</p>
 <p>Here, we’re going to cover 6 of the most commonly used <code>dplyr</code> functions. We’ll also cover pipes (<code>%&gt;%</code>), which are used to combine them.</p>
@@ -640,10 +672,10 @@ Asia
 <li><code>arrange()</code></li>
 </ol>
 <p>If you have have not installed this package earlier, please do so now:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># not run</span>
-<span class="co"># install.packages(&#39;dplyr&#39;)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="co"># not run</span></a>
+<a class="sourceLine" id="cb176-2" data-line-number="2"><span class="co"># install.packages(&#39;dplyr&#39;)</span></a></code></pre></div>
 <p>Now let’s load the package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 </div>
 </div>
 <div id="dplyr-functions" class="section level2">
@@ -651,8 +683,8 @@ Asia
 <div id="select-columns-with-select" class="section level3">
 <h3><span class="header-section-number">10.2.1</span> Select Columns with <code>select</code></h3>
 <p>Imagine that we just received the gapminder dataset, but are only interested in a few variables in it. We could use the <code>select()</code> function to keep only the variables we select.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year_country_gdp &lt;-<span class="st"> </span><span class="kw">select</span>(gap, year, country, gdpPercap)
-<span class="kw">kable</span>(<span class="kw">head</span>(year_country_gdp))</code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1">year_country_gdp &lt;-<span class="st"> </span><span class="kw">select</span>(gap, year, country, gdpPercap)</a>
+<a class="sourceLine" id="cb178-2" data-line-number="2"><span class="kw">kable</span>(<span class="kw">head</span>(year_country_gdp))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -736,11 +768,11 @@ Afghanistan
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/dplyr-fig1.png&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/dplyr-fig1.png&quot;</span>)</a></code></pre></div>
 <p><img src="img/dplyr-fig1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>If we open up <code>year_country_gdp</code>, we’ll see that it only contains the year, country and gdpPercap. This is equivalent to the base R subsetting function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year_country_gdp_base &lt;-<span class="st"> </span>gap[,<span class="kw">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;country&quot;</span>, <span class="st">&quot;gdpPercap&quot;</span>)]
-<span class="kw">kable</span>(<span class="kw">head</span>(year_country_gdp))</code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1">year_country_gdp_base &lt;-<span class="st"> </span>gap[,<span class="kw">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;country&quot;</span>, <span class="st">&quot;gdpPercap&quot;</span>)]</a>
+<a class="sourceLine" id="cb180-2" data-line-number="2"><span class="kw">kable</span>(<span class="kw">head</span>(year_country_gdp))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -828,29 +860,29 @@ Afghanistan
 </div>
 <div id="the-pipe" class="section level3">
 <h3><span class="header-section-number">10.2.2</span> The Pipe</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/pipe.jpg&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/pipe.jpg&quot;</span>)</a></code></pre></div>
 <p><img src="img/pipe.jpg" width="70%" style="display: block; margin: auto;" /></p>
 <p>Above, we used what’s called ‘normal’ grammar, but the strengths of <code>dplyr</code> lie in combining several functions using <em>pipes</em>. Since the pipes grammar is unlike anything we’ve seen in R before, let’s repeat what we’ve done above using pipes.</p>
 <p>In typical base R code, a simple operation might be written like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># NOT run</span>
-cupcakes &lt;-<span class="st"> </span><span class="kw">bake</span>(<span class="kw">pour</span>(<span class="kw">mix</span>(ingredients)))</code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="co"># NOT run</span></a>
+<a class="sourceLine" id="cb182-2" data-line-number="2">cupcakes &lt;-<span class="st"> </span><span class="kw">bake</span>(<span class="kw">pour</span>(<span class="kw">mix</span>(ingredients)))</a></code></pre></div>
 <p>A computer has no trouble understanding this and your cupcakes will be made just fine, but a person has to read right to left to understand the order of operations - the opposite of how most western languages are read - making it harder to understand what is being done!</p>
 <p>To be more readable without pipes, we might break up this code into intermediate objects:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## NOT run
-batter &lt;-<span class="st"> </span><span class="kw">mix</span>(ingredients)
-muffin_tin &lt;-<span class="st"> </span><span class="kw">pour</span>(batter)
-cupcakes &lt;-<span class="st"> </span><span class="kw">bake</span>(muffin_tin)</code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1"><span class="co">## NOT run</span></a>
+<a class="sourceLine" id="cb183-2" data-line-number="2">batter &lt;-<span class="st"> </span><span class="kw">mix</span>(ingredients)</a>
+<a class="sourceLine" id="cb183-3" data-line-number="3">muffin_tin &lt;-<span class="st"> </span><span class="kw">pour</span>(batter)</a>
+<a class="sourceLine" id="cb183-4" data-line-number="4">cupcakes &lt;-<span class="st"> </span><span class="kw">bake</span>(muffin_tin)</a></code></pre></div>
 <p>But, this can clutter our environment with a lot of variables that aren’t very useful to us. Plus, these variables are often are named very similar things (e.g. step, step1, step2…) which can lead to confusion and the creation of hard-to-track-down bugs.</p>
 <div id="enter-the-pipe" class="section level4 unnumbered">
 <h4>Enter the Pipe…</h4>
 <p>The <em>pipe</em> makes it easier to read code by laying out operations from left to right – each line can be read like a line of a recipe for the perfect data frame!</p>
 <p>Pipes take the input on the left side of the <code>%&gt;%</code> symbol and pass it in as the first argument to the function on the right side.</p>
 <p>With pipes, our cupcake example might be written like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## NOT run
-cupcakes &lt;-<span class="st"> </span>ingredients <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mix</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pour</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">bake</span>()</code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1"><span class="co">## NOT run</span></a>
+<a class="sourceLine" id="cb184-2" data-line-number="2">cupcakes &lt;-<span class="st"> </span>ingredients <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb184-3" data-line-number="3"><span class="st">  </span><span class="kw">mix</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb184-4" data-line-number="4"><span class="st">  </span><span class="kw">pour</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb184-5" data-line-number="5"><span class="st">  </span><span class="kw">bake</span>()</a></code></pre></div>
 </div>
 <div id="tips-for-piping" class="section level4 unnumbered">
 <h4>Tips for Piping</h4>
@@ -862,8 +894,9 @@ cupcakes &lt;-<span class="st"> </span>ingredients <span class="op">%&gt;%</span
 </div>
 <div id="select-pipe" class="section level4 unnumbered">
 <h4><code>select</code> &amp; Pipe (<code>%&gt;%</code>)</h4>
-<p>Since the pipe grammar is unlike anything we’ve seen in R before, let’s repeat what we did above with the gapminder dataset using pipes:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year_country_gdp &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(year, country, gdpPercap)</code></pre></div>
+<p>Since the pipe grammar is unlike anything we’ve seen in R before, let’s repeat what
+we did above with the gapminder dataset using pipes:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1">year_country_gdp &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(year, country, gdpPercap)</a></code></pre></div>
 <p>Let’s walk through it step by step.</p>
 <p>First, we summon the gapminder data frame and pass it on to the next step using the pipe symbol <code>%&gt;%</code>.</p>
 <p>The second step is the <code>select()</code> function. In this case, we don’t specify which data object we use in the call to <code>select()</code> since we’ve piped it in from the previous line.</p>
@@ -873,9 +906,9 @@ cupcakes &lt;-<span class="st"> </span>ingredients <span class="op">%&gt;%</span
 <div id="filter-rows-with-filter" class="section level3">
 <h3><span class="header-section-number">10.2.3</span> Filter Rows with <code>filter</code></h3>
 <p>Now let’s say we’re only interested in African countries. We can combine <code>select</code> and <code>filter</code> to select only the observations where <code>continent</code> is <code>Africa</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year_country_gdp_africa &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">select</span>(year, country, gdpPercap)</code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1">year_country_gdp_africa &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb186-2" data-line-number="2"><span class="st">    </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb186-3" data-line-number="3"><span class="st">    </span><span class="kw">select</span>(year, country, gdpPercap)</a></code></pre></div>
 <p>As with last time, first we pass the gapminder dataframe to the <code>filter()</code> function, then we pass the filtered version of the gapminder dataframe to the <code>select()</code> function.</p>
 <p>To clarify, both the <code>select</code> and <code>filter</code> functions subset the data frame. The difference is that <code>select</code> extracts certain columns, while <code>filter</code> extracts certain rows.</p>
 <p><strong>Note:</strong> The order of operations is very important in this case. If we used <code>select</code> first, filter would not be able to find the variable <code>continent</code> since we would have removed it in the previous step.</p>
@@ -884,41 +917,41 @@ cupcakes &lt;-<span class="st"> </span>ingredients <span class="op">%&gt;%</span
 <h3><span class="header-section-number">10.2.4</span> Calculate Across Groups with <code>group_by</code></h3>
 <p>A common task you’ll encounter when working with data is running calculations on different groups within the data. For instance, what if we wanted to calculate the mean GDP per capita for each continent?</p>
 <p>In base R, you would have to run the <code>mean()</code> function for each subset of data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>])
-<span class="co">#&gt; [1] 2194</span>
-<span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Americas&quot;</span>])
-<span class="co">#&gt; [1] 7136</span>
-<span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>])
-<span class="co">#&gt; [1] 7902</span>
-<span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>])
-<span class="co">#&gt; [1] 14469</span>
-<span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Oceania&quot;</span>])
-<span class="co">#&gt; [1] 18622</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1"><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>])</a>
+<a class="sourceLine" id="cb187-2" data-line-number="2"><span class="co">#&gt; [1] 2194</span></a>
+<a class="sourceLine" id="cb187-3" data-line-number="3"><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Americas&quot;</span>])</a>
+<a class="sourceLine" id="cb187-4" data-line-number="4"><span class="co">#&gt; [1] 7136</span></a>
+<a class="sourceLine" id="cb187-5" data-line-number="5"><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>])</a>
+<a class="sourceLine" id="cb187-6" data-line-number="6"><span class="co">#&gt; [1] 7902</span></a>
+<a class="sourceLine" id="cb187-7" data-line-number="7"><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>])</a>
+<a class="sourceLine" id="cb187-8" data-line-number="8"><span class="co">#&gt; [1] 14469</span></a>
+<a class="sourceLine" id="cb187-9" data-line-number="9"><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Oceania&quot;</span>])</a>
+<a class="sourceLine" id="cb187-10" data-line-number="10"><span class="co">#&gt; [1] 18622</span></a></code></pre></div>
 <p>That’s a lot of repetition! To make matters worse, what if we wanted to add these values to our original data frame as a new column? We would have to write something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap<span class="op">$</span>mean.continent.GDP &lt;-<span class="st"> </span><span class="ot">NA</span>
-gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>])
-gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Americas&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Americas&quot;</span>])
-gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>])
-gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>])
-gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Oceania&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Oceania&quot;</span>])</code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1">gap<span class="op">$</span>mean.continent.GDP &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb188-2" data-line-number="2">gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>])</a>
+<a class="sourceLine" id="cb188-3" data-line-number="3">gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Americas&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Americas&quot;</span>])</a>
+<a class="sourceLine" id="cb188-4" data-line-number="4">gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>])</a>
+<a class="sourceLine" id="cb188-5" data-line-number="5">gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>])</a>
+<a class="sourceLine" id="cb188-6" data-line-number="6">gap<span class="op">$</span>mean.continent.GDP[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Oceania&quot;</span>] &lt;-<span class="st"> </span><span class="kw">mean</span>(gap<span class="op">$</span>gdpPercap[gap<span class="op">$</span>continent <span class="op">==</span><span class="st"> &quot;Oceania&quot;</span>])</a></code></pre></div>
 <p>You can see how this can get pretty tedious, especially if we want to calculate more complicated or refined statistics. We could use loops or apply functions, but these can be difficult, slow, and error-prone.</p>
 <div id="split-apply-combine" class="section level4 unnumbered">
 <h4>split-apply-combine</h4>
 <p>The abstract problem we’re encountering here is know as “split-apply-combine”:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/splitapply.png&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/splitapply.png&quot;</span>)</a></code></pre></div>
 <p><img src="img/splitapply.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We want to <em>split</em> our data into groups (in this case continents), <em>apply</em> some calculations on that group, then <em>combine</em> the results together afterwards.</p>
 <p>Luckily, <code>dplyr</code> offers a much cleaner, straight-forward solution to this problem.</p>
 <p>First, let’s remove the column we just made.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>mean.continent.GDP) <span class="co"># drop a column with - </span>
-<span class="co"># OR</span>
-gap<span class="op">$</span>mean.continent.GDP &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1">gap &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>mean.continent.GDP) <span class="co"># drop a column with - </span></a>
+<a class="sourceLine" id="cb190-2" data-line-number="2"><span class="co"># OR</span></a>
+<a class="sourceLine" id="cb190-3" data-line-number="3">gap<span class="op">$</span>mean.continent.GDP &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="group_by" class="section level4">
 <h4><span class="header-section-number">10.2.4.1</span> <code class="unnumbered">group_by</code></h4>
 <p>We’ve already seen how <code>filter()</code> can help us select observations that meet certain criteria (in the above: <code>continent == &quot;Africa&quot;</code>). More helpful, however, is the <code>group_by()</code> function, which will essentially use every unique criteria that we could have used in <code>filter()</code>.</p>
 <p>A <code>grouped_df</code> can be thought of as a <code>list</code> where each item in the <code>list</code> is a <code>data.frame</code> which contains only the rows that correspond to a particular value for <code>continent</code> (at least in the example above).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/dplyr-fig2.png&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/dplyr-fig2.png&quot;</span>)</a></code></pre></div>
 <p><img src="img/dplyr-fig2.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -928,10 +961,10 @@ gap<span class="op">$</span>mean.continent.GDP &lt;-<span class="st"> </span><sp
 <p>This will allow us to create new variable(s) by applying transformations to variables in each of our groups (continent-specific data frames).</p>
 <p>In other words, using the <code>group_by()</code> function, we split our original data frame into multiple pieces, to which we then apply summary functions (e.g. <code>mean()</code> or <code>sd()</code>) within <code>summarize()</code>.</p>
 <p>The output is a new data frame reduced in size, with one row per group.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gdp_bycontinents &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap))
-<span class="kw">kable</span>(<span class="kw">head</span>(gdp_bycontinents))</code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">gdp_bycontinents &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb192-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb192-3" data-line-number="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap))</a>
+<a class="sourceLine" id="cb192-4" data-line-number="4"><span class="kw">kable</span>(<span class="kw">head</span>(gdp_bycontinents))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -986,14 +1019,14 @@ Oceania
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/dplyr-fig3.png&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/dplyr-fig3.png&quot;</span>)</a></code></pre></div>
 <p><img src="img/dplyr-fig3.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>That allowed us to calculate the mean gdpPercap for each continent.</p>
 <p>But it gets even better – the function <code>group_by()</code> allows us to group by multiple variables. Let’s group by <code>year</code> and <code>continent</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gdp_bycontinents_byyear &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap))
-<span class="kw">kable</span>(<span class="kw">head</span>(gdp_bycontinents_byyear))</code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1">gdp_bycontinents_byyear &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb194-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb194-3" data-line-number="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap))</a>
+<a class="sourceLine" id="cb194-4" data-line-number="4"><span class="kw">kable</span>(<span class="kw">head</span>(gdp_bycontinents_byyear))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1078,13 +1111,13 @@ Africa
 </tbody>
 </table>
 <p>That is already quite powerful, but it gets even better! You’re not limited to defining 1 new variable in <code>summarize()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gdp_pop_bycontinents_byyear &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),
-              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),
-              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),
-              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop))
-<span class="kw">kable</span>(<span class="kw">head</span>(gdp_pop_bycontinents_byyear))</code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1">gdp_pop_bycontinents_byyear &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb195-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb195-3" data-line-number="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb195-4" data-line-number="4">              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb195-5" data-line-number="5">              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),</a>
+<a class="sourceLine" id="cb195-6" data-line-number="6">              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop))</a>
+<a class="sourceLine" id="cb195-7" data-line-number="7"><span class="kw">kable</span>(<span class="kw">head</span>(gdp_pop_bycontinents_byyear))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1236,13 +1269,13 @@ Africa
 <h3><span class="header-section-number">10.2.6</span> Add New Variables with <code>mutate</code></h3>
 <p>What if we wanted to add these values to our original data frame instead of creating a new object?</p>
 <p>For this, we can use the <code>mutate()</code> function, which is similar to <code>summarize()</code> except that it creates new variables in the same dataframe that you pass into it.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_with_extra_vars &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),
-              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),
-              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),
-              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop))
-<span class="kw">kable</span>(<span class="kw">head</span>(gapminder_with_extra_vars))</code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1">gapminder_with_extra_vars &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb196-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb196-3" data-line-number="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb196-4" data-line-number="4">              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb196-5" data-line-number="5">              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),</a>
+<a class="sourceLine" id="cb196-6" data-line-number="6">              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop))</a>
+<a class="sourceLine" id="cb196-7" data-line-number="7"><span class="kw">kable</span>(<span class="kw">head</span>(gapminder_with_extra_vars))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1474,16 +1507,16 @@ Asia
 </tbody>
 </table>
 <p>We can use also use <code>mutate()</code> to create new variables prior to (or even after) summarizing the information.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gdp_pop_bycontinents_byyear &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">gdp_billion =</span> gdpPercap<span class="op">*</span>pop<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">9</span>) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),
-              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),
-              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),
-              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop),
-              <span class="dt">mean_gdp_billion =</span> <span class="kw">mean</span>(gdp_billion),
-              <span class="dt">sd_gdp_billion =</span> <span class="kw">sd</span>(gdp_billion))
-<span class="kw">kable</span>(<span class="kw">head</span>(gdp_pop_bycontinents_byyear))</code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1">gdp_pop_bycontinents_byyear &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb197-2" data-line-number="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">gdp_billion =</span> gdpPercap<span class="op">*</span>pop<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">9</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb197-3" data-line-number="3"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb197-4" data-line-number="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb197-5" data-line-number="5">              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb197-6" data-line-number="6">              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),</a>
+<a class="sourceLine" id="cb197-7" data-line-number="7">              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop),</a>
+<a class="sourceLine" id="cb197-8" data-line-number="8">              <span class="dt">mean_gdp_billion =</span> <span class="kw">mean</span>(gdp_billion),</a>
+<a class="sourceLine" id="cb197-9" data-line-number="9">              <span class="dt">sd_gdp_billion =</span> <span class="kw">sd</span>(gdp_billion))</a>
+<a class="sourceLine" id="cb197-10" data-line-number="10"><span class="kw">kable</span>(<span class="kw">head</span>(gdp_pop_bycontinents_byyear))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1676,8 +1709,10 @@ Africa
 <h4><code>mutate</code> vs. <code>summarize</code></h4>
 <p>It can be confusing to decide whether to use <code>mutate</code> or <code>summarize</code>. The key distinction is whether you want the output to have one row for each group or one row for each row in the original data frame:</p>
 <ul>
-<li><code>mutate</code>: creates new columns with as many rows as the original data frame</li>
+<li><code>mutate</code>: creates new columns with as many rows as the original data frame
+<ul>
 <li><code>summarize</code>: creates a data frame with as many rows as groups</li>
+</ul></li>
 </ul>
 <p>Note that if you use an aggregation function such as <code>mean()</code> within <code>mutate()</code> without using <code>group_by()</code>, you’ll simply do the summary over all the rows of the input data frame.</p>
 <p>And if you use an aggregation function such as <code>mean()</code> within <code>summarize()</code> without using <code>group_by()</code>, you’ll simply create an output data frame with one row (i.e., the whole input data frame is a single group).</p>
@@ -1686,14 +1721,14 @@ Africa
 <div id="arrange-rows-with-arrange" class="section level3">
 <h3><span class="header-section-number">10.2.7</span> Arrange Rows with <code>arrange</code></h3>
 <p>As a last step, let’s say we want to sort the rows in our data frame according to values in a certain column. We can use the <code>arrange()</code> function to do this. For instance, let’s organize our rows by <code>year</code> (recent first), and then by <code>continent</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_with_extra_vars &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),
-              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),
-              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),
-              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop)) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(year), continent)
-<span class="kw">kable</span>(<span class="kw">head</span>(gapminder_with_extra_vars))</code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">gapminder_with_extra_vars &lt;-<span class="st"> </span>gap <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-3" data-line-number="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb198-4" data-line-number="4">              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb198-5" data-line-number="5">              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),</a>
+<a class="sourceLine" id="cb198-6" data-line-number="6">              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-7" data-line-number="7"><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(year), continent)</a>
+<a class="sourceLine" id="cb198-8" data-line-number="8"><span class="kw">kable</span>(<span class="kw">head</span>(gapminder_with_extra_vars))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1930,20 +1965,20 @@ Africa
 <h2><span class="header-section-number">10.3</span> <code>dplyr</code> and “Non-Standard Evaluation”</h2>
 <p>You may run across the term “non-standard evaluation”. The use of data frame variables without quotes around them is an example of this.</p>
 <p>Why is this strange?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(continent, year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tail</span>()</code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1">gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(continent, year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tail</span>()</a></code></pre></div>
 <p>Compare it to:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap[ , <span class="kw">c</span>(<span class="st">&#39;continent&#39;</span>, <span class="st">&#39;year&#39;</span>)]
-gap[ , continent]</code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">gap[ , <span class="kw">c</span>(<span class="st">&#39;continent&#39;</span>, <span class="st">&#39;year&#39;</span>)]</a>
+<a class="sourceLine" id="cb200-2" data-line-number="2">gap[ , continent]</a></code></pre></div>
 <p>Because <code>continent</code> and <code>year</code> are not variables our current environment, <code>dplyr</code> does some fancy stuff behind the scenes to save us from typing the quotes.</p>
 <p>This is fine if you have a data analysis workflow, but if you want to write a function that, for example, selects an arbitrary set of columns, you’ll run into trouble.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## here&#39;s a helper function that computes the mean of a variable, stratifying by a grouping variable
-grouped_mean &lt;-<span class="st"> </span><span class="cf">function</span>(data, group_var, summary_var) {
-  data <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">group_by</span>(group_var) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(summary_var))
-}
-gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">grouped_mean</span>(continent, lifeExp)
-gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">grouped_mean</span>(<span class="st">&#39;continent&#39;</span>, <span class="st">&#39;lifeExp&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1"><span class="co">## here&#39;s a helper function that computes the mean of a variable, stratifying by a grouping variable</span></a>
+<a class="sourceLine" id="cb201-2" data-line-number="2">grouped_mean &lt;-<span class="st"> </span><span class="cf">function</span>(data, group_var, summary_var) {</a>
+<a class="sourceLine" id="cb201-3" data-line-number="3">  data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-4" data-line-number="4"><span class="st">    </span><span class="kw">group_by</span>(group_var) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-5" data-line-number="5"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(summary_var))</a>
+<a class="sourceLine" id="cb201-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb201-7" data-line-number="7">gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">grouped_mean</span>(continent, lifeExp)</a>
+<a class="sourceLine" id="cb201-8" data-line-number="8">gap <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">grouped_mean</span>(<span class="st">&#39;continent&#39;</span>, <span class="st">&#39;lifeExp&#39;</span>)</a></code></pre></div>
 <p>See the <code>rlang</code> or <code>seplyr</code> packages for how one can deal with this problem in this context of using functions.</p>
 </div>
 <div id="challenges-11" class="section level2">
@@ -2021,7 +2056,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

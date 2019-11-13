@@ -49,47 +49,72 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -407,18 +432,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="17.3.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#uchicago-political-science-prof-tweets"><i class="fa fa-check"></i><b>17.3.2</b> UChicago Political Science Prof Tweets</a></li>
 <li class="chapter" data-level="17.3.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#hashtags-and-text-strings"><i class="fa fa-check"></i><b>17.3.3</b> Hashtags and Text Strings</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#webscraping"><i class="fa fa-check"></i><b>17.4</b> Webscraping</a><ul>
-<li class="chapter" data-level="17.4.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#whats-a-website"><i class="fa fa-check"></i><b>17.4.1</b> What’s a website?</a></li>
-<li class="chapter" data-level="17.4.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#html"><i class="fa fa-check"></i><b>17.4.2</b> HTML</a></li>
-<li class="chapter" data-level="17.4.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#css"><i class="fa fa-check"></i><b>17.4.3</b> CSS</a></li>
-<li class="chapter" data-level="17.4.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#finding-elements-with-selector-gadget"><i class="fa fa-check"></i><b>17.4.4</b> Finding Elements with Selector Gadget</a></li>
+<li class="chapter" data-level="17.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#writing-api-queries"><i class="fa fa-check"></i><b>17.4</b> Writing API Queries</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#constructing-the-api-get-request"><i class="fa fa-check"></i><b>17.4.1</b> Constructing the API GET Request</a></li>
+<li class="chapter" data-level="17.4.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#parsing-the-response"><i class="fa fa-check"></i><b>17.4.2</b> Parsing the response</a></li>
+<li class="chapter" data-level="17.4.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#iteration-through-results-pager"><i class="fa fa-check"></i><b>17.4.3</b> Iteration through results pager</a></li>
+<li class="chapter" data-level="17.4.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#visualizing-results"><i class="fa fa-check"></i><b>17.4.4</b> Visualizing Results</a></li>
+<li class="chapter" data-level="17.4.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#more-resources-1"><i class="fa fa-check"></i><b>17.4.5</b> More resources</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#scraping-presidential-statements"><i class="fa fa-check"></i><b>17.5</b> Scraping Presidential Statements</a><ul>
-<li class="chapter" data-level="17.5.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#using-rvest-to-read-html"><i class="fa fa-check"></i><b>17.5.1</b> Using <code>RVest</code> to Read HTML</a></li>
-<li class="chapter" data-level="17.5.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#find-page-elements"><i class="fa fa-check"></i><b>17.5.2</b> Find Page Elements</a></li>
-<li class="chapter" data-level="17.5.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#get-attributes-and-text-of-elements"><i class="fa fa-check"></i><b>17.5.3</b> Get Attributes and Text of Elements</a></li>
-<li class="chapter" data-level="17.5.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#lets-do-this."><i class="fa fa-check"></i><b>17.5.4</b> Let’s DO this.</a></li>
-<li class="chapter" data-level="17.5.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#challenge-1-make-a-function"><i class="fa fa-check"></i><b>17.5.5</b> Challenge 1: Make a function</a></li>
+<li class="chapter" data-level="17.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#webscraping"><i class="fa fa-check"></i><b>17.5</b> Webscraping</a><ul>
+<li class="chapter" data-level="17.5.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#whats-a-website"><i class="fa fa-check"></i><b>17.5.1</b> What’s a website?</a></li>
+<li class="chapter" data-level="17.5.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#html"><i class="fa fa-check"></i><b>17.5.2</b> HTML</a></li>
+<li class="chapter" data-level="17.5.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#css"><i class="fa fa-check"></i><b>17.5.3</b> CSS</a></li>
+<li class="chapter" data-level="17.5.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#finding-elements-with-selector-gadget"><i class="fa fa-check"></i><b>17.5.4</b> Finding Elements with Selector Gadget</a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#scraping-presidential-statements"><i class="fa fa-check"></i><b>17.6</b> Scraping Presidential Statements</a><ul>
+<li class="chapter" data-level="17.6.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#using-rvest-to-read-html"><i class="fa fa-check"></i><b>17.6.1</b> Using <code>RVest</code> to Read HTML</a></li>
+<li class="chapter" data-level="17.6.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#find-page-elements"><i class="fa fa-check"></i><b>17.6.2</b> Find Page Elements</a></li>
+<li class="chapter" data-level="17.6.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#get-attributes-and-text-of-elements"><i class="fa fa-check"></i><b>17.6.3</b> Get Attributes and Text of Elements</a></li>
+<li class="chapter" data-level="17.6.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#lets-do-this."><i class="fa fa-check"></i><b>17.6.4</b> Let’s DO this.</a></li>
+<li class="chapter" data-level="17.6.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#challenge-1-make-a-function"><i class="fa fa-check"></i><b>17.6.5</b> Challenge 1: Make a function</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Assignments and Projects</b></span></li>
@@ -457,15 +489,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">12.1</span> Why Relational Data</h2>
 <p>As social scientists, we’re often working with data across different levels of analysis. The main principle of relational data is that each table is structured around the same observational unit.</p>
 <p>Why is this important? Check out the following data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">messy &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">county =</span> <span class="kw">c</span>(<span class="dv">36037</span>, <span class="dv">36038</span>, <span class="dv">36039</span>, <span class="dv">36040</span>, <span class="ot">NA</span> , <span class="dv">37001</span>, <span class="dv">37002</span>, <span class="dv">37003</span>),
-  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>),
-  <span class="dt">cnty_pop =</span> <span class="kw">c</span>(<span class="dv">3817735</span>, <span class="dv">422999</span>, <span class="dv">324920</span>, <span class="dv">143432</span>, <span class="ot">NA</span>, <span class="dv">3228290</span>, <span class="dv">449499</span>, <span class="dv">383888</span>),
-  <span class="dt">state_pop =</span> <span class="kw">c</span>(<span class="dv">43320903</span>, <span class="dv">43320903</span>, <span class="ot">NA</span>, <span class="dv">43320903</span>, <span class="dv">43320903</span>, <span class="dv">7173000</span>, <span class="dv">7173000</span>, <span class="dv">7173000</span>),
-  <span class="dt">region =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>)
-)
-
-<span class="kw">kable</span>(messy)</code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1">messy &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb218-2" data-line-number="2">  <span class="dt">county =</span> <span class="kw">c</span>(<span class="dv">36037</span>, <span class="dv">36038</span>, <span class="dv">36039</span>, <span class="dv">36040</span>, <span class="ot">NA</span> , <span class="dv">37001</span>, <span class="dv">37002</span>, <span class="dv">37003</span>),</a>
+<a class="sourceLine" id="cb218-3" data-line-number="3">  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>),</a>
+<a class="sourceLine" id="cb218-4" data-line-number="4">  <span class="dt">cnty_pop =</span> <span class="kw">c</span>(<span class="dv">3817735</span>, <span class="dv">422999</span>, <span class="dv">324920</span>, <span class="dv">143432</span>, <span class="ot">NA</span>, <span class="dv">3228290</span>, <span class="dv">449499</span>, <span class="dv">383888</span>),</a>
+<a class="sourceLine" id="cb218-5" data-line-number="5">  <span class="dt">state_pop =</span> <span class="kw">c</span>(<span class="dv">43320903</span>, <span class="dv">43320903</span>, <span class="ot">NA</span>, <span class="dv">43320903</span>, <span class="dv">43320903</span>, <span class="dv">7173000</span>, <span class="dv">7173000</span>, <span class="dv">7173000</span>),</a>
+<a class="sourceLine" id="cb218-6" data-line-number="6">  <span class="dt">region =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb218-7" data-line-number="7">)</a>
+<a class="sourceLine" id="cb218-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb218-9" data-line-number="9"><span class="kw">kable</span>(messy)</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -632,12 +664,12 @@ VA
 <li>states contains data on states</li>
 </ul>
 <p>So our data should look like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">county =</span> <span class="kw">c</span>(<span class="dv">36037</span>, <span class="dv">36038</span>, <span class="dv">36039</span>, <span class="dv">36040</span>, <span class="dv">37001</span>, <span class="dv">37002</span>, <span class="dv">37003</span>),
-  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>),
-  <span class="dt">county_pop =</span> <span class="kw">c</span>(<span class="dv">3817735</span>, <span class="dv">422999</span>, <span class="dv">324920</span>, <span class="dv">143432</span>, <span class="dv">3228290</span>, <span class="dv">449499</span>, <span class="dv">383888</span>), <span class="dt">stringsAsFactors =</span> F
-)
-<span class="kw">kable</span>(counties)</code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1">counties &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb219-2" data-line-number="2">  <span class="dt">county =</span> <span class="kw">c</span>(<span class="dv">36037</span>, <span class="dv">36038</span>, <span class="dv">36039</span>, <span class="dv">36040</span>, <span class="dv">37001</span>, <span class="dv">37002</span>, <span class="dv">37003</span>),</a>
+<a class="sourceLine" id="cb219-3" data-line-number="3">  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;NY&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>, <span class="st">&#39;VA&#39;</span>),</a>
+<a class="sourceLine" id="cb219-4" data-line-number="4">  <span class="dt">county_pop =</span> <span class="kw">c</span>(<span class="dv">3817735</span>, <span class="dv">422999</span>, <span class="dv">324920</span>, <span class="dv">143432</span>, <span class="dv">3228290</span>, <span class="dv">449499</span>, <span class="dv">383888</span>), <span class="dt">stringsAsFactors =</span> F</a>
+<a class="sourceLine" id="cb219-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb219-6" data-line-number="6"><span class="kw">kable</span>(counties)</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -732,13 +764,13 @@ VA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-states &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&quot;NY&quot;</span>, <span class="st">&quot;VA&quot;</span>),
-  <span class="dt">state_pop =</span> <span class="kw">c</span>(<span class="dv">43320903</span>, <span class="dv">7173000</span>),
-  <span class="dt">region =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">stringsAsFactors =</span> F
-)
-<span class="kw">kable</span>(states)</code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb220-2" data-line-number="2">states &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb220-3" data-line-number="3">  <span class="dt">state =</span> <span class="kw">c</span>(<span class="st">&quot;NY&quot;</span>, <span class="st">&quot;VA&quot;</span>),</a>
+<a class="sourceLine" id="cb220-4" data-line-number="4">  <span class="dt">state_pop =</span> <span class="kw">c</span>(<span class="dv">43320903</span>, <span class="dv">7173000</span>),</a>
+<a class="sourceLine" id="cb220-5" data-line-number="5">  <span class="dt">region =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">stringsAsFactors =</span> F</a>
+<a class="sourceLine" id="cb220-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb220-7" data-line-number="7"><span class="kw">kable</span>(states)</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -811,10 +843,10 @@ VA
 </ol>
 <p>The most commonly used join is the <code>left_join()</code>: you use this whenever you look up additional data from another table, because it preserves the original observations even when there isn’t a match. For example, a <code>left_join()</code> on <code>x</code> and <code>y</code> pulls in variables form <code>y</code> while preserving all the observations on <code>x</code>.</p>
 <p>Let’s say we want to combine the <code>countries</code> and <code>states</code> tables we created earlier.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties_states &lt;-<span class="st"> </span>counties <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">left_join</span>(states, <span class="dt">by =</span> <span class="st">&quot;state&quot;</span>)
-
-<span class="kw">kable</span>(counties_states)</code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1">counties_states &lt;-<span class="st"> </span>counties <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb221-2" data-line-number="2"><span class="st">  </span><span class="kw">left_join</span>(states, <span class="dt">by =</span> <span class="st">&quot;state&quot;</span>)</a>
+<a class="sourceLine" id="cb221-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb221-4" data-line-number="4"><span class="kw">kable</span>(counties_states)</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -968,9 +1000,9 @@ VA
 <li>The default, <strong><code>by = NULL</code></strong>, uses all variables that appear in both tables, what we might call a “natural join”.</li>
 </ol>
 <p>For example, let’s say we wanted to add a column to the <code>gapminder</code> dataset that encodes the regime type of each country-year observation. We’ll get that data from the <code>polityVI</code> dataset.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)
-polity &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/polity_sub.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)
-<span class="kw">kable</span>(<span class="kw">head</span>(polity))</code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">gapminder &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/gapminder.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)</a>
+<a class="sourceLine" id="cb222-2" data-line-number="2">polity &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/polity_sub.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)</a>
+<a class="sourceLine" id="cb222-3" data-line-number="3"><span class="kw">kable</span>(<span class="kw">head</span>(polity))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1055,11 +1087,11 @@ Afghanistan
 </tbody>
 </table>
 <p>We’re now ready to join the tables. The common keys between them are <code>country</code> and <code>year</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap1 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">left_join</span>(polity)
-<span class="co">#&gt; Joining, by = c(&quot;country&quot;, &quot;year&quot;)</span>
-
-<span class="kw">kable</span>(<span class="kw">head</span>(gap1))</code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">gap1 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb223-2" data-line-number="2"><span class="st">  </span><span class="kw">left_join</span>(polity)</a>
+<a class="sourceLine" id="cb223-3" data-line-number="3"><span class="co">#&gt; Joining, by = c(&quot;country&quot;, &quot;year&quot;)</span></a>
+<a class="sourceLine" id="cb223-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb223-5" data-line-number="5"><span class="kw">kable</span>(<span class="kw">head</span>(gap1))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1232,8 +1264,8 @@ Asia
 <li><p>A named character vector: <strong><code>by = c(&quot;a&quot; = &quot;b&quot;)</code></strong>. This will match variable <code>a</code> in table <code>x</code> to variable <code>b</code> in table <code>y</code>. The variables from <code>x</code> will be used in the output.</p></li>
 </ol>
 <p>For example, let’s add another variable to our <code>gapminder</code> dataset – physical integrity rights – from the CIRI dataset.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ciri &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/ciri_sub.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)
-<span class="kw">kable</span>(<span class="kw">head</span>(ciri))</code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">ciri &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/ciri_sub.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> F)</a>
+<a class="sourceLine" id="cb224-2" data-line-number="2"><span class="kw">kable</span>(<span class="kw">head</span>(ciri))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1318,10 +1350,10 @@ Afghanistan
 </tbody>
 </table>
 <p>Both datasets have country and year columns, but they are named differently.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gap2 &lt;-<span class="st"> </span>gap1 <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">left_join</span>(ciri, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;country&quot;</span> =<span class="st"> &quot;CTRY&quot;</span>, <span class="st">&quot;year&quot;</span> =<span class="st"> &quot;YEAR&quot;</span>))
-
-<span class="kw">kable</span>(<span class="kw">head</span>(gap2))</code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">gap2 &lt;-<span class="st"> </span>gap1 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb225-2" data-line-number="2"><span class="st">  </span><span class="kw">left_join</span>(ciri, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;country&quot;</span> =<span class="st"> &quot;CTRY&quot;</span>, <span class="st">&quot;year&quot;</span> =<span class="st"> &quot;YEAR&quot;</span>))</a>
+<a class="sourceLine" id="cb225-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb225-4" data-line-number="4"><span class="kw">kable</span>(<span class="kw">head</span>(gap2))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1512,7 +1544,7 @@ NA
 </table>
 <p>Notice that <code>PHYSINT</code> is <code>NA</code> in the first 6 rows because the <code>ciri</code> dataset does not contain observations for Afghanistan in these years. But because we used <code>left_join()</code>, all observations in <code>gapminder</code> were preserved.</p>
 <p>We can see some values for <code>PHYSINT</code> if we peak at the bottom of the dataset:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(<span class="kw">tail</span>(gap2))</code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="kw">kable</span>(<span class="kw">tail</span>(gap2))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1725,18 +1757,18 @@ Africa
 <div id="duplicate-keys" class="section level2">
 <h2><span class="header-section-number">12.5</span> Duplicate Keys</h2>
 <p>So far we have assumed that the keys are unique. But that’s not always the case. For example,</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),
-               <span class="dt">val_y =</span> <span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>))
-
-y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>),
-               <span class="dt">val_x =</span> <span class="kw">c</span>(<span class="st">&quot;y1&quot;</span>, <span class="st">&quot;y2&quot;</span>, <span class="st">&quot;y3&quot;</span>, <span class="st">&quot;y4&quot;</span>))
-
-<span class="kw">left_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)
-<span class="co">#&gt;   key val_y val_x</span>
-<span class="co">#&gt; 1   1    x1    y1</span>
-<span class="co">#&gt; 2   1    x1    y4</span>
-<span class="co">#&gt; 3   2    x2    y2</span>
-<span class="co">#&gt; 4   2    x2    y3</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb227-2" data-line-number="2">               <span class="dt">val_y =</span> <span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>))</a>
+<a class="sourceLine" id="cb227-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb227-4" data-line-number="4">y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">key =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb227-5" data-line-number="5">               <span class="dt">val_x =</span> <span class="kw">c</span>(<span class="st">&quot;y1&quot;</span>, <span class="st">&quot;y2&quot;</span>, <span class="st">&quot;y3&quot;</span>, <span class="st">&quot;y4&quot;</span>))</a>
+<a class="sourceLine" id="cb227-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb227-7" data-line-number="7"><span class="kw">left_join</span>(x, y, <span class="dt">by =</span> <span class="st">&quot;key&quot;</span>)</a>
+<a class="sourceLine" id="cb227-8" data-line-number="8"><span class="co">#&gt;   key val_y val_x</span></a>
+<a class="sourceLine" id="cb227-9" data-line-number="9"><span class="co">#&gt; 1   1    x1    y1</span></a>
+<a class="sourceLine" id="cb227-10" data-line-number="10"><span class="co">#&gt; 2   1    x1    y4</span></a>
+<a class="sourceLine" id="cb227-11" data-line-number="11"><span class="co">#&gt; 3   2    x2    y2</span></a>
+<a class="sourceLine" id="cb227-12" data-line-number="12"><span class="co">#&gt; 4   2    x2    y3</span></a></code></pre></div>
 <p>Notice that this can sometimes cause unintended duplicates.</p>
 <div id="acknowledgements-2" class="section level4 unnumbered">
 <h4>Acknowledgements</h4>
@@ -1798,7 +1830,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

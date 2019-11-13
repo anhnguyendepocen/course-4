@@ -26,7 +26,7 @@ __Webscraping Challenges__
 #### Some Disclaimers {-}
 
 * Check a site's terms and conditions before scraping.
-* Be nice - don't hammer the site's server.
+* Be nice - don't hammer the site's server. Review [these ethical webscraping tips](https://towardsdatascience.com/ethics-in-web-scraping-b96b18136f01)
 * Sites change their layout all the time. Your scraper will break.
  
 ### What's a website?
