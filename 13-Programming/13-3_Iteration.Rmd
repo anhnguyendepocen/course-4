@@ -169,13 +169,6 @@ for(i in ______){
 }
 ```
 
-```{r}
-mtcars.means <- vector("double", ncol(mtcars))
-for(i in seq_along(mtcars)){
-  mtcars.means[i] <- mean(mtcars[[i]])
-}
-mtcars.means
-```
 
 #### Challenge 2. {-}
 Check out the `iris` dataset:
@@ -190,26 +183,9 @@ Write a `for` loop that calculates the number of unique values in each column of
 2. Sequence
 3. Body
 
-```{r}
-out <- vector("double", ncol(iris))
-for(i in seq_along(iris)){
-  out[i] <- length(unique(iris[[i]]))
-}
-out
-```
 
 #### Challenge 3. {-}
 Generate 10 random normals for each of $\mu = -10$, $0$, $10$, and $100$. Store them in a list.
-
-```{r eval = F}
-# SOLUTION - HIDE ME
-mus <- c(-10, 0, 10, 100)
-
-out <- vector("list", 4)
-for (i in seq_along(mus)){
-  out[[i]] <- rnorm(10, mean = mus[i])
-}
-```
 
 
 ### Functional Programming and `map`
@@ -270,27 +246,13 @@ Check out other fun applications of `map` functions [here](https://r4ds.had.co.n
 
 ### Challenges
 
-#### Challenge 1. {-}
-
 Write code that uses one of the map functions to:
 
 1. Calculates the arithmetic mean for every column in `mtcars`.
 
-```{r eval = F}
-map(mtcars, mean)
-```
-
 2. Calculates the number of unique values in each column of `iris`. 
 
-```{r}
-iris %>% map(unique) %>% map_dbl(length)
-```
-
 3. Generate 10 random normals for each of $\mu = -10$, $0$, $10$, and $100$.
-
-```{r}
-map(c(-10, 0, 10, 100), ~rnorm(n = 10, mean = .))
-```
 
 
 ### Scoped Verbs
