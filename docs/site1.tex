@@ -14474,9 +14474,9 @@ We can read the content of the server's response using the \texttt{content()} fu
 \end{Highlighting}
 \end{Shaded}
 
-What you see here is JSON text, encoded as plain text. JSON stands for ``Javascript object notation.'' Think of JASON like a nested array built on key/value pairs.
+What you see here is JSON text, encoded as plain text. JSON stands for ``Javascript object notation.'' Think of JSON like a nested array built on key/value pairs.
 
-We want to convert the results from JSON format to something easier to work with -- notably a data.frame.
+We want to convert the results from JSON format to something easier to work with -- notably a data frame.
 
 The \textbf{jsonlite} package provides several easy conversion functions for moving between JSON and vectors, data.frames, and lists. Let's use the function \texttt{fromJSON} to convert this response into something we can work with:
 
@@ -14560,7 +14560,7 @@ Within \texttt{response\_df\$response}, we can extract a number of interesting r
 \hypertarget{iteration-through-results-pager}{%
 \subsection{Iteration through results pager}\label{iteration-through-results-pager}}
 
-That's great. But we only have 10 items. The original response said we had 3,876 hits! Which means we have to make 3876 /10, or 18 requests to get them all. Sounds like a job for iteration!
+That's great. But we only have 10 items. The original response said we had 168 hits! Which means we have to make 168 /10, or 17 requests to get them all. Sounds like a job for iteration!
 
 First, let's write a function that passes a search term and a page number, and returns a dataframe of articles.
 
@@ -14660,7 +14660,7 @@ To figure out how Adam Rippon's's popularity is changing over time, all we need 
 \StringTok{  }\KeywordTok{theme_bw}\NormalTok{() }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{xlab}\NormalTok{(}\DataTypeTok{label =} \StringTok{"Date"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{ylab}\NormalTok{(}\DataTypeTok{label =} \StringTok{"Article Count"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\DataTypeTok{label =} \StringTok{"Coverage of X"}\NormalTok{)}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\DataTypeTok{label =} \StringTok{"Coverage of John Mearsheimer"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 

@@ -82,9 +82,9 @@ response <- content(r, "text")
 substr(response, start = 1, stop = 1000)
 ```
 
-What you see here is JSON text, encoded as plain text. JSON stands for "Javascript object notation." Think of JASON like a nested array built on key/value pairs. 
+What you see here is JSON text, encoded as plain text. JSON stands for "Javascript object notation." Think of JSON like a nested array built on key/value pairs. 
 
-We want to convert the results from JSON format to something easier to work with -- notably a data.frame.  
+We want to convert the results from JSON format to something easier to work with -- notably a data frame.  
 
 The **jsonlite** package provides several easy conversion functions for moving between JSON and vectors, data.frames, and lists. Let's use the function `fromJSON` to convert this response into something we can work with:
 ```{r}
@@ -128,7 +128,7 @@ docs <- response_df$response$docs
 
 ### Iteration through results pager
 
-That's great. But we only have 10 items. The original response said we had 3,876 hits! Which means we have to make 3876 /10, or 18 requests to get them all. Sounds like a job for iteration!
+That's great. But we only have 10 items. The original response said we had 168 hits! Which means we have to make 168 /10, or 17 requests to get them all. Sounds like a job for iteration!
 
 First, let's write a function that passes a search term and a page number, and returns a dataframe of articles.
 
@@ -203,7 +203,7 @@ by_month %>%
   theme_bw() + 
   xlab(label = "Date") +
   ylab(label = "Article Count") +
-  ggtitle(label = "Coverage of X")
+  ggtitle(label = "Coverage of John Mearsheimer")
 ```
 
 

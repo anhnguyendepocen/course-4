@@ -2630,8 +2630,8 @@ NA
 <div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1">response &lt;-<span class="st"> </span><span class="kw">content</span>(r, <span class="st">&quot;text&quot;</span>)</a>
 <a class="sourceLine" id="cb416-2" data-line-number="2"><span class="kw">substr</span>(response, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">1000</span>)</a>
 <a class="sourceLine" id="cb416-3" data-line-number="3"><span class="co">#&gt; [1] &quot;{\&quot;status\&quot;:\&quot;OK\&quot;,\&quot;copyright\&quot;:\&quot;Copyright (c) 2019 The New York Times Company. All Rights Reserved.\&quot;,\&quot;response\&quot;:{\&quot;docs\&quot;:[{\&quot;web_url\&quot;:\&quot;https://www.nytimes.com/2006/04/12/education/essay-stirs-debate-about-influence-of-a-jewish-lobby.html\&quot;,\&quot;snippet\&quot;:\&quot;Dr John J Mearsheimer of University of Chicago and Dr Stephen M Walt of John F Kennedy School of Government at Harvard University publish controversial essay on relationship between United States and Israel; hold that relationship has made America...\&quot;,\&quot;lead_paragraph\&quot;:\&quot;When John J. Mearsheimer, a 58-year-old political scientist at the University of Chicago, decided to take on the United States&#39; support for Israel, he considered the subject too touchy to confront alone.\&quot;,\&quot;abstract\&quot;:\&quot;Dr John J Mearsheimer of University of Chicago and Dr Stephen M Walt of John F Kennedy School of Government at Harvard University publish controversial essay on relationship between United States and Israel; hold that relationship has made Americans target of terrorist&quot;</span></a></code></pre></div>
-<p>What you see here is JSON text, encoded as plain text. JSON stands for “Javascript object notation.” Think of JASON like a nested array built on key/value pairs.</p>
-<p>We want to convert the results from JSON format to something easier to work with – notably a data.frame.</p>
+<p>What you see here is JSON text, encoded as plain text. JSON stands for “Javascript object notation.” Think of JSON like a nested array built on key/value pairs.</p>
+<p>We want to convert the results from JSON format to something easier to work with – notably a data frame.</p>
 <p>The <strong>jsonlite</strong> package provides several easy conversion functions for moving between JSON and vectors, data.frames, and lists. Let’s use the function <code>fromJSON</code> to convert this response into something we can work with:</p>
 <div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1"><span class="co"># Convert JSON response to a dataframe</span></a>
 <a class="sourceLine" id="cb417-2" data-line-number="2">response_df &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(response, <span class="dt">simplifyDataFrame =</span> <span class="ot">TRUE</span>, <span class="dt">flatten =</span> <span class="ot">TRUE</span>)</a>
@@ -2696,7 +2696,7 @@ NA
 </div>
 <div id="iteration-through-results-pager" class="section level3">
 <h3><span class="header-section-number">17.4.3</span> Iteration through results pager</h3>
-<p>That’s great. But we only have 10 items. The original response said we had 3,876 hits! Which means we have to make 3876 /10, or 18 requests to get them all. Sounds like a job for iteration!</p>
+<p>That’s great. But we only have 10 items. The original response said we had 168 hits! Which means we have to make 168 /10, or 17 requests to get them all. Sounds like a job for iteration!</p>
 <p>First, let’s write a function that passes a search term and a page number, and returns a dataframe of articles.</p>
 <div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" data-line-number="1">nytapi &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">term =</span> <span class="ot">NULL</span>, n){</a>
 <a class="sourceLine" id="cb420-2" data-line-number="2">    base.url =<span class="st"> &quot;http://api.nytimes.com/svc/search/v2/articlesearch.json&quot;</span> </a>
@@ -2780,7 +2780,7 @@ NA
 <a class="sourceLine" id="cb422-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb422-12" data-line-number="12"><span class="st">  </span><span class="kw">xlab</span>(<span class="dt">label =</span> <span class="st">&quot;Date&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb422-13" data-line-number="13"><span class="st">  </span><span class="kw">ylab</span>(<span class="dt">label =</span> <span class="st">&quot;Article Count&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb422-14" data-line-number="14"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="dt">label =</span> <span class="st">&quot;Coverage of X&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb422-14" data-line-number="14"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="dt">label =</span> <span class="st">&quot;Coverage of John Mearsheimer&quot;</span>)</a></code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-476-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="more-resources-1" class="section level3">
