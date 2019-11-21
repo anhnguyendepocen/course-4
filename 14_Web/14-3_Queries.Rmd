@@ -188,7 +188,7 @@ docs_df <- bind_rows(docs_list)
 
 ### Visualizing Results
 
-To figure out how Adam Rippon's's popularity is changing over time, all we need to do is add an indicator for the year and month each article was published in.
+To figure out how John Mearsheimer's popularity is changing over time, all we need to do is add an indicator for the year and month each article was published in.
 ```{r}
 # Format pub_date using lubridate
 docs_df$date <- ymd_hms(docs_df$pub_date)

@@ -49,47 +49,72 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -465,18 +490,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>Here’s the dream:</strong></p>
 <p><img src="img/tony_stark.gif" width="70%" style="display: block; margin: auto;" /></p>
 <blockquote>
-<p>Computers have revolutionized research, and that revolution is only beginning. Every day, social scientists and humanists all over the world use them to study things that are too big, too small, too fast, too slow, too expensive, too dangerous, or just too hard to study any other way.</p>
+<p>Computers have revolutionized research, and that revolution is only
+beginning. Every day, social scientists and humanists all over the world
+use them to study things that are too big, too small, too fast, too slow,
+too expensive, too dangerous, or just too hard to study any other way.</p>
 </blockquote>
 <p><strong>Now here’s the reality</strong></p>
 <p><img src="img/mulder.gif" width="70%" style="display: block; margin: auto;" /></p>
 <blockquote>
-<p>Every day, scholars all over the world waste time wrestling with computers. Tasks that should take a few moments take hours or days, and many things never work at all. When scholars try to get help, they are inundated with unhelpful information, and give up.</p>
+<p>Every day, scholars all over the world waste time wrestling with
+computers. Tasks that should take a few moments take hours or days,
+and many things never work at all. When scholars try to get help,
+they are inundated with unhelpful information, and give up.</p>
 </blockquote>
 <p>This sorry state of affairs persists for three reasons:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>No room, no time.</strong> Everybody’s schedule is full —- there’s simply not space to add more about computing without dropping something else.</p></li>
-<li><p><strong>The blind leading the blind.</strong> The infrastructure doesn’t exist to help scholars develop the skills they need. Senior researchers can’t teach the next generation how to do things that they don’t know how to do themselves.</p></li>
-<li><p><strong>Autodidact Chauvinism.</strong> Since there are no classrooms, scholars are pressured to teach themselves. But self-learning is time consuming and nearly impossible without a base level of knowledge.</p></li>
+<li><p><strong>No room, no time.</strong>
+Everybody’s schedule is full —- there’s simply not space to add more
+about computing without dropping something else.</p></li>
+<li><p><strong>The blind leading the blind.</strong>
+The infrastructure doesn’t exist to help scholars develop the skills they need. Senior researchers can’t teach the next generation how to do things
+that they don’t know how to do themselves.</p></li>
+<li><p><strong>Autodidact Chauvinism.</strong>
+Since there are no classrooms, scholars are pressured to teach themselves. But self-learning is time consuming and nearly impossible without a base level of knowledge.</p></li>
 </ol>
 <p>Despite these challenges, there are great reasons to learn how to program:</p>
 <p><strong>1. Practical Efficiency</strong></p>
@@ -490,7 +526,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="goal-of-the-class-learn-to-learn" class="section level4 unnumbered">
 <h4>Goal of the Class: Learn to Learn</h4>
 <blockquote>
-<p>The basic learning objective of this course is to leave here with the knowledge and skills required to learn on your own, whether that’s through programming documentation, StackExchange and other online fora, courses or D-Lab workshops.</p>
+<p>The basic learning objective of this course is to leave here with the
+knowledge and skills required to learn on your own, whether that’s through
+programming documentation, StackExchange and other online fora, courses or
+D-Lab workshops.</p>
 </blockquote>
 <p>By the end of the course, students should be able to:</p>
 <ul>
@@ -512,7 +551,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="why-not-just-take-a-computer-science-course" class="section level4 unnumbered">
 <h4>Why not just take a Computer Science course?</h4>
-<p>Computer science courses don’t anticipate the types of questions social scientists might ask, and therefore they - introduce many unnecessary concepts - do a poor job of explaining how computer programming tools might be used by social scientists - are too resource intensive for the average social scientist</p>
+<p>Computer science courses don’t anticipate the types of questions social scientists might ask, and therefore they
+- introduce many unnecessary concepts
+- do a poor job of explaining how computer programming tools might be used by social scientists
+- are too resource intensive for the average social scientist</p>
 <p>Programming is not just use useful for computer scientists, methodologists, or people who work with “big data.”</p>
 </div>
 <div id="a-practical-example" class="section level4 unnumbered">
@@ -597,12 +639,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="course-websites" class="section level4 unnumbered">
 <h4>Course Websites</h4>
-<p>Class notes and other materials are available here: <a href="https://github.com/plsc-31101/course/" class="uri">https://github.com/plsc-31101/course/</a></p>
+<p>Class notes and other materials are available here:
+<a href="https://github.com/plsc-31101/course/" class="uri">https://github.com/plsc-31101/course/</a></p>
 <p>We will also be using Canvas to distribute/accept assignments, and for discussion. Please use the discussion forums liberally.</p>
 </div>
 <div id="evaluation" class="section level4 unnumbered">
 <h4>Evaluation</h4>
-<p>This is a graded class based on the following: - Completion of assigned homework (50%) - Participation (25%) - Final project (25%)</p>
+<p>This is a graded class based on the following:
+- Completion of assigned homework (50%)
+- Participation (25%)
+- Final project (25%)</p>
 <p>If you want to audit, please let me know ASAP.</p>
 <p><strong>Assignments</strong></p>
 <ul>
@@ -678,7 +724,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><img src="img/xkcd.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Here’s the sad reality: When you’re programming, 80% or more of your time will be spent debugging, looking stuff up (like program-specific syntax, documentation for packages, useful functions, etc.), or testing. This does not just apply to beginner or intermediate programmers, although you will grow more “fluent” over time.</p>
 <blockquote>
-<p>Google software engineers write an average of 10-20 lines of code per day. <strong>The Lesson</strong>: Programming is a slow activity, especially in the beginning.</p>
+<p>Google software engineers write an average of 10-20 lines of code per day.
+<strong>The Lesson</strong>: Programming is a slow activity, especially in the beginning.</p>
 </blockquote>
 <p>If you’re a good programmer, you’re a good detective!</p>
 </div>
@@ -795,7 +842,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

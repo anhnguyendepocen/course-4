@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  20 NOV 2019 08:59
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  20 NOV 2019 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1649,9 +1649,6 @@ File: site1_files/figure-latex/unnamed-chunk-463-1.pdf Graphic file (type pdf)
 [291] [292] [293] [294] [295] [296]
 File: site1_files/figure-latex/unnamed-chunk-476-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-476-1.pdf>
-
-Underfull \vbox (badness 2662) has occurred while \output is active []
-
 [297] [298]
 File: img/html.png Graphic file (type bmp)
 <img/html.png>
@@ -1675,53 +1672,83 @@ File: img/html-attributes.png Graphic file (type bmp)
 File: img/css-rule-2.png Graphic file (type bmp)
 <img/css-rule-2.png>
 [302] [303] [304] [305]
-File: img/scraping_links.png Graphic file (type bmp)
-<img/scraping_links.png>
-[306] [307] [308] [309] [310
+File: img/scraping-links.png Graphic file (type bmp)
+<img/scraping-links.png>
+[306] [307] [308] [309
 
-] [311] [312]
+] [310]
 Chapter 18.
 File: img/dany.jpg Graphic file (type bmp)
 <img/dany.jpg>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[313
+[311
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[314] [315] [316]
-File: site1_files/figure-latex/unnamed-chunk-506-1.pdf Graphic file (type pdf)
-<use site1_files/figure-latex/unnamed-chunk-506-1.pdf>
+[312] [313] [314]
 File: site1_files/figure-latex/unnamed-chunk-507-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-507-1.pdf>
-[317] [318] [319] [320] [321] [322
+File: site1_files/figure-latex/unnamed-chunk-508-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-508-1.pdf>
+[315] [316] [317] [318] [319] [320] [321] [322] [323] [324] [325] [326] [327] [
+328] [329] [330] [331] [332] [333] [334] [335]
+File: site1_files/figure-latex/unnamed-chunk-548-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-548-1.pdf>
 
-] [323] [324]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[336]
+File: site1_files/figure-latex/unnamed-chunk-549-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-549-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[337]
+File: site1_files/figure-latex/unnamed-chunk-550-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-550-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[338]
+File: site1_files/figure-latex/unnamed-chunk-551-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-551-1.pdf>
+
+Underfull \hbox (badness 4467) in paragraph at lines 16948--16949
+\TU/lmr/bx/n/10 3.1 Write code that reproduces the model summary table
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[339] [340] [341
+
+] [342]
 Chapter 19.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 15796.
-[325
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17012.
+[343
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 15796.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 17012.
 (./site1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 15796.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 15796
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 17012.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 17012
 .
 Package rerunfilecheck Info: File `site1.out' has not changed.
-(rerunfilecheck)             Checksum: A4B93B60A8F919B8E7F8E3525BE45B95.
+(rerunfilecheck)             Checksum: 7C891A77290C4A89DC25485D7EE66328.
  ) 
 Here is how much of TeX's memory you used:
- 23336 strings out of 492970
- 443535 string characters out of 6133938
- 593575 words of memory out of 5000000
- 26997 multiletter control sequences out of 15000+600000
+ 23361 strings out of 492970
+ 444512 string characters out of 6133938
+ 595236 words of memory out of 5000000
+ 27018 multiletter control sequences out of 15000+600000
  551090 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,8n,54p,10446b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on site1.pdf (325 pages).
+Output written on site1.pdf (343 pages).

@@ -14643,7 +14643,7 @@ Now, we're ready to iterate over each page. First, let's review what've done so 
 \hypertarget{visualizing-results}{%
 \subsection{Visualizing Results}\label{visualizing-results}}
 
-To figure out how Adam Rippon's's popularity is changing over time, all we need to do is add an indicator for the year and month each article was published in.
+To figure out how John Mearsheimer's popularity is changing over time, all we need to do is add an indicator for the year and month each article was published in.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14820,6 +14820,16 @@ Tag & Meaning\tabularnewline
 
 \begin{center}\includegraphics[width=0.7\linewidth]{img/html-attributes} \end{center}
 
+\begin{itemize}
+\tightlist
+\item
+  Sometimes we can find the data we want just by using HTML tags or attributes (e.g, all the \texttt{\textless{}a\textgreater{}} tags)
+\item
+  More often, this isn't enough: There might be 1000 \texttt{\textless{}a\textgreater{}} tags on a page. But maybe we want only the \texttt{\textless{}a\textgreater{}} tags \emph{inside} of a \texttt{\textless{}p\textgreater{}} tag.
+\item
+  Enter CSS
+\end{itemize}
+
 \hypertarget{css}{%
 \subsection{CSS}\label{css}}
 
@@ -14845,7 +14855,7 @@ You can piggyback on these to jump to the parts of the markup that contain the d
   \begin{itemize}
   \tightlist
   \item
-    Element selector: \texttt{p})
+    Element selector: \texttt{p}
   \item
     Class selector: \texttt{p\ class="blue"}
   \item
@@ -14919,7 +14929,7 @@ Find the CSS selectors for the following elements in the HTML above.
 \hypertarget{finding-elements-with-selector-gadget}{%
 \subsection{Finding Elements with Selector Gadget}\label{finding-elements-with-selector-gadget}}
 
-Selector Gadget is a browser plugin to help you find HTML elements. Install Selector Gadget on your browser by following {[}these instructions(\url{https://selectorgadget.com/}).
+Selector Gadget is a browser plugin to help you find HTML elements. Install Selector Gadget on your browser by following \href{https://selectorgadget.com/}{these instructions}.
 
 Once installed, run Selector Gadget and simply click on the type of information you want to select from the webpage. Once this is selected, you can then click the pieces of information you \textbf{don't} want to keep. Do this until only the pieces you want to keep remain highlighted, then copy the selector from the bottom pane.
 
@@ -14962,7 +14972,16 @@ To demonstrate webscraping in R, we're going to collect records on presidential 
 
 Let's say we're interested in how presidents speak about ``space exploration''. On the website, we punch in this search term, and we get the \href{https://www.presidency.ucsb.edu/advanced-search?field-keywords=\%22space+exploration\%22\&field-keywords2=\&field-keywords3=\&from\%5Bdate\%5D=\&to\%5Bdate\%5D=\&person2=\&items_per_page=100}{following 295 results}.
 
-Our goal is to scrape these records, and store pertenant information in a dataframe.
+Our goal is to scrape these records, and store pertenant information in a dataframe. We will be doing this in two steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Write a function to scrape each individual record page (these notes).
+\item
+  Use this function to loop through all results, and collect all pages (homework).
+\end{enumerate}
 
 Load the following packages to get started:
 
@@ -14996,10 +15015,10 @@ Let's start with step one. We use the \texttt{read\_html} function to call the r
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{space <-}\StringTok{ }\KeywordTok{read_html}\NormalTok{(}\StringTok{"https://www.presidency.ucsb.edu/advanced-search?field-keywords=%22space+exploration%22&field-keywords2=&field-keywords3=&from%5Bdate%5D=&to%5Bdate%5D=&person2=&items_per_page=100"}\NormalTok{)}
+\NormalTok{document1 <-}\StringTok{ }\KeywordTok{read_html}\NormalTok{(}\StringTok{"https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"}\NormalTok{)}
 
 \CommentTok{#Let's take a look at the object we just created}
-\NormalTok{space}
+\NormalTok{document1}
 \CommentTok{#> \{html_document\}}
 \CommentTok{#> <html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">}
 \CommentTok{#> [1] <head profile="http://www.w3.org/1999/xhtml/vocab">\textbackslash{}n<meta charset=" ...}
@@ -15033,57 +15052,49 @@ What does the example below do?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{html_nodes}\NormalTok{(space, }\StringTok{"a"}\NormalTok{)}
-\CommentTok{#> \{xml_nodeset (227)\}}
+\KeywordTok{html_nodes}\NormalTok{(document1, }\StringTok{"a"}\NormalTok{)}
+\CommentTok{#> \{xml_nodeset (78)\}}
 \CommentTok{#>  [1] <a href="#main-content" class="element-invisible element-focusable" ...}
 \CommentTok{#>  [2] <a href="https://www.presidency.ucsb.edu/">The American Presidency  ...}
 \CommentTok{#>  [3] <a class="btn btn-default" href="https://www.presidency.ucsb.edu/ab ...}
 \CommentTok{#>  [4] <a class="btn btn-default" href="/advanced-search"><span class="gly ...}
 \CommentTok{#>  [5] <a href="https://www.ucsb.edu/" target="_blank"><img alt="ucsb word ...}
-\CommentTok{#>  [6] <a href="/documents" class="dropdown-toggle" data-toggle="dropdown" ...}
+\CommentTok{#>  [6] <a href="/documents" class="active-trail dropdown-toggle" data-togg ...}
 \CommentTok{#>  [7] <a href="/documents/presidential-documents-archive-guidebook">Guide ...}
 \CommentTok{#>  [8] <a href="/documents/category-attributes">Category Attributes</a>}
-\CommentTok{#>  [9] <a href="/statistics">Statistics</a>}
-\CommentTok{#> [10] <a href="/media" title="">Media Archive</a>}
-\CommentTok{#> [11] <a href="/presidents" title="">Presidents</a>}
-\CommentTok{#> [12] <a href="/analyses" title="">Analyses</a>}
-\CommentTok{#> [13] <a href="https://giving.ucsb.edu/Funds/Give?id=185" title="">Suppor ...}
-\CommentTok{#> [14] <a href="https://www.presidency.ucsb.edu/how-to-search">MORE TIPS</a>}
-\CommentTok{#> [15] <a id="main-content"></a>}
-\CommentTok{#> [16] <a href="/advanced-search?field-keywords=%22space%20exploration%22& ...}
-\CommentTok{#> [17] <a href="/advanced-search?field-keywords=%22space%20exploration%22& ...}
-\CommentTok{#> [18] <a href="/people/president/dwight-d-eisenhower">Dwight D. Eisenhowe ...}
-\CommentTok{#> [19] <a href="/documents/special-message-the-congress-relative-space-sci ...}
-\CommentTok{#> [20] <a href="/people/president/dwight-d-eisenhower">Dwight D. Eisenhowe ...}
+\CommentTok{#>  [9] <a href="/documents/proclamation-9895-national-maritime-day-2019">D ...}
+\CommentTok{#> [10] <a href="/statistics">Statistics</a>}
+\CommentTok{#> [11] <a href="/media" title="">Media Archive</a>}
+\CommentTok{#> [12] <a href="/presidents" title="">Presidents</a>}
+\CommentTok{#> [13] <a href="/analyses" title="">Analyses</a>}
+\CommentTok{#> [14] <a href="https://giving.ucsb.edu/Funds/Give?id=185" title="">Suppor ...}
+\CommentTok{#> [15] <a href="/documents/presidential-documents-archive-guidebook" title ...}
+\CommentTok{#> [16] <a href="/documents" title="" class="active-trail">Categories</a>}
+\CommentTok{#> [17] <a href="/documents/category-attributes" title="">Attributes</a>}
+\CommentTok{#> [18] <a href="/documents/app-categories/presidential" title="Presidentia ...}
+\CommentTok{#> [19] <a href="/documents/app-categories/spoken-addresses-and-remarks/pre ...}
+\CommentTok{#> [20] <a href="/documents/app-categories/spoken-addresses-and-remarks/pre ...}
 \CommentTok{#> ...}
 \end{Highlighting}
 \end{Shaded}
 
 That's a lot of results! Many elements on a page will have the same HTML tag. For instance, if you search for everything with the \texttt{a} tag, you're likely to get a lot of stuff, much of which you don't want.
 
-In our case, we only want the links of Document Titles:
+In our case, we only want the links corresponding to the speaker Dwight D. Eisenhower.
+
+\begin{center}\includegraphics[width=0.7\linewidth]{img/scraping-links} \end{center}
+
+Using selector gadget, we found out that the CSS selector for document's speaker is \texttt{.diet-title\ a}.
+
+We can then modify our argument in \texttt{html\_nodes} to look for this more specific CSS selector.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}\DataTypeTok{path =} \StringTok{"img/scraping_links.png"}\NormalTok{)}
+\KeywordTok{html_nodes}\NormalTok{(document1, }\StringTok{".diet-title a"}\NormalTok{)}
+\CommentTok{#> \{xml_nodeset (1)\}}
+\CommentTok{#> [1] <a href="/people/president/dwight-d-eisenhower">Dwight D. Eisenhower ...}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{center}\includegraphics[width=0.7\linewidth]{img/scraping_links} \end{center}
-
-What if we wanted to search for HTML tags \textbf{only} with certain attributes, like particular CSS classes?
-
-We can do this by modifying our argument in \texttt{html\_nodes} to look for a more specific CSS tag.
-
-\hypertarget{selector-gadget}{%
-\subsubsection*{Selector Gadget}\label{selector-gadget}}
-\addcontentsline{toc}{subsubsection}{Selector Gadget}
-
-In order to easily identify these more specific tags, we can use \textbf{Selector Gadget}.
-
-Install Selector Gadget in your browser. Once installed, run Selector Gadget and simply click on the type of information you want to select from the webpage. Once this is selected, you can then click the pieces of information you \textbf{don't} want to keep. Do this until only the pieces you want to keep remain highlighted, then copy the selector from the bottom pane.
-
-You can use this new tag in \texttt{html\_nodes}.
 
 \hypertarget{get-attributes-and-text-of-elements}{%
 \subsection{Get Attributes and Text of Elements}\label{get-attributes-and-text-of-elements}}
@@ -15121,6 +15132,7 @@ You can access a tag's attributes using \texttt{html\_attr}. For example, we oft
 \begin{Highlighting}[]
 \NormalTok{speaker_link <-}\StringTok{ }\KeywordTok{html_nodes}\NormalTok{(document1, }\StringTok{".diet-title a"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{html_attr}\NormalTok{(}\StringTok{"href"}\NormalTok{)}
+
 \NormalTok{speaker_link}
 \CommentTok{#> [1] "/people/president/dwight-d-eisenhower"}
 \end{Highlighting}
@@ -15222,28 +15234,16 @@ This involves:
 \item
   Using RVest to locate all elements on the page we want to save.
 \item
-  Saving each of these items into a list.
+  Storing each of these items into a list.
+\item
+  Returning this list.
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{scrape_doc <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(URL)\{}
-\NormalTok{  doc <-}\StringTok{ }\KeywordTok{read_html}\NormalTok{(URL)}
-  
-\NormalTok{  speaker <-}\StringTok{ }\KeywordTok{html_nodes}\NormalTok{(doc, }\StringTok{".diet-title a"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{                                        }\KeywordTok{html_text}\NormalTok{()}
-  
-\NormalTok{  date <-}\StringTok{ }\KeywordTok{html_nodes}\NormalTok{(doc, }\StringTok{".date-display-single"}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{                                        }\KeywordTok{html_text}\NormalTok{() }\OperatorTok{%>%}
-\StringTok{                                        }\KeywordTok{mdy}\NormalTok{()}
-  
-\NormalTok{  title <-}\StringTok{ }\KeywordTok{html_nodes}\NormalTok{(doc, }\StringTok{"h1"}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{                                        }\KeywordTok{html_text}\NormalTok{()}
-  
-\NormalTok{  text <-}\StringTok{ }\KeywordTok{html_nodes}\NormalTok{(doc, }\StringTok{"div.field-docs-content"}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{                                        }\KeywordTok{html_text}\NormalTok{()}
-  
-  \KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{speaker =}\NormalTok{ speaker, }\DataTypeTok{date =}\NormalTok{ date, }\DataTypeTok{title =}\NormalTok{ title, }\DataTypeTok{text =}\NormalTok{ text))}
+\NormalTok{scrape_docs <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(URL)\{}
+
+  \CommentTok{# YOUR CODE HERE}
   
 \NormalTok{\}}
 
@@ -15449,7 +15449,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-506-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-507-1} \end{center}
 
 \textbf{How would you relevel \texttt{f} to be in the correct order?}
 
@@ -15462,7 +15462,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-507-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-508-1} \end{center}
 
 \hypertarget{dataframes-1}{%
 \subsubsection*{4. Dataframes}\label{dataframes-1}}
@@ -15766,6 +15766,1222 @@ It calculates some summary statistics for \texttt{polity2} scores from observati
 \KeywordTok{summary}\NormalTok{(dat}\OperatorTok{$}\NormalTok{polity2)}
 \CommentTok{#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. }
 \CommentTok{#>  -10.00   -5.00    0.00    1.46    8.00   10.00}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{assignment-4-solutions}{%
+\section{Assignment 4 Solutions}\label{assignment-4-solutions}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Assigned}: Oct 24, 2019
+\item
+  \textbf{Due}: Nov 5, 2019 at 12:29pm.
+\end{itemize}
+
+For this problem set, we'll be working with the country-year data introduced in the last assignment. As a reminder, the dataset contains the following variable:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{year}: Year.
+\item
+  \texttt{ccode}: Country numerical code.
+\item
+  \texttt{country}: Country name.
+\item
+  \texttt{idealpoint} UN Ideal point.
+\item
+  \texttt{polity2}: Polity2 score of regime type (from Polity VI).
+\item
+  \texttt{physint}: Physical Integrity Rights score (from CIRI dataset).
+\item
+  \texttt{speech}: Speech Rights score (from CIRI).
+\item
+  \texttt{gdp.pc.wdi}: GDP per capita (from World Bank).
+\item
+  \texttt{pop.wdi}: Population (from World Bank).
+\item
+  \texttt{amnesty}: Political Terror Scale using Amnesty International reports (from Political Terror Scale project).
+\item
+  \texttt{cinc}: Composite Index of Military Capabilities (Correlates of War).
+\item
+  \texttt{region}: Geographic region.
+\end{itemize}
+
+We'll be merging this country\_year data with new data about U.S. news coverage of women around the world (excluding the United States). In this new dataset, the unit of observation is \emph{article}. That is, each row represents an individual article, with columns for:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{publication}: NYT or Washington Post.
+\item
+  \texttt{year}: Year article was published.
+\item
+  \texttt{title}: Title of the article.
+\item
+  \texttt{country}: Country the article is mainly about.
+\item
+  \texttt{region}: Region where \texttt{country} is located.
+\item
+  \texttt{ccode}: Numerical code for \texttt{country}.
+\end{itemize}
+
+\hypertarget{loading-subsetting-summarizing}{%
+\subsubsection*{1. Loading, subsetting, summarizing}\label{loading-subsetting-summarizing}}
+\addcontentsline{toc}{subsubsection}{1. Loading, subsetting, summarizing}
+
+\textbf{1.1 Load the csv found in \texttt{data/articles.csv} into R. Be sure to set \texttt{stringsAsFactors} to \texttt{FALSE}. Store the data-frame to an object called \texttt{articles} and tell me the variable names.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\NormalTok{articles <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/articles.csv"}\NormalTok{, }\DataTypeTok{stringsAsFactors =}\NormalTok{ F)}
+\KeywordTok{names}\NormalTok{(articles)}
+\CommentTok{#> [1] "publication" "year"        "title"       "country"     "region"     }
+\CommentTok{#> [6] "ccode"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{1.2 How many countries are covered in the dataset?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(articles}\OperatorTok{$}\NormalTok{country))}
+\CommentTok{#> [1] 147}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{1.3 The variable \texttt{ccode} reports a numerical ID corresponding to a given country. Print the names of the country or countries without a \texttt{ccode} (i.e.~those countries where the \texttt{ccode} is \texttt{NA}.)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{unique}\NormalTok{(articles}\OperatorTok{$}\NormalTok{country[}\KeywordTok{is.na}\NormalTok{(articles}\OperatorTok{$}\NormalTok{ccode)])}
+\CommentTok{#> [1] "Palestine"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{1.4 Remove all articles where the \texttt{ccode} variable is \texttt{NA}. How many observations are left with?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{articles_no_na <-}\StringTok{ }\NormalTok{articles[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(articles}\OperatorTok{$}\NormalTok{ccode), ]}
+\KeywordTok{nrow}\NormalTok{(articles_no_na)}
+\CommentTok{#> [1] 4494}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{counting-frequencies-and-merging}{%
+\subsubsection*{2. Counting Frequencies and Merging}\label{counting-frequencies-and-merging}}
+\addcontentsline{toc}{subsubsection}{2. Counting Frequencies and Merging}
+
+\textbf{2.1 Create a new data frame called \texttt{articles\_country\_year} that tells us the number of articles per \texttt{ccode} (i.e.~country code), per \texttt{year}.}
+
+\textbf{The final data frame \texttt{articles\_country\_year} should contain three columns: \texttt{ccode}, \texttt{year}, and \texttt{number\_articles}.}
+
+\textbf{Print the first 6 rows of the \texttt{articles\_country\_year}.}
+
+\textbf{Hint}: The \texttt{count} function -- part of the \texttt{plyr} package -- might be helpful.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{articles_country_year <-}\StringTok{ }\NormalTok{articles_no_na }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{count}\NormalTok{(ccode, year) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(ccode, year, }\DataTypeTok{number_articles =}\NormalTok{ n)}
+
+\KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(articles_country_year))}
+\end{Highlighting}
+\end{Shaded}
+
+ccode
+
+year
+
+number\_articles
+
+20
+
+1980
+
+4
+
+20
+
+1981
+
+9
+
+20
+
+1982
+
+4
+
+20
+
+1983
+
+4
+
+20
+
+1984
+
+6
+
+20
+
+1985
+
+1
+
+\textbf{2.2. Load \texttt{data/country-year.csv} (this is the country-year data we worked with during the last assignment.)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{country_year <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/country-year.csv"}\NormalTok{, }\DataTypeTok{stringsAsFactors =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.3 Subset \texttt{country\_year} such that it has the same year range as \texttt{articles\_country\_year}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{range}\NormalTok{(articles_country_year}\OperatorTok{$}\NormalTok{year)}
+\CommentTok{#> [1] 1980 2014}
+\KeywordTok{range}\NormalTok{(country_year}\OperatorTok{$}\NormalTok{year)}
+\CommentTok{#> [1] 1979 2014}
+
+\NormalTok{country_year <-country_year }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(year }\OperatorTok{>}\StringTok{ }\DecValTok{1979}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.4 Merge (i.e.~join) \texttt{articles\_country\_year} and \texttt{country\_year} into a new dataframe called \texttt{merged}.}
+
+\textbf{When you're done, \texttt{merged} should have all the rows and columns of the country\_year dataset, along with a new column called \texttt{number\_articles}.}
+
+\textbf{Print the first 6 rows of this new dataframe \texttt{merged}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{merged <-}\StringTok{ }\NormalTok{country_year }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(articles_country_year)}
+\CommentTok{#> Joining, by = c("year", "ccode")}
+
+\KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(merged))}
+\end{Highlighting}
+\end{Shaded}
+
+X
+
+year
+
+ccode
+
+country
+
+idealpoint
+
+polity2
+
+physint
+
+speech
+
+gdp.pc.wdi
+
+pop.wdi
+
+amnesty
+
+cinc
+
+region
+
+number\_articles
+
+156
+
+1980
+
+700
+
+Afghanistan
+
+-1.560
+
+NA
+
+NA
+
+NA
+
+276
+
+13180431
+
+5
+
+0.001
+
+MENA
+
+NA
+
+157
+
+1980
+
+540
+
+Angola
+
+-1.176
+
+-7
+
+NA
+
+NA
+
+NA
+
+7637141
+
+3
+
+0.001
+
+Africa
+
+NA
+
+158
+
+1980
+
+339
+
+Albania
+
+-1.564
+
+-9
+
+NA
+
+NA
+
+NA
+
+2671997
+
+3
+
+0.001
+
+EECA
+
+NA
+
+159
+
+1980
+
+696
+
+United Arab Emirates
+
+-0.315
+
+-8
+
+NA
+
+NA
+
+42962
+
+1014825
+
+NA
+
+0.001
+
+MENA
+
+NA
+
+160
+
+1980
+
+160
+
+Argentina
+
+0.128
+
+-9
+
+NA
+
+NA
+
+2737
+
+28120135
+
+5
+
+0.007
+
+LA
+
+NA
+
+161
+
+1980
+
+900
+
+Australia
+
+1.423
+
+10
+
+NA
+
+NA
+
+10188
+
+14692000
+
+NA
+
+0.007
+
+West
+
+3
+
+\textbf{2.5 In \texttt{merged}, replace all instances of \texttt{NA} in the \texttt{number\_articles} column to 0.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# solution 1 - base R}
+\NormalTok{merged}\OperatorTok{$}\NormalTok{number_articles[}\KeywordTok{is.na}\NormalTok{(merged}\OperatorTok{$}\NormalTok{number_articles)] <-}\StringTok{ }\DecValTok{0}
+
+\CommentTok{# solution 2 - tidyr}
+\NormalTok{merged}\OperatorTok{$}\NormalTok{number_articles <-}\StringTok{ }\KeywordTok{replace_na}\NormalTok{(merged}\OperatorTok{$}\NormalTok{number_articles, }\DecValTok{0}\NormalTok{)}
+
+\CommentTok{# solution 3 - dplyr}
+\NormalTok{merged <-}\StringTok{ }\NormalTok{merged }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{number_articles =} \KeywordTok{ifelse}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(number_articles), }\DecValTok{0}\NormalTok{, number_articles))}
+
+\CommentTok{# test}
+\KeywordTok{summary}\NormalTok{(merged}\OperatorTok{$}\NormalTok{number_articles)}
+\CommentTok{#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. }
+\CommentTok{#>     0.0     0.0     0.0     0.7     0.0    99.0}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.6 Which country-year observation has the most number of articles? Write code that prints the year, country name, and number of articles for this observation.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# solution #1 -- base R}
+\NormalTok{merged[}\KeywordTok{which.max}\NormalTok{(merged}\OperatorTok{$}\NormalTok{number_articles),}\KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"country"}\NormalTok{, }\StringTok{"number_articles"}\NormalTok{)]}
+\CommentTok{#>      year country number_articles}
+\CommentTok{#> 5950 2013   India              99}
+
+\CommentTok{# solution #2 -- tidyverse}
+\NormalTok{merged }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{top_n}\NormalTok{(}\DecValTok{1}\NormalTok{, number_articles) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(year, country, number_articles)}
+\CommentTok{#>   year country number_articles}
+\CommentTok{#> 1 2013   India              99}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{group-wise-operations}{%
+\subsubsection*{3. Group-wise Operations}\label{group-wise-operations}}
+\addcontentsline{toc}{subsubsection}{3. Group-wise Operations}
+
+\textbf{3.1 Using the \texttt{merged} data and our \textbf{split-apply-combine} strategies, print the total number of articles about women per region.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n_region <-}\StringTok{ }\NormalTok{merged }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(region) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{sum}\NormalTok{(number_articles, }\DataTypeTok{na.rm =}\NormalTok{ T))}
+
+\NormalTok{n_region}
+\CommentTok{#> # A tibble: 7 x 2}
+\CommentTok{#>   region count}
+\CommentTok{#>   <chr>  <dbl>}
+\CommentTok{#> 1 Africa   464}
+\CommentTok{#> 2 Asia    1288}
+\CommentTok{#> 3 EECA     251}
+\CommentTok{#> 4 LA       328}
+\CommentTok{#> 5 MENA     940}
+\CommentTok{#> 6 West    1159}
+\CommentTok{#> # ... with 1 more row}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{long-v.-wide-formats}{%
+\subsubsection*{4. Long v. wide formats}\label{long-v.-wide-formats}}
+\addcontentsline{toc}{subsubsection}{4. Long v. wide formats}
+
+\textbf{4.1 Create a piped operation on \texttt{merged} that does the following:}
+
+\textbf{1. Subsets the dataframe to select \texttt{year}, \texttt{country}, and \texttt{number\_articles} columns.}
+\textbf{2. Filters the dataframe to select only observations in the MENA region.}
+\textbf{3. Spreads the dataframe so that each \texttt{country} is a column, and the cells represent `number\_articles.}
+
+\textbf{Print the first 6 rows of this transformed data frame.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wide <-}\StringTok{ }\NormalTok{merged }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(region }\OperatorTok{==}\StringTok{ "MENA"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(year, country, number_articles) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{spread}\NormalTok{(country, number_articles, }\DataTypeTok{fill =} \DecValTok{0}\NormalTok{)}
+
+\KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(wide))}
+\end{Highlighting}
+\end{Shaded}
+
+year
+
+Afghanistan
+
+Algeria
+
+Bahrain
+
+Egypt
+
+Iran
+
+Iraq
+
+Israel
+
+Jordan
+
+Kuwait
+
+Lebanon
+
+Libya
+
+Morocco
+
+Oman
+
+Palestine
+
+Qatar
+
+Saudi Arabia
+
+South Sudan
+
+Sudan
+
+Syria
+
+Tunisia
+
+Turkey
+
+United Arab Emirates
+
+Yemen Arab Republic
+
+Yemen People's Republic
+
+1980
+
+0
+
+0
+
+0
+
+0
+
+4
+
+0
+
+9
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1981
+
+1
+
+0
+
+0
+
+2
+
+1
+
+0
+
+2
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1982
+
+0
+
+0
+
+0
+
+1
+
+2
+
+1
+
+6
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1983
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+2
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1984
+
+0
+
+0
+
+0
+
+3
+
+0
+
+0
+
+3
+
+0
+
+1
+
+2
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1985
+
+0
+
+0
+
+0
+
+6
+
+0
+
+0
+
+1
+
+0
+
+1
+
+3
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+\textbf{4.2 Transform the dataset you created above back into \texttt{long} format, with three variables: \texttt{year}, \texttt{country}, and \texttt{number\_articles}}
+
+\textbf{Print the first 6 rows of this transformed data frame.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{long <-}\StringTok{ }\NormalTok{wide }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{gather}\NormalTok{(country, number_articles, }\OperatorTok{-}\NormalTok{year)}
+
+\KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(long))}
+\end{Highlighting}
+\end{Shaded}
+
+year
+
+country
+
+number\_articles
+
+1980
+
+Afghanistan
+
+0
+
+1981
+
+Afghanistan
+
+1
+
+1982
+
+Afghanistan
+
+0
+
+1983
+
+Afghanistan
+
+0
+
+1984
+
+Afghanistan
+
+0
+
+1985
+
+Afghanistan
+
+0
+
+\hypertarget{extra-credit}{%
+\subsubsection{Extra Credit}\label{extra-credit}}
+
+\textbf{This question is not required. But it you want an extra challenge\ldots{}.}
+
+\textbf{Transform the \texttt{country\_year} data into an undirected dyadic dataset. Here, the unit of observation should be the dyad-year, with five columns:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{ccode\_1}: Country 1 \texttt{ccode}
+\item
+  \texttt{country\_1}: Country 1 name
+\item
+  \texttt{ccode\_2}: Country 2 \texttt{ccode}
+\item
+  \texttt{country\_2}: Country 2 name
+\item
+  \texttt{year}: Year of observation
+\item
+  \texttt{gdp\_diff}: Absolute difference of gdp between dyad.
+\end{enumerate}
+
+\textbf{This should be \emph{undirected} dyadic dataset, meaning \texttt{USA-Canada-1980} is the same as \texttt{Canada-USA-1980}, and we shouldn't have duplicate rows for the same dyad.}
+
+\textbf{Try to do it all in 1 piped sequence. Then tell me the dyad-year with the greatest wealth disparity.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dyad <-}\StringTok{ }\NormalTok{country_year }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{expand}\NormalTok{(}\DataTypeTok{ccode_1=}\NormalTok{ccode, }\DataTypeTok{ccode_2=}\NormalTok{ccode) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# make two columns of states}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(ccode_}\DecValTok{1} \OperatorTok{>}\StringTok{ }\NormalTok{ccode_}\DecValTok{2}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# from directed to undirected dyads}
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(., country_year, }\DataTypeTok{by=}\KeywordTok{c}\NormalTok{(}\StringTok{"ccode_1"}\NormalTok{=}\StringTok{"ccode"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# get state1 info}
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(., country_year, }\DataTypeTok{by=}\KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"ccode_2"}\NormalTok{=}\StringTok{"ccode"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# get state2 info }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{gdp_diff =} \KeywordTok{abs}\NormalTok{(gdp.pc.wdi.x }\OperatorTok{-}\StringTok{ }\NormalTok{gdp.pc.wdi.y)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# take absolute difference in gdp}
+\StringTok{  }\KeywordTok{select}\NormalTok{(ccode_}\DecValTok{1}\NormalTok{, }\DataTypeTok{country_1 =}\NormalTok{ country.x, ccode_}\DecValTok{2}\NormalTok{, }\DataTypeTok{country_2 =}\NormalTok{ country.y, year, gdp_diff) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(gdp_diff))}
+
+\KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(dyad))}
+\end{Highlighting}
+\end{Shaded}
+
+ccode\_1
+
+country\_1
+
+ccode\_2
+
+country\_2
+
+year
+
+gdp\_diff
+
+516
+
+Burundi
+
+221
+
+Monaco
+
+2008
+
+193705
+
+450
+
+Liberia
+
+221
+
+Monaco
+
+2008
+
+193661
+
+531
+
+Eritrea
+
+221
+
+Monaco
+
+2008
+
+193636
+
+553
+
+Malawi
+
+221
+
+Monaco
+
+2008
+
+193590
+
+490
+
+Democratic Republic of the Congo
+
+221
+
+Monaco
+
+2008
+
+193566
+
+530
+
+Ethiopia
+
+221
+
+Monaco
+
+2008
+
+193565
+
+\hypertarget{assignment-5-solutions}{%
+\section{Assignment 5 Solutions}\label{assignment-5-solutions}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Assigned}: Nov 5, 2019
+\item
+  \textbf{Due}: Nov 12, 2019 at 12:29pm.
+\end{itemize}
+
+For this problem set, we'll be working with the country-year data introduced in the last assignment. As a reminder, the dataset contains the following variables:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{year}: Year.
+\item
+  \texttt{ccode}: Country numerical code.
+\item
+  \texttt{country}: Country name.
+\item
+  \texttt{idealpoint} UN Ideal point.
+\item
+  \texttt{polity2}: Polity2 score of regime type (from Polity IV).
+\item
+  \texttt{physint}: Physical Integrity Rights score (from CIRI dataset).
+\item
+  \texttt{speech}: Speech Rights score (from CIRI).
+\item
+  \texttt{gdp.pc.wdi}: GDP per capita (from World Bank).
+\item
+  \texttt{pop.wdi}: Population (from World Bank).
+\item
+  \texttt{amnesty}: Political Terror Scale using Amnesty International reports (from Political Terror Scale project).
+\item
+  \texttt{cinc}: Composite Index of Military Capabilities (Correlates of War).
+\item
+  \texttt{region}: Geographic region.
+\end{itemize}
+
+\hypertarget{getting-started}{%
+\subsubsection*{1. Getting Started}\label{getting-started}}
+\addcontentsline{toc}{subsubsection}{1. Getting Started}
+
+\textbf{1.1 Read \texttt{data/country-year.csv} into R, using a relative path. Store it in an object called \texttt{dat}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(stargazer)}
+\NormalTok{dat <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"Data/country-year.csv"}\NormalTok{, }\DataTypeTok{stringsAsFactors =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{plotting-1}{%
+\subsubsection*{2. Plotting}\label{plotting-1}}
+\addcontentsline{toc}{subsubsection}{2. Plotting}
+
+\textbf{2.1 Write code that reproduces ``plots/Plot\_1.jpeg''. (No need to write the file.)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Density of population}
+\NormalTok{d <-}\StringTok{ }\KeywordTok{density}\NormalTok{(}\KeywordTok{log}\NormalTok{(dat}\OperatorTok{$}\NormalTok{pop.wdi), }\DataTypeTok{na.rm =}\NormalTok{ T, }\DataTypeTok{bw =} \FloatTok{.2}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(d, }\DataTypeTok{main =} \StringTok{"Summary of Population (Logged)"}\NormalTok{) }
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h =} \KeywordTok{max}\NormalTok{(d}\OperatorTok{$}\NormalTok{y), }\DataTypeTok{v =} \FloatTok{16.09}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-548-1} \end{center}
+
+\textbf{2.2 Write code that reproduces ``plots/Plot\_2.jpeg''. (No need to write the file.)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get summary data}
+\NormalTok{country_means <-}\StringTok{ }\NormalTok{dat }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(region)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(country) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{gdp =} \KeywordTok{mean}\NormalTok{(gdp.pc.wdi, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{polity =} \KeywordTok{mean}\NormalTok{(polity2, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{cinc =} \KeywordTok{mean}\NormalTok{(cinc, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{region =}\NormalTok{ region[}\DecValTok{1}\NormalTok{])}
+
+\CommentTok{# plot}
+\KeywordTok{ggplot}\NormalTok{(country_means, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ polity, }\DataTypeTok{y =} \KeywordTok{log10}\NormalTok{(gdp))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{color =}\NormalTok{ region)) }\OperatorTok{+}
+\StringTok{  }\CommentTok{#scale_y_log10() +}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"red"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Mean GDP (Logged) "}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Mean Polity Score"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Average Polity Score by GDP, 1979-2014"}\NormalTok{) }
+\CommentTok{#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'}
+\CommentTok{#> Warning: Removed 33 rows containing non-finite values (stat_smooth).}
+\CommentTok{#> Warning: Removed 33 rows containing missing values (geom_point).}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-549-1} \end{center}
+
+\textbf{2.3 Write code that reproduces ``plots/Plot\_3.jpeg''. (No need to write the file.)}
+
+\textbf{Hint: The fall-inspired colors are \#771C19, \#E25033, \#F27314, \#F8A31B}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# military capabilities}
+\NormalTok{top_cinc <-}\StringTok{ }\NormalTok{country_means }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{top_n}\NormalTok{(}\DecValTok{10}\NormalTok{, cinc)}
+
+\CommentTok{# Fall theme}
+\NormalTok{rhg_cols =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"#771C19"}\NormalTok{,}\StringTok{"#E25033"}\NormalTok{,}\StringTok{"#F27314"}\NormalTok{, }\StringTok{"#F8A31B"}\NormalTok{)}
+
+\CommentTok{# plot}
+\KeywordTok{ggplot}\NormalTok{(top_cinc, }\KeywordTok{aes}\NormalTok{(}\KeywordTok{reorder}\NormalTok{(country, cinc), cinc, }\DataTypeTok{fill =}\NormalTok{ region)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{7}\NormalTok{, }\DataTypeTok{angle=}\DecValTok{45}\NormalTok{, }\DataTypeTok{hjust=}\DecValTok{1}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Composite Index of Military Capabilities"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Country"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Top 10 Military Capabilities, in Fall Colors"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_manual}\NormalTok{(}\DataTypeTok{values =}\NormalTok{ rhg_cols)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-550-1} \end{center}
+
+\textbf{2.4 Write code that reproduces ``plots/Plot\_4.jpeg''. (No need to write the file.)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# prepare data}
+\NormalTok{year_means <-}\StringTok{ }\NormalTok{dat }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(region)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(year, region) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{gdp =} \KeywordTok{mean}\NormalTok{(gdp.pc.wdi, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{polity =} \KeywordTok{mean}\NormalTok{(polity2, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{physint =} \KeywordTok{mean}\NormalTok{(physint, }\DataTypeTok{na.rm =}\NormalTok{ T)) }
+
+\CommentTok{# plot}
+\KeywordTok{ggplot}\NormalTok{(year_means, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ year, }\DataTypeTok{y =}\NormalTok{ polity, }\DataTypeTok{color =}\NormalTok{ region)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{size=}\DecValTok{2}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Average Polity Score"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Year"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Average Polity Score Over Time"}\NormalTok{)}
+\CommentTok{#> Warning: Removed 6 rows containing missing values (geom_path).}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-551-1} \end{center}
+
+\hypertarget{models}{%
+\subsubsection*{3. Models}\label{models}}
+\addcontentsline{toc}{subsubsection}{3. Models}
+
+\textbf{3.1 Write code that reproduces the model summary table ``reg\_table.txt'' (and writes the file).}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod}\FloatTok{.1}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(physint }\OperatorTok{~}\StringTok{ }\NormalTok{polity2, }\DataTypeTok{data =}\NormalTok{ dat)}
+\NormalTok{mod}\FloatTok{.2}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(physint }\OperatorTok{~}\StringTok{ }\NormalTok{polity2 }\OperatorTok{+}\StringTok{ }\KeywordTok{log}\NormalTok{(gdp.pc.wdi), }\DataTypeTok{data =}\NormalTok{ dat)}
+\NormalTok{mod}\FloatTok{.3}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(physint }\OperatorTok{~}\StringTok{ }\NormalTok{polity2 }\OperatorTok{+}\StringTok{ }\KeywordTok{log}\NormalTok{(gdp.pc.wdi) }\OperatorTok{+}\StringTok{ }\NormalTok{region, }\DataTypeTok{data =}\NormalTok{ dat)}
+
+\KeywordTok{stargazer}\NormalTok{(mod}\FloatTok{.1}\NormalTok{, mod}\FloatTok{.2}\NormalTok{, mod}\FloatTok{.3}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Regression Results"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"text"}\NormalTok{, }
+          \DataTypeTok{covariate.labels  =} \KeywordTok{c}\NormalTok{(}\StringTok{"Polity2"}\NormalTok{, }\StringTok{"GDP per capita, logged"}\NormalTok{, }\StringTok{"Asia"}\NormalTok{, }\StringTok{"Eastern Europe"}\NormalTok{, }\StringTok{"Latin America"}\NormalTok{, }\StringTok{"MENA"}\NormalTok{, }\StringTok{"West"}\NormalTok{, }\StringTok{"Constant"}\NormalTok{), }
+          \DataTypeTok{dep.var.labels =} \StringTok{"DV: Physical Integrity"}\NormalTok{,}
+          \DataTypeTok{omit =} \StringTok{"Constant"}\NormalTok{, }
+          \DataTypeTok{keep.stat=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"ajps"}\NormalTok{,}
+          \DataTypeTok{out =} \StringTok{"reg_table.txt"}\NormalTok{)}
+\CommentTok{#> }
+\CommentTok{#> Regression Results}
+\CommentTok{#> --------------------------------------------------}
+\CommentTok{#>                          DV: Physical Integrity   }
+\CommentTok{#>                        Model 1  Model 2   Model 3 }
+\CommentTok{#> --------------------------------------------------}
+\CommentTok{#> Polity2                0.124*** 0.064*** 0.033*** }
+\CommentTok{#>                        (0.004)  (0.005)   (0.005) }
+\CommentTok{#> GDP per capita, logged          0.503*** 0.493*** }
+\CommentTok{#>                                 (0.021)   (0.028) }
+\CommentTok{#> Asia                                     -1.170***}
+\CommentTok{#>                                           (0.101) }
+\CommentTok{#> Eastern Europe                            -0.033  }
+\CommentTok{#>                                           (0.109) }
+\CommentTok{#> Latin America                            -0.769***}
+\CommentTok{#>                                           (0.097) }
+\CommentTok{#> MENA                                     -1.460***}
+\CommentTok{#>                                           (0.116) }
+\CommentTok{#> West                                     0.604*** }
+\CommentTok{#>                                           (0.138) }
+\CommentTok{#> N                        4336     4141     4141   }
+\CommentTok{#> --------------------------------------------------}
+\CommentTok{#> ***p < .01; **p < .05; *p < .1}
 \end{Highlighting}
 \end{Shaded}
 

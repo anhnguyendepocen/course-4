@@ -105,6 +105,10 @@ __Common HTML tags__
 knitr::include_graphics(path = "img/html-attributes.png")
 ```
 
+* Sometimes we can find the data we want just by using HTML tags or attributes (e.g, all the `<a>` tags)
+* More often, this isn't enough: There might be 1000 `<a>` tags on a page. But maybe we want only the `<a>` tags *inside* of a `<p>` tag.
+* Enter CSS
+
 ### CSS
 
 CSS stands for __Cascading Style Sheet__. CSS defines how HTML elements are to be displayed.
@@ -120,7 +124,7 @@ You can piggyback on these to jump to the parts of the markup that contain the d
 #### CSS Anatomy {-}
 
 * Selectors
-    - Element selector: `p`)
+    - Element selector: `p`
     - Class selector:  `p class="blue"`
     - I.D. selector: `p id="blue"`
 
@@ -173,7 +177,7 @@ Find the CSS selectors for the following elements in the HTML above.
 
 ### Finding Elements with Selector Gadget
 
-Selector Gadget is a browser plugin to help you find HTML elements. Install Selector Gadget on your browser by following [these instructions(https://selectorgadget.com/). 
+Selector Gadget is a browser plugin to help you find HTML elements. Install Selector Gadget on your browser by following [these instructions](https://selectorgadget.com/). 
 
 Once installed, run Selector Gadget and simply click on the type of information you want to select from the webpage. Once this is selected, you can then click the pieces of information you **don't** want to keep. Do this until only the pieces you want to keep remain highlighted, then copy the selector from the bottom pane.
 
