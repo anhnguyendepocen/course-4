@@ -3031,7 +3031,7 @@ document1
 <span class="co">#&gt; ...</span></code></pre></div>
 <p>That’s a lot of results! Many elements on a page will have the same HTML tag. For instance, if you search for everything with the <code>a</code> tag, you’re likely to get a lot of stuff, much of which you don’t want.</p>
 <p>In our case, we only want the links corresponding to the speaker Dwight D. Eisenhower.</p>
-<p><img src="img/scraping_links.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="img/scraping-links.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Using selector gadget, we found out that the CSS selector for document’s speaker is <code>.diet-title a</code>.</p>
 <p>We can then modify our argument in <code>html_nodes</code> to look for this more specific CSS selector.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_nodes</span>(document1, <span class="st">&quot;.diet-title a&quot;</span>)

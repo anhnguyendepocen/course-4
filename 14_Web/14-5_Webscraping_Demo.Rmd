@@ -69,7 +69,7 @@ That's a lot of results! Many elements on a page will have the same HTML tag. Fo
 In our case, we only want the links corresponding to the speaker Dwight D. Eisenhower.
 
 ```{r echo = F}
-knitr::include_graphics(path = "img/scraping_links.png")
+knitr::include_graphics(path = "img/scraping-links.png")
 ```
 
 Using selector gadget, we found out that the CSS selector for document's speaker is `.diet-title a`.
