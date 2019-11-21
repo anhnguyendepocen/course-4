@@ -575,13 +575,13 @@ bechdel &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot"
 <span class="co">#&gt;   high    low medium </span>
 <span class="co">#&gt;      2      1      3</span>
 <span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-506-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-507-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>How would you relevel <code>f</code> to be in the correct order?</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">factor</span>(f, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>))
 
 <span class="co"># Test your code</span>
 <span class="kw">barplot</span>(<span class="kw">table</span>(f))</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-507-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-508-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="dataframes-1" class="section level4 unnumbered">
 <h4>4. Dataframes</h4>
@@ -2093,7 +2093,7 @@ dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 d &lt;-<span class="st"> </span><span class="kw">density</span>(<span class="kw">log</span>(dat<span class="op">$</span>pop.wdi), <span class="dt">na.rm =</span> T, <span class="dt">bw =</span> .<span class="dv">2</span>)
 <span class="kw">plot</span>(d, <span class="dt">main =</span> <span class="st">&quot;Summary of Population (Logged)&quot;</span>) 
 <span class="kw">abline</span>(<span class="dt">h =</span> <span class="kw">max</span>(d<span class="op">$</span>y), <span class="dt">v =</span> <span class="fl">16.09</span>, <span class="dt">lty =</span> <span class="dv">2</span>) </code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-547-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-548-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>2.2 Write code that reproduces “plots/Plot_2.jpeg”. (No need to write the file.)</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get summary data</span>
 country_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
@@ -2115,7 +2115,7 @@ country_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
 <span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span>
 <span class="co">#&gt; Warning: Removed 33 rows containing non-finite values (stat_smooth).</span>
 <span class="co">#&gt; Warning: Removed 33 rows containing missing values (geom_point).</span></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-548-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-549-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>2.3 Write code that reproduces “plots/Plot_3.jpeg”. (No need to write the file.)</strong></p>
 <p><strong>Hint: The fall-inspired colors are #771C19, #E25033, #F27314, #F8A31B</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># military capabilities</span>
@@ -2133,7 +2133,7 @@ rhg_cols =<span class="st"> </span><span class="kw">c</span>(<span class="st">&q
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Country&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Top 10 Military Capabilities, in Fall Colors&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> rhg_cols)</code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-549-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-550-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>2.4 Write code that reproduces “plots/Plot_4.jpeg”. (No need to write the file.)</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># prepare data</span>
 year_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
@@ -2150,7 +2150,7 @@ year_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Average Polity Score Over Time&quot;</span>)
 <span class="co">#&gt; Warning: Removed 6 rows containing missing values (geom_path).</span></code></pre></div>
-<p><img src="site1_files/figure-html/unnamed-chunk-550-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="site1_files/figure-html/unnamed-chunk-551-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="models" class="section level4 unnumbered">
 <h4>3. Models</h4>

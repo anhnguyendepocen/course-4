@@ -13,7 +13,10 @@ To demonstrate webscraping in R, we're going to collect records on presidential 
 
 Let's say we're interested in how presidents speak about "space exploration". On the website, we punch in this search term, and we get the [following 295 results](https://www.presidency.ucsb.edu/advanced-search?field-keywords=%22space+exploration%22&field-keywords2=&field-keywords3=&from%5Bdate%5D=&to%5Bdate%5D=&person2=&items_per_page=100). 
 
-Our goal is to scrape these records, and store pertenant information in a dataframe.
+Our goal is to scrape these records, and store pertenant information in a dataframe. We will be doing this in two steps:
+
+1. Write a function to scrape each individual record page (these notes).
+2. Use this function to loop through all results, and collect all pages (homework).
 
 Load the following packages to get started:
 
@@ -36,10 +39,10 @@ The package `RVest` allows us to:
 Let's start with step one. We use the `read_html` function to call the results URL and grab the HTML response. Store this result as an object.
 
 ```{r}
-space <- read_html("https://www.presidency.ucsb.edu/advanced-search?field-keywords=%22space+exploration%22&field-keywords2=&field-keywords3=&from%5Bdate%5D=&to%5Bdate%5D=&person2=&items_per_page=100")
+document1 <- read_html("https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration")
 
 #Let's take a look at the object we just created
-space
+document1
 ```
 This is pretty messy. We need to use `RVest` to make this information more useable.
 
@@ -58,28 +61,24 @@ The function `html_nodes` searches a parsed HTML object to find all the elements
 What does the example below do?
 
 ```{r}
-html_nodes(space, "a")
+html_nodes(document1, "a")
 ```
 
 That's a lot of results! Many elements on a page will have the same HTML tag. For instance, if you search for everything with the `a` tag, you're likely to get a lot of stuff, much of which you don't want. 
 
-In our case, we only want the links of Document Titles:
+In our case, we only want the links corresponding to the speaker Dwight D. Eisenhower.
 
-```{r}
+```{r echo = F}
 knitr::include_graphics(path = "img/scraping_links.png")
 ```
 
-What if we wanted to search for HTML tags **only** with certain attributes, like particular CSS classes?
+Using selector gadget, we found out that the CSS selector for document's speaker is `.diet-title a`.
 
-We can do this by modifying our argument in `html_nodes` to look for a more specific CSS tag.
+We can then modify our argument in `html_nodes` to look for this more specific CSS selector. 
 
-#### Selector Gadget {-}
-
-In order to easily identify these more specific tags, we can use __Selector Gadget__.
-
-Install Selector Gadget in your browser. Once installed, run Selector Gadget and simply click on the type of information you want to select from the webpage. Once this is selected, you can then click the pieces of information you **don't** want to keep. Do this until only the pieces you want to keep remain highlighted, then copy the selector from the bottom pane.
-
-You can use this new tag in `html_nodes`.
+```{r}
+html_nodes(document1, ".diet-title a")
+```
 
 ### Get Attributes and Text of Elements
 
@@ -106,6 +105,7 @@ You can access a tag's attributes using `html_attr`. For example, we often want 
 ```{r}
 speaker_link <- html_nodes(document1, ".diet-title a") %>% 
   html_attr("href")
+
 speaker_link
 ```
 
@@ -157,32 +157,19 @@ text %>% substr(1, 1000)
 
 ### Challenge 1: Make a function
 
-Make a function called `scrape_docs` that accepts a URL of an individual document, scrapes the page,  and returns a list containing the document's date, speaker, title, and full text.
+Make a function called `scrape_docs` that accepts a URL of an individual document, scrapes the page, and returns a list containing the document's date, speaker, title, and full text.
 
 This involves:
 
 - Requesting the HTML of the webpage using the full URL and RVest.
 - Using RVest to locate all elements on the page we want to save.
-- Saving each of these items into a list.
+- Storing each of these items into a list.
+- Returning this list.
 
-```{r}
-scrape_doc <- function(URL){
-  doc <- read_html(URL)
-  
-  speaker <- html_nodes(doc, ".diet-title a") %>% 
-                                        html_text()
-  
-  date <- html_nodes(doc, ".date-display-single") %>%
-                                        html_text() %>%
-                                        mdy()
-  
-  title <- html_nodes(doc, "h1") %>%
-                                        html_text()
-  
-  text <- html_nodes(doc, "div.field-docs-content") %>%
-                                        html_text()
-  
-  return(list(speaker = speaker, date = date, title = title, text = text))
+```{r eval = F}
+scrape_docs <- function(URL){
+
+  # YOUR CODE HERE
   
 }
 

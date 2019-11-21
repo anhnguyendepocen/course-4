@@ -2965,7 +2965,11 @@ by_month <span class="op">%&gt;%</span>
 <h2><span class="header-section-number">17.6</span> Scraping Presidential Statements</h2>
 <p>To demonstrate webscraping in R, we’re going to collect records on presidential statements here: <a href="https://www.presidency.ucsb.edu/" class="uri">https://www.presidency.ucsb.edu/</a></p>
 <p>Let’s say we’re interested in how presidents speak about “space exploration”. On the website, we punch in this search term, and we get the <a href="https://www.presidency.ucsb.edu/advanced-search?field-keywords=%22space+exploration%22&amp;field-keywords2=&amp;field-keywords3=&amp;from%5Bdate%5D=&amp;to%5Bdate%5D=&amp;person2=&amp;items_per_page=100">following 295 results</a>.</p>
-<p>Our goal is to scrape these records, and store pertenant information in a dataframe.</p>
+<p>Our goal is to scrape these records, and store pertenant information in a dataframe. We will be doing this in two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Write a function to scrape each individual record page (these notes).</li>
+<li>Use this function to loop through all results, and collect all pages (homework).</li>
+</ol>
 <p>Load the following packages to get started:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(rvest)
@@ -2981,10 +2985,10 @@ by_month <span class="op">%&gt;%</span>
 <li>Select and keep certain elements of the page that are of interest</li>
 </ol>
 <p>Let’s start with step one. We use the <code>read_html</code> function to call the results URL and grab the HTML response. Store this result as an object.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">space &lt;-<span class="st"> </span><span class="kw">read_html</span>(<span class="st">&quot;https://www.presidency.ucsb.edu/advanced-search?field-keywords=%22space+exploration%22&amp;field-keywords2=&amp;field-keywords3=&amp;from%5Bdate%5D=&amp;to%5Bdate%5D=&amp;person2=&amp;items_per_page=100&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">document1 &lt;-<span class="st"> </span><span class="kw">read_html</span>(<span class="st">&quot;https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration&quot;</span>)
 
 <span class="co">#Let&#39;s take a look at the object we just created</span>
-space
+document1
 <span class="co">#&gt; {html_document}</span>
 <span class="co">#&gt; &lt;html lang=&quot;en&quot; dir=&quot;ltr&quot; prefix=&quot;content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#&quot;&gt;</span>
 <span class="co">#&gt; [1] &lt;head profile=&quot;http://www.w3.org/1999/xhtml/vocab&quot;&gt;\n&lt;meta charset=&quot; ...</span>
@@ -3002,14 +3006,14 @@ space
 <p>Let’s search first for HTML tags.</p>
 <p>The function <code>html_nodes</code> searches a parsed HTML object to find all the elements with a particular HTML tag, and returns all of those elements.</p>
 <p>What does the example below do?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_nodes</span>(space, <span class="st">&quot;a&quot;</span>)
-<span class="co">#&gt; {xml_nodeset (229)}</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_nodes</span>(document1, <span class="st">&quot;a&quot;</span>)
+<span class="co">#&gt; {xml_nodeset (78)}</span>
 <span class="co">#&gt;  [1] &lt;a href=&quot;#main-content&quot; class=&quot;element-invisible element-focusable&quot; ...</span>
 <span class="co">#&gt;  [2] &lt;a href=&quot;https://www.presidency.ucsb.edu/&quot;&gt;The American Presidency  ...</span>
 <span class="co">#&gt;  [3] &lt;a class=&quot;btn btn-default&quot; href=&quot;https://www.presidency.ucsb.edu/ab ...</span>
 <span class="co">#&gt;  [4] &lt;a class=&quot;btn btn-default&quot; href=&quot;/advanced-search&quot;&gt;&lt;span class=&quot;gly ...</span>
 <span class="co">#&gt;  [5] &lt;a href=&quot;https://www.ucsb.edu/&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;ucsb word ...</span>
-<span class="co">#&gt;  [6] &lt;a href=&quot;/documents&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; ...</span>
+<span class="co">#&gt;  [6] &lt;a href=&quot;/documents&quot; class=&quot;active-trail dropdown-toggle&quot; data-togg ...</span>
 <span class="co">#&gt;  [7] &lt;a href=&quot;/documents/presidential-documents-archive-guidebook&quot;&gt;Guide ...</span>
 <span class="co">#&gt;  [8] &lt;a href=&quot;/documents/category-attributes&quot;&gt;Category Attributes&lt;/a&gt;</span>
 <span class="co">#&gt;  [9] &lt;a href=&quot;/documents/proclamation-9895-national-maritime-day-2019&quot;&gt;D ...</span>
@@ -3018,25 +3022,21 @@ space
 <span class="co">#&gt; [12] &lt;a href=&quot;/presidents&quot; title=&quot;&quot;&gt;Presidents&lt;/a&gt;</span>
 <span class="co">#&gt; [13] &lt;a href=&quot;/analyses&quot; title=&quot;&quot;&gt;Analyses&lt;/a&gt;</span>
 <span class="co">#&gt; [14] &lt;a href=&quot;https://giving.ucsb.edu/Funds/Give?id=185&quot; title=&quot;&quot;&gt;Suppor ...</span>
-<span class="co">#&gt; [15] &lt;a href=&quot;https://www.presidency.ucsb.edu/how-to-search&quot;&gt;MORE TIPS&lt;/a&gt;</span>
-<span class="co">#&gt; [16] &lt;a id=&quot;main-content&quot;&gt;&lt;/a&gt;</span>
-<span class="co">#&gt; [17] &lt;a href=&quot;/advanced-search?field-keywords=%22space%20exploration%22&amp; ...</span>
-<span class="co">#&gt; [18] &lt;a href=&quot;/advanced-search?field-keywords=%22space%20exploration%22&amp; ...</span>
-<span class="co">#&gt; [19] &lt;a href=&quot;/people/president/dwight-d-eisenhower&quot;&gt;Dwight D. Eisenhowe ...</span>
-<span class="co">#&gt; [20] &lt;a href=&quot;/documents/special-message-the-congress-relative-space-sci ...</span>
+<span class="co">#&gt; [15] &lt;a href=&quot;/documents/presidential-documents-archive-guidebook&quot; title ...</span>
+<span class="co">#&gt; [16] &lt;a href=&quot;/documents&quot; title=&quot;&quot; class=&quot;active-trail&quot;&gt;Categories&lt;/a&gt;</span>
+<span class="co">#&gt; [17] &lt;a href=&quot;/documents/category-attributes&quot; title=&quot;&quot;&gt;Attributes&lt;/a&gt;</span>
+<span class="co">#&gt; [18] &lt;a href=&quot;/documents/app-categories/presidential&quot; title=&quot;Presidentia ...</span>
+<span class="co">#&gt; [19] &lt;a href=&quot;/documents/app-categories/spoken-addresses-and-remarks/pre ...</span>
+<span class="co">#&gt; [20] &lt;a href=&quot;/documents/app-categories/spoken-addresses-and-remarks/pre ...</span>
 <span class="co">#&gt; ...</span></code></pre></div>
 <p>That’s a lot of results! Many elements on a page will have the same HTML tag. For instance, if you search for everything with the <code>a</code> tag, you’re likely to get a lot of stuff, much of which you don’t want.</p>
-<p>In our case, we only want the links of Document Titles:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="dt">path =</span> <span class="st">&quot;img/scraping_links.png&quot;</span>)</code></pre></div>
+<p>In our case, we only want the links corresponding to the speaker Dwight D. Eisenhower.</p>
 <p><img src="img/scraping_links.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>What if we wanted to search for HTML tags <strong>only</strong> with certain attributes, like particular CSS classes?</p>
-<p>We can do this by modifying our argument in <code>html_nodes</code> to look for a more specific CSS tag.</p>
-<div id="selector-gadget" class="section level4 unnumbered">
-<h4>Selector Gadget</h4>
-<p>In order to easily identify these more specific tags, we can use <strong>Selector Gadget</strong>.</p>
-<p>Install Selector Gadget in your browser. Once installed, run Selector Gadget and simply click on the type of information you want to select from the webpage. Once this is selected, you can then click the pieces of information you <strong>don’t</strong> want to keep. Do this until only the pieces you want to keep remain highlighted, then copy the selector from the bottom pane.</p>
-<p>You can use this new tag in <code>html_nodes</code>.</p>
-</div>
+<p>Using selector gadget, we found out that the CSS selector for document’s speaker is <code>.diet-title a</code>.</p>
+<p>We can then modify our argument in <code>html_nodes</code> to look for this more specific CSS selector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_nodes</span>(document1, <span class="st">&quot;.diet-title a&quot;</span>)
+<span class="co">#&gt; {xml_nodeset (1)}</span>
+<span class="co">#&gt; [1] &lt;a href=&quot;/people/president/dwight-d-eisenhower&quot;&gt;Dwight D. Eisenhower ...</span></code></pre></div>
 </div>
 <div id="get-attributes-and-text-of-elements" class="section level3">
 <h3><span class="header-section-number">17.6.3</span> Get Attributes and Text of Elements</h3>
@@ -3058,6 +3058,7 @@ speaker
 <p>You can access a tag’s attributes using <code>html_attr</code>. For example, we often want to get a URL from an <code>a</code> (link) element. This is the URL is the link “points” to. It’s contained in the attribut <code>href</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">speaker_link &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(document1, <span class="st">&quot;.diet-title a&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">html_attr</span>(<span class="st">&quot;href&quot;</span>)
+
 speaker_link
 <span class="co">#&gt; [1] &quot;/people/president/dwight-d-eisenhower&quot;</span></code></pre></div>
 </div>
@@ -3109,25 +3110,12 @@ text <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sub
 <ul>
 <li>Requesting the HTML of the webpage using the full URL and RVest.</li>
 <li>Using RVest to locate all elements on the page we want to save.</li>
-<li>Saving each of these items into a list.</li>
+<li>Storing each of these items into a list.</li>
+<li>Returning this list.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrape_doc &lt;-<span class="st"> </span><span class="cf">function</span>(URL){
-  doc &lt;-<span class="st"> </span><span class="kw">read_html</span>(URL)
-  
-  speaker &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(doc, <span class="st">&quot;.diet-title a&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">                                        </span><span class="kw">html_text</span>()
-  
-  date &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(doc, <span class="st">&quot;.date-display-single&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">                                        </span><span class="kw">html_text</span>() <span class="op">%&gt;%</span>
-<span class="st">                                        </span><span class="kw">mdy</span>()
-  
-  title &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(doc, <span class="st">&quot;h1&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">                                        </span><span class="kw">html_text</span>()
-  
-  text &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(doc, <span class="st">&quot;div.field-docs-content&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">                                        </span><span class="kw">html_text</span>()
-  
-  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">speaker =</span> speaker, <span class="dt">date =</span> date, <span class="dt">title =</span> title, <span class="dt">text =</span> text))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrape_docs &lt;-<span class="st"> </span><span class="cf">function</span>(URL){
+
+  <span class="co"># YOUR CODE HERE</span>
   
 }
 
