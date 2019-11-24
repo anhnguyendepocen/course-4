@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  20 NOV 2019 18:54
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  24 NOV 2019 11:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -920,13 +920,16 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [3] [4])
+) [3] [4]
+Underfull \vbox (badness 6348) has occurred while \output is active []
+
+[5])
 \tf@toc=\write5
 \openout5 = `site1.toc'.
 
-[5] [6
+[6] [7
 
-] [7] [8]
+] [8]
 Chapter 1.
 [9
 
@@ -1674,81 +1677,137 @@ File: img/css-rule-2.png Graphic file (type bmp)
 [302] [303] [304] [305]
 File: img/scraping-links.png Graphic file (type bmp)
 <img/scraping-links.png>
-[306] [307] [308] [309
-
-] [310]
+[306] [307] [308]
 Chapter 18.
+[309
+
+] [310] [311] [312]
+File: site1_files/figure-latex/unnamed-chunk-509-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-509-1.pdf>
+[313] [314]
+File: site1_files/figure-latex/unnamed-chunk-512-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-512-1.pdf>
+[315] [316] [317] [318]
+Underfull \vbox (badness 3108) has occurred while \output is active []
+
+[319] [320] [321]
+Underfull \vbox (badness 2073) detected at line 15976
+ []
+
+[322] [323] [324] [325] [326] [327]
+Underfull \vbox (badness 10000) detected at line 16271
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 16271
+ []
+
+[328]
+Underfull \vbox (badness 1303) detected at line 16415
+ []
+
+[329]
+Underfull \vbox (badness 10000) detected at line 16415
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 16415
+ []
+
+[330]
+Underfull \vbox (badness 10000) detected at line 16415
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 16415
+ []
+
+[331]
+Underfull \vbox (badness 2717) has occurred while \output is active []
+
+[332]
+File: site1_files/figure-latex/unnamed-chunk-544-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-544-1.pdf>
+File: site1_files/figure-latex/unnamed-chunk-544-2.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-544-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[333] [334] [335
+
+] [336]
+Chapter 19.
 File: img/dany.jpg Graphic file (type bmp)
 <img/dany.jpg>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[311
+[337
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[312] [313] [314]
-File: site1_files/figure-latex/unnamed-chunk-507-1.pdf Graphic file (type pdf)
-<use site1_files/figure-latex/unnamed-chunk-507-1.pdf>
-File: site1_files/figure-latex/unnamed-chunk-508-1.pdf Graphic file (type pdf)
-<use site1_files/figure-latex/unnamed-chunk-508-1.pdf>
-[315] [316] [317] [318] [319] [320] [321] [322] [323] [324] [325] [326] [327] [
-328] [329] [330] [331] [332] [333] [334] [335]
-File: site1_files/figure-latex/unnamed-chunk-548-1.pdf Graphic file (type pdf)
-<use site1_files/figure-latex/unnamed-chunk-548-1.pdf>
+[338] [339] [340]
+File: site1_files/figure-latex/unnamed-chunk-554-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-554-1.pdf>
+File: site1_files/figure-latex/unnamed-chunk-555-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-555-1.pdf>
+[341] [342] [343] [344] [345] [346] [347] [348] [349] [350] [351] [352] [353] [
+354] [355] [356] [357] [358] [359] [360] [361]
+File: site1_files/figure-latex/unnamed-chunk-595-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-595-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[336]
-File: site1_files/figure-latex/unnamed-chunk-549-1.pdf Graphic file (type pdf)
-<use site1_files/figure-latex/unnamed-chunk-549-1.pdf>
+[362]
+File: site1_files/figure-latex/unnamed-chunk-596-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-596-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[337]
-File: site1_files/figure-latex/unnamed-chunk-550-1.pdf Graphic file (type pdf)
-<use site1_files/figure-latex/unnamed-chunk-550-1.pdf>
+[363]
+File: site1_files/figure-latex/unnamed-chunk-597-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-597-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[338]
-File: site1_files/figure-latex/unnamed-chunk-551-1.pdf Graphic file (type pdf)
-<use site1_files/figure-latex/unnamed-chunk-551-1.pdf>
+[364]
+File: site1_files/figure-latex/unnamed-chunk-598-1.pdf Graphic file (type pdf)
+<use site1_files/figure-latex/unnamed-chunk-598-1.pdf>
 
-Underfull \hbox (badness 4467) in paragraph at lines 16948--16949
+Underfull \hbox (badness 4467) in paragraph at lines 18171--18172
 \TU/lmr/bx/n/10 3.1 Write code that reproduces the model summary table
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[339] [340] [341
+[365] [366] [367
 
-] [342]
-Chapter 19.
+] [368]
+Chapter 20.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17012.
-[343
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 18235.
+[369
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 17012.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 18235.
 (./site1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 17012.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 17012
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 18235.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 18235
 .
 Package rerunfilecheck Info: File `site1.out' has not changed.
-(rerunfilecheck)             Checksum: 7C891A77290C4A89DC25485D7EE66328.
+(rerunfilecheck)             Checksum: 29B89D8E5B95C6DDE5533A9960B3CC08.
  ) 
 Here is how much of TeX's memory you used:
- 23361 strings out of 492970
- 444512 string characters out of 6133938
- 595236 words of memory out of 5000000
- 27018 multiletter control sequences out of 15000+600000
+ 23412 strings out of 492970
+ 445978 string characters out of 6133938
+ 601460 words of memory out of 5000000
+ 27065 multiletter control sequences out of 15000+600000
  551090 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,8n,54p,10446b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on site1.pdf (343 pages).
+Output written on site1.pdf (369 pages).

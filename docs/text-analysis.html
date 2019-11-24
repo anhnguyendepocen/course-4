@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 18 Text Analysis | PLSC 31101: Computational Tools for Social Science</title>
+  <meta name="description" content="This book contains course notes and other materials for PLSC 31101." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 18 Text Analysis | PLSC 31101: Computational Tools for Social Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://rochelleterman.github.io/plsc-31101/" />
+  
+  <meta property="og:description" content="This book contains course notes and other materials for PLSC 31101." />
+  <meta name="github-repo" content="rochelleterman/plsc-31101" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 18 Text Analysis | PLSC 31101: Computational Tools for Social Science" />
+  
+  <meta name="twitter:description" content="This book contains course notes and other materials for PLSC 31101." />
+  
+
+<meta name="author" content="Rochelle Terman" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="collecting-data-from-the-web.html"/>
+<link rel="next" href="assignments-1.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PLSC 31101</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Before Class</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#course-description"><i class="fa fa-check"></i><b>1.1</b> Course Description</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#who-should-take-this-course"><i class="fa fa-check"></i><b>1.2</b> Who should take this course</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#requirements-and-evaluation"><i class="fa fa-check"></i><b>1.3</b> Requirements and Evaluation</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#activities-and-materials"><i class="fa fa-check"></i><b>1.4</b> Activities and Materials</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#curriculum-outline-schedule"><i class="fa fa-check"></i><b>1.5</b> Curriculum Outline / Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#r-studio"><i class="fa fa-check"></i><b>2.2</b> R Studio</a></li>
+<li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#r-packages"><i class="fa fa-check"></i><b>2.3</b> R Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="installation.html"><a href="installation.html#latex"><i class="fa fa-check"></i><b>2.4</b> LaTex</a></li>
+<li class="chapter" data-level="2.5" data-path="installation.html"><a href="installation.html#the-bash-shell"><i class="fa fa-check"></i><b>2.5</b> The Bash Shell</a></li>
+<li class="chapter" data-level="2.6" data-path="installation.html"><a href="installation.html#git"><i class="fa fa-check"></i><b>2.6</b> Git</a></li>
+<li class="chapter" data-level="2.7" data-path="installation.html"><a href="installation.html#other-helpful-tools"><i class="fa fa-check"></i><b>2.7</b> Other helpful tools</a></li>
+<li class="chapter" data-level="2.8" data-path="installation.html"><a href="installation.html#testing-your-installation"><i class="fa fa-check"></i><b>2.8</b> Testing your installation</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="homework-rubric.html"><a href="homework-rubric.html"><i class="fa fa-check"></i><b>3</b> Homework Rubric</a></li>
+<li class="part"><span><b>II Course Notes</b></span></li>
+<li class="chapter" data-level="4" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>4</b> Introduction</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction.html"><a href="introduction.html#the-motivation"><i class="fa fa-check"></i><b>4.1</b> The Motivation</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction.html"><a href="introduction.html#about-this-class"><i class="fa fa-check"></i><b>4.2</b> About This Class</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction.html"><a href="introduction.html#learning-how-to-program"><i class="fa fa-check"></i><b>4.3</b> Learning How to Program</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>5</b> R Basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-basics.html"><a href="r-basics.html#what-is-r"><i class="fa fa-check"></i><b>5.1</b> What is R?</a></li>
+<li class="chapter" data-level="5.2" data-path="r-basics.html"><a href="r-basics.html#r-studio-1"><i class="fa fa-check"></i><b>5.2</b> R Studio</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-basics.html"><a href="r-basics.html#console"><i class="fa fa-check"></i><b>5.2.1</b> Console</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-basics.html"><a href="r-basics.html#scripts"><i class="fa fa-check"></i><b>5.2.2</b> Scripts</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-basics.html"><a href="r-basics.html#running-code"><i class="fa fa-check"></i><b>5.2.3</b> Running code</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-basics.html"><a href="r-basics.html#comments"><i class="fa fa-check"></i><b>5.2.4</b> Comments</a></li>
+<li class="chapter" data-level="5.2.5" data-path="r-basics.html"><a href="r-basics.html#diagnostics-and-errors"><i class="fa fa-check"></i><b>5.2.5</b> Diagnostics and errors</a></li>
+<li class="chapter" data-level="5.2.6" data-path="r-basics.html"><a href="r-basics.html#errors-messages-and-warnings"><i class="fa fa-check"></i><b>5.2.6</b> Errors, Messages, and Warnings</a></li>
+<li class="chapter" data-level="5.2.7" data-path="r-basics.html"><a href="r-basics.html#r-environment"><i class="fa fa-check"></i><b>5.2.7</b> R Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-basics.html"><a href="r-basics.html#r-packages-1"><i class="fa fa-check"></i><b>5.3</b> R Packages</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="r-basics.html"><a href="r-basics.html#installing-packages"><i class="fa fa-check"></i><b>5.3.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="5.3.2" data-path="r-basics.html"><a href="r-basics.html#loading-packages"><i class="fa fa-check"></i><b>5.3.2</b> Loading Packages</a></li>
+<li class="chapter" data-level="5.3.3" data-path="r-basics.html"><a href="r-basics.html#challenges"><i class="fa fa-check"></i><b>5.3.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="r-basics.html"><a href="r-basics.html#r-markdown"><i class="fa fa-check"></i><b>5.4</b> R Markdown</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="r-basics.html"><a href="r-basics.html#yaml-header"><i class="fa fa-check"></i><b>5.4.1</b> YAML header</a></li>
+<li class="chapter" data-level="5.4.2" data-path="r-basics.html"><a href="r-basics.html#markdown"><i class="fa fa-check"></i><b>5.4.2</b> Markdown</a></li>
+<li class="chapter" data-level="5.4.3" data-path="r-basics.html"><a href="r-basics.html#code-chunks"><i class="fa fa-check"></i><b>5.4.3</b> Code Chunks</a></li>
+<li class="chapter" data-level="5.4.4" data-path="r-basics.html"><a href="r-basics.html#knitting"><i class="fa fa-check"></i><b>5.4.4</b> Knitting</a></li>
+<li class="chapter" data-level="5.4.5" data-path="r-basics.html"><a href="r-basics.html#cheatsheets-and-other-resources"><i class="fa fa-check"></i><b>5.4.5</b> Cheatsheets and Other Resources</a></li>
+<li class="chapter" data-level="5.4.6" data-path="r-basics.html"><a href="r-basics.html#challenges-1"><i class="fa fa-check"></i><b>5.4.6</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-syntax.html"><a href="r-syntax.html"><i class="fa fa-check"></i><b>6</b> R Syntax</a><ul>
+<li class="chapter" data-level="6.1" data-path="r-syntax.html"><a href="r-syntax.html#variables"><i class="fa fa-check"></i><b>6.1</b> Variables</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="r-syntax.html"><a href="r-syntax.html#arithmetic"><i class="fa fa-check"></i><b>6.1.1</b> Arithmetic</a></li>
+<li class="chapter" data-level="6.1.2" data-path="r-syntax.html"><a href="r-syntax.html#assigning-variables"><i class="fa fa-check"></i><b>6.1.2</b> Assigning Variables</a></li>
+<li class="chapter" data-level="6.1.3" data-path="r-syntax.html"><a href="r-syntax.html#variable-names"><i class="fa fa-check"></i><b>6.1.3</b> Variable Names</a></li>
+<li class="chapter" data-level="6.1.4" data-path="r-syntax.html"><a href="r-syntax.html#challenges-2"><i class="fa fa-check"></i><b>6.1.4</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="r-syntax.html"><a href="r-syntax.html#functions"><i class="fa fa-check"></i><b>6.2</b> Functions</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="r-syntax.html"><a href="r-syntax.html#arguments"><i class="fa fa-check"></i><b>6.2.1</b> Arguments</a></li>
+<li class="chapter" data-level="6.2.2" data-path="r-syntax.html"><a href="r-syntax.html#store-function-output"><i class="fa fa-check"></i><b>6.2.2</b> Store Function Output</a></li>
+<li class="chapter" data-level="6.2.3" data-path="r-syntax.html"><a href="r-syntax.html#argument-restrictions-and-defaults"><i class="fa fa-check"></i><b>6.2.3</b> Argument Restrictions and Defaults</a></li>
+<li class="chapter" data-level="6.2.4" data-path="r-syntax.html"><a href="r-syntax.html#documentation-and-help-files"><i class="fa fa-check"></i><b>6.2.4</b> Documentation and Help Files</a></li>
+<li class="chapter" data-level="6.2.5" data-path="r-syntax.html"><a href="r-syntax.html#challenges-3"><i class="fa fa-check"></i><b>6.2.5</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="r-syntax.html"><a href="r-syntax.html#data-types"><i class="fa fa-check"></i><b>6.3</b> Data Types</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="r-syntax.html"><a href="r-syntax.html#whats-that-type"><i class="fa fa-check"></i><b>6.3.1</b> What’s that Type?</a></li>
+<li class="chapter" data-level="6.3.2" data-path="r-syntax.html"><a href="r-syntax.html#coercion"><i class="fa fa-check"></i><b>6.3.2</b> Coercion</a></li>
+<li class="chapter" data-level="6.3.3" data-path="r-syntax.html"><a href="r-syntax.html#other-objects"><i class="fa fa-check"></i><b>6.3.3</b> Other Objects</a></li>
+<li class="chapter" data-level="6.3.4" data-path="r-syntax.html"><a href="r-syntax.html#challenges-4"><i class="fa fa-check"></i><b>6.3.4</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html"><i class="fa fa-check"></i><b>7</b> Data Classes and Structures</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-vectors"><i class="fa fa-check"></i><b>7.1.1</b> Creating Vectors</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#naming-a-vector"><i class="fa fa-check"></i><b>7.1.2</b> Naming a Vector</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#calculations-on-vectors"><i class="fa fa-check"></i><b>7.1.3</b> Calculations on Vectors</a></li>
+<li class="chapter" data-level="7.1.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#types-of-vectors"><i class="fa fa-check"></i><b>7.1.4</b> Types of Vectors</a></li>
+<li class="chapter" data-level="7.1.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#coercion-1"><i class="fa fa-check"></i><b>7.1.5</b> Coercion</a></li>
+<li class="chapter" data-level="7.1.6" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-5"><i class="fa fa-check"></i><b>7.1.6</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#lists"><i class="fa fa-check"></i><b>7.2</b> Lists</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-lists"><i class="fa fa-check"></i><b>7.2.1</b> Creating Lists</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#naming-lists"><i class="fa fa-check"></i><b>7.2.2</b> Naming Lists</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#list-structure"><i class="fa fa-check"></i><b>7.2.3</b> List Structure</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-6"><i class="fa fa-check"></i><b>7.2.4</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#factors"><i class="fa fa-check"></i><b>7.3</b> Factors</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-factors"><i class="fa fa-check"></i><b>7.3.1</b> Creating Factors</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#summarizing-a-factor"><i class="fa fa-check"></i><b>7.3.2</b> Summarizing a Factor</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#changing-factor-levels"><i class="fa fa-check"></i><b>7.3.3</b> Changing Factor Levels</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#factors-are-integers"><i class="fa fa-check"></i><b>7.3.4</b> Factors are Integers</a></li>
+<li class="chapter" data-level="7.3.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-7"><i class="fa fa-check"></i><b>7.3.5</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrices"><i class="fa fa-check"></i><b>7.4</b> Matrices</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-matrices"><i class="fa fa-check"></i><b>7.4.1</b> Creating Matrices</a></li>
+<li class="chapter" data-level="7.4.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrix-dimensions"><i class="fa fa-check"></i><b>7.4.2</b> Matrix Dimensions</a></li>
+<li class="chapter" data-level="7.4.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#matrix-names"><i class="fa fa-check"></i><b>7.4.3</b> Matrix Names</a></li>
+<li class="chapter" data-level="7.4.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenge"><i class="fa fa-check"></i><b>7.4.4</b> Challenge</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#dataframes"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#creating-dataframes"><i class="fa fa-check"></i><b>7.5.1</b> Creating Dataframes</a></li>
+<li class="chapter" data-level="7.5.2" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#the-structure-of-dataframes"><i class="fa fa-check"></i><b>7.5.2</b> The Structure of Dataframes</a></li>
+<li class="chapter" data-level="7.5.3" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#naming-dataframes"><i class="fa fa-check"></i><b>7.5.3</b> Naming Dataframes</a></li>
+<li class="chapter" data-level="7.5.4" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#coercing-dataframes"><i class="fa fa-check"></i><b>7.5.4</b> Coercing Dataframes</a></li>
+<li class="chapter" data-level="7.5.5" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#challenges-8"><i class="fa fa-check"></i><b>7.5.5</b> Challenges</a></li>
+<li class="chapter" data-level="7.5.6" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#quiz"><i class="fa fa-check"></i><b>7.5.6</b> Quiz</a></li>
+<li class="chapter" data-level="7.5.7" data-path="data-classes-and-structures.html"><a href="data-classes-and-structures.html#data-structure-answers"><i class="fa fa-check"></i><b>7.5.7</b> Answers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a><ul>
+<li class="chapter" data-level="8.1" data-path="subsetting.html"><a href="subsetting.html#subsetting-vectors"><i class="fa fa-check"></i><b>8.1</b> Subsetting Vectors</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="subsetting.html"><a href="subsetting.html#subsetting-types"><i class="fa fa-check"></i><b>8.1.1</b> Subsetting Types</a></li>
+<li class="chapter" data-level="8.1.2" data-path="subsetting.html"><a href="subsetting.html#conditional-subsetting"><i class="fa fa-check"></i><b>8.1.2</b> Conditional Subsetting</a></li>
+<li class="chapter" data-level="8.1.3" data-path="subsetting.html"><a href="subsetting.html#challenge-1"><i class="fa fa-check"></i><b>8.1.3</b> Challenge</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="subsetting.html"><a href="subsetting.html#subsetting-lists"><i class="fa fa-check"></i><b>8.2</b> Subsetting Lists</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="subsetting.html"><a href="subsetting.html#with"><i class="fa fa-check"></i><b>8.2.1</b> With <code>[</code></a></li>
+<li class="chapter" data-level="8.2.2" data-path="subsetting.html"><a href="subsetting.html#with-1"><i class="fa fa-check"></i><b>8.2.2</b> With <code>[[</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="subsetting.html"><a href="subsetting.html#with-2"><i class="fa fa-check"></i><b>8.2.3</b> with <code>$</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="subsetting.html"><a href="subsetting.html#challenge-2"><i class="fa fa-check"></i><b>8.2.4</b> Challenge</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="subsetting.html"><a href="subsetting.html#subsetting-matrices"><i class="fa fa-check"></i><b>8.3</b> Subsetting Matrices</a></li>
+<li class="chapter" data-level="8.4" data-path="subsetting.html"><a href="subsetting.html#subsetting-dataframes"><i class="fa fa-check"></i><b>8.4</b> Subsetting Dataframes</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="subsetting.html"><a href="subsetting.html#subsetting-names-and"><i class="fa fa-check"></i><b>8.4.1</b> Subsetting Names and <code>$</code></a></li>
+<li class="chapter" data-level="8.4.2" data-path="subsetting.html"><a href="subsetting.html#conditional-subsetting-1"><i class="fa fa-check"></i><b>8.4.2</b> Conditional Subsetting</a></li>
+<li class="chapter" data-level="8.4.3" data-path="subsetting.html"><a href="subsetting.html#list-like-and-matrix-like-subsetting"><i class="fa fa-check"></i><b>8.4.3</b> List-Like and Matrix-Like Subsetting</a></li>
+<li class="chapter" data-level="8.4.4" data-path="subsetting.html"><a href="subsetting.html#challenges-9"><i class="fa fa-check"></i><b>8.4.4</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="subsetting.html"><a href="subsetting.html#sub-assignment"><i class="fa fa-check"></i><b>8.5</b> Sub-assignment</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="subsetting.html"><a href="subsetting.html#basics-of-sub-assignment"><i class="fa fa-check"></i><b>8.5.1</b> Basics of Sub-assignment</a></li>
+<li class="chapter" data-level="8.5.2" data-path="subsetting.html"><a href="subsetting.html#recycling"><i class="fa fa-check"></i><b>8.5.2</b> Recycling</a></li>
+<li class="chapter" data-level="8.5.3" data-path="subsetting.html"><a href="subsetting.html#applications"><i class="fa fa-check"></i><b>8.5.3</b> Applications</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>9</b> Working with Data</a><ul>
+<li class="chapter" data-level="9.1" data-path="working-with-data.html"><a href="working-with-data.html#project-workflow"><i class="fa fa-check"></i><b>9.1</b> Project Workflow</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="working-with-data.html"><a href="working-with-data.html#store-analyses-in-scripts-not-workspaces."><i class="fa fa-check"></i><b>9.1.1</b> Store Analyses in Scripts, Not Workspaces.</a></li>
+<li class="chapter" data-level="9.1.2" data-path="working-with-data.html"><a href="working-with-data.html#working-directories-and-paths"><i class="fa fa-check"></i><b>9.1.2</b> Working Directories and Paths</a></li>
+<li class="chapter" data-level="9.1.3" data-path="working-with-data.html"><a href="working-with-data.html#r-projects"><i class="fa fa-check"></i><b>9.1.3</b> R Projects</a></li>
+<li class="chapter" data-level="9.1.4" data-path="working-with-data.html"><a href="working-with-data.html#file-organization"><i class="fa fa-check"></i><b>9.1.4</b> File Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="working-with-data.html"><a href="working-with-data.html#introduction-to-data"><i class="fa fa-check"></i><b>9.2</b> Introduction to Data</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="working-with-data.html"><a href="working-with-data.html#wheres-my-data"><i class="fa fa-check"></i><b>9.2.1</b> Where’s my data?</a></li>
+<li class="chapter" data-level="9.2.2" data-path="working-with-data.html"><a href="working-with-data.html#data-storage"><i class="fa fa-check"></i><b>9.2.2</b> Data Storage</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="working-with-data.html"><a href="working-with-data.html#importing-and-exporting"><i class="fa fa-check"></i><b>9.3</b> Importing and Exporting</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="working-with-data.html"><a href="working-with-data.html#importing-data"><i class="fa fa-check"></i><b>9.3.1</b> Importing Data</a></li>
+<li class="chapter" data-level="9.3.2" data-path="working-with-data.html"><a href="working-with-data.html#exporting-data"><i class="fa fa-check"></i><b>9.3.2</b> Exporting Data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="working-with-data.html"><a href="working-with-data.html#exploring-data"><i class="fa fa-check"></i><b>9.4</b> Exploring Data</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="working-with-data.html"><a href="working-with-data.html#the-gapminder-dataset"><i class="fa fa-check"></i><b>9.4.1</b> The Gapminder Dataset</a></li>
+<li class="chapter" data-level="9.4.2" data-path="working-with-data.html"><a href="working-with-data.html#structure-and-dimensions"><i class="fa fa-check"></i><b>9.4.2</b> Structure and Dimensions</a></li>
+<li class="chapter" data-level="9.4.3" data-path="working-with-data.html"><a href="working-with-data.html#common-alterations"><i class="fa fa-check"></i><b>9.4.3</b> Common Alterations</a></li>
+<li class="chapter" data-level="9.4.4" data-path="working-with-data.html"><a href="working-with-data.html#summary-statistics"><i class="fa fa-check"></i><b>9.4.4</b> Summary statistics</a></li>
+<li class="chapter" data-level="9.4.5" data-path="working-with-data.html"><a href="working-with-data.html#review-of-subsetting"><i class="fa fa-check"></i><b>9.4.5</b> Review of Subsetting</a></li>
+<li class="chapter" data-level="9.4.6" data-path="working-with-data.html"><a href="working-with-data.html#basic-plotting"><i class="fa fa-check"></i><b>9.4.6</b> Basic Plotting</a></li>
+<li class="chapter" data-level="9.4.7" data-path="working-with-data.html"><a href="working-with-data.html#challenges-10"><i class="fa fa-check"></i><b>9.4.7</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>10</b> Data Transformation</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-transformation.html"><a href="data-transformation.html#introduction-1"><i class="fa fa-check"></i><b>10.1</b> Introduction</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="data-transformation.html"><a href="data-transformation.html#tidyverse"><i class="fa fa-check"></i><b>10.1.1</b> <code>tidyverse</code></a></li>
+<li class="chapter" data-level="10.1.2" data-path="data-transformation.html"><a href="data-transformation.html#gapminder"><i class="fa fa-check"></i><b>10.1.2</b> Gapminder</a></li>
+<li class="chapter" data-level="10.1.3" data-path="data-transformation.html"><a href="data-transformation.html#why-dplyr"><i class="fa fa-check"></i><b>10.1.3</b> Why <code>dplyr</code>?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="data-transformation.html"><a href="data-transformation.html#dplyr-functions"><i class="fa fa-check"></i><b>10.2</b> <code>dplyr</code> Functions</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="data-transformation.html"><a href="data-transformation.html#select-columns-with-select"><i class="fa fa-check"></i><b>10.2.1</b> Select Columns with <code>select</code></a></li>
+<li class="chapter" data-level="10.2.2" data-path="data-transformation.html"><a href="data-transformation.html#the-pipe"><i class="fa fa-check"></i><b>10.2.2</b> The Pipe</a></li>
+<li class="chapter" data-level="10.2.3" data-path="data-transformation.html"><a href="data-transformation.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>10.2.3</b> Filter Rows with <code>filter</code></a></li>
+<li class="chapter" data-level="10.2.4" data-path="data-transformation.html"><a href="data-transformation.html#calculate-across-groups-with-group_by"><i class="fa fa-check"></i><b>10.2.4</b> Calculate Across Groups with <code>group_by</code></a></li>
+<li class="chapter" data-level="10.2.5" data-path="data-transformation.html"><a href="data-transformation.html#summarize-across-groups-with-summarize"><i class="fa fa-check"></i><b>10.2.5</b> Summarize Across Groups with <code>summarize</code></a></li>
+<li class="chapter" data-level="10.2.6" data-path="data-transformation.html"><a href="data-transformation.html#add-new-variables-with-mutate"><i class="fa fa-check"></i><b>10.2.6</b> Add New Variables with <code>mutate</code></a></li>
+<li class="chapter" data-level="10.2.7" data-path="data-transformation.html"><a href="data-transformation.html#arrange-rows-with-arrange"><i class="fa fa-check"></i><b>10.2.7</b> Arrange Rows with <code>arrange</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="data-transformation.html"><a href="data-transformation.html#dplyr-and-non-standard-evaluation"><i class="fa fa-check"></i><b>10.3</b> <code>dplyr</code> and “Non-Standard Evaluation”</a></li>
+<li class="chapter" data-level="10.4" data-path="data-transformation.html"><a href="data-transformation.html#challenges-11"><i class="fa fa-check"></i><b>10.4</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="tidying-data.html"><a href="tidying-data.html"><i class="fa fa-check"></i><b>11</b> Tidying Data</a><ul>
+<li class="chapter" data-level="11.1" data-path="tidying-data.html"><a href="tidying-data.html#wide-vs.long-formats"><i class="fa fa-check"></i><b>11.1</b> Wide vs. Long Formats</a></li>
+<li class="chapter" data-level="11.2" data-path="tidying-data.html"><a href="tidying-data.html#tidying-the-gapminder-data"><i class="fa fa-check"></i><b>11.2</b> Tidying the Gapminder Data</a></li>
+<li class="chapter" data-level="11.3" data-path="tidying-data.html"><a href="tidying-data.html#tidyr-functions"><i class="fa fa-check"></i><b>11.3</b> <code>tidyr</code> Functions</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="tidying-data.html"><a href="tidying-data.html#gather"><i class="fa fa-check"></i><b>11.3.1</b> <code>gather</code></a></li>
+<li class="chapter" data-level="11.3.2" data-path="tidying-data.html"><a href="tidying-data.html#separate"><i class="fa fa-check"></i><b>11.3.2</b> <code>separate</code></a></li>
+<li class="chapter" data-level="11.3.3" data-path="tidying-data.html"><a href="tidying-data.html#spread"><i class="fa fa-check"></i><b>11.3.3</b> <code>spread</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="tidying-data.html"><a href="tidying-data.html#more-tidyverse"><i class="fa fa-check"></i><b>11.4</b> More <code>tidyverse</code></a></li>
+<li class="chapter" data-level="11.5" data-path="tidying-data.html"><a href="tidying-data.html#challenges-12"><i class="fa fa-check"></i><b>11.5</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>12</b> Relational Data</a><ul>
+<li class="chapter" data-level="12.1" data-path="relational-data.html"><a href="relational-data.html#why-relational-data"><i class="fa fa-check"></i><b>12.1</b> Why Relational Data</a></li>
+<li class="chapter" data-level="12.2" data-path="relational-data.html"><a href="relational-data.html#keys"><i class="fa fa-check"></i><b>12.2</b> Keys</a></li>
+<li class="chapter" data-level="12.3" data-path="relational-data.html"><a href="relational-data.html#joins"><i class="fa fa-check"></i><b>12.3</b> Joins</a></li>
+<li class="chapter" data-level="12.4" data-path="relational-data.html"><a href="relational-data.html#defining-keys"><i class="fa fa-check"></i><b>12.4</b> Defining Keys</a></li>
+<li class="chapter" data-level="12.5" data-path="relational-data.html"><a href="relational-data.html#duplicate-keys"><i class="fa fa-check"></i><b>12.5</b> Duplicate Keys</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>13</b> Plotting</a><ul>
+<li class="chapter" data-level="13.1" data-path="plotting.html"><a href="plotting.html#the-dataset"><i class="fa fa-check"></i><b>13.1</b> The Dataset</a></li>
+<li class="chapter" data-level="13.2" data-path="plotting.html"><a href="plotting.html#r-base-graphics"><i class="fa fa-check"></i><b>13.2</b> R Base Graphics</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="plotting.html"><a href="plotting.html#scatter-and-line-plots"><i class="fa fa-check"></i><b>13.2.1</b> Scatter and Line Plots</a></li>
+<li class="chapter" data-level="13.2.2" data-path="plotting.html"><a href="plotting.html#histograms-and-density-plots"><i class="fa fa-check"></i><b>13.2.2</b> Histograms and Density Plots</a></li>
+<li class="chapter" data-level="13.2.3" data-path="plotting.html"><a href="plotting.html#labels"><i class="fa fa-check"></i><b>13.2.3</b> Labels</a></li>
+<li class="chapter" data-level="13.2.4" data-path="plotting.html"><a href="plotting.html#axis-and-size-scaling"><i class="fa fa-check"></i><b>13.2.4</b> Axis and Size Scaling</a></li>
+<li class="chapter" data-level="13.2.5" data-path="plotting.html"><a href="plotting.html#graphical-parameters"><i class="fa fa-check"></i><b>13.2.5</b> Graphical Parameters</a></li>
+<li class="chapter" data-level="13.2.6" data-path="plotting.html"><a href="plotting.html#annotations-reference-lines-and-legends"><i class="fa fa-check"></i><b>13.2.6</b> Annotations, Reference Lines, and Legends</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="plotting.html"><a href="plotting.html#ggplot2"><i class="fa fa-check"></i><b>13.3</b> ggplot2</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="plotting.html"><a href="plotting.html#grammar"><i class="fa fa-check"></i><b>13.3.1</b> Grammar</a></li>
+<li class="chapter" data-level="13.3.2" data-path="plotting.html"><a href="plotting.html#anatomy-of-aes"><i class="fa fa-check"></i><b>13.3.2</b> Anatomy of <code>aes</code></a></li>
+<li class="chapter" data-level="13.3.3" data-path="plotting.html"><a href="plotting.html#layers"><i class="fa fa-check"></i><b>13.3.3</b> Layers</a></li>
+<li class="chapter" data-level="13.3.4" data-path="plotting.html"><a href="plotting.html#labels-1"><i class="fa fa-check"></i><b>13.3.4</b> Labels</a></li>
+<li class="chapter" data-level="13.3.5" data-path="plotting.html"><a href="plotting.html#transformations-and-stats"><i class="fa fa-check"></i><b>13.3.5</b> Transformations and Stats</a></li>
+<li class="chapter" data-level="13.3.6" data-path="plotting.html"><a href="plotting.html#facets"><i class="fa fa-check"></i><b>13.3.6</b> Facets</a></li>
+<li class="chapter" data-level="13.3.7" data-path="plotting.html"><a href="plotting.html#putting-everything-together"><i class="fa fa-check"></i><b>13.3.7</b> Putting Everything Together</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="plotting.html"><a href="plotting.html#saving-plots"><i class="fa fa-check"></i><b>13.4</b> Saving plots</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="statistical-inferences.html"><a href="statistical-inferences.html"><i class="fa fa-check"></i><b>14</b> Statistical Inferences</a><ul>
+<li class="chapter" data-level="14.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#statistical-distributions"><i class="fa fa-check"></i><b>14.1</b> Statistical Distributions</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#sampling-and-simulation"><i class="fa fa-check"></i><b>14.1.1</b> Sampling and Simulation</a></li>
+<li class="chapter" data-level="14.1.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#random-seeds"><i class="fa fa-check"></i><b>14.1.2</b> Random Seeds</a></li>
+<li class="chapter" data-level="14.1.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-13"><i class="fa fa-check"></i><b>14.1.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#inferences-and-regressions"><i class="fa fa-check"></i><b>14.2</b> Inferences and Regressions</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="statistical-inferences.html"><a href="statistical-inferences.html#statistical-tests"><i class="fa fa-check"></i><b>14.2.1</b> Statistical Tests</a></li>
+<li class="chapter" data-level="14.2.2" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regressions-and-linear-models"><i class="fa fa-check"></i><b>14.2.2</b> Regressions and Linear Models</a></li>
+<li class="chapter" data-level="14.2.3" data-path="statistical-inferences.html"><a href="statistical-inferences.html#regression-output"><i class="fa fa-check"></i><b>14.2.3</b> Regression Output</a></li>
+<li class="chapter" data-level="14.2.4" data-path="statistical-inferences.html"><a href="statistical-inferences.html#interactions"><i class="fa fa-check"></i><b>14.2.4</b> Interactions</a></li>
+<li class="chapter" data-level="14.2.5" data-path="statistical-inferences.html"><a href="statistical-inferences.html#formatting-regression-tables"><i class="fa fa-check"></i><b>14.2.5</b> Formatting Regression Tables</a></li>
+<li class="chapter" data-level="14.2.6" data-path="statistical-inferences.html"><a href="statistical-inferences.html#challenges-14"><i class="fa fa-check"></i><b>14.2.6</b> Challenges</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html"><i class="fa fa-check"></i><b>15</b> Strings and Regular Expressions</a><ul>
+<li class="chapter" data-level="15.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#string-basics"><i class="fa fa-check"></i><b>15.1</b> String Basics</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#creating-strings"><i class="fa fa-check"></i><b>15.1.1</b> Creating Strings</a></li>
+<li class="chapter" data-level="15.1.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#escape-and-special-characters"><i class="fa fa-check"></i><b>15.1.2</b> Escape and Special Characters</a></li>
+<li class="chapter" data-level="15.1.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#string-length"><i class="fa fa-check"></i><b>15.1.3</b> String length</a></li>
+<li class="chapter" data-level="15.1.4" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#combining-strings"><i class="fa fa-check"></i><b>15.1.4</b> Combining strings</a></li>
+<li class="chapter" data-level="15.1.5" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#subsetting-strings"><i class="fa fa-check"></i><b>15.1.5</b> Subsetting strings</a></li>
+<li class="chapter" data-level="15.1.6" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#locales"><i class="fa fa-check"></i><b>15.1.6</b> Locales</a></li>
+<li class="chapter" data-level="" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#challenges-15"><i class="fa fa-check"></i>Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#regular-expressions"><i class="fa fa-check"></i><b>15.2</b> Regular expressions</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#basic-matches"><i class="fa fa-check"></i><b>15.2.1</b> Basic matches</a></li>
+<li class="chapter" data-level="15.2.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#escape-characters"><i class="fa fa-check"></i><b>15.2.2</b> Escape Characters</a></li>
+<li class="chapter" data-level="15.2.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#anchors"><i class="fa fa-check"></i><b>15.2.3</b> Anchors</a></li>
+<li class="chapter" data-level="15.2.4" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#character-classes-and-alternatives"><i class="fa fa-check"></i><b>15.2.4</b> Character classes and alternatives</a></li>
+<li class="chapter" data-level="15.2.5" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#repetition"><i class="fa fa-check"></i><b>15.2.5</b> Repetition</a></li>
+<li class="chapter" data-level="15.2.6" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#regex-resources"><i class="fa fa-check"></i><b>15.2.6</b> Regex Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#common-tools"><i class="fa fa-check"></i><b>15.3</b> Common Tools</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#detect-matches"><i class="fa fa-check"></i><b>15.3.1</b> Detect matches</a></li>
+<li class="chapter" data-level="15.3.2" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#extract-matches"><i class="fa fa-check"></i><b>15.3.2</b> Extract matches</a></li>
+<li class="chapter" data-level="15.3.3" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#replacing-matches"><i class="fa fa-check"></i><b>15.3.3</b> Replacing matches</a></li>
+<li class="chapter" data-level="15.3.4" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#splitting"><i class="fa fa-check"></i><b>15.3.4</b> Splitting</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#other-types-of-patterns"><i class="fa fa-check"></i><b>15.4</b> Other types of patterns</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#stringi"><i class="fa fa-check"></i><b>15.4.1</b> stringi</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="strings-and-regular-expressions.html"><a href="strings-and-regular-expressions.html#acknowledgments-5"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="programming-in-r.html"><a href="programming-in-r.html"><i class="fa fa-check"></i><b>16</b> Programming in R</a><ul>
+<li class="chapter" data-level="16.1" data-path="programming-in-r.html"><a href="programming-in-r.html#conditional-flow"><i class="fa fa-check"></i><b>16.1</b> Conditional Flow</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="programming-in-r.html"><a href="programming-in-r.html#multiple-conditions"><i class="fa fa-check"></i><b>16.1.1</b> Multiple Conditions</a></li>
+<li class="chapter" data-level="16.1.2" data-path="programming-in-r.html"><a href="programming-in-r.html#complex-statements"><i class="fa fa-check"></i><b>16.1.2</b> Complex Statements</a></li>
+<li class="chapter" data-level="16.1.3" data-path="programming-in-r.html"><a href="programming-in-r.html#code-style"><i class="fa fa-check"></i><b>16.1.3</b> Code Style</a></li>
+<li class="chapter" data-level="16.1.4" data-path="programming-in-r.html"><a href="programming-in-r.html#if-vs.-if_else"><i class="fa fa-check"></i><b>16.1.4</b> <code>if</code> vs. <code>if_else</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="programming-in-r.html"><a href="programming-in-r.html#functions-1"><i class="fa fa-check"></i><b>16.2</b> Functions</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="programming-in-r.html"><a href="programming-in-r.html#why-write-functions"><i class="fa fa-check"></i><b>16.2.1</b> Why Write Functions?</a></li>
+<li class="chapter" data-level="16.2.2" data-path="programming-in-r.html"><a href="programming-in-r.html#anatomy-of-a-function"><i class="fa fa-check"></i><b>16.2.2</b> Anatomy of a Function</a></li>
+<li class="chapter" data-level="16.2.3" data-path="programming-in-r.html"><a href="programming-in-r.html#writing-a-function"><i class="fa fa-check"></i><b>16.2.3</b> Writing a Function</a></li>
+<li class="chapter" data-level="16.2.4" data-path="programming-in-r.html"><a href="programming-in-r.html#using-a-function"><i class="fa fa-check"></i><b>16.2.4</b> Using a Function</a></li>
+<li class="chapter" data-level="16.2.5" data-path="programming-in-r.html"><a href="programming-in-r.html#variable-scope"><i class="fa fa-check"></i><b>16.2.5</b> Variable Scope</a></li>
+<li class="chapter" data-level="16.2.6" data-path="programming-in-r.html"><a href="programming-in-r.html#arguments-1"><i class="fa fa-check"></i><b>16.2.6</b> Arguments</a></li>
+<li class="chapter" data-level="16.2.7" data-path="programming-in-r.html"><a href="programming-in-r.html#challenges-21"><i class="fa fa-check"></i><b>16.2.7</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="programming-in-r.html"><a href="programming-in-r.html#iteration"><i class="fa fa-check"></i><b>16.3</b> Iteration</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="programming-in-r.html"><a href="programming-in-r.html#vectorized-functions"><i class="fa fa-check"></i><b>16.3.1</b> Vectorized Functions</a></li>
+<li class="chapter" data-level="16.3.2" data-path="programming-in-r.html"><a href="programming-in-r.html#for-loops"><i class="fa fa-check"></i><b>16.3.2</b> For-loops</a></li>
+<li class="chapter" data-level="16.3.3" data-path="programming-in-r.html"><a href="programming-in-r.html#challenges-22"><i class="fa fa-check"></i><b>16.3.3</b> Challenges</a></li>
+<li class="chapter" data-level="16.3.4" data-path="programming-in-r.html"><a href="programming-in-r.html#functional-programming-and-map"><i class="fa fa-check"></i><b>16.3.4</b> Functional Programming and <code>map</code></a></li>
+<li class="chapter" data-level="16.3.5" data-path="programming-in-r.html"><a href="programming-in-r.html#challenges-23"><i class="fa fa-check"></i><b>16.3.5</b> Challenges</a></li>
+<li class="chapter" data-level="16.3.6" data-path="programming-in-r.html"><a href="programming-in-r.html#scoped-verbs"><i class="fa fa-check"></i><b>16.3.6</b> Scoped Verbs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html"><i class="fa fa-check"></i><b>17</b> Collecting Data from the Web</a><ul>
+<li class="chapter" data-level="17.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#introduction-2"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#web-apis"><i class="fa fa-check"></i><b>17.2</b> Web APIs</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#some-basic-terminology"><i class="fa fa-check"></i><b>17.2.1</b> Some Basic Terminology</a></li>
+<li class="chapter" data-level="17.2.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#how-do-get-requests-work"><i class="fa fa-check"></i><b>17.2.2</b> How Do GET Requests Work?</a></li>
+<li class="chapter" data-level="17.2.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#finding-apis"><i class="fa fa-check"></i><b>17.2.3</b> Finding APIs</a></li>
+<li class="chapter" data-level="17.2.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#getting-api-access"><i class="fa fa-check"></i><b>17.2.4</b> Getting API Access</a></li>
+<li class="chapter" data-level="17.2.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#using-apis-in-r"><i class="fa fa-check"></i><b>17.2.5</b> Using APIs in R</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#collecting-twitter-data-with-rtweet"><i class="fa fa-check"></i><b>17.3</b> Collecting Twitter Data with RTweet</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#setting-up-rtweet"><i class="fa fa-check"></i><b>17.3.1</b> Setting up <code>RTweet</code></a></li>
+<li class="chapter" data-level="17.3.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#uchicago-political-science-prof-tweets"><i class="fa fa-check"></i><b>17.3.2</b> UChicago Political Science Prof Tweets</a></li>
+<li class="chapter" data-level="17.3.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#hashtags-and-text-strings"><i class="fa fa-check"></i><b>17.3.3</b> Hashtags and Text Strings</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#writing-api-queries"><i class="fa fa-check"></i><b>17.4</b> Writing API Queries</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#constructing-the-api-get-request"><i class="fa fa-check"></i><b>17.4.1</b> Constructing the API GET Request</a></li>
+<li class="chapter" data-level="17.4.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#parsing-the-response"><i class="fa fa-check"></i><b>17.4.2</b> Parsing the response</a></li>
+<li class="chapter" data-level="17.4.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#iteration-through-results-pager"><i class="fa fa-check"></i><b>17.4.3</b> Iteration through results pager</a></li>
+<li class="chapter" data-level="17.4.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#visualizing-results"><i class="fa fa-check"></i><b>17.4.4</b> Visualizing Results</a></li>
+<li class="chapter" data-level="17.4.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#more-resources-1"><i class="fa fa-check"></i><b>17.4.5</b> More resources</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#webscraping"><i class="fa fa-check"></i><b>17.5</b> Webscraping</a><ul>
+<li class="chapter" data-level="17.5.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#whats-a-website"><i class="fa fa-check"></i><b>17.5.1</b> What’s a website?</a></li>
+<li class="chapter" data-level="17.5.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#html"><i class="fa fa-check"></i><b>17.5.2</b> HTML</a></li>
+<li class="chapter" data-level="17.5.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#css"><i class="fa fa-check"></i><b>17.5.3</b> CSS</a></li>
+<li class="chapter" data-level="17.5.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#finding-elements-with-selector-gadget"><i class="fa fa-check"></i><b>17.5.4</b> Finding Elements with Selector Gadget</a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#scraping-presidential-statements"><i class="fa fa-check"></i><b>17.6</b> Scraping Presidential Statements</a><ul>
+<li class="chapter" data-level="17.6.1" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#using-rvest-to-read-html"><i class="fa fa-check"></i><b>17.6.1</b> Using <code>RVest</code> to Read HTML</a></li>
+<li class="chapter" data-level="17.6.2" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#find-page-elements"><i class="fa fa-check"></i><b>17.6.2</b> Find Page Elements</a></li>
+<li class="chapter" data-level="17.6.3" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#get-attributes-and-text-of-elements"><i class="fa fa-check"></i><b>17.6.3</b> Get Attributes and Text of Elements</a></li>
+<li class="chapter" data-level="17.6.4" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#lets-do-this."><i class="fa fa-check"></i><b>17.6.4</b> Let’s DO this.</a></li>
+<li class="chapter" data-level="17.6.5" data-path="collecting-data-from-the-web.html"><a href="collecting-data-from-the-web.html#challenge-1-make-a-function"><i class="fa fa-check"></i><b>17.6.5</b> Challenge 1: Make a function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="text-analysis.html"><a href="text-analysis.html"><i class="fa fa-check"></i><b>18</b> Text Analysis</a><ul>
+<li class="chapter" data-level="18.1" data-path="text-analysis.html"><a href="text-analysis.html#preprocessing-a-corpus"><i class="fa fa-check"></i><b>18.1</b> Preprocessing a Corpus</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="text-analysis.html"><a href="text-analysis.html#from-words-to-numbers"><i class="fa fa-check"></i><b>18.1.1</b> From Words to Numbers</a></li>
+<li class="chapter" data-level="18.1.2" data-path="text-analysis.html"><a href="text-analysis.html#exploring-the-dtm"><i class="fa fa-check"></i><b>18.1.2</b> Exploring the DTM</a></li>
+<li class="chapter" data-level="18.1.3" data-path="text-analysis.html"><a href="text-analysis.html#exporting-the-dtm"><i class="fa fa-check"></i><b>18.1.3</b> Exporting the DTM</a></li>
+<li class="chapter" data-level="18.1.4" data-path="text-analysis.html"><a href="text-analysis.html#challenges-24"><i class="fa fa-check"></i><b>18.1.4</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="text-analysis.html"><a href="text-analysis.html#sentiment-analysis-and-dictionary-methods"><i class="fa fa-check"></i><b>18.2</b> Sentiment Analysis and Dictionary Methods</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="text-analysis.html"><a href="text-analysis.html#preprocessing-and-setup"><i class="fa fa-check"></i><b>18.2.1</b> Preprocessing and Setup</a></li>
+<li class="chapter" data-level="18.2.2" data-path="text-analysis.html"><a href="text-analysis.html#scoring-the-songs"><i class="fa fa-check"></i><b>18.2.2</b> Scoring the songs</a></li>
+<li class="chapter" data-level="18.2.3" data-path="text-analysis.html"><a href="text-analysis.html#challenges-25"><i class="fa fa-check"></i><b>18.2.3</b> Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="text-analysis.html"><a href="text-analysis.html#distinctive-words"><i class="fa fa-check"></i><b>18.3</b> Distinctive Words</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="text-analysis.html"><a href="text-analysis.html#unique-usage"><i class="fa fa-check"></i><b>18.3.1</b> Unique usage</a></li>
+<li class="chapter" data-level="18.3.2" data-path="text-analysis.html"><a href="text-analysis.html#differences-in-frequences"><i class="fa fa-check"></i><b>18.3.2</b> Differences in frequences</a></li>
+<li class="chapter" data-level="18.3.3" data-path="text-analysis.html"><a href="text-analysis.html#differences-in-averages"><i class="fa fa-check"></i><b>18.3.3</b> Differences in averages</a></li>
+<li class="chapter" data-level="18.3.4" data-path="text-analysis.html"><a href="text-analysis.html#difference-in-averages-adjustment"><i class="fa fa-check"></i><b>18.3.4</b> Difference in averages, adjustment</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="text-analysis.html"><a href="text-analysis.html#structural-topic-models"><i class="fa fa-check"></i><b>18.4</b> Structural Topic Models</a><ul>
+<li class="chapter" data-level="18.4.1" data-path="text-analysis.html"><a href="text-analysis.html#preprocessing"><i class="fa fa-check"></i><b>18.4.1</b> Preprocessing</a></li>
+<li class="chapter" data-level="18.4.2" data-path="text-analysis.html"><a href="text-analysis.html#estimate-model"><i class="fa fa-check"></i><b>18.4.2</b> Estimate Model</a></li>
+<li class="chapter" data-level="18.4.3" data-path="text-analysis.html"><a href="text-analysis.html#interprete-model"><i class="fa fa-check"></i><b>18.4.3</b> Interprete Model</a></li>
+<li class="chapter" data-level="18.4.4" data-path="text-analysis.html"><a href="text-analysis.html#analyze-topics"><i class="fa fa-check"></i><b>18.4.4</b> Analyze topics</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Assignments and Projects</b></span></li>
+<li class="chapter" data-level="19" data-path="assignments-1.html"><a href="assignments-1.html"><i class="fa fa-check"></i><b>19</b> Assignments</a><ul>
+<li class="chapter" data-level="19.1" data-path="assignments-1.html"><a href="assignments-1.html#assignment-1-solutions"><i class="fa fa-check"></i><b>19.1</b> Assignment 1 Solutions</a></li>
+<li class="chapter" data-level="19.2" data-path="assignments-1.html"><a href="assignments-1.html#assignment-2-solutions"><i class="fa fa-check"></i><b>19.2</b> Assignment 2 Solutions</a></li>
+<li class="chapter" data-level="19.3" data-path="assignments-1.html"><a href="assignments-1.html#assignment-3-solutions"><i class="fa fa-check"></i><b>19.3</b> Assignment 3 Solutions</a></li>
+<li class="chapter" data-level="19.4" data-path="assignments-1.html"><a href="assignments-1.html#assignment-4-solutions"><i class="fa fa-check"></i><b>19.4</b> Assignment 4 Solutions</a></li>
+<li class="chapter" data-level="19.5" data-path="assignments-1.html"><a href="assignments-1.html#assignment-5-solutions"><i class="fa fa-check"></i><b>19.5</b> Assignment 5 Solutions</a></li>
+</ul></li>
+<li class="part"><span><b>IV Resources</b></span></li>
+<li class="chapter" data-level="20" data-path="cheat-sheets-and-guides.html"><a href="cheat-sheets-and-guides.html"><i class="fa fa-check"></i><b>20</b> Cheat Sheets and Guides</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PLSC 31101: Computational Tools for Social Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="text-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 18</span> Text Analysis</h1>
+<p>This unit focuses on computational text analysis (or “text-as-data”). We’ll explore:</p>
+<ol style="list-style-type: decimal">
+<li><strong><a href="strings-and-regular-expressions.html#string-basics">string basics</a></strong>, like concatinating and subsettings.</li>
+<li><strong><a href="strings-and-regular-expressions.html#regular-expressions">regular expressions</a></strong>, a powerful cross-language tool for working with string data.</li>
+<li><strong><a href="strings-and-regular-expressions.html#common-tools">common tools</a></strong>, that take regex and apply them to real problems.</li>
+</ol>
+<div id="preprocessing-a-corpus" class="section level2">
+<h2><span class="header-section-number">18.1</span> Preprocessing a Corpus</h2>
+<p>First let’s load our required packages.</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" data-line-number="1"><span class="kw">library</span>(tm) <span class="co"># Framework for text mining</span></a>
+<a class="sourceLine" id="cb437-2" data-line-number="2"><span class="kw">library</span>(tidyverse) <span class="co"># Data preparation and pipes $&gt;$</span></a>
+<a class="sourceLine" id="cb437-3" data-line-number="3"><span class="kw">library</span>(ggplot2) <span class="co"># for plotting word frequencies</span></a>
+<a class="sourceLine" id="cb437-4" data-line-number="4"><span class="kw">library</span>(wordcloud) <span class="co"># wordclouds!</span></a></code></pre></div>
+<p>A <strong>corpus</strong> is a collection of texts, usually stored electronically, and from which we perform our analysis. A corpus might be a collection of news articles from Reuters or the published works of Shakespeare.</p>
+<p>Within each corpus we will have separate articles, stories, volumes, each treated as a separate entity or record. Each unit is called a <strong>document.</strong></p>
+<p>For this unit, we will be using a section of Machiavelli’s Prince as our corpus. Since The Prince is a monograph, we have already “chunked” the text, so that each short paragraph or “chunk” is considered a “document.”</p>
+<div id="from-words-to-numbers" class="section level3">
+<h3><span class="header-section-number">18.1.1</span> From Words to Numbers</h3>
+<div id="corpus-readers" class="section level4 unnumbered">
+<h4>Corpus Readers</h4>
+<p>The <code>tm</code> package supports a variety of sources and formats. Run the code below to see what it includes</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" data-line-number="1"><span class="kw">getSources</span>()</a>
+<a class="sourceLine" id="cb438-2" data-line-number="2"><span class="co">#&gt; [1] &quot;DataframeSource&quot; &quot;DirSource&quot;       &quot;URISource&quot;       &quot;VectorSource&quot;   </span></a>
+<a class="sourceLine" id="cb438-3" data-line-number="3"><span class="co">#&gt; [5] &quot;XMLSource&quot;       &quot;ZipSource&quot;</span></a>
+<a class="sourceLine" id="cb438-4" data-line-number="4"><span class="kw">getReaders</span>()</a>
+<a class="sourceLine" id="cb438-5" data-line-number="5"><span class="co">#&gt;  [1] &quot;readDataframe&quot;           &quot;readDOC&quot;                </span></a>
+<a class="sourceLine" id="cb438-6" data-line-number="6"><span class="co">#&gt;  [3] &quot;readPDF&quot;                 &quot;readPlain&quot;              </span></a>
+<a class="sourceLine" id="cb438-7" data-line-number="7"><span class="co">#&gt;  [5] &quot;readRCV1&quot;                &quot;readRCV1asPlain&quot;        </span></a>
+<a class="sourceLine" id="cb438-8" data-line-number="8"><span class="co">#&gt;  [7] &quot;readReut21578XML&quot;        &quot;readReut21578XMLasPlain&quot;</span></a>
+<a class="sourceLine" id="cb438-9" data-line-number="9"><span class="co">#&gt;  [9] &quot;readTagged&quot;              &quot;readXML&quot;</span></a></code></pre></div>
+<p>Here we’ll be reading documents from a csv file. Each row being a document, and columns for text and metadata (information about each document). This is the easiest option if you have metadata.</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb439-1" data-line-number="1">docs.df &lt;-<span class="kw">read.csv</span>(<span class="st">&quot;data/mach.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>) <span class="co">#read in CSV file</span></a>
+<a class="sourceLine" id="cb439-2" data-line-number="2"><span class="co"># docs.df$text &lt;- Encoding(&quot;UTF-8&quot;)</span></a>
+<a class="sourceLine" id="cb439-3" data-line-number="3">docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(docs.df<span class="op">$</span>text))</a>
+<a class="sourceLine" id="cb439-4" data-line-number="4">docs</a>
+<a class="sourceLine" id="cb439-5" data-line-number="5"><span class="co">#&gt; &lt;&lt;SimpleCorpus&gt;&gt;</span></a>
+<a class="sourceLine" id="cb439-6" data-line-number="6"><span class="co">#&gt; Metadata:  corpus specific: 1, document level (indexed): 0</span></a>
+<a class="sourceLine" id="cb439-7" data-line-number="7"><span class="co">#&gt; Content:  documents: 188</span></a></code></pre></div>
+<p>Once we have the corpus, we can inspect the documents using inspect()</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" data-line-number="1"><span class="co"># see the 16th document</span></a>
+<a class="sourceLine" id="cb440-2" data-line-number="2"><span class="kw">inspect</span>(docs[<span class="dv">16</span>])</a>
+<a class="sourceLine" id="cb440-3" data-line-number="3"><span class="co">#&gt; &lt;&lt;SimpleCorpus&gt;&gt;</span></a>
+<a class="sourceLine" id="cb440-4" data-line-number="4"><span class="co">#&gt; Metadata:  corpus specific: 1, document level (indexed): 0</span></a>
+<a class="sourceLine" id="cb440-5" data-line-number="5"><span class="co">#&gt; Content:  documents: 1</span></a>
+<a class="sourceLine" id="cb440-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb440-7" data-line-number="7"><span class="co">#&gt; [1]  Therefore, since a ruler cannot both practise this virtue of generosity and be known to do so without harming himself, he would do well not to worry about being called miserly. For eventually he will come to be considered more generous, when it is realised that, because of his parsimony, his revenues are sufficient to defend himself against any enemies that attack him, and to undertake campaigns without imposing special taxes on the people. Thus he will be acting generously towards the vast majority, whose property he does not touch, and will be acting meanly towards the few to whom he gives nothing.  Those rulers who have achieved great things in our own times have all been considered mean; all the others have failed. Although Pope Julius II cultivated a reputation for generosity in order to become pope, he did not seek to maintain it afterwards, because he wanted to be</span></a></code></pre></div>
+</div>
+<div id="preprocessing-functions" class="section level4 unnumbered">
+<h4>Preprocessing functions</h4>
+<p>Many text analysis applications follow a similar ‘recipe’ for preprecessing, involving (the order of these steps might differ as per application):</p>
+<ol style="list-style-type: decimal">
+<li>Tokenizing the text to unigrams (or bigrams, or trigrams)</li>
+<li>Converting all characters to lowercase</li>
+<li>Removing punctuation</li>
+<li>Removing numbers</li>
+<li>Removing Stop Words, inclugind custom stop words</li>
+<li>“Stemming” words, or lemmitization. There are several stemming alogrithms. Porter is the most popular.</li>
+<li>Creating a Document-Term Matrix</li>
+</ol>
+<p><code>tm</code> lets us convert a corpus to a DTM while completing the pre-processing steps in one step.</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" data-line-number="1">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
+<a class="sourceLine" id="cb441-2" data-line-number="2">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">stopwords =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb441-3" data-line-number="3">                          <span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb441-4" data-line-number="4">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb441-5" data-line-number="5">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb441-6" data-line-number="6">                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</a></code></pre></div>
+</div>
+<div id="weighting" class="section level4 unnumbered">
+<h4>Weighting</h4>
+<p>One common pre-processing step that some applicaitons may call for is applying tf-idf weights. The <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a>, or term frequency-inverse document frequency, is a weight that ranks the importance of a term in its contextual document corpus. The tf-idf value increases proportionally to the number of times a word appears in the document, but is offset by the frequency of the word in the corpus, which helps to adjust for the fact that some words appear more frequently in general. In other words, it places importance on terms frequent in the document but rare in the corpus.</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" data-line-number="1">dtm.weighted &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
+<a class="sourceLine" id="cb442-2" data-line-number="2">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">weighting =</span><span class="cf">function</span>(x) <span class="kw">weightTfIdf</span>(x, <span class="dt">normalize =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb442-3" data-line-number="3">                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb442-4" data-line-number="4">                          <span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb442-5" data-line-number="5">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb442-6" data-line-number="6">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb442-7" data-line-number="7">                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</a></code></pre></div>
+<p>Compare first 5 rows and 5 columns of the <code>dtm</code> and <code>dtm.weighted</code>. What do you notice?</p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" data-line-number="1"><span class="kw">inspect</span>(dtm[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb443-2" data-line-number="2"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span></a>
+<a class="sourceLine" id="cb443-3" data-line-number="3"><span class="co">#&gt; Non-/sparse entries: 3/22</span></a>
+<a class="sourceLine" id="cb443-4" data-line-number="4"><span class="co">#&gt; Sparsity           : 88%</span></a>
+<a class="sourceLine" id="cb443-5" data-line-number="5"><span class="co">#&gt; Maximal term length: 7</span></a>
+<a class="sourceLine" id="cb443-6" data-line-number="6"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
+<a class="sourceLine" id="cb443-7" data-line-number="7"><span class="co">#&gt; Sample             :</span></a>
+<a class="sourceLine" id="cb443-8" data-line-number="8"><span class="co">#&gt;     Terms</span></a>
+<a class="sourceLine" id="cb443-9" data-line-number="9"><span class="co">#&gt; Docs abandon abil abject abl ablest</span></a>
+<a class="sourceLine" id="cb443-10" data-line-number="10"><span class="co">#&gt;    1       0    0      0   0      0</span></a>
+<a class="sourceLine" id="cb443-11" data-line-number="11"><span class="co">#&gt;    2       0    1      0   0      0</span></a>
+<a class="sourceLine" id="cb443-12" data-line-number="12"><span class="co">#&gt;    3       0    0      0   0      0</span></a>
+<a class="sourceLine" id="cb443-13" data-line-number="13"><span class="co">#&gt;    4       0    1      0   1      0</span></a>
+<a class="sourceLine" id="cb443-14" data-line-number="14"><span class="co">#&gt;    5       0    0      0   0      0</span></a>
+<a class="sourceLine" id="cb443-15" data-line-number="15"><span class="kw">inspect</span>(dtm.weighted[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb443-16" data-line-number="16"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span></a>
+<a class="sourceLine" id="cb443-17" data-line-number="17"><span class="co">#&gt; Non-/sparse entries: 3/22</span></a>
+<a class="sourceLine" id="cb443-18" data-line-number="18"><span class="co">#&gt; Sparsity           : 88%</span></a>
+<a class="sourceLine" id="cb443-19" data-line-number="19"><span class="co">#&gt; Maximal term length: 7</span></a>
+<a class="sourceLine" id="cb443-20" data-line-number="20"><span class="co">#&gt; Weighting          : term frequency - inverse document frequency (normalized) (tf-idf)</span></a>
+<a class="sourceLine" id="cb443-21" data-line-number="21"><span class="co">#&gt; Sample             :</span></a>
+<a class="sourceLine" id="cb443-22" data-line-number="22"><span class="co">#&gt;     Terms</span></a>
+<a class="sourceLine" id="cb443-23" data-line-number="23"><span class="co">#&gt; Docs abandon   abil abject    abl ablest</span></a>
+<a class="sourceLine" id="cb443-24" data-line-number="24"><span class="co">#&gt;    1       0 0.0000      0 0.0000      0</span></a>
+<a class="sourceLine" id="cb443-25" data-line-number="25"><span class="co">#&gt;    2       0 0.0402      0 0.0000      0</span></a>
+<a class="sourceLine" id="cb443-26" data-line-number="26"><span class="co">#&gt;    3       0 0.0000      0 0.0000      0</span></a>
+<a class="sourceLine" id="cb443-27" data-line-number="27"><span class="co">#&gt;    4       0 0.0310      0 0.0228      0</span></a>
+<a class="sourceLine" id="cb443-28" data-line-number="28"><span class="co">#&gt;    5       0 0.0000      0 0.0000      0</span></a></code></pre></div>
+</div>
+</div>
+<div id="exploring-the-dtm" class="section level3">
+<h3><span class="header-section-number">18.1.2</span> Exploring the DTM</h3>
+<div id="dimensions" class="section level4 unnumbered">
+<h4>Dimensions</h4>
+<p>Let’s look at the structure of our DTM. Print the dimensions of the DTM. How many documents do we have? How many terms?</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb444-1" data-line-number="1"><span class="co"># how many documents? how many terms?</span></a>
+<a class="sourceLine" id="cb444-2" data-line-number="2"><span class="kw">dim</span>(dtm)</a>
+<a class="sourceLine" id="cb444-3" data-line-number="3"><span class="co">#&gt; [1]  188 2368</span></a></code></pre></div>
+</div>
+<div id="frequencies" class="section level4 unnumbered">
+<h4>Frequencies</h4>
+<p>We can obtain the term frequencies as a vector by converting the document term matrix into a matrix and using <code>colSums</code> to sum the column counts:</p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" data-line-number="1"> <span class="co"># how many terms?</span></a>
+<a class="sourceLine" id="cb445-2" data-line-number="2">freq &lt;-<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">as.matrix</span>(dtm))</a>
+<a class="sourceLine" id="cb445-3" data-line-number="3">freq[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb445-4" data-line-number="4"><span class="co">#&gt; abandon    abil  abject     abl  ablest </span></a>
+<a class="sourceLine" id="cb445-5" data-line-number="5"><span class="co">#&gt;       4      35       1      61       1</span></a>
+<a class="sourceLine" id="cb445-6" data-line-number="6"><span class="kw">length</span>(freq)</a>
+<a class="sourceLine" id="cb445-7" data-line-number="7"><span class="co">#&gt; [1] 2368</span></a></code></pre></div>
+<p>By ordering the frequencies we can list the most frequent terms and the least frequent terms.</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1"><span class="co"># order</span></a>
+<a class="sourceLine" id="cb446-2" data-line-number="2">sorted &lt;-<span class="st"> </span><span class="kw">sort</span>(freq, <span class="dt">decreasing =</span> T)</a>
+<a class="sourceLine" id="cb446-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb446-4" data-line-number="4"><span class="co"># Least frequent terms</span></a>
+<a class="sourceLine" id="cb446-5" data-line-number="5"><span class="kw">head</span>(sorted)</a>
+<a class="sourceLine" id="cb446-6" data-line-number="6"><span class="co">#&gt; ruler  will power   one peopl alway </span></a>
+<a class="sourceLine" id="cb446-7" data-line-number="7"><span class="co">#&gt;   280   251   169   168    98    95</span></a>
+<a class="sourceLine" id="cb446-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb446-9" data-line-number="9"><span class="co"># most frequent</span></a>
+<a class="sourceLine" id="cb446-10" data-line-number="10"><span class="kw">tail</span>(sorted)</a>
+<a class="sourceLine" id="cb446-11" data-line-number="11"><span class="co">#&gt;  xxiv   xxv  xxvi yield  yoke youth </span></a>
+<a class="sourceLine" id="cb446-12" data-line-number="12"><span class="co">#&gt;     1     1     1     1     1     1</span></a></code></pre></div>
+</div>
+<div id="plotting-frequencies" class="section level4 unnumbered">
+<h4>Plotting frequencies</h4>
+<p>Let’s make a plot that shows the frequency of frequencies for the terms. (For example, how many words are used only once? 5 times? 10 times?)</p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" data-line-number="1"><span class="co"># frequency of frenquencies</span></a>
+<a class="sourceLine" id="cb447-2" data-line-number="2"><span class="kw">head</span>(<span class="kw">table</span>(freq),<span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb447-3" data-line-number="3"><span class="co">#&gt; freq</span></a>
+<a class="sourceLine" id="cb447-4" data-line-number="4"><span class="co">#&gt;   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15 </span></a>
+<a class="sourceLine" id="cb447-5" data-line-number="5"><span class="co">#&gt; 988 363 202 140 103  73  55  39  33  29  24  22  20  20  19</span></a>
+<a class="sourceLine" id="cb447-6" data-line-number="6"><span class="kw">tail</span>(<span class="kw">table</span>(freq),<span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb447-7" data-line-number="7"><span class="co">#&gt; freq</span></a>
+<a class="sourceLine" id="cb447-8" data-line-number="8"><span class="co">#&gt;  65  68  70  71  73  74  75  76  77  95  98 168 169 251 280 </span></a>
+<a class="sourceLine" id="cb447-9" data-line-number="9"><span class="co">#&gt;   1   1   1   1   2   1   1   1   1   2   1   1   1   1   1</span></a>
+<a class="sourceLine" id="cb447-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb447-11" data-line-number="11"><span class="co"># plot</span></a>
+<a class="sourceLine" id="cb447-12" data-line-number="12"><span class="kw">plot</span>(<span class="kw">table</span>(freq))</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-509-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>What does this tell us about the nature of language?</p>
+<p>We can reorder columns of DTM to show most frequent terms first:</p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb448-1" data-line-number="1">dtm.ordered &lt;-<span class="st"> </span>dtm[,<span class="kw">order</span>(freq, <span class="dt">decreasing =</span> T)]</a>
+<a class="sourceLine" id="cb448-2" data-line-number="2"><span class="kw">inspect</span>(dtm.ordered[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb448-3" data-line-number="3"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span></a>
+<a class="sourceLine" id="cb448-4" data-line-number="4"><span class="co">#&gt; Non-/sparse entries: 10/15</span></a>
+<a class="sourceLine" id="cb448-5" data-line-number="5"><span class="co">#&gt; Sparsity           : 60%</span></a>
+<a class="sourceLine" id="cb448-6" data-line-number="6"><span class="co">#&gt; Maximal term length: 5</span></a>
+<a class="sourceLine" id="cb448-7" data-line-number="7"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
+<a class="sourceLine" id="cb448-8" data-line-number="8"><span class="co">#&gt; Sample             :</span></a>
+<a class="sourceLine" id="cb448-9" data-line-number="9"><span class="co">#&gt;     Terms</span></a>
+<a class="sourceLine" id="cb448-10" data-line-number="10"><span class="co">#&gt; Docs one peopl power ruler will</span></a>
+<a class="sourceLine" id="cb448-11" data-line-number="11"><span class="co">#&gt;    1   0     0     0     1    1</span></a>
+<a class="sourceLine" id="cb448-12" data-line-number="12"><span class="co">#&gt;    2   3     0     0     1    3</span></a>
+<a class="sourceLine" id="cb448-13" data-line-number="13"><span class="co">#&gt;    3   0     0     0     0    0</span></a>
+<a class="sourceLine" id="cb448-14" data-line-number="14"><span class="co">#&gt;    4   0     0     0     1    1</span></a>
+<a class="sourceLine" id="cb448-15" data-line-number="15"><span class="co">#&gt;    5   3     0     0     1    1</span></a></code></pre></div>
+</div>
+<div id="exploring-common-words" class="section level4 unnumbered">
+<h4>Exploring common words</h4>
+<p>The TM package has lots of useful functions to help you explore common words and associations:</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" data-line-number="1"><span class="co"># Have a look at common words</span></a>
+<a class="sourceLine" id="cb449-2" data-line-number="2"><span class="kw">findFreqTerms</span>(dtm, <span class="dt">lowfreq=</span><span class="dv">50</span>) <span class="co"># words that appear at least 100 times</span></a>
+<a class="sourceLine" id="cb449-3" data-line-number="3"><span class="co">#&gt;  [1] &quot;abl&quot;      &quot;act&quot;      &quot;alway&quot;    &quot;armi&quot;     &quot;becom&quot;    &quot;can&quot;     </span></a>
+<a class="sourceLine" id="cb449-4" data-line-number="4"><span class="co">#&gt;  [7] &quot;consid&quot;   &quot;either&quot;   &quot;forc&quot;     &quot;great&quot;    &quot;king&quot;     &quot;maintain&quot;</span></a>
+<a class="sourceLine" id="cb449-5" data-line-number="5"><span class="co">#&gt; [13] &quot;make&quot;     &quot;man&quot;      &quot;mani&quot;     &quot;men&quot;      &quot;much&quot;     &quot;must&quot;    </span></a>
+<a class="sourceLine" id="cb449-6" data-line-number="6"><span class="co">#&gt; [19] &quot;never&quot;    &quot;new&quot;      &quot;one&quot;      &quot;order&quot;    &quot;other&quot;    &quot;peopl&quot;   </span></a>
+<a class="sourceLine" id="cb449-7" data-line-number="7"><span class="co">#&gt; [25] &quot;power&quot;    &quot;reason&quot;   &quot;ruler&quot;    &quot;sinc&quot;     &quot;state&quot;    &quot;subject&quot; </span></a>
+<a class="sourceLine" id="cb449-8" data-line-number="8"><span class="co">#&gt; [31] &quot;time&quot;     &quot;troop&quot;    &quot;use&quot;      &quot;want&quot;     &quot;way&quot;      &quot;well&quot;    </span></a>
+<a class="sourceLine" id="cb449-9" data-line-number="9"><span class="co">#&gt; [37] &quot;will&quot;</span></a>
+<a class="sourceLine" id="cb449-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb449-11" data-line-number="11"><span class="co"># Which words correlate with &quot;war&quot;?</span></a>
+<a class="sourceLine" id="cb449-12" data-line-number="12"><span class="kw">findAssocs</span>(dtm, <span class="st">&quot;war&quot;</span>, <span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb449-13" data-line-number="13"><span class="co">#&gt; $war</span></a>
+<a class="sourceLine" id="cb449-14" data-line-number="14"><span class="co">#&gt;     wage    fight  antioch     argu     brew    induc      lip    maxim </span></a>
+<a class="sourceLine" id="cb449-15" data-line-number="15"><span class="co">#&gt;     0.73     0.52     0.45     0.45     0.45     0.45     0.45     0.45 </span></a>
+<a class="sourceLine" id="cb449-16" data-line-number="16"><span class="co">#&gt;  relianc     sage    trifl  postpon     mere     evil    avoid     flee </span></a>
+<a class="sourceLine" id="cb449-17" data-line-number="17"><span class="co">#&gt;     0.45     0.45     0.45     0.41     0.35     0.34     0.32     0.32 </span></a>
+<a class="sourceLine" id="cb449-18" data-line-number="18"><span class="co">#&gt;   occupi     glad glorious    heard     hunt ineffect     knew   produc </span></a>
+<a class="sourceLine" id="cb449-19" data-line-number="19"><span class="co">#&gt;     0.32     0.30     0.30     0.30     0.30     0.30     0.30     0.30 </span></a>
+<a class="sourceLine" id="cb449-20" data-line-number="20"><span class="co">#&gt; temporis </span></a>
+<a class="sourceLine" id="cb449-21" data-line-number="21"><span class="co">#&gt;     0.30</span></a></code></pre></div>
+<p>We can even make wordclouds showing the most commons terms:</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1"><span class="co"># wordcoulds!</span></a>
+<a class="sourceLine" id="cb450-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb450-3" data-line-number="3"><span class="kw">wordcloud</span>(<span class="kw">names</span>(sorted), sorted, <span class="dt">max.words=</span><span class="dv">100</span>, <span class="dt">colors=</span><span class="kw">brewer.pal</span>(<span class="dv">6</span>,<span class="st">&quot;Dark2&quot;</span>))</a>
+<a class="sourceLine" id="cb450-4" data-line-number="4"><span class="co">#&gt; Warning in wordcloud(names(sorted), sorted, max.words = 100, colors =</span></a>
+<a class="sourceLine" id="cb450-5" data-line-number="5"><span class="co">#&gt; brewer.pal(6, : ruler could not be fit on page. It will not be plotted.</span></a>
+<a class="sourceLine" id="cb450-6" data-line-number="6"><span class="co">#&gt; Warning in wordcloud(names(sorted), sorted, max.words = 100, colors =</span></a>
+<a class="sourceLine" id="cb450-7" data-line-number="7"><span class="co">#&gt; brewer.pal(6, : power could not be fit on page. It will not be plotted.</span></a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-512-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="remove-sparse-terms" class="section level4 unnumbered">
+<h4>Remove sparse terms</h4>
+<p>Somtimes we want to remove sparse terms and thus inrease efficency. Look up the help file for the function <code>removeSparseTerms</code>. Using this function, create an objected called <code>dtm.s</code> that contains only terms with &lt;.9 sparsity (meaning they appear in more than 10% of documents).</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1">dtm.s &lt;-<span class="st"> </span><span class="kw">removeSparseTerms</span>(dtm,.<span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb451-2" data-line-number="2">dtm <span class="co"># 2365 terms</span></a>
+<a class="sourceLine" id="cb451-3" data-line-number="3"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 188, terms: 2368)&gt;&gt;</span></a>
+<a class="sourceLine" id="cb451-4" data-line-number="4"><span class="co">#&gt; Non-/sparse entries: 11754/433430</span></a>
+<a class="sourceLine" id="cb451-5" data-line-number="5"><span class="co">#&gt; Sparsity           : 97%</span></a>
+<a class="sourceLine" id="cb451-6" data-line-number="6"><span class="co">#&gt; Maximal term length: 15</span></a>
+<a class="sourceLine" id="cb451-7" data-line-number="7"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
+<a class="sourceLine" id="cb451-8" data-line-number="8">dtm.s <span class="co"># 135 terms</span></a>
+<a class="sourceLine" id="cb451-9" data-line-number="9"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 188, terms: 136)&gt;&gt;</span></a>
+<a class="sourceLine" id="cb451-10" data-line-number="10"><span class="co">#&gt; Non-/sparse entries: 4353/21215</span></a>
+<a class="sourceLine" id="cb451-11" data-line-number="11"><span class="co">#&gt; Sparsity           : 83%</span></a>
+<a class="sourceLine" id="cb451-12" data-line-number="12"><span class="co">#&gt; Maximal term length: 12</span></a>
+<a class="sourceLine" id="cb451-13" data-line-number="13"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a></code></pre></div>
+</div>
+</div>
+<div id="exporting-the-dtm" class="section level3">
+<h3><span class="header-section-number">18.1.3</span> Exporting the DTM</h3>
+<p>We can convert a DTM to a matrix or data.frame in order to write to a csv, add meta data, etc.</p>
+<p>First create an object that converts the <code>dtm</code> to a dataframe (we first have to convert to matrix, and then to dataframe)</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1"><span class="co"># coerce into dataframe</span></a>
+<a class="sourceLine" id="cb452-2" data-line-number="2">dtm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</a>
+<a class="sourceLine" id="cb452-3" data-line-number="3"><span class="kw">names</span>(dtm)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]  <span class="co"># names of documents</span></a>
+<a class="sourceLine" id="cb452-4" data-line-number="4"><span class="co">#&gt;  [1] &quot;abandon&quot;   &quot;abil&quot;      &quot;abject&quot;    &quot;abl&quot;       &quot;ablest&quot;   </span></a>
+<a class="sourceLine" id="cb452-5" data-line-number="5"><span class="co">#&gt;  [6] &quot;abovement&quot; &quot;abovenam&quot;  &quot;absolut&quot;   &quot;absorb&quot;    &quot;accept&quot;</span></a></code></pre></div>
+<p>Now add a column called <code>doc_section</code>. For the first 100 rows, the value of this column should be “Section 1”. For documents 101-188, the section should be “Section 2”.</p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1"><span class="co"># add fake column for section</span></a>
+<a class="sourceLine" id="cb453-2" data-line-number="2">dtm<span class="op">$</span>doc_section &lt;-<span class="st"> &quot;NA&quot;</span></a>
+<a class="sourceLine" id="cb453-3" data-line-number="3">dtm<span class="op">$</span>doc_section[<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>] &lt;-<span class="st"> &quot;Section 1&quot;</span></a>
+<a class="sourceLine" id="cb453-4" data-line-number="4">dtm<span class="op">$</span>doc_section[<span class="dv">101</span><span class="op">:</span><span class="dv">188</span>] &lt;-<span class="st"> &quot;Section 2&quot;</span></a>
+<a class="sourceLine" id="cb453-5" data-line-number="5">dtm<span class="op">$</span>doc_section &lt;-<span class="st"> </span><span class="kw">as.factor</span>(dtm<span class="op">$</span>doc_section)</a>
+<a class="sourceLine" id="cb453-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb453-7" data-line-number="7"><span class="co"># check to see if they&#39;re the same number of documents per author</span></a>
+<a class="sourceLine" id="cb453-8" data-line-number="8"><span class="kw">summary</span>(dtm<span class="op">$</span>doc_section)</a>
+<a class="sourceLine" id="cb453-9" data-line-number="9"><span class="co">#&gt; Section 1 Section 2 </span></a>
+<a class="sourceLine" id="cb453-10" data-line-number="10"><span class="co">#&gt;       100        88</span></a></code></pre></div>
+<p>We can now export the dataframe as a csv.</p>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1"><span class="kw">write.csv</span>(dtm, <span class="st">&quot;dtm.csv&quot;</span>, <span class="dt">row.names =</span> F)</a></code></pre></div>
+</div>
+<div id="challenges-24" class="section level3">
+<h3><span class="header-section-number">18.1.4</span> Challenges</h3>
+<p>Using the one of the files in the <code>/text-data</code> directory, create a document term matrix and create a wordcloud of the most common terms.</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="co"># YOUR CODE HERE</span></a></code></pre></div>
+
+</div>
+</div>
+<div id="sentiment-analysis-and-dictionary-methods" class="section level2">
+<h2><span class="header-section-number">18.2</span> Sentiment Analysis and Dictionary Methods</h2>
+<p>To demonstrate sentiment analysis, we’re going to explore lyrics from Taylor Swift songs.</p>
+<p>Road the code below to get started.</p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="kw">require</span>(tm)</a>
+<a class="sourceLine" id="cb456-2" data-line-number="2"><span class="kw">require</span>(tidytext)</a>
+<a class="sourceLine" id="cb456-3" data-line-number="3"><span class="kw">require</span>(tidyverse)</a>
+<a class="sourceLine" id="cb456-4" data-line-number="4"><span class="kw">require</span>(stringr)</a>
+<a class="sourceLine" id="cb456-5" data-line-number="5"><span class="kw">require</span>(textdata)</a>
+<a class="sourceLine" id="cb456-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb456-7" data-line-number="7">ts &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/taylor_swift.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb456-8" data-line-number="8"><span class="kw">getwd</span>()</a>
+<a class="sourceLine" id="cb456-9" data-line-number="9"><span class="co">#&gt; [1] &quot;/Users/rterman/Desktop/course&quot;</span></a></code></pre></div>
+<div id="preprocessing-and-setup" class="section level3">
+<h3><span class="header-section-number">18.2.1</span> Preprocessing and Setup</h3>
+<p>First we must preprocess the corpus. Create a document-term matrix from the <code>lyrics</code> column of the <code>ts</code> data frame. Complete the following preprocessing steps:
+- convert to lower
+- remove stop words
+- remove numbers
+- remove punctuation.</p>
+<p><strong>Think</strong>: Why is stemming inappropriate for this application?</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1"><span class="co"># preprocess and create DTM</span></a>
+<a class="sourceLine" id="cb457-2" data-line-number="2">docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(ts<span class="op">$</span>lyrics))</a>
+<a class="sourceLine" id="cb457-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb457-4" data-line-number="4">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
+<a class="sourceLine" id="cb457-5" data-line-number="5">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb457-6" data-line-number="6">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb457-7" data-line-number="7">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb457-8" data-line-number="8">                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb457-9" data-line-number="9">                         ))</a>
+<a class="sourceLine" id="cb457-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb457-11" data-line-number="11">dtm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</a></code></pre></div>
+<div id="sentiment-dictionaries" class="section level4 unnumbered">
+<h4>Sentiment dictionaries</h4>
+<p>We’re going to use sentiment dictionaries from the <code>tidytext</code> package. Using the <code>get_sentiments</code> function, load the “bing” dictionary and store it in an object called <code>sent</code>.</p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">sent &lt;-<span class="st"> </span><span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>)</a>
+<a class="sourceLine" id="cb458-2" data-line-number="2"><span class="kw">head</span>(sent)</a>
+<a class="sourceLine" id="cb458-3" data-line-number="3"><span class="co">#&gt; # A tibble: 6 x 2</span></a>
+<a class="sourceLine" id="cb458-4" data-line-number="4"><span class="co">#&gt;   word       sentiment</span></a>
+<a class="sourceLine" id="cb458-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;    </span></a>
+<a class="sourceLine" id="cb458-6" data-line-number="6"><span class="co">#&gt; 1 2-faces    negative </span></a>
+<a class="sourceLine" id="cb458-7" data-line-number="7"><span class="co">#&gt; 2 abnormal   negative </span></a>
+<a class="sourceLine" id="cb458-8" data-line-number="8"><span class="co">#&gt; 3 abolish    negative </span></a>
+<a class="sourceLine" id="cb458-9" data-line-number="9"><span class="co">#&gt; 4 abominable negative </span></a>
+<a class="sourceLine" id="cb458-10" data-line-number="10"><span class="co">#&gt; 5 abominably negative </span></a>
+<a class="sourceLine" id="cb458-11" data-line-number="11"><span class="co">#&gt; 6 abominate  negative</span></a></code></pre></div>
+<p>We’ll now add a column to <code>sent</code> called <code>score</code>. This column should hold a “1” for positive words and “-1” for negative words.</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1">sent<span class="op">$</span>score &lt;-<span class="st"> </span><span class="kw">ifelse</span>(sent<span class="op">$</span>sentiment<span class="op">==</span><span class="st">&quot;positive&quot;</span>, <span class="dv">1</span>, <span class="dv">-1</span>)</a></code></pre></div>
+</div>
+</div>
+<div id="scoring-the-songs" class="section level3">
+<h3><span class="header-section-number">18.2.2</span> Scoring the songs</h3>
+<p>We’re now ready to score each song.</p>
+<p>(<strong>NB</strong>: There are probably many ways to program a script that performs this task. If you can think of a more elegant way, go for it!)</p>
+<p>First, we’ll create a dataframe that holds all the words in our dtm along with their sentiment score.</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1"><span class="co"># get all the words in our dtm and put it in a dataframe</span></a>
+<a class="sourceLine" id="cb460-2" data-line-number="2">words =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">colnames</span>(dtm))</a>
+<a class="sourceLine" id="cb460-3" data-line-number="3"><span class="kw">head</span>(words)</a>
+<a class="sourceLine" id="cb460-4" data-line-number="4"><span class="co">#&gt;        word</span></a>
+<a class="sourceLine" id="cb460-5" data-line-number="5"><span class="co">#&gt; 1      back</span></a>
+<a class="sourceLine" id="cb460-6" data-line-number="6"><span class="co">#&gt; 2 backroads</span></a>
+<a class="sourceLine" id="cb460-7" data-line-number="7"><span class="co">#&gt; 3       bed</span></a>
+<a class="sourceLine" id="cb460-8" data-line-number="8"><span class="co">#&gt; 4   believe</span></a>
+<a class="sourceLine" id="cb460-9" data-line-number="9"><span class="co">#&gt; 5   beneath</span></a>
+<a class="sourceLine" id="cb460-10" data-line-number="10"><span class="co">#&gt; 6    beside</span></a>
+<a class="sourceLine" id="cb460-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb460-12" data-line-number="12"><span class="co"># get their sentiment scores</span></a>
+<a class="sourceLine" id="cb460-13" data-line-number="13">words &lt;-<span class="st"> </span><span class="kw">merge</span>(words, sent, <span class="dt">all.x =</span> T)</a>
+<a class="sourceLine" id="cb460-14" data-line-number="14"><span class="kw">head</span>(words)</a>
+<a class="sourceLine" id="cb460-15" data-line-number="15"><span class="co">#&gt;       word sentiment score</span></a>
+<a class="sourceLine" id="cb460-16" data-line-number="16"><span class="co">#&gt; 1  abigail      &lt;NA&gt;    NA</span></a>
+<a class="sourceLine" id="cb460-17" data-line-number="17"><span class="co">#&gt; 2   absent      &lt;NA&gt;    NA</span></a>
+<a class="sourceLine" id="cb460-18" data-line-number="18"><span class="co">#&gt; 3   absurd  negative    -1</span></a>
+<a class="sourceLine" id="cb460-19" data-line-number="19"><span class="co">#&gt; 4  accused      &lt;NA&gt;    NA</span></a>
+<a class="sourceLine" id="cb460-20" data-line-number="20"><span class="co">#&gt; 5      ace      &lt;NA&gt;    NA</span></a>
+<a class="sourceLine" id="cb460-21" data-line-number="21"><span class="co">#&gt; 6 achilles      &lt;NA&gt;    NA</span></a>
+<a class="sourceLine" id="cb460-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb460-23" data-line-number="23"><span class="co"># replace NAs with 0s</span></a>
+<a class="sourceLine" id="cb460-24" data-line-number="24">words<span class="op">$</span>score[<span class="kw">is.na</span>(words<span class="op">$</span>score)] &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb460-25" data-line-number="25"><span class="kw">head</span>(words)</a>
+<a class="sourceLine" id="cb460-26" data-line-number="26"><span class="co">#&gt;       word sentiment score</span></a>
+<a class="sourceLine" id="cb460-27" data-line-number="27"><span class="co">#&gt; 1  abigail      &lt;NA&gt;     0</span></a>
+<a class="sourceLine" id="cb460-28" data-line-number="28"><span class="co">#&gt; 2   absent      &lt;NA&gt;     0</span></a>
+<a class="sourceLine" id="cb460-29" data-line-number="29"><span class="co">#&gt; 3   absurd  negative    -1</span></a>
+<a class="sourceLine" id="cb460-30" data-line-number="30"><span class="co">#&gt; 4  accused      &lt;NA&gt;     0</span></a>
+<a class="sourceLine" id="cb460-31" data-line-number="31"><span class="co">#&gt; 5      ace      &lt;NA&gt;     0</span></a>
+<a class="sourceLine" id="cb460-32" data-line-number="32"><span class="co">#&gt; 6 achilles      &lt;NA&gt;     0</span></a></code></pre></div>
+<p>We can now use matrix algebra (!!) to multiply our dtm by the scoring vector. This will return to us a score for each document (i.e., song).</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1"><span class="co"># calculate documents scores with matrix algebra! </span></a>
+<a class="sourceLine" id="cb461-2" data-line-number="2">scores &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) <span class="op">%*%</span><span class="st"> </span>words<span class="op">$</span>score</a>
+<a class="sourceLine" id="cb461-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb461-4" data-line-number="4"><span class="co"># put it in the original documents data frame</span></a>
+<a class="sourceLine" id="cb461-5" data-line-number="5">ts<span class="op">$</span>sentiment &lt;-<span class="st"> </span>scores</a></code></pre></div>
+<p>Which song is happiest? Go listen to the song and see if you agree.</p>
+</div>
+<div id="challenges-25" class="section level3">
+<h3><span class="header-section-number">18.2.3</span> Challenges</h3>
+<div id="challenge-1-3" class="section level4 unnumbered">
+<h4>Challenge 1</h4>
+<p>Using the code we wrote above, make a function that accepts 1) a vector of texts, and 2) a sentiment dictionary (i.e. a data frame with words and scores), and returns a vector of sentiment scores for each text.</p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">sentiment_score &lt;-<span class="st"> </span><span class="cf">function</span>(texts, sent_dict){</a>
+<a class="sourceLine" id="cb462-2" data-line-number="2">  </a>
+<a class="sourceLine" id="cb462-3" data-line-number="3">  <span class="co"># YOUR CODE HERE</span></a>
+<a class="sourceLine" id="cb462-4" data-line-number="4">  </a>
+<a class="sourceLine" id="cb462-5" data-line-number="5">  <span class="kw">return</span>(scores)</a>
+<a class="sourceLine" id="cb462-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb462-7" data-line-number="7">  </a>
+<a class="sourceLine" id="cb462-8" data-line-number="8"><span class="co"># uncomment to test it out!</span></a>
+<a class="sourceLine" id="cb462-9" data-line-number="9"><span class="co"># sentiment_score(ts$lyrics, sent)</span></a></code></pre></div>
+</div>
+<div id="challenge-2-3" class="section level4 unnumbered">
+<h4>Challenge 2</h4>
+<p>Using the function you wrote above, find out what the most and least positive Taylor Swift album is.</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1"><span class="co"># concatenate to make albums</span></a>
+<a class="sourceLine" id="cb463-2" data-line-number="2">albums &lt;-<span class="st"> </span>ts <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb463-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(album) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb463-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">lyrics =</span> <span class="kw">str_c</span>(lyrics, <span class="dt">collapse =</span> <span class="st">&quot;;&quot;</span>))</a>
+<a class="sourceLine" id="cb463-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb463-6" data-line-number="6"><span class="co"># first load the dictionary</span></a>
+<a class="sourceLine" id="cb463-7" data-line-number="7">afinn &lt;-<span class="st"> </span><span class="kw">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>)</a>
+<a class="sourceLine" id="cb463-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb463-9" data-line-number="9"><span class="co"># then run the function</span></a>
+<a class="sourceLine" id="cb463-10" data-line-number="10"><span class="kw">sentiment_score</span>(albums<span class="op">$</span>lyrics, afinn)</a>
+<a class="sourceLine" id="cb463-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb463-12" data-line-number="12"><span class="co"># add to original df</span></a>
+<a class="sourceLine" id="cb463-13" data-line-number="13">albums<span class="op">$</span>sent &lt;-<span class="st"> </span><span class="kw">sentiment_score</span>(albums<span class="op">$</span>lyrics, afinn)</a></code></pre></div>
+
+</div>
+</div>
+</div>
+<div id="distinctive-words" class="section level2">
+<h2><span class="header-section-number">18.3</span> Distinctive Words</h2>
+<p>This lesson finds distinctive words in the speeches of Obama and Trump.</p>
+<p>Run the following code to:
+1. Import the corpus
+2. Create a DTM</p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1"><span class="kw">require</span>(tm)</a>
+<a class="sourceLine" id="cb464-2" data-line-number="2"><span class="kw">require</span>(matrixStats) <span class="co"># for statistics</span></a>
+<a class="sourceLine" id="cb464-3" data-line-number="3"><span class="co">#&gt; Loading required package: matrixStats</span></a>
+<a class="sourceLine" id="cb464-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb464-5" data-line-number="5"><span class="co">#&gt; Attaching package: &#39;matrixStats&#39;</span></a>
+<a class="sourceLine" id="cb464-6" data-line-number="6"><span class="co">#&gt; The following object is masked from &#39;package:dplyr&#39;:</span></a>
+<a class="sourceLine" id="cb464-7" data-line-number="7"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb464-8" data-line-number="8"><span class="co">#&gt;     count</span></a>
+<a class="sourceLine" id="cb464-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb464-10" data-line-number="10"><span class="co"># import corpus</span></a>
+<a class="sourceLine" id="cb464-11" data-line-number="11">docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">DirSource</span>(<span class="st">&quot;Data/trump_obama&quot;</span>))</a>
+<a class="sourceLine" id="cb464-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb464-13" data-line-number="13"><span class="co"># preprocess and create DTM</span></a>
+<a class="sourceLine" id="cb464-14" data-line-number="14">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
+<a class="sourceLine" id="cb464-15" data-line-number="15">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb464-16" data-line-number="16">                          <span class="dt">stopwords =</span> T,</a>
+<a class="sourceLine" id="cb464-17" data-line-number="17">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb464-18" data-line-number="18">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb464-19" data-line-number="19">                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb464-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb464-21" data-line-number="21"><span class="co"># print the dimensions of the DTM</span></a>
+<a class="sourceLine" id="cb464-22" data-line-number="22"><span class="kw">dim</span>(dtm)</a>
+<a class="sourceLine" id="cb464-23" data-line-number="23"><span class="co">#&gt; [1]   11 4094</span></a>
+<a class="sourceLine" id="cb464-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb464-25" data-line-number="25"><span class="co"># take a quick look</span></a>
+<a class="sourceLine" id="cb464-26" data-line-number="26"><span class="kw">inspect</span>(dtm[,<span class="dv">100</span><span class="op">:</span><span class="dv">104</span>])</a>
+<a class="sourceLine" id="cb464-27" data-line-number="27"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 11, terms: 5)&gt;&gt;</span></a>
+<a class="sourceLine" id="cb464-28" data-line-number="28"><span class="co">#&gt; Non-/sparse entries: 14/41</span></a>
+<a class="sourceLine" id="cb464-29" data-line-number="29"><span class="co">#&gt; Sparsity           : 75%</span></a>
+<a class="sourceLine" id="cb464-30" data-line-number="30"><span class="co">#&gt; Maximal term length: 11</span></a>
+<a class="sourceLine" id="cb464-31" data-line-number="31"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
+<a class="sourceLine" id="cb464-32" data-line-number="32"><span class="co">#&gt; Sample             :</span></a>
+<a class="sourceLine" id="cb464-33" data-line-number="33"><span class="co">#&gt;                 Terms</span></a>
+<a class="sourceLine" id="cb464-34" data-line-number="34"><span class="co">#&gt; Docs             alien align alik aliv allamerican</span></a>
+<a class="sourceLine" id="cb464-35" data-line-number="35"><span class="co">#&gt;   Obama_2009.txt     0     0    1    0           0</span></a>
+<a class="sourceLine" id="cb464-36" data-line-number="36"><span class="co">#&gt;   Obama_2010.txt     0     0    1    1           0</span></a>
+<a class="sourceLine" id="cb464-37" data-line-number="37"><span class="co">#&gt;   Obama_2011.txt     0     1    0    0           0</span></a>
+<a class="sourceLine" id="cb464-38" data-line-number="38"><span class="co">#&gt;   Obama_2012.txt     0     0    0    1           0</span></a>
+<a class="sourceLine" id="cb464-39" data-line-number="39"><span class="co">#&gt;   Obama_2013.txt     0     0    0    0           0</span></a>
+<a class="sourceLine" id="cb464-40" data-line-number="40"><span class="co">#&gt;   Obama_2014.txt     0     0    0    1           0</span></a>
+<a class="sourceLine" id="cb464-41" data-line-number="41"><span class="co">#&gt;   Obama_2015.txt     1     0    1    0           0</span></a>
+<a class="sourceLine" id="cb464-42" data-line-number="42"><span class="co">#&gt;   Trump_2017.txt     0     1    0    0           0</span></a>
+<a class="sourceLine" id="cb464-43" data-line-number="43"><span class="co">#&gt;   Trump_2018.txt     1     0    0    0           1</span></a>
+<a class="sourceLine" id="cb464-44" data-line-number="44"><span class="co">#&gt;   Trump_2019.txt     3     0    1    1           0</span></a></code></pre></div>
+<p>Oftentimes scholars will want to compare different corpora by finding the words (or features) distinctive to each corpora. But finding distinctive words requires a decision about what “distinctive” means. As we will see, there are a variety of definitions that we might use.</p>
+<div id="unique-usage" class="section level3">
+<h3><span class="header-section-number">18.3.1</span> Unique usage</h3>
+<p>The most obvious definition of distinctive is “exclusive”. That is, distinctive words are those are found exclusively in texts associated with a single author (or group). For example, if Brontë uses the word “access” and obama never does, we should count “access” as distinctive.</p>
+<p>Finding words that are exclusive to a group is a simple exercise. All we have to do is sum the usage of each word use across all texts for each author, and then look for cases where the sum is zero for one author.</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1"><span class="co"># turn DTM into dataframe</span></a>
+<a class="sourceLine" id="cb465-2" data-line-number="2">dtm.m &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</a>
+<a class="sourceLine" id="cb465-3" data-line-number="3">dtm.m[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb465-4" data-line-number="4"><span class="co">#&gt;                abandon abess abid abil abject</span></a>
+<a class="sourceLine" id="cb465-5" data-line-number="5"><span class="co">#&gt; Obama_2009.txt       0     1    0    3      0</span></a>
+<a class="sourceLine" id="cb465-6" data-line-number="6"><span class="co">#&gt; Obama_2010.txt       0     0    1    1      0</span></a>
+<a class="sourceLine" id="cb465-7" data-line-number="7"><span class="co">#&gt; Obama_2011.txt       1     0    0    0      0</span></a>
+<a class="sourceLine" id="cb465-8" data-line-number="8"><span class="co">#&gt; Obama_2012.txt       0     0    0    0      0</span></a>
+<a class="sourceLine" id="cb465-9" data-line-number="9"><span class="co">#&gt; Obama_2013.txt       0     0    0    3      0</span></a>
+<a class="sourceLine" id="cb465-10" data-line-number="10"><span class="co">#&gt; Obama_2014.txt       0     0    0    0      0</span></a>
+<a class="sourceLine" id="cb465-11" data-line-number="11"><span class="co">#&gt; Obama_2015.txt       1     0    0    0      0</span></a>
+<a class="sourceLine" id="cb465-12" data-line-number="12"><span class="co">#&gt; Obama_2016.txt       0     0    0    0      0</span></a>
+<a class="sourceLine" id="cb465-13" data-line-number="13"><span class="co">#&gt; Trump_2017.txt       1     0    0    1      0</span></a>
+<a class="sourceLine" id="cb465-14" data-line-number="14"><span class="co">#&gt; Trump_2018.txt       0     0    0    0      0</span></a>
+<a class="sourceLine" id="cb465-15" data-line-number="15"><span class="co">#&gt; Trump_2019.txt       0     0    0    0      1</span></a>
+<a class="sourceLine" id="cb465-16" data-line-number="16">dtm.m<span class="op">$</span><span class="st">`</span><span class="dt">that</span><span class="st">`</span></a>
+<a class="sourceLine" id="cb465-17" data-line-number="17"><span class="co">#&gt;  [1]  6 15 24 24 13 19 29 30  0  0  0</span></a>
+<a class="sourceLine" id="cb465-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb465-19" data-line-number="19"><span class="co"># Subset into 2 dtms for each author</span></a>
+<a class="sourceLine" id="cb465-20" data-line-number="20">obama &lt;-<span class="st"> </span>dtm.m[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,]</a>
+<a class="sourceLine" id="cb465-21" data-line-number="21">trump &lt;-<span class="st"> </span>dtm.m[<span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,]</a>
+<a class="sourceLine" id="cb465-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb465-23" data-line-number="23"><span class="co"># Sum word usage counts across all texts</span></a>
+<a class="sourceLine" id="cb465-24" data-line-number="24">obama &lt;-<span class="st"> </span><span class="kw">colSums</span>(obama)</a>
+<a class="sourceLine" id="cb465-25" data-line-number="25">trump &lt;-<span class="st"> </span><span class="kw">colSums</span>(trump)</a>
+<a class="sourceLine" id="cb465-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb465-27" data-line-number="27"><span class="co"># Put those sums back into a dataframe</span></a>
+<a class="sourceLine" id="cb465-28" data-line-number="28">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rbind</span>(obama,trump))</a>
+<a class="sourceLine" id="cb465-29" data-line-number="29">df[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb465-30" data-line-number="30"><span class="co">#&gt;       abandon abess abid abil abject</span></a>
+<a class="sourceLine" id="cb465-31" data-line-number="31"><span class="co">#&gt; obama       2     1    1    7      0</span></a>
+<a class="sourceLine" id="cb465-32" data-line-number="32"><span class="co">#&gt; trump       1     0    0    1      1</span></a>
+<a class="sourceLine" id="cb465-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb465-34" data-line-number="34"><span class="co"># Get words where one author&#39;s usage is 0</span></a>
+<a class="sourceLine" id="cb465-35" data-line-number="35">solelyobama &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">1</span>,trump<span class="op">==</span><span class="dv">0</span>]) </a>
+<a class="sourceLine" id="cb465-36" data-line-number="36">solelyobama &lt;-<span class="st"> </span>solelyobama[<span class="kw">order</span>(solelyobama, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
+<a class="sourceLine" id="cb465-37" data-line-number="37"><span class="kw">head</span>(solelyobama, <span class="dv">10</span>) <span class="co"># get top 10 words for obama</span></a>
+<a class="sourceLine" id="cb465-38" data-line-number="38"><span class="co">#&gt;      that      dont technolog      bank     innov    doesnt   teacher </span></a>
+<a class="sourceLine" id="cb465-39" data-line-number="39"><span class="co">#&gt;       160        68        31        30        30        29        26 </span></a>
+<a class="sourceLine" id="cb465-40" data-line-number="40"><span class="co">#&gt;      loan      wont     debat </span></a>
+<a class="sourceLine" id="cb465-41" data-line-number="41"><span class="co">#&gt;        22        22        21</span></a>
+<a class="sourceLine" id="cb465-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb465-43" data-line-number="43">solelytrump &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">2</span>,obama<span class="op">==</span><span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb465-44" data-line-number="44">solelytrump &lt;-<span class="st"> </span>solelytrump[<span class="kw">order</span>(solelytrump, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
+<a class="sourceLine" id="cb465-45" data-line-number="45"><span class="kw">head</span>(solelytrump, <span class="dv">10</span>) <span class="co"># get top 10 words for trump</span></a>
+<a class="sourceLine" id="cb465-46" data-line-number="46"><span class="co">#&gt;      isi    agent america.  audienc    megan      it. obamacar     alic </span></a>
+<a class="sourceLine" id="cb465-47" data-line-number="47"><span class="co">#&gt;        9        8        8        8        8        7        7        6 </span></a>
+<a class="sourceLine" id="cb465-48" data-line-number="48"><span class="co">#&gt;   beauti    elvin </span></a>
+<a class="sourceLine" id="cb465-49" data-line-number="49"><span class="co">#&gt;        6        6</span></a></code></pre></div>
+<p>As we can see, these words tend not to be terribly interesting or informative. So we will remove them from our corpus in order to focus on identifying distinctive words that appear in texts associated with every author.</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1"><span class="co"># subset df with non-zero entries</span></a>
+<a class="sourceLine" id="cb466-2" data-line-number="2">df &lt;-<span class="st"> </span>df[,trump<span class="op">&gt;</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>obama<span class="op">&gt;</span><span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb466-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb466-4" data-line-number="4"><span class="co"># how many words are we left with?</span></a>
+<a class="sourceLine" id="cb466-5" data-line-number="5"><span class="kw">ncol</span>(df)</a>
+<a class="sourceLine" id="cb466-6" data-line-number="6"><span class="co">#&gt; [1] 1525</span></a>
+<a class="sourceLine" id="cb466-7" data-line-number="7">df[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb466-8" data-line-number="8"><span class="co">#&gt;       abandon abil abl abort abraham</span></a>
+<a class="sourceLine" id="cb466-9" data-line-number="9"><span class="co">#&gt; obama       2    7  15     1       1</span></a>
+<a class="sourceLine" id="cb466-10" data-line-number="10"><span class="co">#&gt; trump       1    1   9     1       1</span></a></code></pre></div>
+</div>
+<div id="differences-in-frequences" class="section level3">
+<h3><span class="header-section-number">18.3.2</span> Differences in frequences</h3>
+<p>Another basic approach to identifying distinctive words is to compare the frequencies at which authors use a word. If one author uses a word often across his or her oeuvre and another barely uses the word at all, the difference in their respective frequencies will be large. We can calculate this quantity the following way:</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1"><span class="co"># take the differences in frequences</span></a>
+<a class="sourceLine" id="cb467-2" data-line-number="2">diffFreq &lt;-<span class="st"> </span>obama <span class="op">-</span><span class="st"> </span>trump</a>
+<a class="sourceLine" id="cb467-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb467-4" data-line-number="4"><span class="co"># sort the words</span></a>
+<a class="sourceLine" id="cb467-5" data-line-number="5">diffFreq &lt;-<span class="st"> </span><span class="kw">sort</span>(diffFreq, <span class="dt">decreasing =</span> T)</a>
+<a class="sourceLine" id="cb467-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb467-7" data-line-number="7"><span class="co"># the top obama words</span></a>
+<a class="sourceLine" id="cb467-8" data-line-number="8"><span class="kw">head</span>(diffFreq, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb467-9" data-line-number="9"><span class="co">#&gt;     will     year      job     work     make      can american     that </span></a>
+<a class="sourceLine" id="cb467-10" data-line-number="10"><span class="co">#&gt;      306      217      214      186      177      172      165      160 </span></a>
+<a class="sourceLine" id="cb467-11" data-line-number="11"><span class="co">#&gt;  america      new </span></a>
+<a class="sourceLine" id="cb467-12" data-line-number="12"><span class="co">#&gt;      155      150</span></a>
+<a class="sourceLine" id="cb467-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb467-14" data-line-number="14"><span class="co"># the top trump words</span></a>
+<a class="sourceLine" id="cb467-15" data-line-number="15"><span class="kw">tail</span>(diffFreq, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb467-16" data-line-number="16"><span class="co">#&gt;  illeg immigr    isi    usa   hero   ryan border  great  thank   drug </span></a>
+<a class="sourceLine" id="cb467-17" data-line-number="17"><span class="co">#&gt;     -9     -9     -9     -9    -11    -11    -13    -13    -19    -22</span></a></code></pre></div>
+</div>
+<div id="differences-in-averages" class="section level3">
+<h3><span class="header-section-number">18.3.3</span> Differences in averages</h3>
+<p>This is a good start. But what if one author uses more words <em>overall</em>? Instead of using raw frenquncies, a better approach would look at the average <em>rate</em> at which authors use various words.</p>
+<p>We can calculate this quantity the following way:</p>
+<ol style="list-style-type: decimal">
+<li>Normalize the DTM from counts to proportions</li>
+<li>Take the difference between one author’s proportion of a word and another’s proportion of the same word.</li>
+<li>Find the words with the highest absolute difference.</li>
+</ol>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1"><span class="co"># normalize into proportions</span></a>
+<a class="sourceLine" id="cb468-2" data-line-number="2">rowTotals &lt;-<span class="st"> </span><span class="kw">rowSums</span>(df) <span class="co">#create vector with row totals, i.e. total number of words per document</span></a>
+<a class="sourceLine" id="cb468-3" data-line-number="3"><span class="kw">head</span>(rowTotals) <span class="co"># notice that one author uses more words than the other</span></a>
+<a class="sourceLine" id="cb468-4" data-line-number="4"><span class="co">#&gt; obama trump </span></a>
+<a class="sourceLine" id="cb468-5" data-line-number="5"><span class="co">#&gt; 23021  7432</span></a>
+<a class="sourceLine" id="cb468-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb468-7" data-line-number="7"><span class="co"># change frequencies to proportions</span></a>
+<a class="sourceLine" id="cb468-8" data-line-number="8">df &lt;-<span class="st"> </span>df<span class="op">/</span>rowTotals <span class="co">#change frequencies to proportions</span></a>
+<a class="sourceLine" id="cb468-9" data-line-number="9">df[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb468-10" data-line-number="10"><span class="co">#&gt;        abandon     abil      abl    abort  abraham</span></a>
+<a class="sourceLine" id="cb468-11" data-line-number="11"><span class="co">#&gt; obama 8.69e-05 0.000304 0.000652 4.34e-05 4.34e-05</span></a>
+<a class="sourceLine" id="cb468-12" data-line-number="12"><span class="co">#&gt; trump 1.35e-04 0.000135 0.001211 1.35e-04 1.35e-04</span></a>
+<a class="sourceLine" id="cb468-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb468-14" data-line-number="14"><span class="co"># get difference in proportions</span></a>
+<a class="sourceLine" id="cb468-15" data-line-number="15">means.obama &lt;-<span class="st"> </span>df[<span class="dv">1</span>,]</a>
+<a class="sourceLine" id="cb468-16" data-line-number="16">means.trump &lt;-<span class="st"> </span>df[<span class="dv">2</span>,]</a>
+<a class="sourceLine" id="cb468-17" data-line-number="17">score &lt;-<span class="st"> </span><span class="kw">unlist</span>(means.obama <span class="op">-</span><span class="st"> </span>means.trump)</a>
+<a class="sourceLine" id="cb468-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb468-19" data-line-number="19"><span class="co"># find words with highest difference</span></a>
+<a class="sourceLine" id="cb468-20" data-line-number="20">score &lt;-<span class="st"> </span><span class="kw">sort</span>(score, <span class="dt">decreasing =</span> T)</a>
+<a class="sourceLine" id="cb468-21" data-line-number="21"><span class="kw">head</span>(score,<span class="dv">10</span>) <span class="co"># top obama words</span></a>
+<a class="sourceLine" id="cb468-22" data-line-number="22"><span class="co">#&gt;     job    make    busi     let    need    work    help economi  energi </span></a>
+<a class="sourceLine" id="cb468-23" data-line-number="23"><span class="co">#&gt; 0.00620 0.00541 0.00473 0.00426 0.00419 0.00407 0.00388 0.00378 0.00363 </span></a>
+<a class="sourceLine" id="cb468-24" data-line-number="24"><span class="co">#&gt;     can </span></a>
+<a class="sourceLine" id="cb468-25" data-line-number="25"><span class="co">#&gt; 0.00346</span></a>
+<a class="sourceLine" id="cb468-26" data-line-number="26"><span class="kw">tail</span>(score,<span class="dv">10</span>) <span class="co"># top trump words</span></a>
+<a class="sourceLine" id="cb468-27" data-line-number="27"><span class="co">#&gt;   border  tonight   immigr     unit    state     drug     must    great </span></a>
+<a class="sourceLine" id="cb468-28" data-line-number="28"><span class="co">#&gt; -0.00284 -0.00293 -0.00322 -0.00322 -0.00322 -0.00342 -0.00354 -0.00476 </span></a>
+<a class="sourceLine" id="cb468-29" data-line-number="29"><span class="co">#&gt;    thank american </span></a>
+<a class="sourceLine" id="cb468-30" data-line-number="30"><span class="co">#&gt; -0.00483 -0.00650</span></a></code></pre></div>
+<p>This is a start. The problem with this measure is that it tends to highlight differences in very frequent words. For example, this method gives greater attention to a word that occurs 30 times per 1,000 words in obama and 25 times per 1,000 in Brontë than it does to a word that occurs 5 times per 1,000 words in obama and 0.1 times per 1,000 words in Brontë. This does not seem right. It seems important to recognize cases when one author uses a word frequently and another author barely uses it.</p>
+<p>As this initial attempt suggests, identifying distinctive words will be a balancing act. When comparing two groups of texts, differences in the rates of frequent words will tend to be large relative to differences in the rates of rarer words. Human language is variable; some words occur more frequently than others regardless of who is writing. We need to find a way of adjusting our definition of distinctive in light of this.</p>
+</div>
+<div id="difference-in-averages-adjustment" class="section level3">
+<h3><span class="header-section-number">18.3.4</span> Difference in averages, adjustment</h3>
+<p>One adjustment that is easy to make is to divide the difference in authors’ average rates by the average rate across all authors. Since dividing a quantity by a large number will make that quantity smaller, our new distinctiveness score will tend to be lower for words that occur frequently. While this is merely a heuristic, it does move us in the right direction.</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1"><span class="co"># get the average rate of all words across all authors</span></a>
+<a class="sourceLine" id="cb469-2" data-line-number="2">means.all &lt;-<span class="st"> </span><span class="kw">colMeans</span>(df)</a>
+<a class="sourceLine" id="cb469-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb469-4" data-line-number="4"><span class="co"># now divide the difference in authors&#39; rates by the average rate across all authors</span></a>
+<a class="sourceLine" id="cb469-5" data-line-number="5">score &lt;-<span class="st"> </span><span class="kw">unlist</span>((means.obama <span class="op">-</span><span class="st"> </span>means.trump) <span class="op">/</span><span class="st"> </span>means.all)</a>
+<a class="sourceLine" id="cb469-6" data-line-number="6">score &lt;-<span class="st"> </span><span class="kw">sort</span>(score, <span class="dt">decreasing =</span> T)</a>
+<a class="sourceLine" id="cb469-7" data-line-number="7"><span class="kw">head</span>(score,<span class="dv">10</span>) <span class="co"># top obama words</span></a>
+<a class="sourceLine" id="cb469-8" data-line-number="8"><span class="co">#&gt;    student       cant       idea      money        oil     higher </span></a>
+<a class="sourceLine" id="cb469-9" data-line-number="9"><span class="co">#&gt;       1.78       1.77       1.70       1.67       1.67       1.66 </span></a>
+<a class="sourceLine" id="cb469-10" data-line-number="10"><span class="co">#&gt;       earn leadership   research    respons </span></a>
+<a class="sourceLine" id="cb469-11" data-line-number="11"><span class="co">#&gt;       1.60       1.60       1.59       1.58</span></a>
+<a class="sourceLine" id="cb469-12" data-line-number="12"><span class="kw">tail</span>(score,<span class="dv">10</span>) <span class="co"># top trump words</span></a>
+<a class="sourceLine" id="cb469-13" data-line-number="13"><span class="co">#&gt;     drug    grace    death    heart   pillar southern  terribl   unfair </span></a>
+<a class="sourceLine" id="cb469-14" data-line-number="14"><span class="co">#&gt;    -1.77    -1.80    -1.82    -1.82    -1.84    -1.84    -1.84    -1.84 </span></a>
+<a class="sourceLine" id="cb469-15" data-line-number="15"><span class="co">#&gt;     gang     ryan </span></a>
+<a class="sourceLine" id="cb469-16" data-line-number="16"><span class="co">#&gt;    -1.87    -1.90</span></a></code></pre></div>
+
+</div>
+</div>
+<div id="structural-topic-models" class="section level2">
+<h2><span class="header-section-number">18.4</span> Structural Topic Models</h2>
+<p>This unit gives a brief overview of the <code>stm</code> (structural topic model) package. Please read the vignette for more detail.</p>
+<p>Structural topic model is a way to estimate a topic model that includes document-level meta-data. One can then see how topical prevalence changes according to that meta-data.</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" data-line-number="1"><span class="kw">library</span>(stm)</a></code></pre></div>
+<p>The data we’ll be using for this unit consists of all articles about women published in the New York Times and Washington Post, 1980-2014. You worked with a subset of this data in your last homework.</p>
+<p>Load the dataset. Notice that we have the text of the articles, along with some metadata.</p>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1"><span class="co"># Load Data</span></a>
+<a class="sourceLine" id="cb471-2" data-line-number="2">women &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/women-full.csv&#39;</span>)</a>
+<a class="sourceLine" id="cb471-3" data-line-number="3"><span class="kw">names</span>(women)</a>
+<a class="sourceLine" id="cb471-4" data-line-number="4"><span class="co">#&gt;  [1] &quot;BYLINE&quot;              &quot;TEXT.NO.NOUN&quot;        &quot;PUBLICATION&quot;        </span></a>
+<a class="sourceLine" id="cb471-5" data-line-number="5"><span class="co">#&gt;  [4] &quot;TITLE&quot;               &quot;COUNTRY&quot;             &quot;COUNTRY_FINAL&quot;      </span></a>
+<a class="sourceLine" id="cb471-6" data-line-number="6"><span class="co">#&gt;  [7] &quot;YEAR&quot;                &quot;UID&quot;                 &quot;COUNTRY_NR&quot;         </span></a>
+<a class="sourceLine" id="cb471-7" data-line-number="7"><span class="co">#&gt; [10] &quot;entities&quot;            &quot;LENGTH&quot;              &quot;COUNTRY_TOP_PERCENT&quot;</span></a>
+<a class="sourceLine" id="cb471-8" data-line-number="8"><span class="co">#&gt; [13] &quot;COUNTRY_CODE&quot;        &quot;TEXT&quot;                &quot;DATE&quot;               </span></a>
+<a class="sourceLine" id="cb471-9" data-line-number="9"><span class="co">#&gt; [16] &quot;COUNTRY_MAJOR&quot;       &quot;TYPE&quot;                &quot;REGION&quot;             </span></a>
+<a class="sourceLine" id="cb471-10" data-line-number="10"><span class="co">#&gt; [19] &quot;SUBJECT&quot;</span></a></code></pre></div>
+<div id="preprocessing" class="section level3">
+<h3><span class="header-section-number">18.4.1</span> Preprocessing</h3>
+<p>STM has its own unique preprocessing functions and procedure, which I’ve coded below. Notice that we’re going to use the <code>TEXT.NO.NOUN</code> column, which contains all the text of the articles without proper nouns (which I removed earlier).</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1"><span class="co"># Pre-process</span></a>
+<a class="sourceLine" id="cb472-2" data-line-number="2">temp&lt;-<span class="kw">textProcessor</span>(<span class="dt">documents =</span> women<span class="op">$</span>TEXT.NO.NOUN, <span class="dt">metadata =</span> women)</a>
+<a class="sourceLine" id="cb472-3" data-line-number="3"><span class="co">#&gt; Building corpus... </span></a>
+<a class="sourceLine" id="cb472-4" data-line-number="4"><span class="co">#&gt; Converting to Lower Case... </span></a>
+<a class="sourceLine" id="cb472-5" data-line-number="5"><span class="co">#&gt; Removing punctuation... </span></a>
+<a class="sourceLine" id="cb472-6" data-line-number="6"><span class="co">#&gt; Removing stopwords... </span></a>
+<a class="sourceLine" id="cb472-7" data-line-number="7"><span class="co">#&gt; Removing numbers... </span></a>
+<a class="sourceLine" id="cb472-8" data-line-number="8"><span class="co">#&gt; Stemming... </span></a>
+<a class="sourceLine" id="cb472-9" data-line-number="9"><span class="co">#&gt; Creating Output...</span></a>
+<a class="sourceLine" id="cb472-10" data-line-number="10">meta&lt;-temp<span class="op">$</span>meta</a>
+<a class="sourceLine" id="cb472-11" data-line-number="11">vocab&lt;-temp<span class="op">$</span>vocab</a>
+<a class="sourceLine" id="cb472-12" data-line-number="12">docs&lt;-temp<span class="op">$</span>documents</a>
+<a class="sourceLine" id="cb472-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb472-14" data-line-number="14"><span class="co"># prep documents in correct format</span></a>
+<a class="sourceLine" id="cb472-15" data-line-number="15">out &lt;-<span class="st"> </span><span class="kw">prepDocuments</span>(docs, vocab, meta)</a>
+<a class="sourceLine" id="cb472-16" data-line-number="16"><span class="co">#&gt; Removing 19460 of 39403 terms (19460 of 1087166 tokens) due to frequency </span></a>
+<a class="sourceLine" id="cb472-17" data-line-number="17"><span class="co">#&gt; Your corpus now has 4531 documents, 19943 terms and 1067706 tokens.</span></a>
+<a class="sourceLine" id="cb472-18" data-line-number="18">docs&lt;-out<span class="op">$</span>documents</a>
+<a class="sourceLine" id="cb472-19" data-line-number="19">vocab&lt;-out<span class="op">$</span>vocab</a>
+<a class="sourceLine" id="cb472-20" data-line-number="20">meta &lt;-out<span class="op">$</span>meta</a></code></pre></div>
+<div id="challenge-1-4" class="section level4 unnumbered">
+<h4>Challenge 1</h4>
+<p>Read the help file for the <code>prepDocuments</code> function. Alter the code above (in 2.1) to keep only words that appear in at least 10 documents.</p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1"><span class="co"># YOUR CODE HERE</span></a></code></pre></div>
+</div>
+</div>
+<div id="estimate-model" class="section level3">
+<h3><span class="header-section-number">18.4.2</span> Estimate Model</h3>
+<p>We’re now going to estimate a topic model with 15 topics by regressing topical prevalence on region and year covariates.</p>
+<p>Running full model takes a <strong>long</strong> time to finish. For that reason, we’re going to add an argument <code>max.em.its</code> which sets the number of iterations. By keeping it low (15) we’ll see a rough estimate of the topics. You can always go back and estimate the model to convergence.</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" data-line-number="1">model &lt;-<span class="st"> </span><span class="kw">stm</span>(docs, vocab, <span class="dv">15</span>, <span class="dt">prevalence =</span> <span class="op">~</span><span class="st"> </span>REGION <span class="op">+</span><span class="st"> </span><span class="kw">s</span>(YEAR), <span class="dt">data =</span> meta, <span class="dt">seed =</span> <span class="dv">15</span>, <span class="dt">max.em.its =</span> <span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb474-2" data-line-number="2"><span class="co">#&gt; Beginning Spectral Initialization </span></a>
+<a class="sourceLine" id="cb474-3" data-line-number="3"><span class="co">#&gt;   Calculating the gram matrix...</span></a>
+<a class="sourceLine" id="cb474-4" data-line-number="4"><span class="co">#&gt;   Using only 10000 most frequent terms during initialization...</span></a>
+<a class="sourceLine" id="cb474-5" data-line-number="5"><span class="co">#&gt;   Finding anchor words...</span></a>
+<a class="sourceLine" id="cb474-6" data-line-number="6"><span class="co">#&gt;      ...............</span></a>
+<a class="sourceLine" id="cb474-7" data-line-number="7"><span class="co">#&gt;   Recovering initialization...</span></a>
+<a class="sourceLine" id="cb474-8" data-line-number="8"><span class="co">#&gt;      ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-9" data-line-number="9"><span class="co">#&gt; Initialization complete.</span></a>
+<a class="sourceLine" id="cb474-10" data-line-number="10"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-11" data-line-number="11"><span class="co">#&gt; Completed E-Step (5 seconds). </span></a>
+<a class="sourceLine" id="cb474-12" data-line-number="12"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-13" data-line-number="13"><span class="co">#&gt; Completing Iteration 1 (approx. per word bound = -7.882) </span></a>
+<a class="sourceLine" id="cb474-14" data-line-number="14"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-15" data-line-number="15"><span class="co">#&gt; Completed E-Step (4 seconds). </span></a>
+<a class="sourceLine" id="cb474-16" data-line-number="16"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-17" data-line-number="17"><span class="co">#&gt; Completing Iteration 2 (approx. per word bound = -7.605, relative change = 3.519e-02) </span></a>
+<a class="sourceLine" id="cb474-18" data-line-number="18"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-19" data-line-number="19"><span class="co">#&gt; Completed E-Step (4 seconds). </span></a>
+<a class="sourceLine" id="cb474-20" data-line-number="20"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-21" data-line-number="21"><span class="co">#&gt; Completing Iteration 3 (approx. per word bound = -7.573, relative change = 4.218e-03) </span></a>
+<a class="sourceLine" id="cb474-22" data-line-number="22"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-23" data-line-number="23"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-24" data-line-number="24"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-25" data-line-number="25"><span class="co">#&gt; Completing Iteration 4 (approx. per word bound = -7.559, relative change = 1.843e-03) </span></a>
+<a class="sourceLine" id="cb474-26" data-line-number="26"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-27" data-line-number="27"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-28" data-line-number="28"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-29" data-line-number="29"><span class="co">#&gt; Completing Iteration 5 (approx. per word bound = -7.550, relative change = 1.162e-03) </span></a>
+<a class="sourceLine" id="cb474-30" data-line-number="30"><span class="co">#&gt; Topic 1: women, show, one, like, design </span></a>
+<a class="sourceLine" id="cb474-31" data-line-number="31"><span class="co">#&gt;  Topic 2: said, women, polic, report, year </span></a>
+<a class="sourceLine" id="cb474-32" data-line-number="32"><span class="co">#&gt;  Topic 3: women, team, said, game, world </span></a>
+<a class="sourceLine" id="cb474-33" data-line-number="33"><span class="co">#&gt;  Topic 4: year, book, first, one, mrs </span></a>
+<a class="sourceLine" id="cb474-34" data-line-number="34"><span class="co">#&gt;  Topic 5: women, said, percent, femal, will </span></a>
+<a class="sourceLine" id="cb474-35" data-line-number="35"><span class="co">#&gt;  Topic 6: said, women, one, peopl, woman </span></a>
+<a class="sourceLine" id="cb474-36" data-line-number="36"><span class="co">#&gt;  Topic 7: women, work, said, year, men </span></a>
+<a class="sourceLine" id="cb474-37" data-line-number="37"><span class="co">#&gt;  Topic 8: women, sexual, sex, rape, men </span></a>
+<a class="sourceLine" id="cb474-38" data-line-number="38"><span class="co">#&gt;  Topic 9: women, said, right, law, govern </span></a>
+<a class="sourceLine" id="cb474-39" data-line-number="39"><span class="co">#&gt;  Topic 10: said, one, famili, women, peopl </span></a>
+<a class="sourceLine" id="cb474-40" data-line-number="40"><span class="co">#&gt;  Topic 11: women, film, one, said, woman </span></a>
+<a class="sourceLine" id="cb474-41" data-line-number="41"><span class="co">#&gt;  Topic 12: said, polit, elect, parti, govern </span></a>
+<a class="sourceLine" id="cb474-42" data-line-number="42"><span class="co">#&gt;  Topic 13: women, said, cancer, studi, health </span></a>
+<a class="sourceLine" id="cb474-43" data-line-number="43"><span class="co">#&gt;  Topic 14: women, confer, said, deleg, will </span></a>
+<a class="sourceLine" id="cb474-44" data-line-number="44"><span class="co">#&gt;  Topic 15: said, women, girl, rape, practic </span></a>
+<a class="sourceLine" id="cb474-45" data-line-number="45"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-46" data-line-number="46"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-47" data-line-number="47"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-48" data-line-number="48"><span class="co">#&gt; Completing Iteration 6 (approx. per word bound = -7.544, relative change = 8.200e-04) </span></a>
+<a class="sourceLine" id="cb474-49" data-line-number="49"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-50" data-line-number="50"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-51" data-line-number="51"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-52" data-line-number="52"><span class="co">#&gt; Completing Iteration 7 (approx. per word bound = -7.539, relative change = 5.961e-04) </span></a>
+<a class="sourceLine" id="cb474-53" data-line-number="53"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-54" data-line-number="54"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-55" data-line-number="55"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-56" data-line-number="56"><span class="co">#&gt; Completing Iteration 8 (approx. per word bound = -7.536, relative change = 4.491e-04) </span></a>
+<a class="sourceLine" id="cb474-57" data-line-number="57"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-58" data-line-number="58"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-59" data-line-number="59"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-60" data-line-number="60"><span class="co">#&gt; Completing Iteration 9 (approx. per word bound = -7.533, relative change = 3.481e-04) </span></a>
+<a class="sourceLine" id="cb474-61" data-line-number="61"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-62" data-line-number="62"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-63" data-line-number="63"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-64" data-line-number="64"><span class="co">#&gt; Completing Iteration 10 (approx. per word bound = -7.531, relative change = 2.759e-04) </span></a>
+<a class="sourceLine" id="cb474-65" data-line-number="65"><span class="co">#&gt; Topic 1: show, design, women, fashion, art </span></a>
+<a class="sourceLine" id="cb474-66" data-line-number="66"><span class="co">#&gt;  Topic 2: said, women, polic, report, offici </span></a>
+<a class="sourceLine" id="cb474-67" data-line-number="67"><span class="co">#&gt;  Topic 3: women, team, said, game, world </span></a>
+<a class="sourceLine" id="cb474-68" data-line-number="68"><span class="co">#&gt;  Topic 4: book, year, life, first, work </span></a>
+<a class="sourceLine" id="cb474-69" data-line-number="69"><span class="co">#&gt;  Topic 5: women, said, femal, percent, will </span></a>
+<a class="sourceLine" id="cb474-70" data-line-number="70"><span class="co">#&gt;  Topic 6: said, one, protest, peopl, site </span></a>
+<a class="sourceLine" id="cb474-71" data-line-number="71"><span class="co">#&gt;  Topic 7: women, work, said, year, percent </span></a>
+<a class="sourceLine" id="cb474-72" data-line-number="72"><span class="co">#&gt;  Topic 8: women, sexual, rape, sex, men </span></a>
+<a class="sourceLine" id="cb474-73" data-line-number="73"><span class="co">#&gt;  Topic 9: women, said, right, law, govern </span></a>
+<a class="sourceLine" id="cb474-74" data-line-number="74"><span class="co">#&gt;  Topic 10: said, one, famili, peopl, day </span></a>
+<a class="sourceLine" id="cb474-75" data-line-number="75"><span class="co">#&gt;  Topic 11: women, film, one, like, woman </span></a>
+<a class="sourceLine" id="cb474-76" data-line-number="76"><span class="co">#&gt;  Topic 12: polit, said, elect, parti, govern </span></a>
+<a class="sourceLine" id="cb474-77" data-line-number="77"><span class="co">#&gt;  Topic 13: women, said, abort, cancer, health </span></a>
+<a class="sourceLine" id="cb474-78" data-line-number="78"><span class="co">#&gt;  Topic 14: women, confer, said, will, world </span></a>
+<a class="sourceLine" id="cb474-79" data-line-number="79"><span class="co">#&gt;  Topic 15: said, women, girl, rape, case </span></a>
+<a class="sourceLine" id="cb474-80" data-line-number="80"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-81" data-line-number="81"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-82" data-line-number="82"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-83" data-line-number="83"><span class="co">#&gt; Completing Iteration 11 (approx. per word bound = -7.530, relative change = 2.214e-04) </span></a>
+<a class="sourceLine" id="cb474-84" data-line-number="84"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-85" data-line-number="85"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-86" data-line-number="86"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-87" data-line-number="87"><span class="co">#&gt; Completing Iteration 12 (approx. per word bound = -7.528, relative change = 1.804e-04) </span></a>
+<a class="sourceLine" id="cb474-88" data-line-number="88"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-89" data-line-number="89"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-90" data-line-number="90"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-91" data-line-number="91"><span class="co">#&gt; Completing Iteration 13 (approx. per word bound = -7.527, relative change = 1.496e-04) </span></a>
+<a class="sourceLine" id="cb474-92" data-line-number="92"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-93" data-line-number="93"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
+<a class="sourceLine" id="cb474-94" data-line-number="94"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-95" data-line-number="95"><span class="co">#&gt; Completing Iteration 14 (approx. per word bound = -7.526, relative change = 1.265e-04) </span></a>
+<a class="sourceLine" id="cb474-96" data-line-number="96"><span class="co">#&gt; ....................................................................................................</span></a>
+<a class="sourceLine" id="cb474-97" data-line-number="97"><span class="co">#&gt; Completed E-Step (2 seconds). </span></a>
+<a class="sourceLine" id="cb474-98" data-line-number="98"><span class="co">#&gt; Completed M-Step. </span></a>
+<a class="sourceLine" id="cb474-99" data-line-number="99"><span class="co">#&gt; Model Terminated Before Convergence Reached</span></a></code></pre></div>
+<p>Let’s see what our model came up with! The following tools can be used to evaluate the model.</p>
+<ul>
+<li><code>labelTopics</code> gives the top words for each topic.</li>
+<li><code>findThoughts</code> gives the top documents for each topic (the documents with the highest proportion of each topic)</li>
+</ul>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" data-line-number="1"><span class="co"># Top Words</span></a>
+<a class="sourceLine" id="cb475-2" data-line-number="2"><span class="kw">labelTopics</span>(model)</a>
+<a class="sourceLine" id="cb475-3" data-line-number="3"><span class="co">#&gt; Topic 1 Top Words:</span></a>
+<a class="sourceLine" id="cb475-4" data-line-number="4"><span class="co">#&gt;       Highest Prob: show, design, fashion, women, art, one, like </span></a>
+<a class="sourceLine" id="cb475-5" data-line-number="5"><span class="co">#&gt;       FREX: coutur, fashion, museum, sculptur, ready--wear, jacket, galleri </span></a>
+<a class="sourceLine" id="cb475-6" data-line-number="6"><span class="co">#&gt;       Lift: ---inch, -ankl, alexandr, armatur, armhol, art-fair, avant </span></a>
+<a class="sourceLine" id="cb475-7" data-line-number="7"><span class="co">#&gt;       Score: coutur, art, artist, fashion, museum, exhibit, cloth </span></a>
+<a class="sourceLine" id="cb475-8" data-line-number="8"><span class="co">#&gt; Topic 2 Top Words:</span></a>
+<a class="sourceLine" id="cb475-9" data-line-number="9"><span class="co">#&gt;       Highest Prob: said, polic, women, kill, report, offici, govern </span></a>
+<a class="sourceLine" id="cb475-10" data-line-number="10"><span class="co">#&gt;       FREX: polic, suicid, kill, attack, investig, suspect, arrest </span></a>
+<a class="sourceLine" id="cb475-11" data-line-number="11"><span class="co">#&gt;       Lift: abducte, charanjit, humanity-soak, male-control, sunil, kalpana, ciudad </span></a>
+<a class="sourceLine" id="cb475-12" data-line-number="12"><span class="co">#&gt;       Score: polic, rape, kill, said, arrest, attack, investig </span></a>
+<a class="sourceLine" id="cb475-13" data-line-number="13"><span class="co">#&gt; Topic 3 Top Words:</span></a>
+<a class="sourceLine" id="cb475-14" data-line-number="14"><span class="co">#&gt;       Highest Prob: women, team, game, said, world, play, olymp </span></a>
+<a class="sourceLine" id="cb475-15" data-line-number="15"><span class="co">#&gt;       FREX: tournament, championship, olymp, soccer, player, game, medal </span></a>
+<a class="sourceLine" id="cb475-16" data-line-number="16"><span class="co">#&gt;       Lift: -america, -foot--inch, -hole, -kilomet, -rank, -round, -trump </span></a>
+<a class="sourceLine" id="cb475-17" data-line-number="17"><span class="co">#&gt;       Score: olymp, championship, tournament, team, player, game, medal </span></a>
+<a class="sourceLine" id="cb475-18" data-line-number="18"><span class="co">#&gt; Topic 4 Top Words:</span></a>
+<a class="sourceLine" id="cb475-19" data-line-number="19"><span class="co">#&gt;       Highest Prob: book, year, life, first, write, novel, work </span></a>
+<a class="sourceLine" id="cb475-20" data-line-number="20"><span class="co">#&gt;       FREX: novel, literari, fiction, book, memoir, novelist, poet </span></a>
+<a class="sourceLine" id="cb475-21" data-line-number="21"><span class="co">#&gt;       Lift: buster, calla, goncourt, identical-twin, italian-american, kilcher, klone </span></a>
+<a class="sourceLine" id="cb475-22" data-line-number="22"><span class="co">#&gt;       Score: novel, book, fiction, literari, poet, writer, write </span></a>
+<a class="sourceLine" id="cb475-23" data-line-number="23"><span class="co">#&gt; Topic 5 Top Words:</span></a>
+<a class="sourceLine" id="cb475-24" data-line-number="24"><span class="co">#&gt;       Highest Prob: women, said, femal, percent, militari, will, compani </span></a>
+<a class="sourceLine" id="cb475-25" data-line-number="25"><span class="co">#&gt;       FREX: combat, board, quota, militari, bank, corpor, infantri </span></a>
+<a class="sourceLine" id="cb475-26" data-line-number="26"><span class="co">#&gt;       Lift: -combat, cpr, gender-divers, nonexecut, outfitt, r-calif, r-ni </span></a>
+<a class="sourceLine" id="cb475-27" data-line-number="27"><span class="co">#&gt;       Score: women, militari, infantri, combat, percent, quota, femal </span></a>
+<a class="sourceLine" id="cb475-28" data-line-number="28"><span class="co">#&gt; Topic 6 Top Words:</span></a>
+<a class="sourceLine" id="cb475-29" data-line-number="29"><span class="co">#&gt;       Highest Prob: protest, said, one, site, peopl, young, video </span></a>
+<a class="sourceLine" id="cb475-30" data-line-number="30"><span class="co">#&gt;       FREX: orthodox, internet, web, video, rabbi, prayer, site </span></a>
+<a class="sourceLine" id="cb475-31" data-line-number="31"><span class="co">#&gt;       Lift: balaclava, grrrl, tehrik-, braveheart, drawbridg, gravesit, guerrilla-styl </span></a>
+<a class="sourceLine" id="cb475-32" data-line-number="32"><span class="co">#&gt;       Score: protest, site, orthodox, video, jewish, rabbi, xxxfx </span></a>
+<a class="sourceLine" id="cb475-33" data-line-number="33"><span class="co">#&gt; Topic 7 Top Words:</span></a>
+<a class="sourceLine" id="cb475-34" data-line-number="34"><span class="co">#&gt;       Highest Prob: women, work, said, year, percent, men, ese </span></a>
+<a class="sourceLine" id="cb475-35" data-line-number="35"><span class="co">#&gt;       FREX: ese, factori, employ, incom, worker, job, market </span></a>
+<a class="sourceLine" id="cb475-36" data-line-number="36"><span class="co">#&gt;       Lift: flextim, management-track, nec, nontransfer, rabenmutt, chiho, fumiko </span></a>
+<a class="sourceLine" id="cb475-37" data-line-number="37"><span class="co">#&gt;       Score: ese, percent, compani, work, job, women, factori </span></a>
+<a class="sourceLine" id="cb475-38" data-line-number="38"><span class="co">#&gt; Topic 8 Top Words:</span></a>
+<a class="sourceLine" id="cb475-39" data-line-number="39"><span class="co">#&gt;       Highest Prob: women, sexual, sex, rape, men, violenc, said </span></a>
+<a class="sourceLine" id="cb475-40" data-line-number="40"><span class="co">#&gt;       FREX: harass, sexual, sex, assault, brothel, violenc, behavior </span></a>
+<a class="sourceLine" id="cb475-41" data-line-number="41"><span class="co">#&gt;       Lift: offenc, tarun, chaud, much-lov, newt, tiresom, sex-rel </span></a>
+<a class="sourceLine" id="cb475-42" data-line-number="42"><span class="co">#&gt;       Score: rape, sexual, harass, violenc, sex, assault, brothel </span></a>
+<a class="sourceLine" id="cb475-43" data-line-number="43"><span class="co">#&gt; Topic 9 Top Words:</span></a>
+<a class="sourceLine" id="cb475-44" data-line-number="44"><span class="co">#&gt;       Highest Prob: women, said, right, law, islam, govern, religi </span></a>
+<a class="sourceLine" id="cb475-45" data-line-number="45"><span class="co">#&gt;       FREX: islam, religi, veil, constitut, saudi, secular, cleric </span></a>
+<a class="sourceLine" id="cb475-46" data-line-number="46"><span class="co">#&gt;       Lift: afghan-styl, anglo-, archdeacon, bien-aim, episcopaci, fez, government-encourag </span></a>
+<a class="sourceLine" id="cb475-47" data-line-number="47"><span class="co">#&gt;       Score: islam, law, women, right, religi, ordin, saudi </span></a>
+<a class="sourceLine" id="cb475-48" data-line-number="48"><span class="co">#&gt; Topic 10 Top Words:</span></a>
+<a class="sourceLine" id="cb475-49" data-line-number="49"><span class="co">#&gt;       Highest Prob: said, one, famili, peopl, day, like, home </span></a>
+<a class="sourceLine" id="cb475-50" data-line-number="50"><span class="co">#&gt;       FREX: villag, room, smile, son, couldnt, recal, sit </span></a>
+<a class="sourceLine" id="cb475-51" data-line-number="51"><span class="co">#&gt;       Lift: charpoy, jet-black, mitra, schermerhorn, single-famili, tyson, uja-feder </span></a>
+<a class="sourceLine" id="cb475-52" data-line-number="52"><span class="co">#&gt;       Score: villag, husband, fistula, famili, school, girl, said </span></a>
+<a class="sourceLine" id="cb475-53" data-line-number="53"><span class="co">#&gt; Topic 11 Top Words:</span></a>
+<a class="sourceLine" id="cb475-54" data-line-number="54"><span class="co">#&gt;       Highest Prob: women, film, one, like, woman, say, play </span></a>
+<a class="sourceLine" id="cb475-55" data-line-number="55"><span class="co">#&gt;       FREX: film, theater, movi, charact, actress, documentari, audienc </span></a>
+<a class="sourceLine" id="cb475-56" data-line-number="56"><span class="co">#&gt;       Lift: clive, fine-tun, kaffir, nushus, shrew, nushu, cadel </span></a>
+<a class="sourceLine" id="cb475-57" data-line-number="57"><span class="co">#&gt;       Score: film, theater, movi, nushu, play, orchestra, femin </span></a>
+<a class="sourceLine" id="cb475-58" data-line-number="58"><span class="co">#&gt; Topic 12 Top Words:</span></a>
+<a class="sourceLine" id="cb475-59" data-line-number="59"><span class="co">#&gt;       Highest Prob: polit, elect, parti, minist, presid, govern, said </span></a>
+<a class="sourceLine" id="cb475-60" data-line-number="60"><span class="co">#&gt;       FREX: voter, elect, parti, prime, candid, vote, cabinet </span></a>
+<a class="sourceLine" id="cb475-61" data-line-number="61"><span class="co">#&gt;       Lift: ernesto, pinbal, influence-peddl, information-servic, kakuei, left--cent, marxist-leninist </span></a>
+<a class="sourceLine" id="cb475-62" data-line-number="62"><span class="co">#&gt;       Score: elect, parti, vote, minist, voter, polit, candid </span></a>
+<a class="sourceLine" id="cb475-63" data-line-number="63"><span class="co">#&gt; Topic 13 Top Words:</span></a>
+<a class="sourceLine" id="cb475-64" data-line-number="64"><span class="co">#&gt;       Highest Prob: women, said, abort, cancer, health, studi, breast </span></a>
+<a class="sourceLine" id="cb475-65" data-line-number="65"><span class="co">#&gt;       FREX: implant, cancer, breast, pill, virus, patient, estrogen </span></a>
+<a class="sourceLine" id="cb475-66" data-line-number="66"><span class="co">#&gt;       Lift: acet, adren, ambulatori, analges, anastrozol, antioxid, ashkenazi </span></a>
+<a class="sourceLine" id="cb475-67" data-line-number="67"><span class="co">#&gt;       Score: cancer, abort, breast, pill, implant, health, virus </span></a>
+<a class="sourceLine" id="cb475-68" data-line-number="68"><span class="co">#&gt; Topic 14 Top Words:</span></a>
+<a class="sourceLine" id="cb475-69" data-line-number="69"><span class="co">#&gt;       Highest Prob: women, said, confer, will, world, organ, right </span></a>
+<a class="sourceLine" id="cb475-70" data-line-number="70"><span class="co">#&gt;       FREX: deleg, confer, forum, page, peac, nongovernment, ambassador </span></a>
+<a class="sourceLine" id="cb475-71" data-line-number="71"><span class="co">#&gt;       Lift: -glass, barack, brooklyn-born, expansion, foreclosur, guarantor, holden </span></a>
+<a class="sourceLine" id="cb475-72" data-line-number="72"><span class="co">#&gt;       Score: deleg, confer, forum, page, palestinian, peac, mrs </span></a>
+<a class="sourceLine" id="cb475-73" data-line-number="73"><span class="co">#&gt; Topic 15 Top Words:</span></a>
+<a class="sourceLine" id="cb475-74" data-line-number="74"><span class="co">#&gt;       Highest Prob: said, women, rape, court, case, girl, practic </span></a>
+<a class="sourceLine" id="cb475-75" data-line-number="75"><span class="co">#&gt;       FREX: mutil, genit, circumcis, asylum, sentenc, judg, tribun </span></a>
+<a class="sourceLine" id="cb475-76" data-line-number="76"><span class="co">#&gt;       Lift: labia, layli, minora, multifaith, paraleg, salim, strip-search </span></a>
+<a class="sourceLine" id="cb475-77" data-line-number="77"><span class="co">#&gt;       Score: rape, genit, circumcis, mutil, court, sentenc, prosecutor</span></a>
+<a class="sourceLine" id="cb475-78" data-line-number="78"></a>
+<a class="sourceLine" id="cb475-79" data-line-number="79"><span class="co"># Example Docs</span></a>
+<a class="sourceLine" id="cb475-80" data-line-number="80"><span class="kw">findThoughts</span>(model, <span class="dt">texts =</span> meta<span class="op">$</span>TITLE, <span class="dt">n=</span><span class="dv">2</span>,<span class="dt">topics =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb475-81" data-line-number="81"><span class="co">#&gt; Warning in findThoughts(model, texts = meta$TITLE, n = 2, topics =</span></a>
+<a class="sourceLine" id="cb475-82" data-line-number="82"><span class="co">#&gt; 1:15): texts are of type &#39;factor.&#39; Converting to character vectors. Use</span></a>
+<a class="sourceLine" id="cb475-83" data-line-number="83"><span class="co">#&gt; &#39;as.character&#39; to avoid this warning in the future.</span></a>
+<a class="sourceLine" id="cb475-84" data-line-number="84"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb475-85" data-line-number="85"><span class="co">#&gt;  Topic 1: </span></a>
+<a class="sourceLine" id="cb475-86" data-line-number="86"><span class="co">#&gt;       KENZO&#39;S CAREFREE STYLES AT AN OFFBEAT SHOWING</span></a>
+<a class="sourceLine" id="cb475-87" data-line-number="87"><span class="co">#&gt;      A MODERN LOOK, A CLASSIC TOUCH FROM SAINT LAURENT </span></a>
+<a class="sourceLine" id="cb475-88" data-line-number="88"><span class="co">#&gt;  Topic 2: </span></a>
+<a class="sourceLine" id="cb475-89" data-line-number="89"><span class="co">#&gt;       Assailants Kill 4 Iraqi Women Working for U.S.; Gunmen Follow Van Carrying Laundry Employees</span></a>
+<a class="sourceLine" id="cb475-90" data-line-number="90"><span class="co">#&gt;      WORLD IN BRIEF </span></a>
+<a class="sourceLine" id="cb475-91" data-line-number="91"><span class="co">#&gt;  Topic 3: </span></a>
+<a class="sourceLine" id="cb475-92" data-line-number="92"><span class="co">#&gt;       AMERICANS LEAD EAST GERMANS IN TRACK</span></a>
+<a class="sourceLine" id="cb475-93" data-line-number="93"><span class="co">#&gt;      Russians Chart a New Path </span></a>
+<a class="sourceLine" id="cb475-94" data-line-number="94"><span class="co">#&gt;  Topic 4: </span></a>
+<a class="sourceLine" id="cb475-95" data-line-number="95"><span class="co">#&gt;       BEST SELLERS: September 6, 1998</span></a>
+<a class="sourceLine" id="cb475-96" data-line-number="96"><span class="co">#&gt;      BEST SELLERS: September 13, 1998 </span></a>
+<a class="sourceLine" id="cb475-97" data-line-number="97"><span class="co">#&gt;  Topic 5: </span></a>
+<a class="sourceLine" id="cb475-98" data-line-number="98"><span class="co">#&gt;       In Britain, a Big Push for More Women to Serve on Corporate Boards</span></a>
+<a class="sourceLine" id="cb475-99" data-line-number="99"><span class="co">#&gt;      Poll: Allow women in combat units </span></a>
+<a class="sourceLine" id="cb475-100" data-line-number="100"><span class="co">#&gt;  Topic 6: </span></a>
+<a class="sourceLine" id="cb475-101" data-line-number="101"><span class="co">#&gt;       Neda&#39;s Legacy; A woman&#39;s death moves Iranian protesters.</span></a>
+<a class="sourceLine" id="cb475-102" data-line-number="102"><span class="co">#&gt;      Jewish Feminists Prompt Protests at Wailing Wall </span></a>
+<a class="sourceLine" id="cb475-103" data-line-number="103"><span class="co">#&gt;  Topic 7: </span></a>
+<a class="sourceLine" id="cb475-104" data-line-number="104"><span class="co">#&gt;       China Scrambles for Stability as Its Workers Age</span></a>
+<a class="sourceLine" id="cb475-105" data-line-number="105"><span class="co">#&gt;      A high price for a paycheck; Caught between the demands of the corporate workplace and of their traditional roles in society, more South Korean women are putting off marriage and parenthood </span></a>
+<a class="sourceLine" id="cb475-106" data-line-number="106"><span class="co">#&gt;  Topic 8: </span></a>
+<a class="sourceLine" id="cb475-107" data-line-number="107"><span class="co">#&gt;       Confronting Rape in India, and Around the World</span></a>
+<a class="sourceLine" id="cb475-108" data-line-number="108"><span class="co">#&gt;      Sexual Harassment Prosecutions Get Short Shrift in India, Lawyer Says </span></a>
+<a class="sourceLine" id="cb475-109" data-line-number="109"><span class="co">#&gt;  Topic 9: </span></a>
+<a class="sourceLine" id="cb475-110" data-line-number="110"><span class="co">#&gt;       English Church Advances Bid For Women As Bishops</span></a>
+<a class="sourceLine" id="cb475-111" data-line-number="111"><span class="co">#&gt;      Egypt Passes Law On Women&#39;s Rights; Polygamy Still Allowed for Men </span></a>
+<a class="sourceLine" id="cb475-112" data-line-number="112"><span class="co">#&gt;  Topic 10: </span></a>
+<a class="sourceLine" id="cb475-113" data-line-number="113"><span class="co">#&gt;       An Old Cinema in Pakistan Has New Life After Quake</span></a>
+<a class="sourceLine" id="cb475-114" data-line-number="114"><span class="co">#&gt;      Maria Duran&#39;s Endless Wait </span></a>
+<a class="sourceLine" id="cb475-115" data-line-number="115"><span class="co">#&gt;  Topic 11: </span></a>
+<a class="sourceLine" id="cb475-116" data-line-number="116"><span class="co">#&gt;       For France, An All-Purpose Heartthrob</span></a>
+<a class="sourceLine" id="cb475-117" data-line-number="117"><span class="co">#&gt;      Film: Brazilian &#39;Vera&#39; </span></a>
+<a class="sourceLine" id="cb475-118" data-line-number="118"><span class="co">#&gt;  Topic 12: </span></a>
+<a class="sourceLine" id="cb475-119" data-line-number="119"><span class="co">#&gt;       The Widow Of Ex-Leader Wins Race In Panama</span></a>
+<a class="sourceLine" id="cb475-120" data-line-number="120"><span class="co">#&gt;      Cabinet Defeated in Iceland as Feminists Gain </span></a>
+<a class="sourceLine" id="cb475-121" data-line-number="121"><span class="co">#&gt;  Topic 13: </span></a>
+<a class="sourceLine" id="cb475-122" data-line-number="122"><span class="co">#&gt;       SECTION: HEALTH; Pg. T18</span></a>
+<a class="sourceLine" id="cb475-123" data-line-number="123"><span class="co">#&gt;      Dense Breasts May Need Sonograms to Detect Cancer </span></a>
+<a class="sourceLine" id="cb475-124" data-line-number="124"><span class="co">#&gt;  Topic 14: </span></a>
+<a class="sourceLine" id="cb475-125" data-line-number="125"><span class="co">#&gt;       DISPUTES ON KEY ISSUES STALL KENYA PARLEY</span></a>
+<a class="sourceLine" id="cb475-126" data-line-number="126"><span class="co">#&gt;      &#39;CHAOTIC&#39; CONDITIONS FEARED AT U.N.&#39;S PARLEY ON WOMEN </span></a>
+<a class="sourceLine" id="cb475-127" data-line-number="127"><span class="co">#&gt;  Topic 15: </span></a>
+<a class="sourceLine" id="cb475-128" data-line-number="128"><span class="co">#&gt;       Woman Fleeing Tribal Rite Gains Asylum; Genital Mutilation Is Ruled Persecution</span></a>
+<a class="sourceLine" id="cb475-129" data-line-number="129"><span class="co">#&gt;      Refugee From Mutilation</span></a></code></pre></div>
+<div id="challenge-2-4" class="section level4">
+<h4><span class="header-section-number">18.4.2.1</span> Challenge 2</h4>
+<p>Estimate other models using 5 and 40 topics, respectively. Look at the top words for each topic. How do the topics vary when you change the number of topics?</p>
+<p>Now look at your neighbor’s model. Did you get the same results? Why or why not?</p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb476-1" data-line-number="1"><span class="co"># YOUR CODE HERE</span></a></code></pre></div>
+</div>
+</div>
+<div id="interprete-model" class="section level3">
+<h3><span class="header-section-number">18.4.3</span> Interprete Model</h3>
+<p>Let’s all load a fully-estimated model that I ran before class.</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" data-line-number="1"><span class="co"># load the already-estimated model.</span></a>
+<a class="sourceLine" id="cb477-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;data/stm.RData&quot;</span>)</a></code></pre></div>
+<div id="challenge-3-1" class="section level4 unnumbered">
+<h4>Challenge 3</h4>
+<p>Using the functions <code>labelTopics</code> and <code>findThoughts</code>, hand label the 15 topics. Hold these labels as a character vector called <code>labels</code></p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1"><span class="co"># Store your hand labels below.</span></a>
+<a class="sourceLine" id="cb478-2" data-line-number="2">labels =<span class="st"> </span><span class="kw">c</span>()</a></code></pre></div>
+<p>Now look at your neighbor’s labels. Did you get the same results? Why or why not?</p>
+</div>
+</div>
+<div id="analyze-topics" class="section level3">
+<h3><span class="header-section-number">18.4.4</span> Analyze topics</h3>
+<p>We’re now going to see how the topics compare in terms of their prevalence across region. What do you notice about the distribution of topic 9?</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1"><span class="co"># Corpus Summary</span></a>
+<a class="sourceLine" id="cb479-2" data-line-number="2"><span class="kw">plot.STM</span>(model, <span class="dt">type=</span><span class="st">&quot;summary&quot;</span>, <span class="dt">custom.labels =</span> labels, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb479-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb479-4" data-line-number="4"><span class="co"># Estimate Covariate Effects</span></a>
+<a class="sourceLine" id="cb479-5" data-line-number="5">prep &lt;-<span class="st"> </span><span class="kw">estimateEffect</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span> <span class="op">~</span><span class="st"> </span>REGION <span class="op">+</span><span class="st"> </span><span class="kw">s</span>(YEAR), model, <span class="dt">meta =</span> meta, <span class="dt">uncertainty =</span> <span class="st">&quot;Global&quot;</span>, <span class="dt">documents=</span>docs)</a>
+<a class="sourceLine" id="cb479-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb479-7" data-line-number="7"><span class="co"># plot topic 9 over region</span></a>
+<a class="sourceLine" id="cb479-8" data-line-number="8">regions =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Asia&quot;</span>, <span class="st">&quot;EECA&quot;</span>, <span class="st">&quot;MENA&quot;</span>, <span class="st">&quot;Africa&quot;</span>, <span class="st">&quot;West&quot;</span>, <span class="st">&quot;LA&quot;</span>)</a>
+<a class="sourceLine" id="cb479-9" data-line-number="9"><span class="kw">plot.estimateEffect</span>(prep, <span class="st">&quot;REGION&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;pointestimate&quot;</span>, <span class="dt">topics =</span> <span class="dv">9</span>, <span class="dt">printlegend =</span> <span class="ot">TRUE</span>, <span class="dt">labeltype =</span> <span class="st">&quot;custom&quot;</span>, <span class="dt">custom.labels =</span> regions, <span class="dt">main =</span> <span class="st">&quot;Women&#39;s Rights&quot;</span>, <span class="dt">ci.level =</span> <span class="fl">.95</span>, <span class="dt">nsims=</span><span class="dv">100</span>)</a></code></pre></div>
+<p><img src="site1_files/figure-html/unnamed-chunk-544-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-544-2.png" width="70%" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="collecting-data-from-the-web.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="assignments-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rochelleterman/plsc-31101/edit/master/15_Text/15-1_Preprocessing.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["https://github.com/rochelleterman/plsc-31101/raw/master/15_Text/15-1_Preprocessing.Rmd"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

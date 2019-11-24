@@ -75,7 +75,7 @@ __Print the first 6 rows of the `articles_country_year`.__
 
 ```{r}
 articles_country_year <- articles_no_na %>% 
-  count(ccode, year) %>%
+  dplyr::count(ccode, year) %>%
   select(ccode, year, number_articles = n)
 
 kable(head(articles_country_year))

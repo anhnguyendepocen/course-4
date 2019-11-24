@@ -15252,6 +15252,1229 @@ This involves:
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{text-analysis}{%
+\chapter{Text Analysis}\label{text-analysis}}
+
+This unit focuses on computational text analysis (or ``text-as-data''). We'll explore:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{string-basics}{string basics}}, like concatinating and subsettings.
+\item
+  \textbf{\protect\hyperlink{regular-expressions}{regular expressions}}, a powerful cross-language tool for working with string data.
+\item
+  \textbf{\protect\hyperlink{common-tools}{common tools}}, that take regex and apply them to real problems.
+\end{enumerate}
+
+\hypertarget{preprocessing-a-corpus}{%
+\section{Preprocessing a Corpus}\label{preprocessing-a-corpus}}
+
+First let's load our required packages.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tm) }\CommentTok{# Framework for text mining}
+\KeywordTok{library}\NormalTok{(tidyverse) }\CommentTok{# Data preparation and pipes $>$}
+\KeywordTok{library}\NormalTok{(ggplot2) }\CommentTok{# for plotting word frequencies}
+\KeywordTok{library}\NormalTok{(wordcloud) }\CommentTok{# wordclouds!}
+\end{Highlighting}
+\end{Shaded}
+
+A \textbf{corpus} is a collection of texts, usually stored electronically, and from which we perform our analysis. A corpus might be a collection of news articles from Reuters or the published works of Shakespeare.
+
+Within each corpus we will have separate articles, stories, volumes, each treated as a separate entity or record. Each unit is called a \textbf{document.}
+
+For this unit, we will be using a section of Machiavelli's Prince as our corpus. Since The Prince is a monograph, we have already ``chunked'' the text, so that each short paragraph or ``chunk'' is considered a ``document.''
+
+\hypertarget{from-words-to-numbers}{%
+\subsection{From Words to Numbers}\label{from-words-to-numbers}}
+
+\hypertarget{corpus-readers}{%
+\subsubsection*{Corpus Readers}\label{corpus-readers}}
+\addcontentsline{toc}{subsubsection}{Corpus Readers}
+
+The \texttt{tm} package supports a variety of sources and formats. Run the code below to see what it includes
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{getSources}\NormalTok{()}
+\CommentTok{#> [1] "DataframeSource" "DirSource"       "URISource"       "VectorSource"   }
+\CommentTok{#> [5] "XMLSource"       "ZipSource"}
+\KeywordTok{getReaders}\NormalTok{()}
+\CommentTok{#>  [1] "readDataframe"           "readDOC"                }
+\CommentTok{#>  [3] "readPDF"                 "readPlain"              }
+\CommentTok{#>  [5] "readRCV1"                "readRCV1asPlain"        }
+\CommentTok{#>  [7] "readReut21578XML"        "readReut21578XMLasPlain"}
+\CommentTok{#>  [9] "readTagged"              "readXML"}
+\end{Highlighting}
+\end{Shaded}
+
+Here we'll be reading documents from a csv file. Each row being a document, and columns for text and metadata (information about each document). This is the easiest option if you have metadata.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{docs.df <-}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/mach.csv"}\NormalTok{, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{) }\CommentTok{#read in CSV file}
+\CommentTok{# docs.df$text <- Encoding("UTF-8")}
+\NormalTok{docs <-}\StringTok{ }\KeywordTok{Corpus}\NormalTok{(}\KeywordTok{VectorSource}\NormalTok{(docs.df}\OperatorTok{$}\NormalTok{text))}
+\NormalTok{docs}
+\CommentTok{#> <<SimpleCorpus>>}
+\CommentTok{#> Metadata:  corpus specific: 1, document level (indexed): 0}
+\CommentTok{#> Content:  documents: 188}
+\end{Highlighting}
+\end{Shaded}
+
+Once we have the corpus, we can inspect the documents using inspect()
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# see the 16th document}
+\KeywordTok{inspect}\NormalTok{(docs[}\DecValTok{16}\NormalTok{])}
+\CommentTok{#> <<SimpleCorpus>>}
+\CommentTok{#> Metadata:  corpus specific: 1, document level (indexed): 0}
+\CommentTok{#> Content:  documents: 1}
+\CommentTok{#> }
+\CommentTok{#> [1]  Therefore, since a ruler cannot both practise this virtue of generosity and be known to do so without harming himself, he would do well not to worry about being called miserly. For eventually he will come to be considered more generous, when it is realised that, because of his parsimony, his revenues are sufficient to defend himself against any enemies that attack him, and to undertake campaigns without imposing special taxes on the people. Thus he will be acting generously towards the vast majority, whose property he does not touch, and will be acting meanly towards the few to whom he gives nothing.  Those rulers who have achieved great things in our own times have all been considered mean; all the others have failed. Although Pope Julius II cultivated a reputation for generosity in order to become pope, he did not seek to maintain it afterwards, because he wanted to be}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{preprocessing-functions}{%
+\subsubsection*{Preprocessing functions}\label{preprocessing-functions}}
+\addcontentsline{toc}{subsubsection}{Preprocessing functions}
+
+Many text analysis applications follow a similar `recipe' for preprecessing, involving (the order of these steps might differ as per application):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tokenizing the text to unigrams (or bigrams, or trigrams)
+\item
+  Converting all characters to lowercase
+\item
+  Removing punctuation
+\item
+  Removing numbers
+\item
+  Removing Stop Words, inclugind custom stop words
+\item
+  ``Stemming'' words, or lemmitization. There are several stemming alogrithms. Porter is the most popular.
+\item
+  Creating a Document-Term Matrix
+\end{enumerate}
+
+\texttt{tm} lets us convert a corpus to a DTM while completing the pre-processing steps in one step.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dtm <-}\StringTok{ }\KeywordTok{DocumentTermMatrix}\NormalTok{(docs,}
+           \DataTypeTok{control =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{stopwords =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{tolower =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{removeNumbers =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{removePunctuation =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{stemming=}\OtherTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{weighting}{%
+\subsubsection*{Weighting}\label{weighting}}
+\addcontentsline{toc}{subsubsection}{Weighting}
+
+One common pre-processing step that some applicaitons may call for is applying tf-idf weights. The \href{https://en.wikipedia.org/wiki/Tf\%E2\%80\%93idf}{tf-idf}, or term frequency-inverse document frequency, is a weight that ranks the importance of a term in its contextual document corpus. The tf-idf value increases proportionally to the number of times a word appears in the document, but is offset by the frequency of the word in the corpus, which helps to adjust for the fact that some words appear more frequently in general. In other words, it places importance on terms frequent in the document but rare in the corpus.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dtm.weighted <-}\StringTok{ }\KeywordTok{DocumentTermMatrix}\NormalTok{(docs,}
+           \DataTypeTok{control =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{weighting =}\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{weightTfIdf}\NormalTok{(x, }\DataTypeTok{normalize =} \OtherTok{TRUE}\NormalTok{),}
+                          \DataTypeTok{stopwords =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{tolower =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{removeNumbers =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{removePunctuation =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{stemming=}\OtherTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Compare first 5 rows and 5 columns of the \texttt{dtm} and \texttt{dtm.weighted}. What do you notice?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{inspect}\NormalTok{(dtm[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{])}
+\CommentTok{#> <<DocumentTermMatrix (documents: 5, terms: 5)>>}
+\CommentTok{#> Non-/sparse entries: 3/22}
+\CommentTok{#> Sparsity           : 88%}
+\CommentTok{#> Maximal term length: 7}
+\CommentTok{#> Weighting          : term frequency (tf)}
+\CommentTok{#> Sample             :}
+\CommentTok{#>     Terms}
+\CommentTok{#> Docs abandon abil abject abl ablest}
+\CommentTok{#>    1       0    0      0   0      0}
+\CommentTok{#>    2       0    1      0   0      0}
+\CommentTok{#>    3       0    0      0   0      0}
+\CommentTok{#>    4       0    1      0   1      0}
+\CommentTok{#>    5       0    0      0   0      0}
+\KeywordTok{inspect}\NormalTok{(dtm.weighted[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{])}
+\CommentTok{#> <<DocumentTermMatrix (documents: 5, terms: 5)>>}
+\CommentTok{#> Non-/sparse entries: 3/22}
+\CommentTok{#> Sparsity           : 88%}
+\CommentTok{#> Maximal term length: 7}
+\CommentTok{#> Weighting          : term frequency - inverse document frequency (normalized) (tf-idf)}
+\CommentTok{#> Sample             :}
+\CommentTok{#>     Terms}
+\CommentTok{#> Docs abandon   abil abject    abl ablest}
+\CommentTok{#>    1       0 0.0000      0 0.0000      0}
+\CommentTok{#>    2       0 0.0402      0 0.0000      0}
+\CommentTok{#>    3       0 0.0000      0 0.0000      0}
+\CommentTok{#>    4       0 0.0310      0 0.0228      0}
+\CommentTok{#>    5       0 0.0000      0 0.0000      0}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exploring-the-dtm}{%
+\subsection{Exploring the DTM}\label{exploring-the-dtm}}
+
+\hypertarget{dimensions}{%
+\subsubsection*{Dimensions}\label{dimensions}}
+\addcontentsline{toc}{subsubsection}{Dimensions}
+
+Let's look at the structure of our DTM. Print the dimensions of the DTM. How many documents do we have? How many terms?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# how many documents? how many terms?}
+\KeywordTok{dim}\NormalTok{(dtm)}
+\CommentTok{#> [1]  188 2368}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{frequencies}{%
+\subsubsection*{Frequencies}\label{frequencies}}
+\addcontentsline{toc}{subsubsection}{Frequencies}
+
+We can obtain the term frequencies as a vector by converting the document term matrix into a matrix and using \texttt{colSums} to sum the column counts:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{# how many terms?}
+\NormalTok{freq <-}\StringTok{ }\KeywordTok{colSums}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(dtm))}
+\NormalTok{freq[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\CommentTok{#> abandon    abil  abject     abl  ablest }
+\CommentTok{#>       4      35       1      61       1}
+\KeywordTok{length}\NormalTok{(freq)}
+\CommentTok{#> [1] 2368}
+\end{Highlighting}
+\end{Shaded}
+
+By ordering the frequencies we can list the most frequent terms and the least frequent terms.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# order}
+\NormalTok{sorted <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(freq, }\DataTypeTok{decreasing =}\NormalTok{ T)}
+
+\CommentTok{# Least frequent terms}
+\KeywordTok{head}\NormalTok{(sorted)}
+\CommentTok{#> ruler  will power   one peopl alway }
+\CommentTok{#>   280   251   169   168    98    95}
+
+\CommentTok{# most frequent}
+\KeywordTok{tail}\NormalTok{(sorted)}
+\CommentTok{#>  xxiv   xxv  xxvi yield  yoke youth }
+\CommentTok{#>     1     1     1     1     1     1}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{plotting-frequencies}{%
+\subsubsection*{Plotting frequencies}\label{plotting-frequencies}}
+\addcontentsline{toc}{subsubsection}{Plotting frequencies}
+
+Let's make a plot that shows the frequency of frequencies for the terms. (For example, how many words are used only once? 5 times? 10 times?)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# frequency of frenquencies}
+\KeywordTok{head}\NormalTok{(}\KeywordTok{table}\NormalTok{(freq),}\DecValTok{15}\NormalTok{)}
+\CommentTok{#> freq}
+\CommentTok{#>   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15 }
+\CommentTok{#> 988 363 202 140 103  73  55  39  33  29  24  22  20  20  19}
+\KeywordTok{tail}\NormalTok{(}\KeywordTok{table}\NormalTok{(freq),}\DecValTok{15}\NormalTok{)}
+\CommentTok{#> freq}
+\CommentTok{#>  65  68  70  71  73  74  75  76  77  95  98 168 169 251 280 }
+\CommentTok{#>   1   1   1   1   2   1   1   1   1   2   1   1   1   1   1}
+
+\CommentTok{# plot}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{table}\NormalTok{(freq))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-509-1} \end{center}
+
+What does this tell us about the nature of language?
+
+We can reorder columns of DTM to show most frequent terms first:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dtm.ordered <-}\StringTok{ }\NormalTok{dtm[,}\KeywordTok{order}\NormalTok{(freq, }\DataTypeTok{decreasing =}\NormalTok{ T)]}
+\KeywordTok{inspect}\NormalTok{(dtm.ordered[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{])}
+\CommentTok{#> <<DocumentTermMatrix (documents: 5, terms: 5)>>}
+\CommentTok{#> Non-/sparse entries: 10/15}
+\CommentTok{#> Sparsity           : 60%}
+\CommentTok{#> Maximal term length: 5}
+\CommentTok{#> Weighting          : term frequency (tf)}
+\CommentTok{#> Sample             :}
+\CommentTok{#>     Terms}
+\CommentTok{#> Docs one peopl power ruler will}
+\CommentTok{#>    1   0     0     0     1    1}
+\CommentTok{#>    2   3     0     0     1    3}
+\CommentTok{#>    3   0     0     0     0    0}
+\CommentTok{#>    4   0     0     0     1    1}
+\CommentTok{#>    5   3     0     0     1    1}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exploring-common-words}{%
+\subsubsection*{Exploring common words}\label{exploring-common-words}}
+\addcontentsline{toc}{subsubsection}{Exploring common words}
+
+The TM package has lots of useful functions to help you explore common words and associations:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Have a look at common words}
+\KeywordTok{findFreqTerms}\NormalTok{(dtm, }\DataTypeTok{lowfreq=}\DecValTok{50}\NormalTok{) }\CommentTok{# words that appear at least 100 times}
+\CommentTok{#>  [1] "abl"      "act"      "alway"    "armi"     "becom"    "can"     }
+\CommentTok{#>  [7] "consid"   "either"   "forc"     "great"    "king"     "maintain"}
+\CommentTok{#> [13] "make"     "man"      "mani"     "men"      "much"     "must"    }
+\CommentTok{#> [19] "never"    "new"      "one"      "order"    "other"    "peopl"   }
+\CommentTok{#> [25] "power"    "reason"   "ruler"    "sinc"     "state"    "subject" }
+\CommentTok{#> [31] "time"     "troop"    "use"      "want"     "way"      "well"    }
+\CommentTok{#> [37] "will"}
+
+\CommentTok{# Which words correlate with "war"?}
+\KeywordTok{findAssocs}\NormalTok{(dtm, }\StringTok{"war"}\NormalTok{, }\FloatTok{0.3}\NormalTok{)}
+\CommentTok{#> $war}
+\CommentTok{#>     wage    fight  antioch     argu     brew    induc      lip    maxim }
+\CommentTok{#>     0.73     0.52     0.45     0.45     0.45     0.45     0.45     0.45 }
+\CommentTok{#>  relianc     sage    trifl  postpon     mere     evil    avoid     flee }
+\CommentTok{#>     0.45     0.45     0.45     0.41     0.35     0.34     0.32     0.32 }
+\CommentTok{#>   occupi     glad glorious    heard     hunt ineffect     knew   produc }
+\CommentTok{#>     0.32     0.30     0.30     0.30     0.30     0.30     0.30     0.30 }
+\CommentTok{#> temporis }
+\CommentTok{#>     0.30}
+\end{Highlighting}
+\end{Shaded}
+
+We can even make wordclouds showing the most commons terms:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# wordcoulds!}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\KeywordTok{wordcloud}\NormalTok{(}\KeywordTok{names}\NormalTok{(sorted), sorted, }\DataTypeTok{max.words=}\DecValTok{100}\NormalTok{, }\DataTypeTok{colors=}\KeywordTok{brewer.pal}\NormalTok{(}\DecValTok{6}\NormalTok{,}\StringTok{"Dark2"}\NormalTok{))}
+\CommentTok{#> Warning in wordcloud(names(sorted), sorted, max.words = 100, colors =}
+\CommentTok{#> brewer.pal(6, : ruler could not be fit on page. It will not be plotted.}
+\CommentTok{#> Warning in wordcloud(names(sorted), sorted, max.words = 100, colors =}
+\CommentTok{#> brewer.pal(6, : power could not be fit on page. It will not be plotted.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-512-1} \end{center}
+
+\hypertarget{remove-sparse-terms}{%
+\subsubsection*{Remove sparse terms}\label{remove-sparse-terms}}
+\addcontentsline{toc}{subsubsection}{Remove sparse terms}
+
+Somtimes we want to remove sparse terms and thus inrease efficency. Look up the help file for the function \texttt{removeSparseTerms}. Using this function, create an objected called \texttt{dtm.s} that contains only terms with \textless{}.9 sparsity (meaning they appear in more than 10\% of documents).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dtm.s <-}\StringTok{ }\KeywordTok{removeSparseTerms}\NormalTok{(dtm,.}\DecValTok{9}\NormalTok{)}
+\NormalTok{dtm }\CommentTok{# 2365 terms}
+\CommentTok{#> <<DocumentTermMatrix (documents: 188, terms: 2368)>>}
+\CommentTok{#> Non-/sparse entries: 11754/433430}
+\CommentTok{#> Sparsity           : 97%}
+\CommentTok{#> Maximal term length: 15}
+\CommentTok{#> Weighting          : term frequency (tf)}
+\NormalTok{dtm.s }\CommentTok{# 135 terms}
+\CommentTok{#> <<DocumentTermMatrix (documents: 188, terms: 136)>>}
+\CommentTok{#> Non-/sparse entries: 4353/21215}
+\CommentTok{#> Sparsity           : 83%}
+\CommentTok{#> Maximal term length: 12}
+\CommentTok{#> Weighting          : term frequency (tf)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exporting-the-dtm}{%
+\subsection{Exporting the DTM}\label{exporting-the-dtm}}
+
+We can convert a DTM to a matrix or data.frame in order to write to a csv, add meta data, etc.
+
+First create an object that converts the \texttt{dtm} to a dataframe (we first have to convert to matrix, and then to dataframe)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# coerce into dataframe}
+\NormalTok{dtm <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(dtm))}
+\KeywordTok{names}\NormalTok{(dtm)[}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{]  }\CommentTok{# names of documents}
+\CommentTok{#>  [1] "abandon"   "abil"      "abject"    "abl"       "ablest"   }
+\CommentTok{#>  [6] "abovement" "abovenam"  "absolut"   "absorb"    "accept"}
+\end{Highlighting}
+\end{Shaded}
+
+Now add a column called \texttt{doc\_section}. For the first 100 rows, the value of this column should be ``Section 1''. For documents 101-188, the section should be ``Section 2''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# add fake column for section}
+\NormalTok{dtm}\OperatorTok{$}\NormalTok{doc_section <-}\StringTok{ "NA"}
+\NormalTok{dtm}\OperatorTok{$}\NormalTok{doc_section[}\DecValTok{1}\OperatorTok{:}\DecValTok{100}\NormalTok{] <-}\StringTok{ "Section 1"}
+\NormalTok{dtm}\OperatorTok{$}\NormalTok{doc_section[}\DecValTok{101}\OperatorTok{:}\DecValTok{188}\NormalTok{] <-}\StringTok{ "Section 2"}
+\NormalTok{dtm}\OperatorTok{$}\NormalTok{doc_section <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(dtm}\OperatorTok{$}\NormalTok{doc_section)}
+
+\CommentTok{# check to see if they're the same number of documents per author}
+\KeywordTok{summary}\NormalTok{(dtm}\OperatorTok{$}\NormalTok{doc_section)}
+\CommentTok{#> Section 1 Section 2 }
+\CommentTok{#>       100        88}
+\end{Highlighting}
+\end{Shaded}
+
+We can now export the dataframe as a csv.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.csv}\NormalTok{(dtm, }\StringTok{"dtm.csv"}\NormalTok{, }\DataTypeTok{row.names =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenges-24}{%
+\subsection{Challenges}\label{challenges-24}}
+
+Using the one of the files in the \texttt{/text-data} directory, create a document term matrix and create a wordcloud of the most common terms.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sentiment-analysis-and-dictionary-methods}{%
+\section{Sentiment Analysis and Dictionary Methods}\label{sentiment-analysis-and-dictionary-methods}}
+
+To demonstrate sentiment analysis, we're going to explore lyrics from Taylor Swift songs.
+
+Road the code below to get started.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(tm)}
+\KeywordTok{require}\NormalTok{(tidytext)}
+\KeywordTok{require}\NormalTok{(tidyverse)}
+\KeywordTok{require}\NormalTok{(stringr)}
+\KeywordTok{require}\NormalTok{(textdata)}
+
+\NormalTok{ts <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/taylor_swift.csv"}\NormalTok{)}
+\KeywordTok{getwd}\NormalTok{()}
+\CommentTok{#> [1] "/Users/rterman/Desktop/course"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{preprocessing-and-setup}{%
+\subsection{Preprocessing and Setup}\label{preprocessing-and-setup}}
+
+First we must preprocess the corpus. Create a document-term matrix from the \texttt{lyrics} column of the \texttt{ts} data frame. Complete the following preprocessing steps:
+- convert to lower
+- remove stop words
+- remove numbers
+- remove punctuation.
+
+\textbf{Think}: Why is stemming inappropriate for this application?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# preprocess and create DTM}
+\NormalTok{docs <-}\StringTok{ }\KeywordTok{Corpus}\NormalTok{(}\KeywordTok{VectorSource}\NormalTok{(ts}\OperatorTok{$}\NormalTok{lyrics))}
+
+\NormalTok{dtm <-}\StringTok{ }\KeywordTok{DocumentTermMatrix}\NormalTok{(docs,}
+           \DataTypeTok{control =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{tolower =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{removeNumbers =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{removePunctuation =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{stopwords =} \OtherTok{TRUE}
+\NormalTok{                         ))}
+
+\NormalTok{dtm <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(dtm))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sentiment-dictionaries}{%
+\subsubsection*{Sentiment dictionaries}\label{sentiment-dictionaries}}
+\addcontentsline{toc}{subsubsection}{Sentiment dictionaries}
+
+We're going to use sentiment dictionaries from the \texttt{tidytext} package. Using the \texttt{get\_sentiments} function, load the ``bing'' dictionary and store it in an object called \texttt{sent}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sent <-}\StringTok{ }\KeywordTok{get_sentiments}\NormalTok{(}\StringTok{"bing"}\NormalTok{)}
+\KeywordTok{head}\NormalTok{(sent)}
+\CommentTok{#> # A tibble: 6 x 2}
+\CommentTok{#>   word       sentiment}
+\CommentTok{#>   <chr>      <chr>    }
+\CommentTok{#> 1 2-faces    negative }
+\CommentTok{#> 2 abnormal   negative }
+\CommentTok{#> 3 abolish    negative }
+\CommentTok{#> 4 abominable negative }
+\CommentTok{#> 5 abominably negative }
+\CommentTok{#> 6 abominate  negative}
+\end{Highlighting}
+\end{Shaded}
+
+We'll now add a column to \texttt{sent} called \texttt{score}. This column should hold a ``1'' for positive words and ``-1'' for negative words.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sent}\OperatorTok{$}\NormalTok{score <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(sent}\OperatorTok{$}\NormalTok{sentiment}\OperatorTok{==}\StringTok{"positive"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{-1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{scoring-the-songs}{%
+\subsection{Scoring the songs}\label{scoring-the-songs}}
+
+We're now ready to score each song.
+
+(\textbf{NB}: There are probably many ways to program a script that performs this task. If you can think of a more elegant way, go for it!)
+
+First, we'll create a dataframe that holds all the words in our dtm along with their sentiment score.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get all the words in our dtm and put it in a dataframe}
+\NormalTok{words =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{word =} \KeywordTok{colnames}\NormalTok{(dtm))}
+\KeywordTok{head}\NormalTok{(words)}
+\CommentTok{#>        word}
+\CommentTok{#> 1      back}
+\CommentTok{#> 2 backroads}
+\CommentTok{#> 3       bed}
+\CommentTok{#> 4   believe}
+\CommentTok{#> 5   beneath}
+\CommentTok{#> 6    beside}
+
+\CommentTok{# get their sentiment scores}
+\NormalTok{words <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(words, sent, }\DataTypeTok{all.x =}\NormalTok{ T)}
+\KeywordTok{head}\NormalTok{(words)}
+\CommentTok{#>       word sentiment score}
+\CommentTok{#> 1  abigail      <NA>    NA}
+\CommentTok{#> 2   absent      <NA>    NA}
+\CommentTok{#> 3   absurd  negative    -1}
+\CommentTok{#> 4  accused      <NA>    NA}
+\CommentTok{#> 5      ace      <NA>    NA}
+\CommentTok{#> 6 achilles      <NA>    NA}
+
+\CommentTok{# replace NAs with 0s}
+\NormalTok{words}\OperatorTok{$}\NormalTok{score[}\KeywordTok{is.na}\NormalTok{(words}\OperatorTok{$}\NormalTok{score)] <-}\StringTok{ }\DecValTok{0}
+\KeywordTok{head}\NormalTok{(words)}
+\CommentTok{#>       word sentiment score}
+\CommentTok{#> 1  abigail      <NA>     0}
+\CommentTok{#> 2   absent      <NA>     0}
+\CommentTok{#> 3   absurd  negative    -1}
+\CommentTok{#> 4  accused      <NA>     0}
+\CommentTok{#> 5      ace      <NA>     0}
+\CommentTok{#> 6 achilles      <NA>     0}
+\end{Highlighting}
+\end{Shaded}
+
+We can now use matrix algebra (!!) to multiply our dtm by the scoring vector. This will return to us a score for each document (i.e., song).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# calculate documents scores with matrix algebra! }
+\NormalTok{scores <-}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(dtm) }\OperatorTok{%*%}\StringTok{ }\NormalTok{words}\OperatorTok{$}\NormalTok{score}
+
+\CommentTok{# put it in the original documents data frame}
+\NormalTok{ts}\OperatorTok{$}\NormalTok{sentiment <-}\StringTok{ }\NormalTok{scores}
+\end{Highlighting}
+\end{Shaded}
+
+Which song is happiest? Go listen to the song and see if you agree.
+
+\hypertarget{challenges-25}{%
+\subsection{Challenges}\label{challenges-25}}
+
+\hypertarget{challenge-1-3}{%
+\subsubsection*{Challenge 1}\label{challenge-1-3}}
+\addcontentsline{toc}{subsubsection}{Challenge 1}
+
+Using the code we wrote above, make a function that accepts 1) a vector of texts, and 2) a sentiment dictionary (i.e.~a data frame with words and scores), and returns a vector of sentiment scores for each text.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sentiment_score <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(texts, sent_dict)\{}
+  
+  \CommentTok{# YOUR CODE HERE}
+  
+  \KeywordTok{return}\NormalTok{(scores)}
+\NormalTok{\}}
+  
+\CommentTok{# uncomment to test it out!}
+\CommentTok{# sentiment_score(ts$lyrics, sent)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenge-2-3}{%
+\subsubsection*{Challenge 2}\label{challenge-2-3}}
+\addcontentsline{toc}{subsubsection}{Challenge 2}
+
+Using the function you wrote above, find out what the most and least positive Taylor Swift album is.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# concatenate to make albums}
+\NormalTok{albums <-}\StringTok{ }\NormalTok{ts }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(album) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{lyrics =} \KeywordTok{str_c}\NormalTok{(lyrics, }\DataTypeTok{collapse =} \StringTok{";"}\NormalTok{))}
+
+\CommentTok{# first load the dictionary}
+\NormalTok{afinn <-}\StringTok{ }\KeywordTok{get_sentiments}\NormalTok{(}\StringTok{"afinn"}\NormalTok{)}
+
+\CommentTok{# then run the function}
+\KeywordTok{sentiment_score}\NormalTok{(albums}\OperatorTok{$}\NormalTok{lyrics, afinn)}
+
+\CommentTok{# add to original df}
+\NormalTok{albums}\OperatorTok{$}\NormalTok{sent <-}\StringTok{ }\KeywordTok{sentiment_score}\NormalTok{(albums}\OperatorTok{$}\NormalTok{lyrics, afinn)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{distinctive-words}{%
+\section{Distinctive Words}\label{distinctive-words}}
+
+This lesson finds distinctive words in the speeches of Obama and Trump.
+
+Run the following code to:
+1. Import the corpus
+2. Create a DTM
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(tm)}
+\KeywordTok{require}\NormalTok{(matrixStats) }\CommentTok{# for statistics}
+
+\CommentTok{# import corpus}
+\NormalTok{docs <-}\StringTok{ }\KeywordTok{Corpus}\NormalTok{(}\KeywordTok{DirSource}\NormalTok{(}\StringTok{"Data/trump_obama"}\NormalTok{))}
+
+\CommentTok{# preprocess and create DTM}
+\NormalTok{dtm <-}\StringTok{ }\KeywordTok{DocumentTermMatrix}\NormalTok{(docs,}
+           \DataTypeTok{control =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{tolower =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{stopwords =}\NormalTok{ T,}
+                          \DataTypeTok{removeNumbers =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{removePunctuation =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{stemming=}\OtherTok{TRUE}\NormalTok{))}
+
+\CommentTok{# print the dimensions of the DTM}
+\KeywordTok{dim}\NormalTok{(dtm)}
+\CommentTok{#> [1]   11 4094}
+
+\CommentTok{# take a quick look}
+\KeywordTok{inspect}\NormalTok{(dtm[,}\DecValTok{100}\OperatorTok{:}\DecValTok{104}\NormalTok{])}
+\CommentTok{#> <<DocumentTermMatrix (documents: 11, terms: 5)>>}
+\CommentTok{#> Non-/sparse entries: 14/41}
+\CommentTok{#> Sparsity           : 75%}
+\CommentTok{#> Maximal term length: 11}
+\CommentTok{#> Weighting          : term frequency (tf)}
+\CommentTok{#> Sample             :}
+\CommentTok{#>                 Terms}
+\CommentTok{#> Docs             alien align alik aliv allamerican}
+\CommentTok{#>   Obama_2009.txt     0     0    1    0           0}
+\CommentTok{#>   Obama_2010.txt     0     0    1    1           0}
+\CommentTok{#>   Obama_2011.txt     0     1    0    0           0}
+\CommentTok{#>   Obama_2012.txt     0     0    0    1           0}
+\CommentTok{#>   Obama_2013.txt     0     0    0    0           0}
+\CommentTok{#>   Obama_2014.txt     0     0    0    1           0}
+\CommentTok{#>   Obama_2015.txt     1     0    1    0           0}
+\CommentTok{#>   Trump_2017.txt     0     1    0    0           0}
+\CommentTok{#>   Trump_2018.txt     1     0    0    0           1}
+\CommentTok{#>   Trump_2019.txt     3     0    1    1           0}
+\end{Highlighting}
+\end{Shaded}
+
+Oftentimes scholars will want to compare different corpora by finding the words (or features) distinctive to each corpora. But finding distinctive words requires a decision about what ``distinctive'' means. As we will see, there are a variety of definitions that we might use.
+
+\hypertarget{unique-usage}{%
+\subsection{Unique usage}\label{unique-usage}}
+
+The most obvious definition of distinctive is ``exclusive''. That is, distinctive words are those are found exclusively in texts associated with a single author (or group). For example, if Brontë uses the word ``access'' and obama never does, we should count ``access'' as distinctive.
+
+Finding words that are exclusive to a group is a simple exercise. All we have to do is sum the usage of each word use across all texts for each author, and then look for cases where the sum is zero for one author.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# turn DTM into dataframe}
+\NormalTok{dtm.m <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(dtm))}
+\NormalTok{dtm.m[,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\CommentTok{#>                abandon abess abid abil abject}
+\CommentTok{#> Obama_2009.txt       0     1    0    3      0}
+\CommentTok{#> Obama_2010.txt       0     0    1    1      0}
+\CommentTok{#> Obama_2011.txt       1     0    0    0      0}
+\CommentTok{#> Obama_2012.txt       0     0    0    0      0}
+\CommentTok{#> Obama_2013.txt       0     0    0    3      0}
+\CommentTok{#> Obama_2014.txt       0     0    0    0      0}
+\CommentTok{#> Obama_2015.txt       1     0    0    0      0}
+\CommentTok{#> Obama_2016.txt       0     0    0    0      0}
+\CommentTok{#> Trump_2017.txt       1     0    0    1      0}
+\CommentTok{#> Trump_2018.txt       0     0    0    0      0}
+\CommentTok{#> Trump_2019.txt       0     0    0    0      1}
+\NormalTok{dtm.m}\OperatorTok{$}\StringTok{`}\DataTypeTok{that}\StringTok{`}
+\CommentTok{#>  [1]  6 15 24 24 13 19 29 30  0  0  0}
+
+\CommentTok{# Subset into 2 dtms for each author}
+\NormalTok{obama <-}\StringTok{ }\NormalTok{dtm.m[}\DecValTok{1}\OperatorTok{:}\DecValTok{8}\NormalTok{,]}
+\NormalTok{trump <-}\StringTok{ }\NormalTok{dtm.m[}\DecValTok{9}\OperatorTok{:}\DecValTok{11}\NormalTok{,]}
+
+\CommentTok{# Sum word usage counts across all texts}
+\NormalTok{obama <-}\StringTok{ }\KeywordTok{colSums}\NormalTok{(obama)}
+\NormalTok{trump <-}\StringTok{ }\KeywordTok{colSums}\NormalTok{(trump)}
+
+\CommentTok{# Put those sums back into a dataframe}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(obama,trump))}
+\NormalTok{df[,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\CommentTok{#>       abandon abess abid abil abject}
+\CommentTok{#> obama       2     1    1    7      0}
+\CommentTok{#> trump       1     0    0    1      1}
+
+\CommentTok{# Get words where one author's usage is 0}
+\NormalTok{solelyobama <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{(df[}\DecValTok{1}\NormalTok{,trump}\OperatorTok{==}\DecValTok{0}\NormalTok{]) }
+\NormalTok{solelyobama <-}\StringTok{ }\NormalTok{solelyobama[}\KeywordTok{order}\NormalTok{(solelyobama, }\DataTypeTok{decreasing =}\NormalTok{ T)] }\CommentTok{# order them by frequency}
+\KeywordTok{head}\NormalTok{(solelyobama, }\DecValTok{10}\NormalTok{) }\CommentTok{# get top 10 words for obama}
+\CommentTok{#>      that      dont technolog      bank     innov    doesnt   teacher }
+\CommentTok{#>       160        68        31        30        30        29        26 }
+\CommentTok{#>      loan      wont     debat }
+\CommentTok{#>        22        22        21}
+
+\NormalTok{solelytrump <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{(df[}\DecValTok{2}\NormalTok{,obama}\OperatorTok{==}\DecValTok{0}\NormalTok{])}
+\NormalTok{solelytrump <-}\StringTok{ }\NormalTok{solelytrump[}\KeywordTok{order}\NormalTok{(solelytrump, }\DataTypeTok{decreasing =}\NormalTok{ T)] }\CommentTok{# order them by frequency}
+\KeywordTok{head}\NormalTok{(solelytrump, }\DecValTok{10}\NormalTok{) }\CommentTok{# get top 10 words for trump}
+\CommentTok{#>      isi    agent america.  audienc    megan      it. obamacar     alic }
+\CommentTok{#>        9        8        8        8        8        7        7        6 }
+\CommentTok{#>   beauti    elvin }
+\CommentTok{#>        6        6}
+\end{Highlighting}
+\end{Shaded}
+
+As we can see, these words tend not to be terribly interesting or informative. So we will remove them from our corpus in order to focus on identifying distinctive words that appear in texts associated with every author.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# subset df with non-zero entries}
+\NormalTok{df <-}\StringTok{ }\NormalTok{df[,trump}\OperatorTok{>}\DecValTok{0} \OperatorTok{&}\StringTok{ }\NormalTok{obama}\OperatorTok{>}\DecValTok{0}\NormalTok{]}
+
+\CommentTok{# how many words are we left with?}
+\KeywordTok{ncol}\NormalTok{(df)}
+\CommentTok{#> [1] 1525}
+\NormalTok{df[,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\CommentTok{#>       abandon abil abl abort abraham}
+\CommentTok{#> obama       2    7  15     1       1}
+\CommentTok{#> trump       1    1   9     1       1}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{differences-in-frequences}{%
+\subsection{Differences in frequences}\label{differences-in-frequences}}
+
+Another basic approach to identifying distinctive words is to compare the frequencies at which authors use a word. If one author uses a word often across his or her oeuvre and another barely uses the word at all, the difference in their respective frequencies will be large. We can calculate this quantity the following way:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# take the differences in frequences}
+\NormalTok{diffFreq <-}\StringTok{ }\NormalTok{obama }\OperatorTok{-}\StringTok{ }\NormalTok{trump}
+
+\CommentTok{# sort the words}
+\NormalTok{diffFreq <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(diffFreq, }\DataTypeTok{decreasing =}\NormalTok{ T)}
+
+\CommentTok{# the top obama words}
+\KeywordTok{head}\NormalTok{(diffFreq, }\DecValTok{10}\NormalTok{)}
+\CommentTok{#>     will     year      job     work     make      can american     that }
+\CommentTok{#>      306      217      214      186      177      172      165      160 }
+\CommentTok{#>  america      new }
+\CommentTok{#>      155      150}
+
+\CommentTok{# the top trump words}
+\KeywordTok{tail}\NormalTok{(diffFreq, }\DecValTok{10}\NormalTok{)}
+\CommentTok{#>  illeg immigr    isi    usa   hero   ryan border  great  thank   drug }
+\CommentTok{#>     -9     -9     -9     -9    -11    -11    -13    -13    -19    -22}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{differences-in-averages}{%
+\subsection{Differences in averages}\label{differences-in-averages}}
+
+This is a good start. But what if one author uses more words \emph{overall}? Instead of using raw frenquncies, a better approach would look at the average \emph{rate} at which authors use various words.
+
+We can calculate this quantity the following way:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Normalize the DTM from counts to proportions
+\item
+  Take the difference between one author's proportion of a word and another's proportion of the same word.
+\item
+  Find the words with the highest absolute difference.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# normalize into proportions}
+\NormalTok{rowTotals <-}\StringTok{ }\KeywordTok{rowSums}\NormalTok{(df) }\CommentTok{#create vector with row totals, i.e. total number of words per document}
+\KeywordTok{head}\NormalTok{(rowTotals) }\CommentTok{# notice that one author uses more words than the other}
+\CommentTok{#> obama trump }
+\CommentTok{#> 23021  7432}
+
+\CommentTok{# change frequencies to proportions}
+\NormalTok{df <-}\StringTok{ }\NormalTok{df}\OperatorTok{/}\NormalTok{rowTotals }\CommentTok{#change frequencies to proportions}
+\NormalTok{df[,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\CommentTok{#>        abandon     abil      abl    abort  abraham}
+\CommentTok{#> obama 8.69e-05 0.000304 0.000652 4.34e-05 4.34e-05}
+\CommentTok{#> trump 1.35e-04 0.000135 0.001211 1.35e-04 1.35e-04}
+
+\CommentTok{# get difference in proportions}
+\NormalTok{means.obama <-}\StringTok{ }\NormalTok{df[}\DecValTok{1}\NormalTok{,]}
+\NormalTok{means.trump <-}\StringTok{ }\NormalTok{df[}\DecValTok{2}\NormalTok{,]}
+\NormalTok{score <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{(means.obama }\OperatorTok{-}\StringTok{ }\NormalTok{means.trump)}
+
+\CommentTok{# find words with highest difference}
+\NormalTok{score <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(score, }\DataTypeTok{decreasing =}\NormalTok{ T)}
+\KeywordTok{head}\NormalTok{(score,}\DecValTok{10}\NormalTok{) }\CommentTok{# top obama words}
+\CommentTok{#>     job    make    busi     let    need    work    help economi  energi }
+\CommentTok{#> 0.00620 0.00541 0.00473 0.00426 0.00419 0.00407 0.00388 0.00378 0.00363 }
+\CommentTok{#>     can }
+\CommentTok{#> 0.00346}
+\KeywordTok{tail}\NormalTok{(score,}\DecValTok{10}\NormalTok{) }\CommentTok{# top trump words}
+\CommentTok{#>   border  tonight   immigr     unit    state     drug     must    great }
+\CommentTok{#> -0.00284 -0.00293 -0.00322 -0.00322 -0.00322 -0.00342 -0.00354 -0.00476 }
+\CommentTok{#>    thank american }
+\CommentTok{#> -0.00483 -0.00650}
+\end{Highlighting}
+\end{Shaded}
+
+This is a start. The problem with this measure is that it tends to highlight differences in very frequent words. For example, this method gives greater attention to a word that occurs 30 times per 1,000 words in obama and 25 times per 1,000 in Brontë than it does to a word that occurs 5 times per 1,000 words in obama and 0.1 times per 1,000 words in Brontë. This does not seem right. It seems important to recognize cases when one author uses a word frequently and another author barely uses it.
+
+As this initial attempt suggests, identifying distinctive words will be a balancing act. When comparing two groups of texts, differences in the rates of frequent words will tend to be large relative to differences in the rates of rarer words. Human language is variable; some words occur more frequently than others regardless of who is writing. We need to find a way of adjusting our definition of distinctive in light of this.
+
+\hypertarget{difference-in-averages-adjustment}{%
+\subsection{Difference in averages, adjustment}\label{difference-in-averages-adjustment}}
+
+One adjustment that is easy to make is to divide the difference in authors' average rates by the average rate across all authors. Since dividing a quantity by a large number will make that quantity smaller, our new distinctiveness score will tend to be lower for words that occur frequently. While this is merely a heuristic, it does move us in the right direction.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get the average rate of all words across all authors}
+\NormalTok{means.all <-}\StringTok{ }\KeywordTok{colMeans}\NormalTok{(df)}
+
+\CommentTok{# now divide the difference in authors' rates by the average rate across all authors}
+\NormalTok{score <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{((means.obama }\OperatorTok{-}\StringTok{ }\NormalTok{means.trump) }\OperatorTok{/}\StringTok{ }\NormalTok{means.all)}
+\NormalTok{score <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(score, }\DataTypeTok{decreasing =}\NormalTok{ T)}
+\KeywordTok{head}\NormalTok{(score,}\DecValTok{10}\NormalTok{) }\CommentTok{# top obama words}
+\CommentTok{#>    student       cant       idea      money        oil     higher }
+\CommentTok{#>       1.78       1.77       1.70       1.67       1.67       1.66 }
+\CommentTok{#>       earn leadership   research    respons }
+\CommentTok{#>       1.60       1.60       1.59       1.58}
+\KeywordTok{tail}\NormalTok{(score,}\DecValTok{10}\NormalTok{) }\CommentTok{# top trump words}
+\CommentTok{#>     drug    grace    death    heart   pillar southern  terribl   unfair }
+\CommentTok{#>    -1.77    -1.80    -1.82    -1.82    -1.84    -1.84    -1.84    -1.84 }
+\CommentTok{#>     gang     ryan }
+\CommentTok{#>    -1.87    -1.90}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{structural-topic-models}{%
+\section{Structural Topic Models}\label{structural-topic-models}}
+
+This unit gives a brief overview of the \texttt{stm} (structural topic model) package. Please read the vignette for more detail.
+
+Structural topic model is a way to estimate a topic model that includes document-level meta-data. One can then see how topical prevalence changes according to that meta-data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(stm)}
+\end{Highlighting}
+\end{Shaded}
+
+The data we'll be using for this unit consists of all articles about women published in the New York Times and Washington Post, 1980-2014. You worked with a subset of this data in your last homework.
+
+Load the dataset. Notice that we have the text of the articles, along with some metadata.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Load Data}
+\NormalTok{women <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{'data/women-full.csv'}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(women)}
+\CommentTok{#>  [1] "BYLINE"              "TEXT.NO.NOUN"        "PUBLICATION"        }
+\CommentTok{#>  [4] "TITLE"               "COUNTRY"             "COUNTRY_FINAL"      }
+\CommentTok{#>  [7] "YEAR"                "UID"                 "COUNTRY_NR"         }
+\CommentTok{#> [10] "entities"            "LENGTH"              "COUNTRY_TOP_PERCENT"}
+\CommentTok{#> [13] "COUNTRY_CODE"        "TEXT"                "DATE"               }
+\CommentTok{#> [16] "COUNTRY_MAJOR"       "TYPE"                "REGION"             }
+\CommentTok{#> [19] "SUBJECT"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{preprocessing}{%
+\subsection{Preprocessing}\label{preprocessing}}
+
+STM has its own unique preprocessing functions and procedure, which I've coded below. Notice that we're going to use the \texttt{TEXT.NO.NOUN} column, which contains all the text of the articles without proper nouns (which I removed earlier).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Pre-process}
+\NormalTok{temp<-}\KeywordTok{textProcessor}\NormalTok{(}\DataTypeTok{documents =}\NormalTok{ women}\OperatorTok{$}\NormalTok{TEXT.NO.NOUN, }\DataTypeTok{metadata =}\NormalTok{ women)}
+\CommentTok{#> Building corpus... }
+\CommentTok{#> Converting to Lower Case... }
+\CommentTok{#> Removing punctuation... }
+\CommentTok{#> Removing stopwords... }
+\CommentTok{#> Removing numbers... }
+\CommentTok{#> Stemming... }
+\CommentTok{#> Creating Output...}
+\NormalTok{meta<-temp}\OperatorTok{$}\NormalTok{meta}
+\NormalTok{vocab<-temp}\OperatorTok{$}\NormalTok{vocab}
+\NormalTok{docs<-temp}\OperatorTok{$}\NormalTok{documents}
+
+\CommentTok{# prep documents in correct format}
+\NormalTok{out <-}\StringTok{ }\KeywordTok{prepDocuments}\NormalTok{(docs, vocab, meta)}
+\CommentTok{#> Removing 19460 of 39403 terms (19460 of 1087166 tokens) due to frequency }
+\CommentTok{#> Your corpus now has 4531 documents, 19943 terms and 1067706 tokens.}
+\NormalTok{docs<-out}\OperatorTok{$}\NormalTok{documents}
+\NormalTok{vocab<-out}\OperatorTok{$}\NormalTok{vocab}
+\NormalTok{meta <-out}\OperatorTok{$}\NormalTok{meta}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenge-1-4}{%
+\subsubsection*{Challenge 1}\label{challenge-1-4}}
+\addcontentsline{toc}{subsubsection}{Challenge 1}
+
+Read the help file for the \texttt{prepDocuments} function. Alter the code above (in 2.1) to keep only words that appear in at least 10 documents.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{estimate-model}{%
+\subsection{Estimate Model}\label{estimate-model}}
+
+We're now going to estimate a topic model with 15 topics by regressing topical prevalence on region and year covariates.
+
+Running full model takes a \textbf{long} time to finish. For that reason, we're going to add an argument \texttt{max.em.its} which sets the number of iterations. By keeping it low (15) we'll see a rough estimate of the topics. You can always go back and estimate the model to convergence.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model <-}\StringTok{ }\KeywordTok{stm}\NormalTok{(docs, vocab, }\DecValTok{15}\NormalTok{, }\DataTypeTok{prevalence =} \OperatorTok{~}\StringTok{ }\NormalTok{REGION }\OperatorTok{+}\StringTok{ }\KeywordTok{s}\NormalTok{(YEAR), }\DataTypeTok{data =}\NormalTok{ meta, }\DataTypeTok{seed =} \DecValTok{15}\NormalTok{, }\DataTypeTok{max.em.its =} \DecValTok{15}\NormalTok{)}
+\CommentTok{#> Beginning Spectral Initialization }
+\CommentTok{#>   Calculating the gram matrix...}
+\CommentTok{#>   Using only 10000 most frequent terms during initialization...}
+\CommentTok{#>   Finding anchor words...}
+\CommentTok{#>      ...............}
+\CommentTok{#>   Recovering initialization...}
+\CommentTok{#>      ....................................................................................................}
+\CommentTok{#> Initialization complete.}
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (7 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 1 (approx. per word bound = -7.882) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (4 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 2 (approx. per word bound = -7.605, relative change = 3.519e-02) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (4 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 3 (approx. per word bound = -7.573, relative change = 4.218e-03) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 4 (approx. per word bound = -7.559, relative change = 1.843e-03) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 5 (approx. per word bound = -7.550, relative change = 1.162e-03) }
+\CommentTok{#> Topic 1: women, show, one, like, design }
+\CommentTok{#>  Topic 2: said, women, polic, report, year }
+\CommentTok{#>  Topic 3: women, team, said, game, world }
+\CommentTok{#>  Topic 4: year, book, first, one, mrs }
+\CommentTok{#>  Topic 5: women, said, percent, femal, will }
+\CommentTok{#>  Topic 6: said, women, one, peopl, woman }
+\CommentTok{#>  Topic 7: women, work, said, year, men }
+\CommentTok{#>  Topic 8: women, sexual, sex, rape, men }
+\CommentTok{#>  Topic 9: women, said, right, law, govern }
+\CommentTok{#>  Topic 10: said, one, famili, women, peopl }
+\CommentTok{#>  Topic 11: women, film, one, said, woman }
+\CommentTok{#>  Topic 12: said, polit, elect, parti, govern }
+\CommentTok{#>  Topic 13: women, said, cancer, studi, health }
+\CommentTok{#>  Topic 14: women, confer, said, deleg, will }
+\CommentTok{#>  Topic 15: said, women, girl, rape, practic }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 6 (approx. per word bound = -7.544, relative change = 8.200e-04) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 7 (approx. per word bound = -7.539, relative change = 5.961e-04) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 8 (approx. per word bound = -7.536, relative change = 4.491e-04) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 9 (approx. per word bound = -7.533, relative change = 3.481e-04) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 10 (approx. per word bound = -7.531, relative change = 2.759e-04) }
+\CommentTok{#> Topic 1: show, design, women, fashion, art }
+\CommentTok{#>  Topic 2: said, women, polic, report, offici }
+\CommentTok{#>  Topic 3: women, team, said, game, world }
+\CommentTok{#>  Topic 4: book, year, life, first, work }
+\CommentTok{#>  Topic 5: women, said, femal, percent, will }
+\CommentTok{#>  Topic 6: said, one, protest, peopl, site }
+\CommentTok{#>  Topic 7: women, work, said, year, percent }
+\CommentTok{#>  Topic 8: women, sexual, rape, sex, men }
+\CommentTok{#>  Topic 9: women, said, right, law, govern }
+\CommentTok{#>  Topic 10: said, one, famili, peopl, day }
+\CommentTok{#>  Topic 11: women, film, one, like, woman }
+\CommentTok{#>  Topic 12: polit, said, elect, parti, govern }
+\CommentTok{#>  Topic 13: women, said, abort, cancer, health }
+\CommentTok{#>  Topic 14: women, confer, said, will, world }
+\CommentTok{#>  Topic 15: said, women, girl, rape, case }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 11 (approx. per word bound = -7.530, relative change = 2.214e-04) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 12 (approx. per word bound = -7.528, relative change = 1.804e-04) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 13 (approx. per word bound = -7.527, relative change = 1.496e-04) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Completing Iteration 14 (approx. per word bound = -7.526, relative change = 1.265e-04) }
+\CommentTok{#> ....................................................................................................}
+\CommentTok{#> Completed E-Step (3 seconds). }
+\CommentTok{#> Completed M-Step. }
+\CommentTok{#> Model Terminated Before Convergence Reached}
+\end{Highlighting}
+\end{Shaded}
+
+Let's see what our model came up with! The following tools can be used to evaluate the model.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{labelTopics} gives the top words for each topic.
+\item
+  \texttt{findThoughts} gives the top documents for each topic (the documents with the highest proportion of each topic)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Top Words}
+\KeywordTok{labelTopics}\NormalTok{(model)}
+\CommentTok{#> Topic 1 Top Words:}
+\CommentTok{#>       Highest Prob: show, design, fashion, women, art, one, like }
+\CommentTok{#>       FREX: coutur, fashion, museum, sculptur, ready--wear, jacket, galleri }
+\CommentTok{#>       Lift: ---inch, -ankl, alexandr, armatur, armhol, art-fair, avant }
+\CommentTok{#>       Score: coutur, art, artist, fashion, museum, exhibit, cloth }
+\CommentTok{#> Topic 2 Top Words:}
+\CommentTok{#>       Highest Prob: said, polic, women, kill, report, offici, govern }
+\CommentTok{#>       FREX: polic, suicid, kill, attack, investig, suspect, arrest }
+\CommentTok{#>       Lift: abducte, charanjit, humanity-soak, male-control, sunil, kalpana, ciudad }
+\CommentTok{#>       Score: polic, rape, kill, said, arrest, attack, investig }
+\CommentTok{#> Topic 3 Top Words:}
+\CommentTok{#>       Highest Prob: women, team, game, said, world, play, olymp }
+\CommentTok{#>       FREX: tournament, championship, olymp, soccer, player, game, medal }
+\CommentTok{#>       Lift: -america, -foot--inch, -hole, -kilomet, -rank, -round, -trump }
+\CommentTok{#>       Score: olymp, championship, tournament, team, player, game, medal }
+\CommentTok{#> Topic 4 Top Words:}
+\CommentTok{#>       Highest Prob: book, year, life, first, write, novel, work }
+\CommentTok{#>       FREX: novel, literari, fiction, book, memoir, novelist, poet }
+\CommentTok{#>       Lift: buster, calla, goncourt, identical-twin, italian-american, kilcher, klone }
+\CommentTok{#>       Score: novel, book, fiction, literari, poet, writer, write }
+\CommentTok{#> Topic 5 Top Words:}
+\CommentTok{#>       Highest Prob: women, said, femal, percent, militari, will, compani }
+\CommentTok{#>       FREX: combat, board, quota, militari, bank, corpor, infantri }
+\CommentTok{#>       Lift: -combat, cpr, gender-divers, nonexecut, outfitt, r-calif, r-ni }
+\CommentTok{#>       Score: women, militari, infantri, combat, percent, quota, femal }
+\CommentTok{#> Topic 6 Top Words:}
+\CommentTok{#>       Highest Prob: protest, said, one, site, peopl, young, video }
+\CommentTok{#>       FREX: orthodox, internet, web, video, rabbi, prayer, site }
+\CommentTok{#>       Lift: balaclava, grrrl, tehrik-, braveheart, drawbridg, gravesit, guerrilla-styl }
+\CommentTok{#>       Score: protest, site, orthodox, video, jewish, rabbi, xxxfx }
+\CommentTok{#> Topic 7 Top Words:}
+\CommentTok{#>       Highest Prob: women, work, said, year, percent, men, ese }
+\CommentTok{#>       FREX: ese, factori, employ, incom, worker, job, market }
+\CommentTok{#>       Lift: flextim, management-track, nec, nontransfer, rabenmutt, chiho, fumiko }
+\CommentTok{#>       Score: ese, percent, compani, work, job, women, factori }
+\CommentTok{#> Topic 8 Top Words:}
+\CommentTok{#>       Highest Prob: women, sexual, sex, rape, men, violenc, said }
+\CommentTok{#>       FREX: harass, sexual, sex, assault, brothel, violenc, behavior }
+\CommentTok{#>       Lift: offenc, tarun, chaud, much-lov, newt, tiresom, sex-rel }
+\CommentTok{#>       Score: rape, sexual, harass, violenc, sex, assault, brothel }
+\CommentTok{#> Topic 9 Top Words:}
+\CommentTok{#>       Highest Prob: women, said, right, law, islam, govern, religi }
+\CommentTok{#>       FREX: islam, religi, veil, constitut, saudi, secular, cleric }
+\CommentTok{#>       Lift: afghan-styl, anglo-, archdeacon, bien-aim, episcopaci, fez, government-encourag }
+\CommentTok{#>       Score: islam, law, women, right, religi, ordin, saudi }
+\CommentTok{#> Topic 10 Top Words:}
+\CommentTok{#>       Highest Prob: said, one, famili, peopl, day, like, home }
+\CommentTok{#>       FREX: villag, room, smile, son, couldnt, recal, sit }
+\CommentTok{#>       Lift: charpoy, jet-black, mitra, schermerhorn, single-famili, tyson, uja-feder }
+\CommentTok{#>       Score: villag, husband, fistula, famili, school, girl, said }
+\CommentTok{#> Topic 11 Top Words:}
+\CommentTok{#>       Highest Prob: women, film, one, like, woman, say, play }
+\CommentTok{#>       FREX: film, theater, movi, charact, actress, documentari, audienc }
+\CommentTok{#>       Lift: clive, fine-tun, kaffir, nushus, shrew, nushu, cadel }
+\CommentTok{#>       Score: film, theater, movi, nushu, play, orchestra, femin }
+\CommentTok{#> Topic 12 Top Words:}
+\CommentTok{#>       Highest Prob: polit, elect, parti, minist, presid, govern, said }
+\CommentTok{#>       FREX: voter, elect, parti, prime, candid, vote, cabinet }
+\CommentTok{#>       Lift: ernesto, pinbal, influence-peddl, information-servic, kakuei, left--cent, marxist-leninist }
+\CommentTok{#>       Score: elect, parti, vote, minist, voter, polit, candid }
+\CommentTok{#> Topic 13 Top Words:}
+\CommentTok{#>       Highest Prob: women, said, abort, cancer, health, studi, breast }
+\CommentTok{#>       FREX: implant, cancer, breast, pill, virus, patient, estrogen }
+\CommentTok{#>       Lift: acet, adren, ambulatori, analges, anastrozol, antioxid, ashkenazi }
+\CommentTok{#>       Score: cancer, abort, breast, pill, implant, health, virus }
+\CommentTok{#> Topic 14 Top Words:}
+\CommentTok{#>       Highest Prob: women, said, confer, will, world, organ, right }
+\CommentTok{#>       FREX: deleg, confer, forum, page, peac, nongovernment, ambassador }
+\CommentTok{#>       Lift: -glass, barack, brooklyn-born, expansion, foreclosur, guarantor, holden }
+\CommentTok{#>       Score: deleg, confer, forum, page, palestinian, peac, mrs }
+\CommentTok{#> Topic 15 Top Words:}
+\CommentTok{#>       Highest Prob: said, women, rape, court, case, girl, practic }
+\CommentTok{#>       FREX: mutil, genit, circumcis, asylum, sentenc, judg, tribun }
+\CommentTok{#>       Lift: labia, layli, minora, multifaith, paraleg, salim, strip-search }
+\CommentTok{#>       Score: rape, genit, circumcis, mutil, court, sentenc, prosecutor}
+
+\CommentTok{# Example Docs}
+\KeywordTok{findThoughts}\NormalTok{(model, }\DataTypeTok{texts =}\NormalTok{ meta}\OperatorTok{$}\NormalTok{TITLE, }\DataTypeTok{n=}\DecValTok{2}\NormalTok{,}\DataTypeTok{topics =} \DecValTok{1}\OperatorTok{:}\DecValTok{15}\NormalTok{)}
+\CommentTok{#> Warning in findThoughts(model, texts = meta$TITLE, n = 2, topics =}
+\CommentTok{#> 1:15): texts are of type 'factor.' Converting to character vectors. Use}
+\CommentTok{#> 'as.character' to avoid this warning in the future.}
+\CommentTok{#> }
+\CommentTok{#>  Topic 1: }
+\CommentTok{#>       KENZO'S CAREFREE STYLES AT AN OFFBEAT SHOWING}
+\CommentTok{#>      A MODERN LOOK, A CLASSIC TOUCH FROM SAINT LAURENT }
+\CommentTok{#>  Topic 2: }
+\CommentTok{#>       Assailants Kill 4 Iraqi Women Working for U.S.; Gunmen Follow Van Carrying Laundry Employees}
+\CommentTok{#>      WORLD IN BRIEF }
+\CommentTok{#>  Topic 3: }
+\CommentTok{#>       AMERICANS LEAD EAST GERMANS IN TRACK}
+\CommentTok{#>      Russians Chart a New Path }
+\CommentTok{#>  Topic 4: }
+\CommentTok{#>       BEST SELLERS: September 6, 1998}
+\CommentTok{#>      BEST SELLERS: September 13, 1998 }
+\CommentTok{#>  Topic 5: }
+\CommentTok{#>       In Britain, a Big Push for More Women to Serve on Corporate Boards}
+\CommentTok{#>      Poll: Allow women in combat units }
+\CommentTok{#>  Topic 6: }
+\CommentTok{#>       Neda's Legacy; A woman's death moves Iranian protesters.}
+\CommentTok{#>      Jewish Feminists Prompt Protests at Wailing Wall }
+\CommentTok{#>  Topic 7: }
+\CommentTok{#>       China Scrambles for Stability as Its Workers Age}
+\CommentTok{#>      A high price for a paycheck; Caught between the demands of the corporate workplace and of their traditional roles in society, more South Korean women are putting off marriage and parenthood }
+\CommentTok{#>  Topic 8: }
+\CommentTok{#>       Confronting Rape in India, and Around the World}
+\CommentTok{#>      Sexual Harassment Prosecutions Get Short Shrift in India, Lawyer Says }
+\CommentTok{#>  Topic 9: }
+\CommentTok{#>       English Church Advances Bid For Women As Bishops}
+\CommentTok{#>      Egypt Passes Law On Women's Rights; Polygamy Still Allowed for Men }
+\CommentTok{#>  Topic 10: }
+\CommentTok{#>       An Old Cinema in Pakistan Has New Life After Quake}
+\CommentTok{#>      Maria Duran's Endless Wait }
+\CommentTok{#>  Topic 11: }
+\CommentTok{#>       For France, An All-Purpose Heartthrob}
+\CommentTok{#>      Film: Brazilian 'Vera' }
+\CommentTok{#>  Topic 12: }
+\CommentTok{#>       The Widow Of Ex-Leader Wins Race In Panama}
+\CommentTok{#>      Cabinet Defeated in Iceland as Feminists Gain }
+\CommentTok{#>  Topic 13: }
+\CommentTok{#>       SECTION: HEALTH; Pg. T18}
+\CommentTok{#>      Dense Breasts May Need Sonograms to Detect Cancer }
+\CommentTok{#>  Topic 14: }
+\CommentTok{#>       DISPUTES ON KEY ISSUES STALL KENYA PARLEY}
+\CommentTok{#>      'CHAOTIC' CONDITIONS FEARED AT U.N.'S PARLEY ON WOMEN }
+\CommentTok{#>  Topic 15: }
+\CommentTok{#>       Woman Fleeing Tribal Rite Gains Asylum; Genital Mutilation Is Ruled Persecution}
+\CommentTok{#>      Refugee From Mutilation}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenge-2-4}{%
+\subsubsection{Challenge 2}\label{challenge-2-4}}
+
+Estimate other models using 5 and 40 topics, respectively. Look at the top words for each topic. How do the topics vary when you change the number of topics?
+
+Now look at your neighbor's model. Did you get the same results? Why or why not?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# YOUR CODE HERE}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{interprete-model}{%
+\subsection{Interprete Model}\label{interprete-model}}
+
+Let's all load a fully-estimated model that I ran before class.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load the already-estimated model.}
+\KeywordTok{load}\NormalTok{(}\StringTok{"data/stm.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{challenge-3-1}{%
+\subsubsection*{Challenge 3}\label{challenge-3-1}}
+\addcontentsline{toc}{subsubsection}{Challenge 3}
+
+Using the functions \texttt{labelTopics} and \texttt{findThoughts}, hand label the 15 topics. Hold these labels as a character vector called \texttt{labels}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store your hand labels below.}
+\NormalTok{labels =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Now look at your neighbor's labels. Did you get the same results? Why or why not?
+
+\hypertarget{analyze-topics}{%
+\subsection{Analyze topics}\label{analyze-topics}}
+
+We're now going to see how the topics compare in terms of their prevalence across region. What do you notice about the distribution of topic 9?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Corpus Summary}
+\KeywordTok{plot.STM}\NormalTok{(model, }\DataTypeTok{type=}\StringTok{"summary"}\NormalTok{, }\DataTypeTok{custom.labels =}\NormalTok{ labels, }\DataTypeTok{main=}\StringTok{""}\NormalTok{)}
+
+\CommentTok{# Estimate Covariate Effects}
+\NormalTok{prep <-}\StringTok{ }\KeywordTok{estimateEffect}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{15} \OperatorTok{~}\StringTok{ }\NormalTok{REGION }\OperatorTok{+}\StringTok{ }\KeywordTok{s}\NormalTok{(YEAR), model, }\DataTypeTok{meta =}\NormalTok{ meta, }\DataTypeTok{uncertainty =} \StringTok{"Global"}\NormalTok{, }\DataTypeTok{documents=}\NormalTok{docs)}
+
+\CommentTok{# plot topic 9 over region}
+\NormalTok{regions =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Asia"}\NormalTok{, }\StringTok{"EECA"}\NormalTok{, }\StringTok{"MENA"}\NormalTok{, }\StringTok{"Africa"}\NormalTok{, }\StringTok{"West"}\NormalTok{, }\StringTok{"LA"}\NormalTok{)}
+\KeywordTok{plot.estimateEffect}\NormalTok{(prep, }\StringTok{"REGION"}\NormalTok{, }\DataTypeTok{method =} \StringTok{"pointestimate"}\NormalTok{, }\DataTypeTok{topics =} \DecValTok{9}\NormalTok{, }\DataTypeTok{printlegend =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{labeltype =} \StringTok{"custom"}\NormalTok{, }\DataTypeTok{custom.labels =}\NormalTok{ regions, }\DataTypeTok{main =} \StringTok{"Women's Rights"}\NormalTok{, }\DataTypeTok{ci.level =} \FloatTok{.95}\NormalTok{, }\DataTypeTok{nsims=}\DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-544-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-544-2} \end{center}
+
 \hypertarget{part-assignments-and-projects}{%
 \part{Assignments and Projects}\label{part-assignments-and-projects}}
 
@@ -15449,7 +16672,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-507-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-554-1} \end{center}
 
 \textbf{How would you relevel \texttt{f} to be in the correct order?}
 
@@ -15462,7 +16685,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-508-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-555-1} \end{center}
 
 \hypertarget{dataframes-1}{%
 \subsubsection*{4. Dataframes}\label{dataframes-1}}
@@ -15887,7 +17110,7 @@ We'll be merging this country\_year data with new data about U.S. news coverage 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{articles_country_year <-}\StringTok{ }\NormalTok{articles_no_na }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{count}\NormalTok{(ccode, year) }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{count}\NormalTok{(ccode, year) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{select}\NormalTok{(ccode, year, }\DataTypeTok{number_articles =}\NormalTok{ n)}
 
 \KeywordTok{kable}\NormalTok{(}\KeywordTok{head}\NormalTok{(articles_country_year))}
@@ -16860,7 +18083,7 @@ For this problem set, we'll be working with the country-year data introduced in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-548-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-595-1} \end{center}
 
 \textbf{2.2 Write code that reproduces ``plots/Plot\_2.jpeg''. (No need to write the file.)}
 
@@ -16889,7 +18112,7 @@ For this problem set, we'll be working with the country-year data introduced in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-549-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-596-1} \end{center}
 
 \textbf{2.3 Write code that reproduces ``plots/Plot\_3.jpeg''. (No need to write the file.)}
 
@@ -16915,7 +18138,7 @@ For this problem set, we'll be working with the country-year data introduced in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-550-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-597-1} \end{center}
 
 \textbf{2.4 Write code that reproduces ``plots/Plot\_4.jpeg''. (No need to write the file.)}
 
@@ -16939,7 +18162,7 @@ For this problem set, we'll be working with the country-year data introduced in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-551-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-598-1} \end{center}
 
 \hypertarget{models}{%
 \subsubsection*{3. Models}\label{models}}
