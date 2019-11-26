@@ -955,13 +955,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Oftentimes scholars will want to compare different corpora by finding the words (or features) distinctive to each corpora. But finding distinctive words requires a decision about what “distinctive” means. As we will see, there are a variety of definitions that we might use.</p>
 <div id="unique-usage" class="section level3">
 <h3><span class="header-section-number">18.3.1</span> Unique usage</h3>
-<p>The most obvious definition of distinctive is “exclusive”. That is, distinctive words are those are found exclusively in texts associated with a single author (or group). For example, if Brontë uses the word “access” and obama never does, we should count “access” as distinctive.</p>
-<p>Finding words that are exclusive to a group is a simple exercise. All we have to do is sum the usage of each word use across all texts for each author, and then look for cases where the sum is zero for one author.</p>
+<p>The most obvious definition of distinctive is “exclusive”. That is, distinctive words are those are found exclusively in texts associated with a single speaker (or group). For example, if Trump uses the word “access” and Obama never does, we should count “access” as distinctive.</p>
+<p>Finding words that are exclusive to a group is a simple exercise. All we have to do is sum the usage of each word use across all texts for each speaker, and then look for cases where the sum is zero for one speaker.</p>
 <div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1"><span class="co"># turn DTM into dataframe</span></a>
 <a class="sourceLine" id="cb465-2" data-line-number="2">dtm.m &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</a>
 <a class="sourceLine" id="cb465-3" data-line-number="3">dtm.m<span class="op">$</span>that &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># fix weird error with stopwords.</span></a>
 <a class="sourceLine" id="cb465-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb465-5" data-line-number="5"><span class="co"># Subset into 2 dtms for each author</span></a>
+<a class="sourceLine" id="cb465-5" data-line-number="5"><span class="co"># Subset into 2 dtms for each speaker</span></a>
 <a class="sourceLine" id="cb465-6" data-line-number="6">obama &lt;-<span class="st"> </span>dtm.m[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,]</a>
 <a class="sourceLine" id="cb465-7" data-line-number="7">trump &lt;-<span class="st"> </span>dtm.m[<span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,]</a>
 <a class="sourceLine" id="cb465-8" data-line-number="8"></a>
@@ -976,7 +976,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb465-17" data-line-number="17"><span class="co">#&gt; obama       2     1    1    7      0</span></a>
 <a class="sourceLine" id="cb465-18" data-line-number="18"><span class="co">#&gt; trump       1     0    0    1      1</span></a>
 <a class="sourceLine" id="cb465-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb465-20" data-line-number="20"><span class="co"># Get words where one author&#39;s usage is 0</span></a>
+<a class="sourceLine" id="cb465-20" data-line-number="20"><span class="co"># Get words where one speaker&#39;s usage is 0</span></a>
 <a class="sourceLine" id="cb465-21" data-line-number="21">solelyobama &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">1</span>, trump<span class="op">==</span><span class="dv">0</span>]) </a>
 <a class="sourceLine" id="cb465-22" data-line-number="22">solelyobama &lt;-<span class="st"> </span>solelyobama[<span class="kw">order</span>(solelyobama, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
 <a class="sourceLine" id="cb465-23" data-line-number="23"><span class="kw">head</span>(solelyobama, <span class="dv">10</span>) <span class="co"># get top 10 words for obama</span></a>
@@ -992,7 +992,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb465-33" data-line-number="33"><span class="co">#&gt;        9        8        8        8        8        7        7        6 </span></a>
 <a class="sourceLine" id="cb465-34" data-line-number="34"><span class="co">#&gt;   beauti    elvin </span></a>
 <a class="sourceLine" id="cb465-35" data-line-number="35"><span class="co">#&gt;        6        6</span></a></code></pre></div>
-<p>As we can see, these words tend not to be terribly interesting or informative. So we will remove them from our corpus in order to focus on identifying distinctive words that appear in texts associated with every author.</p>
+<p>As we can see, these words tend not to be terribly interesting or informative. So we will remove them from our corpus in order to focus on identifying distinctive words that appear in texts associated with every speaker.</p>
 <div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1"><span class="co"># subset df with non-zero entries</span></a>
 <a class="sourceLine" id="cb466-2" data-line-number="2">df &lt;-<span class="st"> </span>df[,trump<span class="op">&gt;</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>obama<span class="op">&gt;</span><span class="dv">0</span>]</a>
 <a class="sourceLine" id="cb466-3" data-line-number="3"></a>
@@ -1006,7 +1006,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="differences-in-frequences" class="section level3">
 <h3><span class="header-section-number">18.3.2</span> Differences in frequences</h3>
-<p>Another basic approach to identifying distinctive words is to compare the frequencies at which authors use a word. If one author uses a word often across his or her oeuvre and another barely uses the word at all, the difference in their respective frequencies will be large. We can calculate this quantity the following way:</p>
+<p>Another basic approach to identifying distinctive words is to compare the frequencies at which speakers use a word. If one speaker uses a word often across his or her oeuvre and another barely uses the word at all, the difference in their respective frequencies will be large. We can calculate this quantity the following way:</p>
 <div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1"><span class="co"># take the differences in frequences</span></a>
 <a class="sourceLine" id="cb467-2" data-line-number="2">diffFreq &lt;-<span class="st"> </span>obama <span class="op">-</span><span class="st"> </span>trump</a>
 <a class="sourceLine" id="cb467-3" data-line-number="3"></a>
@@ -1027,16 +1027,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="differences-in-averages" class="section level3">
 <h3><span class="header-section-number">18.3.3</span> Differences in averages</h3>
-<p>This is a good start. But what if one author uses more words <em>overall</em>? Instead of using raw frenquncies, a better approach would look at the average <em>rate</em> at which authors use various words.</p>
+<p>This is a good start. But what if one speaker uses more words <em>overall</em>? Instead of using raw frenquncies, a better approach would look at the average <em>rate</em> at which speakers use various words.</p>
 <p>We can calculate this quantity the following way:</p>
 <ol style="list-style-type: decimal">
 <li>Normalize the DTM from counts to proportions</li>
-<li>Take the difference between one author’s proportion of a word and another’s proportion of the same word.</li>
+<li>Take the difference between one speaker’s proportion of a word and another’s proportion of the same word.</li>
 <li>Find the words with the highest absolute difference.</li>
 </ol>
 <div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1"><span class="co"># normalize into proportions</span></a>
 <a class="sourceLine" id="cb468-2" data-line-number="2">rowTotals &lt;-<span class="st"> </span><span class="kw">rowSums</span>(df) <span class="co">#create vector with row totals, i.e. total number of words per document</span></a>
-<a class="sourceLine" id="cb468-3" data-line-number="3"><span class="kw">head</span>(rowTotals) <span class="co"># notice that one author uses more words than the other</span></a>
+<a class="sourceLine" id="cb468-3" data-line-number="3"><span class="kw">head</span>(rowTotals) <span class="co"># notice that one speaker uses more words than the other</span></a>
 <a class="sourceLine" id="cb468-4" data-line-number="4"><span class="co">#&gt; obama trump </span></a>
 <a class="sourceLine" id="cb468-5" data-line-number="5"><span class="co">#&gt; 23021  7432</span></a>
 <a class="sourceLine" id="cb468-6" data-line-number="6"></a>
@@ -1064,16 +1064,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb468-28" data-line-number="28"><span class="co">#&gt; -0.00284 -0.00293 -0.00322 -0.00322 -0.00322 -0.00342 -0.00354 -0.00476 </span></a>
 <a class="sourceLine" id="cb468-29" data-line-number="29"><span class="co">#&gt;    thank american </span></a>
 <a class="sourceLine" id="cb468-30" data-line-number="30"><span class="co">#&gt; -0.00483 -0.00650</span></a></code></pre></div>
-<p>This is a start. The problem with this measure is that it tends to highlight differences in very frequent words. For example, this method gives greater attention to a word that occurs 30 times per 1,000 words in obama and 25 times per 1,000 in Brontë than it does to a word that occurs 5 times per 1,000 words in obama and 0.1 times per 1,000 words in Brontë. This does not seem right. It seems important to recognize cases when one author uses a word frequently and another author barely uses it.</p>
+<p>This is a start. The problem with this measure is that it tends to highlight differences in very frequent words. For example, this method gives greater attention to a word that occurs 30 times per 1,000 words in Obama and 25 times per 1,000 in Trump than it does to a word that occurs 5 times per 1,000 words in Obama and 0.1 times per 1,000 words in Trump This does not seem right. It seems important to recognize cases when one speaker uses a word frequently and another speaker barely uses it.</p>
 <p>As this initial attempt suggests, identifying distinctive words will be a balancing act. When comparing two groups of texts, differences in the rates of frequent words will tend to be large relative to differences in the rates of rarer words. Human language is variable; some words occur more frequently than others regardless of who is writing. We need to find a way of adjusting our definition of distinctive in light of this.</p>
 </div>
 <div id="difference-in-averages-adjustment" class="section level3">
 <h3><span class="header-section-number">18.3.4</span> Difference in averages, adjustment</h3>
-<p>One adjustment that is easy to make is to divide the difference in authors’ average rates by the average rate across all authors. Since dividing a quantity by a large number will make that quantity smaller, our new distinctiveness score will tend to be lower for words that occur frequently. While this is merely a heuristic, it does move us in the right direction.</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1"><span class="co"># get the average rate of all words across all authors</span></a>
+<p>One adjustment that is easy to make is to divide the difference in speakers’ average rates by the average rate across all speakers. Since dividing a quantity by a large number will make that quantity smaller, our new distinctiveness score will tend to be lower for words that occur frequently. While this is merely a heuristic, it does move us in the right direction.</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1"><span class="co"># get the average rate of all words across all speakers</span></a>
 <a class="sourceLine" id="cb469-2" data-line-number="2">means.all &lt;-<span class="st"> </span><span class="kw">colMeans</span>(df)</a>
 <a class="sourceLine" id="cb469-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb469-4" data-line-number="4"><span class="co"># now divide the difference in authors&#39; rates by the average rate across all authors</span></a>
+<a class="sourceLine" id="cb469-4" data-line-number="4"><span class="co"># now divide the difference in speakers&#39; rates by the average rate across all speakers</span></a>
 <a class="sourceLine" id="cb469-5" data-line-number="5">score &lt;-<span class="st"> </span><span class="kw">unlist</span>((means.obama <span class="op">-</span><span class="st"> </span>means.trump) <span class="op">/</span><span class="st"> </span>means.all)</a>
 <a class="sourceLine" id="cb469-6" data-line-number="6">score &lt;-<span class="st"> </span><span class="kw">sort</span>(score, <span class="dt">decreasing =</span> T)</a>
 <a class="sourceLine" id="cb469-7" data-line-number="7"><span class="kw">head</span>(score,<span class="dv">10</span>) <span class="co"># top obama words</span></a>

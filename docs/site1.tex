@@ -15918,9 +15918,9 @@ Oftentimes scholars will want to compare different corpora by finding the words 
 \hypertarget{unique-usage}{%
 \subsection{Unique usage}\label{unique-usage}}
 
-The most obvious definition of distinctive is ``exclusive''. That is, distinctive words are those are found exclusively in texts associated with a single author (or group). For example, if Brontë uses the word ``access'' and obama never does, we should count ``access'' as distinctive.
+The most obvious definition of distinctive is ``exclusive''. That is, distinctive words are those are found exclusively in texts associated with a single speaker (or group). For example, if Trump uses the word ``access'' and Obama never does, we should count ``access'' as distinctive.
 
-Finding words that are exclusive to a group is a simple exercise. All we have to do is sum the usage of each word use across all texts for each author, and then look for cases where the sum is zero for one author.
+Finding words that are exclusive to a group is a simple exercise. All we have to do is sum the usage of each word use across all texts for each speaker, and then look for cases where the sum is zero for one speaker.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -15928,7 +15928,7 @@ Finding words that are exclusive to a group is a simple exercise. All we have to
 \NormalTok{dtm.m <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(dtm))}
 \NormalTok{dtm.m}\OperatorTok{$}\NormalTok{that <-}\StringTok{ }\OtherTok{NULL} \CommentTok{# fix weird error with stopwords.}
 
-\CommentTok{# Subset into 2 dtms for each author}
+\CommentTok{# Subset into 2 dtms for each speaker}
 \NormalTok{obama <-}\StringTok{ }\NormalTok{dtm.m[}\DecValTok{1}\OperatorTok{:}\DecValTok{8}\NormalTok{,]}
 \NormalTok{trump <-}\StringTok{ }\NormalTok{dtm.m[}\DecValTok{9}\OperatorTok{:}\DecValTok{11}\NormalTok{,]}
 
@@ -15943,7 +15943,7 @@ Finding words that are exclusive to a group is a simple exercise. All we have to
 \CommentTok{#> obama       2     1    1    7      0}
 \CommentTok{#> trump       1     0    0    1      1}
 
-\CommentTok{# Get words where one author's usage is 0}
+\CommentTok{# Get words where one speaker's usage is 0}
 \NormalTok{solelyobama <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{(df[}\DecValTok{1}\NormalTok{, trump}\OperatorTok{==}\DecValTok{0}\NormalTok{]) }
 \NormalTok{solelyobama <-}\StringTok{ }\NormalTok{solelyobama[}\KeywordTok{order}\NormalTok{(solelyobama, }\DataTypeTok{decreasing =}\NormalTok{ T)] }\CommentTok{# order them by frequency}
 \KeywordTok{head}\NormalTok{(solelyobama, }\DecValTok{10}\NormalTok{) }\CommentTok{# get top 10 words for obama}
@@ -15962,7 +15962,7 @@ Finding words that are exclusive to a group is a simple exercise. All we have to
 \end{Highlighting}
 \end{Shaded}
 
-As we can see, these words tend not to be terribly interesting or informative. So we will remove them from our corpus in order to focus on identifying distinctive words that appear in texts associated with every author.
+As we can see, these words tend not to be terribly interesting or informative. So we will remove them from our corpus in order to focus on identifying distinctive words that appear in texts associated with every speaker.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -15982,7 +15982,7 @@ As we can see, these words tend not to be terribly interesting or informative. S
 \hypertarget{differences-in-frequences}{%
 \subsection{Differences in frequences}\label{differences-in-frequences}}
 
-Another basic approach to identifying distinctive words is to compare the frequencies at which authors use a word. If one author uses a word often across his or her oeuvre and another barely uses the word at all, the difference in their respective frequencies will be large. We can calculate this quantity the following way:
+Another basic approach to identifying distinctive words is to compare the frequencies at which speakers use a word. If one speaker uses a word often across his or her oeuvre and another barely uses the word at all, the difference in their respective frequencies will be large. We can calculate this quantity the following way:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16009,7 +16009,7 @@ Another basic approach to identifying distinctive words is to compare the freque
 \hypertarget{differences-in-averages}{%
 \subsection{Differences in averages}\label{differences-in-averages}}
 
-This is a good start. But what if one author uses more words \emph{overall}? Instead of using raw frenquncies, a better approach would look at the average \emph{rate} at which authors use various words.
+This is a good start. But what if one speaker uses more words \emph{overall}? Instead of using raw frenquncies, a better approach would look at the average \emph{rate} at which speakers use various words.
 
 We can calculate this quantity the following way:
 
@@ -16019,7 +16019,7 @@ We can calculate this quantity the following way:
 \item
   Normalize the DTM from counts to proportions
 \item
-  Take the difference between one author's proportion of a word and another's proportion of the same word.
+  Take the difference between one speaker's proportion of a word and another's proportion of the same word.
 \item
   Find the words with the highest absolute difference.
 \end{enumerate}
@@ -16028,7 +16028,7 @@ We can calculate this quantity the following way:
 \begin{Highlighting}[]
 \CommentTok{# normalize into proportions}
 \NormalTok{rowTotals <-}\StringTok{ }\KeywordTok{rowSums}\NormalTok{(df) }\CommentTok{#create vector with row totals, i.e. total number of words per document}
-\KeywordTok{head}\NormalTok{(rowTotals) }\CommentTok{# notice that one author uses more words than the other}
+\KeywordTok{head}\NormalTok{(rowTotals) }\CommentTok{# notice that one speaker uses more words than the other}
 \CommentTok{#> obama trump }
 \CommentTok{#> 23021  7432}
 
@@ -16059,21 +16059,21 @@ We can calculate this quantity the following way:
 \end{Highlighting}
 \end{Shaded}
 
-This is a start. The problem with this measure is that it tends to highlight differences in very frequent words. For example, this method gives greater attention to a word that occurs 30 times per 1,000 words in obama and 25 times per 1,000 in Brontë than it does to a word that occurs 5 times per 1,000 words in obama and 0.1 times per 1,000 words in Brontë. This does not seem right. It seems important to recognize cases when one author uses a word frequently and another author barely uses it.
+This is a start. The problem with this measure is that it tends to highlight differences in very frequent words. For example, this method gives greater attention to a word that occurs 30 times per 1,000 words in Obama and 25 times per 1,000 in Trump than it does to a word that occurs 5 times per 1,000 words in Obama and 0.1 times per 1,000 words in Trump This does not seem right. It seems important to recognize cases when one speaker uses a word frequently and another speaker barely uses it.
 
 As this initial attempt suggests, identifying distinctive words will be a balancing act. When comparing two groups of texts, differences in the rates of frequent words will tend to be large relative to differences in the rates of rarer words. Human language is variable; some words occur more frequently than others regardless of who is writing. We need to find a way of adjusting our definition of distinctive in light of this.
 
 \hypertarget{difference-in-averages-adjustment}{%
 \subsection{Difference in averages, adjustment}\label{difference-in-averages-adjustment}}
 
-One adjustment that is easy to make is to divide the difference in authors' average rates by the average rate across all authors. Since dividing a quantity by a large number will make that quantity smaller, our new distinctiveness score will tend to be lower for words that occur frequently. While this is merely a heuristic, it does move us in the right direction.
+One adjustment that is easy to make is to divide the difference in speakers' average rates by the average rate across all speakers. Since dividing a quantity by a large number will make that quantity smaller, our new distinctiveness score will tend to be lower for words that occur frequently. While this is merely a heuristic, it does move us in the right direction.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# get the average rate of all words across all authors}
+\CommentTok{# get the average rate of all words across all speakers}
 \NormalTok{means.all <-}\StringTok{ }\KeywordTok{colMeans}\NormalTok{(df)}
 
-\CommentTok{# now divide the difference in authors' rates by the average rate across all authors}
+\CommentTok{# now divide the difference in speakers' rates by the average rate across all speakers}
 \NormalTok{score <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{((means.obama }\OperatorTok{-}\StringTok{ }\NormalTok{means.trump) }\OperatorTok{/}\StringTok{ }\NormalTok{means.all)}
 \NormalTok{score <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(score, }\DataTypeTok{decreasing =}\NormalTok{ T)}
 \KeywordTok{head}\NormalTok{(score,}\DecValTok{10}\NormalTok{) }\CommentTok{# top obama words}
