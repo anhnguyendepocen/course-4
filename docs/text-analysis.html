@@ -454,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="text-analysis.html"><a href="text-analysis.html"><i class="fa fa-check"></i><b>18</b> Text Analysis</a><ul>
-<li class="chapter" data-level="18.1" data-path="text-analysis.html"><a href="text-analysis.html#preprocessing-a-corpus"><i class="fa fa-check"></i><b>18.1</b> Preprocessing a Corpus</a><ul>
+<li class="chapter" data-level="18.1" data-path="text-analysis.html"><a href="text-analysis.html#preprocessing"><i class="fa fa-check"></i><b>18.1</b> Preprocessing</a><ul>
 <li class="chapter" data-level="18.1.1" data-path="text-analysis.html"><a href="text-analysis.html#from-words-to-numbers"><i class="fa fa-check"></i><b>18.1.1</b> From Words to Numbers</a></li>
 <li class="chapter" data-level="18.1.2" data-path="text-analysis.html"><a href="text-analysis.html#exploring-the-dtm"><i class="fa fa-check"></i><b>18.1.2</b> Exploring the DTM</a></li>
 <li class="chapter" data-level="18.1.3" data-path="text-analysis.html"><a href="text-analysis.html#exporting-the-dtm"><i class="fa fa-check"></i><b>18.1.3</b> Exporting the DTM</a></li>
@@ -472,7 +472,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.3.4" data-path="text-analysis.html"><a href="text-analysis.html#difference-in-averages-adjustment"><i class="fa fa-check"></i><b>18.3.4</b> Difference in averages, adjustment</a></li>
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="text-analysis.html"><a href="text-analysis.html#structural-topic-models"><i class="fa fa-check"></i><b>18.4</b> Structural Topic Models</a><ul>
-<li class="chapter" data-level="18.4.1" data-path="text-analysis.html"><a href="text-analysis.html#preprocessing"><i class="fa fa-check"></i><b>18.4.1</b> Preprocessing</a></li>
+<li class="chapter" data-level="18.4.1" data-path="text-analysis.html"><a href="text-analysis.html#preprocessing-1"><i class="fa fa-check"></i><b>18.4.1</b> Preprocessing</a></li>
 <li class="chapter" data-level="18.4.2" data-path="text-analysis.html"><a href="text-analysis.html#estimate-model"><i class="fa fa-check"></i><b>18.4.2</b> Estimate Model</a></li>
 <li class="chapter" data-level="18.4.3" data-path="text-analysis.html"><a href="text-analysis.html#interprete-model"><i class="fa fa-check"></i><b>18.4.3</b> Interprete Model</a></li>
 <li class="chapter" data-level="18.4.4" data-path="text-analysis.html"><a href="text-analysis.html#analyze-topics"><i class="fa fa-check"></i><b>18.4.4</b> Analyze topics</a></li>
@@ -512,12 +512,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 18</span> Text Analysis</h1>
 <p>This unit focuses on computational text analysis (or “text-as-data”). We’ll explore:</p>
 <ol style="list-style-type: decimal">
-<li><strong><a href="strings-and-regular-expressions.html#string-basics">string basics</a></strong>, like concatinating and subsettings.</li>
-<li><strong><a href="strings-and-regular-expressions.html#regular-expressions">regular expressions</a></strong>, a powerful cross-language tool for working with string data.</li>
-<li><strong><a href="strings-and-regular-expressions.html#common-tools">common tools</a></strong>, that take regex and apply them to real problems.</li>
+<li><strong><a href="text-analysis.html#preprocessing-1">Preprocessing</a></strong> a corpus for common text analysis.</li>
+<li><strong><a href="text-analysis.html#sentiment-analysis-and-dictionary-methods">Sentiment Analysis and Dictionary Methods</a></strong>, a simple, supervised method for classification.</li>
+<li><strong><a href="text-analysis.html#distinctive-words">Distinctive Words</a></strong>, or word-separating techniques to compare corpora.</li>
+<li><strong><a href="text-analysis.html#structural-topic-models">Structural Topic Models</a></strong>, a popular unsupervised method for text exploration and analysis.</li>
 </ol>
-<div id="preprocessing-a-corpus" class="section level2">
-<h2><span class="header-section-number">18.1</span> Preprocessing a Corpus</h2>
+<p>These materials are based off a longer, week-long intensive workshop on computational text analysis. If you’re interested in text-as-data, I would encourage you to work through these materials on your own: <a href="https://github.com/rochelleterman/FSUtext" class="uri">https://github.com/rochelleterman/FSUtext</a></p>
+<div id="preprocessing" class="section level2">
+<h2><span class="header-section-number">18.1</span> Preprocessing</h2>
 <p>First let’s load our required packages.</p>
 <div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" data-line-number="1"><span class="kw">library</span>(tm) <span class="co"># Framework for text mining</span></a>
 <a class="sourceLine" id="cb437-2" data-line-number="2"><span class="kw">library</span>(tidyverse) <span class="co"># Data preparation and pipes $&gt;$</span></a>
@@ -762,8 +764,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="challenges-24" class="section level3">
 <h3><span class="header-section-number">18.1.4</span> Challenges</h3>
-<p>Using the one of the files in the <code>/text-data</code> directory, create a document term matrix and create a wordcloud of the most common terms.</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="co"># YOUR CODE HERE</span></a></code></pre></div>
+<p>Using the one of the datasetes in the <code>text-data</code> repo, create a document term matrix and create a wordcloud of the most common terms.</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="co"># download text-data</span></a>
+<a class="sourceLine" id="cb455-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;usethis&quot;</span>)</a>
+<a class="sourceLine" id="cb455-3" data-line-number="3"><span class="kw">use_course</span>(<span class="st">&quot;plsc-31101/text-data&quot;</span>)</a>
+<a class="sourceLine" id="cb455-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb455-5" data-line-number="5"><span class="co"># check out what you just downloaded.</span></a>
+<a class="sourceLine" id="cb455-6" data-line-number="6"><span class="co"># and unzip a dataset.</span></a>
+<a class="sourceLine" id="cb455-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb455-8" data-line-number="8"><span class="co"># YOUR CODE HERE</span></a></code></pre></div>
 
 </div>
 </div>
@@ -905,48 +914,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 2. Create a DTM</p>
 <div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1"><span class="kw">require</span>(tm)</a>
 <a class="sourceLine" id="cb464-2" data-line-number="2"><span class="kw">require</span>(matrixStats) <span class="co"># for statistics</span></a>
-<a class="sourceLine" id="cb464-3" data-line-number="3"><span class="co">#&gt; Loading required package: matrixStats</span></a>
-<a class="sourceLine" id="cb464-4" data-line-number="4"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb464-5" data-line-number="5"><span class="co">#&gt; Attaching package: &#39;matrixStats&#39;</span></a>
-<a class="sourceLine" id="cb464-6" data-line-number="6"><span class="co">#&gt; The following object is masked from &#39;package:dplyr&#39;:</span></a>
-<a class="sourceLine" id="cb464-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb464-8" data-line-number="8"><span class="co">#&gt;     count</span></a>
-<a class="sourceLine" id="cb464-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb464-10" data-line-number="10"><span class="co"># import corpus</span></a>
-<a class="sourceLine" id="cb464-11" data-line-number="11">docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">DirSource</span>(<span class="st">&quot;Data/trump_obama&quot;</span>))</a>
-<a class="sourceLine" id="cb464-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb464-13" data-line-number="13"><span class="co"># preprocess and create DTM</span></a>
-<a class="sourceLine" id="cb464-14" data-line-number="14">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
-<a class="sourceLine" id="cb464-15" data-line-number="15">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb464-16" data-line-number="16">                          <span class="dt">stopwords =</span> T,</a>
-<a class="sourceLine" id="cb464-17" data-line-number="17">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb464-18" data-line-number="18">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb464-19" data-line-number="19">                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb464-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb464-21" data-line-number="21"><span class="co"># print the dimensions of the DTM</span></a>
-<a class="sourceLine" id="cb464-22" data-line-number="22"><span class="kw">dim</span>(dtm)</a>
-<a class="sourceLine" id="cb464-23" data-line-number="23"><span class="co">#&gt; [1]   11 4094</span></a>
-<a class="sourceLine" id="cb464-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb464-25" data-line-number="25"><span class="co"># take a quick look</span></a>
-<a class="sourceLine" id="cb464-26" data-line-number="26"><span class="kw">inspect</span>(dtm[,<span class="dv">100</span><span class="op">:</span><span class="dv">104</span>])</a>
-<a class="sourceLine" id="cb464-27" data-line-number="27"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 11, terms: 5)&gt;&gt;</span></a>
-<a class="sourceLine" id="cb464-28" data-line-number="28"><span class="co">#&gt; Non-/sparse entries: 14/41</span></a>
-<a class="sourceLine" id="cb464-29" data-line-number="29"><span class="co">#&gt; Sparsity           : 75%</span></a>
-<a class="sourceLine" id="cb464-30" data-line-number="30"><span class="co">#&gt; Maximal term length: 11</span></a>
-<a class="sourceLine" id="cb464-31" data-line-number="31"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
-<a class="sourceLine" id="cb464-32" data-line-number="32"><span class="co">#&gt; Sample             :</span></a>
-<a class="sourceLine" id="cb464-33" data-line-number="33"><span class="co">#&gt;                 Terms</span></a>
-<a class="sourceLine" id="cb464-34" data-line-number="34"><span class="co">#&gt; Docs             alien align alik aliv allamerican</span></a>
-<a class="sourceLine" id="cb464-35" data-line-number="35"><span class="co">#&gt;   Obama_2009.txt     0     0    1    0           0</span></a>
-<a class="sourceLine" id="cb464-36" data-line-number="36"><span class="co">#&gt;   Obama_2010.txt     0     0    1    1           0</span></a>
-<a class="sourceLine" id="cb464-37" data-line-number="37"><span class="co">#&gt;   Obama_2011.txt     0     1    0    0           0</span></a>
-<a class="sourceLine" id="cb464-38" data-line-number="38"><span class="co">#&gt;   Obama_2012.txt     0     0    0    1           0</span></a>
-<a class="sourceLine" id="cb464-39" data-line-number="39"><span class="co">#&gt;   Obama_2013.txt     0     0    0    0           0</span></a>
-<a class="sourceLine" id="cb464-40" data-line-number="40"><span class="co">#&gt;   Obama_2014.txt     0     0    0    1           0</span></a>
-<a class="sourceLine" id="cb464-41" data-line-number="41"><span class="co">#&gt;   Obama_2015.txt     1     0    1    0           0</span></a>
-<a class="sourceLine" id="cb464-42" data-line-number="42"><span class="co">#&gt;   Trump_2017.txt     0     1    0    0           0</span></a>
-<a class="sourceLine" id="cb464-43" data-line-number="43"><span class="co">#&gt;   Trump_2018.txt     1     0    0    0           1</span></a>
-<a class="sourceLine" id="cb464-44" data-line-number="44"><span class="co">#&gt;   Trump_2019.txt     3     0    1    1           0</span></a></code></pre></div>
+<a class="sourceLine" id="cb464-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb464-4" data-line-number="4"><span class="co"># import corpus</span></a>
+<a class="sourceLine" id="cb464-5" data-line-number="5">docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">DirSource</span>(<span class="st">&quot;Data/trump_obama&quot;</span>))</a>
+<a class="sourceLine" id="cb464-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb464-7" data-line-number="7"><span class="co"># preprocess and create DTM</span></a>
+<a class="sourceLine" id="cb464-8" data-line-number="8">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
+<a class="sourceLine" id="cb464-9" data-line-number="9">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb464-10" data-line-number="10">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb464-11" data-line-number="11">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb464-12" data-line-number="12">                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb464-13" data-line-number="13">                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb464-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb464-15" data-line-number="15"><span class="co"># print the dimensions of the DTM</span></a>
+<a class="sourceLine" id="cb464-16" data-line-number="16"><span class="kw">dim</span>(dtm)</a>
+<a class="sourceLine" id="cb464-17" data-line-number="17"><span class="co">#&gt; [1]   11 4094</span></a>
+<a class="sourceLine" id="cb464-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb464-19" data-line-number="19"><span class="co"># take a quick look</span></a>
+<a class="sourceLine" id="cb464-20" data-line-number="20"><span class="kw">inspect</span>(dtm[,<span class="dv">100</span><span class="op">:</span><span class="dv">104</span>])</a>
+<a class="sourceLine" id="cb464-21" data-line-number="21"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 11, terms: 5)&gt;&gt;</span></a>
+<a class="sourceLine" id="cb464-22" data-line-number="22"><span class="co">#&gt; Non-/sparse entries: 14/41</span></a>
+<a class="sourceLine" id="cb464-23" data-line-number="23"><span class="co">#&gt; Sparsity           : 75%</span></a>
+<a class="sourceLine" id="cb464-24" data-line-number="24"><span class="co">#&gt; Maximal term length: 11</span></a>
+<a class="sourceLine" id="cb464-25" data-line-number="25"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
+<a class="sourceLine" id="cb464-26" data-line-number="26"><span class="co">#&gt; Sample             :</span></a>
+<a class="sourceLine" id="cb464-27" data-line-number="27"><span class="co">#&gt;                 Terms</span></a>
+<a class="sourceLine" id="cb464-28" data-line-number="28"><span class="co">#&gt; Docs             alien align alik aliv allamerican</span></a>
+<a class="sourceLine" id="cb464-29" data-line-number="29"><span class="co">#&gt;   Obama_2009.txt     0     0    1    0           0</span></a>
+<a class="sourceLine" id="cb464-30" data-line-number="30"><span class="co">#&gt;   Obama_2010.txt     0     0    1    1           0</span></a>
+<a class="sourceLine" id="cb464-31" data-line-number="31"><span class="co">#&gt;   Obama_2011.txt     0     1    0    0           0</span></a>
+<a class="sourceLine" id="cb464-32" data-line-number="32"><span class="co">#&gt;   Obama_2012.txt     0     0    0    1           0</span></a>
+<a class="sourceLine" id="cb464-33" data-line-number="33"><span class="co">#&gt;   Obama_2013.txt     0     0    0    0           0</span></a>
+<a class="sourceLine" id="cb464-34" data-line-number="34"><span class="co">#&gt;   Obama_2014.txt     0     0    0    1           0</span></a>
+<a class="sourceLine" id="cb464-35" data-line-number="35"><span class="co">#&gt;   Obama_2015.txt     1     0    1    0           0</span></a>
+<a class="sourceLine" id="cb464-36" data-line-number="36"><span class="co">#&gt;   Trump_2017.txt     0     1    0    0           0</span></a>
+<a class="sourceLine" id="cb464-37" data-line-number="37"><span class="co">#&gt;   Trump_2018.txt     1     0    0    0           1</span></a>
+<a class="sourceLine" id="cb464-38" data-line-number="38"><span class="co">#&gt;   Trump_2019.txt     3     0    1    1           0</span></a></code></pre></div>
 <p>Oftentimes scholars will want to compare different corpora by finding the words (or features) distinctive to each corpora. But finding distinctive words requires a decision about what “distinctive” means. As we will see, there are a variety of definitions that we might use.</p>
 <div id="unique-usage" class="section level3">
 <h3><span class="header-section-number">18.3.1</span> Unique usage</h3>
@@ -954,53 +957,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Finding words that are exclusive to a group is a simple exercise. All we have to do is sum the usage of each word use across all texts for each author, and then look for cases where the sum is zero for one author.</p>
 <div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1"><span class="co"># turn DTM into dataframe</span></a>
 <a class="sourceLine" id="cb465-2" data-line-number="2">dtm.m &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</a>
-<a class="sourceLine" id="cb465-3" data-line-number="3">dtm.m[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb465-4" data-line-number="4"><span class="co">#&gt;                abandon abess abid abil abject</span></a>
-<a class="sourceLine" id="cb465-5" data-line-number="5"><span class="co">#&gt; Obama_2009.txt       0     1    0    3      0</span></a>
-<a class="sourceLine" id="cb465-6" data-line-number="6"><span class="co">#&gt; Obama_2010.txt       0     0    1    1      0</span></a>
-<a class="sourceLine" id="cb465-7" data-line-number="7"><span class="co">#&gt; Obama_2011.txt       1     0    0    0      0</span></a>
-<a class="sourceLine" id="cb465-8" data-line-number="8"><span class="co">#&gt; Obama_2012.txt       0     0    0    0      0</span></a>
-<a class="sourceLine" id="cb465-9" data-line-number="9"><span class="co">#&gt; Obama_2013.txt       0     0    0    3      0</span></a>
-<a class="sourceLine" id="cb465-10" data-line-number="10"><span class="co">#&gt; Obama_2014.txt       0     0    0    0      0</span></a>
-<a class="sourceLine" id="cb465-11" data-line-number="11"><span class="co">#&gt; Obama_2015.txt       1     0    0    0      0</span></a>
-<a class="sourceLine" id="cb465-12" data-line-number="12"><span class="co">#&gt; Obama_2016.txt       0     0    0    0      0</span></a>
-<a class="sourceLine" id="cb465-13" data-line-number="13"><span class="co">#&gt; Trump_2017.txt       1     0    0    1      0</span></a>
-<a class="sourceLine" id="cb465-14" data-line-number="14"><span class="co">#&gt; Trump_2018.txt       0     0    0    0      0</span></a>
-<a class="sourceLine" id="cb465-15" data-line-number="15"><span class="co">#&gt; Trump_2019.txt       0     0    0    0      1</span></a>
-<a class="sourceLine" id="cb465-16" data-line-number="16">dtm.m<span class="op">$</span><span class="st">`</span><span class="dt">that</span><span class="st">`</span></a>
-<a class="sourceLine" id="cb465-17" data-line-number="17"><span class="co">#&gt;  [1]  6 15 24 24 13 19 29 30  0  0  0</span></a>
-<a class="sourceLine" id="cb465-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb465-19" data-line-number="19"><span class="co"># Subset into 2 dtms for each author</span></a>
-<a class="sourceLine" id="cb465-20" data-line-number="20">obama &lt;-<span class="st"> </span>dtm.m[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,]</a>
-<a class="sourceLine" id="cb465-21" data-line-number="21">trump &lt;-<span class="st"> </span>dtm.m[<span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,]</a>
-<a class="sourceLine" id="cb465-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb465-23" data-line-number="23"><span class="co"># Sum word usage counts across all texts</span></a>
-<a class="sourceLine" id="cb465-24" data-line-number="24">obama &lt;-<span class="st"> </span><span class="kw">colSums</span>(obama)</a>
-<a class="sourceLine" id="cb465-25" data-line-number="25">trump &lt;-<span class="st"> </span><span class="kw">colSums</span>(trump)</a>
-<a class="sourceLine" id="cb465-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb465-27" data-line-number="27"><span class="co"># Put those sums back into a dataframe</span></a>
-<a class="sourceLine" id="cb465-28" data-line-number="28">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rbind</span>(obama,trump))</a>
-<a class="sourceLine" id="cb465-29" data-line-number="29">df[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb465-30" data-line-number="30"><span class="co">#&gt;       abandon abess abid abil abject</span></a>
-<a class="sourceLine" id="cb465-31" data-line-number="31"><span class="co">#&gt; obama       2     1    1    7      0</span></a>
-<a class="sourceLine" id="cb465-32" data-line-number="32"><span class="co">#&gt; trump       1     0    0    1      1</span></a>
-<a class="sourceLine" id="cb465-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb465-34" data-line-number="34"><span class="co"># Get words where one author&#39;s usage is 0</span></a>
-<a class="sourceLine" id="cb465-35" data-line-number="35">solelyobama &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">1</span>,trump<span class="op">==</span><span class="dv">0</span>]) </a>
-<a class="sourceLine" id="cb465-36" data-line-number="36">solelyobama &lt;-<span class="st"> </span>solelyobama[<span class="kw">order</span>(solelyobama, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
-<a class="sourceLine" id="cb465-37" data-line-number="37"><span class="kw">head</span>(solelyobama, <span class="dv">10</span>) <span class="co"># get top 10 words for obama</span></a>
-<a class="sourceLine" id="cb465-38" data-line-number="38"><span class="co">#&gt;      that      dont technolog      bank     innov    doesnt   teacher </span></a>
-<a class="sourceLine" id="cb465-39" data-line-number="39"><span class="co">#&gt;       160        68        31        30        30        29        26 </span></a>
-<a class="sourceLine" id="cb465-40" data-line-number="40"><span class="co">#&gt;      loan      wont     debat </span></a>
-<a class="sourceLine" id="cb465-41" data-line-number="41"><span class="co">#&gt;        22        22        21</span></a>
-<a class="sourceLine" id="cb465-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb465-43" data-line-number="43">solelytrump &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">2</span>,obama<span class="op">==</span><span class="dv">0</span>])</a>
-<a class="sourceLine" id="cb465-44" data-line-number="44">solelytrump &lt;-<span class="st"> </span>solelytrump[<span class="kw">order</span>(solelytrump, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
-<a class="sourceLine" id="cb465-45" data-line-number="45"><span class="kw">head</span>(solelytrump, <span class="dv">10</span>) <span class="co"># get top 10 words for trump</span></a>
-<a class="sourceLine" id="cb465-46" data-line-number="46"><span class="co">#&gt;      isi    agent america.  audienc    megan      it. obamacar     alic </span></a>
-<a class="sourceLine" id="cb465-47" data-line-number="47"><span class="co">#&gt;        9        8        8        8        8        7        7        6 </span></a>
-<a class="sourceLine" id="cb465-48" data-line-number="48"><span class="co">#&gt;   beauti    elvin </span></a>
-<a class="sourceLine" id="cb465-49" data-line-number="49"><span class="co">#&gt;        6        6</span></a></code></pre></div>
+<a class="sourceLine" id="cb465-3" data-line-number="3">dtm.m<span class="op">$</span>that &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># fix weird error with stopwords.</span></a>
+<a class="sourceLine" id="cb465-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb465-5" data-line-number="5"><span class="co"># Subset into 2 dtms for each author</span></a>
+<a class="sourceLine" id="cb465-6" data-line-number="6">obama &lt;-<span class="st"> </span>dtm.m[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,]</a>
+<a class="sourceLine" id="cb465-7" data-line-number="7">trump &lt;-<span class="st"> </span>dtm.m[<span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,]</a>
+<a class="sourceLine" id="cb465-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb465-9" data-line-number="9"><span class="co"># Sum word usage counts across all texts</span></a>
+<a class="sourceLine" id="cb465-10" data-line-number="10">obama &lt;-<span class="st"> </span><span class="kw">colSums</span>(obama)</a>
+<a class="sourceLine" id="cb465-11" data-line-number="11">trump &lt;-<span class="st"> </span><span class="kw">colSums</span>(trump)</a>
+<a class="sourceLine" id="cb465-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb465-13" data-line-number="13"><span class="co"># Put those sums back into a dataframe</span></a>
+<a class="sourceLine" id="cb465-14" data-line-number="14">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rbind</span>(obama, trump))</a>
+<a class="sourceLine" id="cb465-15" data-line-number="15">df[ ,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb465-16" data-line-number="16"><span class="co">#&gt;       abandon abess abid abil abject</span></a>
+<a class="sourceLine" id="cb465-17" data-line-number="17"><span class="co">#&gt; obama       2     1    1    7      0</span></a>
+<a class="sourceLine" id="cb465-18" data-line-number="18"><span class="co">#&gt; trump       1     0    0    1      1</span></a>
+<a class="sourceLine" id="cb465-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb465-20" data-line-number="20"><span class="co"># Get words where one author&#39;s usage is 0</span></a>
+<a class="sourceLine" id="cb465-21" data-line-number="21">solelyobama &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">1</span>, trump<span class="op">==</span><span class="dv">0</span>]) </a>
+<a class="sourceLine" id="cb465-22" data-line-number="22">solelyobama &lt;-<span class="st"> </span>solelyobama[<span class="kw">order</span>(solelyobama, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
+<a class="sourceLine" id="cb465-23" data-line-number="23"><span class="kw">head</span>(solelyobama, <span class="dv">10</span>) <span class="co"># get top 10 words for obama</span></a>
+<a class="sourceLine" id="cb465-24" data-line-number="24"><span class="co">#&gt;      dont technolog      bank     innov    doesnt   teacher      loan </span></a>
+<a class="sourceLine" id="cb465-25" data-line-number="25"><span class="co">#&gt;        68        31        30        30        29        26        22 </span></a>
+<a class="sourceLine" id="cb465-26" data-line-number="26"><span class="co">#&gt;      wont     debat    climat </span></a>
+<a class="sourceLine" id="cb465-27" data-line-number="27"><span class="co">#&gt;        22        21        19</span></a>
+<a class="sourceLine" id="cb465-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb465-29" data-line-number="29">solelytrump &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">2</span>, obama<span class="op">==</span><span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb465-30" data-line-number="30">solelytrump &lt;-<span class="st"> </span>solelytrump[<span class="kw">order</span>(solelytrump, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
+<a class="sourceLine" id="cb465-31" data-line-number="31"><span class="kw">head</span>(solelytrump, <span class="dv">10</span>) <span class="co"># get top 10 words for trump</span></a>
+<a class="sourceLine" id="cb465-32" data-line-number="32"><span class="co">#&gt;      isi    agent america.  audienc    megan      it. obamacar     alic </span></a>
+<a class="sourceLine" id="cb465-33" data-line-number="33"><span class="co">#&gt;        9        8        8        8        8        7        7        6 </span></a>
+<a class="sourceLine" id="cb465-34" data-line-number="34"><span class="co">#&gt;   beauti    elvin </span></a>
+<a class="sourceLine" id="cb465-35" data-line-number="35"><span class="co">#&gt;        6        6</span></a></code></pre></div>
 <p>As we can see, these words tend not to be terribly interesting or informative. So we will remove them from our corpus in order to focus on identifying distinctive words that appear in texts associated with every author.</p>
 <div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1"><span class="co"># subset df with non-zero entries</span></a>
 <a class="sourceLine" id="cb466-2" data-line-number="2">df &lt;-<span class="st"> </span>df[,trump<span class="op">&gt;</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>obama<span class="op">&gt;</span><span class="dv">0</span>]</a>
@@ -1115,7 +1104,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb471-8" data-line-number="8"><span class="co">#&gt; [13] &quot;COUNTRY_CODE&quot;        &quot;TEXT&quot;                &quot;DATE&quot;               </span></a>
 <a class="sourceLine" id="cb471-9" data-line-number="9"><span class="co">#&gt; [16] &quot;COUNTRY_MAJOR&quot;       &quot;TYPE&quot;                &quot;REGION&quot;             </span></a>
 <a class="sourceLine" id="cb471-10" data-line-number="10"><span class="co">#&gt; [19] &quot;SUBJECT&quot;</span></a></code></pre></div>
-<div id="preprocessing" class="section level3">
+<div id="preprocessing-1" class="section level3">
 <h3><span class="header-section-number">18.4.1</span> Preprocessing</h3>
 <p>STM has its own unique preprocessing functions and procedure, which I’ve coded below. Notice that we’re going to use the <code>TEXT.NO.NOUN</code> column, which contains all the text of the articles without proper nouns (which I removed earlier).</p>
 <div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1"><span class="co"># Pre-process</span></a>

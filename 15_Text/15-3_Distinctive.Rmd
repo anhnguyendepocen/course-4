@@ -13,7 +13,7 @@ Run the following code to:
 1. Import the corpus
 2. Create a DTM
 
-```{r}
+```{r message=F}
 require(tm)
 require(matrixStats) # for statistics
 
@@ -23,9 +23,9 @@ docs <- Corpus(DirSource("Data/trump_obama"))
 # preprocess and create DTM
 dtm <- DocumentTermMatrix(docs,
            control = list(tolower = TRUE,
-                          stopwords = T,
-                          removeNumbers = TRUE,
                           removePunctuation = TRUE,
+                          removeNumbers = TRUE,
+                          stopwords = TRUE,
                           stemming=TRUE))
 
 # print the dimensions of the DTM
@@ -46,8 +46,7 @@ Finding words that are exclusive to a group is a simple exercise. All we have to
 ```{r}
 # turn DTM into dataframe
 dtm.m <- as.data.frame(as.matrix(dtm))
-dtm.m[,1:5]
-dtm.m$`that`
+dtm.m$that <- NULL # fix weird error with stopwords.
 
 # Subset into 2 dtms for each author
 obama <- dtm.m[1:8,]
@@ -58,15 +57,15 @@ obama <- colSums(obama)
 trump <- colSums(trump)
 
 # Put those sums back into a dataframe
-df <- data.frame(rbind(obama,trump))
-df[,1:5]
+df <- data.frame(rbind(obama, trump))
+df[ ,1:5]
 
 # Get words where one author's usage is 0
-solelyobama <- unlist(df[1,trump==0]) 
+solelyobama <- unlist(df[1, trump==0]) 
 solelyobama <- solelyobama[order(solelyobama, decreasing = T)] # order them by frequency
 head(solelyobama, 10) # get top 10 words for obama
 
-solelytrump <- unlist(df[2,obama==0])
+solelytrump <- unlist(df[2, obama==0])
 solelytrump <- solelytrump[order(solelytrump, decreasing = T)] # order them by frequency
 head(solelytrump, 10) # get top 10 words for trump
 ```

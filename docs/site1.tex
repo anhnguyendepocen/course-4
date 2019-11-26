@@ -15261,15 +15261,19 @@ This unit focuses on computational text analysis (or ``text-as-data''). We'll ex
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{\protect\hyperlink{string-basics}{string basics}}, like concatinating and subsettings.
+  \textbf{\protect\hyperlink{preprocessing-1}{Preprocessing}} a corpus for common text analysis.
 \item
-  \textbf{\protect\hyperlink{regular-expressions}{regular expressions}}, a powerful cross-language tool for working with string data.
+  \textbf{\protect\hyperlink{sentiment-analysis-and-dictionary-methods}{Sentiment Analysis and Dictionary Methods}}, a simple, supervised method for classification.
 \item
-  \textbf{\protect\hyperlink{common-tools}{common tools}}, that take regex and apply them to real problems.
+  \textbf{\protect\hyperlink{distinctive-words}{Distinctive Words}}, or word-separating techniques to compare corpora.
+\item
+  \textbf{\protect\hyperlink{structural-topic-models}{Structural Topic Models}}, a popular unsupervised method for text exploration and analysis.
 \end{enumerate}
 
-\hypertarget{preprocessing-a-corpus}{%
-\section{Preprocessing a Corpus}\label{preprocessing-a-corpus}}
+These materials are based off a longer, week-long intensive workshop on computational text analysis. If you're interested in text-as-data, I would encourage you to work through these materials on your own: \url{https://github.com/rochelleterman/FSUtext}
+
+\hypertarget{preprocessing}{%
+\section{Preprocessing}\label{preprocessing}}
 
 First let's load our required packages.
 
@@ -15650,10 +15654,17 @@ We can now export the dataframe as a csv.
 \hypertarget{challenges-24}{%
 \subsection{Challenges}\label{challenges-24}}
 
-Using the one of the files in the \texttt{/text-data} directory, create a document term matrix and create a wordcloud of the most common terms.
+Using the one of the datasetes in the \texttt{text-data} repo, create a document term matrix and create a wordcloud of the most common terms.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# download text-data}
+\KeywordTok{library}\NormalTok{(}\StringTok{"usethis"}\NormalTok{)}
+\KeywordTok{use_course}\NormalTok{(}\StringTok{"plsc-31101/text-data"}\NormalTok{)}
+
+\CommentTok{# check out what you just downloaded.}
+\CommentTok{# and unzip a dataset.}
+
 \CommentTok{# YOUR CODE HERE}
 \end{Highlighting}
 \end{Shaded}
@@ -15863,9 +15874,9 @@ Run the following code to:
 \CommentTok{# preprocess and create DTM}
 \NormalTok{dtm <-}\StringTok{ }\KeywordTok{DocumentTermMatrix}\NormalTok{(docs,}
            \DataTypeTok{control =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{tolower =} \OtherTok{TRUE}\NormalTok{,}
-                          \DataTypeTok{stopwords =}\NormalTok{ T,}
-                          \DataTypeTok{removeNumbers =} \OtherTok{TRUE}\NormalTok{,}
                           \DataTypeTok{removePunctuation =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{removeNumbers =} \OtherTok{TRUE}\NormalTok{,}
+                          \DataTypeTok{stopwords =} \OtherTok{TRUE}\NormalTok{,}
                           \DataTypeTok{stemming=}\OtherTok{TRUE}\NormalTok{))}
 
 \CommentTok{# print the dimensions of the DTM}
@@ -15908,21 +15919,7 @@ Finding words that are exclusive to a group is a simple exercise. All we have to
 \begin{Highlighting}[]
 \CommentTok{# turn DTM into dataframe}
 \NormalTok{dtm.m <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(dtm))}
-\NormalTok{dtm.m[,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
-\CommentTok{#>                abandon abess abid abil abject}
-\CommentTok{#> Obama_2009.txt       0     1    0    3      0}
-\CommentTok{#> Obama_2010.txt       0     0    1    1      0}
-\CommentTok{#> Obama_2011.txt       1     0    0    0      0}
-\CommentTok{#> Obama_2012.txt       0     0    0    0      0}
-\CommentTok{#> Obama_2013.txt       0     0    0    3      0}
-\CommentTok{#> Obama_2014.txt       0     0    0    0      0}
-\CommentTok{#> Obama_2015.txt       1     0    0    0      0}
-\CommentTok{#> Obama_2016.txt       0     0    0    0      0}
-\CommentTok{#> Trump_2017.txt       1     0    0    1      0}
-\CommentTok{#> Trump_2018.txt       0     0    0    0      0}
-\CommentTok{#> Trump_2019.txt       0     0    0    0      1}
-\NormalTok{dtm.m}\OperatorTok{$}\StringTok{`}\DataTypeTok{that}\StringTok{`}
-\CommentTok{#>  [1]  6 15 24 24 13 19 29 30  0  0  0}
+\NormalTok{dtm.m}\OperatorTok{$}\NormalTok{that <-}\StringTok{ }\OtherTok{NULL} \CommentTok{# fix weird error with stopwords.}
 
 \CommentTok{# Subset into 2 dtms for each author}
 \NormalTok{obama <-}\StringTok{ }\NormalTok{dtm.m[}\DecValTok{1}\OperatorTok{:}\DecValTok{8}\NormalTok{,]}
@@ -15933,22 +15930,22 @@ Finding words that are exclusive to a group is a simple exercise. All we have to
 \NormalTok{trump <-}\StringTok{ }\KeywordTok{colSums}\NormalTok{(trump)}
 
 \CommentTok{# Put those sums back into a dataframe}
-\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(obama,trump))}
-\NormalTok{df[,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(obama, trump))}
+\NormalTok{df[ ,}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
 \CommentTok{#>       abandon abess abid abil abject}
 \CommentTok{#> obama       2     1    1    7      0}
 \CommentTok{#> trump       1     0    0    1      1}
 
 \CommentTok{# Get words where one author's usage is 0}
-\NormalTok{solelyobama <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{(df[}\DecValTok{1}\NormalTok{,trump}\OperatorTok{==}\DecValTok{0}\NormalTok{]) }
+\NormalTok{solelyobama <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{(df[}\DecValTok{1}\NormalTok{, trump}\OperatorTok{==}\DecValTok{0}\NormalTok{]) }
 \NormalTok{solelyobama <-}\StringTok{ }\NormalTok{solelyobama[}\KeywordTok{order}\NormalTok{(solelyobama, }\DataTypeTok{decreasing =}\NormalTok{ T)] }\CommentTok{# order them by frequency}
 \KeywordTok{head}\NormalTok{(solelyobama, }\DecValTok{10}\NormalTok{) }\CommentTok{# get top 10 words for obama}
-\CommentTok{#>      that      dont technolog      bank     innov    doesnt   teacher }
-\CommentTok{#>       160        68        31        30        30        29        26 }
-\CommentTok{#>      loan      wont     debat }
-\CommentTok{#>        22        22        21}
+\CommentTok{#>      dont technolog      bank     innov    doesnt   teacher      loan }
+\CommentTok{#>        68        31        30        30        29        26        22 }
+\CommentTok{#>      wont     debat    climat }
+\CommentTok{#>        22        21        19}
 
-\NormalTok{solelytrump <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{(df[}\DecValTok{2}\NormalTok{,obama}\OperatorTok{==}\DecValTok{0}\NormalTok{])}
+\NormalTok{solelytrump <-}\StringTok{ }\KeywordTok{unlist}\NormalTok{(df[}\DecValTok{2}\NormalTok{, obama}\OperatorTok{==}\DecValTok{0}\NormalTok{])}
 \NormalTok{solelytrump <-}\StringTok{ }\NormalTok{solelytrump[}\KeywordTok{order}\NormalTok{(solelytrump, }\DataTypeTok{decreasing =}\NormalTok{ T)] }\CommentTok{# order them by frequency}
 \KeywordTok{head}\NormalTok{(solelytrump, }\DecValTok{10}\NormalTok{) }\CommentTok{# get top 10 words for trump}
 \CommentTok{#>      isi    agent america.  audienc    megan      it. obamacar     alic }
@@ -16117,8 +16114,8 @@ Load the dataset. Notice that we have the text of the articles, along with some 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{preprocessing}{%
-\subsection{Preprocessing}\label{preprocessing}}
+\hypertarget{preprocessing-1}{%
+\subsection{Preprocessing}\label{preprocessing-1}}
 
 STM has its own unique preprocessing functions and procedure, which I've coded below. Notice that we're going to use the \texttt{TEXT.NO.NOUN} column, which contains all the text of the articles without proper nouns (which I removed earlier).
 

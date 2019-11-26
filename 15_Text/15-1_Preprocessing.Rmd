@@ -9,12 +9,15 @@ output: html_document
 
 This unit focuses on computational text analysis (or "text-as-data"). We'll explore:
 
-1. **[string basics]**, like concatinating and subsettings.
-2. **[regular expressions]**, a powerful cross-language tool for working with string data.
-3. **[common tools]**, that take regex and apply them to real problems.
+1. **[Preprocessing]** a corpus for common text analysis.
+2. **[Sentiment Analysis and Dictionary Methods]**, a simple, supervised method for classification.
+3. **[Distinctive Words]**, or word-separating techniques to compare corpora.
+4. **[Structural Topic Models]**, a popular unsupervised method for text exploration and analysis.
+
+These materials are based off a longer, week-long intensive workshop on computational text analysis. If you're interested in text-as-data, I would encourage you to work through these materials on your own: https://github.com/rochelleterman/FSUtext
 
 
-## Preprocessing a Corpus
+## Preprocessing
 
 First let's load our required packages.
 
@@ -222,8 +225,15 @@ write.csv(dtm, "dtm.csv", row.names = F)
 
 ### Challenges
 
-Using the one of the files in the `/text-data` directory, create a document term matrix and create a wordcloud of the most common terms.
+Using the one of the datasetes in the `text-data` repo, create a document term matrix and create a wordcloud of the most common terms.
 
-```{r}
+```{r eval = F}
+# download text-data
+library("usethis")
+use_course("plsc-31101/text-data")
+
+# check out what you just downloaded.
+# and unzip a dataset.
+
 # YOUR CODE HERE
 ```
