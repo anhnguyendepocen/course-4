@@ -42,7 +42,9 @@ We will also be requiring a few other important packages. Run the following line
 ```{r eval = F}
 install.packages("rmarkdown", "knitr", "gapminder", 
                  "stargazer", "rtweet", "kableExtra",
-                 "nycflights13", "devtools")
+                 "nycflights13", "devtools", "tm", "wordcloud",
+                 "matrixStats", "SnowballC", "tidytext",
+                 "textdata", "stm")
 ```
  
 ## LaTex
