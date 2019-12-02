@@ -16481,6 +16481,616 @@ We're now going to see how the topics compare in terms of their prevalence acros
 
 \begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-544-1} \includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-544-2} \end{center}
 
+\hypertarget{git-and-github}{%
+\chapter{Git and Github}\label{git-and-github}}
+
+\begin{quote}
+\hypertarget{learning-objectives}{%
+\section{Learning Objectives}\label{learning-objectives}}
+
+\begin{itemize}
+\tightlist
+\item
+  Explain which initialization and configuration steps are required once per machine, and which are required once per repository.
+\item
+  Go through the modify-add-commit cycle for single and multiple files and explain where information is stored at each stage.
+\item
+  Configure Git to ignore specific files, and explain why it is sometimes useful to do so.
+\item
+  Explain collaboration options on GitHub
+\item
+  Go through the fork \& pull workflow
+\end{itemize}
+\end{quote}
+
+We'll start by exploring how version control can be used to keep track of what one person did and when. Even if you aren't collaborating with other people, version control is much better for this than this:
+
+Git is powerful and complicated. We can do a full day workshop on git alone. But it is also quite possible to harness it's powers by cycing through three commands: \texttt{add}, \texttt{commit}, \texttt{push}. So even if you don't understand what's going on underneath the hood, knowing just these three commands can get you very far.
+
+\begin{figure}
+\centering
+\includegraphics{img/xkcd-git.png}
+\caption{xkcd}
+\end{figure}
+
+\hypertarget{starting-with-git}{%
+\section{Starting with Git}\label{starting-with-git}}
+
+The first time we use Git on a new machine, we need to configure a few things.
+
+Here's how Dracula sets up his new laptop:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ config --global user.name }\StringTok{"Vlad Dracula"}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ config --global user.email }\StringTok{"vlad@tran.sylvan.ia"}
+\end{Highlighting}
+\end{Shaded}
+
+(Please use your own name and email address instead of Dracula's, and please use the same email as you used to make your GitHub account.)
+
+Git commands are written \texttt{git\ verb}, where \texttt{verb} is what we actually want it to do. In this case, we're telling Git to configure our name and email address,
+
+The two commands above only need to be run once: the flag \texttt{-\/-global} tells Git to use the settings for every project on this machine.
+
+\hypertarget{creating-a-repository}{%
+\subsection{Creating a repository}\label{creating-a-repository}}
+
+Once Git is configured, we can start using it to share code on \href{www.github.com}{GitHub}.
+
+Follow \href{https://help.github.com/articles/creating-a-new-repository/}{these instructions} to create a new GitHub \textbf{repository}. Be sure to add these options:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Call the repo ``plsc31101-final-project''
+\item
+  Create a README.md file
+\item
+  Create a .gitignore file
+\item
+  Don't add a license for now. Later, you can add a license for your project (see \href{https://help.github.com/articles/open-source-licensing/}{here} for information on which license to choose.)
+\end{enumerate}
+
+\begin{quote}
+\textbf{Git without GitHub}
+
+Git is often used in conjunction with GitHub. But you can also
+use git to track changes locally on your computer.
+
+If you wanted to start using Git from scratch on a new project, you can
+create a directory and tell Git to make it a repository -- a place where
+Git can store old versions of our files -- using the command \texttt{git\ init}
+
+\begin{verbatim}
+$ git init
+\end{verbatim}
+\end{quote}
+
+After you create your directory, \textbf{clone} a local copy onto your computer by following \href{https://help.github.com/articles/cloning-a-repository/}{these instructions}. Be sure to clone in a location that you will remember!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\BuiltInTok{cd}\NormalTok{ ~}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ clone https://github.com/vlad/plsc31101-final-project.git}
+\end{Highlighting}
+\end{Shaded}
+
+Now, navigate into your new git repository
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\BuiltInTok{cd}\NormalTok{ ~/plsc31101-final-project}
+\end{Highlighting}
+\end{Shaded}
+
+If we use \texttt{ls\ -a} to show the directory's contents, we can see a hidden directory called \texttt{.git}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{ls}\NormalTok{ -a}
+
+\CommentTok{# .                   .gitignore                       }
+\CommentTok{# ..                  README.md }
+\CommentTok{# .git                                        }
+\end{Highlighting}
+\end{Shaded}
+
+Git stores information about the project in this special sub-directory.
+If we ever delete it, we will lose the project's history.
+
+We can check that everything is set up correctly by asking Git to tell us the status of our project:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ status}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{git-add-tracks-files}{%
+\subsection{\texorpdfstring{\texttt{git\ add}: tracks files}{git add: tracks files}}\label{git-add-tracks-files}}
+
+Let's add a file into our directory.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{touch}\NormalTok{ file.txt}
+\end{Highlighting}
+\end{Shaded}
+
+Now, when we type in \texttt{git\ status}, we see something like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ status}
+
+\CommentTok{# Untracked files:}
+\CommentTok{#   (use "git add <file>..." to include in what will be committed)}
+\CommentTok{# }
+\end{Highlighting}
+\end{Shaded}
+
+The ``untracked files'' message means that there's a file in the directory that Git isn't keeping track of. We can tell Git that it should do so using \texttt{git\ add}:
+
+To add new files, you can either type \texttt{git\ add\ {[}file\ name{]}} like so:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ add file.txt}
+\end{Highlighting}
+\end{Shaded}
+
+OR, if you want to add ALL the new files in a repository, you can use the \texttt{.} shortcut:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ add .}
+\end{Highlighting}
+\end{Shaded}
+
+Now if we use \texttt{git\ status} we should no longer see any untracked files.
+
+\hypertarget{git-commit-saves-files}{%
+\subsection{\texorpdfstring{\texttt{git\ commit}: saves files}{git commit: saves files}}\label{git-commit-saves-files}}
+
+Git now knows that it's supposed to keep track of all the files in your repo,but it hasn't yet recorded any changes you've made to those files. To get it to do that, we need to run one more command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ commit -am }\StringTok{"First Commit"}
+
+\CommentTok{# [master (root-commit) f22b25e] First Commit}
+ \CommentTok{# 1 file changed, 1 insertion(+)}
+ \CommentTok{# create mode 100644 ...}
+\end{Highlighting}
+\end{Shaded}
+
+When we run \texttt{git\ commit}, Git takes everything we have told it to save by using \texttt{git\ add} and stores a copy permanently inside the special \texttt{.git} directory. This permanent copy is called a \textbf{revision} and its short identifier is \texttt{f22b25e}. (Your revision may have another identifier.)
+
+We use the \texttt{-a} flag (for `all') to tell Git that we want to commit all the changes we've made to every file. If we just run the \texttt{git\ commit} without the \texttt{-a} option, Git will expect us to specify which file's changes we want saved.
+
+We use the \texttt{-m} flag (for ``message'') to record a comment that will help us remember later on what we did and why. If we just run \texttt{git\ commit} without the \texttt{-m} option, Git will launch \texttt{nano} (or whatever other editor we configured at the start) so that we can write a longer message.
+
+If we run \texttt{git\ status} now:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ status}
+
+\CommentTok{# On branch master}
+\CommentTok{# nothing to commit, working directory clean}
+\end{Highlighting}
+\end{Shaded}
+
+it tells us everything is up to date.
+
+If we want to know what we've done recently, we can ask Git to show us the project's history using \texttt{git\ log}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ log}
+
+\CommentTok{# commit f22b25e3233b4645dabd0d81e651fe074bd8e73b}
+\CommentTok{# Author: Vlad Dracula <vlad@tran.sylvan.ia>}
+\CommentTok{# Date:   Thu Aug 22 09:51:46 2013 -0400}
+
+    \CommentTok{# First commit}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{git\ log} lists all revisions made to a repository in reverse chronological order. The listing for each revision includes the revision's full identifier
+(which starts with the same characters as the short identifier printed by the \texttt{git\ commit} command earlier), the revision's author, when it was created, and the log message Git was given when the revision was created.
+
+\hypertarget{git-push-moves-changes-from-one-branch-to-another.}{%
+\subsection{\texorpdfstring{\texttt{git\ push}: moves changes from one branch to another.}{git push: moves changes from one branch to another.}}\label{git-push-moves-changes-from-one-branch-to-another.}}
+
+Systems like git allow us to move work between any two repositories. In practice, it's easiest to use one copy as a central hub, and to keep it on the web rather than on someone's laptop.
+
+This is where GitHub comes in: it holds the \textbf{master} copy of a repository, and allows us to move changes between multiple \textbf{local} copies.
+
+To copy our changes from our laptop to our GitHub repo, we can use \texttt{git\ push}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ push origin master}
+
+\CommentTok{# Counting objects: 9, done.}
+\CommentTok{# Delta compression using up to 4 threads.}
+\CommentTok{# Compressing objects: 100% (6/6), done.}
+\CommentTok{# Writing objects: 100% (9/9), 821 bytes, done.}
+\CommentTok{# Total 9 (delta 2), reused 0 (delta 0)}
+\CommentTok{# To https://github.com/vlad/plsc31101-final-project}
+ \CommentTok{# * [new branch]      master -> master}
+\CommentTok{# Branch master set up to track remote branch master from origin.}
+\end{Highlighting}
+\end{Shaded}
+
+This tells git to push our changes to the repository's ``origin'' -- i.e., the copy on GitHub.
+
+Now open up a web browser and navigate to your GitHub repository. What do you see?
+
+\begin{quote}
+Challenge 1
+
+Navigate to \url{https://github.com/plsc-31101/replication-template} and clone the repository to your computer.
+
+Copy all the files and directories in this folder into your new github repo
+(plsc31101-final-project).
+
+Then add, commit, and push. Use this template for your final project!
+\end{quote}
+
+\textbf{Comment cheat sheet}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ add .}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ commit -am }\StringTok{"commit message"}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ push origin/master}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ignoring-things}{%
+\subsection{Ignoring Things}\label{ignoring-things}}
+
+Oftentimes we'll have files that we do not want git to track for us. These include sensitive data files, as well as hidden files with extensions like .Rhistory, .ipynb\_checkpoints, and .DS\_Store (Dropbox).
+
+Let's create a few dummy files:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{touch}\NormalTok{ a.dat b.dat data/c.csv data/d.csv}
+\end{Highlighting}
+\end{Shaded}
+
+and see what Git says:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ status}
+
+\CommentTok{# On branch master}
+\CommentTok{# Untracked files:}
+\CommentTok{#   (use "git add <file>..." to include in what will be committed)}
+\CommentTok{#}
+\CommentTok{#   a.dat}
+\CommentTok{#   b.dat}
+\CommentTok{#   data/}
+\CommentTok{# nothing added to commit but untracked files present (use "git add" to track)}
+\end{Highlighting}
+\end{Shaded}
+
+Putting these files under version control would be a waste of disk space.
+What's worse, having them all listed could distract us from changes that actually matter, so let's tell Git to ignore them.
+
+We do this by creating a file in the root directory of our project called \texttt{.gitignore}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{nano}\NormalTok{ .gitignore}
+\NormalTok{$ }\FunctionTok{cat}\NormalTok{ .gitignore}
+
+\ExtensionTok{*.dat}
+\ExtensionTok{data/}
+\end{Highlighting}
+\end{Shaded}
+
+These patterns tell Git to ignore any file whose name ends in \texttt{.dat}
+and everything in the \texttt{data} directory. (If any of these files were already being tracked, Git would continue to track them.)
+
+Once we have created this file, the output of \texttt{git\ status} is much cleaner:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ status}
+
+\CommentTok{# On branch master}
+\CommentTok{# Untracked files:}
+\CommentTok{#   (use "git add <file>..." to include in what will be committed)}
+\CommentTok{#}
+\CommentTok{#   .gitignore}
+\CommentTok{# nothing added to commit but untracked files present (use "git add" to track)}
+\end{Highlighting}
+\end{Shaded}
+
+The only thing Git notices now is the recently-changed \texttt{.gitignore} file.
+You might think we wouldn't want to track it, but everyone we're sharing our repository with will probably want to ignore the same things that we're ignoring. Let's add and commit \texttt{.gitignore}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ commit -m }\StringTok{"Add the ignore file"}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ status}
+
+\CommentTok{# On branch master}
+\CommentTok{# nothing to commit, working directory clean}
+\end{Highlighting}
+\end{Shaded}
+
+As a bonus, using \texttt{.gitignore} helps us avoid accidentally adding files to the repository that we don't want.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ add a.dat}
+
+\CommentTok{# The following paths are ignored by one of your .gitignore files:}
+\CommentTok{# a.dat}
+\CommentTok{# Use -f if you really want to add them.}
+\CommentTok{# fatal: no files added }
+\end{Highlighting}
+\end{Shaded}
+
+If we really want to override our ignore settings, we can use \texttt{git\ add\ -f} to force Git to add something. We can also always see the status of ignored files if we want:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ status --ignored}
+
+\CommentTok{# On branch master}
+\CommentTok{# Ignored files:}
+\CommentTok{#  (use "git add -f <file>..." to include in what will be committed)}
+\CommentTok{#}
+\CommentTok{#        a.dat}
+\CommentTok{#        b.dat}
+\CommentTok{#        c.dat}
+\CommentTok{#        results/}
+
+\CommentTok{# nothing to commit, working directory clean}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Challenge 2
+
+Continue editing the .gitignore file to add extentions you don't want to track, like .DS\_Store, .Rhistory, etc.
+\end{quote}
+
+\hypertarget{pulling-syncing}{%
+\subsection{Pulling / Syncing}\label{pulling-syncing}}
+
+Oftentimes we need to sync our local repo with the \emph{master branch} (the default branch) on GitHub. For instance, let's say you have two computers, one at home and one at work. We made a change using our work computer, and pushed it to the master branch on GitHub. But then we go home and find that our local copy is out of date.
+
+A more common method of syncing branches is to use \texttt{git\ fetch} followed by \texttt{git\ merge}; or \texttt{git\ pull}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{git\ fetch} followed by \texttt{git\ merge} \emph{combines} your local changes with changes made by others.
+\item
+  \texttt{git\ pull} is a convenient shortcut for completing both \texttt{git\ fetch} and \texttt{git\ merge} in the same command
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ pull origin/master}
+\end{Highlighting}
+\end{Shaded}
+
+This is helpful if you want to merge your changes and the master branch.
+
+\begin{quote}
+\textbf{Commit before your pull}
+
+Because \texttt{pull} performs a merge on the retrieved changes, you should ensure
+that your local work is committed before running the pull command. If you
+run into a merge \textbf{conflict} you cannot resolve, or if you decide to quit
+the merge, you can use \texttt{git\ merge\ -\/-abort} to take the branch back to where
+it was in before you pulled. See \href{https://help.github.com/articles/\%20fetching-a-remote/}{here} for more info on fetching and merging.
+\end{quote}
+
+Sometimes \texttt{git\ pull} will cause \textbf{merge conflicts}, meaning that your local repository and master branch diverged on some lines of code, and git doesn't know which version you want to keep.
+
+If you \emph{know} that you want to keep the master branch version, you can overwrite your local repository like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ fetch}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ reset --hard origin/master}
+\end{Highlighting}
+\end{Shaded}
+
+Let's break this down:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{git\ fetch} retrieves a record of all changes made in the master branch.
+\item
+  \texttt{git\ reset\ -\/-hard\ origin/master} will reset your local repo to match the master branch.
+\end{enumerate}
+
+With these commands, every tracked file will be overwritten to match to its version in master. Be careful with this: all local changes will be lost.
+
+\hypertarget{collaborating}{%
+\section{Collaborating}\label{collaborating}}
+
+Version control really comes into its own when we begin to collaborate with other people.
+
+All of the course notes are contained in their own Github Repo: \url{https://github.com/plsc-31101/course}
+
+I've created a directory in this repo called \texttt{98-Final-Projects}. We're going to collaborate on this directory using git to collect information about your final projects.
+
+There are two main ways to collaborate on github:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Adding individual \href{https://help.github.com/articles/permission-levels-for-a-user-account-repository/}{collaborators} to a project
+\item
+  The \textbf{fork \& pull} model.
+\end{enumerate}
+
+The first method adds users to your project, giving them full permissions to make changes. For this course, I added \href{https://github.com/pcuppernull}{Pete Cuppernull} as a collaborator, so that he could push commits easily to the repository without my expressed approval.
+
+Collaborating in this fashion is very similar to the workflow described above.
+
+\hypertarget{fork-pull-model}{%
+\subsection{Fork \& Pull Model}\label{fork-pull-model}}
+
+GitHub also allows you to to accept individual contributions from users without granting them full access. This if referred to as the \href{http://stackoverflow.com/questions/11582995/what-is-the-fork-pull-model-in-github}{\emph{Fork \& Pull model}}.
+
+\textbf{Fork \& Pull} involves the following steps:
+
+\hypertarget{fork-an-existing-repo}{%
+\subsubsection{1. Fork an existing repo}\label{fork-an-existing-repo}}
+
+The first step in in this workflow is to \textbf{fork} an existing repository. A \href{https://help.github.com/articles/working-with-forks/}{fork} is a copy of a repository that you manage yourself. Forks let you make changes to a project without affecting the original repository.
+
+To fork a repo:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  On GitHub, navigate to \href{https://github.com/plsc-31101/course}{plsc-31101/course},
+\item
+  In the top-right corner of the page, click \textbf{Fork}.
+\end{enumerate}
+
+Now you have a fork of the original repo in \emph{your-user-name}/course
+
+\hypertarget{commit-a-change}{%
+\subsubsection{2. Commit a change}\label{commit-a-change}}
+
+We've already seen how you can commit a change directly in GitHub's web interface. But when working with code, you often want to develop your scripts on your computer, so you can test it using R, Python, etc.
+
+To do this, you first need to \textbf{clone your fork} onto your computer.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  On GitHub, navigate to your fork of the \texttt{course} repository.
+\item
+  In the right sidebar of your fork's repository page, copy the clone URL for your fork.
+\item
+  Use \texttt{git\ clone} to clone the repo.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\BuiltInTok{cd}\NormalTok{ ~}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ clone https://github.com/YOUR-USERNAME/course}
+\end{Highlighting}
+\end{Shaded}
+
+We're now ready to make a change to the repo. Create a file in \texttt{98-Final-Projects} directory named after yourself. \textbf{Protip}: the \texttt{touch} command quickly creates an empty file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\BuiltInTok{cd}\NormalTok{ course}
+\NormalTok{$ }\FunctionTok{touch}\NormalTok{ 98-Final-Projects/rochelle-terman.md}
+\end{Highlighting}
+\end{Shaded}
+
+Open up that file in a text editor (I like Sublime Text) and add:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The title of your project (in a header)
+\item
+  A 1-2 sentence description of the project
+\item
+  A link to your github repo (that you just made)
+\end{enumerate}
+
+\begin{quote}
+\textbf{Markdown} Reminder
+
+Files with the extension .md are called \textbf{markdown} files. Markdown is a
+markup language used to convert plain text to HTML and many other formats.
+It's basically a way to add markup to a text (making things bold, lists,
+links, etc) using very simple syntax. It is often used in README files in
+software packages. You may have also noticed that all of the lessons for
+this course are written in markdown, as is many of the text files on GitHub.
+You can learn more about how to write GitHub-flavored markdown \href{https:/\%20/help.github.com/articles/markdown-basics/}{here}.
+\end{quote}
+
+Then add, commit, and push the change.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ status}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ add 16_final-projects/rochelle-terman.md}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ commit -am }\StringTok{"my final project info"}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ push}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{submit-a-pull-request}{%
+\subsection{3. Submit a pull request}\label{submit-a-pull-request}}
+
+Navigate to your GitHub repo (online) and check out your change!
+
+Remember when you forked the repository originally? That means that your repository is different from mine, and from everybody elses. What if you want to share your change with others?
+
+To do this, navigate to your GitHub repository and click the green icon to submit a \textbf{pull request}.
+
+After you submit, I have the option to accept.
+
+\hypertarget{keep-your-fork-synced}{%
+\subsubsection{4. Keep your fork synced}\label{keep-your-fork-synced}}
+
+It's good practice to keep your fork synced with the upstream (i.e.~the original) repository. That way, if I make a change to PS239T, you can easily pull that change into your fork.
+
+You can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\BuiltInTok{cd}\NormalTok{ PS239T}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ remote -v}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ remote add upstream https://github.com/rochelleterman/PS239T.git}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ remove -v}
+\end{Highlighting}
+\end{Shaded}
+
+With \texttt{git\ remote\ -v}, you'll see the current configured remote repository for your fork.
+
+Now you can \href{https://help.github.com/articles/syncing-a-fork/}{sync your fork} with the upsteam repo using \texttt{git\ fetch}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ fetch upstream}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ merge upstream/master}
+\end{Highlighting}
+\end{Shaded}
+
+To learn more:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  {[}GitHub documentation{]}(\url{https://help.github.com}
+\item
+  \href{http://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide}{This great stackoverflow answer}
+\end{enumerate}
+
 \hypertarget{part-assignments-and-projects}{%
 \part{Assignments and Projects}\label{part-assignments-and-projects}}
 
@@ -16678,7 +17288,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-554-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-584-1} \end{center}
 
 \textbf{How would you relevel \texttt{f} to be in the correct order?}
 
@@ -16691,7 +17301,7 @@ For this assignment, you'll use what you know about R syntax and data structures
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-555-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-585-1} \end{center}
 
 \hypertarget{dataframes-1}{%
 \subsubsection*{4. Dataframes}\label{dataframes-1}}
@@ -18089,7 +18699,7 @@ For this problem set, we'll be working with the country-year data introduced in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-595-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-625-1} \end{center}
 
 \textbf{2.2 Write code that reproduces ``plots/Plot\_2.jpeg''. (No need to write the file.)}
 
@@ -18118,7 +18728,7 @@ For this problem set, we'll be working with the country-year data introduced in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-596-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-626-1} \end{center}
 
 \textbf{2.3 Write code that reproduces ``plots/Plot\_3.jpeg''. (No need to write the file.)}
 
@@ -18144,7 +18754,7 @@ For this problem set, we'll be working with the country-year data introduced in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-597-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-627-1} \end{center}
 
 \textbf{2.4 Write code that reproduces ``plots/Plot\_4.jpeg''. (No need to write the file.)}
 
@@ -18168,7 +18778,7 @@ For this problem set, we'll be working with the country-year data introduced in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-598-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{site1_files/figure-latex/unnamed-chunk-628-1} \end{center}
 
 \hypertarget{models}{%
 \subsubsection*{3. Models}\label{models}}
