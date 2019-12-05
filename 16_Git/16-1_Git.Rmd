@@ -17,7 +17,7 @@ output: html_document
 
 We'll start by exploring how version control can be used to keep track of what one person did and when. Even if you aren't collaborating with other people, version control is much better for this than this:
 
-```{r include=F}
+```{r echo=F}
 knitr::include_graphics(path = "img/phd-git.jpeg")
 ```
 
@@ -201,16 +201,15 @@ This tells git to push our changes to the repository's "origin" -- i.e., the cop
 
 Now open up a web browser and navigate to your GitHub repository. What do you see?
 
-> Challenge 1
-> 
-> Navigate to https://github.com/plsc-31101/replication-template and clone the repository to your computer.
-> 
-> Copy all the files and directories in this folder into your new github repo
-> (plsc31101-final-project). 
-> 
-> Then add, commit, and push. Use this template for your final project!
+### Challenge 1
+ 
+Navigate to https://github.com/plsc-31101/replication-template and clone the repository to your computer.
+ 
+Copy all the files and directories in this folder into your new github repo (plsc31101-final-project). 
 
-**Comment cheat sheet**
+Then add, commit, and push. Use this template for your final project!
+
+**Cheat sheet**
 
 ```{bash eval = F}
 $ git add .
@@ -311,9 +310,9 @@ $ git status --ignored
 # nothing to commit, working directory clean
 ```
 
-> Challenge 2
-> 
-> Continue editing the .gitignore file to add extentions you don't want to track, like .DS_Store, .Rhistory, etc.
+### Challenge 2
+ 
+Continue editing the .gitignore file to add extentions you don't want to track, like .DS_Store, .Rhistory, etc.
 
 ### Pulling / Syncing
 
@@ -378,7 +377,7 @@ GitHub also allows you to to accept individual contributions from users without 
 
 **Fork & Pull** involves the following steps:
 
-#### 1. Fork an existing repo
+#### 1. Fork an existing repo {-}
 
 The first step in in this workflow is to **fork** an existing repository. A [fork](https://help.github.com/articles/working-with-forks/) is a copy of a repository that you manage yourself. Forks let you make changes to a project without affecting the original repository. 
 
@@ -389,7 +388,7 @@ To fork a repo:
 
 Now you have a fork of the original repo in *your-user-name*/course
 
-#### 2. Commit a change
+#### 2. Commit a change {-}
 
 We've already seen how you can commit a change directly in GitHub's web interface. But when working with code, you often want to develop your scripts on your computer, so you can test it using R, Python, etc. 
 
@@ -413,7 +412,7 @@ $ touch 98-Final-Projects/rochelle-terman.md
 
 Open up that file in a text editor (I like Sublime Text) and add:
 
-1. The title of your project (in a header)
+1. The title of your project (in a header 2)
 2. A 1-2 sentence description of the project
 3. A link to your github repo (that you just made)
 
@@ -437,7 +436,7 @@ $ git commit -am "my final project info"
 $ git push
 ```
 
-### 3. Submit a pull request
+#### 3. Submit a pull request {-}
 
 Navigate to your GitHub repo (online) and check out your change! 
 
@@ -447,16 +446,15 @@ To do this, navigate to your GitHub repository and click the green icon to submi
 
 After you submit, I have the option to accept.
 
-#### 4. Keep your fork synced
+#### 4. Keep your fork synced {-}
 
 It's good practice to keep your fork synced with the upstream (i.e. the original) repository. That way, if I make a change to PS239T, you can easily pull that change into your fork.
 
 You can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
 
 ```{bash eval = F}
-$ cd PS239T
 $ git remote -v
-$ git remote add upstream https://github.com/rochelleterman/PS239T.git
+$ git remote add upstream https://github.com/plsc-31101/course.git
 $ git remove -v
 ```
 

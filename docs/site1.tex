@@ -16505,6 +16505,8 @@ We're now going to see how the topics compare in terms of their prevalence acros
 
 We'll start by exploring how version control can be used to keep track of what one person did and when. Even if you aren't collaborating with other people, version control is much better for this than this:
 
+\begin{center}\includegraphics[width=0.7\linewidth]{img/phd-git} \end{center}
+
 Git is powerful and complicated. We can do a full day workshop on git alone. But it is also quite possible to harness it's powers by cycing through three commands: \texttt{add}, \texttt{commit}, \texttt{push}. So even if you don't understand what's going on underneath the hood, knowing just these three commands can get you very far.
 
 \begin{figure}
@@ -16730,18 +16732,16 @@ This tells git to push our changes to the repository's ``origin'' -- i.e., the c
 
 Now open up a web browser and navigate to your GitHub repository. What do you see?
 
-\begin{quote}
-Challenge 1
+\hypertarget{challenge-1-5}{%
+\subsection{Challenge 1}\label{challenge-1-5}}
 
 Navigate to \url{https://github.com/plsc-31101/replication-template} and clone the repository to your computer.
 
-Copy all the files and directories in this folder into your new github repo
-(plsc31101-final-project).
+Copy all the files and directories in this folder into your new github repo (plsc31101-final-project).
 
 Then add, commit, and push. Use this template for your final project!
-\end{quote}
 
-\textbf{Comment cheat sheet}
+\textbf{Cheat sheet}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16859,11 +16859,10 @@ If we really want to override our ignore settings, we can use \texttt{git\ add\ 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{quote}
-Challenge 2
+\hypertarget{challenge-2-5}{%
+\subsection{Challenge 2}\label{challenge-2-5}}
 
 Continue editing the .gitignore file to add extentions you don't want to track, like .DS\_Store, .Rhistory, etc.
-\end{quote}
 
 \hypertarget{pulling-syncing}{%
 \subsection{Pulling / Syncing}\label{pulling-syncing}}
@@ -16955,7 +16954,8 @@ GitHub also allows you to to accept individual contributions from users without 
 \textbf{Fork \& Pull} involves the following steps:
 
 \hypertarget{fork-an-existing-repo}{%
-\subsubsection{1. Fork an existing repo}\label{fork-an-existing-repo}}
+\subsubsection*{1. Fork an existing repo}\label{fork-an-existing-repo}}
+\addcontentsline{toc}{subsubsection}{1. Fork an existing repo}
 
 The first step in in this workflow is to \textbf{fork} an existing repository. A \href{https://help.github.com/articles/working-with-forks/}{fork} is a copy of a repository that you manage yourself. Forks let you make changes to a project without affecting the original repository.
 
@@ -16973,7 +16973,8 @@ To fork a repo:
 Now you have a fork of the original repo in \emph{your-user-name}/course
 
 \hypertarget{commit-a-change}{%
-\subsubsection{2. Commit a change}\label{commit-a-change}}
+\subsubsection*{2. Commit a change}\label{commit-a-change}}
+\addcontentsline{toc}{subsubsection}{2. Commit a change}
 
 We've already seen how you can commit a change directly in GitHub's web interface. But when working with code, you often want to develop your scripts on your computer, so you can test it using R, Python, etc.
 
@@ -17012,7 +17013,7 @@ Open up that file in a text editor (I like Sublime Text) and add:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  The title of your project (in a header)
+  The title of your project (in a header 2)
 \item
   A 1-2 sentence description of the project
 \item
@@ -17043,7 +17044,8 @@ Then add, commit, and push the change.
 \end{Shaded}
 
 \hypertarget{submit-a-pull-request}{%
-\subsection{3. Submit a pull request}\label{submit-a-pull-request}}
+\subsubsection*{3. Submit a pull request}\label{submit-a-pull-request}}
+\addcontentsline{toc}{subsubsection}{3. Submit a pull request}
 
 Navigate to your GitHub repo (online) and check out your change!
 
@@ -17054,7 +17056,8 @@ To do this, navigate to your GitHub repository and click the green icon to submi
 After you submit, I have the option to accept.
 
 \hypertarget{keep-your-fork-synced}{%
-\subsubsection{4. Keep your fork synced}\label{keep-your-fork-synced}}
+\subsubsection*{4. Keep your fork synced}\label{keep-your-fork-synced}}
+\addcontentsline{toc}{subsubsection}{4. Keep your fork synced}
 
 It's good practice to keep your fork synced with the upstream (i.e.~the original) repository. That way, if I make a change to PS239T, you can easily pull that change into your fork.
 
@@ -17062,9 +17065,8 @@ You can configure Git to pull changes from the original, or upstream, repository
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{$ }\BuiltInTok{cd}\NormalTok{ PS239T}
 \NormalTok{$ }\FunctionTok{git}\NormalTok{ remote -v}
-\NormalTok{$ }\FunctionTok{git}\NormalTok{ remote add upstream https://github.com/rochelleterman/PS239T.git}
+\NormalTok{$ }\FunctionTok{git}\NormalTok{ remote add upstream https://github.com/plsc-31101/course.git}
 \NormalTok{$ }\FunctionTok{git}\NormalTok{ remove -v}
 \end{Highlighting}
 \end{Shaded}
@@ -18823,6 +18825,9 @@ For this problem set, we'll be working with the country-year data introduced in 
 \CommentTok{#> ***p < .01; **p < .05; *p < .1}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{final-projects}{%
+\chapter{Final Projects}\label{final-projects}}
 
 \hypertarget{part-resources}{%
 \part{Resources}\label{part-resources}}

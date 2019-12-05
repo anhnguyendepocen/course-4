@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  1 DEC 2019 15:17
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  5 DEC 2019 09:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1752,103 +1752,101 @@ Underfull \hbox (badness 2818) in paragraph at lines 16494--16496
 []\TU/lmr/m/n/10 Explain which initialization and configuration steps are
  []
 
-File: img/xkcd-git.png Graphic file (type bmp)
-<img/xkcd-git.png>
+File: img/phd-git.jpeg Graphic file (type bmp)
+<img/phd-git.jpeg>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [335
 
-] [336] [337] [338]
-Underfull \vbox (badness 5302) has occurred while \output is active []
-
-[339]
-Underfull \hbox (badness 5231) in paragraph at lines 16736--16737
-[]\TU/lmr/m/n/10 Navigate to []$[][][][][] [] [] [] [][][][][][] [] [][][] [] [
-][][][][][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][]$[]
- []
-
-
-Underfull \vbox (badness 3623) has occurred while \output is active []
-
-[340] [341] [342] [343] [344]
-Underfull \hbox (badness 2035) in paragraph at lines 17000--17001
+]
+File: img/xkcd-git.png Graphic file (type bmp)
+<img/xkcd-git.png>
+[336] [337] [338] [339] [340] [341] [342] [343] [344]
+Underfull \hbox (badness 2035) in paragraph at lines 17001--17002
 []\TU/lmr/m/n/10 We’re now ready to make a change to the repo. Create a file in
 
  []
 
-[345] [346] [347
+[345] [346] [347] [348
 
-] [348]
+] [349] [350]
 Chapter 20.
 File: img/dany.jpg Graphic file (type bmp)
 <img/dany.jpg>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[349
+[351
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[350] [351] [352]
+[352] [353] [354]
 File: site1_files/figure-latex/unnamed-chunk-584-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-584-1.pdf>
 File: site1_files/figure-latex/unnamed-chunk-585-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-585-1.pdf>
-[353] [354] [355] [356] [357] [358] [359] [360] [361] [362] [363] [364] [365] [
-366] [367] [368] [369] [370] [371] [372] [373]
+[355] [356] [357] [358] [359] [360] [361] [362] [363] [364] [365] [366] [367] [
+368] [369] [370] [371] [372] [373] [374] [375]
 File: site1_files/figure-latex/unnamed-chunk-625-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-625-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[374]
+[376]
 File: site1_files/figure-latex/unnamed-chunk-626-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-626-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[375]
+[377]
 File: site1_files/figure-latex/unnamed-chunk-627-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-627-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[376]
+[378]
 File: site1_files/figure-latex/unnamed-chunk-628-1.pdf Graphic file (type pdf)
 <use site1_files/figure-latex/unnamed-chunk-628-1.pdf>
 
-Underfull \hbox (badness 4467) in paragraph at lines 18787--18788
+Underfull \hbox (badness 4467) in paragraph at lines 18789--18790
 \TU/lmr/bx/n/10 3.1 Write code that reproduces the model summary table
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[377] [378] [379
-
-] [380]
+[379] [380]
 Chapter 21.
+[381
+
+] [382
+
+] [383] [384]
+Chapter 22.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 18851.
-[381
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 18856.
+[385
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 18851.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 18856.
 (./site1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 18851.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 18851
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 18856.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 18856
 .
 Package rerunfilecheck Info: File `site1.out' has not changed.
-(rerunfilecheck)             Checksum: 787C5FB14D43B0136E3AB1594CB2ED2D.
+(rerunfilecheck)             Checksum: 939ED42F0D374F4545D8112FC1002AC4.
  ) 
 Here is how much of TeX's memory you used:
- 23432 strings out of 492970
- 446385 string characters out of 6133938
- 603747 words of memory out of 5000000
- 27084 multiletter control sequences out of 15000+600000
+ 23441 strings out of 492970
+ 446512 string characters out of 6133938
+ 603919 words of memory out of 5000000
+ 27090 multiletter control sequences out of 15000+600000
  551090 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,8n,54p,10446b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on site1.pdf (381 pages).
+Output written on site1.pdf (385 pages).
