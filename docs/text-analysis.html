@@ -49,72 +49,47 @@
 
 
 
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -500,6 +475,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3" data-path="assignments-1.html"><a href="assignments-1.html#assignment-3-solutions"><i class="fa fa-check"></i><b>20.3</b> Assignment 3 Solutions</a></li>
 <li class="chapter" data-level="20.4" data-path="assignments-1.html"><a href="assignments-1.html#assignment-4-solutions"><i class="fa fa-check"></i><b>20.4</b> Assignment 4 Solutions</a></li>
 <li class="chapter" data-level="20.5" data-path="assignments-1.html"><a href="assignments-1.html#assignment-5-solutions"><i class="fa fa-check"></i><b>20.5</b> Assignment 5 Solutions</a></li>
+<li class="chapter" data-level="20.6" data-path="assignments-1.html"><a href="assignments-1.html#assignment-6-solutions"><i class="fa fa-check"></i><b>20.6</b> Assignment 6 Solutions</a></li>
+<li class="chapter" data-level="20.7" data-path="assignments-1.html"><a href="assignments-1.html#assignment-7-solutions"><i class="fa fa-check"></i><b>20.7</b> Assignment 7 Solutions</a><ul>
+<li class="chapter" data-level="" data-path="assignments-1.html"><a href="assignments-1.html#solution"><i class="fa fa-check"></i>Solution</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="final-projects.html"><a href="final-projects.html"><i class="fa fa-check"></i><b>21</b> Final Projects</a></li>
 <li class="part"><span><b>IV Resources</b></span></li>
@@ -537,10 +516,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="preprocessing" class="section level2">
 <h2><span class="header-section-number">18.1</span> Preprocessing</h2>
 <p>First let’s load our required packages.</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" data-line-number="1"><span class="kw">library</span>(tm) <span class="co"># Framework for text mining</span></a>
-<a class="sourceLine" id="cb437-2" data-line-number="2"><span class="kw">library</span>(tidyverse) <span class="co"># Data preparation and pipes $&gt;$</span></a>
-<a class="sourceLine" id="cb437-3" data-line-number="3"><span class="kw">library</span>(ggplot2) <span class="co"># for plotting word frequencies</span></a>
-<a class="sourceLine" id="cb437-4" data-line-number="4"><span class="kw">library</span>(wordcloud) <span class="co"># wordclouds!</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tm) <span class="co"># Framework for text mining</span>
+<span class="kw">library</span>(tidyverse) <span class="co"># Data preparation and pipes $&gt;$</span>
+<span class="kw">library</span>(ggplot2) <span class="co"># for plotting word frequencies</span>
+<span class="kw">library</span>(wordcloud) <span class="co"># wordclouds!</span></code></pre></div>
 <p>A <strong>corpus</strong> is a collection of texts, usually stored electronically, and from which we perform our analysis. A corpus might be a collection of news articles from Reuters or the published works of Shakespeare.</p>
 <p>Within each corpus we will have separate articles, stories, volumes, each treated as a separate entity or record. Each unit is called a <strong>document.</strong></p>
 <p>For this unit, we will be using a section of Machiavelli’s Prince as our corpus. Since The Prince is a monograph, we have already “chunked” the text, so that each short paragraph or “chunk” is considered a “document.”</p>
@@ -549,31 +528,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="corpus-readers" class="section level4 unnumbered">
 <h4>Corpus Readers</h4>
 <p>The <code>tm</code> package supports a variety of sources and formats. Run the code below to see what it includes</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" data-line-number="1"><span class="kw">getSources</span>()</a>
-<a class="sourceLine" id="cb438-2" data-line-number="2"><span class="co">#&gt; [1] &quot;DataframeSource&quot; &quot;DirSource&quot;       &quot;URISource&quot;       &quot;VectorSource&quot;   </span></a>
-<a class="sourceLine" id="cb438-3" data-line-number="3"><span class="co">#&gt; [5] &quot;XMLSource&quot;       &quot;ZipSource&quot;</span></a>
-<a class="sourceLine" id="cb438-4" data-line-number="4"><span class="kw">getReaders</span>()</a>
-<a class="sourceLine" id="cb438-5" data-line-number="5"><span class="co">#&gt;  [1] &quot;readDataframe&quot;           &quot;readDOC&quot;                </span></a>
-<a class="sourceLine" id="cb438-6" data-line-number="6"><span class="co">#&gt;  [3] &quot;readPDF&quot;                 &quot;readPlain&quot;              </span></a>
-<a class="sourceLine" id="cb438-7" data-line-number="7"><span class="co">#&gt;  [5] &quot;readRCV1&quot;                &quot;readRCV1asPlain&quot;        </span></a>
-<a class="sourceLine" id="cb438-8" data-line-number="8"><span class="co">#&gt;  [7] &quot;readReut21578XML&quot;        &quot;readReut21578XMLasPlain&quot;</span></a>
-<a class="sourceLine" id="cb438-9" data-line-number="9"><span class="co">#&gt;  [9] &quot;readTagged&quot;              &quot;readXML&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getSources</span>()
+<span class="co">#&gt; [1] &quot;DataframeSource&quot; &quot;DirSource&quot;       &quot;URISource&quot;       &quot;VectorSource&quot;   </span>
+<span class="co">#&gt; [5] &quot;XMLSource&quot;       &quot;ZipSource&quot;</span>
+<span class="kw">getReaders</span>()
+<span class="co">#&gt;  [1] &quot;readDataframe&quot;           &quot;readDOC&quot;                </span>
+<span class="co">#&gt;  [3] &quot;readPDF&quot;                 &quot;readPlain&quot;              </span>
+<span class="co">#&gt;  [5] &quot;readRCV1&quot;                &quot;readRCV1asPlain&quot;        </span>
+<span class="co">#&gt;  [7] &quot;readReut21578XML&quot;        &quot;readReut21578XMLasPlain&quot;</span>
+<span class="co">#&gt;  [9] &quot;readTagged&quot;              &quot;readXML&quot;</span></code></pre></div>
 <p>Here we’ll be reading documents from a csv file. Each row being a document, and columns for text and metadata (information about each document). This is the easiest option if you have metadata.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb439-1" data-line-number="1">docs.df &lt;-<span class="kw">read.csv</span>(<span class="st">&quot;data/mach.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>) <span class="co">#read in CSV file</span></a>
-<a class="sourceLine" id="cb439-2" data-line-number="2"><span class="co"># docs.df$text &lt;- Encoding(&quot;UTF-8&quot;)</span></a>
-<a class="sourceLine" id="cb439-3" data-line-number="3">docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(docs.df<span class="op">$</span>text))</a>
-<a class="sourceLine" id="cb439-4" data-line-number="4">docs</a>
-<a class="sourceLine" id="cb439-5" data-line-number="5"><span class="co">#&gt; &lt;&lt;SimpleCorpus&gt;&gt;</span></a>
-<a class="sourceLine" id="cb439-6" data-line-number="6"><span class="co">#&gt; Metadata:  corpus specific: 1, document level (indexed): 0</span></a>
-<a class="sourceLine" id="cb439-7" data-line-number="7"><span class="co">#&gt; Content:  documents: 188</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">docs.df &lt;-<span class="kw">read.csv</span>(<span class="st">&quot;data/mach.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>) <span class="co">#read in CSV file</span>
+<span class="co"># docs.df$text &lt;- Encoding(&quot;UTF-8&quot;)</span>
+docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(docs.df<span class="op">$</span>text))
+docs
+<span class="co">#&gt; &lt;&lt;SimpleCorpus&gt;&gt;</span>
+<span class="co">#&gt; Metadata:  corpus specific: 1, document level (indexed): 0</span>
+<span class="co">#&gt; Content:  documents: 188</span></code></pre></div>
 <p>Once we have the corpus, we can inspect the documents using inspect()</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" data-line-number="1"><span class="co"># see the 16th document</span></a>
-<a class="sourceLine" id="cb440-2" data-line-number="2"><span class="kw">inspect</span>(docs[<span class="dv">16</span>])</a>
-<a class="sourceLine" id="cb440-3" data-line-number="3"><span class="co">#&gt; &lt;&lt;SimpleCorpus&gt;&gt;</span></a>
-<a class="sourceLine" id="cb440-4" data-line-number="4"><span class="co">#&gt; Metadata:  corpus specific: 1, document level (indexed): 0</span></a>
-<a class="sourceLine" id="cb440-5" data-line-number="5"><span class="co">#&gt; Content:  documents: 1</span></a>
-<a class="sourceLine" id="cb440-6" data-line-number="6"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb440-7" data-line-number="7"><span class="co">#&gt; [1]  Therefore, since a ruler cannot both practise this virtue of generosity and be known to do so without harming himself, he would do well not to worry about being called miserly. For eventually he will come to be considered more generous, when it is realised that, because of his parsimony, his revenues are sufficient to defend himself against any enemies that attack him, and to undertake campaigns without imposing special taxes on the people. Thus he will be acting generously towards the vast majority, whose property he does not touch, and will be acting meanly towards the few to whom he gives nothing.  Those rulers who have achieved great things in our own times have all been considered mean; all the others have failed. Although Pope Julius II cultivated a reputation for generosity in order to become pope, he did not seek to maintain it afterwards, because he wanted to be</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># see the 16th document</span>
+<span class="kw">inspect</span>(docs[<span class="dv">16</span>])
+<span class="co">#&gt; &lt;&lt;SimpleCorpus&gt;&gt;</span>
+<span class="co">#&gt; Metadata:  corpus specific: 1, document level (indexed): 0</span>
+<span class="co">#&gt; Content:  documents: 1</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [1]  Therefore, since a ruler cannot both practise this virtue of generosity and be known to do so without harming himself, he would do well not to worry about being called miserly. For eventually he will come to be considered more generous, when it is realised that, because of his parsimony, his revenues are sufficient to defend himself against any enemies that attack him, and to undertake campaigns without imposing special taxes on the people. Thus he will be acting generously towards the vast majority, whose property he does not touch, and will be acting meanly towards the few to whom he gives nothing.  Those rulers who have achieved great things in our own times have all been considered mean; all the others have failed. Although Pope Julius II cultivated a reputation for generosity in order to become pope, he did not seek to maintain it afterwards, because he wanted to be</span></code></pre></div>
 </div>
 <div id="preprocessing-functions" class="section level4 unnumbered">
 <h4>Preprocessing functions</h4>
@@ -588,52 +567,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Creating a Document-Term Matrix</li>
 </ol>
 <p><code>tm</code> lets us convert a corpus to a DTM while completing the pre-processing steps in one step.</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" data-line-number="1">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
-<a class="sourceLine" id="cb441-2" data-line-number="2">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">stopwords =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb441-3" data-line-number="3">                          <span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb441-4" data-line-number="4">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb441-5" data-line-number="5">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb441-6" data-line-number="6">                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,
+           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">stopwords =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">tolower =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</code></pre></div>
 </div>
 <div id="weighting" class="section level4 unnumbered">
 <h4>Weighting</h4>
 <p>One common pre-processing step that some applicaitons may call for is applying tf-idf weights. The <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a>, or term frequency-inverse document frequency, is a weight that ranks the importance of a term in its contextual document corpus. The tf-idf value increases proportionally to the number of times a word appears in the document, but is offset by the frequency of the word in the corpus, which helps to adjust for the fact that some words appear more frequently in general. In other words, it places importance on terms frequent in the document but rare in the corpus.</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" data-line-number="1">dtm.weighted &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
-<a class="sourceLine" id="cb442-2" data-line-number="2">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">weighting =</span><span class="cf">function</span>(x) <span class="kw">weightTfIdf</span>(x, <span class="dt">normalize =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb442-3" data-line-number="3">                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb442-4" data-line-number="4">                          <span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb442-5" data-line-number="5">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb442-6" data-line-number="6">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb442-7" data-line-number="7">                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dtm.weighted &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,
+           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">weighting =</span><span class="cf">function</span>(x) <span class="kw">weightTfIdf</span>(x, <span class="dt">normalize =</span> <span class="ot">TRUE</span>),
+                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">tolower =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</code></pre></div>
 <p>Compare first 5 rows and 5 columns of the <code>dtm</code> and <code>dtm.weighted</code>. What do you notice?</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" data-line-number="1"><span class="kw">inspect</span>(dtm[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
-<a class="sourceLine" id="cb443-2" data-line-number="2"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span></a>
-<a class="sourceLine" id="cb443-3" data-line-number="3"><span class="co">#&gt; Non-/sparse entries: 3/22</span></a>
-<a class="sourceLine" id="cb443-4" data-line-number="4"><span class="co">#&gt; Sparsity           : 88%</span></a>
-<a class="sourceLine" id="cb443-5" data-line-number="5"><span class="co">#&gt; Maximal term length: 7</span></a>
-<a class="sourceLine" id="cb443-6" data-line-number="6"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
-<a class="sourceLine" id="cb443-7" data-line-number="7"><span class="co">#&gt; Sample             :</span></a>
-<a class="sourceLine" id="cb443-8" data-line-number="8"><span class="co">#&gt;     Terms</span></a>
-<a class="sourceLine" id="cb443-9" data-line-number="9"><span class="co">#&gt; Docs abandon abil abject abl ablest</span></a>
-<a class="sourceLine" id="cb443-10" data-line-number="10"><span class="co">#&gt;    1       0    0      0   0      0</span></a>
-<a class="sourceLine" id="cb443-11" data-line-number="11"><span class="co">#&gt;    2       0    1      0   0      0</span></a>
-<a class="sourceLine" id="cb443-12" data-line-number="12"><span class="co">#&gt;    3       0    0      0   0      0</span></a>
-<a class="sourceLine" id="cb443-13" data-line-number="13"><span class="co">#&gt;    4       0    1      0   1      0</span></a>
-<a class="sourceLine" id="cb443-14" data-line-number="14"><span class="co">#&gt;    5       0    0      0   0      0</span></a>
-<a class="sourceLine" id="cb443-15" data-line-number="15"><span class="kw">inspect</span>(dtm.weighted[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
-<a class="sourceLine" id="cb443-16" data-line-number="16"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span></a>
-<a class="sourceLine" id="cb443-17" data-line-number="17"><span class="co">#&gt; Non-/sparse entries: 3/22</span></a>
-<a class="sourceLine" id="cb443-18" data-line-number="18"><span class="co">#&gt; Sparsity           : 88%</span></a>
-<a class="sourceLine" id="cb443-19" data-line-number="19"><span class="co">#&gt; Maximal term length: 7</span></a>
-<a class="sourceLine" id="cb443-20" data-line-number="20"><span class="co">#&gt; Weighting          : term frequency - inverse document frequency (normalized) (tf-idf)</span></a>
-<a class="sourceLine" id="cb443-21" data-line-number="21"><span class="co">#&gt; Sample             :</span></a>
-<a class="sourceLine" id="cb443-22" data-line-number="22"><span class="co">#&gt;     Terms</span></a>
-<a class="sourceLine" id="cb443-23" data-line-number="23"><span class="co">#&gt; Docs abandon   abil abject    abl ablest</span></a>
-<a class="sourceLine" id="cb443-24" data-line-number="24"><span class="co">#&gt;    1       0 0.0000      0 0.0000      0</span></a>
-<a class="sourceLine" id="cb443-25" data-line-number="25"><span class="co">#&gt;    2       0 0.0402      0 0.0000      0</span></a>
-<a class="sourceLine" id="cb443-26" data-line-number="26"><span class="co">#&gt;    3       0 0.0000      0 0.0000      0</span></a>
-<a class="sourceLine" id="cb443-27" data-line-number="27"><span class="co">#&gt;    4       0 0.0310      0 0.0228      0</span></a>
-<a class="sourceLine" id="cb443-28" data-line-number="28"><span class="co">#&gt;    5       0 0.0000      0 0.0000      0</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">inspect</span>(dtm[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])
+<span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span>
+<span class="co">#&gt; Non-/sparse entries: 3/22</span>
+<span class="co">#&gt; Sparsity           : 88%</span>
+<span class="co">#&gt; Maximal term length: 7</span>
+<span class="co">#&gt; Weighting          : term frequency (tf)</span>
+<span class="co">#&gt; Sample             :</span>
+<span class="co">#&gt;     Terms</span>
+<span class="co">#&gt; Docs abandon abil abject abl ablest</span>
+<span class="co">#&gt;    1       0    0      0   0      0</span>
+<span class="co">#&gt;    2       0    1      0   0      0</span>
+<span class="co">#&gt;    3       0    0      0   0      0</span>
+<span class="co">#&gt;    4       0    1      0   1      0</span>
+<span class="co">#&gt;    5       0    0      0   0      0</span>
+<span class="kw">inspect</span>(dtm.weighted[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])
+<span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span>
+<span class="co">#&gt; Non-/sparse entries: 3/22</span>
+<span class="co">#&gt; Sparsity           : 88%</span>
+<span class="co">#&gt; Maximal term length: 7</span>
+<span class="co">#&gt; Weighting          : term frequency - inverse document frequency (normalized) (tf-idf)</span>
+<span class="co">#&gt; Sample             :</span>
+<span class="co">#&gt;     Terms</span>
+<span class="co">#&gt; Docs abandon   abil abject    abl ablest</span>
+<span class="co">#&gt;    1       0 0.0000      0 0.0000      0</span>
+<span class="co">#&gt;    2       0 0.0402      0 0.0000      0</span>
+<span class="co">#&gt;    3       0 0.0000      0 0.0000      0</span>
+<span class="co">#&gt;    4       0 0.0310      0 0.0228      0</span>
+<span class="co">#&gt;    5       0 0.0000      0 0.0000      0</span></code></pre></div>
 </div>
 </div>
 <div id="exploring-the-dtm" class="section level3">
@@ -641,154 +620,150 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dimensions" class="section level4 unnumbered">
 <h4>Dimensions</h4>
 <p>Let’s look at the structure of our DTM. Print the dimensions of the DTM. How many documents do we have? How many terms?</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb444-1" data-line-number="1"><span class="co"># how many documents? how many terms?</span></a>
-<a class="sourceLine" id="cb444-2" data-line-number="2"><span class="kw">dim</span>(dtm)</a>
-<a class="sourceLine" id="cb444-3" data-line-number="3"><span class="co">#&gt; [1]  188 2368</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># how many documents? how many terms?</span>
+<span class="kw">dim</span>(dtm)
+<span class="co">#&gt; [1]  188 2368</span></code></pre></div>
 </div>
 <div id="frequencies" class="section level4 unnumbered">
 <h4>Frequencies</h4>
 <p>We can obtain the term frequencies as a vector by converting the document term matrix into a matrix and using <code>colSums</code> to sum the column counts:</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" data-line-number="1"> <span class="co"># how many terms?</span></a>
-<a class="sourceLine" id="cb445-2" data-line-number="2">freq &lt;-<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">as.matrix</span>(dtm))</a>
-<a class="sourceLine" id="cb445-3" data-line-number="3">freq[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb445-4" data-line-number="4"><span class="co">#&gt; abandon    abil  abject     abl  ablest </span></a>
-<a class="sourceLine" id="cb445-5" data-line-number="5"><span class="co">#&gt;       4      35       1      61       1</span></a>
-<a class="sourceLine" id="cb445-6" data-line-number="6"><span class="kw">length</span>(freq)</a>
-<a class="sourceLine" id="cb445-7" data-line-number="7"><span class="co">#&gt; [1] 2368</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co"># how many terms?</span>
+freq &lt;-<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">as.matrix</span>(dtm))
+freq[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+<span class="co">#&gt; abandon    abil  abject     abl  ablest </span>
+<span class="co">#&gt;       4      35       1      61       1</span>
+<span class="kw">length</span>(freq)
+<span class="co">#&gt; [1] 2368</span></code></pre></div>
 <p>By ordering the frequencies we can list the most frequent terms and the least frequent terms.</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1"><span class="co"># order</span></a>
-<a class="sourceLine" id="cb446-2" data-line-number="2">sorted &lt;-<span class="st"> </span><span class="kw">sort</span>(freq, <span class="dt">decreasing =</span> T)</a>
-<a class="sourceLine" id="cb446-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb446-4" data-line-number="4"><span class="co"># Least frequent terms</span></a>
-<a class="sourceLine" id="cb446-5" data-line-number="5"><span class="kw">head</span>(sorted)</a>
-<a class="sourceLine" id="cb446-6" data-line-number="6"><span class="co">#&gt; ruler  will power   one peopl alway </span></a>
-<a class="sourceLine" id="cb446-7" data-line-number="7"><span class="co">#&gt;   280   251   169   168    98    95</span></a>
-<a class="sourceLine" id="cb446-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb446-9" data-line-number="9"><span class="co"># most frequent</span></a>
-<a class="sourceLine" id="cb446-10" data-line-number="10"><span class="kw">tail</span>(sorted)</a>
-<a class="sourceLine" id="cb446-11" data-line-number="11"><span class="co">#&gt;  xxiv   xxv  xxvi yield  yoke youth </span></a>
-<a class="sourceLine" id="cb446-12" data-line-number="12"><span class="co">#&gt;     1     1     1     1     1     1</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># order</span>
+sorted &lt;-<span class="st"> </span><span class="kw">sort</span>(freq, <span class="dt">decreasing =</span> T)
+
+<span class="co"># Least frequent terms</span>
+<span class="kw">head</span>(sorted)
+<span class="co">#&gt; ruler  will power   one peopl alway </span>
+<span class="co">#&gt;   280   251   169   168    98    95</span>
+
+<span class="co"># most frequent</span>
+<span class="kw">tail</span>(sorted)
+<span class="co">#&gt;  xxiv   xxv  xxvi yield  yoke youth </span>
+<span class="co">#&gt;     1     1     1     1     1     1</span></code></pre></div>
 </div>
 <div id="plotting-frequencies" class="section level4 unnumbered">
 <h4>Plotting frequencies</h4>
 <p>Let’s make a plot that shows the frequency of frequencies for the terms. (For example, how many words are used only once? 5 times? 10 times?)</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" data-line-number="1"><span class="co"># frequency of frenquencies</span></a>
-<a class="sourceLine" id="cb447-2" data-line-number="2"><span class="kw">head</span>(<span class="kw">table</span>(freq),<span class="dv">15</span>)</a>
-<a class="sourceLine" id="cb447-3" data-line-number="3"><span class="co">#&gt; freq</span></a>
-<a class="sourceLine" id="cb447-4" data-line-number="4"><span class="co">#&gt;   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15 </span></a>
-<a class="sourceLine" id="cb447-5" data-line-number="5"><span class="co">#&gt; 988 363 202 140 103  73  55  39  33  29  24  22  20  20  19</span></a>
-<a class="sourceLine" id="cb447-6" data-line-number="6"><span class="kw">tail</span>(<span class="kw">table</span>(freq),<span class="dv">15</span>)</a>
-<a class="sourceLine" id="cb447-7" data-line-number="7"><span class="co">#&gt; freq</span></a>
-<a class="sourceLine" id="cb447-8" data-line-number="8"><span class="co">#&gt;  65  68  70  71  73  74  75  76  77  95  98 168 169 251 280 </span></a>
-<a class="sourceLine" id="cb447-9" data-line-number="9"><span class="co">#&gt;   1   1   1   1   2   1   1   1   1   2   1   1   1   1   1</span></a>
-<a class="sourceLine" id="cb447-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb447-11" data-line-number="11"><span class="co"># plot</span></a>
-<a class="sourceLine" id="cb447-12" data-line-number="12"><span class="kw">plot</span>(<span class="kw">table</span>(freq))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># frequency of frenquencies</span>
+<span class="kw">head</span>(<span class="kw">table</span>(freq),<span class="dv">15</span>)
+<span class="co">#&gt; freq</span>
+<span class="co">#&gt;   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15 </span>
+<span class="co">#&gt; 988 363 202 140 103  73  55  39  33  29  24  22  20  20  19</span>
+<span class="kw">tail</span>(<span class="kw">table</span>(freq),<span class="dv">15</span>)
+<span class="co">#&gt; freq</span>
+<span class="co">#&gt;  65  68  70  71  73  74  75  76  77  95  98 168 169 251 280 </span>
+<span class="co">#&gt;   1   1   1   1   2   1   1   1   1   2   1   1   1   1   1</span>
+
+<span class="co"># plot</span>
+<span class="kw">plot</span>(<span class="kw">table</span>(freq))</code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-509-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>What does this tell us about the nature of language?</p>
 <p>We can reorder columns of DTM to show most frequent terms first:</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb448-1" data-line-number="1">dtm.ordered &lt;-<span class="st"> </span>dtm[,<span class="kw">order</span>(freq, <span class="dt">decreasing =</span> T)]</a>
-<a class="sourceLine" id="cb448-2" data-line-number="2"><span class="kw">inspect</span>(dtm.ordered[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
-<a class="sourceLine" id="cb448-3" data-line-number="3"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span></a>
-<a class="sourceLine" id="cb448-4" data-line-number="4"><span class="co">#&gt; Non-/sparse entries: 10/15</span></a>
-<a class="sourceLine" id="cb448-5" data-line-number="5"><span class="co">#&gt; Sparsity           : 60%</span></a>
-<a class="sourceLine" id="cb448-6" data-line-number="6"><span class="co">#&gt; Maximal term length: 5</span></a>
-<a class="sourceLine" id="cb448-7" data-line-number="7"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
-<a class="sourceLine" id="cb448-8" data-line-number="8"><span class="co">#&gt; Sample             :</span></a>
-<a class="sourceLine" id="cb448-9" data-line-number="9"><span class="co">#&gt;     Terms</span></a>
-<a class="sourceLine" id="cb448-10" data-line-number="10"><span class="co">#&gt; Docs one peopl power ruler will</span></a>
-<a class="sourceLine" id="cb448-11" data-line-number="11"><span class="co">#&gt;    1   0     0     0     1    1</span></a>
-<a class="sourceLine" id="cb448-12" data-line-number="12"><span class="co">#&gt;    2   3     0     0     1    3</span></a>
-<a class="sourceLine" id="cb448-13" data-line-number="13"><span class="co">#&gt;    3   0     0     0     0    0</span></a>
-<a class="sourceLine" id="cb448-14" data-line-number="14"><span class="co">#&gt;    4   0     0     0     1    1</span></a>
-<a class="sourceLine" id="cb448-15" data-line-number="15"><span class="co">#&gt;    5   3     0     0     1    1</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dtm.ordered &lt;-<span class="st"> </span>dtm[,<span class="kw">order</span>(freq, <span class="dt">decreasing =</span> T)]
+<span class="kw">inspect</span>(dtm.ordered[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])
+<span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;</span>
+<span class="co">#&gt; Non-/sparse entries: 10/15</span>
+<span class="co">#&gt; Sparsity           : 60%</span>
+<span class="co">#&gt; Maximal term length: 5</span>
+<span class="co">#&gt; Weighting          : term frequency (tf)</span>
+<span class="co">#&gt; Sample             :</span>
+<span class="co">#&gt;     Terms</span>
+<span class="co">#&gt; Docs one peopl power ruler will</span>
+<span class="co">#&gt;    1   0     0     0     1    1</span>
+<span class="co">#&gt;    2   3     0     0     1    3</span>
+<span class="co">#&gt;    3   0     0     0     0    0</span>
+<span class="co">#&gt;    4   0     0     0     1    1</span>
+<span class="co">#&gt;    5   3     0     0     1    1</span></code></pre></div>
 </div>
 <div id="exploring-common-words" class="section level4 unnumbered">
 <h4>Exploring common words</h4>
 <p>The TM package has lots of useful functions to help you explore common words and associations:</p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" data-line-number="1"><span class="co"># Have a look at common words</span></a>
-<a class="sourceLine" id="cb449-2" data-line-number="2"><span class="kw">findFreqTerms</span>(dtm, <span class="dt">lowfreq=</span><span class="dv">50</span>) <span class="co"># words that appear at least 100 times</span></a>
-<a class="sourceLine" id="cb449-3" data-line-number="3"><span class="co">#&gt;  [1] &quot;abl&quot;      &quot;act&quot;      &quot;alway&quot;    &quot;armi&quot;     &quot;becom&quot;    &quot;can&quot;     </span></a>
-<a class="sourceLine" id="cb449-4" data-line-number="4"><span class="co">#&gt;  [7] &quot;consid&quot;   &quot;either&quot;   &quot;forc&quot;     &quot;great&quot;    &quot;king&quot;     &quot;maintain&quot;</span></a>
-<a class="sourceLine" id="cb449-5" data-line-number="5"><span class="co">#&gt; [13] &quot;make&quot;     &quot;man&quot;      &quot;mani&quot;     &quot;men&quot;      &quot;much&quot;     &quot;must&quot;    </span></a>
-<a class="sourceLine" id="cb449-6" data-line-number="6"><span class="co">#&gt; [19] &quot;never&quot;    &quot;new&quot;      &quot;one&quot;      &quot;order&quot;    &quot;other&quot;    &quot;peopl&quot;   </span></a>
-<a class="sourceLine" id="cb449-7" data-line-number="7"><span class="co">#&gt; [25] &quot;power&quot;    &quot;reason&quot;   &quot;ruler&quot;    &quot;sinc&quot;     &quot;state&quot;    &quot;subject&quot; </span></a>
-<a class="sourceLine" id="cb449-8" data-line-number="8"><span class="co">#&gt; [31] &quot;time&quot;     &quot;troop&quot;    &quot;use&quot;      &quot;want&quot;     &quot;way&quot;      &quot;well&quot;    </span></a>
-<a class="sourceLine" id="cb449-9" data-line-number="9"><span class="co">#&gt; [37] &quot;will&quot;</span></a>
-<a class="sourceLine" id="cb449-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb449-11" data-line-number="11"><span class="co"># Which words correlate with &quot;war&quot;?</span></a>
-<a class="sourceLine" id="cb449-12" data-line-number="12"><span class="kw">findAssocs</span>(dtm, <span class="st">&quot;war&quot;</span>, <span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb449-13" data-line-number="13"><span class="co">#&gt; $war</span></a>
-<a class="sourceLine" id="cb449-14" data-line-number="14"><span class="co">#&gt;     wage    fight  antioch     argu     brew    induc      lip    maxim </span></a>
-<a class="sourceLine" id="cb449-15" data-line-number="15"><span class="co">#&gt;     0.73     0.52     0.45     0.45     0.45     0.45     0.45     0.45 </span></a>
-<a class="sourceLine" id="cb449-16" data-line-number="16"><span class="co">#&gt;  relianc     sage    trifl  postpon     mere     evil    avoid     flee </span></a>
-<a class="sourceLine" id="cb449-17" data-line-number="17"><span class="co">#&gt;     0.45     0.45     0.45     0.41     0.35     0.34     0.32     0.32 </span></a>
-<a class="sourceLine" id="cb449-18" data-line-number="18"><span class="co">#&gt;   occupi     glad glorious    heard     hunt ineffect     knew   produc </span></a>
-<a class="sourceLine" id="cb449-19" data-line-number="19"><span class="co">#&gt;     0.32     0.30     0.30     0.30     0.30     0.30     0.30     0.30 </span></a>
-<a class="sourceLine" id="cb449-20" data-line-number="20"><span class="co">#&gt; temporis </span></a>
-<a class="sourceLine" id="cb449-21" data-line-number="21"><span class="co">#&gt;     0.30</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Have a look at common words</span>
+<span class="kw">findFreqTerms</span>(dtm, <span class="dt">lowfreq=</span><span class="dv">50</span>) <span class="co"># words that appear at least 100 times</span>
+<span class="co">#&gt;  [1] &quot;abl&quot;      &quot;act&quot;      &quot;alway&quot;    &quot;armi&quot;     &quot;becom&quot;    &quot;can&quot;     </span>
+<span class="co">#&gt;  [7] &quot;consid&quot;   &quot;either&quot;   &quot;forc&quot;     &quot;great&quot;    &quot;king&quot;     &quot;maintain&quot;</span>
+<span class="co">#&gt; [13] &quot;make&quot;     &quot;man&quot;      &quot;mani&quot;     &quot;men&quot;      &quot;much&quot;     &quot;must&quot;    </span>
+<span class="co">#&gt; [19] &quot;never&quot;    &quot;new&quot;      &quot;one&quot;      &quot;order&quot;    &quot;other&quot;    &quot;peopl&quot;   </span>
+<span class="co">#&gt; [25] &quot;power&quot;    &quot;reason&quot;   &quot;ruler&quot;    &quot;sinc&quot;     &quot;state&quot;    &quot;subject&quot; </span>
+<span class="co">#&gt; [31] &quot;time&quot;     &quot;troop&quot;    &quot;use&quot;      &quot;want&quot;     &quot;way&quot;      &quot;well&quot;    </span>
+<span class="co">#&gt; [37] &quot;will&quot;</span>
+
+<span class="co"># Which words correlate with &quot;war&quot;?</span>
+<span class="kw">findAssocs</span>(dtm, <span class="st">&quot;war&quot;</span>, <span class="fl">0.3</span>)
+<span class="co">#&gt; $war</span>
+<span class="co">#&gt;     wage    fight  antioch     argu     brew    induc      lip    maxim </span>
+<span class="co">#&gt;     0.73     0.52     0.45     0.45     0.45     0.45     0.45     0.45 </span>
+<span class="co">#&gt;  relianc     sage    trifl  postpon     mere     evil    avoid     flee </span>
+<span class="co">#&gt;     0.45     0.45     0.45     0.41     0.35     0.34     0.32     0.32 </span>
+<span class="co">#&gt;   occupi     glad glorious    heard     hunt ineffect     knew   produc </span>
+<span class="co">#&gt;     0.32     0.30     0.30     0.30     0.30     0.30     0.30     0.30 </span>
+<span class="co">#&gt; temporis </span>
+<span class="co">#&gt;     0.30</span></code></pre></div>
 <p>We can even make wordclouds showing the most commons terms:</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1"><span class="co"># wordcoulds!</span></a>
-<a class="sourceLine" id="cb450-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
-<a class="sourceLine" id="cb450-3" data-line-number="3"><span class="kw">wordcloud</span>(<span class="kw">names</span>(sorted), sorted, <span class="dt">max.words=</span><span class="dv">100</span>, <span class="dt">colors=</span><span class="kw">brewer.pal</span>(<span class="dv">6</span>,<span class="st">&quot;Dark2&quot;</span>))</a>
-<a class="sourceLine" id="cb450-4" data-line-number="4"><span class="co">#&gt; Warning in wordcloud(names(sorted), sorted, max.words = 100, colors =</span></a>
-<a class="sourceLine" id="cb450-5" data-line-number="5"><span class="co">#&gt; brewer.pal(6, : ruler could not be fit on page. It will not be plotted.</span></a>
-<a class="sourceLine" id="cb450-6" data-line-number="6"><span class="co">#&gt; Warning in wordcloud(names(sorted), sorted, max.words = 100, colors =</span></a>
-<a class="sourceLine" id="cb450-7" data-line-number="7"><span class="co">#&gt; brewer.pal(6, : power could not be fit on page. It will not be plotted.</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># wordcoulds!</span>
+<span class="kw">set.seed</span>(<span class="dv">123</span>)
+<span class="kw">wordcloud</span>(<span class="kw">names</span>(sorted), sorted, <span class="dt">max.words=</span><span class="dv">100</span>, <span class="dt">colors=</span><span class="kw">brewer.pal</span>(<span class="dv">6</span>,<span class="st">&quot;Dark2&quot;</span>))</code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-512-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="remove-sparse-terms" class="section level4 unnumbered">
 <h4>Remove sparse terms</h4>
 <p>Somtimes we want to remove sparse terms and thus inrease efficency. Look up the help file for the function <code>removeSparseTerms</code>. Using this function, create an objected called <code>dtm.s</code> that contains only terms with &lt;.9 sparsity (meaning they appear in more than 10% of documents).</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1">dtm.s &lt;-<span class="st"> </span><span class="kw">removeSparseTerms</span>(dtm,.<span class="dv">9</span>)</a>
-<a class="sourceLine" id="cb451-2" data-line-number="2">dtm <span class="co"># 2365 terms</span></a>
-<a class="sourceLine" id="cb451-3" data-line-number="3"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 188, terms: 2368)&gt;&gt;</span></a>
-<a class="sourceLine" id="cb451-4" data-line-number="4"><span class="co">#&gt; Non-/sparse entries: 11754/433430</span></a>
-<a class="sourceLine" id="cb451-5" data-line-number="5"><span class="co">#&gt; Sparsity           : 97%</span></a>
-<a class="sourceLine" id="cb451-6" data-line-number="6"><span class="co">#&gt; Maximal term length: 15</span></a>
-<a class="sourceLine" id="cb451-7" data-line-number="7"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
-<a class="sourceLine" id="cb451-8" data-line-number="8">dtm.s <span class="co"># 135 terms</span></a>
-<a class="sourceLine" id="cb451-9" data-line-number="9"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 188, terms: 136)&gt;&gt;</span></a>
-<a class="sourceLine" id="cb451-10" data-line-number="10"><span class="co">#&gt; Non-/sparse entries: 4353/21215</span></a>
-<a class="sourceLine" id="cb451-11" data-line-number="11"><span class="co">#&gt; Sparsity           : 83%</span></a>
-<a class="sourceLine" id="cb451-12" data-line-number="12"><span class="co">#&gt; Maximal term length: 12</span></a>
-<a class="sourceLine" id="cb451-13" data-line-number="13"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dtm.s &lt;-<span class="st"> </span><span class="kw">removeSparseTerms</span>(dtm,.<span class="dv">9</span>)
+dtm <span class="co"># 2365 terms</span>
+<span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 188, terms: 2368)&gt;&gt;</span>
+<span class="co">#&gt; Non-/sparse entries: 11754/433430</span>
+<span class="co">#&gt; Sparsity           : 97%</span>
+<span class="co">#&gt; Maximal term length: 15</span>
+<span class="co">#&gt; Weighting          : term frequency (tf)</span>
+dtm.s <span class="co"># 135 terms</span>
+<span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 188, terms: 136)&gt;&gt;</span>
+<span class="co">#&gt; Non-/sparse entries: 4353/21215</span>
+<span class="co">#&gt; Sparsity           : 83%</span>
+<span class="co">#&gt; Maximal term length: 12</span>
+<span class="co">#&gt; Weighting          : term frequency (tf)</span></code></pre></div>
 </div>
 </div>
 <div id="exporting-the-dtm" class="section level3">
 <h3><span class="header-section-number">18.1.3</span> Exporting the DTM</h3>
 <p>We can convert a DTM to a matrix or data.frame in order to write to a csv, add meta data, etc.</p>
 <p>First create an object that converts the <code>dtm</code> to a dataframe (we first have to convert to matrix, and then to dataframe)</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1"><span class="co"># coerce into dataframe</span></a>
-<a class="sourceLine" id="cb452-2" data-line-number="2">dtm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</a>
-<a class="sourceLine" id="cb452-3" data-line-number="3"><span class="kw">names</span>(dtm)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]  <span class="co"># names of documents</span></a>
-<a class="sourceLine" id="cb452-4" data-line-number="4"><span class="co">#&gt;  [1] &quot;abandon&quot;   &quot;abil&quot;      &quot;abject&quot;    &quot;abl&quot;       &quot;ablest&quot;   </span></a>
-<a class="sourceLine" id="cb452-5" data-line-number="5"><span class="co">#&gt;  [6] &quot;abovement&quot; &quot;abovenam&quot;  &quot;absolut&quot;   &quot;absorb&quot;    &quot;accept&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># coerce into dataframe</span>
+dtm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))
+<span class="kw">names</span>(dtm)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]  <span class="co"># names of documents</span>
+<span class="co">#&gt;  [1] &quot;abandon&quot;   &quot;abil&quot;      &quot;abject&quot;    &quot;abl&quot;       &quot;ablest&quot;   </span>
+<span class="co">#&gt;  [6] &quot;abovement&quot; &quot;abovenam&quot;  &quot;absolut&quot;   &quot;absorb&quot;    &quot;accept&quot;</span></code></pre></div>
 <p>Now add a column called <code>doc_section</code>. For the first 100 rows, the value of this column should be “Section 1”. For documents 101-188, the section should be “Section 2”.</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1"><span class="co"># add fake column for section</span></a>
-<a class="sourceLine" id="cb453-2" data-line-number="2">dtm<span class="op">$</span>doc_section &lt;-<span class="st"> &quot;NA&quot;</span></a>
-<a class="sourceLine" id="cb453-3" data-line-number="3">dtm<span class="op">$</span>doc_section[<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>] &lt;-<span class="st"> &quot;Section 1&quot;</span></a>
-<a class="sourceLine" id="cb453-4" data-line-number="4">dtm<span class="op">$</span>doc_section[<span class="dv">101</span><span class="op">:</span><span class="dv">188</span>] &lt;-<span class="st"> &quot;Section 2&quot;</span></a>
-<a class="sourceLine" id="cb453-5" data-line-number="5">dtm<span class="op">$</span>doc_section &lt;-<span class="st"> </span><span class="kw">as.factor</span>(dtm<span class="op">$</span>doc_section)</a>
-<a class="sourceLine" id="cb453-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb453-7" data-line-number="7"><span class="co"># check to see if they&#39;re the same number of documents per author</span></a>
-<a class="sourceLine" id="cb453-8" data-line-number="8"><span class="kw">summary</span>(dtm<span class="op">$</span>doc_section)</a>
-<a class="sourceLine" id="cb453-9" data-line-number="9"><span class="co">#&gt; Section 1 Section 2 </span></a>
-<a class="sourceLine" id="cb453-10" data-line-number="10"><span class="co">#&gt;       100        88</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add fake column for section</span>
+dtm<span class="op">$</span>doc_section &lt;-<span class="st"> &quot;NA&quot;</span>
+dtm<span class="op">$</span>doc_section[<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>] &lt;-<span class="st"> &quot;Section 1&quot;</span>
+dtm<span class="op">$</span>doc_section[<span class="dv">101</span><span class="op">:</span><span class="dv">188</span>] &lt;-<span class="st"> &quot;Section 2&quot;</span>
+dtm<span class="op">$</span>doc_section &lt;-<span class="st"> </span><span class="kw">as.factor</span>(dtm<span class="op">$</span>doc_section)
+
+<span class="co"># check to see if they&#39;re the same number of documents per author</span>
+<span class="kw">summary</span>(dtm<span class="op">$</span>doc_section)
+<span class="co">#&gt; Section 1 Section 2 </span>
+<span class="co">#&gt;       100        88</span></code></pre></div>
 <p>We can now export the dataframe as a csv.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1"><span class="kw">write.csv</span>(dtm, <span class="st">&quot;dtm.csv&quot;</span>, <span class="dt">row.names =</span> F)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(dtm, <span class="st">&quot;dtm.csv&quot;</span>, <span class="dt">row.names =</span> F)</code></pre></div>
 </div>
 <div id="challenges-24" class="section level3">
 <h3><span class="header-section-number">18.1.4</span> Challenges</h3>
 <p>Using the one of the datasetes in the <code>text-data</code> repo, create a document term matrix and create a wordcloud of the most common terms.</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="co"># download text-data</span></a>
-<a class="sourceLine" id="cb455-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;usethis&quot;</span>)</a>
-<a class="sourceLine" id="cb455-3" data-line-number="3"><span class="kw">use_course</span>(<span class="st">&quot;plsc-31101/text-data&quot;</span>)</a>
-<a class="sourceLine" id="cb455-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb455-5" data-line-number="5"><span class="co"># check out what you just downloaded.</span></a>
-<a class="sourceLine" id="cb455-6" data-line-number="6"><span class="co"># and unzip a dataset.</span></a>
-<a class="sourceLine" id="cb455-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb455-8" data-line-number="8"><span class="co"># YOUR CODE HERE</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># download text-data</span>
+<span class="kw">library</span>(<span class="st">&quot;usethis&quot;</span>)
+<span class="kw">use_course</span>(<span class="st">&quot;plsc-31101/text-data&quot;</span>)
+
+<span class="co"># check out what you just downloaded.</span>
+<span class="co"># and unzip a dataset.</span>
+
+<span class="co"># YOUR CODE HERE</span></code></pre></div>
 
 </div>
 </div>
@@ -796,50 +771,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">18.2</span> Sentiment Analysis and Dictionary Methods</h2>
 <p>To demonstrate sentiment analysis, we’re going to explore lyrics from Taylor Swift songs.</p>
 <p>Road the code below to get started.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="kw">require</span>(tm)</a>
-<a class="sourceLine" id="cb456-2" data-line-number="2"><span class="kw">require</span>(tidytext)</a>
-<a class="sourceLine" id="cb456-3" data-line-number="3"><span class="kw">require</span>(tidyverse)</a>
-<a class="sourceLine" id="cb456-4" data-line-number="4"><span class="kw">require</span>(stringr)</a>
-<a class="sourceLine" id="cb456-5" data-line-number="5"><span class="kw">require</span>(textdata)</a>
-<a class="sourceLine" id="cb456-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb456-7" data-line-number="7">ts &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/taylor_swift.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb456-8" data-line-number="8"><span class="kw">getwd</span>()</a>
-<a class="sourceLine" id="cb456-9" data-line-number="9"><span class="co">#&gt; [1] &quot;/Users/rterman/Desktop/course&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tm)
+<span class="kw">require</span>(tidytext)
+<span class="kw">require</span>(tidyverse)
+<span class="kw">require</span>(stringr)
+<span class="kw">require</span>(textdata)
+<span class="co">#&gt; Warning in library(package, lib.loc = lib.loc, character.only = TRUE,</span>
+<span class="co">#&gt; logical.return = TRUE, : there is no package called &#39;textdata&#39;</span>
+
+ts &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/taylor_swift.csv&quot;</span>)
+<span class="kw">getwd</span>()
+<span class="co">#&gt; [1] &quot;/Users/rochelleterman/Desktop/course-site&quot;</span></code></pre></div>
 <div id="preprocessing-and-setup" class="section level3">
 <h3><span class="header-section-number">18.2.1</span> Preprocessing and Setup</h3>
-<p>First we must preprocess the corpus. Create a document-term matrix from the <code>lyrics</code> column of the <code>ts</code> data frame. Complete the following preprocessing steps:
-- convert to lower
-- remove stop words
-- remove numbers
-- remove punctuation.</p>
+<p>First we must preprocess the corpus. Create a document-term matrix from the <code>lyrics</code> column of the <code>ts</code> data frame. Complete the following preprocessing steps: - convert to lower - remove stop words - remove numbers - remove punctuation.</p>
 <p><strong>Think</strong>: Why is stemming inappropriate for this application?</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1"><span class="co"># preprocess and create DTM</span></a>
-<a class="sourceLine" id="cb457-2" data-line-number="2">docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(ts<span class="op">$</span>lyrics))</a>
-<a class="sourceLine" id="cb457-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb457-4" data-line-number="4">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
-<a class="sourceLine" id="cb457-5" data-line-number="5">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb457-6" data-line-number="6">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb457-7" data-line-number="7">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb457-8" data-line-number="8">                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb457-9" data-line-number="9">                         ))</a>
-<a class="sourceLine" id="cb457-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb457-11" data-line-number="11">dtm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># preprocess and create DTM</span>
+docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(ts<span class="op">$</span>lyrics))
+
+dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,
+           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">tolower =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span>
+                         ))
+
+dtm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</code></pre></div>
 <div id="sentiment-dictionaries" class="section level4 unnumbered">
 <h4>Sentiment dictionaries</h4>
 <p>We’re going to use sentiment dictionaries from the <code>tidytext</code> package. Using the <code>get_sentiments</code> function, load the “bing” dictionary and store it in an object called <code>sent</code>.</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">sent &lt;-<span class="st"> </span><span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>)</a>
-<a class="sourceLine" id="cb458-2" data-line-number="2"><span class="kw">head</span>(sent)</a>
-<a class="sourceLine" id="cb458-3" data-line-number="3"><span class="co">#&gt; # A tibble: 6 x 2</span></a>
-<a class="sourceLine" id="cb458-4" data-line-number="4"><span class="co">#&gt;   word       sentiment</span></a>
-<a class="sourceLine" id="cb458-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;    </span></a>
-<a class="sourceLine" id="cb458-6" data-line-number="6"><span class="co">#&gt; 1 2-faces    negative </span></a>
-<a class="sourceLine" id="cb458-7" data-line-number="7"><span class="co">#&gt; 2 abnormal   negative </span></a>
-<a class="sourceLine" id="cb458-8" data-line-number="8"><span class="co">#&gt; 3 abolish    negative </span></a>
-<a class="sourceLine" id="cb458-9" data-line-number="9"><span class="co">#&gt; 4 abominable negative </span></a>
-<a class="sourceLine" id="cb458-10" data-line-number="10"><span class="co">#&gt; 5 abominably negative </span></a>
-<a class="sourceLine" id="cb458-11" data-line-number="11"><span class="co">#&gt; 6 abominate  negative</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sent &lt;-<span class="st"> </span><span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>)
+<span class="kw">head</span>(sent)
+<span class="co">#&gt; # A tibble: 6 x 2</span>
+<span class="co">#&gt;   word       sentiment</span>
+<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;    </span>
+<span class="co">#&gt; 1 2-faces    negative </span>
+<span class="co">#&gt; 2 abnormal   negative </span>
+<span class="co">#&gt; 3 abolish    negative </span>
+<span class="co">#&gt; 4 abominable negative </span>
+<span class="co">#&gt; 5 abominably negative </span>
+<span class="co">#&gt; 6 abominate  negative</span></code></pre></div>
 <p>We’ll now add a column to <code>sent</code> called <code>score</code>. This column should hold a “1” for positive words and “-1” for negative words.</p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1">sent<span class="op">$</span>score &lt;-<span class="st"> </span><span class="kw">ifelse</span>(sent<span class="op">$</span>sentiment<span class="op">==</span><span class="st">&quot;positive&quot;</span>, <span class="dv">1</span>, <span class="dv">-1</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sent<span class="op">$</span>score &lt;-<span class="st"> </span><span class="kw">ifelse</span>(sent<span class="op">$</span>sentiment<span class="op">==</span><span class="st">&quot;positive&quot;</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</code></pre></div>
 </div>
 </div>
 <div id="scoring-the-songs" class="section level3">
@@ -847,44 +820,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’re now ready to score each song.</p>
 <p>(<strong>NB</strong>: There are probably many ways to program a script that performs this task. If you can think of a more elegant way, go for it!)</p>
 <p>First, we’ll create a dataframe that holds all the words in our dtm along with their sentiment score.</p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1"><span class="co"># get all the words in our dtm and put it in a dataframe</span></a>
-<a class="sourceLine" id="cb460-2" data-line-number="2">words =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">colnames</span>(dtm))</a>
-<a class="sourceLine" id="cb460-3" data-line-number="3"><span class="kw">head</span>(words)</a>
-<a class="sourceLine" id="cb460-4" data-line-number="4"><span class="co">#&gt;        word</span></a>
-<a class="sourceLine" id="cb460-5" data-line-number="5"><span class="co">#&gt; 1      back</span></a>
-<a class="sourceLine" id="cb460-6" data-line-number="6"><span class="co">#&gt; 2 backroads</span></a>
-<a class="sourceLine" id="cb460-7" data-line-number="7"><span class="co">#&gt; 3       bed</span></a>
-<a class="sourceLine" id="cb460-8" data-line-number="8"><span class="co">#&gt; 4   believe</span></a>
-<a class="sourceLine" id="cb460-9" data-line-number="9"><span class="co">#&gt; 5   beneath</span></a>
-<a class="sourceLine" id="cb460-10" data-line-number="10"><span class="co">#&gt; 6    beside</span></a>
-<a class="sourceLine" id="cb460-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb460-12" data-line-number="12"><span class="co"># get their sentiment scores</span></a>
-<a class="sourceLine" id="cb460-13" data-line-number="13">words &lt;-<span class="st"> </span><span class="kw">merge</span>(words, sent, <span class="dt">all.x =</span> T)</a>
-<a class="sourceLine" id="cb460-14" data-line-number="14"><span class="kw">head</span>(words)</a>
-<a class="sourceLine" id="cb460-15" data-line-number="15"><span class="co">#&gt;       word sentiment score</span></a>
-<a class="sourceLine" id="cb460-16" data-line-number="16"><span class="co">#&gt; 1  abigail      &lt;NA&gt;    NA</span></a>
-<a class="sourceLine" id="cb460-17" data-line-number="17"><span class="co">#&gt; 2   absent      &lt;NA&gt;    NA</span></a>
-<a class="sourceLine" id="cb460-18" data-line-number="18"><span class="co">#&gt; 3   absurd  negative    -1</span></a>
-<a class="sourceLine" id="cb460-19" data-line-number="19"><span class="co">#&gt; 4  accused      &lt;NA&gt;    NA</span></a>
-<a class="sourceLine" id="cb460-20" data-line-number="20"><span class="co">#&gt; 5      ace      &lt;NA&gt;    NA</span></a>
-<a class="sourceLine" id="cb460-21" data-line-number="21"><span class="co">#&gt; 6 achilles      &lt;NA&gt;    NA</span></a>
-<a class="sourceLine" id="cb460-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb460-23" data-line-number="23"><span class="co"># replace NAs with 0s</span></a>
-<a class="sourceLine" id="cb460-24" data-line-number="24">words<span class="op">$</span>score[<span class="kw">is.na</span>(words<span class="op">$</span>score)] &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb460-25" data-line-number="25"><span class="kw">head</span>(words)</a>
-<a class="sourceLine" id="cb460-26" data-line-number="26"><span class="co">#&gt;       word sentiment score</span></a>
-<a class="sourceLine" id="cb460-27" data-line-number="27"><span class="co">#&gt; 1  abigail      &lt;NA&gt;     0</span></a>
-<a class="sourceLine" id="cb460-28" data-line-number="28"><span class="co">#&gt; 2   absent      &lt;NA&gt;     0</span></a>
-<a class="sourceLine" id="cb460-29" data-line-number="29"><span class="co">#&gt; 3   absurd  negative    -1</span></a>
-<a class="sourceLine" id="cb460-30" data-line-number="30"><span class="co">#&gt; 4  accused      &lt;NA&gt;     0</span></a>
-<a class="sourceLine" id="cb460-31" data-line-number="31"><span class="co">#&gt; 5      ace      &lt;NA&gt;     0</span></a>
-<a class="sourceLine" id="cb460-32" data-line-number="32"><span class="co">#&gt; 6 achilles      &lt;NA&gt;     0</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get all the words in our dtm and put it in a dataframe</span>
+words =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">colnames</span>(dtm))
+<span class="kw">head</span>(words)
+<span class="co">#&gt;        word</span>
+<span class="co">#&gt; 1      back</span>
+<span class="co">#&gt; 2 backroads</span>
+<span class="co">#&gt; 3       bed</span>
+<span class="co">#&gt; 4   believe</span>
+<span class="co">#&gt; 5   beneath</span>
+<span class="co">#&gt; 6    beside</span>
+
+<span class="co"># get their sentiment scores</span>
+words &lt;-<span class="st"> </span><span class="kw">merge</span>(words, sent, <span class="dt">all.x =</span> T)
+<span class="kw">head</span>(words)
+<span class="co">#&gt;       word sentiment score</span>
+<span class="co">#&gt; 1  abigail      &lt;NA&gt;    NA</span>
+<span class="co">#&gt; 2   absent      &lt;NA&gt;    NA</span>
+<span class="co">#&gt; 3   absurd  negative    -1</span>
+<span class="co">#&gt; 4  accused      &lt;NA&gt;    NA</span>
+<span class="co">#&gt; 5      ace      &lt;NA&gt;    NA</span>
+<span class="co">#&gt; 6 achilles      &lt;NA&gt;    NA</span>
+
+<span class="co"># replace NAs with 0s</span>
+words<span class="op">$</span>score[<span class="kw">is.na</span>(words<span class="op">$</span>score)] &lt;-<span class="st"> </span><span class="dv">0</span>
+<span class="kw">head</span>(words)
+<span class="co">#&gt;       word sentiment score</span>
+<span class="co">#&gt; 1  abigail      &lt;NA&gt;     0</span>
+<span class="co">#&gt; 2   absent      &lt;NA&gt;     0</span>
+<span class="co">#&gt; 3   absurd  negative    -1</span>
+<span class="co">#&gt; 4  accused      &lt;NA&gt;     0</span>
+<span class="co">#&gt; 5      ace      &lt;NA&gt;     0</span>
+<span class="co">#&gt; 6 achilles      &lt;NA&gt;     0</span></code></pre></div>
 <p>We can now use matrix algebra (!!) to multiply our dtm by the scoring vector. This will return to us a score for each document (i.e., song).</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1"><span class="co"># calculate documents scores with matrix algebra! </span></a>
-<a class="sourceLine" id="cb461-2" data-line-number="2">scores &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) <span class="op">%*%</span><span class="st"> </span>words<span class="op">$</span>score</a>
-<a class="sourceLine" id="cb461-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb461-4" data-line-number="4"><span class="co"># put it in the original documents data frame</span></a>
-<a class="sourceLine" id="cb461-5" data-line-number="5">ts<span class="op">$</span>sentiment &lt;-<span class="st"> </span>scores</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate documents scores with matrix algebra! </span>
+scores &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(dtm) <span class="op">%*%</span><span class="st"> </span>words<span class="op">$</span>score
+
+<span class="co"># put it in the original documents data frame</span>
+ts<span class="op">$</span>sentiment &lt;-<span class="st"> </span>scores</code></pre></div>
 <p>Which song is happiest? Go listen to the song and see if you agree.</p>
 </div>
 <div id="challenges-25" class="section level3">
@@ -892,32 +865,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="challenge-1-3" class="section level4 unnumbered">
 <h4>Challenge 1</h4>
 <p>Using the code we wrote above, make a function that accepts 1) a vector of texts, and 2) a sentiment dictionary (i.e. a data frame with words and scores), and returns a vector of sentiment scores for each text.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">sentiment_score &lt;-<span class="st"> </span><span class="cf">function</span>(texts, sent_dict){</a>
-<a class="sourceLine" id="cb462-2" data-line-number="2">  </a>
-<a class="sourceLine" id="cb462-3" data-line-number="3">  <span class="co"># YOUR CODE HERE</span></a>
-<a class="sourceLine" id="cb462-4" data-line-number="4">  </a>
-<a class="sourceLine" id="cb462-5" data-line-number="5">  <span class="kw">return</span>(scores)</a>
-<a class="sourceLine" id="cb462-6" data-line-number="6">}</a>
-<a class="sourceLine" id="cb462-7" data-line-number="7">  </a>
-<a class="sourceLine" id="cb462-8" data-line-number="8"><span class="co"># uncomment to test it out!</span></a>
-<a class="sourceLine" id="cb462-9" data-line-number="9"><span class="co"># sentiment_score(ts$lyrics, sent)</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sentiment_score &lt;-<span class="st"> </span><span class="cf">function</span>(texts, sent_dict){
+  
+  <span class="co"># YOUR CODE HERE</span>
+  
+  <span class="kw">return</span>(scores)
+}
+  
+<span class="co"># uncomment to test it out!</span>
+<span class="co"># sentiment_score(ts$lyrics, sent)</span></code></pre></div>
 </div>
 <div id="challenge-2-3" class="section level4 unnumbered">
 <h4>Challenge 2</h4>
 <p>Using the function you wrote above, find out what the most and least positive Taylor Swift album is.</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1"><span class="co"># concatenate to make albums</span></a>
-<a class="sourceLine" id="cb463-2" data-line-number="2">albums &lt;-<span class="st"> </span>ts <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb463-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(album) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb463-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">lyrics =</span> <span class="kw">str_c</span>(lyrics, <span class="dt">collapse =</span> <span class="st">&quot;;&quot;</span>))</a>
-<a class="sourceLine" id="cb463-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb463-6" data-line-number="6"><span class="co"># first load the dictionary</span></a>
-<a class="sourceLine" id="cb463-7" data-line-number="7">afinn &lt;-<span class="st"> </span><span class="kw">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>)</a>
-<a class="sourceLine" id="cb463-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb463-9" data-line-number="9"><span class="co"># then run the function</span></a>
-<a class="sourceLine" id="cb463-10" data-line-number="10"><span class="kw">sentiment_score</span>(albums<span class="op">$</span>lyrics, afinn)</a>
-<a class="sourceLine" id="cb463-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb463-12" data-line-number="12"><span class="co"># add to original df</span></a>
-<a class="sourceLine" id="cb463-13" data-line-number="13">albums<span class="op">$</span>sent &lt;-<span class="st"> </span><span class="kw">sentiment_score</span>(albums<span class="op">$</span>lyrics, afinn)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># concatenate to make albums</span>
+albums &lt;-<span class="st"> </span>ts <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(album) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">lyrics =</span> <span class="kw">str_c</span>(lyrics, <span class="dt">collapse =</span> <span class="st">&quot;;&quot;</span>))
+
+<span class="co"># first load the dictionary</span>
+afinn &lt;-<span class="st"> </span><span class="kw">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>)
+
+<span class="co"># then run the function</span>
+<span class="kw">sentiment_score</span>(albums<span class="op">$</span>lyrics, afinn)
+
+<span class="co"># add to original df</span>
+albums<span class="op">$</span>sent &lt;-<span class="st"> </span><span class="kw">sentiment_score</span>(albums<span class="op">$</span>lyrics, afinn)</code></pre></div>
 
 </div>
 </div>
@@ -930,116 +903,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Import the corpus</li>
 <li>Create a DTM</li>
 </ol>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1"><span class="kw">require</span>(tm)</a>
-<a class="sourceLine" id="cb464-2" data-line-number="2"><span class="kw">require</span>(matrixStats) <span class="co"># for statistics</span></a>
-<a class="sourceLine" id="cb464-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb464-4" data-line-number="4"><span class="co"># import corpus</span></a>
-<a class="sourceLine" id="cb464-5" data-line-number="5">docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">DirSource</span>(<span class="st">&quot;Data/trump_obama&quot;</span>))</a>
-<a class="sourceLine" id="cb464-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb464-7" data-line-number="7"><span class="co"># preprocess and create DTM</span></a>
-<a class="sourceLine" id="cb464-8" data-line-number="8">dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,</a>
-<a class="sourceLine" id="cb464-9" data-line-number="9">           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">tolower =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb464-10" data-line-number="10">                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb464-11" data-line-number="11">                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb464-12" data-line-number="12">                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb464-13" data-line-number="13">                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb464-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb464-15" data-line-number="15"><span class="co"># print the dimensions of the DTM</span></a>
-<a class="sourceLine" id="cb464-16" data-line-number="16"><span class="kw">dim</span>(dtm)</a>
-<a class="sourceLine" id="cb464-17" data-line-number="17"><span class="co">#&gt; [1]   11 4094</span></a>
-<a class="sourceLine" id="cb464-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb464-19" data-line-number="19"><span class="co"># take a quick look</span></a>
-<a class="sourceLine" id="cb464-20" data-line-number="20"><span class="kw">inspect</span>(dtm[,<span class="dv">100</span><span class="op">:</span><span class="dv">104</span>])</a>
-<a class="sourceLine" id="cb464-21" data-line-number="21"><span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 11, terms: 5)&gt;&gt;</span></a>
-<a class="sourceLine" id="cb464-22" data-line-number="22"><span class="co">#&gt; Non-/sparse entries: 14/41</span></a>
-<a class="sourceLine" id="cb464-23" data-line-number="23"><span class="co">#&gt; Sparsity           : 75%</span></a>
-<a class="sourceLine" id="cb464-24" data-line-number="24"><span class="co">#&gt; Maximal term length: 11</span></a>
-<a class="sourceLine" id="cb464-25" data-line-number="25"><span class="co">#&gt; Weighting          : term frequency (tf)</span></a>
-<a class="sourceLine" id="cb464-26" data-line-number="26"><span class="co">#&gt; Sample             :</span></a>
-<a class="sourceLine" id="cb464-27" data-line-number="27"><span class="co">#&gt;                 Terms</span></a>
-<a class="sourceLine" id="cb464-28" data-line-number="28"><span class="co">#&gt; Docs             alien align alik aliv allamerican</span></a>
-<a class="sourceLine" id="cb464-29" data-line-number="29"><span class="co">#&gt;   Obama_2009.txt     0     0    1    0           0</span></a>
-<a class="sourceLine" id="cb464-30" data-line-number="30"><span class="co">#&gt;   Obama_2010.txt     0     0    1    1           0</span></a>
-<a class="sourceLine" id="cb464-31" data-line-number="31"><span class="co">#&gt;   Obama_2011.txt     0     1    0    0           0</span></a>
-<a class="sourceLine" id="cb464-32" data-line-number="32"><span class="co">#&gt;   Obama_2012.txt     0     0    0    1           0</span></a>
-<a class="sourceLine" id="cb464-33" data-line-number="33"><span class="co">#&gt;   Obama_2013.txt     0     0    0    0           0</span></a>
-<a class="sourceLine" id="cb464-34" data-line-number="34"><span class="co">#&gt;   Obama_2014.txt     0     0    0    1           0</span></a>
-<a class="sourceLine" id="cb464-35" data-line-number="35"><span class="co">#&gt;   Obama_2015.txt     1     0    1    0           0</span></a>
-<a class="sourceLine" id="cb464-36" data-line-number="36"><span class="co">#&gt;   Trump_2017.txt     0     1    0    0           0</span></a>
-<a class="sourceLine" id="cb464-37" data-line-number="37"><span class="co">#&gt;   Trump_2018.txt     1     0    0    0           1</span></a>
-<a class="sourceLine" id="cb464-38" data-line-number="38"><span class="co">#&gt;   Trump_2019.txt     3     0    1    1           0</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(tm)
+<span class="kw">require</span>(matrixStats) <span class="co"># for statistics</span>
+<span class="co">#&gt; Warning in library(package, lib.loc = lib.loc, character.only = TRUE,</span>
+<span class="co">#&gt; logical.return = TRUE, : there is no package called &#39;matrixStats&#39;</span>
+
+<span class="co"># import corpus</span>
+docs &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">DirSource</span>(<span class="st">&quot;Data/trump_obama&quot;</span>))
+
+<span class="co"># preprocess and create DTM</span>
+dtm &lt;-<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(docs,
+           <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">tolower =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">removePunctuation =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">removeNumbers =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">stopwords =</span> <span class="ot">TRUE</span>,
+                          <span class="dt">stemming=</span><span class="ot">TRUE</span>))
+
+<span class="co"># print the dimensions of the DTM</span>
+<span class="kw">dim</span>(dtm)
+<span class="co">#&gt; [1]   11 4094</span>
+
+<span class="co"># take a quick look</span>
+<span class="kw">inspect</span>(dtm[,<span class="dv">100</span><span class="op">:</span><span class="dv">104</span>])
+<span class="co">#&gt; &lt;&lt;DocumentTermMatrix (documents: 11, terms: 5)&gt;&gt;</span>
+<span class="co">#&gt; Non-/sparse entries: 14/41</span>
+<span class="co">#&gt; Sparsity           : 75%</span>
+<span class="co">#&gt; Maximal term length: 11</span>
+<span class="co">#&gt; Weighting          : term frequency (tf)</span>
+<span class="co">#&gt; Sample             :</span>
+<span class="co">#&gt;                 Terms</span>
+<span class="co">#&gt; Docs             alien align alik aliv allamerican</span>
+<span class="co">#&gt;   Obama_2009.txt     0     0    1    0           0</span>
+<span class="co">#&gt;   Obama_2010.txt     0     0    1    1           0</span>
+<span class="co">#&gt;   Obama_2011.txt     0     1    0    0           0</span>
+<span class="co">#&gt;   Obama_2012.txt     0     0    0    1           0</span>
+<span class="co">#&gt;   Obama_2013.txt     0     0    0    0           0</span>
+<span class="co">#&gt;   Obama_2014.txt     0     0    0    1           0</span>
+<span class="co">#&gt;   Obama_2015.txt     1     0    1    0           0</span>
+<span class="co">#&gt;   Trump_2017.txt     0     1    0    0           0</span>
+<span class="co">#&gt;   Trump_2018.txt     1     0    0    0           1</span>
+<span class="co">#&gt;   Trump_2019.txt     3     0    1    1           0</span></code></pre></div>
 <p>Oftentimes scholars will want to compare different corpora by finding the words (or features) distinctive to each corpora. But finding distinctive words requires a decision about what “distinctive” means. As we will see, there are a variety of definitions that we might use.</p>
 <div id="unique-usage" class="section level3">
 <h3><span class="header-section-number">18.3.1</span> Unique usage</h3>
 <p>The most obvious definition of distinctive is “exclusive”. That is, distinctive words are those are found exclusively in texts associated with a single speaker (or group). For example, if Trump uses the word “access” and Obama never does, we should count “access” as distinctive.</p>
 <p>Finding words that are exclusive to a group is a simple exercise. All we have to do is sum the usage of each word use across all texts for each speaker, and then look for cases where the sum is zero for one speaker.</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1"><span class="co"># turn DTM into dataframe</span></a>
-<a class="sourceLine" id="cb465-2" data-line-number="2">dtm.m &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))</a>
-<a class="sourceLine" id="cb465-3" data-line-number="3">dtm.m<span class="op">$</span>that &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># fix weird error with stopwords.</span></a>
-<a class="sourceLine" id="cb465-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb465-5" data-line-number="5"><span class="co"># Subset into 2 dtms for each speaker</span></a>
-<a class="sourceLine" id="cb465-6" data-line-number="6">obama &lt;-<span class="st"> </span>dtm.m[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,]</a>
-<a class="sourceLine" id="cb465-7" data-line-number="7">trump &lt;-<span class="st"> </span>dtm.m[<span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,]</a>
-<a class="sourceLine" id="cb465-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb465-9" data-line-number="9"><span class="co"># Sum word usage counts across all texts</span></a>
-<a class="sourceLine" id="cb465-10" data-line-number="10">obama &lt;-<span class="st"> </span><span class="kw">colSums</span>(obama)</a>
-<a class="sourceLine" id="cb465-11" data-line-number="11">trump &lt;-<span class="st"> </span><span class="kw">colSums</span>(trump)</a>
-<a class="sourceLine" id="cb465-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb465-13" data-line-number="13"><span class="co"># Put those sums back into a dataframe</span></a>
-<a class="sourceLine" id="cb465-14" data-line-number="14">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rbind</span>(obama, trump))</a>
-<a class="sourceLine" id="cb465-15" data-line-number="15">df[ ,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb465-16" data-line-number="16"><span class="co">#&gt;       abandon abess abid abil abject</span></a>
-<a class="sourceLine" id="cb465-17" data-line-number="17"><span class="co">#&gt; obama       2     1    1    7      0</span></a>
-<a class="sourceLine" id="cb465-18" data-line-number="18"><span class="co">#&gt; trump       1     0    0    1      1</span></a>
-<a class="sourceLine" id="cb465-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb465-20" data-line-number="20"><span class="co"># Get words where one speaker&#39;s usage is 0</span></a>
-<a class="sourceLine" id="cb465-21" data-line-number="21">solelyobama &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">1</span>, trump<span class="op">==</span><span class="dv">0</span>]) </a>
-<a class="sourceLine" id="cb465-22" data-line-number="22">solelyobama &lt;-<span class="st"> </span>solelyobama[<span class="kw">order</span>(solelyobama, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
-<a class="sourceLine" id="cb465-23" data-line-number="23"><span class="kw">head</span>(solelyobama, <span class="dv">10</span>) <span class="co"># get top 10 words for obama</span></a>
-<a class="sourceLine" id="cb465-24" data-line-number="24"><span class="co">#&gt;      dont technolog      bank     innov    doesnt   teacher      loan </span></a>
-<a class="sourceLine" id="cb465-25" data-line-number="25"><span class="co">#&gt;        68        31        30        30        29        26        22 </span></a>
-<a class="sourceLine" id="cb465-26" data-line-number="26"><span class="co">#&gt;      wont     debat    climat </span></a>
-<a class="sourceLine" id="cb465-27" data-line-number="27"><span class="co">#&gt;        22        21        19</span></a>
-<a class="sourceLine" id="cb465-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb465-29" data-line-number="29">solelytrump &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">2</span>, obama<span class="op">==</span><span class="dv">0</span>])</a>
-<a class="sourceLine" id="cb465-30" data-line-number="30">solelytrump &lt;-<span class="st"> </span>solelytrump[<span class="kw">order</span>(solelytrump, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span></a>
-<a class="sourceLine" id="cb465-31" data-line-number="31"><span class="kw">head</span>(solelytrump, <span class="dv">10</span>) <span class="co"># get top 10 words for trump</span></a>
-<a class="sourceLine" id="cb465-32" data-line-number="32"><span class="co">#&gt;      isi    agent america.  audienc    megan      it. obamacar     alic </span></a>
-<a class="sourceLine" id="cb465-33" data-line-number="33"><span class="co">#&gt;        9        8        8        8        8        7        7        6 </span></a>
-<a class="sourceLine" id="cb465-34" data-line-number="34"><span class="co">#&gt;   beauti    elvin </span></a>
-<a class="sourceLine" id="cb465-35" data-line-number="35"><span class="co">#&gt;        6        6</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># turn DTM into dataframe</span>
+dtm.m &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dtm))
+dtm.m<span class="op">$</span>that &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># fix weird error with stopwords.</span>
+
+<span class="co"># Subset into 2 dtms for each speaker</span>
+obama &lt;-<span class="st"> </span>dtm.m[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,]
+trump &lt;-<span class="st"> </span>dtm.m[<span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,]
+
+<span class="co"># Sum word usage counts across all texts</span>
+obama &lt;-<span class="st"> </span><span class="kw">colSums</span>(obama)
+trump &lt;-<span class="st"> </span><span class="kw">colSums</span>(trump)
+
+<span class="co"># Put those sums back into a dataframe</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rbind</span>(obama, trump))
+df[ ,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+<span class="co">#&gt;       abandon abess abid abil abject</span>
+<span class="co">#&gt; obama       2     1    1    7      0</span>
+<span class="co">#&gt; trump       1     0    0    1      1</span>
+
+<span class="co"># Get words where one speaker&#39;s usage is 0</span>
+solelyobama &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">1</span>, trump<span class="op">==</span><span class="dv">0</span>]) 
+solelyobama &lt;-<span class="st"> </span>solelyobama[<span class="kw">order</span>(solelyobama, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span>
+<span class="kw">head</span>(solelyobama, <span class="dv">10</span>) <span class="co"># get top 10 words for obama</span>
+<span class="co">#&gt;      dont technolog      bank     innov    doesnt   teacher      loan </span>
+<span class="co">#&gt;        68        31        30        30        29        26        22 </span>
+<span class="co">#&gt;      wont     debat    climat </span>
+<span class="co">#&gt;        22        21        19</span>
+
+solelytrump &lt;-<span class="st"> </span><span class="kw">unlist</span>(df[<span class="dv">2</span>, obama<span class="op">==</span><span class="dv">0</span>])
+solelytrump &lt;-<span class="st"> </span>solelytrump[<span class="kw">order</span>(solelytrump, <span class="dt">decreasing =</span> T)] <span class="co"># order them by frequency</span>
+<span class="kw">head</span>(solelytrump, <span class="dv">10</span>) <span class="co"># get top 10 words for trump</span>
+<span class="co">#&gt;      isi    agent america.  audienc    megan      it. obamacar     alic </span>
+<span class="co">#&gt;        9        8        8        8        8        7        7        6 </span>
+<span class="co">#&gt;   beauti    elvin </span>
+<span class="co">#&gt;        6        6</span></code></pre></div>
 <p>As we can see, these words tend not to be terribly interesting or informative. So we will remove them from our corpus in order to focus on identifying distinctive words that appear in texts associated with every speaker.</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1"><span class="co"># subset df with non-zero entries</span></a>
-<a class="sourceLine" id="cb466-2" data-line-number="2">df &lt;-<span class="st"> </span>df[,trump<span class="op">&gt;</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>obama<span class="op">&gt;</span><span class="dv">0</span>]</a>
-<a class="sourceLine" id="cb466-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb466-4" data-line-number="4"><span class="co"># how many words are we left with?</span></a>
-<a class="sourceLine" id="cb466-5" data-line-number="5"><span class="kw">ncol</span>(df)</a>
-<a class="sourceLine" id="cb466-6" data-line-number="6"><span class="co">#&gt; [1] 1525</span></a>
-<a class="sourceLine" id="cb466-7" data-line-number="7">df[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb466-8" data-line-number="8"><span class="co">#&gt;       abandon abil abl abort abraham</span></a>
-<a class="sourceLine" id="cb466-9" data-line-number="9"><span class="co">#&gt; obama       2    7  15     1       1</span></a>
-<a class="sourceLine" id="cb466-10" data-line-number="10"><span class="co">#&gt; trump       1    1   9     1       1</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subset df with non-zero entries</span>
+df &lt;-<span class="st"> </span>df[,trump<span class="op">&gt;</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>obama<span class="op">&gt;</span><span class="dv">0</span>]
+
+<span class="co"># how many words are we left with?</span>
+<span class="kw">ncol</span>(df)
+<span class="co">#&gt; [1] 1525</span>
+df[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+<span class="co">#&gt;       abandon abil abl abort abraham</span>
+<span class="co">#&gt; obama       2    7  15     1       1</span>
+<span class="co">#&gt; trump       1    1   9     1       1</span></code></pre></div>
 </div>
 <div id="differences-in-frequences" class="section level3">
 <h3><span class="header-section-number">18.3.2</span> Differences in frequences</h3>
 <p>Another basic approach to identifying distinctive words is to compare the frequencies at which speakers use a word. If one speaker uses a word often across his or her oeuvre and another barely uses the word at all, the difference in their respective frequencies will be large. We can calculate this quantity the following way:</p>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1"><span class="co"># take the differences in frequences</span></a>
-<a class="sourceLine" id="cb467-2" data-line-number="2">diffFreq &lt;-<span class="st"> </span>obama <span class="op">-</span><span class="st"> </span>trump</a>
-<a class="sourceLine" id="cb467-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb467-4" data-line-number="4"><span class="co"># sort the words</span></a>
-<a class="sourceLine" id="cb467-5" data-line-number="5">diffFreq &lt;-<span class="st"> </span><span class="kw">sort</span>(diffFreq, <span class="dt">decreasing =</span> T)</a>
-<a class="sourceLine" id="cb467-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb467-7" data-line-number="7"><span class="co"># the top obama words</span></a>
-<a class="sourceLine" id="cb467-8" data-line-number="8"><span class="kw">head</span>(diffFreq, <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb467-9" data-line-number="9"><span class="co">#&gt;     will     year      job     work     make      can american     that </span></a>
-<a class="sourceLine" id="cb467-10" data-line-number="10"><span class="co">#&gt;      306      217      214      186      177      172      165      160 </span></a>
-<a class="sourceLine" id="cb467-11" data-line-number="11"><span class="co">#&gt;  america      new </span></a>
-<a class="sourceLine" id="cb467-12" data-line-number="12"><span class="co">#&gt;      155      150</span></a>
-<a class="sourceLine" id="cb467-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb467-14" data-line-number="14"><span class="co"># the top trump words</span></a>
-<a class="sourceLine" id="cb467-15" data-line-number="15"><span class="kw">tail</span>(diffFreq, <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb467-16" data-line-number="16"><span class="co">#&gt;  illeg immigr    isi    usa   hero   ryan border  great  thank   drug </span></a>
-<a class="sourceLine" id="cb467-17" data-line-number="17"><span class="co">#&gt;     -9     -9     -9     -9    -11    -11    -13    -13    -19    -22</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># take the differences in frequences</span>
+diffFreq &lt;-<span class="st"> </span>obama <span class="op">-</span><span class="st"> </span>trump
+
+<span class="co"># sort the words</span>
+diffFreq &lt;-<span class="st"> </span><span class="kw">sort</span>(diffFreq, <span class="dt">decreasing =</span> T)
+
+<span class="co"># the top obama words</span>
+<span class="kw">head</span>(diffFreq, <span class="dv">10</span>)
+<span class="co">#&gt;     will     year      job     work     make      can american  america </span>
+<span class="co">#&gt;      306      217      214      186      177      172      165      155 </span>
+<span class="co">#&gt;      new    peopl </span>
+<span class="co">#&gt;      150      147</span>
+
+<span class="co"># the top trump words</span>
+<span class="kw">tail</span>(diffFreq, <span class="dv">10</span>)
+<span class="co">#&gt;  illeg immigr    isi    usa   hero   ryan border  great  thank   drug </span>
+<span class="co">#&gt;     -9     -9     -9     -9    -11    -11    -13    -13    -19    -22</span></code></pre></div>
 </div>
 <div id="differences-in-averages" class="section level3">
 <h3><span class="header-section-number">18.3.3</span> Differences in averages</h3>
@@ -1050,58 +1025,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Take the difference between one speaker’s proportion of a word and another’s proportion of the same word.</li>
 <li>Find the words with the highest absolute difference.</li>
 </ol>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1"><span class="co"># normalize into proportions</span></a>
-<a class="sourceLine" id="cb468-2" data-line-number="2">rowTotals &lt;-<span class="st"> </span><span class="kw">rowSums</span>(df) <span class="co">#create vector with row totals, i.e. total number of words per document</span></a>
-<a class="sourceLine" id="cb468-3" data-line-number="3"><span class="kw">head</span>(rowTotals) <span class="co"># notice that one speaker uses more words than the other</span></a>
-<a class="sourceLine" id="cb468-4" data-line-number="4"><span class="co">#&gt; obama trump </span></a>
-<a class="sourceLine" id="cb468-5" data-line-number="5"><span class="co">#&gt; 23021  7432</span></a>
-<a class="sourceLine" id="cb468-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb468-7" data-line-number="7"><span class="co"># change frequencies to proportions</span></a>
-<a class="sourceLine" id="cb468-8" data-line-number="8">df &lt;-<span class="st"> </span>df<span class="op">/</span>rowTotals <span class="co">#change frequencies to proportions</span></a>
-<a class="sourceLine" id="cb468-9" data-line-number="9">df[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb468-10" data-line-number="10"><span class="co">#&gt;        abandon     abil      abl    abort  abraham</span></a>
-<a class="sourceLine" id="cb468-11" data-line-number="11"><span class="co">#&gt; obama 8.69e-05 0.000304 0.000652 4.34e-05 4.34e-05</span></a>
-<a class="sourceLine" id="cb468-12" data-line-number="12"><span class="co">#&gt; trump 1.35e-04 0.000135 0.001211 1.35e-04 1.35e-04</span></a>
-<a class="sourceLine" id="cb468-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb468-14" data-line-number="14"><span class="co"># get difference in proportions</span></a>
-<a class="sourceLine" id="cb468-15" data-line-number="15">means.obama &lt;-<span class="st"> </span>df[<span class="dv">1</span>,]</a>
-<a class="sourceLine" id="cb468-16" data-line-number="16">means.trump &lt;-<span class="st"> </span>df[<span class="dv">2</span>,]</a>
-<a class="sourceLine" id="cb468-17" data-line-number="17">score &lt;-<span class="st"> </span><span class="kw">unlist</span>(means.obama <span class="op">-</span><span class="st"> </span>means.trump)</a>
-<a class="sourceLine" id="cb468-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb468-19" data-line-number="19"><span class="co"># find words with highest difference</span></a>
-<a class="sourceLine" id="cb468-20" data-line-number="20">score &lt;-<span class="st"> </span><span class="kw">sort</span>(score, <span class="dt">decreasing =</span> T)</a>
-<a class="sourceLine" id="cb468-21" data-line-number="21"><span class="kw">head</span>(score,<span class="dv">10</span>) <span class="co"># top obama words</span></a>
-<a class="sourceLine" id="cb468-22" data-line-number="22"><span class="co">#&gt;     job    make    busi     let    need    work    help economi  energi </span></a>
-<a class="sourceLine" id="cb468-23" data-line-number="23"><span class="co">#&gt; 0.00620 0.00541 0.00473 0.00426 0.00419 0.00407 0.00388 0.00378 0.00363 </span></a>
-<a class="sourceLine" id="cb468-24" data-line-number="24"><span class="co">#&gt;     can </span></a>
-<a class="sourceLine" id="cb468-25" data-line-number="25"><span class="co">#&gt; 0.00346</span></a>
-<a class="sourceLine" id="cb468-26" data-line-number="26"><span class="kw">tail</span>(score,<span class="dv">10</span>) <span class="co"># top trump words</span></a>
-<a class="sourceLine" id="cb468-27" data-line-number="27"><span class="co">#&gt;   border  tonight   immigr     unit    state     drug     must    great </span></a>
-<a class="sourceLine" id="cb468-28" data-line-number="28"><span class="co">#&gt; -0.00284 -0.00293 -0.00322 -0.00322 -0.00322 -0.00342 -0.00354 -0.00476 </span></a>
-<a class="sourceLine" id="cb468-29" data-line-number="29"><span class="co">#&gt;    thank american </span></a>
-<a class="sourceLine" id="cb468-30" data-line-number="30"><span class="co">#&gt; -0.00483 -0.00650</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># normalize into proportions</span>
+rowTotals &lt;-<span class="st"> </span><span class="kw">rowSums</span>(df) <span class="co">#create vector with row totals, i.e. total number of words per document</span>
+<span class="kw">head</span>(rowTotals) <span class="co"># notice that one speaker uses more words than the other</span>
+<span class="co">#&gt; obama trump </span>
+<span class="co">#&gt; 23021  7432</span>
+
+<span class="co"># change frequencies to proportions</span>
+df &lt;-<span class="st"> </span>df<span class="op">/</span>rowTotals <span class="co">#change frequencies to proportions</span>
+df[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+<span class="co">#&gt;        abandon     abil      abl    abort  abraham</span>
+<span class="co">#&gt; obama 8.69e-05 0.000304 0.000652 4.34e-05 4.34e-05</span>
+<span class="co">#&gt; trump 1.35e-04 0.000135 0.001211 1.35e-04 1.35e-04</span>
+
+<span class="co"># get difference in proportions</span>
+means.obama &lt;-<span class="st"> </span>df[<span class="dv">1</span>,]
+means.trump &lt;-<span class="st"> </span>df[<span class="dv">2</span>,]
+score &lt;-<span class="st"> </span><span class="kw">unlist</span>(means.obama <span class="op">-</span><span class="st"> </span>means.trump)
+
+<span class="co"># find words with highest difference</span>
+score &lt;-<span class="st"> </span><span class="kw">sort</span>(score, <span class="dt">decreasing =</span> T)
+<span class="kw">head</span>(score,<span class="dv">10</span>) <span class="co"># top obama words</span>
+<span class="co">#&gt;     job    make    busi     let    need    work    help economi  energi </span>
+<span class="co">#&gt; 0.00620 0.00541 0.00473 0.00426 0.00419 0.00407 0.00388 0.00378 0.00363 </span>
+<span class="co">#&gt;     can </span>
+<span class="co">#&gt; 0.00346</span>
+<span class="kw">tail</span>(score,<span class="dv">10</span>) <span class="co"># top trump words</span>
+<span class="co">#&gt;   border  tonight   immigr     unit    state     drug     must    great </span>
+<span class="co">#&gt; -0.00284 -0.00293 -0.00322 -0.00322 -0.00322 -0.00342 -0.00354 -0.00476 </span>
+<span class="co">#&gt;    thank american </span>
+<span class="co">#&gt; -0.00483 -0.00650</span></code></pre></div>
 <p>This is a start. The problem with this measure is that it tends to highlight differences in very frequent words. For example, this method gives greater attention to a word that occurs 30 times per 1,000 words in Obama and 25 times per 1,000 in Trump than it does to a word that occurs 5 times per 1,000 words in Obama and 0.1 times per 1,000 words in Trump This does not seem right. It seems important to recognize cases when one speaker uses a word frequently and another speaker barely uses it.</p>
 <p>As this initial attempt suggests, identifying distinctive words will be a balancing act. When comparing two groups of texts, differences in the rates of frequent words will tend to be large relative to differences in the rates of rarer words. Human language is variable; some words occur more frequently than others regardless of who is writing. We need to find a way of adjusting our definition of distinctive in light of this.</p>
 </div>
 <div id="difference-in-averages-adjustment" class="section level3">
 <h3><span class="header-section-number">18.3.4</span> Difference in averages, adjustment</h3>
 <p>One adjustment that is easy to make is to divide the difference in speakers’ average rates by the average rate across all speakers. Since dividing a quantity by a large number will make that quantity smaller, our new distinctiveness score will tend to be lower for words that occur frequently. While this is merely a heuristic, it does move us in the right direction.</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1"><span class="co"># get the average rate of all words across all speakers</span></a>
-<a class="sourceLine" id="cb469-2" data-line-number="2">means.all &lt;-<span class="st"> </span><span class="kw">colMeans</span>(df)</a>
-<a class="sourceLine" id="cb469-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb469-4" data-line-number="4"><span class="co"># now divide the difference in speakers&#39; rates by the average rate across all speakers</span></a>
-<a class="sourceLine" id="cb469-5" data-line-number="5">score &lt;-<span class="st"> </span><span class="kw">unlist</span>((means.obama <span class="op">-</span><span class="st"> </span>means.trump) <span class="op">/</span><span class="st"> </span>means.all)</a>
-<a class="sourceLine" id="cb469-6" data-line-number="6">score &lt;-<span class="st"> </span><span class="kw">sort</span>(score, <span class="dt">decreasing =</span> T)</a>
-<a class="sourceLine" id="cb469-7" data-line-number="7"><span class="kw">head</span>(score,<span class="dv">10</span>) <span class="co"># top obama words</span></a>
-<a class="sourceLine" id="cb469-8" data-line-number="8"><span class="co">#&gt;    student       cant       idea      money        oil     higher </span></a>
-<a class="sourceLine" id="cb469-9" data-line-number="9"><span class="co">#&gt;       1.78       1.77       1.70       1.67       1.67       1.66 </span></a>
-<a class="sourceLine" id="cb469-10" data-line-number="10"><span class="co">#&gt;       earn leadership   research    respons </span></a>
-<a class="sourceLine" id="cb469-11" data-line-number="11"><span class="co">#&gt;       1.60       1.60       1.59       1.58</span></a>
-<a class="sourceLine" id="cb469-12" data-line-number="12"><span class="kw">tail</span>(score,<span class="dv">10</span>) <span class="co"># top trump words</span></a>
-<a class="sourceLine" id="cb469-13" data-line-number="13"><span class="co">#&gt;     drug    grace    death    heart   pillar southern  terribl   unfair </span></a>
-<a class="sourceLine" id="cb469-14" data-line-number="14"><span class="co">#&gt;    -1.77    -1.80    -1.82    -1.82    -1.84    -1.84    -1.84    -1.84 </span></a>
-<a class="sourceLine" id="cb469-15" data-line-number="15"><span class="co">#&gt;     gang     ryan </span></a>
-<a class="sourceLine" id="cb469-16" data-line-number="16"><span class="co">#&gt;    -1.87    -1.90</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get the average rate of all words across all speakers</span>
+means.all &lt;-<span class="st"> </span><span class="kw">colMeans</span>(df)
+
+<span class="co"># now divide the difference in speakers&#39; rates by the average rate across all speakers</span>
+score &lt;-<span class="st"> </span><span class="kw">unlist</span>((means.obama <span class="op">-</span><span class="st"> </span>means.trump) <span class="op">/</span><span class="st"> </span>means.all)
+score &lt;-<span class="st"> </span><span class="kw">sort</span>(score, <span class="dt">decreasing =</span> T)
+<span class="kw">head</span>(score,<span class="dv">10</span>) <span class="co"># top obama words</span>
+<span class="co">#&gt;    student       cant       idea      money        oil     higher </span>
+<span class="co">#&gt;       1.78       1.77       1.70       1.67       1.67       1.66 </span>
+<span class="co">#&gt;       earn leadership   research    respons </span>
+<span class="co">#&gt;       1.60       1.60       1.59       1.58</span>
+<span class="kw">tail</span>(score,<span class="dv">10</span>) <span class="co"># top trump words</span>
+<span class="co">#&gt;     drug    grace    death    heart   pillar southern  terribl   unfair </span>
+<span class="co">#&gt;    -1.77    -1.80    -1.82    -1.82    -1.84    -1.84    -1.84    -1.84 </span>
+<span class="co">#&gt;     gang     ryan </span>
+<span class="co">#&gt;    -1.87    -1.90</span></code></pre></div>
 
 </div>
 </div>
@@ -1109,317 +1084,317 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">18.4</span> Structural Topic Models</h2>
 <p>This unit gives a brief overview of the <code>stm</code> (structural topic model) package. Please read the vignette for more detail.</p>
 <p>Structural topic model is a way to estimate a topic model that includes document-level meta-data. One can then see how topical prevalence changes according to that meta-data.</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" data-line-number="1"><span class="kw">library</span>(stm)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stm)</code></pre></div>
 <p>The data we’ll be using for this unit consists of all articles about women published in the New York Times and Washington Post, 1980-2014. You worked with a subset of this data in your last homework.</p>
 <p>Load the dataset. Notice that we have the text of the articles, along with some metadata.</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1"><span class="co"># Load Data</span></a>
-<a class="sourceLine" id="cb471-2" data-line-number="2">women &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/women-full.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb471-3" data-line-number="3"><span class="kw">names</span>(women)</a>
-<a class="sourceLine" id="cb471-4" data-line-number="4"><span class="co">#&gt;  [1] &quot;BYLINE&quot;              &quot;TEXT.NO.NOUN&quot;        &quot;PUBLICATION&quot;        </span></a>
-<a class="sourceLine" id="cb471-5" data-line-number="5"><span class="co">#&gt;  [4] &quot;TITLE&quot;               &quot;COUNTRY&quot;             &quot;COUNTRY_FINAL&quot;      </span></a>
-<a class="sourceLine" id="cb471-6" data-line-number="6"><span class="co">#&gt;  [7] &quot;YEAR&quot;                &quot;UID&quot;                 &quot;COUNTRY_NR&quot;         </span></a>
-<a class="sourceLine" id="cb471-7" data-line-number="7"><span class="co">#&gt; [10] &quot;entities&quot;            &quot;LENGTH&quot;              &quot;COUNTRY_TOP_PERCENT&quot;</span></a>
-<a class="sourceLine" id="cb471-8" data-line-number="8"><span class="co">#&gt; [13] &quot;COUNTRY_CODE&quot;        &quot;TEXT&quot;                &quot;DATE&quot;               </span></a>
-<a class="sourceLine" id="cb471-9" data-line-number="9"><span class="co">#&gt; [16] &quot;COUNTRY_MAJOR&quot;       &quot;TYPE&quot;                &quot;REGION&quot;             </span></a>
-<a class="sourceLine" id="cb471-10" data-line-number="10"><span class="co">#&gt; [19] &quot;SUBJECT&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load Data</span>
+women &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/women-full.csv&#39;</span>)
+<span class="kw">names</span>(women)
+<span class="co">#&gt;  [1] &quot;BYLINE&quot;              &quot;TEXT.NO.NOUN&quot;        &quot;PUBLICATION&quot;        </span>
+<span class="co">#&gt;  [4] &quot;TITLE&quot;               &quot;COUNTRY&quot;             &quot;COUNTRY_FINAL&quot;      </span>
+<span class="co">#&gt;  [7] &quot;YEAR&quot;                &quot;UID&quot;                 &quot;COUNTRY_NR&quot;         </span>
+<span class="co">#&gt; [10] &quot;entities&quot;            &quot;LENGTH&quot;              &quot;COUNTRY_TOP_PERCENT&quot;</span>
+<span class="co">#&gt; [13] &quot;COUNTRY_CODE&quot;        &quot;TEXT&quot;                &quot;DATE&quot;               </span>
+<span class="co">#&gt; [16] &quot;COUNTRY_MAJOR&quot;       &quot;TYPE&quot;                &quot;REGION&quot;             </span>
+<span class="co">#&gt; [19] &quot;SUBJECT&quot;</span></code></pre></div>
 <div id="preprocessing-1" class="section level3">
 <h3><span class="header-section-number">18.4.1</span> Preprocessing</h3>
 <p>STM has its own unique preprocessing functions and procedure, which I’ve coded below. Notice that we’re going to use the <code>TEXT.NO.NOUN</code> column, which contains all the text of the articles without proper nouns (which I removed earlier).</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1"><span class="co"># Pre-process</span></a>
-<a class="sourceLine" id="cb472-2" data-line-number="2">temp&lt;-<span class="kw">textProcessor</span>(<span class="dt">documents =</span> women<span class="op">$</span>TEXT.NO.NOUN, <span class="dt">metadata =</span> women)</a>
-<a class="sourceLine" id="cb472-3" data-line-number="3"><span class="co">#&gt; Building corpus... </span></a>
-<a class="sourceLine" id="cb472-4" data-line-number="4"><span class="co">#&gt; Converting to Lower Case... </span></a>
-<a class="sourceLine" id="cb472-5" data-line-number="5"><span class="co">#&gt; Removing punctuation... </span></a>
-<a class="sourceLine" id="cb472-6" data-line-number="6"><span class="co">#&gt; Removing stopwords... </span></a>
-<a class="sourceLine" id="cb472-7" data-line-number="7"><span class="co">#&gt; Removing numbers... </span></a>
-<a class="sourceLine" id="cb472-8" data-line-number="8"><span class="co">#&gt; Stemming... </span></a>
-<a class="sourceLine" id="cb472-9" data-line-number="9"><span class="co">#&gt; Creating Output...</span></a>
-<a class="sourceLine" id="cb472-10" data-line-number="10">meta&lt;-temp<span class="op">$</span>meta</a>
-<a class="sourceLine" id="cb472-11" data-line-number="11">vocab&lt;-temp<span class="op">$</span>vocab</a>
-<a class="sourceLine" id="cb472-12" data-line-number="12">docs&lt;-temp<span class="op">$</span>documents</a>
-<a class="sourceLine" id="cb472-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb472-14" data-line-number="14"><span class="co"># prep documents in correct format</span></a>
-<a class="sourceLine" id="cb472-15" data-line-number="15">out &lt;-<span class="st"> </span><span class="kw">prepDocuments</span>(docs, vocab, meta)</a>
-<a class="sourceLine" id="cb472-16" data-line-number="16"><span class="co">#&gt; Removing 19460 of 39403 terms (19460 of 1087166 tokens) due to frequency </span></a>
-<a class="sourceLine" id="cb472-17" data-line-number="17"><span class="co">#&gt; Your corpus now has 4531 documents, 19943 terms and 1067706 tokens.</span></a>
-<a class="sourceLine" id="cb472-18" data-line-number="18">docs&lt;-out<span class="op">$</span>documents</a>
-<a class="sourceLine" id="cb472-19" data-line-number="19">vocab&lt;-out<span class="op">$</span>vocab</a>
-<a class="sourceLine" id="cb472-20" data-line-number="20">meta &lt;-out<span class="op">$</span>meta</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pre-process</span>
+temp&lt;-<span class="kw">textProcessor</span>(<span class="dt">documents =</span> women<span class="op">$</span>TEXT.NO.NOUN, <span class="dt">metadata =</span> women)
+<span class="co">#&gt; Building corpus... </span>
+<span class="co">#&gt; Converting to Lower Case... </span>
+<span class="co">#&gt; Removing punctuation... </span>
+<span class="co">#&gt; Removing stopwords... </span>
+<span class="co">#&gt; Removing numbers... </span>
+<span class="co">#&gt; Stemming... </span>
+<span class="co">#&gt; Creating Output...</span>
+meta&lt;-temp<span class="op">$</span>meta
+vocab&lt;-temp<span class="op">$</span>vocab
+docs&lt;-temp<span class="op">$</span>documents
+
+<span class="co"># prep documents in correct format</span>
+out &lt;-<span class="st"> </span><span class="kw">prepDocuments</span>(docs, vocab, meta)
+<span class="co">#&gt; Removing 19460 of 39403 terms (19460 of 1087166 tokens) due to frequency </span>
+<span class="co">#&gt; Your corpus now has 4531 documents, 19943 terms and 1067706 tokens.</span>
+docs&lt;-out<span class="op">$</span>documents
+vocab&lt;-out<span class="op">$</span>vocab
+meta &lt;-out<span class="op">$</span>meta</code></pre></div>
 <div id="challenge-1-4" class="section level4 unnumbered">
 <h4>Challenge 1</h4>
 <p>Read the help file for the <code>prepDocuments</code> function. Alter the code above (in 2.1) to keep only words that appear in at least 10 documents.</p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1"><span class="co"># YOUR CODE HERE</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
 </div>
 </div>
 <div id="estimate-model" class="section level3">
 <h3><span class="header-section-number">18.4.2</span> Estimate Model</h3>
 <p>We’re now going to estimate a topic model with 15 topics by regressing topical prevalence on region and year covariates.</p>
 <p>Running full model takes a <strong>long</strong> time to finish. For that reason, we’re going to add an argument <code>max.em.its</code> which sets the number of iterations. By keeping it low (15) we’ll see a rough estimate of the topics. You can always go back and estimate the model to convergence.</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" data-line-number="1">model &lt;-<span class="st"> </span><span class="kw">stm</span>(docs, vocab, <span class="dv">15</span>, <span class="dt">prevalence =</span> <span class="op">~</span><span class="st"> </span>REGION <span class="op">+</span><span class="st"> </span><span class="kw">s</span>(YEAR), <span class="dt">data =</span> meta, <span class="dt">seed =</span> <span class="dv">15</span>, <span class="dt">max.em.its =</span> <span class="dv">15</span>)</a>
-<a class="sourceLine" id="cb474-2" data-line-number="2"><span class="co">#&gt; Beginning Spectral Initialization </span></a>
-<a class="sourceLine" id="cb474-3" data-line-number="3"><span class="co">#&gt;   Calculating the gram matrix...</span></a>
-<a class="sourceLine" id="cb474-4" data-line-number="4"><span class="co">#&gt;   Using only 10000 most frequent terms during initialization...</span></a>
-<a class="sourceLine" id="cb474-5" data-line-number="5"><span class="co">#&gt;   Finding anchor words...</span></a>
-<a class="sourceLine" id="cb474-6" data-line-number="6"><span class="co">#&gt;      ...............</span></a>
-<a class="sourceLine" id="cb474-7" data-line-number="7"><span class="co">#&gt;   Recovering initialization...</span></a>
-<a class="sourceLine" id="cb474-8" data-line-number="8"><span class="co">#&gt;      ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-9" data-line-number="9"><span class="co">#&gt; Initialization complete.</span></a>
-<a class="sourceLine" id="cb474-10" data-line-number="10"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-11" data-line-number="11"><span class="co">#&gt; Completed E-Step (5 seconds). </span></a>
-<a class="sourceLine" id="cb474-12" data-line-number="12"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-13" data-line-number="13"><span class="co">#&gt; Completing Iteration 1 (approx. per word bound = -7.882) </span></a>
-<a class="sourceLine" id="cb474-14" data-line-number="14"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-15" data-line-number="15"><span class="co">#&gt; Completed E-Step (4 seconds). </span></a>
-<a class="sourceLine" id="cb474-16" data-line-number="16"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-17" data-line-number="17"><span class="co">#&gt; Completing Iteration 2 (approx. per word bound = -7.605, relative change = 3.519e-02) </span></a>
-<a class="sourceLine" id="cb474-18" data-line-number="18"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-19" data-line-number="19"><span class="co">#&gt; Completed E-Step (4 seconds). </span></a>
-<a class="sourceLine" id="cb474-20" data-line-number="20"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-21" data-line-number="21"><span class="co">#&gt; Completing Iteration 3 (approx. per word bound = -7.573, relative change = 4.218e-03) </span></a>
-<a class="sourceLine" id="cb474-22" data-line-number="22"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-23" data-line-number="23"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-24" data-line-number="24"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-25" data-line-number="25"><span class="co">#&gt; Completing Iteration 4 (approx. per word bound = -7.559, relative change = 1.843e-03) </span></a>
-<a class="sourceLine" id="cb474-26" data-line-number="26"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-27" data-line-number="27"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-28" data-line-number="28"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-29" data-line-number="29"><span class="co">#&gt; Completing Iteration 5 (approx. per word bound = -7.550, relative change = 1.162e-03) </span></a>
-<a class="sourceLine" id="cb474-30" data-line-number="30"><span class="co">#&gt; Topic 1: women, show, one, like, design </span></a>
-<a class="sourceLine" id="cb474-31" data-line-number="31"><span class="co">#&gt;  Topic 2: said, women, polic, report, year </span></a>
-<a class="sourceLine" id="cb474-32" data-line-number="32"><span class="co">#&gt;  Topic 3: women, team, said, game, world </span></a>
-<a class="sourceLine" id="cb474-33" data-line-number="33"><span class="co">#&gt;  Topic 4: year, book, first, one, mrs </span></a>
-<a class="sourceLine" id="cb474-34" data-line-number="34"><span class="co">#&gt;  Topic 5: women, said, percent, femal, will </span></a>
-<a class="sourceLine" id="cb474-35" data-line-number="35"><span class="co">#&gt;  Topic 6: said, women, one, peopl, woman </span></a>
-<a class="sourceLine" id="cb474-36" data-line-number="36"><span class="co">#&gt;  Topic 7: women, work, said, year, men </span></a>
-<a class="sourceLine" id="cb474-37" data-line-number="37"><span class="co">#&gt;  Topic 8: women, sexual, sex, rape, men </span></a>
-<a class="sourceLine" id="cb474-38" data-line-number="38"><span class="co">#&gt;  Topic 9: women, said, right, law, govern </span></a>
-<a class="sourceLine" id="cb474-39" data-line-number="39"><span class="co">#&gt;  Topic 10: said, one, famili, women, peopl </span></a>
-<a class="sourceLine" id="cb474-40" data-line-number="40"><span class="co">#&gt;  Topic 11: women, film, one, said, woman </span></a>
-<a class="sourceLine" id="cb474-41" data-line-number="41"><span class="co">#&gt;  Topic 12: said, polit, elect, parti, govern </span></a>
-<a class="sourceLine" id="cb474-42" data-line-number="42"><span class="co">#&gt;  Topic 13: women, said, cancer, studi, health </span></a>
-<a class="sourceLine" id="cb474-43" data-line-number="43"><span class="co">#&gt;  Topic 14: women, confer, said, deleg, will </span></a>
-<a class="sourceLine" id="cb474-44" data-line-number="44"><span class="co">#&gt;  Topic 15: said, women, girl, rape, practic </span></a>
-<a class="sourceLine" id="cb474-45" data-line-number="45"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-46" data-line-number="46"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-47" data-line-number="47"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-48" data-line-number="48"><span class="co">#&gt; Completing Iteration 6 (approx. per word bound = -7.544, relative change = 8.200e-04) </span></a>
-<a class="sourceLine" id="cb474-49" data-line-number="49"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-50" data-line-number="50"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-51" data-line-number="51"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-52" data-line-number="52"><span class="co">#&gt; Completing Iteration 7 (approx. per word bound = -7.539, relative change = 5.961e-04) </span></a>
-<a class="sourceLine" id="cb474-53" data-line-number="53"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-54" data-line-number="54"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-55" data-line-number="55"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-56" data-line-number="56"><span class="co">#&gt; Completing Iteration 8 (approx. per word bound = -7.536, relative change = 4.491e-04) </span></a>
-<a class="sourceLine" id="cb474-57" data-line-number="57"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-58" data-line-number="58"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-59" data-line-number="59"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-60" data-line-number="60"><span class="co">#&gt; Completing Iteration 9 (approx. per word bound = -7.533, relative change = 3.481e-04) </span></a>
-<a class="sourceLine" id="cb474-61" data-line-number="61"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-62" data-line-number="62"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-63" data-line-number="63"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-64" data-line-number="64"><span class="co">#&gt; Completing Iteration 10 (approx. per word bound = -7.531, relative change = 2.759e-04) </span></a>
-<a class="sourceLine" id="cb474-65" data-line-number="65"><span class="co">#&gt; Topic 1: show, design, women, fashion, art </span></a>
-<a class="sourceLine" id="cb474-66" data-line-number="66"><span class="co">#&gt;  Topic 2: said, women, polic, report, offici </span></a>
-<a class="sourceLine" id="cb474-67" data-line-number="67"><span class="co">#&gt;  Topic 3: women, team, said, game, world </span></a>
-<a class="sourceLine" id="cb474-68" data-line-number="68"><span class="co">#&gt;  Topic 4: book, year, life, first, work </span></a>
-<a class="sourceLine" id="cb474-69" data-line-number="69"><span class="co">#&gt;  Topic 5: women, said, femal, percent, will </span></a>
-<a class="sourceLine" id="cb474-70" data-line-number="70"><span class="co">#&gt;  Topic 6: said, one, protest, peopl, site </span></a>
-<a class="sourceLine" id="cb474-71" data-line-number="71"><span class="co">#&gt;  Topic 7: women, work, said, year, percent </span></a>
-<a class="sourceLine" id="cb474-72" data-line-number="72"><span class="co">#&gt;  Topic 8: women, sexual, rape, sex, men </span></a>
-<a class="sourceLine" id="cb474-73" data-line-number="73"><span class="co">#&gt;  Topic 9: women, said, right, law, govern </span></a>
-<a class="sourceLine" id="cb474-74" data-line-number="74"><span class="co">#&gt;  Topic 10: said, one, famili, peopl, day </span></a>
-<a class="sourceLine" id="cb474-75" data-line-number="75"><span class="co">#&gt;  Topic 11: women, film, one, like, woman </span></a>
-<a class="sourceLine" id="cb474-76" data-line-number="76"><span class="co">#&gt;  Topic 12: polit, said, elect, parti, govern </span></a>
-<a class="sourceLine" id="cb474-77" data-line-number="77"><span class="co">#&gt;  Topic 13: women, said, abort, cancer, health </span></a>
-<a class="sourceLine" id="cb474-78" data-line-number="78"><span class="co">#&gt;  Topic 14: women, confer, said, will, world </span></a>
-<a class="sourceLine" id="cb474-79" data-line-number="79"><span class="co">#&gt;  Topic 15: said, women, girl, rape, case </span></a>
-<a class="sourceLine" id="cb474-80" data-line-number="80"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-81" data-line-number="81"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-82" data-line-number="82"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-83" data-line-number="83"><span class="co">#&gt; Completing Iteration 11 (approx. per word bound = -7.530, relative change = 2.214e-04) </span></a>
-<a class="sourceLine" id="cb474-84" data-line-number="84"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-85" data-line-number="85"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-86" data-line-number="86"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-87" data-line-number="87"><span class="co">#&gt; Completing Iteration 12 (approx. per word bound = -7.528, relative change = 1.804e-04) </span></a>
-<a class="sourceLine" id="cb474-88" data-line-number="88"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-89" data-line-number="89"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-90" data-line-number="90"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-91" data-line-number="91"><span class="co">#&gt; Completing Iteration 13 (approx. per word bound = -7.527, relative change = 1.496e-04) </span></a>
-<a class="sourceLine" id="cb474-92" data-line-number="92"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-93" data-line-number="93"><span class="co">#&gt; Completed E-Step (3 seconds). </span></a>
-<a class="sourceLine" id="cb474-94" data-line-number="94"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-95" data-line-number="95"><span class="co">#&gt; Completing Iteration 14 (approx. per word bound = -7.526, relative change = 1.265e-04) </span></a>
-<a class="sourceLine" id="cb474-96" data-line-number="96"><span class="co">#&gt; ....................................................................................................</span></a>
-<a class="sourceLine" id="cb474-97" data-line-number="97"><span class="co">#&gt; Completed E-Step (2 seconds). </span></a>
-<a class="sourceLine" id="cb474-98" data-line-number="98"><span class="co">#&gt; Completed M-Step. </span></a>
-<a class="sourceLine" id="cb474-99" data-line-number="99"><span class="co">#&gt; Model Terminated Before Convergence Reached</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> </span><span class="kw">stm</span>(docs, vocab, <span class="dv">15</span>, <span class="dt">prevalence =</span> <span class="op">~</span><span class="st"> </span>REGION <span class="op">+</span><span class="st"> </span><span class="kw">s</span>(YEAR), <span class="dt">data =</span> meta, <span class="dt">seed =</span> <span class="dv">15</span>, <span class="dt">max.em.its =</span> <span class="dv">15</span>)
+<span class="co">#&gt; Beginning Spectral Initialization </span>
+<span class="co">#&gt;   Calculating the gram matrix...</span>
+<span class="co">#&gt;   Using only 10000 most frequent terms during initialization...</span>
+<span class="co">#&gt;   Finding anchor words...</span>
+<span class="co">#&gt;      ...............</span>
+<span class="co">#&gt;   Recovering initialization...</span>
+<span class="co">#&gt;      ....................................................................................................</span>
+<span class="co">#&gt; Initialization complete.</span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 1 (approx. per word bound = -7.882) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 2 (approx. per word bound = -7.605, relative change = 3.519e-02) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 3 (approx. per word bound = -7.573, relative change = 4.218e-03) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 4 (approx. per word bound = -7.559, relative change = 1.843e-03) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 5 (approx. per word bound = -7.550, relative change = 1.162e-03) </span>
+<span class="co">#&gt; Topic 1: women, show, one, like, design </span>
+<span class="co">#&gt;  Topic 2: said, women, polic, report, year </span>
+<span class="co">#&gt;  Topic 3: women, team, said, game, world </span>
+<span class="co">#&gt;  Topic 4: year, book, first, one, mrs </span>
+<span class="co">#&gt;  Topic 5: women, said, percent, femal, will </span>
+<span class="co">#&gt;  Topic 6: said, women, one, peopl, woman </span>
+<span class="co">#&gt;  Topic 7: women, work, said, year, men </span>
+<span class="co">#&gt;  Topic 8: women, sexual, sex, rape, men </span>
+<span class="co">#&gt;  Topic 9: women, said, right, law, govern </span>
+<span class="co">#&gt;  Topic 10: said, one, famili, women, peopl </span>
+<span class="co">#&gt;  Topic 11: women, film, one, said, woman </span>
+<span class="co">#&gt;  Topic 12: said, polit, elect, parti, govern </span>
+<span class="co">#&gt;  Topic 13: women, said, cancer, studi, health </span>
+<span class="co">#&gt;  Topic 14: women, confer, said, deleg, will </span>
+<span class="co">#&gt;  Topic 15: said, women, girl, rape, practic </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 6 (approx. per word bound = -7.544, relative change = 8.200e-04) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 7 (approx. per word bound = -7.539, relative change = 5.961e-04) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 8 (approx. per word bound = -7.536, relative change = 4.491e-04) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 9 (approx. per word bound = -7.533, relative change = 3.481e-04) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 10 (approx. per word bound = -7.531, relative change = 2.759e-04) </span>
+<span class="co">#&gt; Topic 1: show, design, women, fashion, art </span>
+<span class="co">#&gt;  Topic 2: said, women, polic, report, offici </span>
+<span class="co">#&gt;  Topic 3: women, team, said, game, world </span>
+<span class="co">#&gt;  Topic 4: book, year, life, first, work </span>
+<span class="co">#&gt;  Topic 5: women, said, femal, percent, will </span>
+<span class="co">#&gt;  Topic 6: said, one, protest, peopl, site </span>
+<span class="co">#&gt;  Topic 7: women, work, said, year, percent </span>
+<span class="co">#&gt;  Topic 8: women, sexual, rape, sex, men </span>
+<span class="co">#&gt;  Topic 9: women, said, right, law, govern </span>
+<span class="co">#&gt;  Topic 10: said, one, famili, peopl, day </span>
+<span class="co">#&gt;  Topic 11: women, film, one, like, woman </span>
+<span class="co">#&gt;  Topic 12: polit, said, elect, parti, govern </span>
+<span class="co">#&gt;  Topic 13: women, said, abort, cancer, health </span>
+<span class="co">#&gt;  Topic 14: women, confer, said, will, world </span>
+<span class="co">#&gt;  Topic 15: said, women, girl, rape, case </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (2 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 11 (approx. per word bound = -7.530, relative change = 2.214e-04) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (1 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 12 (approx. per word bound = -7.528, relative change = 1.804e-04) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (1 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 13 (approx. per word bound = -7.527, relative change = 1.496e-04) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (1 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Completing Iteration 14 (approx. per word bound = -7.526, relative change = 1.265e-04) </span>
+<span class="co">#&gt; ....................................................................................................</span>
+<span class="co">#&gt; Completed E-Step (1 seconds). </span>
+<span class="co">#&gt; Completed M-Step. </span>
+<span class="co">#&gt; Model Terminated Before Convergence Reached</span></code></pre></div>
 <p>Let’s see what our model came up with! The following tools can be used to evaluate the model.</p>
 <ul>
 <li><code>labelTopics</code> gives the top words for each topic.</li>
 <li><code>findThoughts</code> gives the top documents for each topic (the documents with the highest proportion of each topic)</li>
 </ul>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" data-line-number="1"><span class="co"># Top Words</span></a>
-<a class="sourceLine" id="cb475-2" data-line-number="2"><span class="kw">labelTopics</span>(model)</a>
-<a class="sourceLine" id="cb475-3" data-line-number="3"><span class="co">#&gt; Topic 1 Top Words:</span></a>
-<a class="sourceLine" id="cb475-4" data-line-number="4"><span class="co">#&gt;       Highest Prob: show, design, fashion, women, art, one, like </span></a>
-<a class="sourceLine" id="cb475-5" data-line-number="5"><span class="co">#&gt;       FREX: coutur, fashion, museum, sculptur, ready--wear, jacket, galleri </span></a>
-<a class="sourceLine" id="cb475-6" data-line-number="6"><span class="co">#&gt;       Lift: ---inch, -ankl, alexandr, armatur, armhol, art-fair, avant </span></a>
-<a class="sourceLine" id="cb475-7" data-line-number="7"><span class="co">#&gt;       Score: coutur, art, artist, fashion, museum, exhibit, cloth </span></a>
-<a class="sourceLine" id="cb475-8" data-line-number="8"><span class="co">#&gt; Topic 2 Top Words:</span></a>
-<a class="sourceLine" id="cb475-9" data-line-number="9"><span class="co">#&gt;       Highest Prob: said, polic, women, kill, report, offici, govern </span></a>
-<a class="sourceLine" id="cb475-10" data-line-number="10"><span class="co">#&gt;       FREX: polic, suicid, kill, attack, investig, suspect, arrest </span></a>
-<a class="sourceLine" id="cb475-11" data-line-number="11"><span class="co">#&gt;       Lift: abducte, charanjit, humanity-soak, male-control, sunil, kalpana, ciudad </span></a>
-<a class="sourceLine" id="cb475-12" data-line-number="12"><span class="co">#&gt;       Score: polic, rape, kill, said, arrest, attack, investig </span></a>
-<a class="sourceLine" id="cb475-13" data-line-number="13"><span class="co">#&gt; Topic 3 Top Words:</span></a>
-<a class="sourceLine" id="cb475-14" data-line-number="14"><span class="co">#&gt;       Highest Prob: women, team, game, said, world, play, olymp </span></a>
-<a class="sourceLine" id="cb475-15" data-line-number="15"><span class="co">#&gt;       FREX: tournament, championship, olymp, soccer, player, game, medal </span></a>
-<a class="sourceLine" id="cb475-16" data-line-number="16"><span class="co">#&gt;       Lift: -america, -foot--inch, -hole, -kilomet, -rank, -round, -trump </span></a>
-<a class="sourceLine" id="cb475-17" data-line-number="17"><span class="co">#&gt;       Score: olymp, championship, tournament, team, player, game, medal </span></a>
-<a class="sourceLine" id="cb475-18" data-line-number="18"><span class="co">#&gt; Topic 4 Top Words:</span></a>
-<a class="sourceLine" id="cb475-19" data-line-number="19"><span class="co">#&gt;       Highest Prob: book, year, life, first, write, novel, work </span></a>
-<a class="sourceLine" id="cb475-20" data-line-number="20"><span class="co">#&gt;       FREX: novel, literari, fiction, book, memoir, novelist, poet </span></a>
-<a class="sourceLine" id="cb475-21" data-line-number="21"><span class="co">#&gt;       Lift: buster, calla, goncourt, identical-twin, italian-american, kilcher, klone </span></a>
-<a class="sourceLine" id="cb475-22" data-line-number="22"><span class="co">#&gt;       Score: novel, book, fiction, literari, poet, writer, write </span></a>
-<a class="sourceLine" id="cb475-23" data-line-number="23"><span class="co">#&gt; Topic 5 Top Words:</span></a>
-<a class="sourceLine" id="cb475-24" data-line-number="24"><span class="co">#&gt;       Highest Prob: women, said, femal, percent, militari, will, compani </span></a>
-<a class="sourceLine" id="cb475-25" data-line-number="25"><span class="co">#&gt;       FREX: combat, board, quota, militari, bank, corpor, infantri </span></a>
-<a class="sourceLine" id="cb475-26" data-line-number="26"><span class="co">#&gt;       Lift: -combat, cpr, gender-divers, nonexecut, outfitt, r-calif, r-ni </span></a>
-<a class="sourceLine" id="cb475-27" data-line-number="27"><span class="co">#&gt;       Score: women, militari, infantri, combat, percent, quota, femal </span></a>
-<a class="sourceLine" id="cb475-28" data-line-number="28"><span class="co">#&gt; Topic 6 Top Words:</span></a>
-<a class="sourceLine" id="cb475-29" data-line-number="29"><span class="co">#&gt;       Highest Prob: protest, said, one, site, peopl, young, video </span></a>
-<a class="sourceLine" id="cb475-30" data-line-number="30"><span class="co">#&gt;       FREX: orthodox, internet, web, video, rabbi, prayer, site </span></a>
-<a class="sourceLine" id="cb475-31" data-line-number="31"><span class="co">#&gt;       Lift: balaclava, grrrl, tehrik-, braveheart, drawbridg, gravesit, guerrilla-styl </span></a>
-<a class="sourceLine" id="cb475-32" data-line-number="32"><span class="co">#&gt;       Score: protest, site, orthodox, video, jewish, rabbi, xxxfx </span></a>
-<a class="sourceLine" id="cb475-33" data-line-number="33"><span class="co">#&gt; Topic 7 Top Words:</span></a>
-<a class="sourceLine" id="cb475-34" data-line-number="34"><span class="co">#&gt;       Highest Prob: women, work, said, year, percent, men, ese </span></a>
-<a class="sourceLine" id="cb475-35" data-line-number="35"><span class="co">#&gt;       FREX: ese, factori, employ, incom, worker, job, market </span></a>
-<a class="sourceLine" id="cb475-36" data-line-number="36"><span class="co">#&gt;       Lift: flextim, management-track, nec, nontransfer, rabenmutt, chiho, fumiko </span></a>
-<a class="sourceLine" id="cb475-37" data-line-number="37"><span class="co">#&gt;       Score: ese, percent, compani, work, job, women, factori </span></a>
-<a class="sourceLine" id="cb475-38" data-line-number="38"><span class="co">#&gt; Topic 8 Top Words:</span></a>
-<a class="sourceLine" id="cb475-39" data-line-number="39"><span class="co">#&gt;       Highest Prob: women, sexual, sex, rape, men, violenc, said </span></a>
-<a class="sourceLine" id="cb475-40" data-line-number="40"><span class="co">#&gt;       FREX: harass, sexual, sex, assault, brothel, violenc, behavior </span></a>
-<a class="sourceLine" id="cb475-41" data-line-number="41"><span class="co">#&gt;       Lift: offenc, tarun, chaud, much-lov, newt, tiresom, sex-rel </span></a>
-<a class="sourceLine" id="cb475-42" data-line-number="42"><span class="co">#&gt;       Score: rape, sexual, harass, violenc, sex, assault, brothel </span></a>
-<a class="sourceLine" id="cb475-43" data-line-number="43"><span class="co">#&gt; Topic 9 Top Words:</span></a>
-<a class="sourceLine" id="cb475-44" data-line-number="44"><span class="co">#&gt;       Highest Prob: women, said, right, law, islam, govern, religi </span></a>
-<a class="sourceLine" id="cb475-45" data-line-number="45"><span class="co">#&gt;       FREX: islam, religi, veil, constitut, saudi, secular, cleric </span></a>
-<a class="sourceLine" id="cb475-46" data-line-number="46"><span class="co">#&gt;       Lift: afghan-styl, anglo-, archdeacon, bien-aim, episcopaci, fez, government-encourag </span></a>
-<a class="sourceLine" id="cb475-47" data-line-number="47"><span class="co">#&gt;       Score: islam, law, women, right, religi, ordin, saudi </span></a>
-<a class="sourceLine" id="cb475-48" data-line-number="48"><span class="co">#&gt; Topic 10 Top Words:</span></a>
-<a class="sourceLine" id="cb475-49" data-line-number="49"><span class="co">#&gt;       Highest Prob: said, one, famili, peopl, day, like, home </span></a>
-<a class="sourceLine" id="cb475-50" data-line-number="50"><span class="co">#&gt;       FREX: villag, room, smile, son, couldnt, recal, sit </span></a>
-<a class="sourceLine" id="cb475-51" data-line-number="51"><span class="co">#&gt;       Lift: charpoy, jet-black, mitra, schermerhorn, single-famili, tyson, uja-feder </span></a>
-<a class="sourceLine" id="cb475-52" data-line-number="52"><span class="co">#&gt;       Score: villag, husband, fistula, famili, school, girl, said </span></a>
-<a class="sourceLine" id="cb475-53" data-line-number="53"><span class="co">#&gt; Topic 11 Top Words:</span></a>
-<a class="sourceLine" id="cb475-54" data-line-number="54"><span class="co">#&gt;       Highest Prob: women, film, one, like, woman, say, play </span></a>
-<a class="sourceLine" id="cb475-55" data-line-number="55"><span class="co">#&gt;       FREX: film, theater, movi, charact, actress, documentari, audienc </span></a>
-<a class="sourceLine" id="cb475-56" data-line-number="56"><span class="co">#&gt;       Lift: clive, fine-tun, kaffir, nushus, shrew, nushu, cadel </span></a>
-<a class="sourceLine" id="cb475-57" data-line-number="57"><span class="co">#&gt;       Score: film, theater, movi, nushu, play, orchestra, femin </span></a>
-<a class="sourceLine" id="cb475-58" data-line-number="58"><span class="co">#&gt; Topic 12 Top Words:</span></a>
-<a class="sourceLine" id="cb475-59" data-line-number="59"><span class="co">#&gt;       Highest Prob: polit, elect, parti, minist, presid, govern, said </span></a>
-<a class="sourceLine" id="cb475-60" data-line-number="60"><span class="co">#&gt;       FREX: voter, elect, parti, prime, candid, vote, cabinet </span></a>
-<a class="sourceLine" id="cb475-61" data-line-number="61"><span class="co">#&gt;       Lift: ernesto, pinbal, influence-peddl, information-servic, kakuei, left--cent, marxist-leninist </span></a>
-<a class="sourceLine" id="cb475-62" data-line-number="62"><span class="co">#&gt;       Score: elect, parti, vote, minist, voter, polit, candid </span></a>
-<a class="sourceLine" id="cb475-63" data-line-number="63"><span class="co">#&gt; Topic 13 Top Words:</span></a>
-<a class="sourceLine" id="cb475-64" data-line-number="64"><span class="co">#&gt;       Highest Prob: women, said, abort, cancer, health, studi, breast </span></a>
-<a class="sourceLine" id="cb475-65" data-line-number="65"><span class="co">#&gt;       FREX: implant, cancer, breast, pill, virus, patient, estrogen </span></a>
-<a class="sourceLine" id="cb475-66" data-line-number="66"><span class="co">#&gt;       Lift: acet, adren, ambulatori, analges, anastrozol, antioxid, ashkenazi </span></a>
-<a class="sourceLine" id="cb475-67" data-line-number="67"><span class="co">#&gt;       Score: cancer, abort, breast, pill, implant, health, virus </span></a>
-<a class="sourceLine" id="cb475-68" data-line-number="68"><span class="co">#&gt; Topic 14 Top Words:</span></a>
-<a class="sourceLine" id="cb475-69" data-line-number="69"><span class="co">#&gt;       Highest Prob: women, said, confer, will, world, organ, right </span></a>
-<a class="sourceLine" id="cb475-70" data-line-number="70"><span class="co">#&gt;       FREX: deleg, confer, forum, page, peac, nongovernment, ambassador </span></a>
-<a class="sourceLine" id="cb475-71" data-line-number="71"><span class="co">#&gt;       Lift: -glass, barack, brooklyn-born, expansion, foreclosur, guarantor, holden </span></a>
-<a class="sourceLine" id="cb475-72" data-line-number="72"><span class="co">#&gt;       Score: deleg, confer, forum, page, palestinian, peac, mrs </span></a>
-<a class="sourceLine" id="cb475-73" data-line-number="73"><span class="co">#&gt; Topic 15 Top Words:</span></a>
-<a class="sourceLine" id="cb475-74" data-line-number="74"><span class="co">#&gt;       Highest Prob: said, women, rape, court, case, girl, practic </span></a>
-<a class="sourceLine" id="cb475-75" data-line-number="75"><span class="co">#&gt;       FREX: mutil, genit, circumcis, asylum, sentenc, judg, tribun </span></a>
-<a class="sourceLine" id="cb475-76" data-line-number="76"><span class="co">#&gt;       Lift: labia, layli, minora, multifaith, paraleg, salim, strip-search </span></a>
-<a class="sourceLine" id="cb475-77" data-line-number="77"><span class="co">#&gt;       Score: rape, genit, circumcis, mutil, court, sentenc, prosecutor</span></a>
-<a class="sourceLine" id="cb475-78" data-line-number="78"></a>
-<a class="sourceLine" id="cb475-79" data-line-number="79"><span class="co"># Example Docs</span></a>
-<a class="sourceLine" id="cb475-80" data-line-number="80"><span class="kw">findThoughts</span>(model, <span class="dt">texts =</span> meta<span class="op">$</span>TITLE, <span class="dt">n=</span><span class="dv">2</span>,<span class="dt">topics =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">15</span>)</a>
-<a class="sourceLine" id="cb475-81" data-line-number="81"><span class="co">#&gt; Warning in findThoughts(model, texts = meta$TITLE, n = 2, topics =</span></a>
-<a class="sourceLine" id="cb475-82" data-line-number="82"><span class="co">#&gt; 1:15): texts are of type &#39;factor.&#39; Converting to character vectors. Use</span></a>
-<a class="sourceLine" id="cb475-83" data-line-number="83"><span class="co">#&gt; &#39;as.character&#39; to avoid this warning in the future.</span></a>
-<a class="sourceLine" id="cb475-84" data-line-number="84"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb475-85" data-line-number="85"><span class="co">#&gt;  Topic 1: </span></a>
-<a class="sourceLine" id="cb475-86" data-line-number="86"><span class="co">#&gt;       KENZO&#39;S CAREFREE STYLES AT AN OFFBEAT SHOWING</span></a>
-<a class="sourceLine" id="cb475-87" data-line-number="87"><span class="co">#&gt;      A MODERN LOOK, A CLASSIC TOUCH FROM SAINT LAURENT </span></a>
-<a class="sourceLine" id="cb475-88" data-line-number="88"><span class="co">#&gt;  Topic 2: </span></a>
-<a class="sourceLine" id="cb475-89" data-line-number="89"><span class="co">#&gt;       Assailants Kill 4 Iraqi Women Working for U.S.; Gunmen Follow Van Carrying Laundry Employees</span></a>
-<a class="sourceLine" id="cb475-90" data-line-number="90"><span class="co">#&gt;      WORLD IN BRIEF </span></a>
-<a class="sourceLine" id="cb475-91" data-line-number="91"><span class="co">#&gt;  Topic 3: </span></a>
-<a class="sourceLine" id="cb475-92" data-line-number="92"><span class="co">#&gt;       AMERICANS LEAD EAST GERMANS IN TRACK</span></a>
-<a class="sourceLine" id="cb475-93" data-line-number="93"><span class="co">#&gt;      Russians Chart a New Path </span></a>
-<a class="sourceLine" id="cb475-94" data-line-number="94"><span class="co">#&gt;  Topic 4: </span></a>
-<a class="sourceLine" id="cb475-95" data-line-number="95"><span class="co">#&gt;       BEST SELLERS: September 6, 1998</span></a>
-<a class="sourceLine" id="cb475-96" data-line-number="96"><span class="co">#&gt;      BEST SELLERS: September 13, 1998 </span></a>
-<a class="sourceLine" id="cb475-97" data-line-number="97"><span class="co">#&gt;  Topic 5: </span></a>
-<a class="sourceLine" id="cb475-98" data-line-number="98"><span class="co">#&gt;       In Britain, a Big Push for More Women to Serve on Corporate Boards</span></a>
-<a class="sourceLine" id="cb475-99" data-line-number="99"><span class="co">#&gt;      Poll: Allow women in combat units </span></a>
-<a class="sourceLine" id="cb475-100" data-line-number="100"><span class="co">#&gt;  Topic 6: </span></a>
-<a class="sourceLine" id="cb475-101" data-line-number="101"><span class="co">#&gt;       Neda&#39;s Legacy; A woman&#39;s death moves Iranian protesters.</span></a>
-<a class="sourceLine" id="cb475-102" data-line-number="102"><span class="co">#&gt;      Jewish Feminists Prompt Protests at Wailing Wall </span></a>
-<a class="sourceLine" id="cb475-103" data-line-number="103"><span class="co">#&gt;  Topic 7: </span></a>
-<a class="sourceLine" id="cb475-104" data-line-number="104"><span class="co">#&gt;       China Scrambles for Stability as Its Workers Age</span></a>
-<a class="sourceLine" id="cb475-105" data-line-number="105"><span class="co">#&gt;      A high price for a paycheck; Caught between the demands of the corporate workplace and of their traditional roles in society, more South Korean women are putting off marriage and parenthood </span></a>
-<a class="sourceLine" id="cb475-106" data-line-number="106"><span class="co">#&gt;  Topic 8: </span></a>
-<a class="sourceLine" id="cb475-107" data-line-number="107"><span class="co">#&gt;       Confronting Rape in India, and Around the World</span></a>
-<a class="sourceLine" id="cb475-108" data-line-number="108"><span class="co">#&gt;      Sexual Harassment Prosecutions Get Short Shrift in India, Lawyer Says </span></a>
-<a class="sourceLine" id="cb475-109" data-line-number="109"><span class="co">#&gt;  Topic 9: </span></a>
-<a class="sourceLine" id="cb475-110" data-line-number="110"><span class="co">#&gt;       English Church Advances Bid For Women As Bishops</span></a>
-<a class="sourceLine" id="cb475-111" data-line-number="111"><span class="co">#&gt;      Egypt Passes Law On Women&#39;s Rights; Polygamy Still Allowed for Men </span></a>
-<a class="sourceLine" id="cb475-112" data-line-number="112"><span class="co">#&gt;  Topic 10: </span></a>
-<a class="sourceLine" id="cb475-113" data-line-number="113"><span class="co">#&gt;       An Old Cinema in Pakistan Has New Life After Quake</span></a>
-<a class="sourceLine" id="cb475-114" data-line-number="114"><span class="co">#&gt;      Maria Duran&#39;s Endless Wait </span></a>
-<a class="sourceLine" id="cb475-115" data-line-number="115"><span class="co">#&gt;  Topic 11: </span></a>
-<a class="sourceLine" id="cb475-116" data-line-number="116"><span class="co">#&gt;       For France, An All-Purpose Heartthrob</span></a>
-<a class="sourceLine" id="cb475-117" data-line-number="117"><span class="co">#&gt;      Film: Brazilian &#39;Vera&#39; </span></a>
-<a class="sourceLine" id="cb475-118" data-line-number="118"><span class="co">#&gt;  Topic 12: </span></a>
-<a class="sourceLine" id="cb475-119" data-line-number="119"><span class="co">#&gt;       The Widow Of Ex-Leader Wins Race In Panama</span></a>
-<a class="sourceLine" id="cb475-120" data-line-number="120"><span class="co">#&gt;      Cabinet Defeated in Iceland as Feminists Gain </span></a>
-<a class="sourceLine" id="cb475-121" data-line-number="121"><span class="co">#&gt;  Topic 13: </span></a>
-<a class="sourceLine" id="cb475-122" data-line-number="122"><span class="co">#&gt;       SECTION: HEALTH; Pg. T18</span></a>
-<a class="sourceLine" id="cb475-123" data-line-number="123"><span class="co">#&gt;      Dense Breasts May Need Sonograms to Detect Cancer </span></a>
-<a class="sourceLine" id="cb475-124" data-line-number="124"><span class="co">#&gt;  Topic 14: </span></a>
-<a class="sourceLine" id="cb475-125" data-line-number="125"><span class="co">#&gt;       DISPUTES ON KEY ISSUES STALL KENYA PARLEY</span></a>
-<a class="sourceLine" id="cb475-126" data-line-number="126"><span class="co">#&gt;      &#39;CHAOTIC&#39; CONDITIONS FEARED AT U.N.&#39;S PARLEY ON WOMEN </span></a>
-<a class="sourceLine" id="cb475-127" data-line-number="127"><span class="co">#&gt;  Topic 15: </span></a>
-<a class="sourceLine" id="cb475-128" data-line-number="128"><span class="co">#&gt;       Woman Fleeing Tribal Rite Gains Asylum; Genital Mutilation Is Ruled Persecution</span></a>
-<a class="sourceLine" id="cb475-129" data-line-number="129"><span class="co">#&gt;      Refugee From Mutilation</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Top Words</span>
+<span class="kw">labelTopics</span>(model)
+<span class="co">#&gt; Topic 1 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: show, design, fashion, women, art, one, like </span>
+<span class="co">#&gt;       FREX: coutur, fashion, museum, sculptur, ready--wear, jacket, galleri </span>
+<span class="co">#&gt;       Lift: ---inch, -ankl, alexandr, armatur, armhol, art-fair, avant </span>
+<span class="co">#&gt;       Score: coutur, art, artist, fashion, museum, exhibit, cloth </span>
+<span class="co">#&gt; Topic 2 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: said, polic, women, kill, report, offici, govern </span>
+<span class="co">#&gt;       FREX: polic, suicid, kill, attack, investig, suspect, arrest </span>
+<span class="co">#&gt;       Lift: abducte, charanjit, humanity-soak, male-control, sunil, kalpana, ciudad </span>
+<span class="co">#&gt;       Score: polic, rape, kill, said, arrest, attack, investig </span>
+<span class="co">#&gt; Topic 3 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: women, team, game, said, world, play, olymp </span>
+<span class="co">#&gt;       FREX: tournament, championship, olymp, soccer, player, game, medal </span>
+<span class="co">#&gt;       Lift: -america, -foot--inch, -hole, -kilomet, -rank, -round, -trump </span>
+<span class="co">#&gt;       Score: olymp, championship, tournament, team, player, game, medal </span>
+<span class="co">#&gt; Topic 4 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: book, year, life, first, write, novel, work </span>
+<span class="co">#&gt;       FREX: novel, literari, fiction, book, memoir, novelist, poet </span>
+<span class="co">#&gt;       Lift: buster, calla, goncourt, identical-twin, italian-american, kilcher, klone </span>
+<span class="co">#&gt;       Score: novel, book, fiction, literari, poet, writer, write </span>
+<span class="co">#&gt; Topic 5 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: women, said, femal, percent, militari, will, compani </span>
+<span class="co">#&gt;       FREX: combat, board, quota, militari, bank, corpor, infantri </span>
+<span class="co">#&gt;       Lift: -combat, cpr, gender-divers, nonexecut, outfitt, r-calif, r-ni </span>
+<span class="co">#&gt;       Score: women, militari, infantri, combat, percent, quota, femal </span>
+<span class="co">#&gt; Topic 6 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: protest, said, one, site, peopl, young, video </span>
+<span class="co">#&gt;       FREX: orthodox, internet, web, video, rabbi, prayer, site </span>
+<span class="co">#&gt;       Lift: balaclava, grrrl, tehrik-, braveheart, drawbridg, gravesit, guerrilla-styl </span>
+<span class="co">#&gt;       Score: protest, site, orthodox, video, jewish, rabbi, xxxfx </span>
+<span class="co">#&gt; Topic 7 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: women, work, said, year, percent, men, ese </span>
+<span class="co">#&gt;       FREX: ese, factori, employ, incom, worker, job, market </span>
+<span class="co">#&gt;       Lift: flextim, management-track, nec, nontransfer, rabenmutt, chiho, fumiko </span>
+<span class="co">#&gt;       Score: ese, percent, compani, work, job, women, factori </span>
+<span class="co">#&gt; Topic 8 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: women, sexual, sex, rape, men, violenc, said </span>
+<span class="co">#&gt;       FREX: harass, sexual, sex, assault, brothel, violenc, behavior </span>
+<span class="co">#&gt;       Lift: offenc, tarun, chaud, much-lov, newt, tiresom, sex-rel </span>
+<span class="co">#&gt;       Score: rape, sexual, harass, violenc, sex, assault, brothel </span>
+<span class="co">#&gt; Topic 9 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: women, said, right, law, islam, govern, religi </span>
+<span class="co">#&gt;       FREX: islam, religi, veil, constitut, saudi, secular, cleric </span>
+<span class="co">#&gt;       Lift: afghan-styl, anglo-, archdeacon, bien-aim, episcopaci, fez, government-encourag </span>
+<span class="co">#&gt;       Score: islam, law, women, right, religi, ordin, saudi </span>
+<span class="co">#&gt; Topic 10 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: said, one, famili, peopl, day, like, home </span>
+<span class="co">#&gt;       FREX: villag, room, smile, son, couldnt, recal, sit </span>
+<span class="co">#&gt;       Lift: charpoy, jet-black, mitra, schermerhorn, single-famili, tyson, uja-feder </span>
+<span class="co">#&gt;       Score: villag, husband, fistula, famili, school, girl, said </span>
+<span class="co">#&gt; Topic 11 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: women, film, one, like, woman, say, play </span>
+<span class="co">#&gt;       FREX: film, theater, movi, charact, actress, documentari, audienc </span>
+<span class="co">#&gt;       Lift: clive, fine-tun, kaffir, nushus, shrew, nushu, cadel </span>
+<span class="co">#&gt;       Score: film, theater, movi, nushu, play, orchestra, femin </span>
+<span class="co">#&gt; Topic 12 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: polit, elect, parti, minist, presid, govern, said </span>
+<span class="co">#&gt;       FREX: voter, elect, parti, prime, candid, vote, cabinet </span>
+<span class="co">#&gt;       Lift: ernesto, pinbal, influence-peddl, information-servic, kakuei, left--cent, marxist-leninist </span>
+<span class="co">#&gt;       Score: elect, parti, vote, minist, voter, polit, candid </span>
+<span class="co">#&gt; Topic 13 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: women, said, abort, cancer, health, studi, breast </span>
+<span class="co">#&gt;       FREX: implant, cancer, breast, pill, virus, patient, estrogen </span>
+<span class="co">#&gt;       Lift: acet, adren, ambulatori, analges, anastrozol, antioxid, ashkenazi </span>
+<span class="co">#&gt;       Score: cancer, abort, breast, pill, implant, health, virus </span>
+<span class="co">#&gt; Topic 14 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: women, said, confer, will, world, organ, right </span>
+<span class="co">#&gt;       FREX: deleg, confer, forum, page, peac, nongovernment, ambassador </span>
+<span class="co">#&gt;       Lift: -glass, barack, brooklyn-born, expansion, foreclosur, guarantor, holden </span>
+<span class="co">#&gt;       Score: deleg, confer, forum, page, palestinian, peac, mrs </span>
+<span class="co">#&gt; Topic 15 Top Words:</span>
+<span class="co">#&gt;       Highest Prob: said, women, rape, court, case, girl, practic </span>
+<span class="co">#&gt;       FREX: mutil, genit, circumcis, asylum, sentenc, judg, tribun </span>
+<span class="co">#&gt;       Lift: labia, layli, minora, multifaith, paraleg, salim, strip-search </span>
+<span class="co">#&gt;       Score: rape, genit, circumcis, mutil, court, sentenc, prosecutor</span>
+
+<span class="co"># Example Docs</span>
+<span class="kw">findThoughts</span>(model, <span class="dt">texts =</span> meta<span class="op">$</span>TITLE, <span class="dt">n=</span><span class="dv">2</span>,<span class="dt">topics =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">15</span>)
+<span class="co">#&gt; Warning in findThoughts(model, texts = meta$TITLE, n = 2, topics =</span>
+<span class="co">#&gt; 1:15): texts are of type &#39;factor.&#39; Converting to character vectors. Use</span>
+<span class="co">#&gt; &#39;as.character&#39; to avoid this warning in the future.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;  Topic 1: </span>
+<span class="co">#&gt;       KENZO&#39;S CAREFREE STYLES AT AN OFFBEAT SHOWING</span>
+<span class="co">#&gt;      A MODERN LOOK, A CLASSIC TOUCH FROM SAINT LAURENT </span>
+<span class="co">#&gt;  Topic 2: </span>
+<span class="co">#&gt;       Assailants Kill 4 Iraqi Women Working for U.S.; Gunmen Follow Van Carrying Laundry Employees</span>
+<span class="co">#&gt;      WORLD IN BRIEF </span>
+<span class="co">#&gt;  Topic 3: </span>
+<span class="co">#&gt;       AMERICANS LEAD EAST GERMANS IN TRACK</span>
+<span class="co">#&gt;      Russians Chart a New Path </span>
+<span class="co">#&gt;  Topic 4: </span>
+<span class="co">#&gt;       BEST SELLERS: September 6, 1998</span>
+<span class="co">#&gt;      BEST SELLERS: September 13, 1998 </span>
+<span class="co">#&gt;  Topic 5: </span>
+<span class="co">#&gt;       In Britain, a Big Push for More Women to Serve on Corporate Boards</span>
+<span class="co">#&gt;      Poll: Allow women in combat units </span>
+<span class="co">#&gt;  Topic 6: </span>
+<span class="co">#&gt;       Neda&#39;s Legacy; A woman&#39;s death moves Iranian protesters.</span>
+<span class="co">#&gt;      Jewish Feminists Prompt Protests at Wailing Wall </span>
+<span class="co">#&gt;  Topic 7: </span>
+<span class="co">#&gt;       China Scrambles for Stability as Its Workers Age</span>
+<span class="co">#&gt;      A high price for a paycheck; Caught between the demands of the corporate workplace and of their traditional roles in society, more South Korean women are putting off marriage and parenthood </span>
+<span class="co">#&gt;  Topic 8: </span>
+<span class="co">#&gt;       Confronting Rape in India, and Around the World</span>
+<span class="co">#&gt;      Sexual Harassment Prosecutions Get Short Shrift in India, Lawyer Says </span>
+<span class="co">#&gt;  Topic 9: </span>
+<span class="co">#&gt;       English Church Advances Bid For Women As Bishops</span>
+<span class="co">#&gt;      Egypt Passes Law On Women&#39;s Rights; Polygamy Still Allowed for Men </span>
+<span class="co">#&gt;  Topic 10: </span>
+<span class="co">#&gt;       An Old Cinema in Pakistan Has New Life After Quake</span>
+<span class="co">#&gt;      Maria Duran&#39;s Endless Wait </span>
+<span class="co">#&gt;  Topic 11: </span>
+<span class="co">#&gt;       For France, An All-Purpose Heartthrob</span>
+<span class="co">#&gt;      Film: Brazilian &#39;Vera&#39; </span>
+<span class="co">#&gt;  Topic 12: </span>
+<span class="co">#&gt;       The Widow Of Ex-Leader Wins Race In Panama</span>
+<span class="co">#&gt;      Cabinet Defeated in Iceland as Feminists Gain </span>
+<span class="co">#&gt;  Topic 13: </span>
+<span class="co">#&gt;       SECTION: HEALTH; Pg. T18</span>
+<span class="co">#&gt;      Dense Breasts May Need Sonograms to Detect Cancer </span>
+<span class="co">#&gt;  Topic 14: </span>
+<span class="co">#&gt;       DISPUTES ON KEY ISSUES STALL KENYA PARLEY</span>
+<span class="co">#&gt;      &#39;CHAOTIC&#39; CONDITIONS FEARED AT U.N.&#39;S PARLEY ON WOMEN </span>
+<span class="co">#&gt;  Topic 15: </span>
+<span class="co">#&gt;       Woman Fleeing Tribal Rite Gains Asylum; Genital Mutilation Is Ruled Persecution</span>
+<span class="co">#&gt;      Refugee From Mutilation</span></code></pre></div>
 <div id="challenge-2-4" class="section level4">
 <h4><span class="header-section-number">18.4.2.1</span> Challenge 2</h4>
 <p>Estimate other models using 5 and 40 topics, respectively. Look at the top words for each topic. How do the topics vary when you change the number of topics?</p>
 <p>Now look at your neighbor’s model. Did you get the same results? Why or why not?</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb476-1" data-line-number="1"><span class="co"># YOUR CODE HERE</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># YOUR CODE HERE</span></code></pre></div>
 </div>
 </div>
 <div id="interprete-model" class="section level3">
 <h3><span class="header-section-number">18.4.3</span> Interprete Model</h3>
 <p>Let’s all load a fully-estimated model that I ran before class.</p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" data-line-number="1"><span class="co"># load the already-estimated model.</span></a>
-<a class="sourceLine" id="cb477-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;data/stm.RData&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load the already-estimated model.</span>
+<span class="kw">load</span>(<span class="st">&quot;data/stm.RData&quot;</span>)</code></pre></div>
 <div id="challenge-3-1" class="section level4 unnumbered">
 <h4>Challenge 3</h4>
 <p>Using the functions <code>labelTopics</code> and <code>findThoughts</code>, hand label the 15 topics. Hold these labels as a character vector called <code>labels</code></p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1"><span class="co"># Store your hand labels below.</span></a>
-<a class="sourceLine" id="cb478-2" data-line-number="2">labels =<span class="st"> </span><span class="kw">c</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Store your hand labels below.</span>
+labels =<span class="st"> </span><span class="kw">c</span>()</code></pre></div>
 <p>Now look at your neighbor’s labels. Did you get the same results? Why or why not?</p>
 </div>
 </div>
 <div id="analyze-topics" class="section level3">
 <h3><span class="header-section-number">18.4.4</span> Analyze topics</h3>
 <p>We’re now going to see how the topics compare in terms of their prevalence across region. What do you notice about the distribution of topic 9?</p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1"><span class="co"># Corpus Summary</span></a>
-<a class="sourceLine" id="cb479-2" data-line-number="2"><span class="kw">plot.STM</span>(model, <span class="dt">type=</span><span class="st">&quot;summary&quot;</span>, <span class="dt">custom.labels =</span> labels, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb479-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb479-4" data-line-number="4"><span class="co"># Estimate Covariate Effects</span></a>
-<a class="sourceLine" id="cb479-5" data-line-number="5">prep &lt;-<span class="st"> </span><span class="kw">estimateEffect</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span> <span class="op">~</span><span class="st"> </span>REGION <span class="op">+</span><span class="st"> </span><span class="kw">s</span>(YEAR), model, <span class="dt">meta =</span> meta, <span class="dt">uncertainty =</span> <span class="st">&quot;Global&quot;</span>, <span class="dt">documents=</span>docs)</a>
-<a class="sourceLine" id="cb479-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb479-7" data-line-number="7"><span class="co"># plot topic 9 over region</span></a>
-<a class="sourceLine" id="cb479-8" data-line-number="8">regions =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Asia&quot;</span>, <span class="st">&quot;EECA&quot;</span>, <span class="st">&quot;MENA&quot;</span>, <span class="st">&quot;Africa&quot;</span>, <span class="st">&quot;West&quot;</span>, <span class="st">&quot;LA&quot;</span>)</a>
-<a class="sourceLine" id="cb479-9" data-line-number="9"><span class="kw">plot.estimateEffect</span>(prep, <span class="st">&quot;REGION&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;pointestimate&quot;</span>, <span class="dt">topics =</span> <span class="dv">9</span>, <span class="dt">printlegend =</span> <span class="ot">TRUE</span>, <span class="dt">labeltype =</span> <span class="st">&quot;custom&quot;</span>, <span class="dt">custom.labels =</span> regions, <span class="dt">main =</span> <span class="st">&quot;Women&#39;s Rights&quot;</span>, <span class="dt">ci.level =</span> <span class="fl">.95</span>, <span class="dt">nsims=</span><span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Corpus Summary</span>
+<span class="kw">plot.STM</span>(model, <span class="dt">type=</span><span class="st">&quot;summary&quot;</span>, <span class="dt">custom.labels =</span> labels, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)
+
+<span class="co"># Estimate Covariate Effects</span>
+prep &lt;-<span class="st"> </span><span class="kw">estimateEffect</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span> <span class="op">~</span><span class="st"> </span>REGION <span class="op">+</span><span class="st"> </span><span class="kw">s</span>(YEAR), model, <span class="dt">meta =</span> meta, <span class="dt">uncertainty =</span> <span class="st">&quot;Global&quot;</span>, <span class="dt">documents=</span>docs)
+
+<span class="co"># plot topic 9 over region</span>
+regions =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Asia&quot;</span>, <span class="st">&quot;EECA&quot;</span>, <span class="st">&quot;MENA&quot;</span>, <span class="st">&quot;Africa&quot;</span>, <span class="st">&quot;West&quot;</span>, <span class="st">&quot;LA&quot;</span>)
+<span class="kw">plot.estimateEffect</span>(prep, <span class="st">&quot;REGION&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;pointestimate&quot;</span>, <span class="dt">topics =</span> <span class="dv">9</span>, <span class="dt">printlegend =</span> <span class="ot">TRUE</span>, <span class="dt">labeltype =</span> <span class="st">&quot;custom&quot;</span>, <span class="dt">custom.labels =</span> regions, <span class="dt">main =</span> <span class="st">&quot;Women&#39;s Rights&quot;</span>, <span class="dt">ci.level =</span> .<span class="dv">95</span>, <span class="dt">nsims=</span><span class="dv">100</span>)</code></pre></div>
 <p><img src="site1_files/figure-html/unnamed-chunk-544-1.png" width="70%" style="display: block; margin: auto;" /><img src="site1_files/figure-html/unnamed-chunk-544-2.png" width="70%" style="display: block; margin: auto;" /></p>
 
 </div>
@@ -1474,7 +1449,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
